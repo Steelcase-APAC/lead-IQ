@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const kpiTotalSqFt = document.getElementById('kpiTotalSqFt');
   const kpiImmediate = document.getElementById('kpiImmediate');
   const kpiImmediateBar = document.getElementById('kpiImmediateBar');
+  const kpiImmediateSubtitle = document.getElementById('kpiImmediateSubtitle');
+  const kpiPipeline = document.getElementById('kpiPipeline');
   const kpiDealValue = document.getElementById('kpiDealValue');
   const kpiCurrencySubtitle = document.getElementById('kpiCurrencySubtitle');
   const chartCityTitle = document.getElementById('chartCityTitle');
@@ -148,26 +150,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateChartsTheme() {
     const isLight = state.theme === 'light';
-    const textColor = isLight ? '#64748b' : '#94a3b8';
-    const gridColor = isLight ? '#e2e8f0' : '#1e293b';
+    const textColor = isLight ? '#71717a' : '#a1a1aa';
+    const gridColor = isLight ? '#e4e4e7' : '#27272a';
 
     Object.values(state.charts).forEach(chart => {
       if (!chart) return;
       if (chart.options.scales) {
         if (chart.options.scales.x) {
           if (chart.options.scales.x.ticks) chart.options.scales.x.ticks.color = textColor;
-          if (chart.options.scales.x.grid) chart.options.scales.x.grid.color = gridColor;
+          if (chart.options.scales.x.grid) {
+            chart.options.scales.x.grid.color = gridColor;
+            chart.options.scales.x.grid.borderDash = [4, 4];
+          }
         }
         if (chart.options.scales.y) {
           if (chart.options.scales.y.ticks) chart.options.scales.y.ticks.color = textColor;
-          if (chart.options.scales.y.grid) chart.options.scales.y.grid.color = gridColor;
-        }
-        if (chart.options.scales.y1) {
-          if (chart.options.scales.y1.ticks) chart.options.scales.y1.ticks.color = '#2563eb';
+          if (chart.options.scales.y.grid) {
+            chart.options.scales.y.grid.color = gridColor;
+            chart.options.scales.y.grid.borderDash = [4, 4];
+          }
         }
       }
       if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
         chart.options.plugins.legend.labels.color = textColor;
+      }
+      if (chart.data && chart.data.datasets && chart.data.datasets[0] && chart.config.type === 'doughnut') {
+        chart.data.datasets[0].borderColor = isLight ? '#ffffff' : '#121215';
       }
       chart.update();
     });
@@ -341,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = state.filteredLeads.length;
     dealsVisibleCount.textContent = total;
     kpiTotalDeals.textContent = total;
-    kpiDealsSubtitle.textContent = state.activeCountry === 'ALL' ? 'Across 5 active APAC markets' : `Across ${state.activeCountry} market`;
+    kpiDealsSubtitle.textContent = state.activeCountry === 'ALL' ? 'Across 22 active submarkets' : `Across ${state.activeCountry} market`;
 
     const totalSqFt = state.filteredLeads.reduce((acc, curr) => {
       if ((curr.areaSqFt || 0) < 10000000) return acc + (curr.areaSqFt || 0);
@@ -354,6 +362,10 @@ document.addEventListener('DOMContentLoaded', () => {
     kpiImmediate.textContent = immediate;
     const immPct = total > 0 ? Math.round((immediate / total) * 100) : 0;
     kpiImmediateBar.style.width = `${immPct}%`;
+    if (kpiImmediateSubtitle) kpiImmediateSubtitle.textContent = `${immPct}% of active portfolio`;
+
+    const pipeline = state.filteredLeads.filter(l => l.urgency === 'Pipeline' || l.urgency === 'Active').length;
+    if (kpiPipeline) kpiPipeline.textContent = pipeline;
 
     const country = state.activeCountry;
     if (country === 'India') {
@@ -516,7 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           y: {
             beginAtZero: true,
-            grid: { color: gridColor },
+            grid: { color: gridColor, borderDash: [4, 4] },
             ticks: {
               color: textColor,
               font: { size: 11 },
@@ -544,11 +556,11 @@ document.addEventListener('DOMContentLoaded', () => {
         datasets: [{
           data: [],
           backgroundColor: [
-            '#0f172a', '#2563eb', '#475569', '#64748b',
-            '#94a3b8', '#0891b2', '#10b981', '#f59e0b', '#cbd5e1'
+            '#000000', '#2563eb', '#3f3f46', '#60a5fa',
+            '#71717a', '#1d4ed8', '#a1a1aa', '#cbd5e1', '#18181b'
           ],
           borderWidth: 2,
-          borderColor: isLight ? '#ffffff' : '#111726'
+          borderColor: isLight ? '#ffffff' : '#121215'
         }]
       },
       options: {
@@ -571,10 +583,10 @@ document.addEventListener('DOMContentLoaded', () => {
           label: 'Deals',
           data: [0, 0, 0, 0],
           backgroundColor: [
-            '#94a3b8',
-            '#475569',
+            '#a1a1aa',
+            '#52525b',
             '#2563eb',
-            '#0f172a'
+            '#000000'
           ],
           borderRadius: 4
         }]
@@ -585,7 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
         plugins: { legend: { display: false } },
         scales: {
           x: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } },
-          y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 }, stepSize: 1 } }
+          y: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { size: 11 }, stepSize: 1 } }
         }
       }
     });
@@ -600,10 +612,10 @@ document.addEventListener('DOMContentLoaded', () => {
           label: 'Count',
           data: [0, 0, 0, 0],
           backgroundColor: [
-            '#ef4444',
-            '#f59e0b',
-            '#10b981',
-            '#2563eb'
+            '#2563eb',
+            '#000000',
+            '#52525b',
+            '#a1a1aa'
           ],
           borderRadius: 4
         }]
@@ -614,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 }, stepSize: 1 } },
+          x: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { size: 11 }, stepSize: 1 } },
           y: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } }
         }
       }
@@ -814,7 +826,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderTrackerTable() {
     trackerTableBody.innerHTML = state.filteredTracker.map(item => {
       const statusClass = item.status === 'Active' ? 'active' : 'watch';
-      const changeStyle = item.hasChange ? 'style="color: var(--accent-green); font-weight: 700;"' : 'style="color: var(--text-muted);"';
+      const changeStyle = item.hasChange ? 'style="color: var(--accent-blue); font-weight: 700;"' : 'style="color: var(--text-muted);"';
       return `
         <tr onclick="window.openTrackerModal(${item.id})">
           <td style="font-weight: 700;">${item.company}</td>

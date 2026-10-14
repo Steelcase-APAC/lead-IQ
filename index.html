@@ -118,26 +118,26 @@
         </div>
       </section>
 
-      <!-- 4 KPI SCORECARDS (PlannerHub Styling) -->
+      <!-- 5 KPI SCORECARDS (PlannerHub Exact 5-Column Grid) -->
       <section class="scorecards-row">
         <!-- Card 1: Total Opportunities -->
         <div class="scorecard-box">
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">TOTAL OPPORTUNITIES</span>
-            <div class="scorecard-sq-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            <div class="scorecard-sq-icon" title="Verified Pipeline">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
             </div>
           </div>
           <div class="scorecard-big-num" id="kpiTotalDeals">183</div>
-          <div class="scorecard-sub-info" id="kpiDealsSubtitle">Commercial leases & tenders</div>
+          <div class="scorecard-sub-info" id="kpiDealsSubtitle">Across 22 active submarkets</div>
         </div>
 
         <!-- Card 2: Disclosed Footprint -->
         <div class="scorecard-box">
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">DISCLOSED FOOTPRINT</span>
-            <div class="scorecard-sq-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <div class="scorecard-sq-icon" title="Leased Space">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
             </div>
           </div>
           <div class="scorecard-big-num" id="kpiTotalSqFt">21.7M sq ft</div>
@@ -148,26 +148,38 @@
         <div class="scorecard-box">
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">IMMEDIATE FIT-OUTS</span>
-            <div class="scorecard-sq-icon" style="color: var(--accent-blue);">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div class="scorecard-sq-icon icon-blue" title="Fit-Outs Underway">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </div>
           </div>
           <div class="scorecard-big-num" id="kpiImmediate">58</div>
           <div class="scorecard-progress-track">
             <div class="scorecard-progress-bar" id="kpiImmediateBar" style="width: 32%;"></div>
           </div>
-          <div class="scorecard-sub-info">Active fit-out / furniture window NOW</div>
+          <div class="scorecard-sub-info" id="kpiImmediateSubtitle">32% of active portfolio</div>
         </div>
 
-        <!-- Card 4: Disclosed Deal Value / Currency -->
+        <!-- Card 4: Pre-Lease Pipeline -->
+        <div class="scorecard-box">
+          <div class="scorecard-top-line">
+            <span class="scorecard-label-text">PRE-LEASE PIPELINE</span>
+            <div class="scorecard-sq-icon" title="Future Pipeline">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+          </div>
+          <div class="scorecard-big-num" id="kpiPipeline">34</div>
+          <div class="scorecard-sub-info">Pre-commitments for 2027+ delivery</div>
+        </div>
+
+        <!-- Card 5: Disclosed Value -->
         <div class="scorecard-box">
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">DISCLOSED VALUE</span>
-            <div class="scorecard-sq-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="8"></line><line x1="12" y1="16" x2="12" y2="18"></line></svg>
+            <div class="scorecard-sq-icon icon-black" title="Cumulative Commitments">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="8"></line><line x1="12" y1="16" x2="12" y2="18"></line></svg>
             </div>
           </div>
-          <div class="scorecard-big-num" id="kpiDealValue" style="font-size: 24px;">5 Currencies</div>
+          <div class="scorecard-big-num" id="kpiDealValue" style="font-size: 26px;">5 Currencies</div>
           <div class="scorecard-sub-info" id="kpiCurrencySubtitle">Cumulative rental commitments</div>
         </div>
       </section>
@@ -244,6 +256,7 @@
           <select id="dealsCityFilter">
             <option value="ALL">All Cities / Submarkets</option>
           </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <div class="select-filter-group">
@@ -259,6 +272,7 @@
             <option value="Flex & Coworking">Flex & Coworking</option>
             <option value="Government & Public Tenders">Government & Tenders</option>
           </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <div class="select-filter-group">
@@ -270,6 +284,7 @@
             <option value="Active">Active Occupancy / Watch</option>
             <option value="Pipeline">Pre-Lease / 2027+ Pipeline</option>
           </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <button id="btnResetDealsFilters" class="btn-reset-light">
@@ -350,30 +365,30 @@
         <div class="scorecard-box">
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">ACTIVE SALES STATUS</span>
-            <div class="scorecard-sq-icon" style="color: var(--accent-green);">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <div class="scorecard-sq-icon icon-blue">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
           </div>
-          <div class="scorecard-big-num" id="kpiTrackerActive" style="color: var(--accent-green);">18</div>
+          <div class="scorecard-big-num" id="kpiTrackerActive" style="color: var(--accent-blue);">18</div>
           <div class="scorecard-sub-info">Fit-out / relocation active now</div>
         </div>
 
         <div class="scorecard-box">
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">ON WATCHLIST</span>
-            <div class="scorecard-sq-icon" style="color: var(--accent-amber);">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div class="scorecard-sq-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </div>
           </div>
-          <div class="scorecard-big-num" id="kpiTrackerWatch" style="color: var(--accent-amber);">157</div>
+          <div class="scorecard-big-num" id="kpiTrackerWatch">157</div>
           <div class="scorecard-sub-info">Monitored for upcoming renewal & RFP</div>
         </div>
 
         <div class="scorecard-box">
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">WEEKLY AUDIT CYCLE</span>
-            <div class="scorecard-sq-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <div class="scorecard-sq-icon icon-black">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
             </div>
           </div>
           <div class="scorecard-big-num" style="font-size: 22px;">2026-10-14</div>
@@ -385,7 +400,7 @@
       <section class="delta-stream-box">
         <div class="delta-stream-header">
           <h4>
-            <span>🔔</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
             <span>Weekly Delta Feed & Strategic Account Triggers</span>
           </h4>
           <span class="badge-clean" id="deltaFeedCount">Meaningful Changes Reported</span>
@@ -412,6 +427,7 @@
             <option value="Japan">🇯🇵 Japan</option>
             <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
           </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <div class="select-filter-group">
@@ -421,6 +437,7 @@
             <option value="Active">Active (18 Sales Triggers)</option>
             <option value="Watch">Watch (157 Monitored)</option>
           </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <div class="select-filter-group">
@@ -430,6 +447,7 @@
             <option value="CHANGED">Changed / New Delta Only</option>
             <option value="BASELINE">Baseline Monitored</option>
           </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <button id="btnResetTrackerFilters" class="btn-reset-light">
