@@ -179,7 +179,12 @@
           <div class="chart-panel-header">
             <div class="chart-title-content">
               <h3 id="chartCityTitle">Market Distribution by City</h3>
-              <p>Total square footage leased & active deals by hub</p>
+              <p id="chartCitySubtitle">Active deals count by regional hub</p>
+            </div>
+            <!-- Metric Toggle Pills (Switches between Deals Count and Footprint) -->
+            <div class="chart-metric-toggle" id="hubMetricToggle" title="Toggle metric visualization">
+              <button class="toggle-pill-btn active" id="btnHubDeals" data-metric="deals">Deals Count</button>
+              <button class="toggle-pill-btn" id="btnHubSqft" data-metric="sqft">Footprint (Sq Ft)</button>
             </div>
           </div>
           <div class="chart-surface">

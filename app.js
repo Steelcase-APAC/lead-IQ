@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       status: 'ALL',
       change: 'ALL'
     },
+    hubMetric: 'deals', // 'deals' or 'sqft'
     charts: {}
   };
 
@@ -75,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const kpiDealValue = document.getElementById('kpiDealValue');
   const kpiCurrencySubtitle = document.getElementById('kpiCurrencySubtitle');
   const chartCityTitle = document.getElementById('chartCityTitle');
+  const chartCitySubtitle = document.getElementById('chartCitySubtitle');
+  const btnHubDeals = document.getElementById('btnHubDeals');
+  const btnHubSqft = document.getElementById('btnHubSqft');
 
   // Deals Filters & Controls
   const dealsSearchInput = document.getElementById('dealsSearchInput');
@@ -234,6 +238,23 @@ document.addEventListener('DOMContentLoaded', () => {
   function getCountryFlag(country) {
     const flags = { 'India': '🇮🇳', 'Malaysia': '🇲🇾', 'Korea': '🇰🇷', 'Japan': '🇯🇵', 'Sri Lanka': '🇱🇰' };
     return flags[country] || '🌐';
+  }
+
+  // Hub Distribution Metric Toggle
+  if (btnHubDeals && btnHubSqft) {
+    btnHubDeals.addEventListener('click', () => {
+      state.hubMetric = 'deals';
+      btnHubDeals.classList.add('active');
+      btnHubSqft.classList.remove('active');
+      updateDealsCharts();
+    });
+
+    btnHubSqft.addEventListener('click', () => {
+      state.hubMetric = 'sqft';
+      btnHubSqft.classList.add('active');
+      btnHubDeals.classList.remove('active');
+      updateDealsCharts();
+    });
   }
 
   // -------------------------------------------------------------
@@ -437,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gridColor = isLight ? '#e2e8f0' : '#1e293b';
     const darkBarColor = isLight ? '#0f172a' : '#f8fafc';
 
-    // Chart 1: Market Distribution
+    // Chart 1: Market Distribution (Single clean bar with metric toggle)
     const cityCtx = document.getElementById('cityChart').getContext('2d');
     state.charts.cityChart = new Chart(cityCtx, {
       type: 'bar',
@@ -445,21 +466,11 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: [],
         datasets: [
           {
-            label: 'Leased Area',
-            data: [],
-            backgroundColor: darkBarColor,
-            borderRadius: 4,
-            yAxisID: 'y'
-          },
-          {
             label: 'Deals Count',
             data: [],
-            type: 'line',
-            borderColor: '#2563eb',
             backgroundColor: '#2563eb',
-            borderWidth: 2,
-            pointRadius: 4,
-            yAxisID: 'y1'
+            borderRadius: 6,
+            maxBarThickness: 38
           }
         ]
       },
@@ -467,13 +478,59 @@ document.addEventListener('DOMContentLoaded', () => {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { labels: { color: textColor, font: { family: 'Inter', size: 11 } } },
-          tooltip: { borderWidth: 1 }
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#0f172a',
+            titleColor: '#ffffff',
+            bodyColor: '#cbd5e1',
+            borderColor: '#334155',
+            borderWidth: 1,
+            padding: 10,
+            displayColors: false,
+            callbacks: {
+              label: function(context) {
+                const item = context.raw;
+                const chart = context.chart;
+                const meta = chart._hubMeta && chart._hubMeta[context.dataIndex];
+                if (state.hubMetric === 'deals') {
+                  const sqftStr = meta ? meta.sqftFmt : '';
+                  return [` Deals: ${item} verified opportunities`, sqftStr ? ` Footprint: ${sqftStr}` : ' Footprint: Undisclosed'];
+                } else {
+                  const countStr = meta ? meta.count : '';
+                  const sqftStr = meta ? meta.sqftFmt : `${item.toLocaleString()} sq ft`;
+                  return [` Footprint: ${sqftStr}`, countStr !== undefined ? ` Deals Count: ${countStr}` : ''];
+                }
+              }
+            }
+          }
         },
         scales: {
-          x: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } },
-          y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 } } },
-          y1: { position: 'right', grid: { display: false }, ticks: { color: '#2563eb', font: { size: 11 }, stepSize: 1 } }
+          x: {
+            grid: { display: false },
+            ticks: {
+              color: textColor,
+              font: { size: 11, family: 'Inter' },
+              maxRotation: 25,
+              minRotation: 0
+            }
+          },
+          y: {
+            beginAtZero: true,
+            grid: { color: gridColor },
+            ticks: {
+              color: textColor,
+              font: { size: 11 },
+              callback: function(value) {
+                if (state.hubMetric === 'deals') {
+                  return Number.isInteger(value) ? value : '';
+                }
+                if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
+                if (value >= 100000) return (value / 100000).toFixed(1) + 'L';
+                if (value >= 1000) return (value / 1000).toFixed(0) + 'k';
+                return value;
+              }
+            }
+          }
         }
       }
     });
@@ -568,9 +625,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = state.filteredLeads;
     const country = state.activeCountry;
 
-    // 1. City / Market
+    // 1. City / Market Distribution
+    const isDealsMetric = state.hubMetric === 'deals';
+    const isLight = state.theme === 'light';
+    const darkBarColor = isLight ? '#0f172a' : '#f8fafc';
+    const barColor = isDealsMetric ? '#2563eb' : darkBarColor;
+
     if (country === 'ALL') {
       chartCityTitle.textContent = 'Market Share by Country (Pan-APAC)';
+      if (chartCitySubtitle) {
+        chartCitySubtitle.textContent = isDealsMetric ? 'Active commercial deal opportunities by market' : 'Total disclosed square footage leased across markets';
+      }
+
       const countryMap = {};
       data.forEach(l => {
         const c = l.country || 'Other';
@@ -578,13 +644,32 @@ document.addEventListener('DOMContentLoaded', () => {
         countryMap[c].count++;
         if ((l.areaSqFt || 0) < 10000000) countryMap[c].sqft += (l.areaSqFt || 0);
       });
-      const labels = Object.keys(countryMap).sort((a, b) => countryMap[b].sqft - countryMap[a].sqft);
+
+      const sortKey = isDealsMetric ? 'count' : 'sqft';
+      const labels = Object.keys(countryMap).sort((a, b) => countryMap[b][sortKey] - countryMap[a][sortKey]);
       state.charts.cityChart.data.labels = labels.map(c => `${getCountryFlag(c)} ${c}`);
-      state.charts.cityChart.data.datasets[0].data = labels.map(c => +(countryMap[c].sqft / 100000).toFixed(1));
-      state.charts.cityChart.data.datasets[1].data = labels.map(c => countryMap[c].count);
-      state.charts.cityChart.data.datasets[0].label = 'Disclosed Sq Ft (Lakhs)';
+
+      if (isDealsMetric) {
+        state.charts.cityChart.data.datasets[0].data = labels.map(c => countryMap[c].count);
+        state.charts.cityChart.data.datasets[0].label = 'Deals Count';
+        state.charts.cityChart.options.scales.y.ticks.stepSize = 1;
+      } else {
+        state.charts.cityChart.data.datasets[0].data = labels.map(c => countryMap[c].sqft);
+        state.charts.cityChart.data.datasets[0].label = 'Leased Sq Ft';
+        state.charts.cityChart.options.scales.y.ticks.stepSize = undefined;
+      }
+
+      state.charts.cityChart._hubMeta = labels.map(c => ({
+        count: countryMap[c].count,
+        sqftFmt: countryMap[c].sqft >= 1000000 ? `${(countryMap[c].sqft / 1000000).toFixed(2)}M sq ft` : (countryMap[c].sqft > 0 ? `${countryMap[c].sqft.toLocaleString()} sq ft` : 'Undisclosed')
+      }));
+
     } else {
       chartCityTitle.textContent = `${country} Hub Distribution`;
+      if (chartCitySubtitle) {
+        chartCitySubtitle.textContent = isDealsMetric ? `Active commercial deals by regional submarket` : `Total square footage leased by regional hub`;
+      }
+
       const cityMap = {};
       data.forEach(l => {
         const city = l.city || 'Other';
@@ -592,12 +677,28 @@ document.addEventListener('DOMContentLoaded', () => {
         cityMap[city].count++;
         if ((l.areaSqFt || 0) < 10000000) cityMap[city].sqft += (l.areaSqFt || 0);
       });
-      const labels = Object.keys(cityMap).sort((a, b) => cityMap[b].count - cityMap[a].count).slice(0, 8);
+
+      const sortKey = isDealsMetric ? 'count' : 'sqft';
+      const labels = Object.keys(cityMap).sort((a, b) => cityMap[b][sortKey] - cityMap[a][sortKey]).slice(0, 8);
       state.charts.cityChart.data.labels = labels;
-      state.charts.cityChart.data.datasets[0].data = labels.map(c => +(cityMap[c].sqft / 10000).toFixed(1));
-      state.charts.cityChart.data.datasets[1].data = labels.map(c => cityMap[c].count);
-      state.charts.cityChart.data.datasets[0].label = 'Area (10k sq ft)';
+
+      if (isDealsMetric) {
+        state.charts.cityChart.data.datasets[0].data = labels.map(c => cityMap[c].count);
+        state.charts.cityChart.data.datasets[0].label = 'Deals Count';
+        state.charts.cityChart.options.scales.y.ticks.stepSize = 1;
+      } else {
+        state.charts.cityChart.data.datasets[0].data = labels.map(c => cityMap[c].sqft);
+        state.charts.cityChart.data.datasets[0].label = 'Leased Sq Ft';
+        state.charts.cityChart.options.scales.y.ticks.stepSize = undefined;
+      }
+
+      state.charts.cityChart._hubMeta = labels.map(c => ({
+        count: cityMap[c].count,
+        sqftFmt: cityMap[c].sqft >= 1000000 ? `${(cityMap[c].sqft / 1000000).toFixed(2)}M sq ft` : (cityMap[c].sqft > 0 ? `${cityMap[c].sqft.toLocaleString()} sq ft` : 'Undisclosed')
+      }));
     }
+
+    state.charts.cityChart.data.datasets[0].backgroundColor = barColor;
     state.charts.cityChart.update();
 
     // 2. Sector

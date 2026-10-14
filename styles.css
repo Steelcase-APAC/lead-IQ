@@ -549,6 +549,40 @@ body {
   color: var(--text-muted);
 }
 
+/* Metric Toggle Pills in Chart Header */
+.chart-metric-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.toggle-pill-btn {
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.2;
+}
+
+.toggle-pill-btn:hover {
+  color: var(--text-primary);
+}
+
+.toggle-pill-btn.active {
+  background: var(--accent-blue);
+  color: #ffffff;
+  font-weight: 700;
+}
+
 .chart-surface {
   position: relative;
   height: 250px;
