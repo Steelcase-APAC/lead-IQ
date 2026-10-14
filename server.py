@@ -239,6 +239,19 @@ class CustomHTTPHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_GET(self):
+        if self.path in ('/favicon.ico', '/favicon.svg'):
+            try:
+                with open('favicon.svg', 'rb') as f:
+                    icon_bytes = f.read()
+                self.send_response(200)
+                self.send_header('Content-Type', 'image/svg+xml')
+                self.send_header('Content-Length', str(len(icon_bytes)))
+                self.end_headers()
+                self.wfile.write(icon_bytes)
+                return
+            except Exception:
+                pass
+
         if self.path == '/api/sync':
             try:
                 data = sync_from_google_sheets()

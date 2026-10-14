@@ -1,4 +1,4 @@
-// Auto-synced from Google Sheet 1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0 at 2026-10-14 15:32:52
+// Auto-synced from Google Sheet 1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0 at 2026-10-14 15:58:12
 const GOOGLE_SHEET_CONFIG = {
   "sheetId": "1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0",
   "tabs": {

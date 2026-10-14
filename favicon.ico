@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#090d16"/>
+  <!-- Tall Main Tower -->
+  <path d="M6 25V6a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v19" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Secondary Tower -->
+  <path d="M15 25V11a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v14" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Base Foundation Line -->
+  <path d="M4 25h24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <!-- Main Tower Windows -->
+  <line x1="10.5" y1="9" x2="10.5" y2="9.01" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="10.5" y1="14" x2="10.5" y2="14.01" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="10.5" y1="19" x2="10.5" y2="19.01" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Secondary Tower Windows -->
+  <line x1="19.5" y1="15" x2="19.5" y2="15.01" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="19.5" y1="20" x2="19.5" y2="20.01" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
