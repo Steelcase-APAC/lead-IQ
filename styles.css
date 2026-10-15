@@ -1631,17 +1631,15 @@ body {
   height: 100vh;
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(4px);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
+  z-index: 99999;
   padding: 20px;
 }
 
 .modal-overlay.open {
+  display: flex !important;
   opacity: 1;
   pointer-events: auto;
 }
@@ -1665,17 +1663,26 @@ body {
 
 .modal-x-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 24px;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 22px;
   cursor: pointer;
   line-height: 1;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .modal-x-btn:hover {
+  background: var(--border-light);
   color: var(--text-primary);
 }
 

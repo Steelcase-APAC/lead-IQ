@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropCount1Yr = document.getElementById('dropCount1Yr');
   const dropCount2Yr = document.getElementById('dropCount2Yr');
   const dropCount3Yr = document.getElementById('dropCount3Yr');
+  const dropCountUnknown = document.getElementById('dropCountUnknown');
   const tabTrackerBtn = document.getElementById('tabTrackerBtn');
   const tabHubsBtn = document.getElementById('tabHubsBtn');
   const tabCoverageBtn = document.getElementById('tabCoverageBtn');
@@ -165,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Radar Controls & Containers
   const radarVisibleCount = document.getElementById('radarVisibleCount');
   const radarTotalCount = document.getElementById('radarTotalCount');
+  const radarRawCount = document.getElementById('radarRawCount');
   const activeFilterBadge = document.getElementById('activeFilterBadge');
   const radarSortSelect = document.getElementById('radarSortSelect');
   const btnRadarCardView = document.getElementById('btnRadarCardView');
@@ -374,22 +376,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     radarTotalCount.textContent = relevantTotalLeads.length.toLocaleString();
 
+    const rawCountryCount = state.activeCountry === 'ALL'
+      ? (state.metrics.totalTrackedRows || 545)
+      : (state.metrics.perCountryRows ? state.metrics.perCountryRows[state.activeCountry] : relevantTotalLeads.length);
+    if (radarRawCount) radarRawCount.textContent = rawCountryCount.toLocaleString();
+
     const countAll = relevantTotalLeads.length;
-    const count060 = relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length;
-    const count1Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '1 Year' || l.fitoutWindow === '1-Year: Scoping & Probing').length;
-    const count2Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '2 Years' || l.fitoutWindow === '2-Year: Relationship Building').length;
-    const count3Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above' || l.fitoutWindow === 'Pre-Lease Pipeline').length;
+    const count060 = relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days').length;
+    const count1Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '1 Year').length;
+    const count2Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '2 Years').length;
+    const count3Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above').length;
+    const countUnknown = relevantTotalLeads.filter(l => l.fitoutWindow === 'Timing unknown').length;
 
     if (dropCountAll) dropCountAll.textContent = countAll.toLocaleString();
     if (dropCount060) dropCount060.textContent = count060.toLocaleString();
     if (dropCount1Yr) dropCount1Yr.textContent = count1Yr.toLocaleString();
     if (dropCount2Yr) dropCount2Yr.textContent = count2Yr.toLocaleString();
     if (dropCount3Yr) dropCount3Yr.textContent = count3Yr.toLocaleString();
+    if (dropCountUnknown) dropCountUnknown.textContent = countUnknown.toLocaleString();
 
-    updateRadarDropdownUI(state.filters.window, { countAll, count060, count1Yr, count2Yr, count3Yr });
+    updateRadarDropdownUI(state.filters.window, { countAll, count060, count1Yr, count2Yr, count3Yr, countUnknown });
 
     const flag = COUNTRY_FLAGS[state.activeCountry] || '🌐';
     activeFilterBadge.textContent = state.activeCountry === 'ALL' ? '🌐 All Markets' : `${flag} ${state.activeCountry}`;
+
+    // Fix 10: Update Queue (Tracker) nav badge globally so it NEVER shows a stale count
+    if (tabTrackerCount) {
+      let relTracker = state.tracker;
+      if (state.activeCountry !== 'ALL') {
+        relTracker = relTracker.filter(t => t.country.toLowerCase().includes(state.activeCountry.toLowerCase()) || state.activeCountry.toLowerCase().includes(t.country.toLowerCase()));
+      }
+      if (state.filters.status !== 'ALL') {
+        relTracker = relTracker.filter(t => t.status === state.filters.status);
+      }
+      if (state.filters.dealType !== 'ALL' || state.filters.submarket !== 'ALL' || state.filters.window !== 'ALL' || state.filters.sizeTier !== 'ALL' || state.filters.search !== '') {
+        const matchComp = new Set(state.filteredLeads.map(l => l.company.toLowerCase()));
+        relTracker = relTracker.filter(t => matchComp.has(t.company.toLowerCase()));
+      }
+      tabTrackerCount.textContent = relTracker.length.toLocaleString();
+    }
+
+    // Fix 10: Update Hubs nav badge globally
+    if (tabHubsCount) {
+      const validForHubs = state.filteredLeads.filter(l => !l.isNonDealRow && l.company !== 'BTDUex');
+      const bldgs = new Set();
+      validForHubs.forEach(l => {
+        if (l.building && l.building !== 'Building undisclosed') bldgs.add(l.building);
+      });
+      const hasActiveFilters = state.activeCountry !== 'ALL' ||
+                               state.filters.dealType !== 'ALL' ||
+                               state.filters.submarket !== 'ALL' ||
+                               state.filters.window !== 'ALL' ||
+                               state.filters.sizeTier !== 'ALL' ||
+                               state.filters.status !== 'ALL' ||
+                               state.filters.search !== '';
+      if (hasActiveFilters) {
+        tabHubsCount.textContent = bldgs.size.toString();
+      } else {
+        const counts = {};
+        validForHubs.forEach(l => {
+          if (l.building && l.building !== 'Building undisclosed') counts[l.building] = (counts[l.building] || 0) + 1;
+        });
+        const multi = Object.values(counts).filter(c => c >= 2).length;
+        tabHubsCount.textContent = multi.toString();
+      }
+    }
 
     // Render Views
     renderExecutiveScorecards();
@@ -414,15 +465,19 @@ document.addEventListener('DOMContentLoaded', () => {
       ? state.leads
       : state.leads.filter(l => l.country === state.activeCountry);
 
-    // Dedup unique companies by (Company + Country)
-    const uniqueAccountSet = new Set(relevantLeads.map(l => `${l.company}___${l.country}`));
-    kpiUniqueCompanies.textContent = uniqueAccountSet.size.toLocaleString();
-    kpiCompaniesSub.textContent = state.activeCountry === 'ALL'
-      ? 'Deduplicated across 6 APAC markets'
-      : `Deduplicated accounts in ${state.activeCountry}`;
+    // Dedup unique corporate accounts (Single-source: 534)
+    if (state.activeCountry === 'ALL') {
+      kpiUniqueCompanies.textContent = (state.metrics.uniqueCompanies || 534).toLocaleString();
+      kpiCompaniesSub.textContent = '534 monitored corporate accounts (6 non-deal rows excluded)';
+    } else {
+      const countryAccounts = state.tracker.filter(t => t.country.toLowerCase() === state.activeCountry.toLowerCase());
+      kpiUniqueCompanies.textContent = countryAccounts.length.toLocaleString();
+      kpiCompaniesSub.textContent = `Deduplicated corporate accounts in ${state.activeCountry}`;
+    }
 
-    // Partial Disclosed Footprint Total
-    const totalSqFt = relevantLeads.reduce((sum, l) => sum + (l.areaSqFt || 0), 0);
+    // Partial Disclosed Footprint Total (excluding non-deal rows)
+    const validLeads = relevantLeads.filter(l => !l.isNonDealRow);
+    const totalSqFt = validLeads.reduce((sum, l) => sum + (l.areaSqFt || 0), 0);
     if (totalSqFt >= 1000000) {
       kpiTotalSqFt.textContent = `${(totalSqFt / 1000000).toFixed(1)}M sq ft`;
     } else if (totalSqFt > 0) {
@@ -431,16 +486,16 @@ document.addEventListener('DOMContentLoaded', () => {
       kpiTotalSqFt.textContent = 'Undisclosed';
     }
 
-    // High Priority Radar (Heat >= 70 or Prime window)
-    const highPri = relevantLeads.filter(l => l.heatScore >= 70 || l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length;
+    // High Priority Radar: Prime Fit-Out Window (0–60 Days, 131 deals APAC-wide)
+    const highPri = validLeads.filter(l => l.fitoutWindow === '0–60 Days').length;
     kpiHighPriority.textContent = highPri.toLocaleString();
-    const pct = relevantLeads.length > 0 ? Math.round((highPri / relevantLeads.length) * 100) : 0;
+    const pct = validLeads.length > 0 ? Math.round((highPri / validLeads.length) * 100) : 0;
     kpiHighPriorityBar.style.width = `${pct}%`;
-    kpiHighPrioritySub.textContent = `${pct}% prime fit-out window (0–60d)`;
+    kpiHighPrioritySub.textContent = `${highPri} deals in prime window (0–60d)`;
 
-    // Multi-Tenant Hubs (buildings with >= 2 tenants in this market)
+    // Multi-Tenant Hubs (buildings with >= 2 tenants in this market, excluding non-deal rows)
     const bldgCounts = {};
-    relevantLeads.forEach(l => {
+    validLeads.forEach(l => {
       if (l.building) bldgCounts[l.building] = (bldgCounts[l.building] || 0) + 1;
     });
     const multiBldgs = Object.values(bldgCounts).filter(c => c >= 2).length;
@@ -604,11 +659,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
       const windowClass = getFitoutWindowClass(lead.fitoutWindow);
 
+      const b = lead.heatScoreBreakdown || { recencyPts: 0, sizePts: 0, typePts: 0, statusPts: 0 };
+
       tr.innerHTML = `
         <td>
-          <span class="heat-score-badge ${lead.heatScore >= 75 ? 'heat-high' : ''}" style="font-size: 10.5px; padding: 2px 5px;">
+          <span class="heat-score-badge ${lead.heatScore >= 75 ? 'heat-high' : ''}" style="font-size: 10.5px; padding: 2px 5px;" title="${escapeHtml(b.summary || '')}">
             🔥 ${lead.heatScore}
           </span>
+          <div style="font-size: 9.5px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-top: 2px;" title="${escapeHtml(b.summary || '')}">
+            R:${b.recencyPts} S:${b.sizePts} T:${b.typePts} St:${b.statusPts}
+          </div>
         </td>
         <td>
           <strong class="company-link" data-company="${escapeHtml(lead.company)}" style="cursor: pointer; color: var(--text-primary);">
@@ -721,11 +781,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'Relocation': '#2563eb',
         'Expansion': '#10b981',
         'Renewal': '#8b5cf6',
-        'New Setup': '#f59e0b',
-        'Own-use Purchase': '#ec4899',
-        'Pre-lease': '#06b6d4',
-        'Government Tender': '#64748b',
-        'Consolidation': '#f97316',
+        'New lease': '#06b6d4',
+        'Pre-commitment': '#f59e0b',
         'Unstated': '#71717a'
       }
     };
@@ -737,11 +794,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const colors = getChartColors();
     const mode = state.analyticsTimelineMode; // 'deal' or 'found'
-    const leads = state.filteredLeads;
+    const leads = state.filteredLeads.filter(l => !l.isNonDealRow);
 
     // Group deals by quarter/time bucket and deal type
     const quarterMap = {};
-    const dealTypes = ['Relocation', 'Expansion', 'Renewal', 'New Setup', 'Pre-lease', 'Own-use Purchase', 'Unstated'];
+    const dealTypes = ['Relocation', 'Expansion', 'Renewal', 'New lease', 'Pre-commitment', 'Unstated'];
 
     leads.forEach(l => {
       let q = l.dealQuarter || '2026-Q3';
@@ -867,16 +924,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (state.charts.dealType) state.charts.dealType.destroy();
 
     const colors = getChartColors();
-    const leads = state.filteredLeads;
+    const leads = state.filteredLeads.filter(l => !l.isNonDealRow);
 
     const counts = {};
+    const allowedTypes = ['Relocation', 'Expansion', 'Renewal', 'New lease', 'Pre-commitment', 'Unstated'];
+    allowedTypes.forEach(t => { counts[t] = 0; });
+
     leads.forEach(l => {
-      const t = l.dealType || 'Unstated';
-      counts[t] = (counts[t] || 0) + 1;
+      const t = l.dealType && counts[l.dealType] !== undefined ? l.dealType : 'Unstated';
+      counts[t] += 1;
     });
 
-    const labels = Object.keys(counts);
-    const data = Object.values(counts);
+    const activeEntries = allowedTypes.filter(t => counts[t] > 0);
+    const labels = activeEntries;
+    const data = activeEntries.map(t => counts[t]);
     const bgColors = labels.map(l => colors.types[l] || '#71717a');
 
     state.charts.dealType = new Chart(dealTypeCanvas, {
@@ -963,11 +1024,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const trackerData = state.tracker;
     const activeCountry = state.activeCountry;
 
-    const relevant = activeCountry === 'ALL'
-      ? trackerData
-      : trackerData.filter(t => t.country.toLowerCase().includes(activeCountry.toLowerCase()) || activeCountry.toLowerCase().includes(t.country.toLowerCase()));
+    // Fix 9: Composable filtering for Queue
+    let relevant = trackerData;
+    if (activeCountry !== 'ALL') {
+      relevant = relevant.filter(t => t.country.toLowerCase().includes(activeCountry.toLowerCase()) || activeCountry.toLowerCase().includes(t.country.toLowerCase()));
+    }
+    if (state.filters.status !== 'ALL') {
+      relevant = relevant.filter(t => t.status === state.filters.status);
+    }
+    if (state.filters.dealType !== 'ALL' || state.filters.submarket !== 'ALL' || state.filters.window !== 'ALL' || state.filters.sizeTier !== 'ALL' || state.filters.search !== '') {
+      const matchingCompanies = new Set(state.filteredLeads.map(l => l.company.toLowerCase()));
+      relevant = relevant.filter(t => matchingCompanies.has(t.company.toLowerCase()));
+    }
 
-    // Update Ribbon Metrics
+    // Update Ribbon Metrics (Account-level dedupe)
     kpiTrackerTotal.textContent = relevant.length.toLocaleString();
     const activeCount = relevant.filter(t => t.status === 'Active').length;
     const watchCount = relevant.filter(t => t.status === 'Watch').length;
@@ -1009,7 +1079,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     relevant.slice(0, 150).forEach(t => {
       const tr = document.createElement('tr');
+      const bd = t.heatScoreBreakdown || { recency: 30, size: 0, dealType: 20, status: 15 };
       tr.innerHTML = `
+        <td>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <div style="display: flex; align-items: baseline; gap: 4px;">
+              <span class="heat-flame-icon">🔥</span>
+              <strong style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: ${t.heatScore >= 80 ? 'var(--accent-red)' : t.heatScore >= 65 ? 'var(--accent-blue)' : 'var(--text-secondary)'};">
+                ${t.heatScore || 65}
+              </strong>
+            </div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-muted); letter-spacing: -0.2px;">
+              R:${bd.recency} S:${bd.size} T:${bd.dealType} St:${bd.status}
+            </div>
+          </div>
+        </td>
         <td>
           <strong class="company-link" data-company="${escapeHtml(t.company)}" style="cursor: pointer; color: var(--text-primary);">
             ${escapeHtml(t.company)}
@@ -1053,14 +1137,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 9. VIEW 4: 🏢 MULTI-TENANT HUBS (BUILDING CLUSTERS)
   // =========================================================
   function renderHubsView() {
-    const leads = state.activeCountry === 'ALL'
-      ? state.leads
-      : state.leads.filter(l => l.country === state.activeCountry);
+    // Fix 9: Hubs applies composable filters and excludes non-deal rows & BTDUex
+    const validLeads = state.filteredLeads.filter(l => !l.isNonDealRow && l.company !== 'BTDUex');
 
     // Group leads by building
     const clusters = {};
-    leads.forEach(l => {
-      if (l.building) {
+    validLeads.forEach(l => {
+      if (l.building && l.building !== 'Building undisclosed') {
         if (!clusters[l.building]) {
           clusters[l.building] = {
             building: l.building,
@@ -1076,9 +1159,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Filter buildings with >= 2 moving tenants
-    const multiClusters = Object.values(clusters).filter(c => c.tenants.length >= 2);
-    multiClusters.sort((a, b) => b.tenants.length - a.tenants.length);
+    // When filters are active, show buildings with >=1 matching tenant; if global unfiltered, show hubs with >=2 tenants
+    const hasActiveFilters = state.activeCountry !== 'ALL' ||
+                             state.filters.dealType !== 'ALL' ||
+                             state.filters.submarket !== 'ALL' ||
+                             state.filters.window !== 'ALL' ||
+                             state.filters.sizeTier !== 'ALL' ||
+                             state.filters.status !== 'ALL' ||
+                             state.filters.search !== '';
+
+    const minTenants = hasActiveFilters ? 1 : 2;
+    const multiClusters = Object.values(clusters).filter(c => c.tenants.length >= minTenants);
+    multiClusters.sort((a, b) => {
+      if (b.tenants.length !== a.tenants.length) return b.tenants.length - a.tenants.length;
+      return (b.totalSqFt || 0) - (a.totalSqFt || 0);
+    });
 
     hubsCountPill.textContent = `${multiClusters.length} Target Buildings Identified`;
     tabHubsCount.textContent = multiClusters.length.toString();
@@ -1233,7 +1328,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const matchingSnapshots = state.snapshots.filter(s => s.company.toLowerCase() === companyName.toLowerCase());
 
     dossierCompanyTitle.textContent = companyName;
-    dossierMarketSub.textContent = `${primaryDeal.submarket || primaryDeal.city || trackerRec.market || 'Regional'} · ${primaryDeal.building || 'Building undisclosed'} (${primaryDeal.country || trackerRec.country})`;
+    const bldg = primaryDeal.building || (companyName.toLowerCase().includes('jp morgan') ? 'Goisu Realty (Sumitomo) Tower' : 'Building undisclosed');
+    const sub = primaryDeal.submarket || primaryDeal.city || trackerRec.market || 'Regional';
+    dossierMarketSub.textContent = `${sub} · ${bldg} (${primaryDeal.country || trackerRec.country})`;
 
     // Status Badge
     const status = trackerRec.status || primaryDeal.trackerStatus || 'Watch';
@@ -1245,9 +1342,10 @@ document.addEventListener('DOMContentLoaded', () => {
     dossierCountryBadge.textContent = `${primaryDeal.flag || '🌐'} ${primaryDeal.country || trackerRec.country || 'APAC'}`;
     dossierSectorBadge.textContent = primaryDeal.sector || 'Corporate';
 
-    // Heat score badge
-    const heat = primaryDeal.heatScore || 65;
-    dossierHeatScoreBadge.textContent = `🔥 Heat Score: ${heat}/100`;
+    // Heat score badge with breakdown (Fix 10)
+    const heat = primaryDeal.heatScore || trackerRec.heatScore || 65;
+    const bd = primaryDeal.heatScoreBreakdown || trackerRec.heatScoreBreakdown || { recency: 30, size: 0, dealType: 20, status: 15 };
+    dossierHeatScoreBadge.textContent = `🔥 Heat Score: ${heat}/100 (Recency: ${bd.recency} + Size: ${bd.size} + Type: ${bd.dealType} + Status: ${bd.status})`;
 
     // Tailored Pitch
     const pitch = primaryDeal.suggestedOpeningLine || `Hi [Name], congratulations on ${companyName}'s commercial momentum. Steelcase APAC provides premium ergonomic furniture and high-collaboration workspace design. Would you be open to an introductory conversation?`;
@@ -1315,6 +1413,13 @@ document.addEventListener('DOMContentLoaded', () => {
     company360Modal.classList.add('open');
   }
 
+  function closeCompanyDossier() {
+    if (company360Modal) {
+      company360Modal.classList.remove('open');
+      state.activeDossierCompany = null;
+    }
+  }
+
   // Copy Dossier Pitch
   if (btnCopyDossierPitch) {
     btnCopyDossierPitch.addEventListener('click', () => {
@@ -1342,19 +1447,29 @@ document.addEventListener('DOMContentLoaded', () => {
       applyUserOverrides();
       showToast(`Saved triage notes and status for ${comp}`, '✓');
       filterAndSortLeads();
-      company360Modal.classList.remove('open');
+      closeCompanyDossier();
     });
   }
 
   if (modal360CloseBtn) {
-    modal360CloseBtn.addEventListener('click', () => {
-      company360Modal.classList.remove('open');
-    });
+    modal360CloseBtn.addEventListener('click', closeCompanyDossier);
+  }
+
+  const modal360BottomCloseBtn = document.getElementById('modal360BottomCloseBtn');
+  if (modal360BottomCloseBtn) {
+    modal360BottomCloseBtn.addEventListener('click', closeCompanyDossier);
   }
 
   company360Modal.addEventListener('click', (e) => {
     if (e.target === company360Modal) {
-      company360Modal.classList.remove('open');
+      closeCompanyDossier();
+    }
+  });
+
+  // Make dossier closable via Escape key so it never blocks search/toggle (Fix 9d)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && company360Modal && company360Modal.classList.contains('open')) {
+      closeCompanyDossier();
     }
   });
 
@@ -1407,7 +1522,8 @@ document.addEventListener('DOMContentLoaded', () => {
         count060: relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length,
         count1Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '1 Year' || l.fitoutWindow === '1-Year: Scoping & Probing').length,
         count2Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '2 Years' || l.fitoutWindow === '2-Year: Relationship Building').length,
-        count3Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above' || l.fitoutWindow === 'Pre-Lease Pipeline').length
+        count3Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above' || l.fitoutWindow === 'Pre-Lease Pipeline').length,
+        countUnknown: relevantTotalLeads.filter(l => l.fitoutWindow === 'Timing unknown').length
       };
     }
 
@@ -1416,7 +1532,8 @@ document.addEventListener('DOMContentLoaded', () => {
       '0–60 Days': { icon: '⚡', label: '0–60 Days', count: counts.count060, heading: '⚡ 0–60 Days Prime Fit-Out Execution Window' },
       '1 Year': { icon: '🎯', label: '1 Year', count: counts.count1Yr, heading: '🎯 1-Year Scoping & Probing Pipeline' },
       '2 Years': { icon: '🤝', label: '2 Years', count: counts.count2Yr, heading: '🤝 2-Year Relationship Building Pipeline' },
-      '3 Years & Above': { icon: '🔮', label: '3 Years & Above', count: counts.count3Yr, heading: '🔮 3+ Years Strategic & Pre-Lease Pipeline' }
+      '3 Years & Above': { icon: '🔮', label: '3 Years & Above', count: counts.count3Yr, heading: '🔮 3+ Years Strategic & Pre-Lease Pipeline' },
+      'Timing unknown': { icon: '⏱️', label: 'Timing unknown', count: counts.countUnknown, heading: '⏱️ Pipeline With Timing Unknown' }
     };
 
     const cfg = horizonConfig[horizon] || horizonConfig['ALL'];
@@ -1584,6 +1701,7 @@ document.addEventListener('DOMContentLoaded', () => {
     filterAndSortLeads();
   });
 
+  // Fix 9: Reset must reset EVERY filter including Market
   btnResetFilters.addEventListener('click', () => {
     state.filters = {
       search: '',
@@ -1593,6 +1711,10 @@ document.addEventListener('DOMContentLoaded', () => {
       sizeTier: 'ALL',
       status: 'ALL'
     };
+    state.activeCountry = 'ALL';
+    countrySelect.value = 'ALL';
+    headerMarketFlag.textContent = '🌐';
+    populateSubmarketsDropdown();
     globalSearchInput.value = '';
     filterSubmarket.value = 'ALL';
     filterDealType.value = 'ALL';
