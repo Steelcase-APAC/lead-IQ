@@ -522,11 +522,35 @@ body {
   flex-shrink: 0;
 }
 
+.sync-info-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
 .sync-text-label {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
+}
+
+.sync-timestamp-label {
+  font-size: 8.5px;
+  font-weight: 500;
+  color: #a1a1aa;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+}
+
+.sync-indicator.cached {
+  background: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+
+.sync-indicator.live {
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
 }
 
 .btn-sync-icon {

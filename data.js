@@ -1,7 +1,7 @@
-// Lease-IQ Master Data Engine - Built 2026-10-15 15:30:33
+// Lease-IQ Master Data Engine - Built 2026-10-15 16:27:42
 // Auto-compiled from 9 Google Sheet / CSV source feeds
 
-var APP_VERSION = "2.21";
+var APP_VERSION = "2.22";
 if (typeof window !== 'undefined') window.APP_VERSION = APP_VERSION;
 
 var GOOGLE_SHEET_CONFIG = {
@@ -14,17 +14,19 @@ var GOOGLE_SHEET_CONFIG = {
     "Malaysia",
     "Sri Lanka"
   ],
-  "lastBuilt": "2026-10-15 15:30:33",
+  "lastBuilt": "2026-10-15 16:27:42",
   "metrics": {
-    "version": "2.21",
+    "version": "2.22",
     "totalTrackedRows": 544,
     "totalDeals": 536,
     "nonDealSignalsCount": 8,
-    "uniqueCompanies": 534,
-    "uniqueAccountsBreakdown": "534 monitored corporate accounts (8 non-deal macro/accounting signals excluded)",
+    "uniqueCompanies": 532,
+    "dealBackedAccountsCount": 532,
+    "totalTrackerAccounts": 533,
+    "uniqueAccountsBreakdown": "532 deal-backed corporate accounts (8 non-deal macro/accounting signals excluded)",
     "accountStatuses": {
       "active": 124,
-      "watch": 410,
+      "watch": 408,
       "engaged": 0
     },
     "perCountryRows": {
@@ -60,11 +62,11 @@ var GOOGLE_SHEET_CONFIG = {
       ],
       "explanation": "544 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 536 commercial deals."
     },
-    "totalDisclosedSqFt": 30612722,
-    "totalDisclosedSqFtFormatted": "30.6M sq ft",
+    "totalDisclosedSqFt": 29509673,
+    "totalDisclosedSqFtFormatted": "29.5M sq ft",
     "buildingDisclosureRate": 26.1,
-    "sizeDisclosureRate": 47.9,
-    "typeDisclosureRate": 80.2,
+    "sizeDisclosureRate": 47.6,
+    "typeDisclosureRate": 79.7,
     "multiTenantHubsCount": 15,
     "zeroToSixtyCount": 201,
     "oneYearCount": 10,
@@ -82,15 +84,17 @@ var GOOGLE_SHEET_CONFIG = {
 if (typeof window !== 'undefined') window.GOOGLE_SHEET_CONFIG = GOOGLE_SHEET_CONFIG;
 
 var INITIAL_METRICS = {
-  "version": "2.21",
+  "version": "2.22",
   "totalTrackedRows": 544,
   "totalDeals": 536,
   "nonDealSignalsCount": 8,
-  "uniqueCompanies": 534,
-  "uniqueAccountsBreakdown": "534 monitored corporate accounts (8 non-deal macro/accounting signals excluded)",
+  "uniqueCompanies": 532,
+  "dealBackedAccountsCount": 532,
+  "totalTrackerAccounts": 533,
+  "uniqueAccountsBreakdown": "532 deal-backed corporate accounts (8 non-deal macro/accounting signals excluded)",
   "accountStatuses": {
     "active": 124,
-    "watch": 410,
+    "watch": 408,
     "engaged": 0
   },
   "perCountryRows": {
@@ -126,11 +130,11 @@ var INITIAL_METRICS = {
     ],
     "explanation": "544 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 536 commercial deals."
   },
-  "totalDisclosedSqFt": 30612722,
-  "totalDisclosedSqFtFormatted": "30.6M sq ft",
+  "totalDisclosedSqFt": 29509673,
+  "totalDisclosedSqFtFormatted": "29.5M sq ft",
   "buildingDisclosureRate": 26.1,
-  "sizeDisclosureRate": 47.9,
-  "typeDisclosureRate": 80.2,
+  "sizeDisclosureRate": 47.6,
+  "typeDisclosureRate": 79.7,
   "multiTenantHubsCount": 15,
   "zeroToSixtyCount": 201,
   "oneYearCount": 10,
@@ -283,7 +287,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Infineon Technologies",
     "market": "Bengaluru (Whitefield - Bagmane Solarium City)",
     "city": "Bengaluru",
-    "submarket": "Whitefield - Bagmane Solarium City",
+    "submarket": "Whitefield",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -407,7 +411,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Fujitsu",
     "market": "Tokyo (Hamamatsucho / Onarimon)",
     "city": "Tokyo",
-    "submarket": "Hamamatsucho / Onarimon",
+    "submarket": "Hamamatsucho/Onarimon",
     "building": "Hamamatsucho Exsage Building",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -1213,7 +1217,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Canon IT Solutions Inc.",
     "market": "Tokyo (Kita-Shinagawa / Higashi-Shinagawa)",
     "city": "Tokyo",
-    "submarket": "Kita-Shinagawa / Higashi-Shinagawa",
+    "submarket": "Kita-Shinagawa",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -1275,7 +1279,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Delta Electronics, Inc.",
     "market": "Tokyo (Shibaura / Kaigan)",
     "city": "Tokyo",
-    "submarket": "Shibaura / Kaigan",
+    "submarket": "Shibaura/Hamamatsucho",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -1946,68 +1950,6 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": "CN-013",
-    "rowId": "CN-013",
-    "rowKind": "Deal",
-    "country": "China",
-    "countryCode": "CN",
-    "flag": "\ud83c\udde8\ud83c\uddf3",
-    "currency": "CNY",
-    "currencySymbol": "\u00a5",
-    "company": "ByteDance",
-    "market": "Beijing (Olympic Park area, Parcel OS-15)",
-    "city": "Beijing",
-    "submarket": "Parcel OS-15",
-    "building": "Olympic Park area",
-    "isBuildingDisclosed": true,
-    "isBuildingInferred": true,
-    "areaSqFt": 987049,
-    "areaFormatted": "987,049 sq ft (91,700 sqm)",
-    "sizeTier": "Mega (>100k)",
-    "isSizeDisclosed": true,
-    "isSizeInferred": true,
-    "dealType": "Pre-commitment",
-    "isTypeDisclosed": true,
-    "isTypeInferred": false,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "Bought site for 91,700 sqm GFA self-built campus",
-    "timing": "Self-build campus; construction within 12 months, completion within 3 years \u2014 long-horizon workplace engagement",
-    "urgency": "Active",
-    "fitoutWindow": "2+ Years",
-    "sector": "Enterprise Software & Tech",
-    "source": "Mingtiandi",
-    "sourceUrl": "https://www.mingtiandi.com/real-estate/projects/tiktok-parent-bytedance-buys-third-beijing-site-this-year/",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "pre-commitment \u2014 fit-out window",
-    "trackerNotes": "",
-    "heatScore": 90,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 25,
-      "sizeReason": "Mega campus (987,049 sq ft)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Pre-commitment)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 25,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    },
-    "suggestedOpeningLine": "Hi [Name], I noticed ByteDance's commercial momentum at Olympic Park area. As your workplace strategy evolves in Beijing, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 1
-  },
-  {
     "id": "CN-031",
     "rowId": "CN-031",
     "rowKind": "Deal",
@@ -2188,68 +2130,6 @@ var INITIAL_LEADS_DATA = [
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
     "suggestedOpeningLine": "Hi [Name], congratulations on Qualcomm India's upcoming office milestone at Constellation Business Park! With your fit-out window currently active for your 2.56 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 1
-  },
-  {
-    "id": "IN-003",
-    "rowId": "IN-003",
-    "rowKind": "Deal",
-    "country": "India",
-    "countryCode": "IN",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "currency": "INR",
-    "currencySymbol": "\u20b9",
-    "company": "JP Morgan",
-    "market": "Mumbai",
-    "city": "Mumbai",
-    "submarket": "BKC",
-    "building": "Goisu Realty (Sumitomo) Tower",
-    "isBuildingDisclosed": true,
-    "isBuildingInferred": false,
-    "areaSqFt": 116000,
-    "areaFormatted": "1.16 Lakh sq ft",
-    "sizeTier": "Mega (>100k)",
-    "isSizeDisclosed": true,
-    "isSizeInferred": true,
-    "dealType": "Pre-commitment",
-    "isTypeDisclosed": true,
-    "isTypeInferred": false,
-    "dealDate": "2026-10-13",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-13",
-    "daysAgo": 2,
-    "signal": "1.16L sq ft pre-leased at Goisu Realty (Sumitomo) tower, BKC; 10-yr; handover expected 1 Oct 2026; front office",
-    "timing": "Best before signal - target Oct-Dec 2026",
-    "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
-    "sector": "BFSI (Banking & Finance)",
-    "source": "propnewstime.com",
-    "sourceUrl": "https://propnewstime.com/latestnewsstories/MTkyODY=/high-value-commercial-lease-in-bkc-jp-morgan-secures-prime-space-in-sumitomo-project",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "\u2014",
-    "trackerNotes": "",
-    "heatScore": 90,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (2d ago)",
-      "sizePts": 25,
-      "sizeReason": "Mega campus (116,000 sq ft)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Pre-commitment)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 25,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JP Morgan's upcoming handover at Goisu Realty (Sumitomo) Tower, BKC. With the fit-out window active for Q4 2026 for your 1.16 Lakh sq ft space, Steelcase APAC would love to connect with your facilities and real estate team to share our latest agile workstation research and premium ergonomics for your front office.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
@@ -3693,7 +3573,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Jupiter Telecommunications Co., Ltd",
     "market": "Tokyo (Toranomon / Kamiyacho)",
     "city": "Tokyo",
-    "submarket": "Toranomon / Kamiyacho",
+    "submarket": "Toranomon/Kamiyacho",
     "building": "Toranomon Hills Business Tower",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -3755,7 +3635,7 @@ var INITIAL_LEADS_DATA = [
     "company": "NTT DATA Group Corporation",
     "market": "Tokyo (Osaki / Gotanda)",
     "city": "Tokyo",
-    "submarket": "Osaki / Gotanda",
+    "submarket": "Osaki/Gotanda",
     "building": "OIMACHI TRACKS BUSINESS TOWER",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -3817,7 +3697,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Accenture Japan Ltd",
     "market": "Tokyo (Harumi / Kachidoki)",
     "city": "Tokyo",
-    "submarket": "Harumi / Kachidoki",
+    "submarket": "Harumi/Kachidoki",
     "building": "Harumi Prime Square",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -4003,7 +3883,7 @@ var INITIAL_LEADS_DATA = [
     "company": "CMIC HOLDINGS Co., Ltd.",
     "market": "Tokyo (Shibaura / Kaigan)",
     "city": "Tokyo",
-    "submarket": "Shibaura / Kaigan",
+    "submarket": "Shibaura/Hamamatsucho",
     "building": "BLUE FRONT SHIBAURA Tower",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -5418,68 +5298,6 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": "MY-046",
-    "rowId": "MY-046",
-    "rowKind": "Deal",
-    "country": "Malaysia",
-    "countryCode": "MY",
-    "flag": "\ud83c\uddf2\ud83c\uddfe",
-    "currency": "MYR",
-    "currencySymbol": "RM",
-    "company": "Universiti Tun Abdul Razak",
-    "market": "Klang Valley (Jalan Tun Razak, KLCC corridor)",
-    "city": "Kuala Lumpur",
-    "submarket": "Jalan Tun Razak",
-    "building": "",
-    "isBuildingDisclosed": false,
-    "isBuildingInferred": false,
-    "areaSqFt": 110669,
-    "areaFormatted": "110,669 sq ft",
-    "sizeTier": "Mega (>100k)",
-    "isSizeDisclosed": true,
-    "isSizeInferred": true,
-    "dealType": "Relocation",
-    "isTypeDisclosed": true,
-    "isTypeInferred": false,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "Main tenant of Wisma Unirazak (15-storey, 110,669 sq ft, fully leased); Sime Darby Property acquiring building to redevelop into, launch targeted 2028) - anchor tenant will eventually need relocation space",
-    "timing": "Relocation pressure builds 2027-28; engage early on future campus/office requirements",
-    "urgency": "Immediate",
-    "fitoutWindow": "1\u20132 Years",
-    "sector": "IT & Global Consulting",
-    "source": "Zerin Properties ZP Weekly Corporate Real Estate - Issue 355",
-    "sourceUrl": "https://zerinproperties.com/zerinCorp-pdf/corporateHighlights/ZP Weekly Corporate Real Estate - Issue 355.pdf",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "\u2014",
-    "trackerNotes": "",
-    "heatScore": 90,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 25,
-      "sizeReason": "Mega campus (110,669 sq ft)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Relocation)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 25,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    },
-    "suggestedOpeningLine": "Hi [Name], I noticed Universiti Tun Abdul Razak's commercial momentum at Kuala Lumpur. As your workplace strategy evolves in Kuala Lumpur, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
-  },
-  {
     "id": "MY-061",
     "rowId": "MY-061",
     "rowKind": "Deal",
@@ -5501,8 +5319,8 @@ var INITIAL_LEADS_DATA = [
     "isSizeDisclosed": true,
     "isSizeInferred": true,
     "dealType": "Pre-commitment",
-    "isTypeDisclosed": true,
-    "isTypeInferred": false,
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
     "dealDate": "2026-10-14",
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
@@ -6359,7 +6177,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Lotte E&C (\ub86f\ub370\uac74\uc124)",
     "market": "Seoul (Magok/Others)",
     "city": "Seoul",
-    "submarket": "Magok/Others",
+    "submarket": "Magok",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -8343,7 +8161,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Mirait One",
     "market": "Tokyo (Toranomon / Kamiyacho)",
     "city": "Tokyo",
-    "submarket": "Toranomon / Kamiyacho",
+    "submarket": "Toranomon/Kamiyacho",
     "building": "Toranomon Arsea Tower",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -8467,7 +8285,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Shinmi Global",
     "market": "Seoul (district not stated; cited in YBD section)",
     "city": "Seoul",
-    "submarket": "district not stated; cited in YBD section",
+    "submarket": "Seoul",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -11691,7 +11509,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Honda Motor",
     "market": "Tokyo (Toranomon / Kamiyacho)",
     "city": "Tokyo",
-    "submarket": "Toranomon / Kamiyacho",
+    "submarket": "Toranomon/Kamiyacho",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -11753,7 +11571,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Mizuho Leasing",
     "market": "Tokyo (Toranomon / Kamiyacho)",
     "city": "Tokyo",
-    "submarket": "Toranomon / Kamiyacho",
+    "submarket": "Toranomon/Kamiyacho",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -11815,7 +11633,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Nomura Real Estate Development",
     "market": "Tokyo (Shibaura / Kaigan)",
     "city": "Tokyo",
-    "submarket": "Shibaura / Kaigan",
+    "submarket": "Shibaura/Hamamatsucho",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -12001,7 +11819,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Sanko Metal Industrial",
     "market": "Tokyo (Mita / Tamachi)",
     "city": "Tokyo",
-    "submarket": "Mita / Tamachi",
+    "submarket": "Mita/Tamachi",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -12063,7 +11881,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Kenko Mayonnaise",
     "market": "Tokyo (Bancho / Kojimachi)",
     "city": "Tokyo",
-    "submarket": "Bancho / Kojimachi",
+    "submarket": "Bancho/Kojimachi",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -12125,7 +11943,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Kobe Steel Group",
     "market": "Tokyo (Shinagawa Konanguchi / Yaesu)",
     "city": "Tokyo",
-    "submarket": "Shinagawa Konanguchi / Yaesu",
+    "submarket": "Shinagawa Konanguchi",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -12187,7 +12005,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Japan Pulp and Paper",
     "market": "Tokyo (Kyobashi / Yaesu / Nihonbashi)",
     "city": "Tokyo",
-    "submarket": "Kyobashi / Yaesu / Nihonbashi",
+    "submarket": "Kyobashi/Yaesu/Nihonbashi",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -12373,7 +12191,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Hana Financial Group (\ud558\ub098\uae08\uc735\uadf8\ub8f9)",
     "market": "Incheon Cheongna Hana Dream Town new HQ (B7/15F, ~38,873 pyeong / ~1,383,200 sq ft)",
     "city": "Seoul",
-    "submarket": "B7/15F",
+    "submarket": "Seoul",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -12807,7 +12625,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Apple",
     "market": "Seoul (YBD \u2014 district not stated; cited in YBD section)",
     "city": "Seoul",
-    "submarket": "YBD \u2014 district not stated; cited in YBD section",
+    "submarket": "YBD",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -12869,7 +12687,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Hugel",
     "market": "Seoul (market not stated)",
     "city": "Seoul",
-    "submarket": "market not stated",
+    "submarket": "Seoul",
     "building": "Majesta City Tower",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -14863,8 +14681,8 @@ var INITIAL_LEADS_DATA = [
     "isSizeDisclosed": false,
     "isSizeInferred": false,
     "dealType": "New lease",
-    "isTypeDisclosed": true,
-    "isTypeInferred": false,
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
     "dealDate": "2026-10-14",
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
@@ -14898,68 +14716,6 @@ var INITIAL_LEADS_DATA = [
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
     "suggestedOpeningLine": "Hi [Name], congratulations on Eppendorf SE's upcoming office milestone at Bandar Cassia Technology Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": true,
-    "buildingTenantCount": 3
-  },
-  {
-    "id": "MY-043",
-    "rowId": "MY-043",
-    "rowKind": "Deal",
-    "country": "Malaysia",
-    "countryCode": "MY",
-    "flag": "\ud83c\uddf2\ud83c\uddfe",
-    "currency": "MYR",
-    "currencySymbol": "RM",
-    "company": "AIXTRON SE",
-    "market": "Penang (Bandar Cassia Technology Park)",
-    "city": "Penang",
-    "submarket": "Penang",
-    "building": "Bandar Cassia Technology Park",
-    "isBuildingDisclosed": true,
-    "isBuildingInferred": true,
-    "areaSqFt": null,
-    "areaFormatted": "Not disclosed",
-    "sizeTier": "Undisclosed",
-    "isSizeDisclosed": false,
-    "isSizeInferred": false,
-    "dealType": "New lease",
-    "isTypeDisclosed": true,
-    "isTypeInferred": false,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "Concluded agreement with MIDA (May 5, 2026) for greenfield facility on 8.5-acre plot: integrated three-storey office building + cleanrooms + logistics; operational spring 2027, first deliveries 2H 2027",
-    "timing": "Building now - office building part of greenfield project; fit-out/furnishing need imminent (2026-2027)",
-    "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
-    "sector": "IT & Global Consulting",
-    "source": "MIDA media release",
-    "sourceUrl": "https://www.mida.gov.my/media-release/aixrons-new-facility-in-penang-reinforces-malaysias-position-as-important-hub-for-advanced-semiconductor-manufacturing/",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
-    "trackerNotes": "",
-    "heatScore": 75,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (New lease)",
-      "statusPts": 15,
-      "statusReason": "Active priority (+15)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 20,
-      "status": 15,
-      "totalScore": 75,
-      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    },
-    "suggestedOpeningLine": "Hi [Name], congratulations on AIXTRON SE's upcoming office milestone at Bandar Cassia Technology Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
@@ -15026,6 +14782,68 @@ var INITIAL_LEADS_DATA = [
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
+  },
+  {
+    "id": "MY-046",
+    "rowId": "MY-046",
+    "rowKind": "Deal",
+    "country": "Malaysia",
+    "countryCode": "MY",
+    "flag": "\ud83c\uddf2\ud83c\uddfe",
+    "currency": "MYR",
+    "currencySymbol": "RM",
+    "company": "Universiti Tun Abdul Razak",
+    "market": "Klang Valley (Jalan Tun Razak, KLCC corridor)",
+    "city": "Kuala Lumpur",
+    "submarket": "Jalan Tun Razak",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": 110669,
+    "areaFormatted": "110,669 sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": true,
+    "dealType": "Unstated",
+    "isTypeDisclosed": false,
+    "isTypeInferred": false,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "Main tenant of Wisma Unirazak (15-storey, 110,669 sq ft, fully leased); Sime Darby Property acquiring building to redevelop into, launch targeted 2028) - anchor tenant will eventually need relocation space",
+    "timing": "Relocation pressure builds 2027-28; engage early on future campus/office requirements",
+    "urgency": "Immediate",
+    "fitoutWindow": "1\u20132 Years",
+    "sector": "IT & Global Consulting",
+    "source": "Zerin Properties ZP Weekly Corporate Real Estate - Issue 355",
+    "sourceUrl": "https://zerinproperties.com/zerinCorp-pdf/corporateHighlights/ZP Weekly Corporate Real Estate - Issue 355.pdf",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 75,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (110,669 sq ft)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 75,
+      "summary": "R:40 + S:25 + T:5 + St:5 = 75"
+    },
+    "suggestedOpeningLine": "Hi [Name], I noticed Universiti Tun Abdul Razak's commercial momentum at Kuala Lumpur. As your workplace strategy evolves in Kuala Lumpur, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
   },
   {
     "id": "MY-047",
@@ -15225,7 +15043,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Common Ground",
     "market": "Kuala Lumpur (KL City \u2014 Menara Darussalam)",
     "city": "Kuala Lumpur",
-    "submarket": "KL City \u2014 Menara Darussalam",
+    "submarket": "KL City",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -15907,7 +15725,7 @@ var INITIAL_LEADS_DATA = [
     "company": "KOKUYO",
     "market": "Osaka (Umeda - Grand Green Osaka)",
     "city": "Osaka",
-    "submarket": "Umeda - Grand Green Osaka",
+    "submarket": "Umeda",
     "building": "Grand Green Osaka Park",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -16638,6 +16456,68 @@ var INITIAL_LEADS_DATA = [
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
+  },
+  {
+    "id": "CN-013",
+    "rowId": "CN-013",
+    "rowKind": "Deal",
+    "country": "China",
+    "countryCode": "CN",
+    "flag": "\ud83c\udde8\ud83c\uddf3",
+    "currency": "CNY",
+    "currencySymbol": "\u00a5",
+    "company": "ByteDance",
+    "market": "Beijing (Olympic Park area, Parcel OS-15)",
+    "city": "Beijing",
+    "submarket": "Parcel OS-15",
+    "building": "Olympic Park area",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": true,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Pre-commitment",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "Bought site for 91,700 sqm GFA self-built campus",
+    "timing": "Self-build campus; construction within 12 months, completion within 3 years \u2014 long-horizon workplace engagement",
+    "urgency": "Active",
+    "fitoutWindow": "2+ Years",
+    "sector": "Enterprise Software & Tech",
+    "source": "Mingtiandi",
+    "sourceUrl": "https://www.mingtiandi.com/real-estate/projects/tiktok-parent-bytedance-buys-third-beijing-site-this-year/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "pre-commitment \u2014 fit-out window",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Pre-commitment)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], I noticed ByteDance's commercial momentum at Olympic Park area. As your workplace strategy evolves in Beijing, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
   },
   {
     "id": "CN-014",
@@ -17643,7 +17523,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Hexagon Manufacturing Intelligence",
     "market": "Tokyo (Toranomon)",
     "city": "Tokyo",
-    "submarket": "Toranomon",
+    "submarket": "Toranomon/Kamiyacho",
     "building": "Shiroyama Trust Tower",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -17891,7 +17771,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Digirise",
     "market": "Tokyo (Shibadaimon/Hamamatsucho)",
     "city": "Tokyo",
-    "submarket": "Shibadaimon/Hamamatsucho",
+    "submarket": "Shibaura/Hamamatsucho",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -18759,7 +18639,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Tokyu Architects & Engineers",
     "market": "Tokyo (Osaki/Higashi-Gotanda, Shinagawa-ku)",
     "city": "Tokyo",
-    "submarket": "Osaki/Higashi-Gotanda",
+    "submarket": "Osaki/Gotanda",
     "building": "Osaki River Walk Garden office building",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -19069,7 +18949,7 @@ var INITIAL_LEADS_DATA = [
     "company": "RYODEN (TSE Prime: 8084)",
     "market": "Tokyo (Kojimachi, Chiyoda-ku)",
     "city": "Tokyo",
-    "submarket": "Kojimachi",
+    "submarket": "Bancho/Kojimachi",
     "building": "Kojimachi Kosei Building",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -19255,7 +19135,7 @@ var INITIAL_LEADS_DATA = [
     "company": "\u30c7\u30a3\u30fb\u30a2\u30a4\u30fb\u30b7\u30b9\u30c6\u30e0 D.I.System (TSE Standard: 4421)",
     "market": "Tokyo (Marunouchi)",
     "city": "Tokyo",
-    "submarket": "Marunouchi",
+    "submarket": "Marunouchi/Otemachi",
     "building": "Meiji Yasuda Seimei Building",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -19441,7 +19321,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Ubion",
     "market": "Guro-gu, Seoul (Daeryung Post Tower 3rd, floors 5-6)",
     "city": "Seoul",
-    "submarket": "floors 5-6",
+    "submarket": "Seoul",
     "building": "Daeryung Post Tower 3rd",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -20123,7 +20003,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Xi S&D (\uc790\uc774\uc5d0\uc2a4\uc564\ub514)",
     "market": "Seoul CBD, 1,500 pyeong (~53,370 sq ft) (destination building not captured)",
     "city": "Seoul",
-    "submarket": "~53",
+    "submarket": "Seoul",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -20309,7 +20189,7 @@ var INITIAL_LEADS_DATA = [
     "company": "The Pure Lab",
     "market": "Seoul (YBD context)",
     "city": "Seoul",
-    "submarket": "YBD context",
+    "submarket": "YBD",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -21425,7 +21305,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Hanwha Galleria (\ud55c\ud654\uac24\ub7ec\ub9ac\uc544)",
     "market": "Seoul, Others \u2014 Hongdae H Square (same)",
     "city": "Seoul",
-    "submarket": "same",
+    "submarket": "Seoul",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -22541,7 +22421,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Celestica (Platform and Cloud Solutions Malaysia)",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
     "city": "Penang",
-    "submarket": "Bayan Lepas \u2013 GBS by the Sea",
+    "submarket": "Bayan Lepas",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -22603,7 +22483,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Microsoft (Knowledge Capital Centre)",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
     "city": "Penang",
-    "submarket": "Bayan Lepas \u2013 GBS by the Sea",
+    "submarket": "Bayan Lepas",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -25134,6 +25014,68 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
+    "id": "MY-043",
+    "rowId": "MY-043",
+    "rowKind": "Deal",
+    "country": "Malaysia",
+    "countryCode": "MY",
+    "flag": "\ud83c\uddf2\ud83c\uddfe",
+    "currency": "MYR",
+    "currencySymbol": "RM",
+    "company": "AIXTRON SE",
+    "market": "Penang (Bandar Cassia Technology Park)",
+    "city": "Penang",
+    "submarket": "Penang",
+    "building": "Bandar Cassia Technology Park",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": true,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Unstated",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "Concluded agreement with MIDA (May 5, 2026) for greenfield facility on 8.5-acre plot: integrated three-storey office building + cleanrooms + logistics; operational spring 2027, first deliveries 2H 2027",
+    "timing": "Building now - office building part of greenfield project; fit-out/furnishing need imminent (2026-2027)",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "IT & Global Consulting",
+    "source": "MIDA media release",
+    "sourceUrl": "https://www.mida.gov.my/media-release/aixrons-new-facility-in-penang-reinforces-malaysias-position-as-important-hub-for-advanced-semiconductor-manufacturing/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 60,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 15,
+      "totalScore": 60,
+      "summary": "R:40 + S:0 + T:5 + St:15 = 60"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on AIXTRON SE's upcoming office milestone at Bandar Cassia Technology Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": true,
+    "buildingTenantCount": 3
+  },
+  {
     "id": "MY-080",
     "rowId": "MY-080",
     "rowKind": "Deal",
@@ -25145,7 +25087,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Allianz Malaysia",
     "market": "Penang (George Town \u2014 Jalan Kelawai)",
     "city": "Penang",
-    "submarket": "George Town \u2014 Jalan Kelawai",
+    "submarket": "George Town",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -25628,6 +25570,68 @@ var INITIAL_LEADS_DATA = [
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-003",
+    "rowId": "IN-003",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "JP Morgan",
+    "market": "Mumbai",
+    "city": "Mumbai",
+    "submarket": "BKC",
+    "building": "Goisu Realty (Sumitomo) Tower",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Unstated",
+    "isTypeDisclosed": false,
+    "isTypeInferred": false,
+    "dealDate": "2026-10-13",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-13",
+    "daysAgo": 2,
+    "signal": "1.16L sq ft pre-leased at Goisu Realty (Sumitomo) tower, BKC; 10-yr; handover expected 1 Oct 2026; front office",
+    "timing": "Best before signal - target Oct-Dec 2026",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "BFSI (Banking & Finance)",
+    "source": "propnewstime.com",
+    "sourceUrl": "https://propnewstime.com/latestnewsstories/MTkyODY=/high-value-commercial-lease-in-bkc-jp-morgan-secures-prime-space-in-sumitomo-project",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 50,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (2d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on JP Morgan's upcoming handover at Goisu Realty (Sumitomo) Tower, BKC. With the fit-out window active for Q4 2026, Steelcase APAC would love to connect with your facilities and real estate team to share our latest agile workstation research and premium ergonomics for your front office.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
   },
   {
     "id": "IN-030",
@@ -26757,7 +26761,7 @@ var INITIAL_LEADS_DATA = [
     "company": "Mindtree",
     "market": "Kolkata (Salt Lake V)",
     "city": "Kolkata",
-    "submarket": "Salt Lake V",
+    "submarket": "Salt Lake",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -29733,7 +29737,7 @@ var INITIAL_LEADS_DATA = [
     "company": "\u682a\u5f0f\u4f1a\u793e\u30a2\u30fc\u30ad\u30c6\u30af\u30c8\u30b3\u30a2 (Architect Core)",
     "market": "Tokyo (Toranomon)",
     "city": "Tokyo",
-    "submarket": "Toranomon",
+    "submarket": "Toranomon/Kamiyacho",
     "building": "WeWork Shiroyama Trust Tower",
     "isBuildingDisclosed": true,
     "isBuildingInferred": true,
@@ -29857,7 +29861,7 @@ var INITIAL_LEADS_DATA = [
     "company": "111% (111\ud37c\uc13c\ud2b8)",
     "market": "Seoul (not stated)",
     "city": "Seoul",
-    "submarket": "not stated",
+    "submarket": "Seoul",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -30612,7 +30616,7 @@ var INITIAL_LEADS_DATA = [
     "isSizeInferred": false,
     "dealType": "Unstated",
     "isTypeDisclosed": false,
-    "isTypeInferred": false,
+    "isTypeInferred": true,
     "dealDate": "2026-10-13",
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-13",
@@ -33896,7 +33900,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 2,
@@ -33927,7 +33933,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 3,
@@ -33942,23 +33950,25 @@ var INITIAL_TRACKER_DATA = [
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
-    "heatScore": 90,
+    "heatScore": 50,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (2d ago)",
-      "sizePts": 25,
-      "sizeReason": "Mega campus (116,000 sq ft)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Pre-commitment)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
       "statusPts": 5,
       "statusReason": "Monitored account (+5)",
       "recency": 40,
-      "size": 25,
-      "dealType": 20,
+      "size": 0,
+      "dealType": 5,
       "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 4,
@@ -33989,7 +33999,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 5,
@@ -34020,7 +34032,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 6,
@@ -34051,7 +34065,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 7,
@@ -34082,7 +34098,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 8,
@@ -34113,7 +34131,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 9,
@@ -34144,7 +34164,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 10,
@@ -34175,7 +34197,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 11,
@@ -34206,7 +34230,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 12,
@@ -34237,7 +34263,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 13,
@@ -34268,7 +34296,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 14,
@@ -34299,7 +34329,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 15,
@@ -34330,7 +34362,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 16,
@@ -34361,7 +34395,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 17,
@@ -34392,7 +34428,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 18,
@@ -34423,7 +34461,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:30 + S:25 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 19,
@@ -34454,7 +34494,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:30 + S:25 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 20,
@@ -34485,7 +34527,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 21,
@@ -34516,7 +34560,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:30 + S:25 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 22,
@@ -34547,7 +34593,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 23,
@@ -34578,7 +34626,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 24,
@@ -34609,7 +34659,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 25,
@@ -34640,7 +34692,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 26,
@@ -34671,7 +34725,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:30 + S:20 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 27,
@@ -34702,7 +34758,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:15 + T:5 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 28,
@@ -34733,7 +34791,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:30 + S:25 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 29,
@@ -34764,7 +34824,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 30,
@@ -34795,7 +34857,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 31,
@@ -34826,7 +34890,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 32,
@@ -34857,7 +34923,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 33,
@@ -34888,7 +34956,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 34,
@@ -34919,7 +34989,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 35,
@@ -34950,7 +35022,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 36,
@@ -34981,7 +35055,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 37,
@@ -35012,7 +35088,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 38,
@@ -35043,7 +35121,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 39,
@@ -35074,7 +35154,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:0 + S:25 + T:5 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 40,
@@ -35105,7 +35187,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 41,
@@ -35136,7 +35220,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 42,
@@ -35167,7 +35253,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 43,
@@ -35198,7 +35286,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 44,
@@ -35229,7 +35319,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 45,
@@ -35260,7 +35352,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 46,
@@ -35291,7 +35385,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 47,
@@ -35322,7 +35418,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 48,
@@ -35353,7 +35451,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 49,
@@ -35384,7 +35484,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 50,
@@ -35415,7 +35517,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 51,
@@ -35446,7 +35550,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 52,
@@ -35477,7 +35583,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 53,
@@ -35508,7 +35616,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 54,
@@ -35539,7 +35649,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 55,
@@ -35570,7 +35682,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 56,
@@ -35601,7 +35715,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 57,
@@ -35632,7 +35748,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 58,
@@ -35663,7 +35781,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 59,
@@ -35694,7 +35814,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 60,
@@ -35725,7 +35847,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 40,
       "summary": "R:0 + S:15 + T:20 + St:5 = 40"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 61,
@@ -35756,7 +35880,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:0 + S:10 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 62,
@@ -35769,7 +35895,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": false,
     "trend": "\u2014",
     "status": "Watch",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -35787,7 +35913,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 63,
@@ -35818,7 +35946,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:10 + S:10 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 64,
@@ -35849,7 +35979,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:30 + S:25 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 65,
@@ -35880,7 +36012,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:10 + S:10 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 66,
@@ -35911,7 +36045,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 67,
@@ -35942,7 +36078,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 68,
@@ -35973,7 +36111,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 69,
@@ -36004,7 +36144,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:20 + S:0 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 70,
@@ -36035,7 +36177,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 71,
@@ -36066,7 +36210,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:20 + S:0 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 72,
@@ -36097,41 +36243,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
     "id": 73,
-    "company": "BTDUex",
-    "country": "Malaysia",
-    "market": "TRX (Exchange 106)",
-    "currentSnapshot": "First permanent Southeast Asian office (new office; 4Q2025); sq ft not disclosed",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
-    "status": "Watch",
-    "lastChecked": "2026-10-14",
-    "notes": "",
-    "heatScore": 65,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (30d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Relocation)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
-  },
-  {
-    "id": 74,
     "company": "Fingular",
     "country": "Malaysia",
     "market": "KL City",
@@ -36159,10 +36276,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 75,
+    "id": 74,
     "company": "Urban Pinnacle Ventures",
     "country": "Malaysia",
     "market": "TRX (Exchange 106)",
@@ -36190,10 +36309,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 76,
+    "id": 75,
     "company": "Yamada Consulting",
     "country": "Malaysia",
     "market": "Bangsar South (Mercu Aspire)",
@@ -36221,10 +36342,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 30,
       "summary": "R:20 + S:0 + T:5 + St:5 = 30"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 77,
+    "id": 76,
     "company": "Spire",
     "country": "Malaysia",
     "market": "Bangsar South (Mercu Aspire)",
@@ -36252,10 +36375,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 30,
       "summary": "R:20 + S:0 + T:5 + St:5 = 30"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 78,
+    "id": 77,
     "company": "Zoho",
     "country": "Malaysia",
     "market": "Subang Jaya",
@@ -36283,10 +36408,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 30,
       "summary": "R:20 + S:0 + T:5 + St:5 = 30"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 79,
+    "id": 78,
     "company": "Argon & Co",
     "country": "Malaysia",
     "market": "KL City",
@@ -36314,10 +36441,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 30,
       "summary": "R:20 + S:0 + T:5 + St:5 = 30"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 80,
+    "id": 79,
     "company": "Alliance Bank",
     "country": "Malaysia",
     "market": "KL City (Menara Alliance Bank)",
@@ -36345,10 +36474,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:20 + S:0 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 81,
+    "id": 80,
     "company": "EA Sports (Electronic Arts)",
     "country": "Malaysia",
     "market": "TRX (Exchange 106)",
@@ -36376,10 +36507,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 30,
       "summary": "R:20 + S:0 + T:5 + St:5 = 30"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 82,
+    "id": 81,
     "company": "Xiaomi",
     "country": "Malaysia",
     "market": "KL City",
@@ -36407,10 +36540,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 30,
       "summary": "R:20 + S:0 + T:5 + St:5 = 30"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 83,
+    "id": 82,
     "company": "ByteDance",
     "country": "Malaysia",
     "market": "KL City",
@@ -36438,10 +36573,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 30,
       "summary": "R:20 + S:0 + T:5 + St:5 = 30"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 84,
+    "id": 83,
     "company": "Kuala Lumpur Kepong (KLK)",
     "country": "Malaysia",
     "market": "Nationwide",
@@ -36469,10 +36606,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": false,
+    "isQueueItem": false
   },
   {
-    "id": 85,
+    "id": 84,
     "company": "TT Vision Holdings",
     "country": "Malaysia",
     "market": "Bayan Lepas (Industrial Park)",
@@ -36500,10 +36639,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:30 + S:25 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 86,
+    "id": 85,
     "company": "Global Electronics Association (IPC)",
     "country": "Malaysia",
     "market": "Bayan Lepas",
@@ -36531,10 +36672,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 87,
+    "id": 86,
     "company": "Efinix",
     "country": "Malaysia",
     "market": "Bayan Lepas (GBS @ Penang Airport)",
@@ -36562,10 +36705,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 88,
+    "id": 87,
     "company": "KYZEN",
     "country": "Malaysia",
     "market": "Penang",
@@ -36593,10 +36738,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 89,
+    "id": 88,
     "company": "ViTrox",
     "country": "Malaysia",
     "market": "Penang",
@@ -36624,10 +36771,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 90,
+    "id": 89,
     "company": "TP (Teleperformance)",
     "country": "Malaysia",
     "market": "Johor Bahru (JS-SEZ)",
@@ -36655,10 +36804,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 91,
+    "id": 90,
     "company": "Delta Electronics",
     "country": "Malaysia",
     "market": "Iskandar Puteri (SiLC)",
@@ -36686,10 +36837,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:20 + S:0 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 92,
+    "id": 91,
     "company": "INFINITY8 Reserve IIB",
     "country": "Malaysia",
     "market": "Iskandar Puteri (Medini, Menara IIB)",
@@ -36717,10 +36870,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:10 + S:10 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 93,
+    "id": 92,
     "company": "LKN Group",
     "country": "Malaysia",
     "market": "Johor Bahru",
@@ -36748,10 +36903,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 94,
+    "id": 93,
     "company": "Jeju Air",
     "country": "Korea",
     "market": "Gangseo-gu, Seoul (near Gimpo Airport)",
@@ -36779,10 +36936,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 95,
+    "id": 94,
     "company": "HMM",
     "country": "Korea",
     "market": "Busan (Bujeon-dong, DB Insurance bldg floors 14-17)",
@@ -36810,10 +36969,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 96,
+    "id": 95,
     "company": "Krafton",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul",
@@ -36841,10 +37002,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 97,
+    "id": 96,
     "company": "Hyundai Motor Group (HMG Future Complex)",
     "country": "Korea",
     "market": "Bokjeong-dong, Songpa-gu, Seoul",
@@ -36872,10 +37035,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 98,
+    "id": 97,
     "company": "Gmarket",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul (AM Plus Office)",
@@ -36903,10 +37068,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 99,
+    "id": 98,
     "company": "Hyundai AutoEver",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul (Samwon PFV Office)",
@@ -36934,10 +37101,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 100,
+    "id": 99,
     "company": "Park Systems",
     "country": "Korea",
     "market": "Gwacheon (Knowledge & Information Town)",
@@ -36965,10 +37134,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 101,
+    "id": 100,
     "company": "KITA (Korea International Trade Association)",
     "country": "Korea",
     "market": "Yeouido, Seoul (3 IFC)",
@@ -36996,10 +37167,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 102,
+    "id": 101,
     "company": "Misto Holdings (Fila)",
     "country": "Korea",
     "market": "Gangnam, Seoul (Cykan Tower, Nonhyeon-dong)",
@@ -37027,10 +37200,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 103,
+    "id": 102,
     "company": "Ubion",
     "country": "Korea",
     "market": "Guro-gu, Seoul (Daeryung Post Tower 3rd, floors 5-6)",
@@ -37058,10 +37233,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 104,
+    "id": 103,
     "company": "Micro Digital",
     "country": "Korea",
     "market": "Seongnam (Pangyo to Jungwon-gu)",
@@ -37089,10 +37266,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 105,
+    "id": 104,
     "company": "JTB",
     "country": "Japan",
     "market": "Tokyo (Shinbashi/Shiodome)",
@@ -37120,10 +37299,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 106,
+    "id": 105,
     "company": "Sumitomo Densetsu",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -37151,10 +37332,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 107,
+    "id": 106,
     "company": "Yamada Consulting Group",
     "country": "Japan",
     "market": "Tokyo (Marunouchi/Otemachi)",
@@ -37182,10 +37365,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 108,
+    "id": 107,
     "company": "TerraSky",
     "country": "Japan",
     "market": "Tokyo (Kyobashi/Yaesu/Nihonbashi)",
@@ -37213,10 +37398,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 109,
+    "id": 108,
     "company": "Nihon M&A Center Holdings",
     "country": "Japan",
     "market": "Tokyo (Kyobashi/Yaesu/Nihonbashi)",
@@ -37244,10 +37431,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 110,
+    "id": 109,
     "company": "NAGASE",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi Kobunacho)",
@@ -37275,10 +37464,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 111,
+    "id": 110,
     "company": "ispace",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -37306,10 +37497,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 112,
+    "id": 111,
     "company": "Hexagon Manufacturing Intelligence",
     "country": "Japan",
     "market": "Tokyo (Toranomon)",
@@ -37337,10 +37530,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 113,
+    "id": 112,
     "company": "SB C&S",
     "country": "Japan",
     "market": "Tokyo (Shibaura/Hamamatsucho)",
@@ -37368,10 +37563,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 114,
+    "id": 113,
     "company": "JTOWER",
     "country": "Japan",
     "market": "Tokyo (Roppongi)",
@@ -37399,10 +37596,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 115,
+    "id": 114,
     "company": "Persol & Server Works",
     "country": "Japan",
     "market": "Tokyo (Iidabashi, Chiyoda-ku)",
@@ -37430,10 +37629,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 116,
+    "id": 115,
     "company": "Digirise",
     "country": "Japan",
     "market": "Tokyo (Shibadaimon/Hamamatsucho)",
@@ -37461,10 +37662,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 117,
+    "id": 116,
     "company": "Fuji Sash",
     "country": "Japan",
     "market": "Kawasaki (Takatsu-ku)",
@@ -37492,10 +37695,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 118,
+    "id": 117,
     "company": "Transcosmos Digital Technology",
     "country": "Japan",
     "market": "Yokohama (Minato Mirai)",
@@ -37523,10 +37728,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 119,
+    "id": 118,
     "company": "SALESCORE",
     "country": "Japan",
     "market": "Osaka (Umeda)",
@@ -37554,10 +37761,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 120,
+    "id": 119,
     "company": "Live Search",
     "country": "Japan",
     "market": "Fukuoka (Tenjin - Tenjin Big Bang)",
@@ -37585,10 +37794,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 45,
       "summary": "R:20 + S:0 + T:20 + St:5 = 45"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 121,
+    "id": 120,
     "company": "Cross Daily",
     "country": "Japan",
     "market": "Fukuoka (Tenjin - Tenjin Big Bang)",
@@ -37616,10 +37827,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 122,
+    "id": 121,
     "company": "I-PEX",
     "country": "Japan",
     "market": "Nagoya (Meieki)",
@@ -37647,10 +37860,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 123,
+    "id": 122,
     "company": "Aile (TSE Prime: 3854)",
     "country": "Japan",
     "market": "Nagoya (Meieki)",
@@ -37678,10 +37893,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 124,
+    "id": 123,
     "company": "Datachain",
     "country": "Japan",
     "market": "Tokyo (Higashi-Shimbashi, Minato-ku)",
@@ -37709,10 +37926,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 125,
+    "id": 124,
     "company": "2nd Village",
     "country": "Japan",
     "market": "Tokyo (Ginza, Chuo-ku)",
@@ -37740,10 +37959,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 126,
+    "id": 125,
     "company": "dodoAI",
     "country": "Japan",
     "market": "Tokyo (Ebisu, Shibuya-ku)",
@@ -37771,10 +37992,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 127,
+    "id": 126,
     "company": "DAIJOBU",
     "country": "Japan",
     "market": "Tokyo (Shinjuku Gyoen)",
@@ -37802,10 +38025,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 128,
+    "id": 127,
     "company": "Nippon System Technology (JAST)",
     "country": "Japan",
     "market": "Tokyo (Takanawa, Minato-ku)",
@@ -37833,10 +38058,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 129,
+    "id": 128,
     "company": "Amova Asset Management (ex-Nikko AM)",
     "country": "Japan",
     "market": "Tokyo (Azabudai, Minato-ku)",
@@ -37864,10 +38091,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 130,
+    "id": 129,
     "company": "Meisei Kogyo (TSE Prime: 1976)",
     "country": "Japan",
     "market": "Osaka (Hommachi, Chuo-ku)",
@@ -37895,10 +38124,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 131,
+    "id": 130,
     "company": "KOKUYO",
     "country": "Japan",
     "market": "Osaka (Umeda - Grand Green Osaka)",
@@ -37926,10 +38157,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 132,
+    "id": 131,
     "company": "Public Technologies",
     "country": "Japan",
     "market": "Tokyo (Yushima, Bunkyo-ku)",
@@ -37957,10 +38190,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 133,
+    "id": 132,
     "company": "Japan Post",
     "country": "Japan",
     "market": "Tokyo (Otemachi -> Monzen-Nakacho + Asakusa)",
@@ -37988,10 +38223,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 134,
+    "id": 133,
     "company": "Hochiki",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi-Honcho, Chuo-ku)",
@@ -38019,10 +38256,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 135,
+    "id": 134,
     "company": "Keyware Solutions",
     "country": "Japan",
     "market": "Tokyo (Shinjuku)",
@@ -38050,10 +38289,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 136,
+    "id": 135,
     "company": "Tokyu Architects & Engineers",
     "country": "Japan",
     "market": "Tokyo (Osaki/Higashi-Gotanda, Shinagawa-ku)",
@@ -38081,10 +38322,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 137,
+    "id": 136,
     "company": "Infineon Technologies",
     "country": "India",
     "market": "Bengaluru (Whitefield - Bagmane Solarium City)",
@@ -38112,10 +38355,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 138,
+    "id": 137,
     "company": "Intuit",
     "country": "India",
     "market": "Bengaluru (Embassy TechVillage, Outer Ring Road)",
@@ -38143,10 +38388,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 139,
+    "id": 138,
     "company": "Dharma Productions",
     "country": "India",
     "market": "Mumbai (Andheri West - Lotus Signature, Veera Desai Rd)",
@@ -38174,10 +38421,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 140,
+    "id": 139,
     "company": "Narcotics Control Bureau (NCB), Agartala",
     "country": "India",
     "market": "Agartala, Tripura",
@@ -38205,10 +38454,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 141,
+    "id": 140,
     "company": "Income Tax Department",
     "country": "India",
     "market": "Palghar, Maharashtra",
@@ -38236,10 +38487,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 142,
+    "id": 141,
     "company": "Starbucks",
     "country": "India",
     "market": "Chennai",
@@ -38267,10 +38520,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 143,
+    "id": 142,
     "company": "Wulfstan Analytics (Pvt) Ltd",
     "country": "Sri Lanka",
     "market": "Port City, Colombo",
@@ -38298,10 +38553,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 144,
+    "id": 143,
     "company": "Edotco",
     "country": "Sri Lanka",
     "market": "Colombo / Nationwide",
@@ -38329,10 +38586,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 145,
+    "id": 144,
     "company": "Sahasdhanavi Limited",
     "country": "Sri Lanka",
     "market": "Kerawalapitiya, Western Province",
@@ -38360,10 +38619,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 146,
+    "id": 145,
     "company": "Exel BPO",
     "country": "Sri Lanka",
     "market": "Sri Lanka",
@@ -38391,10 +38652,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 147,
+    "id": 146,
     "company": "Soft Gallery (Pvt) Ltd",
     "country": "Sri Lanka",
     "market": "Sri Lanka",
@@ -38422,10 +38685,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 148,
+    "id": 147,
     "company": "Syntiant Corp.",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas)",
@@ -38453,10 +38718,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 149,
+    "id": 148,
     "company": "DayOne Data Centers",
     "country": "Malaysia",
     "market": "Johor (Iskandar Puteri) + KL",
@@ -38484,10 +38751,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 150,
+    "id": 149,
     "company": "AQSolotl",
     "country": "Malaysia",
     "market": "Johor Bahru (UTM Technovation Park)",
@@ -38515,10 +38784,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 151,
+    "id": 150,
     "company": "HRnetGroup (SGX:CHZ)",
     "country": "Malaysia",
     "market": "KL (Damansara Heights)",
@@ -38546,10 +38817,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 152,
+    "id": 151,
     "company": "myWorld Asia",
     "country": "Malaysia",
     "market": "KL (Maxis Tower)",
@@ -38577,10 +38850,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 153,
+    "id": 152,
     "company": "Eppendorf SE",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -38608,10 +38883,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 154,
+    "id": 153,
     "company": "Intuitive (Intuitive Surgical, Inc.)",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -38639,10 +38916,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 155,
+    "id": 154,
     "company": "MKS Inc. (NASDAQ: MKSI)",
     "country": "Malaysia",
     "market": "Penang",
@@ -38670,10 +38949,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 156,
+    "id": 155,
     "company": "ISSQUARED Inc.",
     "country": "Malaysia",
     "market": "Penang (George Town)",
@@ -38701,10 +38982,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 157,
+    "id": 156,
     "company": "AIXTRON SE",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -38716,26 +38999,28 @@ var INITIAL_TRACKER_DATA = [
     "status": "Active",
     "lastChecked": "2026-10-14",
     "notes": "",
-    "heatScore": 75,
+    "heatScore": 60,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
       "sizePts": 0,
       "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (New lease)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
       "statusPts": 15,
       "statusReason": "Active priority (+15)",
       "recency": 40,
       "size": 0,
-      "dealType": 20,
+      "dealType": 5,
       "status": 15,
-      "totalScore": 75,
-      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+      "totalScore": 60,
+      "summary": "R:40 + S:0 + T:5 + St:15 = 60"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 158,
+    "id": 157,
     "company": "AmBank (M) Bhd",
     "country": "Malaysia",
     "market": "Klang Valley (KL city centre)",
@@ -38763,10 +39048,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 159,
+    "id": 158,
     "company": "Universiti Tun Abdul Razak",
     "country": "Malaysia",
     "market": "Klang Valley (Jalan Tun Razak, KLCC corridor)",
@@ -38778,26 +39065,28 @@ var INITIAL_TRACKER_DATA = [
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
-    "heatScore": 90,
+    "heatScore": 75,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
       "sizePts": 25,
       "sizeReason": "Mega campus (110,669 sq ft)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Relocation)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
       "statusPts": 5,
       "statusReason": "Monitored account (+5)",
       "recency": 40,
       "size": 25,
-      "dealType": 20,
+      "dealType": 5,
       "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+      "totalScore": 75,
+      "summary": "R:40 + S:25 + T:5 + St:5 = 75"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 160,
+    "id": 159,
     "company": "WORQ",
     "country": "Malaysia",
     "market": "Klang Valley (KL Eco City)",
@@ -38825,10 +39114,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 161,
+    "id": 160,
     "company": "Leadcorp (\ub9ac\ub4dc\ucf54\ud504)",
     "country": "Korea",
     "market": "Seoul Jung-gu (Euljiro) - Crystal Square, 12-14F of 17F building (~5,572 pyeong / ~198,300 sq ft total)",
@@ -38856,10 +39147,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 162,
+    "id": 161,
     "company": "Hana Financial Group (\ud558\ub098\uae08\uc735\uadf8\ub8f9)",
     "country": "Korea",
     "market": "Incheon Cheongna Hana Dream Town new HQ (B7/15F, ~38,873 pyeong / ~1,383,200 sq ft)",
@@ -38887,10 +39180,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 163,
+    "id": 162,
     "company": "EnBio (\uc778\ubc14\uc774\uc624, KOSDAQ 352940)",
     "country": "Korea",
     "market": "Suwon Ingye-dong (Gyeongsu-daero 465, Paldal-gu)",
@@ -38918,10 +39213,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 164,
+    "id": 163,
     "company": "Celestra Inc. (KOSDAQ 352770, formerly Clinomics)",
     "country": "Korea",
     "market": "Suwon Yeongtong-gu (Gwanggyojungang-ro, Dakkuem Business Center Unit 39)",
@@ -38949,10 +39246,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 165,
+    "id": 164,
     "company": "Softworks (\uc18c\ud504\ud2b8\uc6cd\uc2a4)",
     "country": "Korea",
     "market": "Seoul Seocho-gu (building/area undisclosed)",
@@ -38980,10 +39279,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 166,
+    "id": 165,
     "company": "Daemyung Sono / T'way Air (\ub300\uba85\uc18c\ub178 \u00b7 \ud2f0\uc6e8\uc774\ud56d\uacf5)",
     "country": "Korea",
     "market": "Seoul Others (Magok, Gangseo-gu) - Le West City Tower C, 15,000 pyeong (~533,700 sq ft)",
@@ -39011,10 +39312,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 167,
+    "id": 166,
     "company": "Korea Insurance Development Institute (\ubcf4\ud5d8\uac1c\ubc1c\uc6d0)",
     "country": "Korea",
     "market": "Seoul YBD (Yeouido) - NH Financial Tower, 2,200 pyeong (~78,276 sq ft)",
@@ -39042,10 +39345,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 168,
+    "id": 167,
     "company": "Toriden (\ud1a0\ub9ac\ub4e0)",
     "country": "Korea",
     "market": "Seoul Others (Songpa) - Lotte World Tower, 2,200 pyeong (~78,276 sq ft)",
@@ -39073,10 +39378,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 169,
+    "id": 168,
     "company": "K-sure (Korea Trade Insurance Corp, \ud55c\uad6d\ubb34\uc5ed\ubcf4\ud5d8\uacf5\uc0ac)",
     "country": "Korea",
     "market": "Seoul YBD (Yeouido) - Three IFC, 2,000 pyeong (~71,160 sq ft)",
@@ -39104,10 +39411,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 170,
+    "id": 169,
     "company": "Encar.com (\uc5d4\uce74)",
     "country": "Korea",
     "market": "Seoul CBD (Jung-gu) - Grand Central, 1,900 pyeong (~67,602 sq ft)",
@@ -39135,10 +39444,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 171,
+    "id": 170,
     "company": "TKG Huchems (TKG\ud734\ucea0\uc2a4)",
     "country": "Korea",
     "market": "Seoul CBD (Jung-gu) - Tower 107, 1,500 pyeong (~53,370 sq ft)",
@@ -39166,10 +39477,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 172,
+    "id": 171,
     "company": "Xi S&D (\uc790\uc774\uc5d0\uc2a4\uc564\ub514)",
     "country": "Korea",
     "market": "Seoul CBD, 1,500 pyeong (~53,370 sq ft) (destination building not captured)",
@@ -39197,10 +39510,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 173,
+    "id": 172,
     "company": "The Founders (\ub354\ud30c\uc6b4\ub354\uc988)",
     "country": "Korea",
     "market": "Seoul GBD (Gangnam-gu) - Glass Tower, 1,200 pyeong (~42,696 sq ft)",
@@ -39228,10 +39543,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 174,
+    "id": 173,
     "company": "Beauty Selection (\ubdf0\ud2f0\uc140\ub809\uc158)",
     "country": "Korea",
     "market": "Seoul GBD (Gangnam-gu) - Anam Tower, 1,200 pyeong (~42,696 sq ft)",
@@ -39259,10 +39576,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 175,
+    "id": 174,
     "company": "Walmart Global Tech",
     "country": "India",
     "market": "Bengaluru",
@@ -39290,10 +39609,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:0 + S:25 + T:20 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 176,
+    "id": 175,
     "company": "MANN+HUMMEL",
     "country": "India",
     "market": "Bengaluru",
@@ -39321,10 +39642,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 177,
+    "id": 176,
     "company": "Labcorp",
     "country": "India",
     "market": "Bengaluru",
@@ -39352,10 +39675,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 178,
+    "id": 177,
     "company": "Dream11 (Sporta Technologies)",
     "country": "India",
     "market": "Mumbai",
@@ -39383,10 +39708,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:0 + S:25 + T:20 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 179,
+    "id": 178,
     "company": "Apple India",
     "country": "India",
     "market": "Hyderabad",
@@ -39414,10 +39741,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 35,
       "summary": "R:0 + S:0 + T:20 + St:15 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 180,
+    "id": 179,
     "company": "Table Space",
     "country": "India",
     "market": "Gurugram",
@@ -39445,10 +39774,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 181,
+    "id": 180,
     "company": "Workday",
     "country": "India",
     "market": "Chennai",
@@ -39476,10 +39807,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:0 + S:25 + T:20 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 182,
+    "id": 181,
     "company": "Intercontinental Exchange",
     "country": "India",
     "market": "Pune",
@@ -39507,10 +39840,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 183,
+    "id": 182,
     "company": "Awfis",
     "country": "India",
     "market": "Pune",
@@ -39538,10 +39873,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 184,
+    "id": 183,
     "company": "\u30e2\u30a4\u682a\u5f0f\u4f1a\u793e (Moi Inc., TSE Growth: 5031)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -39569,10 +39906,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 185,
+    "id": 184,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30cf\u30a4\u30d6\u30ea\u30c3\u30c9\u30c6\u30af\u30ce\u30ed\u30b8\u30fc\u30ba (Hybrid Technologies, TSE Growth: 4260)",
     "country": "Japan",
     "market": "Tokyo (Nakano)",
@@ -39600,10 +39939,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 186,
+    "id": 185,
     "company": "\u30d5\u30a7\u30a4\u30b9\u30cd\u30c3\u30c8\u30ef\u30fc\u30af (Face Network, TSE: 3489)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -39631,10 +39972,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 187,
+    "id": 186,
     "company": "\u682a\u5f0f\u4f1a\u793ecomeru",
     "country": "Japan",
     "market": "Osaka (Honmachi)",
@@ -39662,10 +40005,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 188,
+    "id": 187,
     "company": "TVer",
     "country": "Japan",
     "market": "Tokyo (Akasaka)",
@@ -39693,10 +40038,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 189,
+    "id": 188,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30a2\u30fc\u30ad\u30c6\u30af\u30c8\u30b3\u30a2 (Architect Core)",
     "country": "Japan",
     "market": "Tokyo (Toranomon)",
@@ -39724,10 +40071,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 190,
+    "id": 189,
     "company": "\u682a\u5f0f\u4f1a\u793eFP\u30d1\u30fc\u30c8\u30ca\u30fc (FP Partner, TSE Prime: 7388)",
     "country": "Japan",
     "market": "Tokyo (Taito)",
@@ -39755,10 +40104,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 191,
+    "id": 190,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30d5\u30a1\u30f3\u30c9\u30af\u30ea\u30a8\u30fc\u30b7\u30e7\u30f3\u30b0\u30eb\u30fc\u30d7 (Fund Creation Group, TSE: 3266)",
     "country": "Japan",
     "market": "Tokyo (Roppongi)",
@@ -39786,10 +40137,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 192,
+    "id": 191,
     "company": "\u5317\u6d5c\u30ad\u30e3\u30d4\u30bf\u30eb\u30d1\u30fc\u30c8\u30ca\u30fc\u30ba\u682a\u5f0f\u4f1a\u793e (Kitahama Capital Partners, TSE Standard: 2134)",
     "country": "Japan",
     "market": "Osaka (Kitahama)",
@@ -39817,10 +40170,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 193,
+    "id": 192,
     "company": "Viva Republica (Toss)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -39848,10 +40203,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 194,
+    "id": 193,
     "company": "GC Biopharma (GC\ub179\uc2ed\uc790) & affiliates",
     "country": "Korea",
     "market": "Seoul (Seongsu/Others)",
@@ -39879,10 +40236,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 195,
+    "id": 194,
     "company": "NH Nonghyup Financial Group",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -39910,10 +40269,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 196,
+    "id": 195,
     "company": "Korea Financial Telecommunications & Clearings Institute (\uae08\uc735\uacb0\uc81c\uc6d0)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -39941,10 +40302,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 197,
+    "id": 196,
     "company": "Samsung Fire & Marine Insurance (\uc0bc\uc131\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -39972,10 +40335,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 198,
+    "id": 197,
     "company": "Lotte E&C (\ub86f\ub370\uac74\uc124)",
     "country": "Korea",
     "market": "Seoul (Magok/Others)",
@@ -40003,10 +40368,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 199,
+    "id": 198,
     "company": "Hanwha TotalEnergies (\ud55c\ud654\ud1a0\ud0c8\uc5d0\ub108\uc9c0\uc2a4)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40034,10 +40401,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 200,
+    "id": 199,
     "company": "Korea Fire Insurance Association (\ud654\uc7ac\ubcf4\ud5d8\ud611\ud68c)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -40065,10 +40434,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 201,
+    "id": 200,
     "company": "Team Sparta (\ud300\uc2a4\ud30c\ub974\ud0c0)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40096,10 +40467,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 202,
+    "id": 201,
     "company": "Data Universe (\ub370\uc774\ud130\uc720\ub2c8\ubc84\uc2a4)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -40127,10 +40500,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 203,
+    "id": 202,
     "company": "Woori Card",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40158,10 +40533,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 204,
+    "id": 203,
     "company": "Simmons (Simmons Korea)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40189,10 +40566,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 205,
+    "id": 204,
     "company": "Kurly (Market Kurly)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40220,10 +40599,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 206,
+    "id": 205,
     "company": "Datadog",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40251,10 +40632,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 207,
+    "id": 206,
     "company": "PJ Law Group",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40282,10 +40665,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 208,
+    "id": 207,
     "company": "Korea Insurance Research Institute",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -40313,10 +40698,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 209,
+    "id": 208,
     "company": "Hwaseung Corporation",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -40344,10 +40731,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 210,
+    "id": 209,
     "company": "DL Group",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40375,10 +40764,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 211,
+    "id": 210,
     "company": "Asia Actual",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -40406,10 +40797,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 212,
+    "id": 211,
     "company": "VFS Global",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -40437,10 +40830,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 213,
+    "id": 212,
     "company": "Janashakthi Finance PLC",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -40468,10 +40863,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 214,
+    "id": 213,
     "company": "Boeing",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -40499,10 +40896,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 215,
+    "id": 214,
     "company": "PT Telekomunikasi Indonesia International (Telin)",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -40530,10 +40929,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 216,
+    "id": 215,
     "company": "ABP Group (cybersecurity tech provider)",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Eco City)",
@@ -40561,10 +40962,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 217,
+    "id": 216,
     "company": "Hyundai Motor Company",
     "country": "Malaysia",
     "market": "Kuala Lumpur (TRX)",
@@ -40592,10 +40995,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 218,
+    "id": 217,
     "company": "Incora",
     "country": "Malaysia",
     "market": "Johor",
@@ -40623,10 +41028,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 35,
       "summary": "R:0 + S:0 + T:20 + St:15 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 219,
+    "id": 218,
     "company": "The Flexi Group",
     "country": "Malaysia",
     "market": "Penang (George Town)",
@@ -40654,10 +41061,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 35,
       "summary": "R:0 + S:10 + T:20 + St:5 = 35"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 220,
+    "id": 219,
     "company": "Mitsubishi",
     "country": "China",
     "market": "Beijing (Lufthansa, Genesis Beijing)",
@@ -40685,10 +41094,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 221,
+    "id": 220,
     "company": "Bristol Myers Squibb",
     "country": "China",
     "market": "Beijing (CBD, Exchange Twin Towers)",
@@ -40716,10 +41127,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 222,
+    "id": 221,
     "company": "Amgen",
     "country": "China",
     "market": "Beijing (CBD, FFC)",
@@ -40747,10 +41160,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 223,
+    "id": 222,
     "company": "Beichen Xingqiong (Beijing) Technology Co., Ltd",
     "country": "China",
     "market": "Beijing (Qinglong Technology Tower)",
@@ -40778,10 +41193,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 224,
+    "id": 223,
     "company": "IBM",
     "country": "China",
     "market": "Beijing (CBD, CP Center)",
@@ -40809,10 +41226,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 225,
+    "id": 224,
     "company": "Aladdin Environmental Protection Group Co., Ltd",
     "country": "China",
     "market": "Beijing (CBD, China Central Place)",
@@ -40840,10 +41259,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 226,
+    "id": 225,
     "company": "Xylem Beijing Technology Co., Ltd",
     "country": "China",
     "market": "Beijing (WangJing-Jiuxianqiao, Universal Business Park)",
@@ -40871,10 +41292,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 227,
+    "id": 226,
     "company": "YY Sports",
     "country": "China",
     "market": "Shanghai (Hongkou, Life Hub @ Bund Central)",
@@ -40902,10 +41325,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 228,
+    "id": 227,
     "company": "Rolex",
     "country": "China",
     "market": "Shanghai (Huangpu, K11 Atelier)",
@@ -40933,10 +41358,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 229,
+    "id": 228,
     "company": "American Bureau of Shipping",
     "country": "China",
     "market": "Shanghai (Huangpu, Corporate Avenue Phase II No.5)",
@@ -40964,10 +41391,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 230,
+    "id": 229,
     "company": "Goldstate Capital Fund Management",
     "country": "China",
     "market": "Shanghai (Yangjing, The Pier)",
@@ -40995,10 +41424,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 231,
+    "id": 230,
     "company": "PDD Holdings (Pinduoduo parent)",
     "country": "China",
     "market": "Shanghai (Changning, Crystal Bridge)",
@@ -41026,10 +41457,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 232,
+    "id": 231,
     "company": "Lalamove",
     "country": "China",
     "market": "Shanghai (Changning, Crystal Bridge Tower 6)",
@@ -41057,10 +41490,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 233,
+    "id": 232,
     "company": "ByteDance",
     "country": "China",
     "market": "Beijing (Olympic Park area, Parcel OS-15)",
@@ -41072,26 +41507,28 @@ var INITIAL_TRACKER_DATA = [
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
-    "heatScore": 90,
+    "heatScore": 65,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 25,
-      "sizeReason": "Mega campus (987,049 sq ft)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
       "typePts": 20,
       "typeReason": "High fit-out demand (Pre-commitment)",
       "statusPts": 5,
       "statusReason": "Monitored account (+5)",
       "recency": 40,
-      "size": 25,
+      "size": 0,
       "dealType": 20,
       "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 234,
+    "id": 233,
     "company": "Netmarble",
     "country": "Korea",
     "market": "Seoul (Guro)",
@@ -41119,10 +41556,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 235,
+    "id": 234,
     "company": "Wisdom Bud Information Technology",
     "country": "China",
     "market": "Beijing",
@@ -41150,10 +41589,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 236,
+    "id": 235,
     "company": "Standard Chartered Bank (China) Co., Ltd. Beijing Branch",
     "country": "China",
     "market": "Beijing",
@@ -41181,10 +41622,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 237,
+    "id": 236,
     "company": "Rednote",
     "country": "China",
     "market": "Beijing",
@@ -41212,10 +41655,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 238,
+    "id": 237,
     "company": "JD Health Comprehensive Clinic",
     "country": "China",
     "market": "Beijing",
@@ -41243,10 +41688,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 239,
+    "id": 238,
     "company": "CICC",
     "country": "China",
     "market": "Beijing",
@@ -41274,10 +41721,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 240,
+    "id": 239,
     "company": "Beijing Dentons Law Offices, LLP",
     "country": "China",
     "market": "Shanghai",
@@ -41305,10 +41754,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 241,
+    "id": 240,
     "company": "Allianz Group",
     "country": "China",
     "market": "Shanghai",
@@ -41336,10 +41787,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 242,
+    "id": 241,
     "company": "YKK",
     "country": "China",
     "market": "Shanghai",
@@ -41367,10 +41820,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 243,
+    "id": 242,
     "company": "ANA",
     "country": "China",
     "market": "Shanghai",
@@ -41398,10 +41853,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 244,
+    "id": 243,
     "company": "LV",
     "country": "China",
     "market": "Shanghai",
@@ -41429,10 +41886,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 245,
+    "id": 244,
     "company": "Hui Ye Law Firm",
     "country": "China",
     "market": "Shanghai",
@@ -41460,10 +41919,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 246,
+    "id": 245,
     "company": "Red Chamber",
     "country": "China",
     "market": "Shanghai",
@@ -41491,10 +41952,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 247,
+    "id": 246,
     "company": "BZW Law Firm",
     "country": "China",
     "market": "Shanghai",
@@ -41522,10 +41985,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 248,
+    "id": 247,
     "company": "DBS Bank",
     "country": "China",
     "market": "Shanghai",
@@ -41553,10 +42018,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 249,
+    "id": 248,
     "company": "Zhihuishu",
     "country": "China",
     "market": "Shanghai",
@@ -41584,10 +42051,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 250,
+    "id": 249,
     "company": "Logitech",
     "country": "China",
     "market": "Shanghai",
@@ -41615,10 +42084,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 251,
+    "id": 250,
     "company": "CPIC Fund",
     "country": "China",
     "market": "Shanghai",
@@ -41646,10 +42117,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 252,
+    "id": 251,
     "company": "Beijing Pocket First Machine Network Technology Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -41677,10 +42150,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 253,
+    "id": 252,
     "company": "TUBI",
     "country": "China",
     "market": "Beijing",
@@ -41708,10 +42183,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 254,
+    "id": 253,
     "company": "DLA Piper",
     "country": "China",
     "market": "Beijing",
@@ -41739,10 +42216,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 255,
+    "id": 254,
     "company": "Oli's Kitchen",
     "country": "China",
     "market": "Shanghai",
@@ -41770,10 +42249,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 256,
+    "id": 255,
     "company": "DHL",
     "country": "China",
     "market": "Shanghai",
@@ -41801,10 +42282,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 257,
+    "id": 256,
     "company": "Tiffany",
     "country": "China",
     "market": "Shanghai",
@@ -41832,10 +42315,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 258,
+    "id": 257,
     "company": "Linklaters LLP",
     "country": "China",
     "market": "Shanghai",
@@ -41863,10 +42348,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 259,
+    "id": 258,
     "company": "MetLife Korea",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41894,10 +42381,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 260,
+    "id": 259,
     "company": "Lotte Rental",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41925,10 +42414,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 261,
+    "id": 260,
     "company": "KPFIS",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41956,10 +42447,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 262,
+    "id": 261,
     "company": "LG Household & Health Care",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41987,10 +42480,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 263,
+    "id": 262,
     "company": "KB Kookmin Card IT Services",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42018,10 +42513,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 264,
+    "id": 263,
     "company": "Kim & Chang",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42049,10 +42546,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 265,
+    "id": 264,
     "company": "IQVIA",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42080,10 +42579,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 266,
+    "id": 265,
     "company": "Hyundai Marine & Fire Insurance",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42111,10 +42612,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 267,
+    "id": 266,
     "company": "Anthropic",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42142,10 +42645,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 268,
+    "id": 267,
     "company": "Wyatt",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42173,10 +42678,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 269,
+    "id": 268,
     "company": "Hyosung ITX",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42204,10 +42711,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 270,
+    "id": 269,
     "company": "Woori Investment & Securities",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -42235,10 +42744,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 271,
+    "id": 270,
     "company": "Prada",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -42266,10 +42777,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 272,
+    "id": 271,
     "company": "Apple",
     "country": "Korea",
     "market": "Seoul (YBD \u2014 district not stated; cited in YBD section)",
@@ -42297,10 +42810,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 273,
+    "id": 272,
     "company": "Shinmi Global",
     "country": "Korea",
     "market": "Seoul (district not stated; cited in YBD section)",
@@ -42328,10 +42843,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 274,
+    "id": 273,
     "company": "The Pure Lab",
     "country": "Korea",
     "market": "Seoul (YBD context)",
@@ -42359,10 +42876,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 275,
+    "id": 274,
     "company": "LG Chem",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -42390,10 +42909,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 276,
+    "id": 275,
     "company": "Hanwha Ocean",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42421,10 +42942,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 277,
+    "id": 276,
     "company": "Hugel",
     "country": "Korea",
     "market": "Seoul (market not stated)",
@@ -42452,10 +42975,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 278,
+    "id": 277,
     "company": "McDonald's Korea",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42483,10 +43008,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 279,
+    "id": 278,
     "company": "Tesla",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42514,10 +43041,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 280,
+    "id": 279,
     "company": "Sanofi-Aventis",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42545,10 +43074,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 281,
+    "id": 280,
     "company": "NPIXEL",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42576,10 +43107,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 282,
+    "id": 281,
     "company": "AITRICS",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42607,10 +43140,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 283,
+    "id": 282,
     "company": "IGIS",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -42638,10 +43173,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 284,
+    "id": 283,
     "company": "Mirae Asset Financial Group (affiliate, unspecified)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -42669,10 +43206,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 285,
+    "id": 284,
     "company": "\ud06c\ub808\uc774\ubc84\ucf54\ud37c\ub808\uc774\uc158",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42700,10 +43239,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 286,
+    "id": 285,
     "company": "KB Kookmin Bank / KB Kookmin Card",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -42731,10 +43272,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 287,
+    "id": 286,
     "company": "\ud55c\uad6d\uc804\ud30c\uc9c4\ud765\ud611\ud68c (Korea Radio Promotion Association)",
     "country": "Korea",
     "market": "Seoul (Magok)",
@@ -42762,10 +43305,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 288,
+    "id": 287,
     "company": "SSG.COM",
     "country": "Korea",
     "market": "Seoul (Yeongdeungpo)",
@@ -42793,10 +43338,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 289,
+    "id": 288,
     "company": "\uc2a4\ud0c0\ubc85\uc2a4 \ucf54\ub9ac\uc544 (Starbucks Korea)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42824,10 +43371,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 290,
+    "id": 289,
     "company": "\uc5d0\uc5b4\uc778\ucc9c (Air Incheon)",
     "country": "Korea",
     "market": "Seoul (Magok)",
@@ -42855,10 +43404,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 291,
+    "id": 290,
     "company": "SKC",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42886,10 +43437,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 292,
+    "id": 291,
     "company": "SK C&C / Tmap Mobility",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42917,10 +43470,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 293,
+    "id": 292,
     "company": "\ucf54\ub9ac\uc548\ub9ac (Korean Re)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -42948,10 +43503,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 294,
+    "id": 293,
     "company": "\uc5d0\uc2a4\uc528\ucf00\uc774\ucef4\ud37c\ub2c8",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -42979,10 +43536,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 295,
+    "id": 294,
     "company": "\uc2e0\uc138\uacc4\uc544\uc774\uc564\uc528 (Shinsegae I&C)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -43010,10 +43569,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 296,
+    "id": 295,
     "company": "\ubbf8\ub798\uc5d0\uc14b\uc0dd\uba85\ubcf4\ud5d8 (Mirae Asset Life Insurance)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -43041,10 +43602,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 297,
+    "id": 296,
     "company": "\ube57\uc378 (Bithumb)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -43072,10 +43635,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 298,
+    "id": 297,
     "company": "111% (111\ud37c\uc13c\ud2b8)",
     "country": "Korea",
     "market": "Seoul (not stated)",
@@ -43103,10 +43668,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 299,
+    "id": 298,
     "company": "Mirae Asset Securities (\ubbf8\ub798\uc5d0\uc14b\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -43134,10 +43701,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 300,
+    "id": 299,
     "company": "Nojima",
     "country": "Japan",
     "market": "Tokyo \u2013 Shinagawa Konanguchi",
@@ -43165,10 +43734,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 301,
+    "id": 300,
     "company": "Nippon Sanso Holdings / Taiyo Nippon Sanso",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon + Minatomirai",
@@ -43196,10 +43767,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 302,
+    "id": 301,
     "company": "DENSO",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon",
@@ -43227,10 +43800,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 303,
+    "id": 302,
     "company": "AIG General Insurance",
     "country": "Japan",
     "market": "Tokyo \u2013 Toranomon/Kamiyacho",
@@ -43258,10 +43833,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 304,
+    "id": 303,
     "company": "CREEK & RIVER",
     "country": "Japan",
     "market": "Tokyo \u2013 Toranomon/Kamiyacho",
@@ -43289,10 +43866,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 305,
+    "id": 304,
     "company": "Northsand",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -43320,10 +43899,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 306,
+    "id": 305,
     "company": "CHUGAI PHARMACEUTICAL",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -43351,10 +43932,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 307,
+    "id": 306,
     "company": "Tokyo Tatemono",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -43382,10 +43965,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 308,
+    "id": 307,
     "company": "DENTSU SOKEN",
     "country": "Japan",
     "market": "Tokyo \u2013 Marunouchi/Otemachi",
@@ -43413,10 +43998,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 309,
+    "id": 308,
     "company": "Hitachi Construction Machinery",
     "country": "Japan",
     "market": "Tokyo \u2013 Marunouchi/Otemachi",
@@ -43444,10 +44031,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 310,
+    "id": 309,
     "company": "Bank of America",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -43475,10 +44064,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 311,
+    "id": 310,
     "company": "JERA",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -43506,10 +44097,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 312,
+    "id": 311,
     "company": "Daiichi Sankyo",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -43537,10 +44130,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 313,
+    "id": 312,
     "company": "HENNGE",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -43568,10 +44163,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 314,
+    "id": 313,
     "company": "CAPCOM",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -43599,10 +44196,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 315,
+    "id": 314,
     "company": "uSonar",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -43630,10 +44229,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 316,
+    "id": 315,
     "company": "Marufuji Sheetpiling",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -43661,10 +44262,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 317,
+    "id": 316,
     "company": "Dai-Dan",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -43692,10 +44295,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 318,
+    "id": 317,
     "company": "Central Glass",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -43723,10 +44328,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 319,
+    "id": 318,
     "company": "LIFULL",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -43754,10 +44361,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 320,
+    "id": 319,
     "company": "Leverages",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -43785,10 +44394,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 321,
+    "id": 320,
     "company": "Mizuno",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -43816,10 +44427,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 322,
+    "id": 321,
     "company": "Sumitomo Mitsui Trust Panasonic Finance",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon",
@@ -43847,10 +44460,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 323,
+    "id": 322,
     "company": "Cognizant Technology Solutions",
     "country": "India",
     "market": "Chennai",
@@ -43878,10 +44493,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 324,
+    "id": 323,
     "company": "WeWork",
     "country": "India",
     "market": "Chennai",
@@ -43909,10 +44526,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 325,
+    "id": 324,
     "company": "TCS",
     "country": "India",
     "market": "Chennai",
@@ -43940,10 +44559,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 326,
+    "id": 325,
     "company": "Deloitte",
     "country": "India",
     "market": "Chennai",
@@ -43971,10 +44592,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 327,
+    "id": 326,
     "company": "The Executive Centre",
     "country": "India",
     "market": "Chennai",
@@ -44002,10 +44625,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 328,
+    "id": 327,
     "company": "Syntel",
     "country": "India",
     "market": "Navi Mumbai",
@@ -44033,10 +44658,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 329,
+    "id": 328,
     "company": "Marsh McLennan",
     "country": "India",
     "market": "Mumbai (Powai)",
@@ -44064,10 +44691,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 330,
+    "id": 329,
     "company": "Euronet Services India",
     "country": "India",
     "market": "Thane (Mumbai)",
@@ -44095,10 +44724,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 331,
+    "id": 330,
     "company": "Meta",
     "country": "India",
     "market": "Mumbai (BKC)",
@@ -44126,10 +44757,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 332,
+    "id": 331,
     "company": "Hero MotoCorp",
     "country": "India",
     "market": "NCR (Delhi)",
@@ -44157,10 +44790,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 333,
+    "id": 332,
     "company": "IREP Workspaces",
     "country": "India",
     "market": "NCR (Gurugram)",
@@ -44188,10 +44823,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 334,
+    "id": 333,
     "company": "Advanced Micro Devices (AMD)",
     "country": "Malaysia",
     "market": "Penang",
@@ -44219,10 +44856,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 335,
+    "id": 334,
     "company": "Coherent Corp.",
     "country": "Malaysia",
     "market": "Penang",
@@ -44250,10 +44889,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 336,
+    "id": 335,
     "company": "Bitdeer Technologies Group",
     "country": "Malaysia",
     "market": "Penang",
@@ -44281,10 +44922,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 337,
+    "id": 336,
     "company": "Channel Microsystems",
     "country": "Malaysia",
     "market": "Penang",
@@ -44312,10 +44955,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 338,
+    "id": 337,
     "company": "Tenasic Technology",
     "country": "Malaysia",
     "market": "Penang",
@@ -44343,10 +44988,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 339,
+    "id": 338,
     "company": "Edwards Lifesciences",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -44374,10 +45021,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 340,
+    "id": 339,
     "company": "Quanterm Logistics",
     "country": "Malaysia",
     "market": "Penang",
@@ -44405,10 +45054,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 341,
+    "id": 340,
     "company": "PE Land",
     "country": "Malaysia",
     "market": "Penang",
@@ -44436,10 +45087,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 342,
+    "id": 341,
     "company": "IWG (Spaces / Regus Express)",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -44467,10 +45120,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 343,
+    "id": 342,
     "company": "JustCo",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -44498,10 +45153,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 344,
+    "id": 343,
     "company": "Grant Thornton",
     "country": "Malaysia",
     "market": "Johor (Iskandar Malaysia)",
@@ -44529,10 +45186,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 345,
+    "id": 344,
     "company": "Co-labs",
     "country": "Malaysia",
     "market": "Johor (Iskandar Malaysia)",
@@ -44560,10 +45219,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 346,
+    "id": 345,
     "company": "IJM Land Penang",
     "country": "Malaysia",
     "market": "Penang",
@@ -44591,10 +45252,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 347,
+    "id": 346,
     "company": "Saipem",
     "country": "India",
     "market": "Chennai (OMR)",
@@ -44622,10 +45285,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 348,
+    "id": 347,
     "company": "Citi",
     "country": "India",
     "market": "Chennai (Mount Poonamallee Road)",
@@ -44653,10 +45318,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 349,
+    "id": 348,
     "company": "Morgan Stanley",
     "country": "India",
     "market": "MMR (Malad)",
@@ -44684,10 +45351,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 350,
+    "id": 349,
     "company": "HDFC",
     "country": "India",
     "market": "MMR (Thane Belapur Road)",
@@ -44715,10 +45384,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 351,
+    "id": 350,
     "company": "Netmagic",
     "country": "India",
     "market": "NCR (TechZone IV)",
@@ -44746,10 +45417,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 352,
+    "id": 351,
     "company": "Zomato",
     "country": "India",
     "market": "NCR (MG Road)",
@@ -44777,10 +45450,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 353,
+    "id": 352,
     "company": "Encore Midland Credit Management",
     "country": "India",
     "market": "NCR (Sector-48)",
@@ -44808,10 +45483,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 354,
+    "id": 353,
     "company": "Amazon",
     "country": "India",
     "market": "Bengaluru + Pune",
@@ -44821,7 +45498,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New signal \u2014 assess",
     "status": "Watch",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
@@ -44839,10 +45516,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 355,
+    "id": 354,
     "company": "Mindtree",
     "country": "India",
     "market": "Pune + Kolkata",
@@ -44852,7 +45531,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New signal \u2014 assess",
     "status": "Watch",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
@@ -44870,10 +45549,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 356,
+    "id": 355,
     "company": "Indiqube",
     "country": "India",
     "market": "Pune (Baner)",
@@ -44901,10 +45582,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 357,
+    "id": 356,
     "company": "Capgemini",
     "country": "India",
     "market": "Kolkata (Rajarhat)",
@@ -44932,10 +45615,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 358,
+    "id": 357,
     "company": "AMD",
     "country": "India",
     "market": "Bengaluru (Whitefield)",
@@ -44963,10 +45648,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 359,
+    "id": 358,
     "company": "ANZ",
     "country": "India",
     "market": "Bengaluru (ORR)",
@@ -44994,10 +45681,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 360,
+    "id": 359,
     "company": "Wells Fargo",
     "country": "India",
     "market": "Hyderabad + Chennai",
@@ -45007,7 +45696,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New signal \u2014 assess",
     "status": "Watch",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
@@ -45025,10 +45714,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 361,
+    "id": 360,
     "company": "IndiQube",
     "country": "India",
     "market": "Chennai (Guindy)",
@@ -45056,10 +45747,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 362,
+    "id": 361,
     "company": "Bosch",
     "country": "India",
     "market": "Hyderabad (Madhapur)",
@@ -45087,10 +45780,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 363,
+    "id": 362,
     "company": "PwC",
     "country": "India",
     "market": "Hyderabad (HITEC City)",
@@ -45118,10 +45813,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 364,
+    "id": 363,
     "company": "ZF Technology",
     "country": "India",
     "market": "Hyderabad (Gachibowli)",
@@ -45149,10 +45846,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 365,
+    "id": 364,
     "company": "IDFC",
     "country": "India",
     "market": "MMR (Thane)",
@@ -45180,10 +45879,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 366,
+    "id": 365,
     "company": "M&M Financial",
     "country": "India",
     "market": "MMR (Kurla)",
@@ -45211,10 +45912,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 367,
+    "id": 366,
     "company": "Avendus Capital",
     "country": "India",
     "market": "MMR (BKC)",
@@ -45242,10 +45945,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 368,
+    "id": 367,
     "company": "Network 18",
     "country": "India",
     "market": "NCR (Noida Expressway)",
@@ -45273,10 +45978,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 369,
+    "id": 368,
     "company": "Air India",
     "country": "India",
     "market": "NCR (NH-8, Gurgaon)",
@@ -45304,10 +46011,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 370,
+    "id": 369,
     "company": "Syneos Health",
     "country": "India",
     "market": "NCR (NH-8, Gurgaon)",
@@ -45335,10 +46044,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 371,
+    "id": 370,
     "company": "Reliance",
     "country": "India",
     "market": "NCR (Sector-65, Gurgaon)",
@@ -45366,10 +46077,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 372,
+    "id": 371,
     "company": "Mastercard",
     "country": "India",
     "market": "Pune (Yerwada)",
@@ -45397,10 +46110,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 373,
+    "id": 372,
     "company": "ZS Associate",
     "country": "India",
     "market": "Pune (Kharadi)",
@@ -45428,10 +46143,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 374,
+    "id": 373,
     "company": "AML Right Source",
     "country": "India",
     "market": "Kolkata (Rajarhat)",
@@ -45459,10 +46176,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 375,
+    "id": 374,
     "company": "IFS",
     "country": "India",
     "market": "Kolkata (Salt Lake)",
@@ -45490,10 +46209,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 376,
+    "id": 375,
     "company": "Accolade Broadcasting",
     "country": "India",
     "market": "Kolkata (Salt Lake)",
@@ -45521,10 +46242,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 377,
+    "id": 376,
     "company": "OMNICOM",
     "country": "China",
     "market": "Beijing",
@@ -45552,10 +46275,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 378,
+    "id": 377,
     "company": "Diaoyutai MGM Hospitality, Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45583,10 +46308,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 379,
+    "id": 378,
     "company": "Gucci",
     "country": "China",
     "market": "Shanghai",
@@ -45614,10 +46341,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 380,
+    "id": 379,
     "company": "Kao",
     "country": "China",
     "market": "Shanghai",
@@ -45645,10 +46374,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 381,
+    "id": 380,
     "company": "DYSON",
     "country": "China",
     "market": "Shanghai",
@@ -45676,10 +46407,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 382,
+    "id": 381,
     "company": "Airbnb Information Technology (Beijing) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45707,10 +46440,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 383,
+    "id": 382,
     "company": "Mundipharma (China) Pharmaceutical Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45738,10 +46473,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 384,
+    "id": 383,
     "company": "Dentsply Sirona Dental Solutions (Shanghai) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45769,10 +46506,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 385,
+    "id": 384,
     "company": "Wood Mackenzie Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45800,10 +46539,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 386,
+    "id": 385,
     "company": "Advanced Micro Devices (China) Co.,Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45831,10 +46572,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 387,
+    "id": 386,
     "company": "Beijing Aoma Star Pleasure Medical Beauty Clinic Co., LTD",
     "country": "China",
     "market": "Beijing",
@@ -45862,10 +46605,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 388,
+    "id": 387,
     "company": "Glory Terminal Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45893,10 +46638,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 389,
+    "id": 388,
     "company": "Shuxing Technology (Beijing) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -45924,10 +46671,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 390,
+    "id": 389,
     "company": "Postal Savings Bank of China Limited Beijing Branch",
     "country": "China",
     "market": "Beijing",
@@ -45955,10 +46704,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 391,
+    "id": 390,
     "company": "Manulife-Sinochem",
     "country": "China",
     "market": "Shanghai",
@@ -45986,10 +46737,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 392,
+    "id": 391,
     "company": "Babemax",
     "country": "China",
     "market": "Shanghai",
@@ -46017,10 +46770,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 393,
+    "id": 392,
     "company": "99Bill.com",
     "country": "China",
     "market": "Shanghai",
@@ -46048,10 +46803,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 394,
+    "id": 393,
     "company": "Meritz Fire & Marine Insurance (\uba54\ub9ac\uce20\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul, YBD (IFC)",
@@ -46079,10 +46836,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 395,
+    "id": 394,
     "company": "K Bank (\ucf00\uc774\ubc45\ud06c)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Samphung Nexus Bldg, Eulji-ro 158",
@@ -46110,10 +46869,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 396,
+    "id": 395,
     "company": "Social News (\uc18c\uc15c\ub274\uc2a4)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Gwanghwamun G Square, Sejong-daero 22-gil 12",
@@ -46141,10 +46902,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 397,
+    "id": 396,
     "company": "Hanwha Life Financial Services (\ud55c\ud654\uc0dd\uba85\uae08\uc735\uc11c\ube44\uc2a4)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul City Tower, Huam-ro 110",
@@ -46172,10 +46935,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 398,
+    "id": 397,
     "company": "A Plus Asset Advisor (\uc5d0\uc774\ud50c\ub7ec\uc2a4\uc5d0\uc14b\uc5b4\ub4dc\ubc14\uc774\uc800)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -46203,10 +46968,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 399,
+    "id": 398,
     "company": "Chrono Studio (\ud06c\ub85c\ub178\uc2a4\ud29c\ub514\uc624; NPIXEL subsidiary)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 The Pinnacle Yeoksam 2, Teheran-ro 145",
@@ -46234,10 +47001,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 400,
+    "id": 399,
     "company": "Wezon (\uc704\uc874 \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Landmark Tower, Gangnam-daero 508",
@@ -46265,10 +47034,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 401,
+    "id": 400,
     "company": "Samsung Securities (\uc0bc\uc131\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Lynn Square, Teheran-ro 201",
@@ -46296,10 +47067,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 402,
+    "id": 401,
     "company": "Creditbon (\ud06c\ub808\ub527\ubcf8 \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Centerfield West, Seocho-daero 398",
@@ -46327,10 +47100,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 403,
+    "id": 402,
     "company": "Sentbe (\uc13c\ud2b8\ube44)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouidae-ro 70",
@@ -46358,10 +47133,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 404,
+    "id": 403,
     "company": "Lakewood Partners (\ub808\uc774\ud06c\uc6b0\ub4dc\ud30c\ud2b8\ub108\uc2a4)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Yeouido Finance Tower, Gukjegeumyung-ro 2-gil 32",
@@ -46389,10 +47166,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 405,
+    "id": 404,
     "company": "Galaxy Corporation (\uac24\ub7ed\uc11c\ucf54\ud37c\ub808\uc774\uc158)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 IFC, Gukjegeumyung-ro 10",
@@ -46420,10 +47199,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 406,
+    "id": 405,
     "company": "Samsung Life Insurance (\uc0bc\uc131\uc0dd\uba85\ubcf4\ud5d8\uc8fc\uc2dd\ud68c\uc0ac)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Bundang Yemij Bldg, Hwangsaeul-ro 258beon-gil 31",
@@ -46451,10 +47232,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 407,
+    "id": 406,
     "company": "Weekly Hair (\u321c\uc704\ud074\ub9ac\ud5e4\uc5b4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 SPC Center, Jeongja-il-ro 166",
@@ -46482,10 +47265,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 408,
+    "id": 407,
     "company": "Daekyo Edu Camp (\u321c\ub300\uad50\uc5d0\ub4c0\ucea0\ud504)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Byucksan Techno Pia Knowledge Industry Center, Dunchon-daero 560",
@@ -46513,10 +47298,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 409,
+    "id": 408,
     "company": "People Life (\ud53c\ud50c\ub77c\uc774\ud504\u321c)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 UI Building, Yanghyeon-ro 405beon-gil 4-11",
@@ -46544,10 +47331,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 410,
+    "id": 409,
     "company": "Celltrion Pharm (\uc140\ud2b8\ub9ac\uc628\uc81c\uc57d)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Gwacheon Smart K, Gwacheon-daero 7-gil 20",
@@ -46575,10 +47364,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 411,
+    "id": 410,
     "company": "Novatec (\ub178\ubc14\ud14d \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Songpa Terra Tower 2, Songpa-daero 201",
@@ -46606,10 +47397,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 412,
+    "id": 411,
     "company": "WZCOM (\ub354\ube14\uc720\uc81c\ud2b8\ucf64)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Avenue 123, Itaewon-ro 191",
@@ -46637,10 +47430,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 413,
+    "id": 412,
     "company": "F&F (\uc5d0\ud504\uc564\uc5d0\ud504)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Center Point Gangnam",
@@ -46668,10 +47463,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 414,
+    "id": 413,
     "company": "Olive Young (\uc62c\ub9ac\ube0c\uc601)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Factorial Seongsu",
@@ -46699,10 +47496,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 415,
+    "id": 414,
     "company": "Nice Payments (\ub098\uc774\uc2a4\ud398\uc774\uba3c\uce20)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Semicolon Mullae N Tower",
@@ -46730,10 +47529,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 416,
+    "id": 415,
     "company": "JoyCity (\uc870\uc774\uc2dc\ud2f0)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 JoyCity Tower, Sunae",
@@ -46761,10 +47562,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 417,
+    "id": 416,
     "company": "Carver Korea (\uce74\ubc84\ucf54\ub9ac\uc544)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 FKI Tower",
@@ -46792,10 +47595,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 418,
+    "id": 417,
     "company": "Allerman (\uc54c\ub808\ub974\ub9dd \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul \u2014 Allerman Tower",
@@ -46823,10 +47628,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 419,
+    "id": 418,
     "company": "SGI Seoul Guarantee Insurance (SGI\uc11c\uc6b8\ubcf4\uc99d)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Boryeong Building, Changgyeonggung-ro 136",
@@ -46854,10 +47661,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 420,
+    "id": 419,
     "company": "HLMC",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Sampung Nexus, Euljiro 4-ga 310-68",
@@ -46885,10 +47694,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 421,
+    "id": 420,
     "company": "Toss Income (\ud1a0\uc2a4 affiliate of Viva Republica)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 POSCO Tower Yeoksam, Teheran-ro 134",
@@ -46916,10 +47727,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 422,
+    "id": 421,
     "company": "Goorm (\uad6c\ub984)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 The Pinnacle Yeoksam 2, Teheran-ro 145",
@@ -46947,10 +47760,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 423,
+    "id": 422,
     "company": "Woori Bank",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 1, Yeouidaero 108",
@@ -46978,10 +47793,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 424,
+    "id": 423,
     "company": "Leferi (\ub808\ud398\ub9ac)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 2, Yeouidaero 108",
@@ -47009,10 +47826,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 425,
+    "id": 424,
     "company": "PineStreet Asset Management",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 2, Yeouidaero 108",
@@ -47040,10 +47859,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 426,
+    "id": 425,
     "company": "Hyundai Motor Securities (\ud604\ub300\ucc28\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouidae-ro 70",
@@ -47071,10 +47892,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 427,
+    "id": 426,
     "company": "Hyundai Transys (\ud604\ub300\ud2b8\ub79c\uc2dc\uc2a4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Hyundai Dept Store Office, Pangyoyeok-ro 146beon-gil 20",
@@ -47102,10 +47925,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 428,
+    "id": 427,
     "company": "Neuberger Berman Asset Management",
     "country": "Korea",
     "market": "Seoul, Others \u2014 One Grove, Gonghang-daero 165 (Magok)",
@@ -47133,10 +47958,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 429,
+    "id": 428,
     "company": "NH Nonghyup Life Insurance (NH\ub18d\ud611\uc0dd\uba85)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Soonhwa Tower, Sejong-daero 7-gil 43",
@@ -47164,10 +47991,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 430,
+    "id": 429,
     "company": "Lotte Card (\ub86f\ub370\uce74\ub4dc)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Booyoung Taepyeong Building, Sejong-daero 55",
@@ -47195,10 +48024,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 431,
+    "id": 430,
     "company": "Mdic",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -47226,10 +48057,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 432,
+    "id": 431,
     "company": "RCI Financial Korea",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -47257,10 +48090,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 433,
+    "id": 432,
     "company": "Hanwha Hotels & Resorts (\ud55c\ud654\ud638\ud154\uc564\ub4dc\ub9ac\uc870\ud2b8)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Hongdae H Square (from Hanwha Building, Sogong-dong)",
@@ -47288,10 +48123,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 434,
+    "id": 433,
     "company": "Hanwha Galleria (\ud55c\ud654\uac24\ub7ec\ub9ac\uc544)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Hongdae H Square (same)",
@@ -47319,10 +48156,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 435,
+    "id": 434,
     "company": "eOpsoft",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 L7 Hotels Gangnam Tower, Teheran-ro 415",
@@ -47350,10 +48189,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 436,
+    "id": 435,
     "company": "Supercent (\uc288\ud37c\uc13c\ud2b8)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Lotte World Tower, Olympic-ro 300",
@@ -47381,10 +48222,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 437,
+    "id": 436,
     "company": "KIS Appraisal (\ud55c\uad6d\ud22c\uc790\ud3c9\uac00)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Centennial, Yeouidae-ro 70",
@@ -47412,10 +48255,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 438,
+    "id": 437,
     "company": "Rebellions (\ub9ac\ubca8\ub9ac\uc628)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Newborn Tower, Jeongja 1-ro 156beon-gil 6",
@@ -47443,10 +48288,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 439,
+    "id": 438,
     "company": "Keyinside (\ud0a4\uc778\uc0ac\uc774\ub4dc)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Yemij Building, Pangyoyeok-ro 14-1",
@@ -47474,10 +48321,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 440,
+    "id": 439,
     "company": "MiL.k Partners (\ubc00\ud06c\ud30c\ud2b8\ub108\uc2a4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Yemij Building, Pangyoyeok-ro 14-1",
@@ -47505,10 +48354,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 441,
+    "id": 440,
     "company": "NEXUS (name as printed)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Alpharium Tower, Daewangpangyo-ro 606beon-gil 10",
@@ -47536,10 +48387,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 442,
+    "id": 441,
     "company": "Korea Insurance Brokerage",
     "country": "Korea",
     "market": "Seoul, Others \u2014 K-Square Magok Tower 3, Magokjungang-ro 105-7",
@@ -47567,10 +48420,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 443,
+    "id": 442,
     "company": "NH Capital (NH\uce90\ud53c\ud0c8)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouido-dong 23-2",
@@ -47598,10 +48453,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 444,
+    "id": 443,
     "company": "Hanwha I&A",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Korea Chamber of Commerce & Industry bldg, Namdaemun-ro 4-ga 45",
@@ -47629,10 +48486,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 445,
+    "id": 444,
     "company": "New Balance",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 INNO 88, Unni-dong 98-5",
@@ -47660,10 +48519,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 446,
+    "id": 445,
     "company": "Shinhan Life (\uc2e0\ud55c\uc0dd\uba85)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Central Place, Jungnim-dong 419",
@@ -47691,10 +48552,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 447,
+    "id": 446,
     "company": "BlackRock",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Gran Seoul, Cheongjin-dong 70",
@@ -47722,10 +48585,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 448,
+    "id": 447,
     "company": "Heungkuk Fire & Marine Insurance (\ud765\uad6d\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Handuk Building, Jongno 6-ga 242-1",
@@ -47753,10 +48618,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 449,
+    "id": 448,
     "company": "Onecell Mediclinic",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 NR Tower, Samseong-dong 9-21",
@@ -47784,10 +48651,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 450,
+    "id": 449,
     "company": "Snowflake",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Posco Tower Yeoksam, Yeoksam-dong 735-3",
@@ -47815,10 +48684,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 451,
+    "id": 450,
     "company": "Unilever",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Samsung-dong Building, Samseong-dong 157-1",
@@ -47846,10 +48717,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 452,
+    "id": 451,
     "company": "BY4M (name as printed)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 K407, Yeoksam-dong 747-25",
@@ -47877,10 +48750,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 453,
+    "id": 452,
     "company": "Korea Investment Real Estate Trust (\ud55c\uad6d\ud22c\uc790\ubd80\ub3d9\uc0b0\uc2e0\ud0c1)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 FKI Tower, Yeouido-dong 28-1",
@@ -47908,10 +48783,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 454,
+    "id": 453,
     "company": "Ryukyung PSG Asset Management",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Yeouido Finance Tower, Yeouido-dong 23-8",
@@ -47939,10 +48816,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 80,
       "summary": "R:40 + S:5 + T:20 + St:15 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 455,
+    "id": 454,
     "company": "LIG Nex1 (LIG\ub125\uc2a4\uc6d0)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 H Square S Tower, Sampyeong-dong 680",
@@ -47970,10 +48849,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 456,
+    "id": 455,
     "company": "Synopsys",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 H Square S Tower, Sampyeong-dong 680",
@@ -48001,10 +48882,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 457,
+    "id": 456,
     "company": "VIOL",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Two Sun Building, Sampyeong-dong 672",
@@ -48032,10 +48915,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 458,
+    "id": 457,
     "company": "Kakao Pay Securities (\uce74\uce74\uc624\ud398\uc774\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Tech One, Baekhyeon-dong 534",
@@ -48063,10 +48948,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 80,
       "summary": "R:40 + S:5 + T:20 + St:15 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 459,
+    "id": 458,
     "company": "Hanil Electric (\ud55c\uc77c\uc804\uae30)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Semicolon Mullae, Mullae-dong 55-18",
@@ -48094,10 +48981,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 460,
+    "id": 459,
     "company": "Gear2 (name as printed)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 MUSINSA S1, Seongsu-dong 2-ga 324-2",
@@ -48125,10 +49014,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 461,
+    "id": 460,
     "company": "Leterinity (\ub808\ud130\ub2c8\ud2f0)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 K-Square Magok, Magok-dong 768-1",
@@ -48156,10 +49047,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 80,
       "summary": "R:40 + S:5 + T:20 + St:15 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 462,
+    "id": 461,
     "company": "Jupiter Telecommunications Co., Ltd",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -48187,10 +49080,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 463,
+    "id": 462,
     "company": "Fujitsu",
     "country": "Japan",
     "market": "Tokyo (Hamamatsucho / Onarimon)",
@@ -48218,10 +49113,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 464,
+    "id": 463,
     "company": "Canon IT Solutions Inc.",
     "country": "Japan",
     "market": "Tokyo (Kita-Shinagawa / Higashi-Shinagawa)",
@@ -48249,10 +49146,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 465,
+    "id": 464,
     "company": "Delta Electronics, Inc.",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -48280,10 +49179,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 466,
+    "id": 465,
     "company": "JASRAC",
     "country": "Japan",
     "market": "Tokyo (Akasaka)",
@@ -48311,10 +49212,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 467,
+    "id": 466,
     "company": "Abilio Servicer",
     "country": "Japan",
     "market": "Tokyo (Toyosu)",
@@ -48342,10 +49245,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 468,
+    "id": 467,
     "company": "Skylark Holdings",
     "country": "Japan",
     "market": "Tokyo (Nakano)",
@@ -48373,10 +49278,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 469,
+    "id": 468,
     "company": "Mirait One",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -48404,10 +49311,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 470,
+    "id": 469,
     "company": "NTT DATA Group Corporation",
     "country": "Japan",
     "market": "Tokyo (Osaki / Gotanda)",
@@ -48435,10 +49344,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 471,
+    "id": 470,
     "company": "Accenture Japan Ltd",
     "country": "Japan",
     "market": "Tokyo (Harumi / Kachidoki)",
@@ -48466,10 +49377,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 472,
+    "id": 471,
     "company": "JA MITSUI LEASING, LTD.",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -48497,10 +49410,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 473,
+    "id": 472,
     "company": "H.I.S. Co., Ltd.",
     "country": "Japan",
     "market": "Tokyo (Nishi-Shinjuku)",
@@ -48528,10 +49443,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 474,
+    "id": 473,
     "company": "CMIC HOLDINGS Co., Ltd.",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -48559,10 +49476,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 475,
+    "id": 474,
     "company": "RYODEN (TSE Prime: 8084)",
     "country": "Japan",
     "market": "Tokyo (Kojimachi, Chiyoda-ku)",
@@ -48590,10 +49509,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 476,
+    "id": 475,
     "company": "\u30d3\u30fc\u30c8\u30ec\u30f3\u30c9 Beatrend (TSE Growth: 4020)",
     "country": "Japan",
     "market": "Tokyo (Kita-Shinagawa)",
@@ -48621,10 +49542,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 477,
+    "id": 476,
     "company": "KeyHolder (TSE Standard: 4712)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -48652,10 +49575,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 478,
+    "id": 477,
     "company": "\u30c7\u30a3\u30fb\u30a2\u30a4\u30fb\u30b7\u30b9\u30c6\u30e0 D.I.System (TSE Standard: 4421)",
     "country": "Japan",
     "market": "Tokyo (Marunouchi)",
@@ -48683,10 +49608,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 479,
+    "id": 478,
     "company": "Honda Motor",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -48714,10 +49641,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 480,
+    "id": 479,
     "company": "Mizuho Leasing",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -48745,10 +49674,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 481,
+    "id": 480,
     "company": "Nomura Real Estate Development",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -48776,10 +49707,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 482,
+    "id": 481,
     "company": "KDDI",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi)",
@@ -48807,10 +49740,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 483,
+    "id": 482,
     "company": "Maruha Nichiro",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi)",
@@ -48838,10 +49773,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 484,
+    "id": 483,
     "company": "Sanko Metal Industrial",
     "country": "Japan",
     "market": "Tokyo (Mita / Tamachi)",
@@ -48869,10 +49806,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 485,
+    "id": 484,
     "company": "Kenko Mayonnaise",
     "country": "Japan",
     "market": "Tokyo (Bancho / Kojimachi)",
@@ -48900,10 +49839,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 486,
+    "id": 485,
     "company": "Kobe Steel Group",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi / Yaesu)",
@@ -48931,10 +49872,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 487,
+    "id": 486,
     "company": "Japan Pulp and Paper",
     "country": "Japan",
     "market": "Tokyo (Kyobashi / Yaesu / Nihonbashi)",
@@ -48962,10 +49905,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 488,
+    "id": 487,
     "company": "coconala",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -48993,10 +49938,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 489,
+    "id": 488,
     "company": "Citi Malaysia (Citi Transaction Services Malaysia Sdn Bhd \u2013 CTSM Penang)",
     "country": "Malaysia",
     "market": "Penang (Air Itam \u2013 Sunshine Tower @ Sunshine Central)",
@@ -49024,10 +49971,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 490,
+    "id": 489,
     "company": "Celestica (Platform and Cloud Solutions Malaysia)",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
@@ -49055,10 +50004,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 491,
+    "id": 490,
     "company": "Microsoft (Knowledge Capital Centre)",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
@@ -49086,10 +50037,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 492,
+    "id": 491,
     "company": "SkyeChip",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -49117,10 +50070,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 493,
+    "id": 492,
     "company": "Sophic Automation",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -49148,10 +50103,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 494,
+    "id": 493,
     "company": "Filpal",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -49179,10 +50136,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 495,
+    "id": 494,
     "company": "Infinecs Lab",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -49210,10 +50169,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 496,
+    "id": 495,
     "company": "Silicon X",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -49241,10 +50202,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 497,
+    "id": 496,
     "company": "Arvind Ltd.",
     "country": "India",
     "market": "Ahmedabad (Sindhu Bhavan Road)",
@@ -49272,10 +50235,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 498,
+    "id": 497,
     "company": "Opulence Spaces",
     "country": "India",
     "market": "Ahmedabad",
@@ -49303,10 +50268,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 499,
+    "id": 498,
     "company": "Vibrant Co.Work",
     "country": "India",
     "market": "Ahmedabad",
@@ -49334,10 +50301,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 500,
+    "id": 499,
     "company": "Incuspaze",
     "country": "India",
     "market": "Ahmedabad",
@@ -49365,10 +50334,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 501,
+    "id": 500,
     "company": "Simpliwork",
     "country": "India",
     "market": "Chennai; Hyderabad; Delhi NCR",
@@ -49396,10 +50367,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 502,
+    "id": 501,
     "company": "Workez",
     "country": "India",
     "market": "Chennai",
@@ -49427,10 +50400,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 503,
+    "id": 502,
     "company": "Geri Care Hospital",
     "country": "India",
     "market": "Chennai",
@@ -49458,10 +50433,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 504,
+    "id": 503,
     "company": "Raja Rajeshwari Engineering College",
     "country": "India",
     "market": "Chennai",
@@ -49489,10 +50466,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 505,
+    "id": 504,
     "company": "AnnexMed",
     "country": "India",
     "market": "Chennai",
@@ -49520,10 +50499,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 506,
+    "id": 505,
     "company": "Chargebee",
     "country": "India",
     "market": "Chennai",
@@ -49551,10 +50532,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 507,
+    "id": 506,
     "company": "Alldigi Tech (Allsec)",
     "country": "India",
     "market": "Chennai",
@@ -49582,10 +50565,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 508,
+    "id": 507,
     "company": "Altimetrik",
     "country": "India",
     "market": "Chennai",
@@ -49613,10 +50598,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 509,
+    "id": 508,
     "company": "Novac Technology Solutions",
     "country": "India",
     "market": "Chennai",
@@ -49644,10 +50631,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 510,
+    "id": 509,
     "company": "ArcelorMittal",
     "country": "India",
     "market": "Hyderabad",
@@ -49675,10 +50664,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 511,
+    "id": 510,
     "company": "Skootr",
     "country": "India",
     "market": "Hyderabad",
@@ -49706,10 +50697,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 512,
+    "id": 511,
     "company": "Bajaj Finance",
     "country": "India",
     "market": "Hyderabad",
@@ -49737,10 +50730,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 513,
+    "id": 512,
     "company": "HDFC Credila",
     "country": "India",
     "market": "Hyderabad",
@@ -49768,10 +50763,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 514,
+    "id": 513,
     "company": "Apollo",
     "country": "India",
     "market": "Hyderabad",
@@ -49799,10 +50796,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 515,
+    "id": 514,
     "company": "Mahindra Finance",
     "country": "India",
     "market": "Hyderabad",
@@ -49830,10 +50829,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 516,
+    "id": 515,
     "company": "Akasa",
     "country": "India",
     "market": "Kolkata",
@@ -49861,10 +50862,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 517,
+    "id": 516,
     "company": "Maruti",
     "country": "India",
     "market": "Delhi NCR",
@@ -49892,10 +50895,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 518,
+    "id": 517,
     "company": "Indiabulls",
     "country": "India",
     "market": "Delhi NCR",
@@ -49923,10 +50928,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 519,
+    "id": 518,
     "company": "Tata AIG",
     "country": "India",
     "market": "Delhi NCR",
@@ -49954,10 +50961,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 520,
+    "id": 519,
     "company": "Tablespace",
     "country": "India",
     "market": "Delhi NCR",
@@ -49985,10 +50994,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 521,
+    "id": 520,
     "company": "Workshaala",
     "country": "India",
     "market": "Delhi NCR",
@@ -50016,10 +51027,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 522,
+    "id": 521,
     "company": "Amdocs",
     "country": "India",
     "market": "Delhi NCR",
@@ -50047,10 +51060,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 523,
+    "id": 522,
     "company": "ANSR",
     "country": "India",
     "market": "Delhi NCR",
@@ -50078,10 +51093,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 524,
+    "id": 523,
     "company": "TBH",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 The Gardens North Tower)",
@@ -50109,10 +51126,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 525,
+    "id": 524,
     "company": "Common Ground",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL City \u2014 Menara Darussalam)",
@@ -50140,10 +51159,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 526,
+    "id": 525,
     "company": "Universal Serviced Offices",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 The Gardens North Tower)",
@@ -50171,10 +51192,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 527,
+    "id": 526,
     "company": "JTI",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 Corporate Tower 7, Pavilion Damansara Heights)",
@@ -50202,10 +51225,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 528,
+    "id": 527,
     "company": "Bank Rakyat",
     "country": "Malaysia",
     "market": "Johor Bahru (Menara 2, Coronation Square)",
@@ -50233,10 +51258,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 529,
+    "id": 528,
     "company": "Allianz Malaysia",
     "country": "Malaysia",
     "market": "Penang (George Town \u2014 Jalan Kelawai)",
@@ -50264,10 +51291,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 530,
+    "id": 529,
     "company": "BlackRock",
     "country": "India",
     "market": "Delhi NCR",
@@ -50277,7 +51306,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New",
     "status": "Active",
-    "lastChecked": "2026-10-15",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -50295,10 +51324,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 15,
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 531,
+    "id": 530,
     "company": "DHL",
     "country": "India",
     "market": "Chennai",
@@ -50308,7 +51339,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New",
     "status": "Watch",
-    "lastChecked": "2026-10-15",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
@@ -50326,10 +51357,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 532,
+    "id": 531,
     "company": "L'Or\u00e9al",
     "country": "India",
     "market": "Hyderabad",
@@ -50339,7 +51372,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New",
     "status": "Watch",
-    "lastChecked": "2026-10-15",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
@@ -50357,10 +51390,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 533,
+    "id": 532,
     "company": "L'Or\u00e9al",
     "country": "China",
     "market": "Shanghai",
@@ -50370,7 +51405,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New",
     "status": "Watch",
-    "lastChecked": "2026-10-15",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -50388,10 +51423,12 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   },
   {
-    "id": 534,
+    "id": 533,
     "company": "Karnataka government agency (unspecified)",
     "country": "India",
     "market": "Karnataka",
@@ -50401,7 +51438,7 @@ var INITIAL_TRACKER_DATA = [
     "hasChange": true,
     "trend": "New",
     "status": "Watch",
-    "lastChecked": "2026-10-15",
+    "lastChecked": "",
     "notes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -50419,7 +51456,9 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    }
+    },
+    "isDealBacked": true,
+    "isQueueItem": true
   }
 ];
 if (typeof window !== 'undefined') window.INITIAL_TRACKER_DATA = INITIAL_TRACKER_DATA;

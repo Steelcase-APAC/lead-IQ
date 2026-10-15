@@ -365,6 +365,53 @@ def clean_source_text(text):
     return t.strip(' ;,')
     return t.strip()
 
+def canonical_submarket(subm):
+    if not subm: return ''
+    s = subm.strip()
+    s_lower = s.lower()
+    if s_lower in ('not stated', 'market not stated', 'same', '~53', 'floors 5-6', 'b7/15f', 'district not stated; cited in ybd section'):
+        return ''
+    if 'kyobashi' in s_lower or ('yaesu' in s_lower and 'nihonbashi' in s_lower):
+        return 'Kyobashi/Yaesu/Nihonbashi'
+    if 'marunouchi' in s_lower:
+        return 'Marunouchi/Otemachi'
+    if 'toranomon' in s_lower:
+        return 'Toranomon/Kamiyacho'
+    if 'shinagawa konanguchi' in s_lower:
+        return 'Shinagawa Konanguchi'
+    if 'osaki' in s_lower:
+        return 'Osaki/Gotanda'
+    if 'shibaura' in s_lower or 'shibadaimon' in s_lower:
+        return 'Shibaura/Hamamatsucho'
+    if 'hamamatsucho' in s_lower and 'onarimon' in s_lower:
+        return 'Hamamatsucho/Onarimon'
+    if 'bayan lepas' in s_lower:
+        return 'Bayan Lepas'
+    if 'george town' in s_lower:
+        return 'George Town'
+    if 'whitefield' in s_lower:
+        return 'Whitefield'
+    if 'salt lake' in s_lower:
+        return 'Salt Lake'
+    if 'umeda' in s_lower:
+        return 'Umeda'
+    if 'magok' in s_lower:
+        return 'Magok'
+    if 'ybd' in s_lower:
+        return 'YBD'
+    if 'kl city' in s_lower:
+        return 'KL City'
+    if 'bancho' in s_lower or 'kojimachi' in s_lower:
+        return 'Bancho/Kojimachi'
+    if 'mita' in s_lower or 'tamachi' in s_lower:
+        return 'Mita/Tamachi'
+    if 'harumi' in s_lower or 'kachidoki' in s_lower:
+        return 'Harumi/Kachidoki'
+    if 'kita-shinagawa' in s_lower:
+        return 'Kita-Shinagawa'
+    s = re.sub(r'\s*/\s*', '/', s)
+    return s
+
 def extract_building_and_submarket(comp, country, market_str, signal_str, explicit_bldg=''):
     submarket = ''
     building = explicit_bldg.strip() if explicit_bldg else ''
@@ -415,9 +462,10 @@ def extract_building_and_submarket(comp, country, market_str, signal_str, explic
         elif re.search(r'wisma\s*unirazak', b_clean, re.I): building = 'Wisma Unirazak'
         elif re.search(r'goisu\s*realty', b_clean, re.I): building = 'Goisu Realty (Sumitomo) Tower'
 
+    submarket = canonical_submarket(submarket)
     return submarket, building, bool(building), is_inferred
 
-def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False):
+def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False, row_id=''):
     """
     MECHANISM 1 — SIZE (covers IWG, WORQ):
     Size comes from ONE deal footprint only. Never sum two figures found in one Signal.
@@ -427,6 +475,10 @@ def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False):
     """
     # Non-deal accounting rows have undisclosed/no deal size
     if is_non_deal:
+        return None, "Not disclosed", "Undisclosed", False, False
+
+    # Correction: Sheet cells are blank for JP Morgan (IN-003) & ByteDance (CN-013). Never parse prose.
+    if row_id in ('IN-003', 'CN-013') or (comp.lower() == 'jp morgan' and country == 'India') or (comp.lower() == 'bytedance' and country == 'China'):
         return None, "Not disclosed", "Undisclosed", False, False
 
     # 1. Use explicit size column if given
@@ -498,7 +550,7 @@ def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False):
 
     return None, "Not disclosed", "Undisclosed", False, False
 
-def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_non_deal=False):
+def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_non_deal=False, row_id=''):
     """
     Fix 2: Strictly return one of the SIX allowed deal types:
     Relocation, Expansion, Renewal, New lease, Pre-commitment, Unstated
@@ -508,23 +560,11 @@ def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_n
 
     c_lower = comp.lower()
 
-    # Specific mandatory overrides from spec
-    if 'bytedance' in c_lower and country == 'China':
-        return 'Pre-commitment', True, False
-    if 'jp morgan' in c_lower and ('goisu' in signal_str.lower() or 'bkc' in signal_str.lower()):
-        return 'Pre-commitment', True, False
-    if 'pwc' in c_lower and 'malaysia' in country.lower() and ('ethos' in signal_str.lower() or 'trx' in signal_str.lower()):
-        return 'Pre-commitment', True, False
-    if 'pe land' in c_lower:
-        return 'Pre-commitment', True, False
-    if 'universiti tun abdul razak' in c_lower:
-        return 'Relocation', True, False
-    if any(k in c_lower for k in ['intuitive', 'eppendorf', 'aixtron']):
-        return 'New lease', True, False
-    if 'commercial bank of ceylon' in c_lower:
+    # Correction: Sheet cells are blank for JP Morgan (IN-003) & Uni Razak (MY-046). Never infer from prose.
+    if row_id in ('IN-003', 'MY-046') or (c_lower == 'jp morgan' and country == 'India') or ('universiti tun abdul razak' in c_lower):
         return 'Unstated', False, False
 
-    # Check explicit column if given
+    # Check explicit column if given (Sheet structured column is ground truth)
     if explicit_type and explicit_type.strip():
         et = explicit_type.strip()
         if et in ALLOWED_DEAL_TYPES: return et, True, False
@@ -871,13 +911,16 @@ def build_all():
                     'lastChecked': last_checked,
                     'notes': notes,
                     'heatScore': t_score,
-                    'heatScoreBreakdown': t_breakdown
+                    'heatScoreBreakdown': t_breakdown,
+                    'isDealBacked': (comp.lower() != 'kuala lumpur kepong (klk)'),
+                    'isQueueItem': (comp.lower() != 'kuala lumpur kepong (klk)')
                 }
                 tracker_records.append(rec)
                 tracker_by_company[(comp.lower(), country.lower())] = rec
                 tracker_by_name.setdefault(comp.lower(), rec)
 
-        print(f"Loaded and normalized {len(tracker_records)} corporate accounts from company_tracker.csv")
+        deal_backed_count = sum(1 for t in tracker_records if t['isDealBacked'])
+        print(f"Loaded and normalized {len(tracker_records)} corporate accounts from company_tracker.csv ({deal_backed_count} deal-backed)")
 
     # 2. Parse Snapshots (176 records)
     snapshots_records = []
@@ -1003,8 +1046,8 @@ def build_all():
 
                 city = normalize_city(mkt, country_name)
                 submarket, bldg, has_bldg, bldg_inferred = extract_building_and_submarket(comp, country_name, mkt, sig, explicit_bldg)
-                sqft, area_fmt, size_tier, has_size, size_inferred = extract_size(comp, country_name, explicit_size, sig, is_non_deal)
-                deal_type, has_type, type_inferred = extract_deal_type(comp, country_name, explicit_type, sig, timing, is_non_deal)
+                sqft, area_fmt, size_tier, has_size, size_inferred = extract_size(comp, country_name, explicit_size, sig, is_non_deal, row_id=row_id)
+                deal_type, has_type, type_inferred = extract_deal_type(comp, country_name, explicit_type, sig, timing, is_non_deal, row_id=row_id)
                 deal_date, deal_quarter = extract_dates(explicit_date, date_found, sig, timing)
                 urgency = detect_urgency(timing, sig, date_found)
                 sector = detect_sector(comp, sig)
@@ -1116,7 +1159,8 @@ def build_all():
     # Compute high-level metrics
     raw_total = sum(per_country_raw_counts.values()) # 544
     distinct_opportunities = len(all_leads) # 536 verified commercial deals
-    unique_companies = len(tracker_records) # 534 corporate accounts (single-source)
+    deal_backed_tracker = [t for t in tracker_records if t.get('isDealBacked', True)]
+    unique_companies = len(deal_backed_tracker) # 532 corporate accounts with commercial deals (single-source)
     non_deal_count = len(non_deal_signals) # 8
     total_exclusions = non_deal_count # 8
 
@@ -1143,11 +1187,11 @@ def build_all():
     size_disclosure_rate = len(disclosed_sizes) / distinct_opportunities * 100
     type_disclosure_rate = sum(1 for l in all_leads if l['dealType'] != 'Unstated' and not l['isNonDealRow']) / distinct_opportunities * 100
 
-    app_version = '2.21'
+    app_version = '2.22'
     if os.path.exists('version.json'):
         try:
             with open('version.json', 'r', encoding='utf-8') as vf:
-                app_version = str(json.load(vf).get('version', '2.21'))
+                app_version = str(json.load(vf).get('version', '2.22'))
         except Exception:
             pass
 
@@ -1157,11 +1201,13 @@ def build_all():
         'totalDeals': distinct_opportunities,
         'nonDealSignalsCount': non_deal_count,
         'uniqueCompanies': unique_companies,
-        'uniqueAccountsBreakdown': f"{unique_companies} monitored corporate accounts ({non_deal_count} non-deal macro/accounting signals excluded)",
+        'dealBackedAccountsCount': unique_companies,
+        'totalTrackerAccounts': len(tracker_records),
+        'uniqueAccountsBreakdown': f"{unique_companies} deal-backed corporate accounts ({non_deal_count} non-deal macro/accounting signals excluded)",
         'accountStatuses': {
-            'active': sum(1 for t in tracker_records if t['status'] == 'Active'),
-            'watch': sum(1 for t in tracker_records if t['status'] == 'Watch'),
-            'engaged': sum(1 for t in tracker_records if t['status'] == 'Engaged')
+            'active': sum(1 for t in deal_backed_tracker if t['status'] == 'Active'),
+            'watch': sum(1 for t in deal_backed_tracker if t['status'] == 'Watch'),
+            'engaged': sum(1 for t in deal_backed_tracker if t['status'] == 'Engaged')
         },
         'perCountryRows': per_country_raw_counts,
         'perCountryDeals': per_country_deal_counts,
@@ -1340,12 +1386,22 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print("[PASS] Assertion 2: Mechanism 1 Size integrity passed (0 summed footprints; IWG & WORQ 'Not disclosed').")
     passed += 1
 
-    # Assertion 3: Mechanism 2 ByteDance China site footprint retained (91,700 sqm / 987,049 sq ft)
-    bytedance = next((l for l in all_leads if 'bytedance' in l['company'].lower() and l['country'] == 'China'), None)
-    assert bytedance and bytedance['areaSqFt'] == 987049, f"Assertion 3 failed: ByteDance China sqft is {bytedance.get('areaSqFt')}"
-    assert '91,700 sqm' in bytedance['areaFormatted'], f"Assertion 3 failed: ByteDance areaFormatted is {bytedance['areaFormatted']}"
-    assert 'Bought site for 91,700 sqm GFA self-built campus' in bytedance['signal'], f"Assertion 3 failed: ByteDance signal damaged: {bytedance['signal']}"
-    print("[PASS] Assertion 3: Mechanism 2 ByteDance China site footprint retained (91,700 sqm / 987,049 sq ft).")
+    # Assertion 3: Structured columns only - JP Morgan, ByteDance China, Uni Razak Sheet cell ground truth
+    jpmorgan = next((l for l in all_leads if l['id'] == 'IN-003'), None)
+    bytedance = next((l for l in all_leads if l['id'] == 'CN-013'), None)
+    unirazak = next((l for l in all_leads if l['id'] == 'MY-046'), None)
+
+    assert jpmorgan and jpmorgan['areaFormatted'] == 'Not disclosed' and jpmorgan['areaSqFt'] is None, f"Assertion 3 failed for JP Morgan size: {jpmorgan['areaFormatted']}"
+    assert jpmorgan['dealType'] == 'Unstated', f"Assertion 3 failed for JP Morgan deal type: {jpmorgan['dealType']}"
+    assert jpmorgan['heatScore'] == 50, f"Assertion 3 failed for JP Morgan heat score: {jpmorgan['heatScore']} != 50"
+
+    assert bytedance and bytedance['areaFormatted'] == 'Not disclosed' and bytedance['areaSqFt'] is None, f"Assertion 3 failed for ByteDance size: {bytedance['areaFormatted']}"
+    assert bytedance['dealType'] == 'Pre-commitment', f"Assertion 3 failed for ByteDance deal type: {bytedance['dealType']}"
+    assert bytedance['heatScore'] == 65, f"Assertion 3 failed for ByteDance heat score: {bytedance['heatScore']} != 65"
+
+    assert unirazak and unirazak['dealType'] == 'Unstated', f"Assertion 3 failed for Uni Razak deal type: {unirazak['dealType']}"
+    assert unirazak['heatScoreBreakdown']['typePts'] == 5, f"Assertion 3 failed for Uni Razak type points: {unirazak['heatScoreBreakdown']['typePts']} != 5"
+    print("[PASS] Assertion 3: Structured columns only verified (JP Morgan H:50, ByteDance H:65, Uni Razak T:5).")
     passed += 1
 
     # Assertion 4: Mechanism 3 Reconciliation bridge verified: 544 raw - 8 non-deal = 536 deals
@@ -1358,15 +1414,19 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print(f"[PASS] Assertion 4: Mechanism 3 Reconciliation bridge verified: {raw_total} raw - {len(non_deal_signals)} non-deal = {len(all_leads)} deals.")
     passed += 1
 
-    # Assertion 5: Mechanism 4 Queue join check passed: 536/536 deals joined to accounts (0 missing)
-    tracker_keys = set((t['company'].lower().strip(), t['country'].lower().strip()) for t in tracker_records)
+    # Assertion 5: Mechanism 4 Queue join check passed: 536 deals map to 532 deal-backed accounts
+    deal_backed = [t for t in tracker_records if t.get('isDealBacked', True)]
+    assert len(deal_backed) == 532, f"Assertion 5 failed: Expected 532 deal-backed accounts, found {len(deal_backed)}"
+    assert not any('kuala lumpur kepong' in t['company'].lower() for t in deal_backed), "Assertion 5 failed: KLK must not appear in deal-backed accounts"
+    tracker_keys = set((t['company'].lower().strip(), t['country'].lower().strip()) for t in deal_backed)
     missing_accounts = [(l['company'], l['country']) for l in all_leads if (l['company'].lower().strip(), l['country'].lower().strip()) not in tracker_keys]
     assert len(missing_accounts) == 0, f"Assertion 5 failed: {len(missing_accounts)} deals missing from tracker: {missing_accounts}"
     assert ('blackrock', 'india') in tracker_keys, "Assertion 5 failed: BlackRock India missing from tracker"
     assert ('dhl', 'india') in tracker_keys, "Assertion 5 failed: DHL India missing from tracker"
     assert ("l'oréal", 'india') in tracker_keys or ("l'oreal", 'india') in tracker_keys, "Assertion 5 failed: L'Oréal India missing from tracker"
     assert ("l'oréal", 'china') in tracker_keys or ("l'oreal", 'china') in tracker_keys, "Assertion 5 failed: L'Oréal China missing from tracker"
-    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: {len(all_leads)}/{len(all_leads)} deals joined to accounts (0 missing).")
+    assert metrics['totalDisclosedSqFtFormatted'] == '29.5M sq ft', f"Assertion 5 failed: Disclosed pipeline footprint is {metrics['totalDisclosedSqFtFormatted']}, expected 29.5M sq ft"
+    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 536 deals map to 532 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
     passed += 1
 
     # Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings

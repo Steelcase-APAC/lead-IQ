@@ -32,7 +32,7 @@
             </svg>
           </div>
           <div class="brand-info">
-            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.21</span></h1>
+            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.22</span></h1>
             <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
           </div>
         </div>
@@ -138,7 +138,7 @@
         <button id="tabTrackerBtn" class="segment-btn" title="Active sales working queue">
           <span class="tab-icon">📋</span>
           <span>Queue</span>
-          <span class="tab-badge" id="tabTrackerCount">534</span>
+          <span class="tab-badge" id="tabTrackerCount">532</span>
         </button>
         <button id="tabHubsBtn" class="segment-btn" title="Buildings with 2+ tenant signals">
           <span class="tab-icon">🏢</span>
@@ -153,10 +153,13 @@
 
       <!-- Right: Sync Capsule, Theme, Google Sheet, Export -->
       <div class="header-right-group">
-        <div class="sync-status-capsule" title="Google Sheet dynamic database sync">
-          <div class="sync-indicator"></div>
-          <span class="sync-text-label">Synced</span>
-          <button id="btnSyncRefresh" class="btn-sync-icon" title="Trigger live sync from Google Sheet">
+        <div class="sync-status-capsule" id="syncStatusCapsule" title="Google Sheet dynamic database sync">
+          <div class="sync-indicator live" id="syncIndicator"></div>
+          <div class="sync-info-wrap">
+            <span class="sync-text-label" id="syncStatusText">Live (Google Sheet)</span>
+            <span class="sync-timestamp-label" id="syncTimestamp">Data as of: Oct 15, 2026 16:00</span>
+          </div>
+          <button id="btnSyncRefresh" class="btn-sync-icon" title="Fetch latest data live from Google Sheet">
             <svg id="syncIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
           </button>
         </div>
@@ -188,8 +191,8 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiUniqueCompanies">534</div>
-        <div class="scorecard-sub-info" id="kpiCompaniesSub">534 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
+        <div class="scorecard-big-num" id="kpiUniqueCompanies">532</div>
+        <div class="scorecard-sub-info" id="kpiCompaniesSub">532 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
       </div>
 
       <!-- Card 2: Disclosed Pipeline Footprint -->
@@ -200,7 +203,7 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiTotalSqFt">30.6M sq ft</div>
+        <div class="scorecard-big-num" id="kpiTotalSqFt">29.5M sq ft</div>
         <div class="scorecard-sub-info text-disclaimer" title="Data Honesty: Undisclosed deals are excluded from sum">
           ⚠️ Disclosed sizes only — partial total
         </div>
@@ -489,7 +492,7 @@
       <div id="trackerGapBanner" class="tracker-gap-banner clean" style="margin-bottom: 16px; padding: 10px 14px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; font-size: 12.5px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="color: #10b981; font-weight: bold; font-size: 14px;">✓</span>
-          <span style="color: var(--text-primary);"><strong>Tracker gap: 0 items</strong> — Clean join: all 536 commercial deals matched to 534 verified corporate accounts (8 non-deal signals excluded).</span>
+          <span style="color: var(--text-primary);"><strong>Tracker gap: 0 items</strong> — Clean join: 532 deal-backed accounts cleanly mapped (0 unmapped deals).</span>
         </div>
         <span class="badge-clean active" style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">0 Items</span>
       </div>
@@ -498,8 +501,8 @@
       <div class="tracker-status-ribbon">
         <div class="status-summary-card">
           <span class="ribbon-label">TOTAL MONITORED</span>
-          <strong id="kpiTrackerTotal">534</strong>
-          <span class="ribbon-sub">Corporate accounts (account-level)</span>
+          <strong id="kpiTrackerTotal">532</strong>
+          <span class="ribbon-sub">Deal-backed accounts (account-level)</span>
         </div>
         <div class="status-summary-card active-border">
           <span class="ribbon-label">ACTIVE OUTREACH</span>
@@ -508,7 +511,7 @@
         </div>
         <div class="status-summary-card">
           <span class="ribbon-label">WATCHLIST</span>
-          <strong id="kpiTrackerWatch">410</strong>
+          <strong id="kpiTrackerWatch">408</strong>
           <span class="ribbon-sub">Pipeline & expansions (account-level)</span>
         </div>
         <div class="status-summary-card">
@@ -574,7 +577,7 @@
             <h3>Multi-Tenant Target Hubs — High Yield Visits</h3>
             <p id="hubsBannerSub">Buildings and corporate parks with 2 or more verified corporate move signals (15 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.</p>
             <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;"><strong>Hubs Qualification Criteria:</strong> Multi-tenant commercial hubs strictly require ≥2 verified corporate tenant move opportunities. In filtered market views, the catalog displays all identified target buildings (including single-tenant moves) to provide full visibility while clearly differentiating multi-tenant hubs (≥2 tenants) from single-tenant buildings.</p>
-            <p style="font-size: 11.5px; color: var(--accent-blue); margin-top: 4px; font-weight: 500;"><strong>Changelog:</strong> Hub count changed 22 → 15 after itemized audit: (1) Menara Ethos dropped to 1 tenant after merging duplicate PwC rows; (2) Exchange 106 dropped BTDUex scraper artifact; (3) Menara Maybank excluded after isolating Maybank MFRS 16; (4) Wisma Taiko excluded after isolating KLK; (5) Standardized and deduplicated building entities.</p>
+            <p style="font-size: 11.5px; color: var(--accent-blue); margin-top: 4px; font-weight: 500;"><strong>Changelog:</strong> Hub count changed 22 → 15 after itemized audit: (1) Exchange 106 dropped BTDUex scraper artifact; (2) Menara Maybank excluded after isolating Maybank MFRS 16; (3) Wisma Taiko excluded after isolating KLK; (4) Standardized and deduplicated building entities (PwC duplicate merged directly in Sheet).</p>
           </div>
         </div>
         <span class="badge-clean" id="hubsCountPill">15 Multi-Tenant Hubs (≥2 tenants)</span>
@@ -619,7 +622,7 @@
           </div>
           <div class="boundary-item">
             <strong>Changelog (Round 4 / Round 5):</strong>
-            <p><strong>Hub count changed 22 → 15:</strong> Multi-tenant hubs reconciled from 22 to 15 verified commercial building clusters (≥2 verified tenants) by itemized audit: (1) Menara Ethos dropped to 1 tenant after merging duplicate PwC rows; (2) Exchange 106 dropped BTDUex scraper artifact; (3) Menara Maybank excluded after isolating Maybank MFRS 16 accounting disclosure; (4) Wisma Taiko excluded after isolating KLK non-deal entry; (5) Standardized and deduplicated building entities.</p>
+            <p><strong>Hub count changed 22 → 15:</strong> Multi-tenant hubs reconciled from 22 to 15 verified commercial building clusters (≥2 verified tenants) by itemized audit: (1) Exchange 106 dropped BTDUex scraper artifact; (2) Menara Maybank excluded after isolating Maybank MFRS 16 accounting disclosure; (3) Wisma Taiko excluded after isolating KLK non-deal entry; (4) Standardized and deduplicated building entities (PwC duplicate was merged directly in Sheet).</p>
           </div>
         </div>
       </div>
