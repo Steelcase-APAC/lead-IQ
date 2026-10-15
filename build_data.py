@@ -218,8 +218,24 @@ def clean_signal_text(sig):
     s = re.sub(r'Group lease liabilities.*?(?:amalgamation|merger).*', 'Airtel Lanka amalgamation office-consolidation tracked in statutory filings', s, flags=re.I)
     s = re.sub(r'Group ROU assets.*', 'Group workspace expansion tracked in statutory filings', s, flags=re.I)
 
-    # Broken redaction fragments
-    s = re.sub(r'\bfor\s+(?:\bRM|\bRs\.?|\bUSD|\bEUR|\$)?\s*[\d\.,]+(?:m|bn|cr|b)?(?:\s*cash)?\b', '', s, flags=re.I)
+    # Mechanism 5: Zero tolerance for illegal terms
+    s = re.sub(r'\bpre-lease\b', 'pre-commitment', s, flags=re.I)
+    s = re.sub(r'\bown-use(?:\s+purchase)?\b', 'pre-commitment', s, flags=re.I)
+    s = re.sub(r'\bfor\s+own\s+use\b', 'for corporate headquarters', s, flags=re.I)
+    s = re.sub(r'\bconsolidation\b', 'relocation', s, flags=re.I)
+    s = re.sub(r'\bconsolidated\b', 'co-located', s, flags=re.I)
+    s = re.sub(r'\bnew\s+set-?up\b', 'new office', s, flags=re.I)
+    s = re.sub(r'\bgovernment\s+tender\b', 'government RFP', s, flags=re.I)
+    s = re.sub(r'\(expiry-pattern model\)', '(lease cycle model)', s, flags=re.I)
+    s = re.sub(r'expiry-pattern', 'lease cycle model', s, flags=re.I)
+    s = re.sub(r'pre-expiry', 'pipeline', s, flags=re.I)
+    s = re.sub(r'lease expiry', 'lease milestone', s, flags=re.I)
+    s = re.sub(r'countdown', 'timeline', s, flags=re.I)
+    s = re.sub(r'renewal-date prediction', 'renewal milestone', s, flags=re.I)
+    s = re.sub(r'renewal-date', 'renewal milestone', s, flags=re.I)
+
+    # Broken redaction fragments (require currency and ensure no area units follow)
+    s = re.sub(r'\bfor\s+(?:\bRM|\bRs\.?|\bUSD|\bEUR|\bKRW|\bRMB|\bJPY|\$|₹|¥|₩)\s*[\d\.,]+(?:m|bn|cr|b)?(?:\s*cash)?\b(?!\s*(?:sqm|sq\s*ft|sf|gfa|tsubo|pyeong|py\b))', '', s, flags=re.I)
     s = re.sub(r'\bfor\s*;\b', '', s, flags=re.I)
     s = re.sub(r'\bto\s*;\b', '', s, flags=re.I)
 
@@ -299,7 +315,16 @@ def clean_timing_text(timing):
     if not timing: return ''
     t = timing
 
-    # Zero tolerance for expiry/pre-expiry/countdown phrases (Fix 1, Fix 4, Fix 11)
+    # Mechanism 5: Zero tolerance for illegal terms
+    t = re.sub(r'\bpre-lease\b', 'pre-commitment', t, flags=re.I)
+    t = re.sub(r'\bown-use(?:\s+purchase)?\b', 'pre-commitment', t, flags=re.I)
+    t = re.sub(r'\bfor\s+own\s+use\b', 'for corporate headquarters', t, flags=re.I)
+    t = re.sub(r'\bconsolidation\b', 'relocation', t, flags=re.I)
+    t = re.sub(r'\bconsolidated\b', 'co-located', t, flags=re.I)
+    t = re.sub(r'\bnew\s+set-?up\b', 'new office', t, flags=re.I)
+    t = re.sub(r'\bgovernment\s+tender\b', 'government RFP', t, flags=re.I)
+
+    # Zero tolerance for expiry/pre-expiry/countdown phrases
     t = re.sub(r'\s*—\s*track\s+(?:next\s+)?expiry(?:\s+cycle)?', '', t, flags=re.I)
     t = re.sub(r'\s*—\s*monitor\s+(?:for\s+)?next\s+expiry(?:\s+cycle)?', '', t, flags=re.I)
     t = re.sub(r'\s*—\s*next\s+expiry\s+(?:cycle\s+)?signal', '', t, flags=re.I)
@@ -313,12 +338,15 @@ def clean_timing_text(timing):
     t = re.sub(r'expiries', 'renewals', t, flags=re.I)
     t = re.sub(r'countdown', 'timeline', t, flags=re.I)
     t = re.sub(r'renewal-date prediction', 'renewal milestone', t, flags=re.I)
+    t = re.sub(r'renewal-date', 'renewal milestone', t, flags=re.I)
     t = re.sub(r'\s{2,}', ' ', t)
     return t.strip(' ;,')
 
 def clean_source_text(text):
     if not text: return ''
     t = text
+    t = re.sub(r'\bnew\s+set-?ups\b', 'new offices', t, flags=re.I)
+    t = re.sub(r'\bnew\s+set-?up\b', 'new office', t, flags=re.I)
     t = re.sub(r'pre-expiry', 'upcoming renewal', t, flags=re.I)
     t = re.sub(r'lease expiry dates', 'lease milestone dates', t, flags=re.I)
     t = re.sub(r'lease expiry', 'lease milestone', t, flags=re.I)
@@ -332,6 +360,9 @@ def clean_source_text(text):
     t = re.sub(r'expiry', 'renewal', t, flags=re.I)
     t = re.sub(r'countdown', 'timeline', t, flags=re.I)
     t = re.sub(r'renewal-date prediction', 'renewal milestone', t, flags=re.I)
+    t = re.sub(r'renewal-date', 'renewal milestone', t, flags=re.I)
+    t = re.sub(r'\s{2,}', ' ', t)
+    return t.strip(' ;,')
     return t.strip()
 
 def extract_building_and_submarket(comp, country, market_str, signal_str, explicit_bldg=''):
@@ -387,113 +418,85 @@ def extract_building_and_submarket(comp, country, market_str, signal_str, explic
     return submarket, building, bool(building), is_inferred
 
 def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False):
+    """
+    MECHANISM 1 — SIZE (covers IWG, WORQ):
+    Size comes from ONE deal footprint only. Never sum two figures found in one Signal.
+    Never sum a part with a whole (outlet + portfolio total).
+    If a Signal contains multiple size figures, set Size = "Not disclosed" and flag for review.
+    No hardcoded per-company patches — the rule produces the correct value for every row.
+    """
     # Non-deal accounting rows have undisclosed/no deal size
     if is_non_deal:
         return None, "Not disclosed", "Undisclosed", False, False
 
-    sqft = 0
-    inferred = False
-    disclosed = False
-    raw_match = ''
-
-    # Fix 3c: ByteDance China Olympic Park site
-    if 'bytedance' in comp.lower() and country == 'China' and '91,700' in signal_str:
-        sqft = int(91700 * 10.7639) # 987,049 sq ft
-        return sqft, f"{sqft:,.0f} sq ft (91,700 sqm)", "Mega (>100k)", True, True
-
-    # Fix 3a: JP Morgan BKC
-    if 'jp morgan' in comp.lower() and '1.16l' in signal_str.lower():
-        sqft = 116000
-        return sqft, "1.16 Lakh sq ft", "Mega (>100k)", True, True
-
+    # 1. Use explicit size column if given
     if explicit_size and explicit_size.strip():
         try:
             sqft = int(float(explicit_size.replace(',', '').replace(' ', '')))
-            disclosed = True
+            if sqft > 0:
+                tier = "Mega (>100k)" if sqft >= 100000 else "Large (50k-100k)" if sqft >= 50000 else "Mid (20k-50k)" if sqft >= 20000 else "Boutique (<20k)"
+                formatted = f"{sqft/1000000:.2f}M sq ft" if sqft >= 1000000 else (f"{sqft/100000:.2f} Lakh sq ft" if sqft >= 100000 and country == 'India' else f"{sqft:,.0f} sq ft")
+                return sqft, formatted, tier, True, False
         except:
             pass
 
-    if not sqft and signal_str:
-        # Fix 7: Multi-unit or hyphenated sq ft patterns (e.g. Co-labs 14,000-sq ft, IWG 24,700-sq ft + ~1,600-sq ft)
-        sqft_matches = re.findall(r'([\d,]+)[-\s]*(?:sq\s*ft|sf)', signal_str, re.I)
-        if sqft_matches:
-            try:
-                sqft_vals = [int(m.replace(',', '')) for m in sqft_matches]
-                sqft = sum(sqft_vals)
-                if len(sqft_vals) > 1:
-                    raw_match = " + ".join(f"{v:,}" for v in sqft_vals) + " sq ft"
-                else:
-                    raw_match = f"{sqft_vals[0]:,} sq ft"
-                inferred = True
-                disclosed = True
-            except:
-                pass
+    if not signal_str:
+        return None, "Not disclosed", "Undisclosed", False, False
 
-        # 1. Lakh sq ft (India)
-        if not sqft:
-            m = re.search(r'([\d\.]+)\s*(?:L|lakh|Lakh)\s*sq\s*ft', signal_str, re.I)
-            if m:
-                sqft = int(float(m.group(1)) * 100000)
-                raw_match = f"{m.group(1)} Lakh sq ft"
-                inferred = True
-                disclosed = True
+    # 2. Extract from signal string using Mechanism 1 rules
+    # Strip unit-conversion parentheses (e.g. (~7,600 sqm) or (42,700 sq ft) or (~552 sqm))
+    s_norm = re.sub(r'\(\s*~?[\d,]+(?:\.\d+)?\s*(?:sqm|m2|sq\s*ft|sf|tsubo|pyeong|py)\s*\)', '', signal_str, flags=re.I)
+    s_norm = re.sub(r'/\s*~?[\d\.]+\s*(?:M|mn)?\s*sq\s*ft', '', s_norm, flags=re.I)
 
-        # 2. Mn sq ft
-        if not sqft:
-            m = re.search(r'([\d\.]+)\s*(?:M|mn|million)\s*sq\s*ft', signal_str, re.I)
-            if m and float(m.group(1)) < 15.0:
-                sqft = int(float(m.group(1)) * 1000000)
-                raw_match = f"{m.group(1)}M sq ft"
-                inferred = True
-                disclosed = True
+    # Detect independent area patterns
+    lakh_matches = re.findall(r'([\d\.]+)\s*(?:L|lakh|Lakh)\s*sq\s*ft', s_norm, re.I)
+    mn_matches = [m for m in re.findall(r'([\d\.]+)\s*(?:M|mn|million)\s*sq\s*ft', s_norm, re.I) if float(m) < 20.0]
+    s_no_lakh_mn = re.sub(r'[\d\.]+\s*(?:L|lakh|Lakh|M|mn|million)\s*sq\s*ft', '', s_norm, flags=re.I)
+    sqft_matches = re.findall(r'([\d,]+)[-\s]*(?:sq\s*ft|sf|sqft|square\s*feet)', s_no_lakh_mn, re.I)
+    tsubo_matches = re.findall(r'([\d,]+)\s*(?:tsubo|pyeong|py\b)', s_no_lakh_mn, re.I)
+    sqm_matches = re.findall(r'([\d,]+(?:\.\d+)?)\s*(?:sqm|m2)', s_no_lakh_mn, re.I)
 
-        # 3. Tsubo or Pyeong (Japan / Korea)
-        if not sqft:
-            m = re.search(r'([\d,]+)\s*(?:tsubo|pyeong)', signal_str, re.I)
-            if m:
-                try:
-                    val = int(m.group(1).replace(',', ''))
-                    sqft = int(val * 35.58)
-                    raw_match = f"{val:,} tsubo/pyeong"
-                    inferred = True
-                    disclosed = True
-                except:
-                    pass
+    total_matches = len(lakh_matches) + len(mn_matches) + len(sqft_matches) + len(tsubo_matches) + len(sqm_matches)
 
-        # 4. Sqm (China / Korea / Global)
-        if not sqft:
-            m = re.search(r'([\d,]+)\s*sqm', signal_str, re.I)
-            if m:
-                try:
-                    val = int(m.group(1).replace(',', ''))
-                    sqft = int(val * 10.7639)
-                    raw_match = f"{val:,} sqm"
-                    inferred = True
-                    disclosed = True
-                except:
-                    pass
+    if total_matches > 1:
+        # Multiple size figures found -> Rule: Set Size = 'Not disclosed' and flag
+        print(f"  [SIZE_FLAG - Mechanism 1] {comp} ({country}): multiple size figures found ({total_matches}) -> Size set to 'Not disclosed'")
+        return None, "Not disclosed", "Undisclosed", False, False
+    elif total_matches == 1:
+        sqft = 0
+        raw_match = ''
+        if lakh_matches:
+            sqft = int(round(float(lakh_matches[0]) * 100000))
+            raw_match = f"{lakh_matches[0]} Lakh sq ft"
+        elif mn_matches:
+            sqft = int(round(float(mn_matches[0]) * 1000000))
+            raw_match = f"{mn_matches[0]}M sq ft"
+        elif sqft_matches:
+            sqft = int(sqft_matches[0].replace(',', ''))
+            raw_match = f"{sqft:,} sq ft"
+        elif tsubo_matches:
+            val = int(tsubo_matches[0].replace(',', ''))
+            sqft = int(val * 35.58)
+            raw_match = f"{val:,} tsubo/pyeong"
+        elif sqm_matches:
+            val = float(sqm_matches[0].replace(',', ''))
+            sqft = int(val * 10.7639)
+            raw_match = f"{sqm_matches[0]} sqm"
 
-    # Format
-    if sqft > 0:
-        if sqft >= 1000000:
-            formatted = f"{sqft/1000000:.2f}M sq ft"
-        elif sqft >= 100000 and country == 'India':
-            formatted = f"{sqft/100000:.2f} Lakh sq ft"
-        else:
-            formatted = f"{sqft:,.0f} sq ft"
-        if raw_match and ('sqm' in raw_match or 'tsubo' in raw_match or '+' in raw_match):
-            formatted += f" ({raw_match})"
+        if sqft > 0:
+            if sqft >= 1000000:
+                formatted = f"{sqft/1000000:.2f}M sq ft"
+            elif sqft >= 100000 and country == 'India':
+                formatted = f"{sqft/100000:.2f} Lakh sq ft"
+            else:
+                formatted = f"{sqft:,.0f} sq ft"
+            if raw_match and ('sqm' in raw_match or 'tsubo' in raw_match):
+                formatted += f" ({raw_match})"
 
-        if sqft >= 100000: tier = "Mega (>100k)"
-        elif sqft >= 50000: tier = "Large (50k-100k)"
-        elif sqft >= 20000: tier = "Mid (20k-50k)"
-        else: tier = "Boutique (<20k)"
-    else:
-        sqft = None
-        formatted = "Not disclosed"
-        tier = "Undisclosed"
+            tier = "Mega (>100k)" if sqft >= 100000 else "Large (50k-100k)" if sqft >= 50000 else "Mid (20k-50k)" if sqft >= 20000 else "Boutique (<20k)"
+            return sqft, formatted, tier, True, True
 
-    return sqft, formatted, tier, disclosed, inferred
+    return None, "Not disclosed", "Undisclosed", False, False
 
 def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_non_deal=False):
     """
@@ -956,9 +959,10 @@ def build_all():
                 })
         print(f"Loaded and sanitized {len(sources_records)} intelligence sources from sources.csv")
 
-    # 4. Parse Market Tabs (Country Leads - 545 raw rows)
+    # 4. Parse Market Tabs (Country Leads - 544 raw rows)
     all_leads = []
     non_deal_signals = []
+    dropped_scraper_rows = []
     lead_id = 1
     building_cluster_counts = {}
     pwc_malaysia_merged = False
@@ -994,6 +998,7 @@ def build_all():
                 # Item 3: Omit garbled BTDUex scraper row
                 if comp.lower() == 'btduex':
                     print("  [Omit] Dropped garbled BTDUex scraper row as per Item 3.")
+                    dropped_scraper_rows.append({'company': 'BTDUex', 'country': country_name, 'reason': 'Scraper artifact'})
                     continue
 
                 mkt = r[1].strip() if len(r)>1 else ''
@@ -1147,9 +1152,27 @@ def build_all():
     all_leads.sort(key=lambda x: -x['heatScore'])
 
     # Compute high-level metrics
-    total_raw_rows = sum(per_country_raw_counts.values()) # 545
+    raw_total = sum(per_country_raw_counts.values()) # 544
     distinct_opportunities = len(all_leads) # 535 verified commercial deals
-    unique_companies = len(tracker_records) # 531 corporate accounts (single-source)
+    unique_companies = len(tracker_records) # 534 corporate accounts (single-source)
+    non_deal_count = len(non_deal_signals) # 8
+    scraper_count = len(dropped_scraper_rows) # 1
+    total_exclusions = non_deal_count + scraper_count # 9
+
+    # MECHANISM 3 — BRIDGE: Computed dynamically from data on every build
+    assert raw_total - total_exclusions == distinct_opportunities, f"Bridge arithmetic mismatch: {raw_total} - {total_exclusions} != {distinct_opportunities}"
+
+    bridge_formula = f"{raw_total} raw rows − {non_deal_count} non-deal − {scraper_count} BTDUex removal = {distinct_opportunities} deals"
+    reconciliation_bridge = {
+        'rawTotal': raw_total,
+        'nonDealCount': non_deal_count,
+        'scraperOmittedCount': scraper_count,
+        'totalDeals': distinct_opportunities,
+        'formula': bridge_formula,
+        'nonDealItems': [f"{s['company']} ({s['country']})" for s in non_deal_signals],
+        'scraperOmittedItems': [f"{r['company']} ({r['country']})" for r in dropped_scraper_rows],
+        'explanation': f"{raw_total} raw sheet rows − {non_deal_count} non-deal accounting/structural entries − {scraper_count} BTDUex scraper artifact = {distinct_opportunities} commercial deals (PwC merged directly in Sheet)."
+    }
 
     per_country_deal_counts = {}
     for l in all_leads:
@@ -1162,11 +1185,11 @@ def build_all():
     type_disclosure_rate = sum(1 for l in all_leads if l['dealType'] != 'Unstated' and not l['isNonDealRow']) / distinct_opportunities * 100
 
     database_metrics = {
-        'totalTrackedRows': total_raw_rows,
+        'totalTrackedRows': raw_total,
         'totalDeals': distinct_opportunities,
-        'nonDealSignalsCount': len(non_deal_signals),
+        'nonDealSignalsCount': non_deal_count,
         'uniqueCompanies': unique_companies,
-        'uniqueAccountsBreakdown': f"{unique_companies} monitored corporate accounts ({len(non_deal_signals)} non-deal macro/accounting signals excluded)",
+        'uniqueAccountsBreakdown': f"{unique_companies} monitored corporate accounts ({non_deal_count} non-deal macro/accounting signals excluded)",
         'accountStatuses': {
             'active': sum(1 for t in tracker_records if t['status'] == 'Active'),
             'watch': sum(1 for t in tracker_records if t['status'] == 'Watch'),
@@ -1174,6 +1197,7 @@ def build_all():
         },
         'perCountryRows': per_country_raw_counts,
         'perCountryDeals': per_country_deal_counts,
+        'reconciliationBridge': reconciliation_bridge,
         'totalDisclosedSqFt': total_disclosed_sqft,
         'totalDisclosedSqFtFormatted': f"{total_disclosed_sqft / 1000000:.1f}M sq ft",
         'buildingDisclosureRate': round(building_disclosure_rate, 1),
@@ -1193,10 +1217,11 @@ def build_all():
         }
     }
 
-    print(f"Total tracked rows: {total_raw_rows} (India: {per_country_raw_counts['India']}, Sri Lanka: {per_country_raw_counts['Sri Lanka']}, Malaysia: {per_country_raw_counts['Malaysia']}, Japan: {per_country_raw_counts['Japan']}, Korea: {per_country_raw_counts['Korea']}, China: {per_country_raw_counts['China']})")
+    print(f"Total tracked rows: {raw_total} (India: {per_country_raw_counts['India']}, Sri Lanka: {per_country_raw_counts['Sri Lanka']}, Malaysia: {per_country_raw_counts['Malaysia']}, Japan: {per_country_raw_counts['Japan']}, Korea: {per_country_raw_counts['Korea']}, China: {per_country_raw_counts['China']})")
     print(f"Distinct commercial deals: {distinct_opportunities}")
-    print(f"Non-deal macro/accounting signals: {len(non_deal_signals)}")
+    print(f"Non-deal macro/accounting signals: {non_deal_count}")
     print(f"Corporate accounts (single-source): {unique_companies} (Active: {database_metrics['accountStatuses']['active']}, Watch: {database_metrics['accountStatuses']['watch']}, Engaged: {database_metrics['accountStatuses']['engaged']})")
+    print(f"Reconciliation bridge: {bridge_formula}")
     print(f"Disclosed footprint: {database_metrics['totalDisclosedSqFtFormatted']}")
     print(f"Building disclosure: {database_metrics['buildingDisclosureRate']}%")
     print(f"Size disclosure: {database_metrics['sizeDisclosureRate']}%")
@@ -1235,6 +1260,9 @@ def build_all():
 
     print(f"Successfully generated {data_js_path} ({os.path.getsize(data_js_path)} bytes)")
 
+    # Execute Automated Regression Suite
+    run_regression_suite(all_leads, tracker_records, snapshots_records, sources_records, non_deal_signals, dropped_scraper_rows, database_metrics, per_country_raw_counts)
+
     return {
         'leads': all_leads,
         'tracker': tracker_records,
@@ -1245,6 +1273,146 @@ def build_all():
         'lastSynced': timestamp,
         'sheetId': sheet_id
     }
+
+def assert_no_illegal_terms(all_leads, tracker_records, snapshots_records, sources_records, non_deal_signals, metrics):
+    ILLEGAL_PATTERNS = [
+        (r'\bpre-lease\b', 'Pre-lease'),
+        (r'\bown-use\s+purchase\b', 'Own-use Purchase'),
+        (r'\bown-use\b', 'Own-use'),
+        (r'\bconsolidation\b', 'Consolidation'),
+        (r'\bnew\s+set-?up\b', 'New Setup'),
+        (r'\bgovernment\s+tender\b', 'Government Tender'),
+        (r'\blease\s+expiry\b', 'Lease Expiry'),
+        (r'\bpre-expiry\b', 'Pre-expiry'),
+        (r'expiry-pattern', 'expiry-pattern'),
+        (r'\bcountdown\b', 'countdown'),
+        (r'renewal-date', 'renewal-date'),
+    ]
+    
+    hits = []
+    
+    def check_text(val, context):
+        if not isinstance(val, str): return
+        for pat, name in ILLEGAL_PATTERNS:
+            if re.search(pat, val, re.I):
+                hits.append((name, context, val))
+
+    for l in all_leads:
+        ctx = f"Lead: {l['company']} ({l['country']})"
+        for fld in ['signal', 'timing', 'dealType', 'trackerTrend', 'trackerStatus', 'trackerNotes', 'suggestedOpeningLine']:
+            check_text(l.get(fld, ''), f"{ctx} [{fld}]")
+
+    for t in tracker_records:
+        ctx = f"Tracker: {t['company']} ({t['country']})"
+        for fld in ['currentSnapshot', 'previousSnapshot', 'change', 'trend', 'status', 'notes']:
+            check_text(t.get(fld, ''), f"{ctx} [{fld}]")
+
+    for s in snapshots_records:
+        ctx = f"Snapshot: {s['company']} ({s['country']})"
+        check_text(s.get('snapshot', ''), f"{ctx} [snapshot]")
+
+    for src in sources_records:
+        ctx = f"Source: {src['source']} ({src['country']})"
+        for fld in ['whatItCovers', 'howToUse', 'trustLevel']:
+            check_text(src.get(fld, ''), f"{ctx} [{fld}]")
+
+    for nd in non_deal_signals:
+        ctx = f"NonDeal: {nd['company']} ({nd['country']})"
+        for fld in ['signal', 'timing']:
+            check_text(nd.get(fld, ''), f"{ctx} [{fld}]")
+
+    if hits:
+        print(f"[FAIL] Label sweep detected {len(hits)} illegal term occurrences:")
+        for name, ctx, snippet in hits[:10]:
+            print(f"  - [{name}] in {ctx}: {snippet[:80]}")
+        raise AssertionError(f"Build failed: {len(hits)} illegal terms found in displayed strings!")
+
+def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_records, non_deal_signals, dropped_scraper_rows, metrics, per_country_raw_counts):
+    print("\n" + "="*50)
+    print("        LEASE-IQ REGRESSION SUITE RESULTS         ")
+    print("="*50)
+    passed = 0
+    total = 7
+
+    # Assertion 1: Invented-data cleanup & broken-text check
+    broken_patterns = [
+        (r'\b(?:site|for|at|space|outlet|campus|tower)\s+(?:sqm|sq\s*ft|sf|gfa|tsubo|pyeong)\b', 'Orphaned area unit'),
+        (r'\(\s*4\s*(?:→|->)', 'Broken (4→ fragment'),
+        (r'up\s+to\s*;', 'Broken up to ; fragment'),
+        (r',\d+\.\d+m', 'Broken ,390.4m fragment'),
+        (r'\bfor\s*;', 'Dangling for ;'),
+        (r'\bto\s*;', 'Dangling to ;'),
+        (r'\(\s*;', 'Dangling (;'),
+        (r';\s*;+', 'Double semicolon'),
+        (r',\s*,+', 'Double comma'),
+        (r';\s*\)', 'Dangling ;)'),
+        (r',\s*\)', 'Dangling ,)'),
+        (r'\(\s*\)', 'Empty parentheses'),
+        (r'~\s*;', 'Dangling ~;'),
+        (r'\b\d+[\d,]*\s*h\.\.\.', 'Truncated headcount')
+    ]
+    broken_hits = []
+    for l in all_leads:
+        sig = l.get('signal', '')
+        for pat, desc in broken_patterns:
+            if re.search(pat, sig, re.I):
+                broken_hits.append((l['company'], desc, sig))
+    assert len(broken_hits) == 0, f"Assertion 1 failed: {len(broken_hits)} broken text fragments found: {broken_hits}"
+    print("[PASS] Assertion 1: Invented-data cleanup & broken-text check passed (0 broken fragments/orphaned units).")
+    passed += 1
+
+    # Assertion 2: Mechanism 1 Size integrity (no summed footprints, IWG & WORQ 'Not disclosed')
+    iwg = next((l for l in all_leads if 'iwg' in l['company'].lower()), None)
+    worq = next((l for l in all_leads if 'worq' in l['company'].lower()), None)
+    assert iwg and iwg['areaFormatted'] == 'Not disclosed' and iwg['areaSqFt'] is None, f"Assertion 2 failed for IWG: {iwg['areaFormatted']}"
+    assert worq and worq['areaFormatted'] == 'Not disclosed' and worq['areaSqFt'] is None, f"Assertion 2 failed for WORQ: {worq['areaFormatted']}"
+    print("[PASS] Assertion 2: Mechanism 1 Size integrity passed (0 summed footprints; IWG & WORQ 'Not disclosed').")
+    passed += 1
+
+    # Assertion 3: Mechanism 2 ByteDance China site footprint retained (91,700 sqm / 987,049 sq ft)
+    bytedance = next((l for l in all_leads if 'bytedance' in l['company'].lower() and l['country'] == 'China'), None)
+    assert bytedance and bytedance['areaSqFt'] == 987049, f"Assertion 3 failed: ByteDance China sqft is {bytedance.get('areaSqFt')}"
+    assert '91,700 sqm' in bytedance['areaFormatted'], f"Assertion 3 failed: ByteDance areaFormatted is {bytedance['areaFormatted']}"
+    assert 'Bought site for 91,700 sqm GFA self-built campus' in bytedance['signal'], f"Assertion 3 failed: ByteDance signal damaged: {bytedance['signal']}"
+    print("[PASS] Assertion 3: Mechanism 2 ByteDance China site footprint retained (91,700 sqm / 987,049 sq ft).")
+    passed += 1
+
+    # Assertion 4: Mechanism 3 Reconciliation bridge verified: 544 raw - 9 exclusions = 535 deals
+    raw_total = sum(per_country_raw_counts.values())
+    assert raw_total == 544, f"Assertion 4 failed: raw_total is {raw_total}, expected 544"
+    assert per_country_raw_counts['Malaysia'] == 80, f"Assertion 4 failed: Malaysia raw rows is {per_country_raw_counts['Malaysia']}, expected 80"
+    assert len(non_deal_signals) == 8, f"Assertion 4 failed: non_deal_signals is {len(non_deal_signals)}, expected 8"
+    assert len(dropped_scraper_rows) == 1, f"Assertion 4 failed: dropped_scraper_rows is {len(dropped_scraper_rows)}, expected 1"
+    assert len(all_leads) == 535, f"Assertion 4 failed: total commercial deals is {len(all_leads)}, expected 535"
+    assert raw_total - len(non_deal_signals) - len(dropped_scraper_rows) == len(all_leads)
+    print(f"[PASS] Assertion 4: Mechanism 3 Reconciliation bridge verified: {raw_total} raw - {len(non_deal_signals) + len(dropped_scraper_rows)} exclusions = {len(all_leads)} deals.")
+    passed += 1
+
+    # Assertion 5: Mechanism 4 Queue join check passed: 535/535 deals joined to accounts (0 missing)
+    tracker_keys = set((t['company'].lower().strip(), t['country'].lower().strip()) for t in tracker_records)
+    missing_accounts = [(l['company'], l['country']) for l in all_leads if (l['company'].lower().strip(), l['country'].lower().strip()) not in tracker_keys]
+    assert len(missing_accounts) == 0, f"Assertion 5 failed: {len(missing_accounts)} deals missing from tracker: {missing_accounts}"
+    assert ('blackrock', 'india') in tracker_keys, "Assertion 5 failed: BlackRock India missing from tracker"
+    assert ('dhl', 'india') in tracker_keys, "Assertion 5 failed: DHL India missing from tracker"
+    assert ("l'oréal", 'india') in tracker_keys or ("l'oreal", 'india') in tracker_keys, "Assertion 5 failed: L'Oréal India missing from tracker"
+    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: {len(all_leads)}/{len(all_leads)} deals joined to accounts (0 missing).")
+    passed += 1
+
+    # Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings
+    assert_no_illegal_terms(all_leads, tracker_records, snapshots_records, sources_records, non_deal_signals, metrics)
+    print("[PASS] Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings.")
+    passed += 1
+
+    # Assertion 7: Mechanism 6 Hubs counts & evidenced changelog verified (15 multi-tenant hubs)
+    assert metrics['multiTenantHubsCount'] == 15, f"Assertion 7 failed: multiTenantHubsCount is {metrics['multiTenantHubsCount']}, expected 15"
+    print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified (15 multi-tenant hubs across APAC).")
+    passed += 1
+
+    print("="*50)
+    print(f"ALL {passed}/{total} REGRESSION ASSERTIONS PASSED SUCCESSFULLY!")
+    print("="*50 + "\n")
+
+    return True
 
 if __name__ == '__main__':
     build_all()

@@ -1057,8 +1057,8 @@ document.addEventListener('DOMContentLoaded', () => {
       relevant = relevant.filter(t => t.status === state.filters.status);
     }
     if (state.filters.dealType !== 'ALL' || state.filters.submarket !== 'ALL' || state.filters.window !== 'ALL' || state.filters.sizeTier !== 'ALL' || state.filters.search !== '') {
-      const matchingCompanies = new Set(state.filteredLeads.map(l => l.company.toLowerCase()));
-      relevant = relevant.filter(t => matchingCompanies.has(t.company.toLowerCase()));
+      const matchingCompanyCountry = new Set(state.filteredLeads.map(l => `${l.company.toLowerCase().trim()}:::${l.country.toLowerCase().trim()}`));
+      relevant = relevant.filter(t => matchingCompanyCountry.has(`${t.company.toLowerCase().trim()}:::${t.country.toLowerCase().trim()}`));
     }
 
     // Update Ribbon Metrics (Account-level dedupe)

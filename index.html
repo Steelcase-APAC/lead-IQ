@@ -269,7 +269,7 @@
         </div>
 
         <div class="select-filter-group">
-          <label>DEAL TYPE</label>
+          <label title="Deal Type evaluates at the deal level">DEAL TYPE (deal-level)</label>
           <select id="filterDealType">
             <option value="ALL">All Deal Types</option>
             <option value="Relocation">Relocation</option>
@@ -565,7 +565,7 @@
             <h3>Multi-Tenant Target Hubs — High Yield Visits</h3>
             <p id="hubsBannerSub">Buildings and corporate parks with 2 or more verified corporate move signals (15 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.</p>
             <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;"><strong>Hubs Qualification Criteria:</strong> Multi-tenant commercial hubs strictly require ≥2 verified corporate tenant move opportunities. In filtered market views, the catalog displays all identified target buildings (including single-tenant moves) to provide full visibility while clearly differentiating multi-tenant hubs (≥2 tenants) from single-tenant buildings.</p>
-            <p style="font-size: 11.5px; color: var(--accent-blue); margin-top: 4px; font-weight: 500;"><strong>Changelog:</strong> Hub count changed 22 → 15 after standardizing building name deduplication, merging the duplicate PwC Menara Ethos opportunity, removing scraper artifact BTDUex, and isolating non-deal accounting disclosures.</p>
+            <p style="font-size: 11.5px; color: var(--accent-blue); margin-top: 4px; font-weight: 500;"><strong>Changelog:</strong> Hub count changed 22 → 15 after itemized audit: (1) Menara Ethos dropped to 1 tenant after merging duplicate PwC rows; (2) Exchange 106 dropped BTDUex scraper artifact; (3) Menara Maybank excluded after isolating Maybank MFRS 16; (4) Wisma Taiko excluded after isolating KLK; (5) Standardized and deduplicated building entities.</p>
           </div>
         </div>
         <span class="badge-clean" id="hubsCountPill">15 Multi-Tenant Hubs (≥2 tenants)</span>
@@ -606,11 +606,11 @@
           </div>
           <div class="boundary-item">
             <strong>Full Reconciliation Bridge (544 raw sheet rows → 535 commercial deals):</strong>
-            <p><strong>544 raw rows − 8 non-deal − 1 PwC dedupe − 1 BTDUex removal = 535 deals</strong> (544 raw rows in current Sheet; 8 non-deal macro/accounting signals segregated; PwC merged directly in Sheet; 1 scraper artifact BTDUex removed = 535 verified commercial deals across APAC).</p>
+            <p><strong>544 raw rows − 8 non-deal − 1 BTDUex removal = 535 deals</strong> (544 raw rows in current Sheet; 8 non-deal macro/accounting signals segregated; 1 scraper artifact BTDUex removed = 535 verified commercial deals across APAC; PwC duplicate was merged directly in Sheet). Exclusions itemized by name: <em>GCC occupiers (structural), Flex/coworking operators (structural), Coworking operators + BFSI (structural), Karnataka government agency (unspecified), Maybank (MFRS 16 renewal signal), Kuala Lumpur Kepong (KLK), (early-funnel) MIDA-approved services/digital investment pipeline, EDB ICT/BPM exporter directory (baseline watchlist), and BTDUex (dropped scraper artifact)</em>.</p>
           </div>
           <div class="boundary-item">
-            <strong>Changelog (Round 4):</strong>
-            <p><strong>Hub count changed 22 → 15:</strong> Multi-tenant hubs reconciled from 22 to 15 verified commercial building clusters (≥2 verified tenants) by standardizing building name deduplication, merging the duplicate PwC Menara Ethos opportunity, removing scraper artifact BTDUex, and isolating non-deal accounting disclosures.</p>
+            <strong>Changelog (Round 4 / Round 5):</strong>
+            <p><strong>Hub count changed 22 → 15:</strong> Multi-tenant hubs reconciled from 22 to 15 verified commercial building clusters (≥2 verified tenants) by itemized audit: (1) Menara Ethos dropped to 1 tenant after merging duplicate PwC rows; (2) Exchange 106 dropped BTDUex scraper artifact; (3) Menara Maybank excluded after isolating Maybank MFRS 16 accounting disclosure; (4) Wisma Taiko excluded after isolating KLK non-deal entry; (5) Standardized and deduplicated building entities.</p>
           </div>
         </div>
       </div>
