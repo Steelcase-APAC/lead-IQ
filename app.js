@@ -369,16 +369,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Update Counts & Badges
-    radarVisibleCount.textContent = state.filteredLeads.length.toLocaleString();
+    const visibleCount = state.filteredLeads ? state.filteredLeads.length : 0;
+    if (radarVisibleCount) {
+      radarVisibleCount.textContent = visibleCount.toLocaleString();
+    }
     const relevantTotalLeads = state.activeCountry === 'ALL'
       ? state.leads
       : state.leads.filter(l => l.country === state.activeCountry);
 
-    radarTotalCount.textContent = relevantTotalLeads.length.toLocaleString();
+    const totalCount = relevantTotalLeads ? relevantTotalLeads.length : 0;
+    if (radarTotalCount) {
+      radarTotalCount.textContent = totalCount.toLocaleString();
+    }
 
     const rawCountryCount = state.activeCountry === 'ALL'
-      ? (state.metrics.totalTrackedRows || 545)
-      : (state.metrics.perCountryRows ? state.metrics.perCountryRows[state.activeCountry] : relevantTotalLeads.length);
+      ? (state.metrics.totalTrackedRows || 544)
+      : (state.metrics.perCountryRows ? state.metrics.perCountryRows[state.activeCountry] : totalCount);
     if (radarRawCount) radarRawCount.textContent = rawCountryCount.toLocaleString();
 
     const countAll = relevantTotalLeads.length;
@@ -516,7 +522,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. VIEW 1: 🔥 SALES RADAR (HOT LIST)
   // =========================================================
   function renderRadarView() {
-    if (state.filteredLeads.length === 0) {
+    const visibleCount = state.filteredLeads ? state.filteredLeads.length : 0;
+    if (radarVisibleCount) {
+      radarVisibleCount.textContent = visibleCount.toLocaleString();
+    }
+    const relevantTotalLeads = state.activeCountry === 'ALL'
+      ? state.leads
+      : state.leads.filter(l => l.country === state.activeCountry);
+    const totalCount = relevantTotalLeads ? relevantTotalLeads.length : 0;
+    if (radarTotalCount) {
+      radarTotalCount.textContent = totalCount.toLocaleString();
+    }
+    const rawCountryCount = state.activeCountry === 'ALL'
+      ? (state.metrics.totalTrackedRows || 544)
+      : (state.metrics.perCountryRows ? state.metrics.perCountryRows[state.activeCountry] : totalCount);
+    if (radarRawCount) {
+      radarRawCount.textContent = rawCountryCount.toLocaleString();
+    }
+
+    if (visibleCount === 0) {
       radarCardsGrid.style.display = 'none';
       radarTableContainer.style.display = 'none';
       radarEmptyState.style.display = 'block';
@@ -1175,8 +1199,27 @@ document.addEventListener('DOMContentLoaded', () => {
       return (b.totalSqFt || 0) - (a.totalSqFt || 0);
     });
 
-    hubsCountPill.textContent = `${multiClusters.length} Target Buildings Identified`;
-    tabHubsCount.textContent = multiClusters.length.toString();
+    const multiTenantCount = Object.values(clusters).filter(c => c.tenants.length >= 2).length;
+
+    if (hubsCountPill) {
+      if (hasActiveFilters) {
+        hubsCountPill.textContent = `${multiClusters.length} target buildings incl. single-tenant (${multiTenantCount} multi-tenant hubs ≥2 tenants)`;
+      } else {
+        hubsCountPill.textContent = `${multiClusters.length} Multi-Tenant Hubs (≥2 tenants)`;
+      }
+    }
+    if (tabHubsCount) {
+      tabHubsCount.textContent = hasActiveFilters ? multiClusters.length.toString() : multiTenantCount.toString();
+    }
+
+    const hubsBannerSub = document.getElementById('hubsBannerSub');
+    if (hubsBannerSub) {
+      if (hasActiveFilters) {
+        hubsBannerSub.textContent = `Showing ${multiClusters.length} target buildings incl. single-tenant (${multiTenantCount} multi-tenant hubs with ≥2 tenants in this market/filter). Coordinate meetings efficiently by clustering calls.`;
+      } else {
+        hubsBannerSub.textContent = `Buildings and corporate parks with 2 or more verified corporate move signals (15 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.`;
+      }
+    }
 
     hubsCatalogGrid.innerHTML = '';
     const frag = document.createDocumentFragment();
@@ -1184,6 +1227,11 @@ document.addEventListener('DOMContentLoaded', () => {
     multiClusters.forEach(cluster => {
       const card = document.createElement('article');
       card.className = 'hub-cluster-card';
+
+      const isMulti = cluster.tenants.length >= 2;
+      const tenantPillHtml = isMulti
+        ? `<span class="hub-cluster-pill" style="font-size: 11.5px; padding: 3px 8px;">🏢 Multi-Tenant Hub (${cluster.tenants.length} Tenants)</span>`
+        : `<span class="badge-clean" style="font-size: 11px; padding: 3px 8px; color: var(--text-secondary);">1 Moving Tenant (Single-Tenant Target Building)</span>`;
 
       const sqftFormatted = cluster.totalSqFt > 0
         ? (cluster.totalSqFt >= 1000000 ? `${(cluster.totalSqFt / 1000000).toFixed(2)}M sq ft` : `${cluster.totalSqFt.toLocaleString()} sq ft`)
@@ -1195,9 +1243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h4>🏢 ${escapeHtml(cluster.building)}</h4>
             <span>📍 ${escapeHtml(cluster.submarket)} · ${cluster.flag} ${cluster.country}</span>
           </div>
-          <span class="hub-cluster-pill" style="font-size: 11.5px; padding: 3px 8px;">
-            ${cluster.tenants.length} Moving Tenants
-          </span>
+          ${tenantPillHtml}
         </div>
 
         <div style="display: flex; gap: 8px; align-items: center; font-size: 12px; margin-top: 2px;">
@@ -1222,7 +1268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="hub-playbook-box">
-          <strong>Strategic Playbook:</strong> Multiple concurrent moves in this tower provide massive trip leverage. Book back-to-back meetings with facility leads to pitch Steelcase agile workstations and common-area FF&E in one trip.
+          <strong>Strategic Playbook:</strong> ${isMulti ? 'Multiple concurrent moves in this tower provide massive trip leverage. Book back-to-back meetings with facility leads to pitch Steelcase agile workstations and common-area FF&E in one trip.' : 'Single verified corporate tenant move in this target building. Direct targeted outreach to facilities/procurement lead ahead of fit-out milestone.'}
         </div>
       `;
 
@@ -1670,35 +1716,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter Input Listeners
-  globalSearchInput.addEventListener('input', (e) => {
+  const onSearchInput = (e) => {
     state.filters.search = e.target.value;
     filterAndSortLeads();
+  };
+  ['input', 'keyup', 'change', 'search'].forEach(evt => {
+    globalSearchInput.addEventListener(evt, onSearchInput);
   });
 
-  filterSubmarket.addEventListener('change', (e) => {
-    state.filters.submarket = e.target.value;
-    filterAndSortLeads();
-  });
+  ['change', 'input'].forEach(evt => {
+    filterSubmarket.addEventListener(evt, (e) => {
+      state.filters.submarket = e.target.value;
+      filterAndSortLeads();
+    });
 
-  filterDealType.addEventListener('change', (e) => {
-    state.filters.dealType = e.target.value;
-    filterAndSortLeads();
-  });
+    filterDealType.addEventListener(evt, (e) => {
+      state.filters.dealType = e.target.value;
+      filterAndSortLeads();
+    });
 
-  filterWindow.addEventListener('change', (e) => {
-    state.filters.window = e.target.value;
-    updateRadarDropdownUI(e.target.value);
-    filterAndSortLeads();
-  });
+    filterWindow.addEventListener(evt, (e) => {
+      state.filters.window = e.target.value;
+      updateRadarDropdownUI(e.target.value);
+      filterAndSortLeads();
+    });
 
-  filterSizeTier.addEventListener('change', (e) => {
-    state.filters.sizeTier = e.target.value;
-    filterAndSortLeads();
-  });
+    filterSizeTier.addEventListener(evt, (e) => {
+      state.filters.sizeTier = e.target.value;
+      filterAndSortLeads();
+    });
 
-  filterStatus.addEventListener('change', (e) => {
-    state.filters.status = e.target.value;
-    filterAndSortLeads();
+    filterStatus.addEventListener(evt, (e) => {
+      state.filters.status = e.target.value;
+      filterAndSortLeads();
+    });
   });
 
   // Fix 9: Reset must reset EVERY filter including Market

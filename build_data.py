@@ -140,10 +140,57 @@ def clean_signal_text(sig):
     s = re.sub(r'countdown', 'timeline', s, flags=re.I)
     s = re.sub(r'renewal-date prediction', 'renewal milestone', s, flags=re.I)
 
-    # 2. Specific prompt-audited text repairs (Item 2)
+    # 2. Specific prompt-audited text repairs (Round 4 Item 1)
+    # Starbucks
+    s = re.sub(r';\s*~?800\s*tech\s*jobs\s*in\s*phase\s*1\s*\(reported\s*~?Sep\s*2026,\s*approximate\)', ' (reported ~Sep 2026, approximate)', s, flags=re.I)
+    s = re.sub(r';\s*~?\d+[\d,]*\s*(?:tech\s+)?jobs\s+in\s+phase\s+\d+[^\;\,]*', '', s, flags=re.I)
+    # U.S. Bancorp
+    s = re.sub(r';\s*Rs\s*4\.5-5cr/mo;\s*3,000-5,000\s*hires\s*planned', '', s, flags=re.I)
+    s = re.sub(r';\s*3,000-5,000\s*hires\s*planned', '', s, flags=re.I)
     # Exel BPO
     s = re.sub(r'UK-focused outsourcing firm to hire 200\+ Sri Lankan talents in next 12 months; MD targets 100% talent-acquisition growth in 2 years',
-               'UK-focused outsourcing firm expansion announced', s, flags=re.I)
+               'UK-focused outsourcing firm expansion in Colombo', s, flags=re.I)
+    # IGT
+    s = re.sub(r';\s*planned\s*~?500\s*(?:headcount)?(?:,\s*1,000\+\s*jobs\s*by\s*2027)?', '', s, flags=re.I)
+    s = re.sub(r';\s*planned\s*~?\d+[\d,]*\s*(?:headcount)?(?:,\s*\d+[\d,]*\+?\s*jobs\s*by\s*\d+)?[^\;]*', '', s, flags=re.I)
+    # EY GDS
+    s = re.sub(r';\s*\+?110\s*workstations', '', s, flags=re.I)
+    s = re.sub(r';\s*workforce\s*doubling\s*by\s*2027', '', s, flags=re.I)
+    # Executive Centre
+    s = re.sub(r'\s*/\s*150\+\s*workstations?\s*centre', ' centre', s, flags=re.I)
+    s = re.sub(r'\s*/\s*150\+\s*workstations?', '', s, flags=re.I)
+    # Soft Gallery
+    s = re.sub(r';\s*Gallery\s+HR\s+platform\s+trusted\s+by\s*~?350\s+clients\s+in\s+7\s+countries', '', s, flags=re.I)
+    s = re.sub(r'trusted\s+by\s*~?\d+[\d,]*\s*clients\s+in\s+\d+\s+countries;?', '', s, flags=re.I)
+    # Universal Serviced Offices
+    s = re.sub(r',\s*337\s*workstations,', '', s, flags=re.I)
+    # Incora - eliminate "(4→" broken fragment cleanly
+    s = re.sub(r'\s*\(\s*4\s*(?:→|->).*', '', s, flags=re.I)
+    s = re.sub(r'\s*\(\s*4\s*(?:→|->)\s*50\s*staff\s*\)', '', s, flags=re.I)
+    s = re.sub(r'\s*\(\s*4\s*(?:→|->)\s*$', '', s, flags=re.I)
+    s = re.sub(r'\s*\(\s*4\s*(?:→|->)', '', s, flags=re.I)
+    s = re.sub(r'\s*\(\s*4\s*$', '', s, flags=re.I)
+    # Netmarble
+    s = re.sub(r'\s*for\s*~?KRW\s*697\.7B\s*in\s*sale-and-leaseback', ' in sale-and-leaseback', s, flags=re.I)
+    s = re.sub(r'~?KRW\s*697\.7B', '', s, flags=re.I)
+    # PDD Holdings
+    s = re.sub(r'\(~?RMB\s*60,185/sqm;\s*', '(', s, flags=re.I)
+    # Lalamove
+    s = re.sub(r'\(\s*>\s*RMB\s*1B,\s*', '(', s, flags=re.I)
+    # Dharma Productions
+    s = re.sub(r'\s*at\s*Rs\s*15L/month\s*\([^\)]*total\)[^\;\,]*', '', s, flags=re.I)
+    s = re.sub(r'\s*at\s*Rs\s*15L/month\s*\(\s*per\s*Square\s*Yards', ', per Square Yards', s, flags=re.I)
+    s = re.sub(r'\s*at\s*Rs\s*15L/month\s*\([^\)]*', '', s, flags=re.I)
+    s = re.sub(r'\s*at\s*Rs\s*15L/month', '', s, flags=re.I)
+    # dodoAI
+    s = re.sub(r';\s*reason\s*=\s*organization\s+growth\s+after\s+JPY\s*280M\s+seed\s+round.*', '; organization expansion to dedicated client co-creation space (office size not disclosed)', s, flags=re.I)
+    # Walmart
+    s = re.sub(r';\s*~?₹49L/mo;\s*rent\s+from\s+Mar\s+1,\s+2026\s+after\s+6-mo\s+fit-out', '', s, flags=re.I)
+    # ByteDance
+    s = re.sub(r';\s*RMB\s*8\.7B\s*total\s*Beijing\s*land\s*buys\s*in\s*2026', '', s, flags=re.I)
+    # Amova Asset Management
+    s = re.sub(r';\s*JPY\s*53\.9tn\s*AUM\s*global\s*asset\s*manager\s*\(office\s*size\s*not\s*disclosed\)', ' (office size not disclosed)', s, flags=re.I)
+
     # LKN Group
     s = re.sub(r'\(KL-founded,\s*1,000\+\s*partners\);\s*targets\s*500\s*new\s*advisers\s*in\s*JB\s*by\s*end-2027', '', s, flags=re.I)
     # Target
@@ -176,20 +223,20 @@ def clean_signal_text(sig):
     s = re.sub(r'\bfor\s*;\b', '', s, flags=re.I)
     s = re.sub(r'\bto\s*;\b', '', s, flags=re.I)
 
-    # 3. Remove all out-of-schema headcount / staff / seats / members / talents figures
+    # 3. Remove all out-of-schema headcount / staff / seats / members / talents / workstations figures
     headcount_patterns = [
-        r'(?:,\s*|;\s*)?\b\d+[\d,]*\s*[-–—to]+\s*\d+[\d,]*\s*(?:seats|staff|employees|members|talents|people|advisers)\b',
+        r'(?:,\s*|;\s*)?\b\d+[\d,]*\s*[-–—to]+\s*\d+[\d,]*\s*(?:seats|staff|employees|members|talents|people|advisers|hires)\b',
         r'(?:,\s*|;\s*)?\b(?:to\s+)?hire\s+\d+[\d,]*\+?\s*(?:Sri\s+Lankan\s+)?(?:talents?|staff|employees?|people)\b[^\;\,]*',
         r'(?:,\s*|;\s*)?MD\s+targets\s+\d+%\s*(?:talent-acquisition\s+)?growth.*?(?:in\s+\d+\s+years?)?',
         r'\btargets?\s+\d+[\d,]*\s*(?:new\s+)?(?:advisers?|staff|employees?|talents?|members?)\b[^\;\,]*',
         r'\(KL-founded,\s*\d+[\d,]*\+?\s*partners\)',
         r'\b\d+[\d,]*\+?\s*partners\b',
         r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*team\s+members\b',
-        r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*(?:members|talents planned|talents)\b',
-        r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*seats\b',
+        r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*(?:members|talents planned|talents|seats|hires)\b',
         r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*(?:highly\s+skilled\s+)?(?:jobs|staff|employees|engineers|professionals)\b[^\;\,]*',
         r'\(\d+\s*(?:→|->)\s*\d+\s*staff\)',
         r'\(\d+\+?\s*professionals\)',
+        r'(?:,\s*|;\s*)?\b\d+[\d,]*\+?\s*professionals\b[^\;\,]*',
         r'(?:,\s*|;\s*)?\b10-15\s+staff\b[^\;\,]*',
         r'(?:,\s*|;\s*)?\b15%\s*YoY\s*internal\s*headcount\s*growth\b',
         r'(?:,\s*|;\s*)?\bheadcount\s*(?:\+\d+%|\w+)?\s*(?:YoY|growth)?[^\;\,]*',
@@ -201,6 +248,8 @@ def clean_signal_text(sig):
         r'suggests\s+further\s+headcount\s+growth[^\;\,]*',
         r'(?:,\s*|;\s*)?~\d+\s+employees\s+consolidated[^\;\,]*',
         r'(?:,\s*|;\s*)?\d+[\d,]*\+?\s*(?:multilingual\s+)?digital\s+professionals[^\;\,]*',
+        r'(?:,\s*|;\s*)?\b\+?\d+[\d,]*\+?\s*workstations?\b[^\;\,]*',
+        r'(?:,\s*|;\s*)?\bworkforce\s+doubling\b[^\;\,]*',
         r'~\s*;'
     ]
     for pat in headcount_patterns:
@@ -208,8 +257,7 @@ def clean_signal_text(sig):
 
     # 4. Remove out-of-schema financial figures presented as deals (with strict word boundaries)
     financial_patterns = [
-        r'(?:,\s*|;\s*)?~?\s*(?:multi-year\s+lease\s+)?est\.?\s*(?:\bRs\.?|\bRM|\bUSD|\bEUR|\$|₹)\s*[\d\.,]+(?:\s*[-–—]\s*[\d\.,]+)?\s*(?:cr|bn|m|b|lakh)?(?:\/mo|\/month)?\b[^\;\,]*',
-        r'(?:,\s*|;\s*)?~?\s*(?:\bRs\.?|\bRM|\bUSD|\bEUR|\$|₹)\s*[\d\.,]+(?:\s*[-–—]\s*[\d\.,]+)?\s*(?:cr|bn|m|b|lakh)?(?:\/mo|\/month)?\b[^\;\,]*',
+        r'(?:,\s*|;\s*)?~?\s*(?:multi-year\s+lease\s+)?(?:at\s+)?(?:est\.?\s*)?(?:for\s+)?(?:\bRs\.?|\bRM|\bUSD|\bEUR|\bKRW|\bRMB|\bJPY|\$|₹|¥|₩)\s*[\d\.,]+[Ll]?(?:\s*[-–—]\s*[\d\.,]+[Ll]?)?\s*(?:cr|crore|bn|billion|m|b|lakh|tn)?(?:\/mo|\/month|\/sqm)?\b[^\;\,]*',
         r'(?:,\s*|;\s*)?~\d+\s+trillion\s+won[^\;\,]*',
         r'(?:,\s*|;\s*)?(?:bridge\s+before\s+)?\$[0-9]+B\s*',
         r'(?:,\s*|;\s*)?Group\s+lease\s+liabilities[^\;\,]*',
@@ -218,14 +266,16 @@ def clean_signal_text(sig):
         r'(?:,\s*|;\s*)?ROU\s+assets[^\;\,]*',
         r'Lease-liability\s+maturity\s*<\s*1\s*yr:[^\;\,]*',
         r'Group\s+ROU\s+maturity\s*<\s*1\s*yr:[^\;\,]*',
+        r'seed\s+round[^\;\,]*',
         r',\d+\.\d+m'
     ]
     for pat in financial_patterns:
         s = re.sub(pat, '', s, flags=re.I)
 
     # 5. Clean punctuation, empty parentheses, and dangling fragments iteratively
-    for _ in range(3):
+    for _ in range(4):
         s = re.sub(r'\(\s*\)', '', s)
+        s = re.sub(r'-\s*old\s+office\b', '', s, flags=re.I)
         s = re.sub(r';\s*;+', ';', s)
         s = re.sub(r',\s*,+', ',', s)
         s = re.sub(r';\s*,', ';', s)
@@ -242,7 +292,7 @@ def clean_signal_text(sig):
         s = re.sub(r'~\s*\)', ')', s)
         s = re.sub(r'\s{2,}', ' ', s)
 
-    return s.strip(' ;,~')
+    return s.strip(' ;,~-')
 
 
 def clean_timing_text(timing):
@@ -812,9 +862,11 @@ def build_all():
                 if any(k in c_low for k in ['bengaluru', 'mumbai', 'agartala', 'palghar', 'chennai']):
                     country = 'India'
                     market = country_raw
-                elif any(k in c_low for k in ['colombo', 'kerawalapitiya', 'western province']):
+                    curr_snap = clean_signal_text(r[2].strip() if len(r)>2 else '')
+                elif any(k in c_low for k in ['colombo', 'kerawalapitiya', 'western province', 'sri lanka']):
                     country = 'Sri Lanka'
-                    market = country_raw
+                    market = country_raw if 'sri lanka' not in c_low else 'Colombo'
+                    curr_snap = clean_signal_text(r[2].strip() if len(r)>2 else '')
                 elif country in ('South Korea', 'korea'):
                     country = 'Korea'
 
@@ -965,7 +1017,7 @@ def build_all():
                         print("  [Dedupe] Merged duplicate PwC Malaysia Menara Ethos row into single opportunity.")
                         continue
                     pwc_malaysia_merged = True
-                    sig_raw = "Menara Ethos (41-storey, ~808,000 sq ft, TRX financial quarter; RM600.9m construction contract awarded to WCT, construction starts Dec 2026) will become PwC Malaysia's HQ upon completion"
+                    sig_raw = "Menara Ethos (41-storey, ~808,000 sq ft, TRX financial quarter; construction starts Dec 2026) will become PwC Malaysia's HQ upon completion"
                     timing_raw = "Construction starts Dec 2026; fit-out window likely 2028 (~2 years)"
                     explicit_bldg = "Menara Ethos"
                     mkt = "Klang Valley (TRX)"

@@ -43,12 +43,12 @@
         <div class="header-market-dropdown" title="Select APAC Market Filter">
           <span class="market-dropdown-flag" id="headerMarketFlag">🌐</span>
           <select id="countrySelect" class="market-dropdown-select" aria-label="Select APAC Market">
-            <option value="ALL" selected>🌐 All Markets (545 rows · 544 deals)</option>
+            <option value="ALL" selected>🌐 All Markets (544 rows · 535 deals)</option>
             <option value="China">🇨🇳 China (56 rows)</option>
             <option value="India">🇮🇳 India (133 rows)</option>
             <option value="Japan">🇯🇵 Japan (91 rows)</option>
             <option value="Korea">🇰🇷 South Korea (153 rows)</option>
-            <option value="Malaysia">🇲🇾 Malaysia (81 rows)</option>
+            <option value="Malaysia">🇲🇾 Malaysia (80 rows)</option>
             <option value="Sri Lanka">🇱🇰 Sri Lanka (31 rows)</option>
           </select>
           <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -67,7 +67,7 @@
           <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by Lease & Fit-Out Horizon">
             <span class="tab-icon" id="radarDropdownIcon">🔥</span>
             <span id="radarDropdownLabel">Sales Radar</span>
-            <span class="tab-badge" id="radarDropdownBadge">544</span>
+            <span class="tab-badge" id="radarDropdownBadge">535</span>
             <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="navRadarDropdownMenu">
@@ -338,7 +338,7 @@
             <span class="sub-lead-question">"Who do I call this week, and what do I say?"</span>
           </h3>
           <div class="results-counts-tag">
-            Showing <strong id="radarVisibleCount">535</strong> of <span id="radarTotalCount">535</span> prioritized sales opportunities (<span id="radarRawCount">545</span> tracked signals / rows)
+            Showing <strong id="radarVisibleCount">535</strong> of <span id="radarTotalCount">535</span> prioritized sales opportunities (<span id="radarRawCount">544</span> tracked signals / rows)
             <span id="activeFilterBadge" class="badge-clean">🌐 All Markets</span>
           </div>
         </div>
@@ -563,11 +563,12 @@
           <div class="hubs-banner-icon">🏢</div>
           <div>
             <h3>Multi-Tenant Target Hubs — High Yield Visits</h3>
-            <p>Buildings and corporate parks with 2 or more verified corporate move signals (15 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.</p>
-            <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;"><strong>Hubs Qualification Criteria:</strong> Commercial buildings with ≥2 verified corporate tenant move opportunities tracked across APAC. The count was refined from an initial 22 unvalidated clusters down to 15 verified physical commercial buildings by merging duplicates (e.g. PwC Menara Ethos), removing scraper artifacts (BTDUex), and excluding non-deal accounting disclosures.</p>
+            <p id="hubsBannerSub">Buildings and corporate parks with 2 or more verified corporate move signals (15 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.</p>
+            <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;"><strong>Hubs Qualification Criteria:</strong> Multi-tenant commercial hubs strictly require ≥2 verified corporate tenant move opportunities. In filtered market views, the catalog displays all identified target buildings (including single-tenant moves) to provide full visibility while clearly differentiating multi-tenant hubs (≥2 tenants) from single-tenant buildings.</p>
+            <p style="font-size: 11.5px; color: var(--accent-blue); margin-top: 4px; font-weight: 500;"><strong>Changelog:</strong> Hub count changed 22 → 15 after standardizing building name deduplication, merging the duplicate PwC Menara Ethos opportunity, removing scraper artifact BTDUex, and isolating non-deal accounting disclosures.</p>
           </div>
         </div>
-        <span class="badge-clean" id="hubsCountPill">15 Target Buildings Identified</span>
+        <span class="badge-clean" id="hubsCountPill">15 Multi-Tenant Hubs (≥2 tenants)</span>
       </div>
 
       <!-- Hubs Grid -->
@@ -604,8 +605,12 @@
             <p>Total square footage is explicitly labeled as a <em>"partial total"</em> because undisclosed deals are excluded from sums, never assumed to be zero.</p>
           </div>
           <div class="boundary-item">
-            <strong>Non-Deal Macro Signals (8 signals):</strong>
-            <p>8 macroeconomic, statutory accounting (e.g. Maybank MFRS 16), or structural industry rows from the 545 raw sheet rows are monitored separately and excluded from all commercial deal, row, and account totals.</p>
+            <strong>Full Reconciliation Bridge (544 raw sheet rows → 535 commercial deals):</strong>
+            <p><strong>544 raw rows − 8 non-deal − 1 PwC dedupe − 1 BTDUex removal = 535 deals</strong> (544 raw rows in current Sheet; 8 non-deal macro/accounting signals segregated; PwC merged directly in Sheet; 1 scraper artifact BTDUex removed = 535 verified commercial deals across APAC).</p>
+          </div>
+          <div class="boundary-item">
+            <strong>Changelog (Round 4):</strong>
+            <p><strong>Hub count changed 22 → 15:</strong> Multi-tenant hubs reconciled from 22 to 15 verified commercial building clusters (≥2 verified tenants) by standardizing building name deduplication, merging the duplicate PwC Menara Ethos opportunity, removing scraper artifact BTDUex, and isolating non-deal accounting disclosures.</p>
           </div>
         </div>
       </div>
