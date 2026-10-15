@@ -43,7 +43,7 @@
         <div class="header-market-dropdown" title="Select APAC Market Filter">
           <span class="market-dropdown-flag" id="headerMarketFlag">🌐</span>
           <select id="countrySelect" class="market-dropdown-select" aria-label="Select APAC Market">
-            <option value="ALL" selected>🌐 All Markets (544 rows · 535 deals)</option>
+            <option value="ALL" selected>🌐 All Markets (544 rows · 536 deals)</option>
             <option value="China">🇨🇳 China (56 rows)</option>
             <option value="India">🇮🇳 India (133 rows)</option>
             <option value="Japan">🇯🇵 Japan (91 rows)</option>
@@ -62,12 +62,12 @@
           <span>Analytics</span>
         </button>
 
-        <!-- Sales Radar Horizon Dropdown (0–60d, 1-Yr, 2-Yr, 3+ Yrs) -->
+        <!-- Sales Radar Horizon Dropdown (0–60d, 0-1 Yr, 1-2 Yr, 2+ Yrs, Timing unknown) -->
         <div class="nav-radar-dropdown" id="navRadarDropdownWrap">
           <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by Lease & Fit-Out Horizon">
             <span class="tab-icon" id="radarDropdownIcon">🔥</span>
             <span id="radarDropdownLabel">Sales Radar</span>
-            <span class="tab-badge" id="radarDropdownBadge">535</span>
+            <span class="tab-badge" id="radarDropdownBadge">536</span>
             <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="navRadarDropdownMenu">
@@ -80,7 +80,7 @@
                   <span class="item-desc">All prioritized opportunities</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCountAll">535</span>
+              <span class="item-badge" id="dropCountAll">536</span>
             </button>
             <button type="button" class="nav-dropdown-item" data-horizon="0–60 Days">
               <div class="item-left">
@@ -90,33 +90,33 @@
                   <span class="item-desc">Prime fit-out execution window</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCount060">485</span>
+              <span class="item-badge" id="dropCount060">201</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="1 Year">
+            <button type="button" class="nav-dropdown-item" data-horizon="0–1 Year">
               <div class="item-left">
                 <span class="item-icon">🎯</span>
                 <div class="item-text">
-                  <span class="item-title">1 Year</span>
+                  <span class="item-title">0–1 Year</span>
                   <span class="item-desc">Start scoping & probe space needs</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCount1Yr">16</span>
+              <span class="item-badge" id="dropCount1Yr">10</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="2 Years">
+            <button type="button" class="nav-dropdown-item" data-horizon="1–2 Years">
               <div class="item-left">
                 <span class="item-icon">🤝</span>
                 <div class="item-text">
-                  <span class="item-title">2 Years</span>
+                  <span class="item-title">1–2 Years</span>
                   <span class="item-desc">Start building relationship</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCount2Yr">4</span>
+              <span class="item-badge" id="dropCount2Yr">2</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="3 Years & Above">
+            <button type="button" class="nav-dropdown-item" data-horizon="2+ Years">
               <div class="item-left">
                 <span class="item-icon">🔮</span>
                 <div class="item-text">
-                  <span class="item-title">3 Years & Above</span>
+                  <span class="item-title">2+ Years</span>
                   <span class="item-desc">Strategic long-range campus pipeline</span>
                 </div>
               </div>
@@ -130,7 +130,7 @@
                   <span class="item-desc">Pipeline with undisclosed delivery</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCountUnknown">27</span>
+              <span class="item-badge" id="dropCountUnknown">320</span>
             </button>
           </div>
         </div>
@@ -138,7 +138,7 @@
         <button id="tabTrackerBtn" class="segment-btn" title="Active sales working queue">
           <span class="tab-icon">📋</span>
           <span>Queue</span>
-          <span class="tab-badge" id="tabTrackerCount">531</span>
+          <span class="tab-badge" id="tabTrackerCount">534</span>
         </button>
         <button id="tabHubsBtn" class="segment-btn" title="Buildings with 2+ tenant signals">
           <span class="tab-icon">🏢</span>
@@ -188,8 +188,8 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiUniqueCompanies">531</div>
-        <div class="scorecard-sub-info" id="kpiCompaniesSub">531 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
+        <div class="scorecard-big-num" id="kpiUniqueCompanies">534</div>
+        <div class="scorecard-sub-info" id="kpiCompaniesSub">534 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
       </div>
 
       <!-- Card 2: Disclosed Pipeline Footprint -->
@@ -200,7 +200,7 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiTotalSqFt">36.2M sq ft</div>
+        <div class="scorecard-big-num" id="kpiTotalSqFt">30.6M sq ft</div>
         <div class="scorecard-sub-info text-disclaimer" title="Data Honesty: Undisclosed deals are excluded from sum">
           ⚠️ Disclosed sizes only — partial total
         </div>
@@ -214,11 +214,11 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiHighPriority" style="color: var(--accent-blue);">485</div>
+        <div class="scorecard-big-num" id="kpiHighPriority" style="color: var(--accent-blue);">201</div>
         <div class="scorecard-progress-track">
-          <div class="scorecard-progress-bar" id="kpiHighPriorityBar" style="width: 90%;"></div>
+          <div class="scorecard-progress-bar" id="kpiHighPriorityBar" style="width: 37.5%;"></div>
         </div>
-        <div class="scorecard-sub-info" id="kpiHighPrioritySub">Prime fit-out window (0–60d)</div>
+        <div class="scorecard-sub-info" id="kpiHighPrioritySub">201 deals in prime window (0–60d)</div>
       </div>
 
       <!-- Card 4: Multi-Tenant Building Hubs -->
@@ -287,9 +287,9 @@
           <select id="filterWindow">
             <option value="ALL">All Windows</option>
             <option value="0–60 Days">⚡ 0–60 Days (Prime Fit-Out)</option>
-            <option value="1 Year">🎯 1 Year (Scoping & Probing)</option>
-            <option value="2 Years">🤝 2 Years (Relationship Building)</option>
-            <option value="3 Years & Above">🔮 3 Years & Above (Strategic)</option>
+            <option value="0–1 Year">🎯 0–1 Year (Scoping & Probing)</option>
+            <option value="1–2 Years">🤝 1–2 Years (Relationship Building)</option>
+            <option value="2+ Years">🔮 2+ Years (Strategic Pipeline)</option>
             <option value="Timing unknown">⏳ Timing unknown</option>
           </select>
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -338,7 +338,7 @@
             <span class="sub-lead-question">"Who do I call this week, and what do I say?"</span>
           </h3>
           <div class="results-counts-tag">
-            Showing <strong id="radarVisibleCount">535</strong> of <span id="radarTotalCount">535</span> prioritized sales opportunities (<span id="radarRawCount">544</span> tracked signals / rows)
+            Showing <strong id="radarVisibleCount">536</strong> of <span id="radarTotalCount">536</span> prioritized sales opportunities (<span id="radarRawCount">544</span> tracked signals / rows)
             <span id="activeFilterBadge" class="badge-clean">🌐 All Markets</span>
           </div>
         </div>
@@ -485,21 +485,30 @@
     <!-- VIEW 3: 📋 WORKING QUEUE (COMPANY TRACKER)     -->
     <!-- ============================================== -->
     <main id="viewTracker" class="view-panel" style="display: none;">
+      <!-- Tracker Gap Status Banner -->
+      <div id="trackerGapBanner" class="tracker-gap-banner clean" style="margin-bottom: 16px; padding: 10px 14px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; font-size: 12.5px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: #10b981; font-weight: bold; font-size: 14px;">✓</span>
+          <span style="color: var(--text-primary);"><strong>Tracker gap: 0 items</strong> — Clean join: all 536 commercial deals matched to 534 verified corporate accounts (8 non-deal signals excluded).</span>
+        </div>
+        <span class="badge-clean active" style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">0 Items</span>
+      </div>
+
       <!-- Working Queue Status Bar -->
       <div class="tracker-status-ribbon">
         <div class="status-summary-card">
           <span class="ribbon-label">TOTAL MONITORED</span>
-          <strong id="kpiTrackerTotal">531</strong>
+          <strong id="kpiTrackerTotal">534</strong>
           <span class="ribbon-sub">Corporate accounts (account-level)</span>
         </div>
         <div class="status-summary-card active-border">
           <span class="ribbon-label">ACTIVE OUTREACH</span>
-          <strong id="kpiTrackerActive" style="color: var(--accent-blue);">123</strong>
+          <strong id="kpiTrackerActive" style="color: var(--accent-blue);">124</strong>
           <span class="ribbon-sub">Immediate fit-out priority (account-level)</span>
         </div>
         <div class="status-summary-card">
           <span class="ribbon-label">WATCHLIST</span>
-          <strong id="kpiTrackerWatch">408</strong>
+          <strong id="kpiTrackerWatch">410</strong>
           <span class="ribbon-sub">Pipeline & expansions (account-level)</span>
         </div>
         <div class="status-summary-card">
@@ -605,8 +614,8 @@
             <p>Total square footage is explicitly labeled as a <em>"partial total"</em> because undisclosed deals are excluded from sums, never assumed to be zero.</p>
           </div>
           <div class="boundary-item">
-            <strong>Full Reconciliation Bridge (544 raw sheet rows → 535 commercial deals):</strong>
-            <p><strong>544 raw rows − 8 non-deal − 1 BTDUex removal = 535 deals</strong> (544 raw rows in current Sheet; 8 non-deal macro/accounting signals segregated; 1 scraper artifact BTDUex removed = 535 verified commercial deals across APAC; PwC duplicate was merged directly in Sheet). Exclusions itemized by name: <em>GCC occupiers (structural), Flex/coworking operators (structural), Coworking operators + BFSI (structural), Karnataka government agency (unspecified), Maybank (MFRS 16 renewal signal), Kuala Lumpur Kepong (KLK), (early-funnel) MIDA-approved services/digital investment pipeline, EDB ICT/BPM exporter directory (baseline watchlist), and BTDUex (dropped scraper artifact)</em>.</p>
+            <strong>Full Reconciliation Bridge (544 raw sheet rows → 536 commercial deals):</strong>
+            <p><strong>544 raw rows − 8 non-deal = 536 deals</strong> (544 raw rows in current Sheet; 8 non-deal macro/accounting/structural/scraper signals segregated = 536 verified commercial deals across APAC; BTDUex is categorized under non-deal scraper errors; PwC duplicate was merged directly in Sheet). Exclusions itemized by name: <em>GCC occupiers (structural), Flex/coworking operators (structural), Coworking operators + BFSI (structural), EDB ICT/BPM exporter directory (baseline watchlist), Maybank (Accounting signal), Kuala Lumpur Kepong (KLK) (Accounting signal), MIDA — structural pipeline (not a company) (Structural signal), and BTDUex (Scraper error)</em>.</p>
           </div>
           <div class="boundary-item">
             <strong>Changelog (Round 4 / Round 5):</strong>

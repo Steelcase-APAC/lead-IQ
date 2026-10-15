@@ -826,7 +826,7 @@ def detect_sector(company, signal):
 def build_all():
     print("Building Lease-IQ database strictly according to correction spec...")
 
-    # 1. Parse and Normalize Company Tracker (534 accounts)
+    # 1. Parse and Normalize Company Tracker (534 accounts from live Sheet)
     tracker_records = []
     tracker_by_company = {} # (comp.lower(), country.lower()) -> record
     tracker_by_name = {} # comp.lower() -> record
@@ -839,15 +839,6 @@ def build_all():
                 if not r or not any(r) or not r[0].strip(): continue
                 comp = clean_company_name(r[0])
 
-                # Item 3: Omit garbled BTDUex scraper artifact
-                if comp.lower() == 'btduex':
-                    continue
-
-                # Item 5: Exclude non-deal rows uniformly from corporate accounts
-                is_non_deal = comp.lower() in NON_DEAL_COMPANIES or any(nd in comp.lower() for nd in ['(mfrs 16', 'mida-approved', 'structural)', 'directory (baseline'])
-                if is_non_deal:
-                    continue
-
                 country_raw = r[1].strip() if len(r)>1 else ''
                 market_raw = r[2].strip() if len(r)>2 else ''
                 curr_snap = clean_signal_text(r[3].strip() if len(r)>3 else '')
@@ -858,23 +849,12 @@ def build_all():
                 last_checked = r[8].strip() if len(r)>8 else '2026-10-14'
                 notes = clean_timing_text(r[9].strip() if len(r)>9 else '')
 
-                # Fix shifted rows in tracker where column 1 was a city/location
                 country = country_raw
                 market = market_raw
-                c_low = country_raw.lower()
-                if any(k in c_low for k in ['bengaluru', 'mumbai', 'agartala', 'palghar', 'chennai']):
-                    country = 'India'
-                    market = country_raw
-                    curr_snap = clean_signal_text(r[2].strip() if len(r)>2 else '')
-                elif any(k in c_low for k in ['colombo', 'kerawalapitiya', 'western province', 'sri lanka']):
-                    country = 'Sri Lanka'
-                    market = country_raw if 'sri lanka' not in c_low else 'Colombo'
-                    curr_snap = clean_signal_text(r[2].strip() if len(r)>2 else '')
-                elif country in ('South Korea', 'korea'):
+                if country in ('South Korea', 'korea'):
                     country = 'Korea'
 
                 # Heat Score calculation for tracker account
-                # Default tracker size estimated or undisclosed
                 t_score, t_breakdown = compute_heat_score(30, None, 'Relocation', status)
 
                 rec = {
@@ -993,49 +973,33 @@ def build_all():
             print(f"Parsing market tab [{country_name}] ({len(raw_data_rows)} raw rows)...")
 
             for r in raw_data_rows:
-                comp = clean_company_name(r[0])
+                # 15-column schema:
+                # 0: Row ID, 1: Company, 2: Country, 3: Market, 4: Building,
+                # 5: Size (sq ft), 6: Deal type, 7: Deal date / quarter, 8: Row kind,
+                # 9: Fit-out window, 10: Signal, 11: Source, 12: Source URL,
+                # 13: Timing implication, 14: Date found
+                row_id = r[0].strip()
+                comp = clean_company_name(r[1])
+                country_raw = r[2].strip() if len(r)>2 and r[2].strip() else country_name
+                mkt = r[3].strip() if len(r)>3 else ''
+                explicit_bldg = r[4].strip() if len(r)>4 else ''
+                explicit_size = r[5].strip() if len(r)>5 else ''
+                explicit_type = r[6].strip() if len(r)>6 else ''
+                explicit_date = r[7].strip() if len(r)>7 else ''
+                row_kind = r[8].strip() if len(r)>8 and r[8].strip() else 'Deal'
+                fitout_window_raw = r[9].strip() if len(r)>9 and r[9].strip() else 'Timing unknown'
+                sig_raw = r[10].strip() if len(r)>10 else ''
+                src = r[11].strip() if len(r)>11 else 'Verified Source'
+                url_link = r[12].strip() if len(r)>12 else '#'
+                timing_raw = r[13].strip() if len(r)>13 else ''
+                date_found = r[14].strip() if len(r)>14 else '2026-10-14'
 
-                # Item 3: Omit garbled BTDUex scraper row
-                if comp.lower() == 'btduex':
-                    print("  [Omit] Dropped garbled BTDUex scraper row as per Item 3.")
-                    dropped_scraper_rows.append({'company': 'BTDUex', 'country': country_name, 'reason': 'Scraper artifact'})
-                    continue
+                is_deal = (row_kind == 'Deal')
+                is_non_deal = not is_deal
 
-                mkt = r[1].strip() if len(r)>1 else ''
-                explicit_bldg = r[2].strip() if len(r)>2 else ''
-                explicit_size = r[3].strip() if len(r)>3 else ''
-                explicit_type = r[4].strip() if len(r)>4 else ''
-                explicit_date = r[5].strip() if len(r)>5 else ''
-                sig_raw = r[6].strip() if len(r)>6 else ''
-                src = r[7].strip() if len(r)>7 else 'Verified Source'
-                url_link = r[8].strip() if len(r)>8 else '#'
-                timing_raw = r[9].strip() if len(r)>9 else ''
-                date_found = r[10].strip() if len(r)>10 else '2026-10-14'
-
-                # Flag non-deal accounting / structural rows (Fix 8c, 8d, Item 5)
-                is_non_deal = comp.lower() in NON_DEAL_COMPANIES or any(nd in comp.lower() for nd in ['(mfrs 16', 'mida-approved', 'structural)', 'directory (baseline'])
-
-                # Fix 4: Deduplicate PwC Malaysia Menara Ethos
-                if comp.lower() == 'pwc malaysia' and country_name == 'Malaysia' and any(k in (sig_raw + ' ' + mkt).lower() for k in ['ethos', '808,000', 'trx']):
-                    if pwc_malaysia_merged:
-                        # Skip second row since it is merged into the first opportunity
-                        print("  [Dedupe] Merged duplicate PwC Malaysia Menara Ethos row into single opportunity.")
-                        continue
-                    pwc_malaysia_merged = True
-                    sig_raw = "Menara Ethos (41-storey, ~808,000 sq ft, TRX financial quarter; construction starts Dec 2026) will become PwC Malaysia's HQ upon completion"
-                    timing_raw = "Construction starts Dec 2026; fit-out window likely 2028 (~2 years)"
-                    explicit_bldg = "Menara Ethos"
-                    mkt = "Klang Valley (TRX)"
-                    explicit_size = "808000"
-                    explicit_type = "Pre-commitment"
-
-                # Sanitize signal and timing text (Fix 1, 8b)
+                # Sanitize signal and timing text
                 sig = clean_signal_text(sig_raw)
                 timing = clean_timing_text(timing_raw)
-
-                # Fix 3d: PE Land timing unknown
-                if 'pe land' in comp.lower():
-                    timing = "Timing unknown"
 
                 city = normalize_city(mkt, country_name)
                 submarket, bldg, has_bldg, bldg_inferred = extract_building_and_submarket(comp, country_name, mkt, sig, explicit_bldg)
@@ -1045,10 +1009,9 @@ def build_all():
                 urgency = detect_urgency(timing, sig, date_found)
                 sector = detect_sector(comp, sig)
 
-                # Horizon / Fit-Out Window calculation (Fix 3)
-                fitout_window = compute_fitout_window(comp, country_name, sig, timing, deal_date, deal_quarter, date_found, deal_type, is_non_deal)
+                fitout_window = fitout_window_raw if fitout_window_raw else 'Timing unknown'
 
-                # Single-source Status from Company Tracker (Fix 6)
+                # Single-source Status from Company Tracker
                 tracker_match = tracker_by_company.get((comp.lower(), country_name.lower())) or tracker_by_name.get(comp.lower())
                 tracker_status = tracker_match['status'] if tracker_match else 'Watch'
                 tracker_trend = tracker_match['trend'] if tracker_match else '—'
@@ -1065,14 +1028,16 @@ def build_all():
                 # Heat Score calculation (Fix 10: undisclosed size gives 0 size pts)
                 heat_score, heat_breakdown = compute_heat_score(days_ago, sqft, deal_type, tracker_status, is_non_deal)
 
-                # Opening Sales Script (Fix 3a, 8g)
+                # Opening Sales Script
                 opening_script = generate_opening_script(comp, city, bldg, deal_type, area_fmt, sig, fitout_window)
 
                 if bldg and not is_non_deal:
                     building_cluster_counts[bldg] = building_cluster_counts.get(bldg, 0) + 1
 
                 lead_record = {
-                    'id': lead_id,
+                    'id': row_id,
+                    'rowId': row_id,
+                    'rowKind': row_kind,
                     'country': country_name,
                     'countryCode': meta['code'],
                     'flag': meta['flag'],
@@ -1112,16 +1077,13 @@ def build_all():
                     'heatScoreBreakdown': heat_breakdown,
                     'suggestedOpeningLine': opening_script,
                     'isNonDealRow': is_non_deal,
-                    'sourceRowsMerged': 2 if (comp.lower() == 'pwc malaysia' and country_name == 'Malaysia') else 1
+                    'sourceRowsMerged': 1
                 }
-                if lead_record['sourceRowsMerged'] == 2:
-                    lead_record['auditNote'] = "Merged 2 source rows: initial pre-construction announcement and construction contract update for Menara Ethos HQ."
 
                 if is_non_deal:
                     non_deal_signals.append(lead_record)
                 else:
                     all_leads.append(lead_record)
-                    lead_id += 1
 
     # Map primary lead's heat score to tracker record
     lead_by_comp_country = {}
@@ -1153,25 +1115,22 @@ def build_all():
 
     # Compute high-level metrics
     raw_total = sum(per_country_raw_counts.values()) # 544
-    distinct_opportunities = len(all_leads) # 535 verified commercial deals
+    distinct_opportunities = len(all_leads) # 536 verified commercial deals
     unique_companies = len(tracker_records) # 534 corporate accounts (single-source)
     non_deal_count = len(non_deal_signals) # 8
-    scraper_count = len(dropped_scraper_rows) # 1
-    total_exclusions = non_deal_count + scraper_count # 9
+    total_exclusions = non_deal_count # 8
 
     # MECHANISM 3 — BRIDGE: Computed dynamically from data on every build
     assert raw_total - total_exclusions == distinct_opportunities, f"Bridge arithmetic mismatch: {raw_total} - {total_exclusions} != {distinct_opportunities}"
 
-    bridge_formula = f"{raw_total} raw rows − {non_deal_count} non-deal − {scraper_count} BTDUex removal = {distinct_opportunities} deals"
+    bridge_formula = f"{raw_total} raw rows − {non_deal_count} non-deal = {distinct_opportunities} deals"
     reconciliation_bridge = {
         'rawTotal': raw_total,
         'nonDealCount': non_deal_count,
-        'scraperOmittedCount': scraper_count,
         'totalDeals': distinct_opportunities,
         'formula': bridge_formula,
-        'nonDealItems': [f"{s['company']} ({s['country']})" for s in non_deal_signals],
-        'scraperOmittedItems': [f"{r['company']} ({r['country']})" for r in dropped_scraper_rows],
-        'explanation': f"{raw_total} raw sheet rows − {non_deal_count} non-deal accounting/structural entries − {scraper_count} BTDUex scraper artifact = {distinct_opportunities} commercial deals (PwC merged directly in Sheet)."
+        'nonDealItems': [f"{s['company']} ({s['country']}) — {s['rowKind']}" for s in non_deal_signals],
+        'explanation': f"{raw_total} raw sheet rows − {non_deal_count} non-deal accounting/structural/scraper entries = {distinct_opportunities} commercial deals."
     }
 
     per_country_deal_counts = {}
@@ -1205,9 +1164,9 @@ def build_all():
         'typeDisclosureRate': round(type_disclosure_rate, 1),
         'multiTenantHubsCount': len(cluster_buildings),
         'zeroToSixtyCount': sum(1 for l in all_leads if l['fitoutWindow'] == '0–60 Days'),
-        'oneYearCount': sum(1 for l in all_leads if l['fitoutWindow'] == '1 Year'),
-        'twoYearsCount': sum(1 for l in all_leads if l['fitoutWindow'] == '2 Years'),
-        'threeYearsAboveCount': sum(1 for l in all_leads if l['fitoutWindow'] == '3 Years & Above'),
+        'oneYearCount': sum(1 for l in all_leads if l['fitoutWindow'] == '0–1 Year'),
+        'twoYearsCount': sum(1 for l in all_leads if l['fitoutWindow'] == '1–2 Years'),
+        'threeYearsAboveCount': sum(1 for l in all_leads if l['fitoutWindow'] == '2+ Years'),
         'timingUnknownCount': sum(1 for l in all_leads if l['fitoutWindow'] == 'Timing unknown'),
         'disclaimerNotice': 'Disclosed sizes only — partial total. Never implies unstated leases are zero.',
         'knownBoundaries': {
@@ -1332,7 +1291,7 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print("        LEASE-IQ REGRESSION SUITE RESULTS         ")
     print("="*50)
     passed = 0
-    total = 7
+    total = 8
 
     # Assertion 1: Invented-data cleanup & broken-text check
     broken_patterns = [
@@ -1377,24 +1336,24 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print("[PASS] Assertion 3: Mechanism 2 ByteDance China site footprint retained (91,700 sqm / 987,049 sq ft).")
     passed += 1
 
-    # Assertion 4: Mechanism 3 Reconciliation bridge verified: 544 raw - 9 exclusions = 535 deals
+    # Assertion 4: Mechanism 3 Reconciliation bridge verified: 544 raw - 8 non-deal = 536 deals
     raw_total = sum(per_country_raw_counts.values())
     assert raw_total == 544, f"Assertion 4 failed: raw_total is {raw_total}, expected 544"
     assert per_country_raw_counts['Malaysia'] == 80, f"Assertion 4 failed: Malaysia raw rows is {per_country_raw_counts['Malaysia']}, expected 80"
     assert len(non_deal_signals) == 8, f"Assertion 4 failed: non_deal_signals is {len(non_deal_signals)}, expected 8"
-    assert len(dropped_scraper_rows) == 1, f"Assertion 4 failed: dropped_scraper_rows is {len(dropped_scraper_rows)}, expected 1"
-    assert len(all_leads) == 535, f"Assertion 4 failed: total commercial deals is {len(all_leads)}, expected 535"
-    assert raw_total - len(non_deal_signals) - len(dropped_scraper_rows) == len(all_leads)
-    print(f"[PASS] Assertion 4: Mechanism 3 Reconciliation bridge verified: {raw_total} raw - {len(non_deal_signals) + len(dropped_scraper_rows)} exclusions = {len(all_leads)} deals.")
+    assert len(all_leads) == 536, f"Assertion 4 failed: total commercial deals is {len(all_leads)}, expected 536"
+    assert raw_total - len(non_deal_signals) == len(all_leads)
+    print(f"[PASS] Assertion 4: Mechanism 3 Reconciliation bridge verified: {raw_total} raw - {len(non_deal_signals)} non-deal = {len(all_leads)} deals.")
     passed += 1
 
-    # Assertion 5: Mechanism 4 Queue join check passed: 535/535 deals joined to accounts (0 missing)
+    # Assertion 5: Mechanism 4 Queue join check passed: 536/536 deals joined to accounts (0 missing)
     tracker_keys = set((t['company'].lower().strip(), t['country'].lower().strip()) for t in tracker_records)
     missing_accounts = [(l['company'], l['country']) for l in all_leads if (l['company'].lower().strip(), l['country'].lower().strip()) not in tracker_keys]
     assert len(missing_accounts) == 0, f"Assertion 5 failed: {len(missing_accounts)} deals missing from tracker: {missing_accounts}"
     assert ('blackrock', 'india') in tracker_keys, "Assertion 5 failed: BlackRock India missing from tracker"
     assert ('dhl', 'india') in tracker_keys, "Assertion 5 failed: DHL India missing from tracker"
     assert ("l'oréal", 'india') in tracker_keys or ("l'oreal", 'india') in tracker_keys, "Assertion 5 failed: L'Oréal India missing from tracker"
+    assert ("l'oréal", 'china') in tracker_keys or ("l'oreal", 'china') in tracker_keys, "Assertion 5 failed: L'Oréal China missing from tracker"
     print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: {len(all_leads)}/{len(all_leads)} deals joined to accounts (0 missing).")
     passed += 1
 
@@ -1406,6 +1365,16 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     # Assertion 7: Mechanism 6 Hubs counts & evidenced changelog verified (15 multi-tenant hubs)
     assert metrics['multiTenantHubsCount'] == 15, f"Assertion 7 failed: multiTenantHubsCount is {metrics['multiTenantHubsCount']}, expected 15"
     print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified (15 multi-tenant hubs across APAC).")
+    passed += 1
+
+    # Assertion 8: Fit-out window distribution verified for Deal rows only (201 / 10 / 2 / 3 / 320 = 536)
+    assert metrics['zeroToSixtyCount'] == 201, f"Assertion 8 failed: zeroToSixtyCount is {metrics['zeroToSixtyCount']}, expected 201"
+    assert metrics['oneYearCount'] == 10, f"Assertion 8 failed: oneYearCount is {metrics['oneYearCount']}, expected 10"
+    assert metrics['twoYearsCount'] == 2, f"Assertion 8 failed: twoYearsCount is {metrics['twoYearsCount']}, expected 2"
+    assert metrics['threeYearsAboveCount'] == 3, f"Assertion 8 failed: threeYearsAboveCount is {metrics['threeYearsAboveCount']}, expected 3"
+    assert metrics['timingUnknownCount'] == 320, f"Assertion 8 failed: timingUnknownCount is {metrics['timingUnknownCount']}, expected 320"
+    assert metrics['zeroToSixtyCount'] + metrics['oneYearCount'] + metrics['twoYearsCount'] + metrics['threeYearsAboveCount'] + metrics['timingUnknownCount'] == len(all_leads)
+    print("[PASS] Assertion 8: Fit-out window distribution verified (0–60d: 201 | 0–1yr: 10 | 1–2yr: 2 | 2+yr: 3 | unknown: 320 = 536 deals).")
     passed += 1
 
     print("="*50)

@@ -1,4 +1,4 @@
-// Lease-IQ Master Data Engine - Built 2026-10-15 14:02:16
+// Lease-IQ Master Data Engine - Built 2026-10-15 15:10:44
 // Auto-compiled from 9 Google Sheet / CSV source feeds
 
 var GOOGLE_SHEET_CONFIG = {
@@ -11,16 +11,16 @@ var GOOGLE_SHEET_CONFIG = {
     "Malaysia",
     "Sri Lanka"
   ],
-  "lastBuilt": "2026-10-15 14:02:16",
+  "lastBuilt": "2026-10-15 15:10:44",
   "metrics": {
     "totalTrackedRows": 544,
-    "totalDeals": 535,
+    "totalDeals": 536,
     "nonDealSignalsCount": 8,
     "uniqueCompanies": 534,
     "uniqueAccountsBreakdown": "534 monitored corporate accounts (8 non-deal macro/accounting signals excluded)",
     "accountStatuses": {
-      "active": 119,
-      "watch": 415,
+      "active": 124,
+      "watch": 410,
       "engaged": 0
     },
     "perCountryRows": {
@@ -33,7 +33,7 @@ var GOOGLE_SHEET_CONFIG = {
     },
     "perCountryDeals": {
       "China": 56,
-      "India": 129,
+      "India": 130,
       "Japan": 91,
       "Korea": 153,
       "Malaysia": 76,
@@ -42,35 +42,31 @@ var GOOGLE_SHEET_CONFIG = {
     "reconciliationBridge": {
       "rawTotal": 544,
       "nonDealCount": 8,
-      "scraperOmittedCount": 1,
-      "totalDeals": 535,
-      "formula": "544 raw rows \u2212 8 non-deal \u2212 1 BTDUex removal = 535 deals",
+      "totalDeals": 536,
+      "formula": "544 raw rows \u2212 8 non-deal = 536 deals",
       "nonDealItems": [
-        "GCC occupiers (structural) (India)",
-        "Flex/coworking operators (structural) (India)",
-        "Coworking operators + BFSI (structural) (India)",
-        "Karnataka government agency (unspecified) (India)",
-        "Maybank (MFRS 16 renewal signal) (Malaysia)",
-        "Kuala Lumpur Kepong (KLK) (Malaysia)",
-        "(early-funnel) MIDA-approved services/digital investment pipeline (Malaysia)",
-        "EDB ICT/BPM exporter directory (baseline watchlist) (Sri Lanka)"
+        "GCC occupiers (structural) (India) \u2014 Structural signal",
+        "Flex/coworking operators (structural) (India) \u2014 Structural signal",
+        "Coworking operators + BFSI (structural) (India) \u2014 Structural signal",
+        "BTDUex (Malaysia) \u2014 Scraper error",
+        "Maybank (Malaysia) \u2014 Accounting signal",
+        "Kuala Lumpur Kepong (KLK) (Malaysia) \u2014 Accounting signal",
+        "MIDA \u2014 structural pipeline (not a company) (Malaysia) \u2014 Structural signal",
+        "EDB ICT/BPM exporter directory (baseline watchlist) (Sri Lanka) \u2014 Baseline watchlist"
       ],
-      "scraperOmittedItems": [
-        "BTDUex (Malaysia)"
-      ],
-      "explanation": "544 raw sheet rows \u2212 8 non-deal accounting/structural entries \u2212 1 BTDUex scraper artifact = 535 commercial deals (PwC merged directly in Sheet)."
+      "explanation": "544 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 536 commercial deals."
     },
-    "totalDisclosedSqFt": 30607722,
+    "totalDisclosedSqFt": 30612722,
     "totalDisclosedSqFtFormatted": "30.6M sq ft",
-    "buildingDisclosureRate": 26.2,
+    "buildingDisclosureRate": 26.1,
     "sizeDisclosureRate": 47.9,
-    "typeDisclosureRate": 80.0,
+    "typeDisclosureRate": 80.2,
     "multiTenantHubsCount": 15,
-    "zeroToSixtyCount": 504,
-    "oneYearCount": 17,
-    "twoYearsCount": 4,
-    "threeYearsAboveCount": 2,
-    "timingUnknownCount": 8,
+    "zeroToSixtyCount": 201,
+    "oneYearCount": 10,
+    "twoYearsCount": 2,
+    "threeYearsAboveCount": 3,
+    "timingUnknownCount": 320,
     "disclaimerNotice": "Disclosed sizes only \u2014 partial total. Never implies unstated leases are zero.",
     "knownBoundaries": {
       "japanMalaysiaRenewals": "Japan has 0 lease renewals recorded (relocation focus). Malaysia records 0 physical office renewals (1 non-deal MFRS 16 accounting disclosure excluded).",
@@ -83,13 +79,13 @@ if (typeof window !== 'undefined') window.GOOGLE_SHEET_CONFIG = GOOGLE_SHEET_CON
 
 var INITIAL_METRICS = {
   "totalTrackedRows": 544,
-  "totalDeals": 535,
+  "totalDeals": 536,
   "nonDealSignalsCount": 8,
   "uniqueCompanies": 534,
   "uniqueAccountsBreakdown": "534 monitored corporate accounts (8 non-deal macro/accounting signals excluded)",
   "accountStatuses": {
-    "active": 119,
-    "watch": 415,
+    "active": 124,
+    "watch": 410,
     "engaged": 0
   },
   "perCountryRows": {
@@ -102,7 +98,7 @@ var INITIAL_METRICS = {
   },
   "perCountryDeals": {
     "China": 56,
-    "India": 129,
+    "India": 130,
     "Japan": 91,
     "Korea": 153,
     "Malaysia": 76,
@@ -111,35 +107,31 @@ var INITIAL_METRICS = {
   "reconciliationBridge": {
     "rawTotal": 544,
     "nonDealCount": 8,
-    "scraperOmittedCount": 1,
-    "totalDeals": 535,
-    "formula": "544 raw rows \u2212 8 non-deal \u2212 1 BTDUex removal = 535 deals",
+    "totalDeals": 536,
+    "formula": "544 raw rows \u2212 8 non-deal = 536 deals",
     "nonDealItems": [
-      "GCC occupiers (structural) (India)",
-      "Flex/coworking operators (structural) (India)",
-      "Coworking operators + BFSI (structural) (India)",
-      "Karnataka government agency (unspecified) (India)",
-      "Maybank (MFRS 16 renewal signal) (Malaysia)",
-      "Kuala Lumpur Kepong (KLK) (Malaysia)",
-      "(early-funnel) MIDA-approved services/digital investment pipeline (Malaysia)",
-      "EDB ICT/BPM exporter directory (baseline watchlist) (Sri Lanka)"
+      "GCC occupiers (structural) (India) \u2014 Structural signal",
+      "Flex/coworking operators (structural) (India) \u2014 Structural signal",
+      "Coworking operators + BFSI (structural) (India) \u2014 Structural signal",
+      "BTDUex (Malaysia) \u2014 Scraper error",
+      "Maybank (Malaysia) \u2014 Accounting signal",
+      "Kuala Lumpur Kepong (KLK) (Malaysia) \u2014 Accounting signal",
+      "MIDA \u2014 structural pipeline (not a company) (Malaysia) \u2014 Structural signal",
+      "EDB ICT/BPM exporter directory (baseline watchlist) (Sri Lanka) \u2014 Baseline watchlist"
     ],
-    "scraperOmittedItems": [
-      "BTDUex (Malaysia)"
-    ],
-    "explanation": "544 raw sheet rows \u2212 8 non-deal accounting/structural entries \u2212 1 BTDUex scraper artifact = 535 commercial deals (PwC merged directly in Sheet)."
+    "explanation": "544 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 536 commercial deals."
   },
-  "totalDisclosedSqFt": 30607722,
+  "totalDisclosedSqFt": 30612722,
   "totalDisclosedSqFtFormatted": "30.6M sq ft",
-  "buildingDisclosureRate": 26.2,
+  "buildingDisclosureRate": 26.1,
   "sizeDisclosureRate": 47.9,
-  "typeDisclosureRate": 80.0,
+  "typeDisclosureRate": 80.2,
   "multiTenantHubsCount": 15,
-  "zeroToSixtyCount": 504,
-  "oneYearCount": 17,
-  "twoYearsCount": 4,
-  "threeYearsAboveCount": 2,
-  "timingUnknownCount": 8,
+  "zeroToSixtyCount": 201,
+  "oneYearCount": 10,
+  "twoYearsCount": 2,
+  "threeYearsAboveCount": 3,
+  "timingUnknownCount": 320,
   "disclaimerNotice": "Disclosed sizes only \u2014 partial total. Never implies unstated leases are zero.",
   "knownBoundaries": {
     "japanMalaysiaRenewals": "Japan has 0 lease renewals recorded (relocation focus). Malaysia records 0 physical office renewals (1 non-deal MFRS 16 accounting disclosure excluded).",
@@ -151,7 +143,9 @@ if (typeof window !== 'undefined') window.INITIAL_METRICS = INITIAL_METRICS;
 
 var INITIAL_LEADS_DATA = [
   {
-    "id": 28,
+    "id": "CN-028",
+    "rowId": "CN-028",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -179,7 +173,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 15,000 sqm \u2014 Jinmao Tower, Lujiazui",
     "timing": "Relocation signed Q3 2026 \u2014 largest new deal this sweep; fit-out procurement likely open",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Shanghai Office MarketBeat Q3 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/shanghai-office-marketbeat-q3-2026-final.pdf",
@@ -204,14 +198,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on DBS Bank's upcoming office milestone at Shanghai! With your fit-out window currently active for your 161,458 sq ft (15,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding DBS Bank's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 29,
+    "id": "CN-029",
+    "rowId": "CN-029",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -239,7 +235,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 12,000 sqm \u2014 Alibaba Center, Xuhui Binjiang",
     "timing": "Relocation signed Q3 2026 \u2014 large footprint; fit-out window likely open",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q3 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/shanghai-office-marketbeat-q3-2026-final.pdf",
@@ -264,14 +260,78 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Zhihuishu's upcoming office milestone at Shanghai! With your fit-out window currently active for your 129,166 sq ft (12,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Zhihuishu's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 113,
+    "id": "IN-041",
+    "rowId": "IN-041",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Infineon Technologies",
+    "market": "Bengaluru (Whitefield - Bagmane Solarium City)",
+    "city": "Bengaluru",
+    "submarket": "Whitefield - Bagmane Solarium City",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": 631000,
+    "areaFormatted": "6.31 Lakh sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": true,
+    "dealType": "New lease",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "Leased ~6.31 lakh sq ft (floors G-9) for 10 years, 8-month rent-free; lease starts 1 Dec 2026 (reported 1 Sep 2026)",
+    "timing": "Fit-out window now: rent-free through ~Nov 2026, occupancy Dec 2026; follows Aug 24 acquisition of C2i Semiconductors",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Semiconductor & Hardware",
+    "source": "Construction World",
+    "sourceUrl": "https://www.constructionworld.in/policy-updates-and-economic-news/infineon-takes-6-3-lakh-sq-ft-in-bengaluru-for-rs-7-5-billion-lease/96668",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 100,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (631,000 sq ft)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 100,
+      "summary": "R:40 + S:25 + T:20 + St:15 = 100"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Infineon Technologies's upcoming office milestone at Bengaluru! With your fit-out window currently active for your 6.31 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-061",
+    "rowId": "IN-061",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -331,7 +391,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 251,
+    "id": "JP-066",
+    "rowId": "JP-066",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -357,9 +419,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Hamamatsucho Exsage Building, 3,593 tsubo (127,851 sq ft), Manufacturing; relocated-from unknown",
-    "timing": "Relocation signed Q4 2024 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Relocation signed Q4 2024 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -384,14 +446,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Fujitsu's upcoming office milestone at Hamamatsucho Exsage Building! With your fit-out window currently active for your 127,838 sq ft (3,593 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Fujitsu's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Hamamatsucho Exsage Building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 321,
+    "id": "KR-045",
+    "rowId": "KR-045",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -451,7 +515,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 322,
+    "id": "KR-046",
+    "rowId": "KR-046",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -511,7 +577,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 325,
+    "id": "KR-049",
+    "rowId": "KR-049",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -571,7 +639,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 466,
+    "id": "MY-040",
+    "rowId": "MY-040",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -596,10 +666,10 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Entered lease agreement with PDC (Aug 14, 2026) for new 316,000 sq ft manufacturing facility; operations expected 2028; first SEA facility",
+    "signal": "Entered lease agreement with PDC (Aug 14, 2026) for new 316,000 sq ft manufacturing facility; operations expected 2028; ~US; first SEA facility",
     "timing": "Lease signed - build + fit-out window 2026-2027 before 2028 operations; large admin/office component likely within 316k sq ft",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Enterprise Software & Tech",
     "source": "InvestPenang press release",
     "sourceUrl": "https://investpenang.gov.my/press-release-intuitive-expands-manufacturing-footprint-in-asia-pacific-with-new-facility-in-penang-malaysia/",
@@ -624,14 +694,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 100,
       "summary": "R:40 + S:25 + T:20 + St:15 = 100"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Intuitive (Intuitive Surgical, Inc.)'s workspace milestone at Bandar Cassia Technology Park approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs for your 316,000 sq ft space, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Intuitive (Intuitive Surgical, Inc.)'s upcoming office milestone at Bandar Cassia Technology Park! With your fit-out window currently active for your 316,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 3
   },
   {
-    "id": 7,
+    "id": "CN-007",
+    "rowId": "CN-007",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -659,7 +731,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocated into 5,000 sqm",
     "timing": "Relocation = fit-out window; engage on furniture/workplace",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "C&W Shanghai Office MarketBeat Q2 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/shanghai-office-marketbeat-q2-2026-final.pdf?rev=dc667fcbeed548a38368bdc71f57b61c",
@@ -684,14 +756,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on YY Sports's upcoming office milestone at Life Hub @ Bund Central! With your fit-out window currently active for your 53,819 sq ft (5,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding YY Sports's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Life Hub @ Bund Central, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 8,
+    "id": "CN-008",
+    "rowId": "CN-008",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -719,7 +793,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocated into 5,000 sqm",
     "timing": "Relocation = fit-out window; engage on furniture/workplace",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "C&W Shanghai Office MarketBeat Q2 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/shanghai-office-marketbeat-q2-2026-final.pdf?rev=dc667fcbeed548a38368bdc71f57b61c",
@@ -744,14 +818,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Rolex's upcoming office milestone at K11 Atelier! With your fit-out window currently active for your 53,819 sq ft (5,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Rolex's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at K11 Atelier, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 17,
+    "id": "CN-017",
+    "rowId": "CN-017",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -811,7 +887,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 18,
+    "id": "CN-018",
+    "rowId": "CN-018",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -839,7 +917,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New Lease, 4,797 sqm \u2014 Interwest International Center",
     "timing": "New lease signed Q3 2026 \u2014 fit-out window likely open",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "C&W Beijing Office MarketBeat Q3 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/beijing-office-marketbeat-q3-2026-final.pdf",
@@ -864,14 +942,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JD Health Comprehensive Clinic's upcoming office milestone at Beijing! With your fit-out window currently active for your 51,634 sq ft (4,797 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JD Health Comprehensive Clinic's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 30,
+    "id": "CN-030",
+    "rowId": "CN-030",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -899,7 +979,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 5,300 sqm \u2014 ONE Shanghai, Core Jing'an",
     "timing": "Relocation signed Q3 2026 \u2014 fit-out window likely open",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "C&W Shanghai Office MarketBeat Q3 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/shanghai-office-marketbeat-q3-2026-final.pdf",
@@ -924,14 +1004,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Logitech's upcoming office milestone at Shanghai! With your fit-out window currently active for your 57,048 sq ft (5,300 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Logitech's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 120,
+    "id": "IN-068",
+    "rowId": "IN-068",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -991,7 +1073,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 228,
+    "id": "JP-043",
+    "rowId": "JP-043",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -1019,7 +1103,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation to World Trade Center Building / MinatoMirai Grand Central Tower, 89,777 RSF (\u22482,523 tsubo), from self-owned premises; Manufacturing; BCP-driven",
     "timing": "2025 BCP relocation; World Trade Center Main Building completes Mar-27 \u2014 possible second phase/pre-commitment angle worth verifying",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/japan---tokyo---office-q4-2025-en.pdf",
@@ -1044,14 +1128,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Nippon Sanso Holdings / Taiyo Nippon Sanso's upcoming office milestone at World Trade Center! With your fit-out window currently active for your 89,768 sq ft (2,523 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Nippon Sanso Holdings / Taiyo Nippon Sanso's commercial momentum at World Trade Center. As your workplace strategy evolves in Tokyo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 3
   },
   {
-    "id": 236,
+    "id": "JP-051",
+    "rowId": "JP-051",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -1111,7 +1197,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 252,
+    "id": "JP-067",
+    "rowId": "JP-067",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -1137,9 +1225,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to IS Bldg, 2,600 tsubo (92,517 sq ft), TMT \u2014 reason: Expansion; relocated-from unknown",
-    "timing": "Expansion signed Q4 2024 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Expansion signed Q4 2024 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -1164,14 +1252,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Canon IT Solutions Inc.'s upcoming office milestone at Tokyo! With your fit-out window currently active for your 92,508 sq ft (2,600 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Canon IT Solutions Inc.'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 253,
+    "id": "JP-068",
+    "rowId": "JP-068",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -1197,9 +1287,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to suito Shibaura, 2,354 tsubo (83,765 sq ft), Manufacturing; relocated-from unknown",
-    "timing": "Relocation signed Q4 2024 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Relocation signed Q4 2024 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -1224,14 +1314,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Delta Electronics, Inc.'s upcoming office milestone at Tokyo! With your fit-out window currently active for your 83,755 sq ft (2,354 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Delta Electronics, Inc.'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 307,
+    "id": "KR-031",
+    "rowId": "KR-031",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -1291,7 +1383,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 326,
+    "id": "KR-050",
+    "rowId": "KR-050",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -1351,7 +1445,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 330,
+    "id": "KR-054",
+    "rowId": "KR-054",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -1411,7 +1507,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 331,
+    "id": "KR-055",
+    "rowId": "KR-055",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -1471,7 +1569,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 411,
+    "id": "KR-135",
+    "rowId": "KR-135",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -1499,7 +1599,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "2,154 py (~7,121 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -1524,14 +1624,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on NH Capital (NH\uce90\ud53c\ud0c8)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 76,639 sq ft (2,154 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding NH Capital (NH\uce90\ud53c\ud0c8)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 423,
+    "id": "KR-147",
+    "rowId": "KR-147",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -1559,7 +1661,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "2,097 py (~6,932 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -1584,14 +1686,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 95,
       "summary": "R:40 + S:20 + T:20 + St:15 = 95"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on LIG Nex1 (LIG\ub125\uc2a4\uc6d0)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 74,611 sq ft (2,097 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding LIG Nex1 (LIG\ub125\uc2a4\uc6d0)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 533,
+    "id": "LK-029",
+    "rowId": "LK-029",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -1651,7 +1755,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 3,
+    "id": "CN-003",
+    "rowId": "CN-003",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -1679,7 +1785,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocated into 3,357 sqm",
     "timing": "Relocation = fit-out window; engage on furniture/workplace",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "C&W Beijing Office MarketBeat Q2 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/beijing-office-marketbeat-q2-2026-final.pdf?rev=ad1e0bcd8363476682a9f02d7564766e",
@@ -1704,14 +1810,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Beichen Xingqiong (Beijing) Technology Co., Ltd's upcoming office milestone at Qinglong Technology Tower! With your fit-out window currently active for your 36,134 sq ft (3,357 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Beichen Xingqiong (Beijing) Technology Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Qinglong Technology Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 9,
+    "id": "CN-009",
+    "rowId": "CN-009",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -1739,7 +1847,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocated into 4,600 sqm",
     "timing": "Relocation = fit-out window; engage on furniture/workplace",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "C&W Shanghai Office MarketBeat Q2 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/shanghai-office-marketbeat-q2-2026-final.pdf?rev=dc667fcbeed548a38368bdc71f57b61c",
@@ -1764,14 +1872,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on American Bureau of Shipping's upcoming office milestone at Shanghai! With your fit-out window currently active for your 49,513 sq ft (4,600 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding American Bureau of Shipping's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 10,
+    "id": "CN-010",
+    "rowId": "CN-010",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -1799,7 +1909,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocated into 2,000 sqm",
     "timing": "Relocation = fit-out window; engage on furniture/workplace",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Shanghai Office MarketBeat Q2 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/shanghai-office-marketbeat-q2-2026-final.pdf?rev=dc667fcbeed548a38368bdc71f57b61c",
@@ -1824,14 +1934,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Goldstate Capital Fund Management's upcoming office milestone at Shanghai! With your fit-out window currently active for your 21,527 sq ft (2,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Goldstate Capital Fund Management's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 13,
+    "id": "CN-013",
+    "rowId": "CN-013",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -1859,7 +1971,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Bought site for 91,700 sqm GFA self-built campus",
     "timing": "Self-build campus; construction within 12 months, completion within 3 years \u2014 long-horizon workplace engagement",
     "urgency": "Active",
-    "fitoutWindow": "2 Years",
+    "fitoutWindow": "2+ Years",
     "sector": "Enterprise Software & Tech",
     "source": "Mingtiandi",
     "sourceUrl": "https://www.mingtiandi.com/real-estate/projects/tiktok-parent-bytedance-buys-third-beijing-site-this-year/",
@@ -1884,14 +1996,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC. We track major corporate footprints across Beijing and see ByteDance's development horizon at Olympic Park area over the next 18\u201324 months. We'd love to connect early to share regional workplace benchmarking and future-of-work research well ahead of your formal decision window.",
+    "suggestedOpeningLine": "Hi [Name], I noticed ByteDance's commercial momentum at Olympic Park area. As your workplace strategy evolves in Beijing, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 31,
+    "id": "CN-031",
+    "rowId": "CN-031",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -1919,7 +2033,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 4,000 sqm \u2014 Shanghai World Financial Centre, Lujiazui",
     "timing": "Relocation signed Q3 2026 \u2014 fit-out window likely open",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Shanghai Office MarketBeat Q3 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/shanghai-office-marketbeat-q3-2026-final.pdf",
@@ -1944,14 +2058,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on CPIC Fund's upcoming office milestone at Shanghai! With your fit-out window currently active for your 43,055 sq ft (4,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding CPIC Fund's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 51,
+    "id": "CN-051",
+    "rowId": "CN-051",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -1979,7 +2095,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation 10,000 sqm \u2014 Ping AN Fortune Center, Li'ze",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Beijing Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/beijing-office-marketbeat-q4-2024-final.pdf",
@@ -2004,14 +2120,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Glory Terminal Co., Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 107,639 sq ft (10,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Glory Terminal Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 58,
+    "id": "IN-002",
+    "rowId": "IN-002",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2071,7 +2189,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 59,
+    "id": "IN-003",
+    "rowId": "IN-003",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2131,7 +2251,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 60,
+    "id": "IN-004",
+    "rowId": "IN-004",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2159,7 +2281,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "2.71L sq ft at One Downtown Central, Powai; 5-yr from 1 Apr 2026; bridge before",
     "timing": "Ongoing occupancy - Q4 2026; 2030 campus = long-horizon play",
     "urgency": "Near-Term",
-    "fitoutWindow": "3 Years & Above",
+    "fitoutWindow": "2+ Years",
     "sector": "BFSI (Banking & Finance)",
     "source": "domain-b.com",
     "sourceUrl": "https://www.Domain-b.com/management/operations/jp-morgan-office-lease-powai-mumbai-612-crore",
@@ -2184,14 +2306,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC. We track long-range commercial developments across Mumbai and see JP Morgan Services India's multi-year campus horizon at Mumbai. We'd love to connect early to share master workplace planning frameworks as you shape your long-term workplace portfolio.",
+    "suggestedOpeningLine": "Hi [Name], I noticed JP Morgan Services India's commercial momentum at Mumbai. As your workplace strategy evolves in Mumbai, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 61,
+    "id": "IN-005",
+    "rowId": "IN-005",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2251,7 +2375,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 62,
+    "id": "IN-006",
+    "rowId": "IN-006",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2311,7 +2437,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 65,
+    "id": "IN-009",
+    "rowId": "IN-009",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2371,7 +2499,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 66,
+    "id": "IN-010",
+    "rowId": "IN-010",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2399,7 +2529,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "10.17L sq ft, Aparna Technopolis; from 1 Apr 2026; rent-free fit-out through early 2027",
     "timing": "Prime window Q4 2026 - Q1 2027",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Enterprise Software & Tech",
     "source": "thehindubusinessline.com",
     "sourceUrl": "https://www.thehindubusinessline.com/news/real-estate/accenture-leases-over-10-lakh-sq-ft-in-hyderabad-commits-over-1000-crore-in-rentals/article71138288.ece",
@@ -2424,14 +2554,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Accenture's workspace milestone at Hyderabad approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs for your 1.02M sq ft space, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Accenture's upcoming office milestone at Hyderabad! With your fit-out window currently active for your 1.02M sq ft space, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 67,
+    "id": "IN-011",
+    "rowId": "IN-011",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2491,7 +2623,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 70,
+    "id": "IN-014",
+    "rowId": "IN-014",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2551,7 +2685,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 71,
+    "id": "IN-015",
+    "rowId": "IN-015",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2611,7 +2747,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 79,
+    "id": "IN-023",
+    "rowId": "IN-023",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2671,67 +2809,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 97,
-    "country": "India",
-    "countryCode": "IN",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "currency": "INR",
-    "currencySymbol": "\u20b9",
-    "company": "Infineon Technologies",
-    "market": "Bengaluru (Whitefield - Bagmane Solarium City)",
-    "city": "Bengaluru",
-    "submarket": "Whitefield - Bagmane Solarium City",
-    "building": "",
-    "isBuildingDisclosed": false,
-    "isBuildingInferred": false,
-    "areaSqFt": 631000,
-    "areaFormatted": "6.31 Lakh sq ft",
-    "sizeTier": "Mega (>100k)",
-    "isSizeDisclosed": true,
-    "isSizeInferred": true,
-    "dealType": "New lease",
-    "isTypeDisclosed": false,
-    "isTypeInferred": true,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "Leased ~6.31 lakh sq ft (floors G-9) for 10 years, 8-month rent-free; lease starts 1 Dec 2026 (reported 1 Sep 2026)",
-    "timing": "Fit-out window now: rent-free through ~Nov 2026, occupancy Dec 2026; follows Aug 24 acquisition of C2i Semiconductors",
-    "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
-    "sector": "Semiconductor & Hardware",
-    "source": "Construction World",
-    "sourceUrl": "https://www.constructionworld.in/policy-updates-and-economic-news/infineon-takes-6-3-lakh-sq-ft-in-bengaluru-for-rs-7-5-billion-lease/96668",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
-    "heatScore": 90,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 25,
-      "sizeReason": "Mega campus (631,000 sq ft)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (New lease)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 25,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
-    },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Infineon Technologies's upcoming office milestone at Bengaluru! With your fit-out window currently active for your 6.31 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
-  },
-  {
-    "id": 112,
+    "id": "IN-060",
+    "rowId": "IN-060",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2759,7 +2839,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "0.65 mn sq ft lease transaction at Embassy Splendid TechZone, Pallavaram\u2013Thoraipakkam Rd (ANAROCK Key Lease Transactions, H1 2026)",
     "timing": "Deal transacted Jan\u2013Jun 2026; largest of the new finds \u2014 phased fit-out may still be running",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Update H1 CY 2026",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Update_H1_CY_2026_ace5926b4b.pdf",
@@ -2784,14 +2864,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Cognizant Technology Solutions's upcoming office milestone at Chennai! With your fit-out window currently active for your 6.50 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Cognizant Technology Solutions's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 114,
+    "id": "IN-062",
+    "rowId": "IN-062",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2851,7 +2933,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 115,
+    "id": "IN-063",
+    "rowId": "IN-063",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2911,7 +2995,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 117,
+    "id": "IN-065",
+    "rowId": "IN-065",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2971,7 +3057,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 118,
+    "id": "IN-066",
+    "rowId": "IN-066",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -2999,7 +3087,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "0.12 mn sq ft lease transaction at L&T Innovation Campus, Powai",
     "timing": "Transacted H1 2026; BFSI professional-services fit-out may be phased",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "ANAROCK India Office Market Update H1 CY 2026",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Update_H1_CY_2026_ace5926b4b.pdf",
@@ -3024,14 +3112,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Marsh McLennan's upcoming office milestone at L&T Innovation Campus! With your fit-out window currently active for your 1.20 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Marsh McLennan's commercial workplace portfolio in Mumbai. As your team reviews ongoing workspace requirements at L&T Innovation Campus, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 119,
+    "id": "IN-067",
+    "rowId": "IN-067",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -3091,7 +3181,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 121,
+    "id": "IN-069",
+    "rowId": "IN-069",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -3151,7 +3243,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 122,
+    "id": "IN-070",
+    "rowId": "IN-070",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -3179,7 +3273,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "0.23 mn sq ft lease transaction at Quattro Tech Park, Udyog Vihar Phase IV",
     "timing": "Transacted H1 2026; flex operator = repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Update H1 CY 2026",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Update_H1_CY_2026_ace5926b4b.pdf",
@@ -3204,14 +3298,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on IREP Workspaces's upcoming office milestone at Quattro Tech Park! With your fit-out window currently active for your 2.30 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding IREP Workspaces's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Quattro Tech Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 186,
+    "id": "JP-001",
+    "rowId": "JP-001",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3271,7 +3367,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 187,
+    "id": "JP-002",
+    "rowId": "JP-002",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3331,7 +3429,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 188,
+    "id": "JP-003",
+    "rowId": "JP-003",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3391,7 +3491,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 227,
+    "id": "JP-042",
+    "rowId": "JP-042",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3419,7 +3521,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "relocation into Shinagawa Intercity C, 194,036 RSF (\u22485,453 tsubo), from JR Yokohama Tower + Kamiyacho Trust Tower + 9 other locations; Retail & Wholesale",
     "timing": "2025 relocation move \u2014 verify completion/fit-out status",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "C&W Tokyo Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/japan---tokyo---office-q4-2025-en.pdf",
@@ -3444,14 +3546,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Nojima's upcoming office milestone at Tokyo! With your fit-out window currently active for your 194,017 sq ft (5,453 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Nojima's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 233,
+    "id": "JP-048",
+    "rowId": "JP-048",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3479,7 +3583,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Yaesu 2-chome Central District Type 1 Urban Redevelopment Project, 202,825 RSF (\u22485,700 tsubo), relocation of Nihonbashi Mitsui Tower + 5 other locations",
     "timing": "Major 6-site relocation (~5,700 tsubo) \u2014 large-scale furnishing project; verify timeline",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "C&W Tokyo Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/japan---tokyo---office-q1-2026-en.pdf",
@@ -3504,14 +3608,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on CHUGAI PHARMACEUTICAL's upcoming office milestone at Tokyo! With your fit-out window currently active for your 202,806 sq ft (5,700 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding CHUGAI PHARMACEUTICAL's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 234,
+    "id": "JP-049",
+    "rowId": "JP-049",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3571,7 +3677,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 250,
+    "id": "JP-065",
+    "rowId": "JP-065",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3597,9 +3705,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Toranomon Hills Business Tower, 3,600 tsubo (128,100 sq ft), TMT; from Marunouchi Trust Tower N \u2014 reason: Upgrade",
-    "timing": "Relocation signed Q4 2024 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Relocation signed Q4 2024 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -3624,14 +3732,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Jupiter Telecommunications Co., Ltd's upcoming office milestone at Toranomon Hills Business Tower! With your fit-out window currently active for your 128,088 sq ft (3,600 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Jupiter Telecommunications Co., Ltd's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Toranomon Hills Business Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 258,
+    "id": "JP-073",
+    "rowId": "JP-073",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3657,9 +3767,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to OIMACHI TRACKS BUSINESS TOWER, 9,001 tsubo (320,250 sq ft), TMT \u2014 reason undisclosed",
-    "timing": "Relocation signed Q3 2025 \u2014 fit-out likely complete; monitor next lease cycle",
+    "timing": "Relocation signed Q3 2025 \u2014 fit-out likely complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/japan---tokyo---office-q3-2025-en.pdf",
@@ -3684,14 +3794,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on NTT DATA Group Corporation's upcoming office milestone at OIMACHI TRACKS BUSINESS TOWER! With your fit-out window currently active for your 320,255 sq ft (9,001 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding NTT DATA Group Corporation's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at OIMACHI TRACKS BUSINESS TOWER, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 259,
+    "id": "JP-074",
+    "rowId": "JP-074",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3717,9 +3829,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Harumi Prime Square, 5,251 tsubo (186,812 sq ft), Professional Services \u2014 reason: Expansion",
-    "timing": "Expansion signed Q3 2025 \u2014 fit-out likely complete; monitor next lease cycle",
+    "timing": "Expansion signed Q3 2025 \u2014 fit-out likely complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "C&W Tokyo Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/japan---tokyo---office-q3-2025-en.pdf",
@@ -3744,14 +3856,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Accenture Japan Ltd's upcoming office milestone at Harumi Prime Square! With your fit-out window currently active for your 186,830 sq ft (5,251 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Accenture Japan Ltd's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Harumi Prime Square, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 260,
+    "id": "JP-075",
+    "rowId": "JP-075",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3777,9 +3891,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Nihonbashi Honcho M-SQUARE + Nihonbashi 1cho-me Mitsui Building, 10,006 tsubo (356,000 sq ft), Financial Services \u2014 reason: Expansion; from Ginza Mitsui Building",
-    "timing": "Expansion signed Q3 2025 \u2014 fit-out likely complete; monitor next lease cycle",
+    "timing": "Expansion signed Q3 2025 \u2014 fit-out likely complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Tokyo Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/japan---tokyo---office-q3-2025-en.pdf",
@@ -3804,14 +3918,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JA MITSUI LEASING, LTD.'s upcoming office milestone at Nihonbashi Honcho M-SQUARE! With your fit-out window currently active for your 356,013 sq ft (10,006 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JA MITSUI LEASING, LTD.'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Nihonbashi Honcho M-SQUARE, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 2
   },
   {
-    "id": 261,
+    "id": "JP-076",
+    "rowId": "JP-076",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3837,9 +3953,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Sumitomo Fudosan Shinjuku Central Park Tower, 3,000 tsubo (106,750 sq ft), Living-related and amusement services \u2014 reason: Expansion; from Kamiyacho Trust Tower",
-    "timing": "Expansion signed Q3 2025 \u2014 fit-out likely complete; monitor next lease cycle",
+    "timing": "Expansion signed Q3 2025 \u2014 fit-out likely complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/japan---tokyo---office-q3-2025-en.pdf",
@@ -3864,14 +3980,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on H.I.S. Co., Ltd.'s upcoming office milestone at Sumitomo Fudosan Shinjuku Central Park! With your fit-out window currently active for your 106,740 sq ft (3,000 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding H.I.S. Co., Ltd.'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Sumitomo Fudosan Shinjuku Central Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 262,
+    "id": "JP-077",
+    "rowId": "JP-077",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -3897,9 +4015,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to BLUE FRONT SHIBAURA Tower S, 3,000 tsubo (106,750 sq ft), Professional Services \u2014 reason: Redevelopment; from Hamamatsucho Building + SG SQUARE",
-    "timing": "Relocation signed Q3 2025 \u2014 fit-out likely complete; monitor next lease cycle",
+    "timing": "Relocation signed Q3 2025 \u2014 fit-out likely complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/japan---tokyo---office-q3-2025-en.pdf",
@@ -3924,14 +4042,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on CMIC HOLDINGS Co., Ltd.'s upcoming office milestone at BLUE FRONT SHIBAURA Tower! With your fit-out window currently active for your 106,740 sq ft (3,000 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding CMIC HOLDINGS Co., Ltd.'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at BLUE FRONT SHIBAURA Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 302,
+    "id": "KR-026",
+    "rowId": "KR-026",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -3959,7 +4079,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 6,700 pyeong (~22,160 sqm) to Seoul Forest The Sharp, Haengdang-dong",
     "timing": "Moved Q4 2025 into emerging Seongsu district; pharma HQ-scale fit-out",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -3984,14 +4104,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on GC Biopharma (GC\ub179\uc2ed\uc790) & affiliates's upcoming office milestone at Seoul! With your fit-out window currently active for your 238,386 sq ft (6,700 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding GC Biopharma (GC\ub179\uc2ed\uc790) & affiliates's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 304,
+    "id": "KR-028",
+    "rowId": "KR-028",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4019,7 +4141,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 3,700 pyeong (~12,230 sqm) to Seoul N Square, Hoehyeon-dong 3-ga",
     "timing": "Moved Q4 2025; financial-infra institution",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -4044,14 +4166,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Korea Financial Telecommunications & Clearings Institute (\uae08\uc735\uacb0\uc81c\uc6d0)'s upcoming office milestone at Seoul N Square! With your fit-out window currently active for your 131,646 sq ft (3,700 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Korea Financial Telecommunications & Clearings Institute (\uae08\uc735\uacb0\uc81c\uc6d0)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul N Square, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 309,
+    "id": "KR-033",
+    "rowId": "KR-033",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4079,7 +4203,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Planned relocation \u2014 1,400 pyeong (~4,630 sqm) to Anam Tower, Yeoksam-dong (scheduled case)",
     "timing": "Edtech scale-up; scheduled \u2014 early engagement opportunity",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -4104,14 +4228,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Team Sparta (\ud300\uc2a4\ud30c\ub974\ud0c0)'s upcoming office milestone at Anam Tower! With your fit-out window currently active for your 49,812 sq ft (1,400 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Team Sparta (\ud300\uc2a4\ud30c\ub974\ud0c0)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Anam Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 311,
+    "id": "KR-035",
+    "rowId": "KR-035",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4171,7 +4297,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 312,
+    "id": "KR-036",
+    "rowId": "KR-036",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4199,7 +4327,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 3,000 sqm to Parnas Tower",
     "timing": "Relocated Q1 2026; furnishing phase likely current",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Cushman & Wakefield Seoul Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/2026-q1-seoul-office-marketbeat_eng.pdf?rev=e1b49917866e4a52b3e13d6a9926d9e6",
@@ -4224,14 +4352,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Simmons (Simmons Korea)'s upcoming office milestone at Parnas Tower! With your fit-out window currently active for your 32,291 sq ft (3,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Simmons (Simmons Korea)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Parnas Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 315,
+    "id": "KR-039",
+    "rowId": "KR-039",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4259,7 +4389,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New branch \u2014 4,000 sqm at Greits Gangnam",
     "timing": "New branch Q1 2026; full fit-out likely current",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Cushman & Wakefield Seoul Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/2026-q1-seoul-office-marketbeat_eng.pdf?rev=e1b49917866e4a52b3e13d6a9926d9e6",
@@ -4284,14 +4414,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on PJ Law Group's upcoming office milestone at Seoul! With your fit-out window currently active for your 43,055 sq ft (4,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding PJ Law Group's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 319,
+    "id": "KR-043",
+    "rowId": "KR-043",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4319,7 +4451,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 6,200 pyeong (~20,500 sqm) to OPUS459 (ex-Baekam Bldg), Seocho-dong",
     "timing": "Moved Q4 2025; large fintech relocation \u2014 fit-out likely complete, monitor expansion",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -4344,14 +4476,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Viva Republica (Toss)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 220,596 sq ft (6,200 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Viva Republica (Toss)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 323,
+    "id": "KR-047",
+    "rowId": "KR-047",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4411,7 +4545,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 324,
+    "id": "KR-048",
+    "rowId": "KR-048",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4471,7 +4607,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 327,
+    "id": "KR-051",
+    "rowId": "KR-051",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4531,7 +4669,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 328,
+    "id": "KR-052",
+    "rowId": "KR-052",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4591,7 +4731,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 329,
+    "id": "KR-053",
+    "rowId": "KR-053",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4651,7 +4793,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 332,
+    "id": "KR-056",
+    "rowId": "KR-056",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4711,7 +4855,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 333,
+    "id": "KR-057",
+    "rowId": "KR-057",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4771,7 +4917,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 412,
+    "id": "KR-136",
+    "rowId": "KR-136",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4799,7 +4947,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "727 py (~2,403 sqm)",
     "timing": "Relocation signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -4824,14 +4972,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hanwha I&A's upcoming office milestone at Seoul! With your fit-out window currently active for your 25,866 sq ft (727 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hanwha I&A's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 413,
+    "id": "KR-137",
+    "rowId": "KR-137",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4859,7 +5009,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "621 py (~2,053 sqm)",
     "timing": "Relocation signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -4884,14 +5034,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on New Balance's upcoming office milestone at Seoul! With your fit-out window currently active for your 22,095 sq ft (621 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding New Balance's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 417,
+    "id": "KR-141",
+    "rowId": "KR-141",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4919,7 +5071,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1,070 py (~3,537 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -4944,14 +5096,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Onecell Mediclinic's upcoming office milestone at Seoul! With your fit-out window currently active for your 38,070 sq ft (1,070 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Onecell Mediclinic's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 427,
+    "id": "KR-151",
+    "rowId": "KR-151",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -4979,7 +5133,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "597 py (~1,974 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -5004,23 +5158,25 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hanil Electric (\ud55c\uc77c\uc804\uae30)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 21,241 sq ft (597 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hanil Electric (\ud55c\uc77c\uc804\uae30)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 432,
+    "id": "MY-003",
+    "rowId": "MY-003",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
     "currency": "MYR",
     "currencySymbol": "RM",
     "company": "PwC Malaysia",
-    "market": "Klang Valley (TRX)",
+    "market": "TRX",
     "city": "Kuala Lumpur",
-    "submarket": "TRX",
+    "submarket": "Kuala Lumpur",
     "building": "Menara Ethos",
     "isBuildingDisclosed": true,
     "isBuildingInferred": false,
@@ -5036,11 +5192,11 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q3",
     "dateFound": "2026-09-03",
     "daysAgo": 42,
-    "signal": "Menara Ethos (41-storey, ~808,000 sq ft, TRX financial quarter; construction starts Dec 2026) will become PwC Malaysia's HQ upon completion",
-    "timing": "Construction starts Dec 2026; fit-out window likely 2028 (~2 years)",
+    "signal": "Named anchor HQ tenant for Menara Ethos (808,000 sq ft NLA, 41 storeys, TRX), construction starts Dec 2026; will become PwC Malaysia HQ upon completion. [Merged from two source rows \u2014 EdgeProp 2026-09-03 + Zerin Issue 362.]",
+    "timing": "Construction Dec 2026; fit-out window likely 2028",
     "urgency": "Immediate",
-    "fitoutWindow": "2 Years",
-    "sector": "BFSI (Banking & Finance)",
+    "fitoutWindow": "1\u20132 Years",
+    "sector": "IT & Global Consulting",
     "source": "edgeprop.my; Zerin Properties ZP Weekly Corporate Real Estate - Issue 362",
     "sourceUrl": "https://www.edgeprop.my/daily-digest/2026-09-03; https://zerinproperties.com/zerinCorp-pdf/corporateHighlights/ZP%20Weekly%20Corporate%20Real%20Estate%20-%20Issue%20362.pdf",
     "dealValue": "Commercial Terms",
@@ -5064,15 +5220,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:30 + S:25 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC. We track major corporate footprints across Kuala Lumpur and see PwC Malaysia's development horizon at Menara Ethos over the next 18\u201324 months. We'd love to connect early to share regional workplace benchmarking and future-of-work research well ahead of your formal decision window.",
+    "suggestedOpeningLine": "Hi [Name], I noticed PwC Malaysia's commercial momentum at Menara Ethos. As your workplace strategy evolves in Kuala Lumpur, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
-    "sourceRowsMerged": 2,
-    "auditNote": "Merged 2 source rows: initial pre-construction announcement and construction contract update for Menara Ethos HQ.",
+    "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 455,
+    "id": "MY-029",
+    "rowId": "MY-029",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -5132,7 +5289,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 460,
+    "id": "MY-034",
+    "rowId": "MY-034",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -5160,7 +5319,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Grand opening of new manufacturing + R&D campus (~220,000 sq ft, more than doubling prior Bayan Lepas FIZ footprint), announced Jan 19, 2026 (pre-window); office/admin portion of new site",
     "timing": "Fit-out likely complete (opened Jan 2026) - watch for next expansion wave instead",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GlobeNewswire",
     "sourceUrl": "https://www.globenewswire.com/news-release/2026/01/19/3221143/0/en/Syntiant-Expands-Global-Footprint-with-New-Manufacturing-and-R-D-Campus-in-Penang-Malaysia.html",
@@ -5185,14 +5344,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Syntiant Corp.'s upcoming office milestone at Penang! With your fit-out window currently active for your 220,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Syntiant Corp.'s commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 467,
+    "id": "MY-041",
+    "rowId": "MY-041",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -5220,7 +5381,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Opened Super Center Factory (Jun 20, 2026), 17-acre site, ~350,000 sq ft built-up; phase 1 complete, multi-phase build",
     "timing": "Phase 1 open - later phases still to build and fit out; expansion-linked office demand ongoing",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "InvestPenang press release",
     "sourceUrl": "http://investpenang.gov.my/press-release-mks-celebrates-opening-of-super-center-factory-in-malaysia-strengthening-semiconductor-manufacturing-capabilities/",
@@ -5245,14 +5406,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on MKS Inc. (NASDAQ: MKSI)'s upcoming office milestone at Penang! With your fit-out window currently active for your 350,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding MKS Inc. (NASDAQ: MKSI)'s commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 471,
+    "id": "MY-046",
+    "rowId": "MY-046",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -5277,10 +5440,10 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Main tenant of Wisma Unirazak (15-storey, 110,669 sq ft, fully leased); Sime Darby Property acquiring building to redevelop into mixed-use (acquisition completes Q4 2026, launch targeted 2028) - anchor tenant will eventually need relocation space",
+    "signal": "Main tenant of Wisma Unirazak (15-storey, 110,669 sq ft, fully leased); Sime Darby Property acquiring building to redevelop into, launch targeted 2028) - anchor tenant will eventually need relocation space",
     "timing": "Relocation pressure builds 2027-28; engage early on future campus/office requirements",
     "urgency": "Immediate",
-    "fitoutWindow": "2 Years",
+    "fitoutWindow": "1\u20132 Years",
     "sector": "IT & Global Consulting",
     "source": "Zerin Properties ZP Weekly Corporate Real Estate - Issue 355",
     "sourceUrl": "https://zerinproperties.com/zerinCorp-pdf/corporateHighlights/ZP Weekly Corporate Real Estate - Issue 355.pdf",
@@ -5305,14 +5468,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:25 + T:20 + St:5 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC. We track major corporate footprints across Kuala Lumpur and see Universiti Tun Abdul Razak's development horizon at Kuala Lumpur over the next 18\u201324 months. We'd love to connect early to share regional workplace benchmarking and future-of-work research well ahead of your formal decision window.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Universiti Tun Abdul Razak's commercial momentum at Kuala Lumpur. As your workplace strategy evolves in Kuala Lumpur, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 486,
+    "id": "MY-061",
+    "rowId": "MY-061",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -5338,7 +5503,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Committed to occupy 35,000 sq ft at upcoming Capstone Corporate Suites for its group regional office",
-    "timing": "Timing unknown",
+    "timing": "Pre-commitment; fit-out window opens when the pipeline building delivers",
     "urgency": "Immediate",
     "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
@@ -5372,7 +5537,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 24,
+    "id": "CN-024",
+    "rowId": "CN-024",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -5432,7 +5599,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 25,
+    "id": "CN-025",
+    "rowId": "CN-025",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -5460,7 +5629,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 5,600 sqm \u2014 China Resources Centre, Core Jing'an",
     "timing": "Relocation signed Q1 2026 \u2014 fit-out window likely closing",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/shanghai-office-marketbeat-q1-2026-final.pdf",
@@ -5485,14 +5654,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hui Ye Law Firm's upcoming office milestone at Shanghai! With your fit-out window currently active for your 60,277 sq ft (5,600 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hui Ye Law Firm's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 64,
+    "id": "IN-008",
+    "rowId": "IN-008",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -5552,7 +5723,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 116,
+    "id": "IN-064",
+    "rowId": "IN-064",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -5612,7 +5785,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 189,
+    "id": "JP-004",
+    "rowId": "JP-004",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -5672,7 +5847,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 190,
+    "id": "JP-005",
+    "rowId": "JP-005",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -5732,7 +5909,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 230,
+    "id": "JP-045",
+    "rowId": "JP-045",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -5760,7 +5939,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Azabudai Hills Mori JP Tower, 71,167 RSF (\u22482,000 tsubo), from Kamiyacho MT Bldg.; BCP-driven",
     "timing": "2025 BCP relocation \u2014 post-move; account expansion/upgrade angle only",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Tokyo Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/japan---tokyo---office-q4-2025-en.pdf",
@@ -5785,14 +5964,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on AIG General Insurance's upcoming office milestone at Tokyo! With your fit-out window currently active for your 71,160 sq ft (2,000 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding AIG General Insurance's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 231,
+    "id": "JP-046",
+    "rowId": "JP-046",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -5820,7 +6001,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Expansion into MSC Onarimon Building, 64,050 RSF (\u22481,800 tsubo), from Shintora-Dori CORE",
     "timing": "2025 expansion \u2014 post-move; note for future expansion tracking",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/japan---tokyo---office-q4-2025-en.pdf",
@@ -5845,14 +6026,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on CREEK & RIVER's upcoming office milestone at MSC Onarimon Building! With your fit-out window currently active for your 64,044 sq ft (1,800 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding CREEK & RIVER's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at MSC Onarimon Building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 232,
+    "id": "JP-047",
+    "rowId": "JP-047",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -5880,7 +6063,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Yaesu 2-Chome Central District Type 1 Urban Redevelopment Project, 100,000 RSF (\u22482,810 tsubo), from Kabukiza Tower + Ginza Quinto Building; Professional Services",
     "timing": "Redevelopment-area relocation \u2014 fit-out timeline tied to project completion; verify",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/japan---tokyo---office-q1-2026-en.pdf",
@@ -5905,14 +6088,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Northsand's upcoming office milestone at Tokyo! With your fit-out window currently active for your 99,979 sq ft (2,810 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Northsand's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 235,
+    "id": "JP-050",
+    "rowId": "JP-050",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -5940,7 +6125,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Torch Tower, 71,167 RSF (\u22482,000 tsubo), from Shinagawa Konanguchi; TMT; Expansion",
     "timing": "Expansion into new tower \u2014 fit-out window; verify",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/japan---tokyo---office-q1-2026-en.pdf",
@@ -5965,14 +6150,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on DENTSU SOKEN's upcoming office milestone at Tokyo! With your fit-out window currently active for your 71,160 sq ft (2,000 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding DENTSU SOKEN's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 254,
+    "id": "JP-069",
+    "rowId": "JP-069",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -5998,9 +6185,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Akasaka Intercity AIR, 1,560 tsubo (55,510 sq ft), TMT \u2014 reason: BCP; from a building in Uehara, Shibuya-ku",
-    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
@@ -6025,14 +6212,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JASRAC's upcoming office milestone at Tokyo! With your fit-out window currently active for your 55,504 sq ft (1,560 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JASRAC's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 255,
+    "id": "JP-070",
+    "rowId": "JP-070",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -6058,9 +6247,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Toyosu Front, 1,533 tsubo (54,549 sq ft), Professional Services \u2014 reason: Upgrade; from SMBC Toyosu Building",
-    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
@@ -6085,14 +6274,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Abilio Servicer's upcoming office milestone at Tokyo! With your fit-out window currently active for your 54,544 sq ft (1,533 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Abilio Servicer's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 305,
+    "id": "KR-029",
+    "rowId": "KR-029",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6120,7 +6311,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 2,200 pyeong (~7,270 sqm) to NIA Building, Mugyo-dong",
     "timing": "Moved Q4 2025",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -6145,14 +6336,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Samsung Fire & Marine Insurance (\uc0bc\uc131\ud654\uc7ac)'s upcoming office milestone at NIA Building! With your fit-out window currently active for your 78,276 sq ft (2,200 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Samsung Fire & Marine Insurance (\uc0bc\uc131\ud654\uc7ac)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at NIA Building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 306,
+    "id": "KR-030",
+    "rowId": "KR-030",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6180,7 +6373,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 2,300 pyeong (~7,600 sqm) to Le West City D, Magok-dong",
     "timing": "Moved Q4 2025; construction-arm HQ move",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -6205,14 +6398,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Lotte E&C (\ub86f\ub370\uac74\uc124)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 81,834 sq ft (2,300 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Lotte E&C (\ub86f\ub370\uac74\uc124)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 308,
+    "id": "KR-032",
+    "rowId": "KR-032",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6240,7 +6435,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Planned relocation \u2014 1,600 pyeong (~5,290 sqm) to One Centinel, Yeouido-dong (scheduled case; Newmark confirms move into One Centinel)",
     "timing": "Moved Q4 2025\u2013Q1 2026; corroborated by Newmark 4Q25",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -6265,14 +6460,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Korea Fire Insurance Association (\ud654\uc7ac\ubcf4\ud5d8\ud611\ud68c)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 56,928 sq ft (1,600 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Korea Fire Insurance Association (\ud654\uc7ac\ubcf4\ud5d8\ud611\ud68c)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 316,
+    "id": "KR-040",
+    "rowId": "KR-040",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6300,7 +6497,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 4,800 sqm to One Centinel",
     "timing": "Relocated Q1 2026; fit-out likely completing",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "Cushman & Wakefield Seoul Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/2026-q1-seoul-office-marketbeat_eng.pdf?rev=e1b49917866e4a52b3e13d6a9926d9e6",
@@ -6325,14 +6522,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Korea Insurance Research Institute's upcoming office milestone at Seoul! With your fit-out window currently active for your 51,666 sq ft (4,800 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Korea Insurance Research Institute's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 365,
+    "id": "KR-089",
+    "rowId": "KR-089",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6360,7 +6559,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1,699 py (~5,616 sqm); relocated from Metro Tower",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2024-Q4 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report-eng/pdf",
@@ -6385,14 +6584,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hanwha Life Financial Services (\ud55c\ud654\uc0dd\uba85\uae08\uc735\uc11c\ube44\uc2a4)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 60,450 sq ft (1,699 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hanwha Life Financial Services (\ud55c\ud654\uc0dd\uba85\uae08\uc735\uc11c\ube44\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 415,
+    "id": "KR-139",
+    "rowId": "KR-139",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6420,7 +6621,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "167 py (~552 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6445,14 +6646,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on BlackRock's upcoming office milestone at Seoul! With your fit-out window currently active for your 5,941 sq ft (167 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding BlackRock's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 416,
+    "id": "KR-140",
+    "rowId": "KR-140",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6480,7 +6683,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "358 py (~1,183 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6505,14 +6708,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Heungkuk Fire & Marine Insurance (\ud765\uad6d\ud654\uc7ac)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 12,737 sq ft (358 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Heungkuk Fire & Marine Insurance (\ud765\uad6d\ud654\uc7ac)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 418,
+    "id": "KR-142",
+    "rowId": "KR-142",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6540,7 +6745,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "351 py (~1,160 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6565,14 +6770,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Snowflake's upcoming office milestone at Seoul! With your fit-out window currently active for your 12,488 sq ft (351 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Snowflake's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 419,
+    "id": "KR-143",
+    "rowId": "KR-143",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6600,7 +6807,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "356 py (~1,177 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6625,14 +6832,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Unilever's upcoming office milestone at Seoul! With your fit-out window currently active for your 12,666 sq ft (356 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Unilever's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 420,
+    "id": "KR-144",
+    "rowId": "KR-144",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6660,7 +6869,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "390 py (~1,289 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6685,14 +6894,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on BY4M (name as printed)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 13,876 sq ft (390 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding BY4M (name as printed)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 421,
+    "id": "KR-145",
+    "rowId": "KR-145",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6720,7 +6931,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "241 py (~797 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6745,14 +6956,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Korea Investment Real Estate Trust (\ud55c\uad6d\ud22c\uc790\ubd80\ub3d9\uc0b0\uc2e0\ud0c1)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 8,574 sq ft (241 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Korea Investment Real Estate Trust (\ud55c\uad6d\ud22c\uc790\ubd80\ub3d9\uc0b0\uc2e0\ud0c1)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 424,
+    "id": "KR-148",
+    "rowId": "KR-148",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6780,7 +6993,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "465 py (~1,537 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6805,14 +7018,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Synopsys's upcoming office milestone at Seoul! With your fit-out window currently active for your 16,544 sq ft (465 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Synopsys's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 425,
+    "id": "KR-149",
+    "rowId": "KR-149",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6840,7 +7055,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "465 py (~1,537 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6865,14 +7080,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on VIOL's upcoming office milestone at Seoul! With your fit-out window currently active for your 16,544 sq ft (465 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding VIOL's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 428,
+    "id": "KR-152",
+    "rowId": "KR-152",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -6900,7 +7117,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "434 py (~1,435 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -6925,14 +7142,78 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Gear2 (name as printed)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 15,441 sq ft (434 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Gear2 (name as printed)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 504,
+    "id": "MY-037",
+    "rowId": "MY-037",
+    "rowKind": "Deal",
+    "country": "Malaysia",
+    "countryCode": "MY",
+    "flag": "\ud83c\uddf2\ud83c\uddfe",
+    "currency": "MYR",
+    "currencySymbol": "RM",
+    "company": "HRnetGroup (SGX:CHZ)",
+    "market": "KL (Damansara Heights)",
+    "city": "Kuala Lumpur",
+    "submarket": "Kuala Lumpur",
+    "building": "Damansara Heights",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": true,
+    "areaSqFt": 5000,
+    "areaFormatted": "5,000 sq ft",
+    "sizeTier": "Boutique (<20k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": true,
+    "dealType": "Pre-commitment",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2027-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "SG-listed recruitment firm bought two office suites (~5,000 sq ft, expected occupation Q4 2027",
+    "timing": "Strong fit-out prospect: planning/spec window now, occupation Q4 2027",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Corporate & Commercial",
+    "source": "TipRanks",
+    "sourceUrl": "https://www.tipranks.com/news/company-announcements/hrnetgroup-secures-permanent-kuala-lumpur-base-to-drive-malaysia-expansion",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 85,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 10,
+      "sizeReason": "Boutique office (5,000 sq ft)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Pre-commitment)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 10,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 85,
+      "summary": "R:40 + S:10 + T:20 + St:15 = 85"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on HRnetGroup (SGX:CHZ)'s upcoming office milestone at Damansara Heights! With your fit-out window currently active for your 5,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "MY-079",
+    "rowId": "MY-079",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -6960,7 +7241,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocated operations to Menara 2, Coronation Square during 2H2025 as anchor tenant, ~66,000 sq ft; government-linked development bank \u2014 flagged, not a pure private-sector prospect",
     "timing": "Relocation in 2H2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "Knight Frank Malaysia Real Estate Highlights 2H 2025",
     "sourceUrl": "https://kfmconnect.com.my/reh2h2025",
@@ -6985,14 +7266,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 85,
       "summary": "R:40 + S:20 + T:20 + St:5 = 85"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Bank Rakyat's upcoming office milestone at Coronation Square! With your fit-out window currently active for your 66,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Johor Bahru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Bank Rakyat's commercial workplace portfolio in Johor Bahru. As your team reviews ongoing workspace requirements at Coronation Square, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 22,
+    "id": "CN-022",
+    "rowId": "CN-022",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7020,7 +7303,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 3,182 sqm \u2014 AIA Financial Center, Hongkou",
     "timing": "Relocation signed Q4 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Shanghai Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/shanghai-office-marketbeat-q4-2025-final.pdf",
@@ -7045,14 +7328,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on YKK's upcoming office milestone at Shanghai! With your fit-out window currently active for your 34,250 sq ft (3,182 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding YKK's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 23,
+    "id": "CN-023",
+    "rowId": "CN-023",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7080,7 +7365,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 2,000 sqm \u2014 Crystal Bridge, Changning",
     "timing": "Relocation signed Q4 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/shanghai-office-marketbeat-q4-2025-final.pdf",
@@ -7105,14 +7390,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ANA's upcoming office milestone at Shanghai! With your fit-out window currently active for your 21,527 sq ft (2,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ANA's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 26,
+    "id": "CN-026",
+    "rowId": "CN-026",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7172,7 +7459,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 27,
+    "id": "CN-027",
+    "rowId": "CN-027",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7232,7 +7521,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 32,
+    "id": "CN-032",
+    "rowId": "CN-032",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7260,7 +7551,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 3,381 sqm \u2014 China Foreign Languages Mansion, Zhongguancun",
     "timing": "Signed Q3 2025 \u2014 fit-out likely complete; monitor for expansion",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "C&W Beijing Office MarketBeat Q3 2025",
     "sourceUrl": "https://www.cushmanwakefield.com.cn/images/upload/4/D5A835A9AF1A41898E809339C45D7018.pdf",
@@ -7285,14 +7576,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Beijing Pocket First Machine Network Technology Co., Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 36,392 sq ft (3,381 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Beijing Pocket First Machine Network Technology Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 35,
+    "id": "CN-035",
+    "rowId": "CN-035",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7320,7 +7613,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 3,500 sqm \u2014 Golden Square, Core Jing'an",
     "timing": "Signed Q3 2025 \u2014 fit-out complete; lower furniture relevance",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/shanghai-office-marketbeat-q3-2025-final.pdf",
@@ -7345,14 +7638,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Oli's Kitchen's upcoming office milestone at Shanghai! With your fit-out window currently active for your 37,673 sq ft (3,500 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Oli's Kitchen's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 36,
+    "id": "CN-036",
+    "rowId": "CN-036",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7380,7 +7675,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 3,100 sqm \u2014 CPIC Xintiandi Commercial Center T2, Huangpu",
     "timing": "Signed Q3 2025 \u2014 fit-out complete; monitor for future expansion",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/shanghai-office-marketbeat-q3-2025-final.pdf",
@@ -7405,14 +7700,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on DHL's upcoming office milestone at Shanghai! With your fit-out window currently active for your 33,368 sq ft (3,100 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding DHL's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 37,
+    "id": "CN-037",
+    "rowId": "CN-037",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7440,7 +7737,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 2,500 sqm \u2014 Plaza 66 Phase I, Core Jing'an",
     "timing": "Signed Q3 2025 \u2014 fit-out complete; monitor future moves",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/shanghai-office-marketbeat-q3-2025-final.pdf",
@@ -7465,14 +7762,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Tiffany's upcoming office milestone at Shanghai! With your fit-out window currently active for your 26,909 sq ft (2,500 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Tiffany's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 38,
+    "id": "CN-038",
+    "rowId": "CN-038",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7500,7 +7799,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 2,000 sqm \u2014 Shanghai IFC Phase II, Lujiazui",
     "timing": "Signed Q3 2025 \u2014 fit-out complete; monitor future moves",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/shanghai-office-marketbeat-q3-2025-final.pdf",
@@ -7525,14 +7824,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Linklaters LLP's upcoming office milestone at Shanghai! With your fit-out window currently active for your 21,527 sq ft (2,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Linklaters LLP's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 52,
+    "id": "CN-052",
+    "rowId": "CN-052",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7560,7 +7861,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation 4,600 sqm \u2014 Cheng'ao Plaza, OGV",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "C&W Beijing Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/beijing-office-marketbeat-q4-2024-final.pdf",
@@ -7585,14 +7886,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Shuxing Technology (Beijing) Co., Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 49,513 sq ft (4,600 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Shuxing Technology (Beijing) Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 53,
+    "id": "CN-053",
+    "rowId": "CN-053",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -7620,7 +7923,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation 3,400 sqm \u2014 King Region Center, Zhongguancun",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Beijing Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/beijing-office-marketbeat-q4-2024-final.pdf",
@@ -7645,14 +7948,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Postal Savings Bank of China Limited Beijing Branch's upcoming office milestone at Beijing! With your fit-out window currently active for your 36,597 sq ft (3,400 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Postal Savings Bank of China Limited Beijing Branch's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 63,
+    "id": "IN-007",
+    "rowId": "IN-007",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -7712,7 +8017,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 75,
+    "id": "IN-019",
+    "rowId": "IN-019",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -7772,7 +8079,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 76,
+    "id": "IN-020",
+    "rowId": "IN-020",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -7832,7 +8141,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 78,
+    "id": "IN-022",
+    "rowId": "IN-022",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -7892,7 +8203,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 85,
+    "id": "IN-029",
+    "rowId": "IN-029",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -7952,7 +8265,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 256,
+    "id": "JP-071",
+    "rowId": "JP-071",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -7978,9 +8293,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Nakano M-SQUARE, 1,200 tsubo (42,700 sq ft), Accommodation and dining \u2014 reason: relocation; from buildings incl. one in Nishikubo, Musashino-shi",
-    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
@@ -8005,14 +8320,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Skylark Holdings's upcoming office milestone at Nakano M-SQUARE! With your fit-out window currently active for your 42,696 sq ft (1,200 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Skylark Holdings's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Nakano M-SQUARE, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 257,
+    "id": "JP-072",
+    "rowId": "JP-072",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -8038,9 +8355,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Relocation to Toranomon Arsea Tower, 1,050 tsubo (37,362 sq ft), TMT \u2014 reason: BCP; from Toyosu Prime Square",
-    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Relocation signed Q1 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
@@ -8065,14 +8382,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mirait One's upcoming office milestone at Toranomon Arsea Tower! With your fit-out window currently active for your 37,359 sq ft (1,050 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mirait One's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Toranomon Arsea Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 310,
+    "id": "KR-034",
+    "rowId": "KR-034",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8100,7 +8419,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation \u2014 800 pyeong (~2,645 sqm) to One Centinel (ex-Shinhan Investment Tower), Yeouido-dong",
     "timing": "Moved Q4 2025; smaller footprint",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Korea Office Market Report 254Q (Q4 2025)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/02/254Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -8125,14 +8444,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Data Universe (\ub370\uc774\ud130\uc720\ub2c8\ubc84\uc2a4)'s upcoming office milestone at One Centinel (ex-Shinhan Investment Tower! With your fit-out window currently active for your 28,464 sq ft (800 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Data Universe (\ub370\uc774\ud130\uc720\ub2c8\ubc84\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at One Centinel (ex-Shinhan Investment Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 335,
+    "id": "KR-059",
+    "rowId": "KR-059",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8160,7 +8481,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Secured approx. 2,000 sqm, building not stated",
     "timing": "Leased 1Q26 \u2014 furnishing likely done or in tail phase; verify building",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 1Q26 Korea Office Leasing, market commentary",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/1Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
@@ -8185,14 +8506,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Shinmi Global's upcoming office milestone at Seoul! With your fit-out window currently active for your 21,527 sq ft (2,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Shinmi Global's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 367,
+    "id": "KR-091",
+    "rowId": "KR-091",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8220,7 +8543,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "570 py (~1,884 sqm); cost-driven move from Centerfield",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -8245,14 +8568,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Chrono Studio (\ud06c\ub85c\ub178\uc2a4\ud29c\ub514\uc624; NPIXEL subsidiary)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 20,280 sq ft (570 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Chrono Studio (\ud06c\ub85c\ub178\uc2a4\ud29c\ub514\uc624; NPIXEL subsidiary)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 368,
+    "id": "KR-092",
+    "rowId": "KR-092",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8280,7 +8605,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "581 py (~1,921 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -8305,14 +8630,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Wezon (\uc704\uc874 \u2014 name transliteration uncertain)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 20,671 sq ft (581 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Wezon (\uc704\uc874 \u2014 name transliteration uncertain)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 370,
+    "id": "KR-094",
+    "rowId": "KR-094",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8340,7 +8667,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1,198 py (~3,960 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -8365,14 +8692,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Creditbon (\ud06c\ub808\ub527\ubcf8 \u2014 name transliteration uncertain)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 42,624 sq ft (1,198 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Creditbon (\ud06c\ub808\ub527\ubcf8 \u2014 name transliteration uncertain)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 378,
+    "id": "KR-102",
+    "rowId": "KR-102",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8400,7 +8729,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "790 py (~2,612 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -8425,14 +8754,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Celltrion Pharm (\uc140\ud2b8\ub9ac\uc628\uc81c\uc57d)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 28,108 sq ft (790 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Celltrion Pharm (\uc140\ud2b8\ub9ac\uc628\uc81c\uc57d)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 383,
+    "id": "KR-107",
+    "rowId": "KR-107",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8460,7 +8791,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1,300 py (~4,298 sqm); HQ move on old-HQ redevelopment issue",
     "timing": "Relocation Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 244Q Korea Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-244Q_Korea-Office-Market-Report.pdf",
@@ -8485,14 +8816,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Nice Payments (\ub098\uc774\uc2a4\ud398\uc774\uba3c\uce20)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 46,254 sq ft (1,300 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Nice Payments (\ub098\uc774\uc2a4\ud398\uc774\uba3c\uce20)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 387,
+    "id": "KR-111",
+    "rowId": "KR-111",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8520,7 +8853,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "589 py (~1,947 sqm)",
     "timing": "Relocation signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -8545,14 +8878,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on SGI Seoul Guarantee Insurance (SGI\uc11c\uc6b8\ubcf4\uc99d)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 20,956 sq ft (589 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding SGI Seoul Guarantee Insurance (SGI\uc11c\uc6b8\ubcf4\uc99d)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 394,
+    "id": "KR-118",
+    "rowId": "KR-118",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8580,7 +8915,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "720 py (~2,380 sqm)",
     "timing": "New lease signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -8605,14 +8940,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hyundai Motor Securities (\ud604\ub300\ucc28\uc99d\uad8c)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 25,617 sq ft (720 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hyundai Motor Securities (\ud604\ub300\ucc28\uc99d\uad8c)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 395,
+    "id": "KR-119",
+    "rowId": "KR-119",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8640,7 +8977,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "581 py (~1,921 sqm)",
     "timing": "New lease signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -8665,14 +9002,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hyundai Transys (\ud604\ub300\ud2b8\ub79c\uc2dc\uc2a4)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 20,671 sq ft (581 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hyundai Transys (\ud604\ub300\ud2b8\ub79c\uc2dc\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 397,
+    "id": "KR-121",
+    "rowId": "KR-121",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8700,7 +9039,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "700 py (~2,314 sqm), two floors",
     "timing": "Relocation signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -8725,14 +9064,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on NH Nonghyup Life Insurance (NH\ub18d\ud611\uc0dd\uba85)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 24,906 sq ft (700 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding NH Nonghyup Life Insurance (NH\ub18d\ud611\uc0dd\uba85)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 404,
+    "id": "KR-128",
+    "rowId": "KR-128",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8760,7 +9101,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "814 py (~2,691 sqm)",
     "timing": "Relocation signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -8785,14 +9126,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Supercent (\uc288\ud37c\uc13c\ud2b8)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 28,962 sq ft (814 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Supercent (\uc288\ud37c\uc13c\ud2b8)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 406,
+    "id": "KR-130",
+    "rowId": "KR-130",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8820,7 +9163,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1,230 py (~4,066 sqm)",
     "timing": "New lease signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -8845,14 +9188,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Rebellions (\ub9ac\ubca8\ub9ac\uc628)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 43,763 sq ft (1,230 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Rebellions (\ub9ac\ubca8\ub9ac\uc628)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 410,
+    "id": "KR-134",
+    "rowId": "KR-134",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8880,7 +9225,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1,001 py (~3,309 sqm)",
     "timing": "New lease signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -8905,14 +9250,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Korea Insurance Brokerage's upcoming office milestone at Seoul! With your fit-out window currently active for your 35,615 sq ft (1,001 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Korea Insurance Brokerage's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 422,
+    "id": "KR-146",
+    "rowId": "KR-146",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -8940,7 +9287,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "135 py (~446 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -8965,14 +9312,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:5 + T:20 + St:15 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Ryukyung PSG Asset Management's upcoming office milestone at Seoul! With your fit-out window currently active for your 4,803 sq ft (135 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Ryukyung PSG Asset Management's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 426,
+    "id": "KR-150",
+    "rowId": "KR-150",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -9000,7 +9349,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "119 py (~393 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -9025,14 +9374,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:5 + T:20 + St:15 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Kakao Pay Securities (\uce74\uce74\uc624\ud398\uc774\uc99d\uad8c)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 4,234 sq ft (119 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Kakao Pay Securities (\uce74\uce74\uc624\ud398\uc774\uc99d\uad8c)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 429,
+    "id": "KR-153",
+    "rowId": "KR-153",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -9060,7 +9411,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "116 py (~383 sqm)",
     "timing": "New lease signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -9085,14 +9436,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:5 + T:20 + St:15 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Leterinity (\ub808\ud130\ub2c8\ud2f0)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 4,127 sq ft (116 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Leterinity (\ub808\ud130\ub2c8\ud2f0)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 451,
+    "id": "MY-025",
+    "rowId": "MY-025",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -9152,7 +9505,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 495,
+    "id": "MY-070",
+    "rowId": "MY-070",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -9180,7 +9535,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Inaugural occupant of Silicon Research & Incubation Space (36,000 sq ft at GBS TechSpace); described as expanding firm; announced 1H 2025",
     "timing": "Expansion into incubation space 1H 2025 \u2014 monitor scale-up",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Semiconductor & Hardware",
     "source": "CBRE|WTW Property Market Performance 1H 2025 (Penang Purpose-Built Office)",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2025/09/1H2025-Snapshot_Final.pdf",
@@ -9205,14 +9560,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 80,
       "summary": "R:40 + S:15 + T:20 + St:5 = 80"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on SkyeChip's upcoming office milestone at Penang! With your fit-out window currently active for your 36,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding SkyeChip's commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 11,
+    "id": "CN-011",
+    "rowId": "CN-011",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -9240,7 +9597,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Bought 10-storey office building for corporate headquarters (Tishman Speyer/Mitsubishi JV seller)",
     "timing": "pre-commitment Oct 2026 \u2014 fit-out window opening; third mainland office buy in 4 months",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Mingtiandi",
     "sourceUrl": "https://www.mingtiandi.com/real-estate/finance/tishman-mitsubishi-jv-sells-shanghai-offices-to-pinduoduo-parent/",
@@ -9265,14 +9622,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on PDD Holdings (Pinduoduo parent)'s upcoming office milestone at Crystal Bridge! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding PDD Holdings (Pinduoduo parent)'s commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Crystal Bridge, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 2
   },
   {
-    "id": 12,
+    "id": "CN-012",
+    "rowId": "CN-012",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -9332,7 +9691,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 15,
+    "id": "CN-015",
+    "rowId": "CN-015",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -9360,7 +9721,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation, 1,324 sqm \u2014 INDIGO, WangJing-Jiuxianqiao",
     "timing": "Relocation signed Q1 2026 \u2014 fit-out window likely closing; post-move engagement",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "C&W Beijing Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/beijing-office-marketbeat-q1-2026-final.pdf",
@@ -9385,14 +9746,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Wisdom Bud Information Technology's upcoming office milestone at Beijing! With your fit-out window currently active for your 14,251 sq ft (1,324 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Wisdom Bud Information Technology's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 16,
+    "id": "CN-016",
+    "rowId": "CN-016",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -9452,7 +9815,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 20,
+    "id": "CN-020",
+    "rowId": "CN-020",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -9478,7 +9843,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal, 10,000 sqm \u2014 Shanghai World Financial Centre, Lujiazui",
-    "timing": "Renewal signed Q4 2025 \u2014 large footprint re-committed; next lease milestone signal",
+    "timing": "Renewal signed Q4 2025 \u2014 large footprint re-committed",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "BFSI (Banking & Finance)",
@@ -9486,7 +9851,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/shanghai-office-marketbeat-q4-2025-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -9512,7 +9877,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 54,
+    "id": "CN-054",
+    "rowId": "CN-054",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -9540,7 +9907,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation 14,000 sq ft (~1,301 sqm) \u2014 Lee Gardens, Core Jing'an",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/shanghai-office-marketbeat-q4-2024-final.pdf",
@@ -9565,14 +9932,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Manulife-Sinochem's upcoming office milestone at Shanghai! With your fit-out window currently active for your 14,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Manulife-Sinochem's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 72,
+    "id": "IN-016",
+    "rowId": "IN-016",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -9597,10 +9966,10 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-13",
     "daysAgo": 2,
-    "signal": "230,846 sq ft renewed at Aurobindo Galaxy; 5 yrs from 1 Mar 2026 (lease cycle model)",
+    "signal": "230,846 sq ft renewed at Aurobindo Galaxy; 5 yrs from 1 Mar 2026",
     "timing": "Renewal milestone tracked",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "urbanacres.in",
     "sourceUrl": "https://urbanacres.in/hyderabad-commercial-market-gains-momentum-with-smartworks-lease-deal/",
@@ -9625,14 +9994,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Smartworks's upcoming office milestone at Hyderabad! With your fit-out window currently active for your 2.31 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Smartworks's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 73,
+    "id": "IN-017",
+    "rowId": "IN-017",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -9660,7 +10031,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "400,000 sq ft (entire Kings Canyon tower), ASF Insignia, Gwal Pahari; operations from Q2 2027",
     "timing": "Fit-out ahead - prime Steelcase spec window NOW",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "IT & Global Consulting",
     "source": "torbitrealty.com",
     "sourceUrl": "https://torbitrealty.com/asf-group-rents-4-lakh-sq-ft-office-space-to-genpact-in-gurugram/",
@@ -9685,14 +10056,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Genpact's workspace milestone at Gurugram approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs for your 4.00 Lakh sq ft space, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Genpact's upcoming office milestone at Gurugram! With your fit-out window currently active for your 4.00 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 83,
+    "id": "IN-027",
+    "rowId": "IN-027",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -9752,7 +10125,71 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 99,
+    "id": "IN-042",
+    "rowId": "IN-042",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Intuit",
+    "market": "Bengaluru (Embassy TechVillage, Outer Ring Road)",
+    "city": "Bengaluru",
+    "submarket": "Embassy TechVillage",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "Leased 6.3+ lakh sq ft across multiple towers, per Propstack registration docs (registered ~Sep-Oct 2026, approximate)",
+    "timing": "Post-registration fit-out planning window; among Bengaluru's largest 2026 transactions",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Enterprise Software & Tech",
+    "source": "PropNewsTime",
+    "sourceUrl": "https://propnewstime.com/latestnewsstories/MzA2MTc=/intuit-signs-inr-915-crore-office-lease-for-6-3-lakh-sq-ft-in-bengaluru",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 75,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Intuit's upcoming office milestone at Bengaluru! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-043",
+    "rowId": "IN-043",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -9786,8 +10223,8 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.rprealtyplus.com/news-views/dharma-productions-leases-office-in-andheri-for-rs-15-lakh-122135.html",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -9812,7 +10249,195 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 184,
+    "id": "IN-048",
+    "rowId": "IN-048",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Income Tax Department",
+    "market": "Palghar, Maharashtra",
+    "city": "Palghar",
+    "submarket": "Palghar",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "Live tender: 'Hiring Of Office Accommodation On Rent/lease Basis At Palghar'; bid submission closes 23 Oct 2026 - open right now",
+    "timing": "Active, time-sensitive: department selecting premises this month - engage after award",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Government & Public Tenders",
+    "source": "nationaltenders.com",
+    "sourceUrl": "https://www.nationaltenders.com/agency/income-tax-department-tenders-online-tender",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 75,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Income Tax Department's upcoming office milestone at Palghar! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Palghar. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-050",
+    "rowId": "IN-050",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Starbucks",
+    "market": "Chennai",
+    "city": "Chennai",
+    "submarket": "Chennai",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Pre-commitment",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "First India GCC announced; MoU with Tamil Nadu government (reported ~Sep 2026, approximate)",
+    "timing": "pre-commitment - new GCC; office space decision pending; engage now",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Retail, Travel & Consumer",
+    "source": "Analytics Insight",
+    "sourceUrl": "https://www.analyticsinsight.net/news/starbucks-to-set-up-first-india-gcc-in-chennai-plans-800-tech-jobs",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 75,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Pre-commitment)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Starbucks's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-131",
+    "rowId": "IN-131",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "BlackRock",
+    "market": "Delhi NCR",
+    "city": "Gurugram",
+    "submarket": "Gurugram",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Pre-commitment",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-15",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-15",
+    "daysAgo": 0,
+    "signal": "Named among GCC occupiers with pre-commitments in H1 2026; building, size unstated \u2014 pre-commitment, not a completed lease",
+    "timing": "Pre-commitment in H1 2026 \u2014 forward fit-out pipeline",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
+    "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "New",
+    "trackerNotes": "",
+    "heatScore": 75,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Pre-commitment)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding BlackRock's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-132",
+    "rowId": "IN-132",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -9840,7 +10465,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among GCC occupiers with pre-commitments in H1 2026; building, size unstated \u2014 pre-commitment, not a completed lease",
     "timing": "Pre-commitment in H1 2026 \u2014 forward fit-out pipeline",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -9865,14 +10490,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Amdocs's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Amdocs's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 210,
+    "id": "JP-025",
+    "rowId": "JP-025",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -9897,7 +10524,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "HQ moved to Azabudai Hills Mori JP Tower 8F; operations began 2026-09-14 (office size not disclosed)",
+    "signal": "HQ moved to Azabudai Hills Mori JP Tower 8F (Minato-ku Azabudai 1-3-1); operations began 2026-09-14; purpose = hybrid-work support + BCP strengthening (office size not disclosed)",
     "timing": "Moved ~1 month ago - fit-out tail / Phase-2 furniture upgrades still in window; high-value target",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -9932,7 +10559,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 211,
+    "id": "JP-026",
+    "rowId": "JP-026",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -9992,7 +10621,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 223,
+    "id": "JP-038",
+    "rowId": "JP-038",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10020,7 +10651,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation to company-owned FP Asakusabashi Bldg; moved 2026-03-16 (TDnet 2026-01-14)",
     "timing": "Moved into owned building Mar 2026 \u2014 refurbishment/fit-out of owned asset; engage on workplace refresh",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "TDnet timely disclosure (via irbank)",
     "sourceUrl": "https://f.irbank.net/pdf/20260114/140120260114533518.pdf",
@@ -10045,14 +10676,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u682a\u5f0f\u4f1a\u793eFP\u30d1\u30fc\u30c8\u30ca\u30fc (FP Partner, TSE Prime: 7388)'s upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u682a\u5f0f\u4f1a\u793eFP\u30d1\u30fc\u30c8\u30ca\u30fc (FP Partner, TSE Prime: 7388)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 224,
+    "id": "JP-039",
+    "rowId": "JP-039",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10112,7 +10745,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 225,
+    "id": "JP-040",
+    "rowId": "JP-040",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10140,7 +10775,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation within Osaka to consolidate dispersed offices; announced 2026-03-27",
     "timing": "Planned May 2026 move \u2014 fit-out window likely open",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "TDnet timely disclosure (via Minkabu)",
     "sourceUrl": "https://minkabu.jp/news/media_content/2467800.pdf",
@@ -10165,14 +10800,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u5317\u6d5c\u30ad\u30e3\u30d4\u30bf\u30eb\u30d1\u30fc\u30c8\u30ca\u30fc\u30ba\u682a\u5f0f\u4f1a\u793e (Kitahama Capital Partners, TSE Standard: 2134)'s upcoming office milestone at Osaka! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Osaka. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u5317\u6d5c\u30ad\u30e3\u30d4\u30bf\u30eb\u30d1\u30fc\u30c8\u30ca\u30fc\u30ba\u682a\u5f0f\u4f1a\u793e (Kitahama Capital Partners, TSE Standard: 2134)'s commercial workplace portfolio in Osaka. As your team reviews ongoing workspace requirements at Osaka, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 226,
+    "id": "JP-041",
+    "rowId": "JP-041",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10200,7 +10837,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation to Zenith Minami-Shinjuku 10F, Sendagaya; move planned May 2026 (TDnet disclosure 2025-11-21)",
     "timing": "Announced Nov 2025 for May 2026 move \u2014 fit-out/procurement window likely open",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "TDnet timely disclosure (via Logmi Finance)",
     "sourceUrl": "https://finance.logmi.jp/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNy8xQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--e594328b8046ab483bc882abdb3afb6a7dffbf4f/20251120507241_pdf_general.pdf",
@@ -10225,14 +10862,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u30e2\u30a4\u682a\u5f0f\u4f1a\u793e (Moi Inc., TSE Growth: 5031)'s upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u30e2\u30a4\u682a\u5f0f\u4f1a\u793e (Moi Inc., TSE Growth: 5031)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 237,
+    "id": "JP-052",
+    "rowId": "JP-052",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10292,7 +10931,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 238,
+    "id": "JP-053",
+    "rowId": "JP-053",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10352,7 +10993,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 239,
+    "id": "JP-054",
+    "rowId": "JP-054",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10412,7 +11055,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 240,
+    "id": "JP-055",
+    "rowId": "JP-055",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10472,7 +11117,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 3
   },
   {
-    "id": 241,
+    "id": "JP-056",
+    "rowId": "JP-056",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10532,7 +11179,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 3
   },
   {
-    "id": 242,
+    "id": "JP-057",
+    "rowId": "JP-057",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10592,7 +11241,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 3
   },
   {
-    "id": 243,
+    "id": "JP-058",
+    "rowId": "JP-058",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10652,7 +11303,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 244,
+    "id": "JP-059",
+    "rowId": "JP-059",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10712,7 +11365,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 245,
+    "id": "JP-060",
+    "rowId": "JP-060",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10772,7 +11427,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 246,
+    "id": "JP-061",
+    "rowId": "JP-061",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10800,7 +11457,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Pre-committed at Osaki River Walk Garden; completion Feb-27",
     "timing": "Pre-commitment \u2014 early engagement window",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat \u2014 Planned Grade A Office Supply table",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/japan---tokyo---office-q2-2026-en.pdf",
@@ -10825,14 +11482,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on LIFULL's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], I noticed LIFULL's commercial momentum at Tokyo. As your workplace strategy evolves in Tokyo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 247,
+    "id": "JP-062",
+    "rowId": "JP-062",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10860,7 +11519,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Pre-committed at Osaki River Walk Garden; completion Feb-27",
     "timing": "Pre-commitment \u2014 early engagement window",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat \u2014 Planned Grade A Office Supply table",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/japan---tokyo---office-q2-2026-en.pdf",
@@ -10885,14 +11544,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Leverages's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Leverages's commercial momentum at Tokyo. As your workplace strategy evolves in Tokyo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 248,
+    "id": "JP-063",
+    "rowId": "JP-063",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10920,7 +11581,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Pre-committed at Osaki River Walk Garden; completion Feb-27",
     "timing": "Pre-commitment \u2014 early engagement window",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat \u2014 Planned Grade A Office Supply table",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/japan---tokyo---office-q2-2026-en.pdf",
@@ -10945,14 +11606,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mizuno's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Mizuno's commercial momentum at Tokyo. As your workplace strategy evolves in Tokyo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 249,
+    "id": "JP-064",
+    "rowId": "JP-064",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -10980,7 +11643,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Pre-committed at World Trade Center Main Building; completion Mar-27",
     "timing": "Pre-commitment \u2014 early engagement window",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat \u2014 Planned Grade A Office Supply table",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/japan---tokyo---office-q2-2026-en.pdf",
@@ -11005,14 +11668,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Sumitomo Mitsui Trust Panasonic Finance's upcoming office milestone at World Trade Center! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Sumitomo Mitsui Trust Panasonic Finance's commercial momentum at World Trade Center. As your workplace strategy evolves in Tokyo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 3
   },
   {
-    "id": 267,
+    "id": "JP-082",
+    "rowId": "JP-082",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11038,9 +11703,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, Toranomon Alcea Tower, completing Feb-25",
-    "timing": "Pre-commitment (signing date not stated; building completing Feb-25) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Feb-25)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -11065,14 +11730,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Honda Motor's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Honda Motor's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 268,
+    "id": "JP-083",
+    "rowId": "JP-083",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11098,9 +11765,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, Toranomon Alcea Tower, completing Feb-25",
-    "timing": "Pre-commitment (signing date not stated; building completing Feb-25) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Feb-25)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -11125,14 +11792,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mizuho Leasing's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mizuho Leasing's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 269,
+    "id": "JP-084",
+    "rowId": "JP-084",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11158,9 +11827,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, Blue Front Shibaura Tower S, completing Feb-25",
-    "timing": "Pre-commitment (signing date not stated; building completing Feb-25) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Feb-25)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -11185,14 +11854,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Nomura Real Estate Development's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Nomura Real Estate Development's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 270,
+    "id": "JP-085",
+    "rowId": "JP-085",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11218,9 +11889,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, THE LINKPILLAR 1 NORTH, completing Mar-25",
-    "timing": "Pre-commitment (signing date not stated; building completing Mar-25) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Mar-25)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -11245,14 +11916,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on KDDI's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding KDDI's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 271,
+    "id": "JP-086",
+    "rowId": "JP-086",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11278,9 +11951,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, THE LINKPILLAR 1 SOUTH, completing Mar-25",
-    "timing": "Pre-commitment (signing date not stated; building completing Mar-25) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Mar-25)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
@@ -11305,14 +11978,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Maruha Nichiro's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Maruha Nichiro's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 272,
+    "id": "JP-087",
+    "rowId": "JP-087",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11338,9 +12013,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, Mitamachi Terrace, completing May-25",
-    "timing": "Pre-commitment (signing date not stated; building completing May-25) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing May-25)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
@@ -11365,14 +12040,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Sanko Metal Industrial's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Sanko Metal Industrial's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 273,
+    "id": "JP-088",
+    "rowId": "JP-088",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11398,9 +12075,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, Kojimachi Kosai Building, completing Jun-25",
-    "timing": "Pre-commitment (signing date not stated; building completing Jun-25) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Jun-25)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
@@ -11425,14 +12102,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Kenko Mayonnaise's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Kenko Mayonnaise's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 274,
+    "id": "JP-089",
+    "rowId": "JP-089",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11458,9 +12137,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, THE LINKPILLAR 2 (Jan-26) / TOFROM YAESU TOWER (Feb-26)",
-    "timing": "Pre-commitment (signing date not stated) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q1 2025 + Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
@@ -11485,14 +12164,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Kobe Steel Group's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Kobe Steel Group's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 275,
+    "id": "JP-090",
+    "rowId": "JP-090",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11518,9 +12199,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, TOFROM YAESU TOWER, completing Feb-26",
-    "timing": "Pre-commitment (signing date not stated; building completing Feb-26) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Feb-26)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/japan---tokyo---office-q3-2025-en.pdf",
@@ -11545,14 +12226,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Japan Pulp and Paper's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Japan Pulp and Paper's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 276,
+    "id": "JP-091",
+    "rowId": "JP-091",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -11578,9 +12261,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Pre-commitment, Dogenzaka 2-chome Project, completing Aug-27",
-    "timing": "Pre-commitment (signing date not stated; building completing Aug-27) \u2014 monitor next lease cycle",
+    "timing": "Pre-commitment (signing date not stated; building completing Aug-27)",
     "urgency": "Pipeline",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q3 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q3/apac-and-gc/japan---tokyo---office-q3-2025-en.pdf",
@@ -11605,14 +12288,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on coconala's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding coconala's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 288,
+    "id": "KR-012",
+    "rowId": "KR-012",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -11672,7 +12357,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 289,
+    "id": "KR-013",
+    "rowId": "KR-013",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -11732,7 +12419,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 303,
+    "id": "KR-027",
+    "rowId": "KR-027",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -11792,7 +12481,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 313,
+    "id": "KR-037",
+    "rowId": "KR-037",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -11820,7 +12511,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Expansion \u2014 1,800 sqm at Koreit Tower",
     "timing": "Expansion Q1 2026; e-commerce growth story",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Cushman & Wakefield Seoul Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/2026-q1-seoul-office-marketbeat_eng.pdf?rev=e1b49917866e4a52b3e13d6a9926d9e6",
@@ -11845,14 +12536,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Kurly (Market Kurly)'s upcoming office milestone at Koreit Tower! With your fit-out window currently active for your 19,375 sq ft (1,800 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Kurly (Market Kurly)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Koreit Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 314,
+    "id": "KR-038",
+    "rowId": "KR-038",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -11880,7 +12573,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Expansion \u2014 1,000 sqm at Bithumb Finance Tower",
     "timing": "Expansion Q1 2026; second Seoul expansion in a year",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Cushman & Wakefield Seoul Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/2026-q1-seoul-office-marketbeat_eng.pdf?rev=e1b49917866e4a52b3e13d6a9926d9e6",
@@ -11905,14 +12598,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Datadog's upcoming office milestone at Bithumb Finance Tower! With your fit-out window currently active for your 10,763 sq ft (1,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Datadog's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Bithumb Finance Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 317,
+    "id": "KR-041",
+    "rowId": "KR-041",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -11940,7 +12635,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Expansion \u2014 1,700 sqm at FKI Tower",
     "timing": "Expansion Q1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Cushman & Wakefield Seoul Office MarketBeat Q1 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q1/apac-and-gc/2026-q1-seoul-office-marketbeat_eng.pdf?rev=e1b49917866e4a52b3e13d6a9926d9e6",
@@ -11965,14 +12660,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hwaseung Corporation's upcoming office milestone at FKI Tower! With your fit-out window currently active for your 18,298 sq ft (1,700 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hwaseung Corporation's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at FKI Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 2
   },
   {
-    "id": 318,
+    "id": "KR-042",
+    "rowId": "KR-042",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12032,7 +12729,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 320,
+    "id": "KR-044",
+    "rowId": "KR-044",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12092,7 +12791,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 334,
+    "id": "KR-058",
+    "rowId": "KR-058",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12120,7 +12821,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New lease of approx. 1,700 sqm, building not stated",
     "timing": "Leased 1Q26 \u2014 furnishing likely done or in tail phase; verify building before outreach",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 1Q26 Korea Office Leasing, market commentary",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/1Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
@@ -12145,14 +12846,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Apple's upcoming office milestone at Seoul! With your fit-out window currently active for your 18,298 sq ft (1,700 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Apple's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 339,
+    "id": "KR-063",
+    "rowId": "KR-063",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12212,7 +12915,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 341,
+    "id": "KR-065",
+    "rowId": "KR-065",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12272,7 +12977,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 342,
+    "id": "KR-066",
+    "rowId": "KR-066",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12332,7 +13039,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 343,
+    "id": "KR-067",
+    "rowId": "KR-067",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12392,7 +13101,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 344,
+    "id": "KR-068",
+    "rowId": "KR-068",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12452,7 +13163,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 348,
+    "id": "KR-072",
+    "rowId": "KR-072",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12480,7 +13193,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \uc5ec\uc758\ub3c4 \uc575\ucee4\uc6d0, 6,200\ud3c9 (\u224820,460 sqm) (combined row as printed)",
     "timing": "Q1 2025 \u2014 historical; large footprint",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "GenstarMate 251Q (2025 Q1)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-251Q-Korea-Office-Market-Report.pdf",
@@ -12505,14 +13218,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on KB Kookmin Bank / KB Kookmin Card's upcoming office milestone at Seoul! With your fit-out window currently active for your 220,229 sq ft (20,460 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding KB Kookmin Bank / KB Kookmin Card's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 353,
+    "id": "KR-077",
+    "rowId": "KR-077",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12540,7 +13255,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to SK-C\ud0c0\uc6cc, 3,400\ud3c9 (\u224811,220 sqm)",
     "timing": "Q2 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 252Q (2025 Q2)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-252Q-Korea-Office-Market-Report.pdf",
@@ -12565,14 +13280,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on SKC's upcoming office milestone at Seoul! With your fit-out window currently active for your 120,770 sq ft (11,220 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding SKC's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 355,
+    "id": "KR-079",
+    "rowId": "KR-079",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12600,7 +13317,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \uc2dc\uadf8\ub2c8\uccd0\ud0c0\uc6cc, 3,000\ud3c9 (\u22489,900 sqm)",
     "timing": "Q2 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 252Q (2025 Q2)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-252Q-Korea-Office-Market-Report.pdf",
@@ -12625,14 +13342,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \ucf54\ub9ac\uc548\ub9ac (Korean Re)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 106,562 sq ft (9,900 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \ucf54\ub9ac\uc548\ub9ac (Korean Re)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 356,
+    "id": "KR-080",
+    "rowId": "KR-080",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12660,7 +13379,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \uc13c\ud130\ud544\ub4dc \uc774\uc2a4\ud2b8, 3,000\ud3c9 (\u22489,900 sqm)",
     "timing": "Q2 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 252Q (2025 Q2)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-252Q-Korea-Office-Market-Report.pdf",
@@ -12685,14 +13404,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \uc5d0\uc2a4\uc528\ucf00\uc774\ucef4\ud37c\ub2c8's upcoming office milestone at Seoul! With your fit-out window currently active for your 106,562 sq ft (9,900 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \uc5d0\uc2a4\uc528\ucf00\uc774\ucef4\ud37c\ub2c8's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 358,
+    "id": "KR-082",
+    "rowId": "KR-082",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12720,7 +13441,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \uc6d0\uc13c\ud2f0\ub110, 3,700\ud3c9 (\u224812,210 sqm)",
     "timing": "Q2 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "GenstarMate 252Q (2025 Q2)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-252Q-Korea-Office-Market-Report.pdf",
@@ -12745,14 +13466,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:25 + T:5 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \ubbf8\ub798\uc5d0\uc14b\uc0dd\uba85\ubcf4\ud5d8 (Mirae Asset Life Insurance)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 131,427 sq ft (12,210 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \ubbf8\ub798\uc5d0\uc14b\uc0dd\uba85\ubcf4\ud5d8 (Mirae Asset Life Insurance)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 364,
+    "id": "KR-088",
+    "rowId": "KR-088",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12780,7 +13503,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "242 py (~800 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -12805,14 +13528,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Social News (\uc18c\uc15c\ub274\uc2a4)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 8,610 sq ft (242 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Social News (\uc18c\uc15c\ub274\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 366,
+    "id": "KR-090",
+    "rowId": "KR-090",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12840,7 +13565,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "356 py (~1,177 sqm); filled post-11st vacancy",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report-eng/pdf",
@@ -12865,14 +13590,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on A Plus Asset Advisor (\uc5d0\uc774\ud50c\ub7ec\uc2a4\uc5d0\uc14b\uc5b4\ub4dc\ubc14\uc774\uc800)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 12,666 sq ft (356 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding A Plus Asset Advisor (\uc5d0\uc774\ud50c\ub7ec\uc2a4\uc5d0\uc14b\uc5b4\ub4dc\ubc14\uc774\uc800)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 371,
+    "id": "KR-095",
+    "rowId": "KR-095",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12900,7 +13627,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "398 py (~1,316 sqm) pre-commitment",
     "timing": "pre-commitment signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report-eng/pdf",
@@ -12925,14 +13652,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Sentbe (\uc13c\ud2b8\ube44)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 14,160 sq ft (398 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Sentbe (\uc13c\ud2b8\ube44)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 373,
+    "id": "KR-097",
+    "rowId": "KR-097",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -12960,7 +13689,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "500 py (~1,653 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -12985,14 +13714,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Galaxy Corporation (\uac24\ub7ed\uc11c\ucf54\ud37c\ub808\uc774\uc158)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 17,790 sq ft (500 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Galaxy Corporation (\uac24\ub7ed\uc11c\ucf54\ud37c\ub808\uc774\uc158)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 375,
+    "id": "KR-099",
+    "rowId": "KR-099",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13020,7 +13751,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "413 py (~1,365 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -13045,14 +13776,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Weekly Hair (\u321c\uc704\ud074\ub9ac\ud5e4\uc5b4)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 14,694 sq ft (413 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Weekly Hair (\u321c\uc704\ud074\ub9ac\ud5e4\uc5b4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 379,
+    "id": "KR-103",
+    "rowId": "KR-103",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13080,7 +13813,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "303 py (~1,002 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -13105,14 +13838,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Novatec (\ub178\ubc14\ud14d \u2014 name transliteration uncertain)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 10,780 sq ft (303 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Novatec (\ub178\ubc14\ud14d \u2014 name transliteration uncertain)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 380,
+    "id": "KR-104",
+    "rowId": "KR-104",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13140,7 +13875,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "300 py (~992 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -13165,14 +13900,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on WZCOM (\ub354\ube14\uc720\uc81c\ud2b8\ucf64)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 10,674 sq ft (300 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding WZCOM (\ub354\ube14\uc720\uc81c\ud2b8\ucf64)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 388,
+    "id": "KR-112",
+    "rowId": "KR-112",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13200,7 +13937,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "250 py (~826 sqm)",
     "timing": "Relocation signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -13225,14 +13962,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on HLMC's upcoming office milestone at Seoul! With your fit-out window currently active for your 8,895 sq ft (250 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding HLMC's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 389,
+    "id": "KR-113",
+    "rowId": "KR-113",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13260,7 +13999,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "171 py (~565 sqm)",
     "timing": "New lease signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -13285,14 +14024,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Toss Income (\ud1a0\uc2a4 affiliate of Viva Republica)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 6,084 sq ft (171 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Toss Income (\ud1a0\uc2a4 affiliate of Viva Republica)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 390,
+    "id": "KR-114",
+    "rowId": "KR-114",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13320,7 +14061,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "358 py (~1,183 sqm)",
     "timing": "Relocation signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -13345,14 +14086,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Goorm (\uad6c\ub984)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 12,737 sq ft (358 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Goorm (\uad6c\ub984)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 392,
+    "id": "KR-116",
+    "rowId": "KR-116",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13380,7 +14123,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "398 py (~1,316 sqm)",
     "timing": "New lease signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -13405,14 +14148,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Leferi (\ub808\ud398\ub9ac)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 14,160 sq ft (398 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Leferi (\ub808\ud398\ub9ac)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 393,
+    "id": "KR-117",
+    "rowId": "KR-117",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13440,7 +14185,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "324 py (~1,071 sqm)",
     "timing": "New lease signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q1 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -13465,14 +14210,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on PineStreet Asset Management's upcoming office milestone at Seoul! With your fit-out window currently active for your 11,527 sq ft (324 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding PineStreet Asset Management's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 398,
+    "id": "KR-122",
+    "rowId": "KR-122",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13500,7 +14247,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "389 py (~1,286 sqm)",
     "timing": "Relocation signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13525,14 +14272,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Lotte Card (\ub86f\ub370\uce74\ub4dc)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 13,840 sq ft (389 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Lotte Card (\ub86f\ub370\uce74\ub4dc)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 399,
+    "id": "KR-123",
+    "rowId": "KR-123",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13560,7 +14309,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "286 py (~945 sqm)",
     "timing": "Relocation signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13585,14 +14334,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mdic's upcoming office milestone at Seoul! With your fit-out window currently active for your 10,175 sq ft (286 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mdic's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 400,
+    "id": "KR-124",
+    "rowId": "KR-124",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13620,7 +14371,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "278 py (~919 sqm)",
     "timing": "Relocation signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13645,14 +14396,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on RCI Financial Korea's upcoming office milestone at Seoul! With your fit-out window currently active for your 9,891 sq ft (278 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding RCI Financial Korea's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 403,
+    "id": "KR-127",
+    "rowId": "KR-127",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13680,7 +14433,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "293 py (~969 sqm)",
     "timing": "Relocation signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13705,14 +14458,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on eOpsoft's upcoming office milestone at Seoul! With your fit-out window currently active for your 10,424 sq ft (293 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding eOpsoft's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 405,
+    "id": "KR-129",
+    "rowId": "KR-129",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13740,7 +14495,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "365 py (~1,207 sqm)",
     "timing": "New lease signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13765,14 +14520,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on KIS Appraisal (\ud55c\uad6d\ud22c\uc790\ud3c9\uac00)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 12,986 sq ft (365 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding KIS Appraisal (\ud55c\uad6d\ud22c\uc790\ud3c9\uac00)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 407,
+    "id": "KR-131",
+    "rowId": "KR-131",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13800,7 +14557,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "153 py (~506 sqm)",
     "timing": "New lease signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13825,14 +14582,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Keyinside (\ud0a4\uc778\uc0ac\uc774\ub4dc)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 5,443 sq ft (153 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Keyinside (\ud0a4\uc778\uc0ac\uc774\ub4dc)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 408,
+    "id": "KR-132",
+    "rowId": "KR-132",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13860,7 +14619,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "153 py (~506 sqm)",
     "timing": "New lease signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13885,14 +14644,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on MiL.k Partners (\ubc00\ud06c\ud30c\ud2b8\ub108\uc2a4)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 5,443 sq ft (153 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding MiL.k Partners (\ubc00\ud06c\ud30c\ud2b8\ub108\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 409,
+    "id": "KR-133",
+    "rowId": "KR-133",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13920,7 +14681,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "342 py (~1,131 sqm)",
     "timing": "New lease signed Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -13945,14 +14706,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on NEXUS (name as printed)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 12,168 sq ft (342 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding NEXUS (name as printed)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 414,
+    "id": "KR-138",
+    "rowId": "KR-138",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -13980,7 +14743,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "306 py (~1,012 sqm); + 583 py (~1,927 sqm) BS Hanyang Tower (Munjeong-dong, Others)",
     "timing": "Two leases signed Q3 2025 \u2014 fit-out likely complete or tail",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q3 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q3-office-market-report-eng/pdf",
@@ -14005,14 +14768,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Shinhan Life (\uc2e0\ud55c\uc0dd\uba85)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Shinhan Life (\uc2e0\ud55c\uc0dd\uba85)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 461,
+    "id": "MY-035",
+    "rowId": "MY-035",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14037,7 +14802,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Established regional operations + training base in Johor and expanding KL Global Shared Services Center to Phase II, announced Feb 12, 2026 (pre-window)",
+    "signal": "Established regional operations + training base in Johor and expanding KL Global Shared Services Center to Phase II ( announced Feb 12, 2026 (pre-window)",
     "timing": "KL GSSC Phase II expansion implies fit-out in progress now",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -14072,67 +14837,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 463,
-    "country": "Malaysia",
-    "countryCode": "MY",
-    "flag": "\ud83c\uddf2\ud83c\uddfe",
-    "currency": "MYR",
-    "currencySymbol": "RM",
-    "company": "HRnetGroup (SGX:CHZ)",
-    "market": "KL (Damansara Heights)",
-    "city": "Kuala Lumpur",
-    "submarket": "Kuala Lumpur",
-    "building": "Damansara Heights",
-    "isBuildingDisclosed": true,
-    "isBuildingInferred": true,
-    "areaSqFt": null,
-    "areaFormatted": "Not disclosed",
-    "sizeTier": "Undisclosed",
-    "isSizeDisclosed": false,
-    "isSizeInferred": false,
-    "dealType": "Pre-commitment",
-    "isTypeDisclosed": false,
-    "isTypeInferred": true,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2027-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "SG-listed recruitment firm bought two office suites (~5,000 sq ft) at Pavilion Damansara Heights as permanent Malaysia base, expected occupation Q4 2027",
-    "timing": "Strong fit-out prospect: planning/spec window now, occupation Q4 2027",
-    "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
-    "sector": "Corporate & Commercial",
-    "source": "TipRanks",
-    "sourceUrl": "https://www.tipranks.com/news/company-announcements/hrnetgroup-secures-permanent-kuala-lumpur-base-to-drive-malaysia-expansion",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
-    "trackerNotes": "",
-    "heatScore": 75,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Pre-commitment)",
-      "statusPts": 15,
-      "statusReason": "Active priority (+15)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 20,
-      "status": 15,
-      "totalScore": 75,
-      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
-    },
-    "suggestedOpeningLine": "Hi [Name], notice HRnetGroup (SGX:CHZ)'s workspace milestone at Damansara Heights approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 1
-  },
-  {
-    "id": 465,
+    "id": "MY-039",
+    "rowId": "MY-039",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14160,7 +14867,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Signed lease agreement with Penang Development Corporation for greenfield production site (Jul 29, 2026); production ramp-up expected 2028; already runs Southeast Asia regional hub in KL since 1995",
     "timing": "Lease signed - fit-out/design phase 2026-2027 ahead of 2028 production; admin + technical-support space opportunity now",
     "urgency": "Immediate",
-    "fitoutWindow": "2 Years",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Industrial & MedTech",
     "source": "InvestPenang press release",
     "sourceUrl": "https://investpenang.gov.my/press-release-eppendorf-signs-lease-agreement-for-new-production-site-in-penang-malaysia/",
@@ -14185,14 +14892,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC. We track major corporate footprints across Penang and see Eppendorf SE's development horizon at Bandar Cassia Technology Park over the next 18\u201324 months. We'd love to connect early to share regional workplace benchmarking and future-of-work research well ahead of your formal decision window.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Eppendorf SE's upcoming office milestone at Bandar Cassia Technology Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 3
   },
   {
-    "id": 469,
+    "id": "MY-043",
+    "rowId": "MY-043",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14220,7 +14929,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Concluded agreement with MIDA (May 5, 2026) for greenfield facility on 8.5-acre plot: integrated three-storey office building + cleanrooms + logistics; operational spring 2027, first deliveries 2H 2027",
     "timing": "Building now - office building part of greenfield project; fit-out/furnishing need imminent (2026-2027)",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "IT & Global Consulting",
     "source": "MIDA media release",
     "sourceUrl": "https://www.mida.gov.my/media-release/aixrons-new-facility-in-penang-reinforces-malaysias-position-as-important-hub-for-advanced-semiconductor-manufacturing/",
@@ -14245,14 +14954,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], notice AIXTRON SE's workspace milestone at Bandar Cassia Technology Park approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on AIXTRON SE's upcoming office milestone at Bandar Cassia Technology Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 3
   },
   {
-    "id": 470,
+    "id": "MY-045",
+    "rowId": "MY-045",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14280,7 +14991,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "AmBank (M) Bhd acquiring 46-storey Menara AmBank office tower from AmFIRST REIT (completion targeted Q4 2026) - bank buying back its namesake tower; watch for relocation/upgrade works",
     "timing": "Completion Q4 2026; fit-out/relocation planning window opens 2027",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "BFSI (Banking & Finance)",
     "source": "Zerin Properties ZP Weekly Corporate Real Estate - Issue 363",
     "sourceUrl": "https://zerinproperties.com/zerinCorp-pdf/corporateHighlights/ZP%20Weekly%20Corporate%20Real%20Estate%20-%20Issue%20363.pdf",
@@ -14305,14 +15016,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], notice AmBank (M) Bhd's workspace milestone at KL city centre approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], I noticed AmBank (M) Bhd's commercial momentum at KL city centre. As your workplace strategy evolves in Kuala Lumpur, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 472,
+    "id": "MY-047",
+    "rowId": "MY-047",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14372,7 +15085,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 485,
+    "id": "MY-060",
+    "rowId": "MY-060",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14400,7 +15115,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Opened new Penang office at Menara Boustead Penang",
     "timing": "1H 2026 opening; furnishing likely current",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "CBRE|WTW Property Market Performance 1H 2026 snapshot, Penang PBO",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2026/09/CBREWTW-1H-2026-Snapshot.pdf",
@@ -14425,14 +15140,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Quanterm Logistics's upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Quanterm Logistics's commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 490,
+    "id": "MY-065",
+    "rowId": "MY-065",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14449,7 +15166,7 @@ var INITIAL_LEADS_DATA = [
     "areaFormatted": "14,000 sq ft",
     "sizeTier": "Boutique (<20k)",
     "isSizeDisclosed": true,
-    "isSizeInferred": true,
+    "isSizeInferred": false,
     "dealType": "Expansion",
     "isTypeDisclosed": false,
     "isTypeInferred": true,
@@ -14460,7 +15177,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Maiden southern-region expansion: 14,000-sq ft outlet at MVS South Tower",
     "timing": "1H 2026 expansion; flex operator = repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank REH 1H 2026, Johor office section",
     "sourceUrl": "https://www.knightfrank.com.my/site-assets/pdf/my-real-estate-highlights-1h-2026.pdf",
@@ -14485,14 +15202,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Co-labs's upcoming office milestone at MVS South Tower! With your fit-out window currently active for your 14,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Johor Bahru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Co-labs's commercial workplace portfolio in Johor Bahru. As your team reviews ongoing workspace requirements at MVS South Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 501,
+    "id": "MY-076",
+    "rowId": "MY-076",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -14520,7 +15239,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Opened flagship 15,000 sq ft flex centre at Menara Darussalam, its 16th location nationwide, in 2H2025",
     "timing": "New centre opened 2H2025 \u2014 fit-out complete; repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank Malaysia Real Estate Highlights 2H 2025",
     "sourceUrl": "https://kfmconnect.com.my/reh2h2025",
@@ -14545,14 +15264,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Common Ground's upcoming office milestone at Kuala Lumpur! With your fit-out window currently active for your 15,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Common Ground's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Kuala Lumpur, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 512,
+    "id": "LK-007",
+    "rowId": "LK-007",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -14580,7 +15301,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Tender Mar 2026: ~15,000 sq ft building on 5-yr lease for Head Office; bids closed 6 Apr 2026",
     "timing": "Follow up on award - HQ fit-out opportunity",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "cscl.lk",
     "sourceUrl": "http://www.cscl.lk/images/English 2026-03-12.pdf",
@@ -14605,14 +15326,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:10 + T:20 + St:5 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Ceylon Shipping Corporation's upcoming office milestone at Colombo! With your fit-out window currently active for your 15,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Ceylon Shipping Corporation's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 531,
+    "id": "LK-026",
+    "rowId": "LK-026",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -14638,7 +15361,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Expansion announced ~Oct 1, 2026 (approximate): UK-focused outsourcing firm expansion in Colombo",
-    "timing": "Active BPO expansion = near-term seat/office demand, watch for site announcement in Colombo",
+    "timing": "Active BPO hiring wave = near-term seat/office demand, watch for site announcement in Colombo",
     "urgency": "Near-Term",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
@@ -14672,7 +15395,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 535,
+    "id": "LK-031",
+    "rowId": "LK-031",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -14732,7 +15457,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 21,
+    "id": "CN-021",
+    "rowId": "CN-021",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -14758,15 +15485,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal, 5,200 sqm \u2014 Foxconn Building, Lujiazui",
-    "timing": "Renewal signed Q4 2025 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q4 2025",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/shanghai-office-marketbeat-q4-2025-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 70,
     "heatScoreBreakdown": {
@@ -14785,14 +15512,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Allianz Group's upcoming office milestone at Shanghai! With your fit-out window currently active for your 55,972 sq ft (5,200 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Allianz Group's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 39,
+    "id": "CN-039",
+    "rowId": "CN-039",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -14818,15 +15547,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 5,473 sqm \u2014 Lei Shing Hong Center, WangJing-Jiuxianqiao",
-    "timing": "Renewal signed Q3 2022 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q3 2022",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Beijing Office MarketBeat Q3 2022",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2022/q3/apac-and-gc/beijing-office-marketbeat-q3-2022-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 70,
     "heatScoreBreakdown": {
@@ -14845,14 +15574,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on OMNICOM's upcoming office milestone at Beijing! With your fit-out window currently active for your 58,910 sq ft (5,473 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding OMNICOM's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 41,
+    "id": "CN-041",
+    "rowId": "CN-041",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -14878,15 +15609,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 7,000 sqm \u2014 1788 Square, Core Jing'an",
-    "timing": "Renewal signed Q4 2022 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q4 2022",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q4 2022",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2022/q4/apac-and-gc/shanghai-office-marketbeat-q4-2022-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 70,
     "heatScoreBreakdown": {
@@ -14905,14 +15636,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Gucci's upcoming office milestone at Shanghai! With your fit-out window currently active for your 75,347 sq ft (7,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Gucci's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 43,
+    "id": "CN-043",
+    "rowId": "CN-043",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -14938,15 +15671,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 6,000 sqm \u2014 China Overseas International Center, Huaihai Rd./Xintiandi",
-    "timing": "Renewal signed Q2 2023 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q2 2023",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q2 2023",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2023/q2/apac-and-gc/shanghai-office-marketbeat-q2-2023-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 70,
     "heatScoreBreakdown": {
@@ -14965,14 +15698,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on DYSON's upcoming office milestone at Shanghai! With your fit-out window currently active for your 64,583 sq ft (6,000 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding DYSON's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 55,
+    "id": "CN-055",
+    "rowId": "CN-055",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -15000,7 +15735,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation 4,000 sq ft (~372 sqm) \u2014 The Summit, Zhuyuan",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/shanghai-office-marketbeat-q4-2024-final.pdf",
@@ -15025,14 +15760,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Babemax's upcoming office milestone at Shanghai! With your fit-out window currently active for your 4,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Babemax's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 56,
+    "id": "CN-056",
+    "rowId": "CN-056",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -15060,7 +15797,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation 2,000 sq ft (~186 sqm) \u2014 Raffles City The Bund, Huangpu",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/shanghai-office-marketbeat-q4-2024-final.pdf",
@@ -15085,14 +15822,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on 99Bill.com's upcoming office milestone at Shanghai! With your fit-out window currently active for your 2,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding 99Bill.com's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 156,
+    "id": "IN-104",
+    "rowId": "IN-104",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -15118,9 +15857,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Largest single transaction of H1 2026: 0.01 mn sq m (0.08 mn sq ft) at 'Carter' on Sindhu Bhavan Road \u2014 building name as printed, possibly truncated/garbled; deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -15145,14 +15884,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Arvind Ltd.'s upcoming office milestone at Ahmedabad! With your fit-out window currently active for your 80,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Ahmedabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Arvind Ltd.'s commercial workplace portfolio in Ahmedabad. As your team reviews ongoing workspace requirements at Ahmedabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 212,
+    "id": "JP-027",
+    "rowId": "JP-027",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -15180,7 +15921,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Osaka HQ relocated 2026-05-01 to Grand Green Osaka Park Tower 14F (Kita-ku Ofukacho 5-54), 1,260.25 tsubo (44,844 sq ft); live office from June 2026; first Osaka HQ move in ~90 years (consolidating Higashinari HQ + Umeda office)",
     "timing": "Moved 2026-05 - furnished; note KOKUYO is itself an office-furniture maker so direct fit-out demand is limited; low priority",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Company press release (PR Times mirror)",
     "sourceUrl": "https://news.nicovideo.jp/watch/nw19083229",
@@ -15205,14 +15946,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on KOKUYO's upcoming office milestone at Grand Green Osaka Park! With your fit-out window currently active for your 889 sq ft (25 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Osaka. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding KOKUYO's commercial workplace portfolio in Osaka. As your team reviews ongoing workspace requirements at Grand Green Osaka Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 229,
+    "id": "JP-044",
+    "rowId": "JP-044",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -15240,7 +15983,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Shiba Onarimon Tower, 72,590 RSF (\u22482,040 tsubo); origin undisclosed; Manufacturing",
     "timing": "2025 deal \u2014 verify move/fit-out status",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Tokyo Office MarketBeat Q4 2025",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/apac-and-gc/japan---tokyo---office-q4-2025-en.pdf",
@@ -15265,14 +16008,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on DENSO's upcoming office milestone at Tokyo! With your fit-out window currently active for your 72,583 sq ft (2,040 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding DENSO's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 349,
+    "id": "KR-073",
+    "rowId": "KR-073",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15300,7 +16045,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \ucf00\uc774\uc2a4\ud018\uc5b4 \ub9c8\uace1, 1,800\ud3c9 (\u22485,940 sqm)",
     "timing": "Q1 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 251Q (2025 Q1)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-251Q-Korea-Office-Market-Report.pdf",
@@ -15325,14 +16070,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \ud55c\uad6d\uc804\ud30c\uc9c4\ud765\ud611\ud68c (Korea Radio Promotion Association)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 63,937 sq ft (5,940 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \ud55c\uad6d\uc804\ud30c\uc9c4\ud765\ud611\ud68c (Korea Radio Promotion Association)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 350,
+    "id": "KR-074",
+    "rowId": "KR-074",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15360,7 +16107,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to KB\uc601\ub4f1\ud3ec\ud0c0\uc6cc, 2,700\ud3c9 (\u22488,910 sqm)",
     "timing": "Q1 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 251Q (2025 Q1)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-251Q-Korea-Office-Market-Report.pdf",
@@ -15385,14 +16132,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on SSG.COM's upcoming office milestone at Seoul! With your fit-out window currently active for your 95,906 sq ft (8,910 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding SSG.COM's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 352,
+    "id": "KR-076",
+    "rowId": "KR-076",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15420,7 +16169,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \uc6d0\uadf8\ub85c\ube0c, 2,700\ud3c9 (\u22488,910 sqm)",
     "timing": "Q1 2025 expected \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 251Q (2025 Q1), expected-move appendix",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-251Q-Korea-Office-Market-Report.pdf",
@@ -15445,14 +16194,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \uc5d0\uc5b4\uc778\ucc9c (Air Incheon)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 95,906 sq ft (8,910 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \uc5d0\uc5b4\uc778\ucc9c (Air Incheon)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 357,
+    "id": "KR-081",
+    "rowId": "KR-081",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15480,7 +16231,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \uc13c\ud130\ud544\ub4dc \uc774\uc2a4\ud2b8, 3,000\ud3c9/2,600\ud3c9 (\u22488,580 sqm)",
     "timing": "Q2 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 252Q (2025 Q2)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-252Q-Korea-Office-Market-Report.pdf",
@@ -15505,14 +16256,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \uc2e0\uc138\uacc4\uc544\uc774\uc564\uc528 (Shinsegae I&C)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 92,354 sq ft (8,580 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \uc2e0\uc138\uacc4\uc544\uc774\uc564\uc528 (Shinsegae I&C)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 359,
+    "id": "KR-083",
+    "rowId": "KR-083",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15540,7 +16293,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \ube57\uc378\uae08\uc735\ud0c0\uc6cc (ex-\uac15\ub0a8N\ud0c0\uc6cc), 1,900\ud3c9 (\u22486,270 sqm)",
     "timing": "Q3 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 253Q (2025 Q3)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/10/253Q-Korea-Office-Market-Report_rev\uc800\uc6a9\ub7c9.pdf",
@@ -15565,14 +16318,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:20 + T:5 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \ube57\uc378 (Bithumb)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 67,489 sq ft (6,270 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \ube57\uc378 (Bithumb)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 372,
+    "id": "KR-096",
+    "rowId": "KR-096",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15600,7 +16355,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "67 py (~222 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -15625,14 +16380,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Lakewood Partners (\ub808\uc774\ud06c\uc6b0\ub4dc\ud30c\ud2b8\ub108\uc2a4)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 2,383 sq ft (67 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Lakewood Partners (\ub808\uc774\ud06c\uc6b0\ub4dc\ud30c\ud2b8\ub108\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 376,
+    "id": "KR-100",
+    "rowId": "KR-100",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15660,7 +16417,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "83 py (~274 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -15685,14 +16442,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Daekyo Edu Camp (\u321c\ub300\uad50\uc5d0\ub4c0\ucea0\ud504)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 2,953 sq ft (83 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Daekyo Edu Camp (\u321c\ub300\uad50\uc5d0\ub4c0\ucea0\ud504)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 377,
+    "id": "KR-101",
+    "rowId": "KR-101",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -15720,7 +16479,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "64 py (~212 sqm)",
     "timing": "Relocation signed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2024-Q4 (KOR)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -15745,14 +16504,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 70,
       "summary": "R:40 + S:5 + T:20 + St:5 = 70"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on People Life (\ud53c\ud50c\ub77c\uc774\ud504\u321c)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 2,277 sq ft (64 tsubo/pyeong) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding People Life (\ud53c\ud50c\ub77c\uc774\ud504\u321c)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 4,
+    "id": "CN-004",
+    "rowId": "CN-004",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -15778,7 +16539,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewed 2,507 sqm",
-    "timing": "Renewal signed Q2 2026 \u2014 monitor for next lease cycle",
+    "timing": "Renewal signed Q2 2026",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Enterprise Software & Tech",
@@ -15786,7 +16547,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/beijing-office-marketbeat-q2-2026-final.pdf?rev=ad1e0bcd8363476682a9f02d7564766e",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -15812,7 +16573,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 5,
+    "id": "CN-005",
+    "rowId": "CN-005",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -15838,7 +16601,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewed 2,384 sqm",
-    "timing": "Renewal signed Q2 2026 \u2014 monitor for next lease cycle",
+    "timing": "Renewal signed Q2 2026",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Industrial & MedTech",
@@ -15846,7 +16609,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/beijing-office-marketbeat-q2-2026-final.pdf?rev=ad1e0bcd8363476682a9f02d7564766e",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -15872,7 +16635,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 14,
+    "id": "CN-014",
+    "rowId": "CN-014",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -15898,7 +16663,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewed 2,380 sqm",
-    "timing": "Renewal signed Q4 2025 \u2014 monitor for next lease cycle",
+    "timing": "Renewal signed Q4 2025",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
@@ -15906,7 +16671,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com.cn/images/upload/4/AC5BFA7BD6864A01AF5428F9122759F3.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -15932,7 +16697,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 19,
+    "id": "CN-019",
+    "rowId": "CN-019",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -15958,15 +16725,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal, 3,786 sqm \u2014 Kerry Centre, CBD",
-    "timing": "Renewal signed Q3 2026 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q3 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Beijing Office MarketBeat Q3 2026",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/beijing-office-marketbeat-q3-2026-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -15985,14 +16752,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on CICC's upcoming office milestone at Beijing! With your fit-out window currently active for your 40,752 sq ft (3,786 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding CICC's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 33,
+    "id": "CN-033",
+    "rowId": "CN-033",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -16018,7 +16787,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal, 1,910 sqm \u2014 Posco Center, WangJing-Jiuxianqiao",
-    "timing": "Signed Q3 2025 \u2014 next lease cycle signal",
+    "timing": "Signed Q3 2025",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
@@ -16026,7 +16795,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com.cn/images/upload/4/D5A835A9AF1A41898E809339C45D7018.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -16052,7 +16821,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 42,
+    "id": "CN-042",
+    "rowId": "CN-042",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -16078,15 +16849,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 4,600 sqm \u2014 Capital Square, Shanghai Railway Station",
-    "timing": "Renewal signed Q1 2023 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q1 2023",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Shanghai Office MarketBeat Q1 2023",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2023/q1/apac-and-gc/shanghai-office-marketbeat-q1-2023-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -16105,14 +16876,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Kao's upcoming office milestone at Shanghai! With your fit-out window currently active for your 49,513 sq ft (4,600 sqm) space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Kao's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 44,
+    "id": "CN-044",
+    "rowId": "CN-044",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -16138,15 +16911,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 4,414 sqm \u2014 World Financial Center, CBD",
-    "timing": "Renewal signed Q3 2023 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q3 2023",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Beijing Office MarketBeat Q3 2023",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2023/q3/apac-and-gc/beijing-office-marketbeat-q3-2023-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -16165,14 +16938,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Airbnb Information Technology (Beijing) Co., Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 47,511 sq ft (4,414 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Airbnb Information Technology (Beijing) Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 48,
+    "id": "CN-048",
+    "rowId": "CN-048",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -16198,15 +16973,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 4,100 sqm \u2014 Raycom Infotech Park, Zhongguancun",
-    "timing": "Renewal signed Q3 2024 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q3 2024",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Semiconductor & Hardware",
     "source": "C&W Beijing Office MarketBeat Q3 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q3/apac-and-gc/beijing-office-marketbeat-q3-2024-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -16225,20 +17000,22 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Advanced Micro Devices (China) Co.,Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 44,131 sq ft (4,100 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Advanced Micro Devices (China) Co.,Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 50,
+    "id": "CN-050",
+    "rowId": "CN-050",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
     "currency": "CNY",
     "currencySymbol": "\u00a5",
-    "company": "L'OR\u00c9AL",
+    "company": "L'Or\u00e9al",
     "market": "Shanghai",
     "city": "Shanghai",
     "submarket": "Shanghai",
@@ -16258,15 +17035,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 23,000 sq ft (~2,137 sqm) \u2014 Jinghua Building, Core Jing'an",
-    "timing": "Renewal signed Q4 2024 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q4 2024",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Shanghai Office MarketBeat Q4 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/shanghai-office-marketbeat-q4-2024-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "New",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -16285,14 +17062,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on L'OR\u00c9AL's upcoming office milestone at Shanghai! With your fit-out window currently active for your 23,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Shanghai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding L'Or\u00e9al's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 57,
+    "id": "IN-001",
+    "rowId": "IN-001",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -16352,7 +17131,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 68,
+    "id": "IN-012",
+    "rowId": "IN-012",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -16412,7 +17193,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 69,
+    "id": "IN-013",
+    "rowId": "IN-013",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -16440,7 +17223,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "150,000 sq ft (3 floors), Aditya Shagun Infinity IT Park, Baner; 10-yr from 15 Jul 2025; option on +47,000 sq ft",
     "timing": "Occupied; watch expansion option",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "crematrix.com",
     "sourceUrl": "https://www.crematrix.com/blog/eaton-technologies-leases-1-5-lakh-sq-ft-office-space-in-punes-baner-from-k-raheja-corp-subsidiary/",
@@ -16465,14 +17248,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Eaton Technologies's upcoming office milestone at Pune! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Eaton Technologies's commercial workplace portfolio in Pune. As your team reviews ongoing workspace requirements at Pune, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 74,
+    "id": "IN-018",
+    "rowId": "IN-018",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -16532,7 +17317,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 81,
+    "id": "IN-025",
+    "rowId": "IN-025",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -16592,67 +17379,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 98,
-    "country": "India",
-    "countryCode": "IN",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "currency": "INR",
-    "currencySymbol": "\u20b9",
-    "company": "Intuit",
-    "market": "Bengaluru (Embassy TechVillage, Outer Ring Road)",
-    "city": "Bengaluru",
-    "submarket": "Embassy TechVillage",
-    "building": "",
-    "isBuildingDisclosed": false,
-    "isBuildingInferred": false,
-    "areaSqFt": null,
-    "areaFormatted": "Not disclosed",
-    "sizeTier": "Undisclosed",
-    "isSizeDisclosed": false,
-    "isSizeInferred": false,
-    "dealType": "New lease",
-    "isTypeDisclosed": false,
-    "isTypeInferred": true,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "Leased 6.3+ lakh sq ft across multiple towers, per Propstack registration docs (registered ~Sep-Oct 2026, approximate)",
-    "timing": "Post-registration fit-out planning window; among Bengaluru's largest 2026 transactions",
-    "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
-    "sector": "Enterprise Software & Tech",
-    "source": "PropNewsTime",
-    "sourceUrl": "https://propnewstime.com/latestnewsstories/MzA2MTc=/intuit-signs-inr-915-crore-office-lease-for-6-3-lakh-sq-ft-in-bengaluru",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
-    "heatScore": 65,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (New lease)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Intuit's upcoming office milestone at Bengaluru! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
-  },
-  {
-    "id": 100,
+    "id": "IN-047",
+    "rowId": "IN-047",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -16686,8 +17415,8 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.firsttender.com/bids/accommodation-tenders.html",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -16712,16 +17441,18 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 101,
+    "id": "IN-049",
+    "rowId": "IN-049",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
     "currency": "INR",
     "currencySymbol": "\u20b9",
-    "company": "Income Tax Department",
-    "market": "Palghar, Maharashtra",
-    "city": "Palghar",
-    "submarket": "Palghar",
+    "company": "Karnataka government agency (unspecified)",
+    "market": "Karnataka",
+    "city": "Karnataka",
+    "submarket": "Karnataka",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -16737,17 +17468,17 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Live tender: 'Hiring Of Office Accommodation On Rent/lease Basis At Palghar'; bid submission closes 23 Oct 2026 - open right now",
-    "timing": "Active, time-sensitive: department selecting premises this month - engage after award",
-    "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "signal": "Tender ~mid-2026 (approximate): 'Hiring of office accommodation on rent'; closed 8 July 2026",
+    "timing": "Confirms government office demand flows through Karnataka e-Proc - marginal row, agency unnamed",
+    "urgency": "Active",
+    "fitoutWindow": "Timing unknown",
     "sector": "Government & Public Tenders",
-    "source": "nationaltenders.com",
-    "sourceUrl": "https://www.nationaltenders.com/agency/income-tax-department-tenders-online-tender",
+    "source": "karnatakatenders.in",
+    "sourceUrl": "https://www.karnatakatenders.in/quicksearch.aspx?st=qs&o=2&si=2&tt=&SerCat=38&SerText=Shop+Lease&tenders=Shop+Lease+tenders",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
+    "trackerTrend": "New",
+    "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -16765,134 +17496,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Income Tax Department's upcoming office milestone at Palghar! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Palghar. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Karnataka government agency (unspecified)'s commercial workplace portfolio in Karnataka. As your team reviews ongoing workspace requirements at Karnataka, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 102,
-    "country": "India",
-    "countryCode": "IN",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "currency": "INR",
-    "currencySymbol": "\u20b9",
-    "company": "Starbucks",
-    "market": "Chennai",
-    "city": "Chennai",
-    "submarket": "Chennai",
-    "building": "",
-    "isBuildingDisclosed": false,
-    "isBuildingInferred": false,
-    "areaSqFt": null,
-    "areaFormatted": "Not disclosed",
-    "sizeTier": "Undisclosed",
-    "isSizeDisclosed": false,
-    "isSizeInferred": false,
-    "dealType": "Pre-commitment",
-    "isTypeDisclosed": false,
-    "isTypeInferred": true,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "First India GCC announced; MoU with Tamil Nadu government (reported ~Sep 2026, approximate)",
-    "timing": "pre-commitment - new GCC; office space decision pending; engage now",
-    "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
-    "sector": "Retail, Travel & Consumer",
-    "source": "Analytics Insight",
-    "sourceUrl": "https://www.analyticsinsight.net/news/starbucks-to-set-up-first-india-gcc-in-chennai-plans-800-tech-jobs",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
-    "heatScore": 65,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Pre-commitment)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Starbucks's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
-  },
-  {
-    "id": 183,
-    "country": "India",
-    "countryCode": "IN",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "currency": "INR",
-    "currencySymbol": "\u20b9",
-    "company": "BlackRock",
-    "market": "Delhi NCR",
-    "city": "Gurugram",
-    "submarket": "Gurugram",
-    "building": "",
-    "isBuildingDisclosed": false,
-    "isBuildingInferred": false,
-    "areaSqFt": null,
-    "areaFormatted": "Not disclosed",
-    "sizeTier": "Undisclosed",
-    "isSizeDisclosed": false,
-    "isSizeInferred": false,
-    "dealType": "Pre-commitment",
-    "isTypeDisclosed": false,
-    "isTypeInferred": true,
-    "dealDate": "2026-10-15",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-15",
-    "daysAgo": 0,
-    "signal": "Named among GCC occupiers with pre-commitments in H1 2026; building, size unstated \u2014 pre-commitment, not a completed lease",
-    "timing": "Pre-commitment in H1 2026 \u2014 forward fit-out pipeline",
-    "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
-    "sector": "Corporate & Commercial",
-    "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
-    "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "Pre-commitment \u2014 forward fit-out pipeline",
-    "trackerNotes": "",
-    "heatScore": 65,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (0d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 20,
-      "typeReason": "High fit-out demand (Pre-commitment)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 20,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
-    },
-    "suggestedOpeningLine": "Hi [Name], congratulations on BlackRock's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
-  },
-  {
-    "id": 191,
+    "id": "JP-006",
+    "rowId": "JP-006",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -16952,7 +17565,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 192,
+    "id": "JP-007",
+    "rowId": "JP-007",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -16980,7 +17595,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation/relocation to Nihonbashi Honcho M-SQUARE 6F, effective 2026-03-09 (area not disclosed); staff ~1.7x to ~190, incl. mission control centre",
     "timing": "Listed, fast-growing - engage on expansion space",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "ispace press release (PDF)",
     "sourceUrl": "https://2022.ispace-inc.com/wp-content/uploads/2026/01/EN_ispace_New-Office_press-release.pdf",
@@ -17005,14 +17620,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ispace's upcoming office milestone at Nihonbashi Honcho M-SQUARE! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ispace's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Nihonbashi Honcho M-SQUARE, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 2
   },
   {
-    "id": 193,
+    "id": "JP-008",
+    "rowId": "JP-008",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17072,7 +17689,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 194,
+    "id": "JP-009",
+    "rowId": "JP-009",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17132,7 +17751,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 195,
+    "id": "JP-010",
+    "rowId": "JP-010",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17160,7 +17781,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ expansion-move to Sumitomo Fudosan Roppongi Central Tower, 2026-06-22; new JTOWER Tech Lab. Tokyo showroom opened (area not disclosed)",
     "timing": "Expansion move completed - engage for display/tech-lab furniture and additional floors",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "Nicovideo (JTOWER PR repost)",
     "sourceUrl": "https://news.nicovideo.jp/watch/nw19453428",
@@ -17185,14 +17806,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JTOWER's upcoming office milestone at Sumitomo Fudosan Roppongi Central Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JTOWER's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Sumitomo Fudosan Roppongi Central Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 196,
+    "id": "JP-011",
+    "rowId": "JP-011",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17252,7 +17875,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 197,
+    "id": "JP-012",
+    "rowId": "JP-012",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17312,7 +17937,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 198,
+    "id": "JP-013",
+    "rowId": "JP-013",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17372,7 +17999,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 199,
+    "id": "JP-014",
+    "rowId": "JP-014",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17400,7 +18029,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Yokohama HQ moved to Minato Mirai Business Square 14F as AI hub TCDT Frontier Zero, 2026-07-29 (area not disclosed)",
     "timing": "Engineering-first space - engage for agile/tech workplace furniture",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "PR TIMES (PDF)",
     "sourceUrl": "https://prtimes.jp/a/?c=105064&r=40&f=d105064-40-a94034510b7f50e703536029b477644b.pdf",
@@ -17425,14 +18054,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Transcosmos Digital Technology's upcoming office milestone at Minato Mirai Business Square! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Transcosmos Digital Technology's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Minato Mirai Business Square, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 200,
+    "id": "JP-015",
+    "rowId": "JP-015",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17492,7 +18123,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 203,
+    "id": "JP-018",
+    "rowId": "JP-018",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17552,7 +18185,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 204,
+    "id": "JP-019",
+    "rowId": "JP-019",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17612,7 +18247,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 205,
+    "id": "JP-020",
+    "rowId": "JP-020",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17672,7 +18309,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 206,
+    "id": "JP-021",
+    "rowId": "JP-021",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17732,7 +18371,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 207,
+    "id": "JP-022",
+    "rowId": "JP-022",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17760,7 +18401,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ moved 2026-09-04 from Akasaka to Ebisu; organization expansion to dedicated client co-creation space (office size not disclosed)",
     "timing": "Moved ~5 weeks ago - fit-out likely complete but funded AI startup may still be expanding; watch for follow-on space",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "excite News (PR Times mirror)",
     "sourceUrl": "http://www.excite.co.jp/news/article/Prtimes_2026-10-01-184914-8/",
@@ -17785,14 +18426,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on dodoAI's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding dodoAI's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 208,
+    "id": "JP-023",
+    "rowId": "JP-023",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17852,7 +18495,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 209,
+    "id": "JP-024",
+    "rowId": "JP-024",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17880,7 +18525,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Tokyo HQ relocation from Taiyo Seimei Shinagawa Building 27F to THE LINKPILLAR 2, Takanawa Gateway City (Minato-ku Takanawa 2-22-1), planned during FY2026 (by ~2027-03); announced 2025-06-11; reason = business/organization scale expansion under 'JAST VISION 2035' (office size not disclosed)",
     "timing": "Planning/procurement window may be open now - good pre-fit-out outreach candidate; Takanawa Gateway City is a JR East flagship development",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Enterprise Software & Tech",
     "source": "TDnet filing (fisco/UFOCATCH mirror)",
     "sourceUrl": "https://resource.ufocatch.com/pdf/ot/OT2025061100082",
@@ -17905,14 +18550,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Nippon System Technology (JAST)'s workspace milestone at Tokyo approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Nippon System Technology (JAST)'s upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 213,
+    "id": "JP-028",
+    "rowId": "JP-028",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -17972,7 +18619,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 215,
+    "id": "JP-030",
+    "rowId": "JP-030",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18000,7 +18649,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ + dispersed business units consolidating to Nihonbashi Honcho Mitsui Building &forest (Mitsui Fudosan wooden high-rise, Chuo-ku Nihonbashi-Honcho); move April 2027; announced 2024-05-29 via TDnet (office size not disclosed)",
     "timing": "Building topped out / fully leased; fit-out phase now ahead of April 2027 HQ relocation",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
     "source": "TDnet timely disclosure 2024-05-29 (minkabu mirror)",
     "sourceUrl": "https://assets.minkabu.jp/news/article_media_content/urn:newsml:tdnet.info:20240515598687/140120240515598687.pdf",
@@ -18025,14 +18674,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Hochiki's workspace milestone at Nihonbashi Honcho Mitsui Building approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Hochiki's upcoming office milestone at Nihonbashi Honcho Mitsui Building! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 2
   },
   {
-    "id": 216,
+    "id": "JP-031",
+    "rowId": "JP-031",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18092,7 +18743,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 217,
+    "id": "JP-032",
+    "rowId": "JP-032",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18120,7 +18773,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation from Nakameguro (Meguro-ku 3-1-33) to Osaki River Walk Garden office building (Shinagawa-ku Higashi-Gotanda), planned summer 2027; announced ~2026-04 (office size not disclosed)",
     "timing": "Announced; fit-out to come in 2027 - watch-list; engage ahead of procurement",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "Corporate & Commercial",
     "source": "Company press release (PR Times mirror)",
     "sourceUrl": "https://news.nicovideo.jp/watch/nw19142959",
@@ -18145,14 +18798,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Tokyu Architects & Engineers's workspace milestone at Osaki River Walk Garden office building approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Tokyu Architects & Engineers's commercial momentum at Osaki River Walk Garden office building. As your workplace strategy evolves in Tokyo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 218,
+    "id": "JP-033",
+    "rowId": "JP-033",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18212,7 +18867,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 219,
+    "id": "JP-034",
+    "rowId": "JP-034",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18240,7 +18897,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation to Prime Sendagaya Bldg 3F to consolidate dispersed offices",
     "timing": "Planned Dec 2025 \u2014 likely completed; lower priority unless expansion",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "TDnet timely disclosure (via Kabutan)",
     "sourceUrl": "https://kabutan.jp/news/marketnews/?b=n202511181069",
@@ -18265,14 +18922,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u30d5\u30a7\u30a4\u30b9\u30cd\u30c3\u30c8\u30ef\u30fc\u30af (Face Network, TSE: 3489)'s upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u30d5\u30a7\u30a4\u30b9\u30cd\u30c3\u30c8\u30ef\u30fc\u30af (Face Network, TSE: 3489)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 220,
+    "id": "JP-035",
+    "rowId": "JP-035",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18300,7 +18959,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ moved 2026-02-01 to WeWork Honmachi (Honmachi Garden City Terrace 12F); operations from 2026-02-02; growth-driven",
     "timing": "Flex-space move \u2014 smaller ticket, but growing firm; watch for dedicated office later",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "PR Times (via NicoNico News mirror)",
     "sourceUrl": "https://news.nicovideo.jp/watch/nw18851666",
@@ -18325,14 +18984,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u682a\u5f0f\u4f1a\u793ecomeru's upcoming office milestone at Osaka! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Osaka. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u682a\u5f0f\u4f1a\u793ecomeru's commercial workplace portfolio in Osaka. As your team reviews ongoing workspace requirements at Osaka, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 221,
+    "id": "JP-036",
+    "rowId": "JP-036",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18392,7 +19053,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 263,
+    "id": "JP-078",
+    "rowId": "JP-078",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18418,9 +19081,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "HQ relocation to Kojimachi Kosei Building, from Toshima-ku; announced 2024-12-05, move planned Dec 2025",
-    "timing": "Move announced Dec 2024, completed Dec 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Move announced Dec 2024, completed Dec 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "TDnet timely disclosure (minkabu.jp mirror)",
     "sourceUrl": "https://s.minkabu.jp/news/media_content/2181201.pdf",
@@ -18445,14 +19108,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on RYODEN (TSE Prime: 8084)'s upcoming office milestone at Kojimachi Kosei Building! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding RYODEN (TSE Prime: 8084)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Kojimachi Kosei Building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 264,
+    "id": "JP-079",
+    "rowId": "JP-079",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18478,9 +19143,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "HQ relocation to Osaki Bright Core, Kita-Shinagawa 5-5-15, from Chiyoda-ku; announced 2025-02-28, move late May 2025",
-    "timing": "Moved May 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Moved May 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "TDnet timely disclosure (minkabu.jp mirror)",
     "sourceUrl": "https://minkabu.jp/news/media_content/2234798.pdf",
@@ -18505,14 +19170,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u30d3\u30fc\u30c8\u30ec\u30f3\u30c9 Beatrend (TSE Growth: 4020)'s upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u30d3\u30fc\u30c8\u30ec\u30f3\u30c9 Beatrend (TSE Growth: 4020)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tokyo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 265,
+    "id": "JP-080",
+    "rowId": "JP-080",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18538,9 +19205,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "HQ relocation to Ebisu Prime Square Tower 21F, from F Nissei Ebisu Bldg (same ward); announced 2025-07-18, moved 2025-08-04 \u2014 office-space expansion",
-    "timing": "Moved Aug 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Moved Aug 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "TDnet timely disclosure (eir-parts.net mirror)",
     "sourceUrl": "https://ssl4.eir-parts.net/doc/4712/tdnet/2657272/00.pdf",
@@ -18565,14 +19232,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on KeyHolder (TSE Standard: 4712)'s upcoming office milestone at Ebisu Prime Square! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding KeyHolder (TSE Standard: 4712)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Ebisu Prime Square, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 266,
+    "id": "JP-081",
+    "rowId": "JP-081",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -18598,9 +19267,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "HQ relocation to Meiji Yasuda Seimei Building 15F, Marunouchi 2-1-1, from Nakano-ku; announced 2024-11-18, move April 2025",
-    "timing": "Moved Apr 2025 \u2014 fit-out complete; monitor next lease cycle",
+    "timing": "Moved Apr 2025 \u2014 fit-out complete; monitor next renewal cycle",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "TDnet timely disclosure (minkabu.jp mirror)",
     "sourceUrl": "https://minkabu.jp/news/media_content/2173662.pdf",
@@ -18625,14 +19294,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u30c7\u30a3\u30fb\u30a2\u30a4\u30fb\u30b7\u30b9\u30c6\u30e0 D.I.System (TSE Standard: 4421)'s upcoming office milestone at Meiji Yasuda Seimei Building! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u30c7\u30a3\u30fb\u30a2\u30a4\u30fb\u30b7\u30b9\u30c6\u30e0 D.I.System (TSE Standard: 4421)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Meiji Yasuda Seimei Building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 277,
+    "id": "KR-001",
+    "rowId": "KR-001",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -18660,7 +19331,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "First standalone HQ: 15,793 sqm (4,777 pyeong / ~170,000 sq ft), B4-10F; relocation H1 2027; interior layout planning now",
     "timing": "Fit-out planning NOW - prime window",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Retail, Travel & Consumer",
     "source": "Seoul Economic Daily",
     "sourceUrl": "https://en.sedaily.com/finance/2026/09/16/jeju-air-to-move-into-first-standalone-office-in-21-years",
@@ -18685,14 +19356,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Jeju Air's workspace milestone at Seoul approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Jeju Air's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 278,
+    "id": "KR-002",
+    "rowId": "KR-002",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -18720,7 +19393,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Temp HQ: 4 floors leased (lease signed Jul 2026); landmark HQ planned at North Port redevelopment zone (plans not finalized)",
     "timing": "Phased relocation; North Port HQ = future mega fit-out - engage early",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Aju Press",
     "sourceUrl": "https://www.ajupress.com/view/20261013182070661",
@@ -18745,14 +19418,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on HMM's upcoming office milestone at Busan! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Busan. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding HMM's commercial workplace portfolio in Busan. As your team reviews ongoing workspace requirements at Busan, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 286,
+    "id": "KR-010",
+    "rowId": "KR-010",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -18812,7 +19487,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 287,
+    "id": "KR-011",
+    "rowId": "KR-011",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -18872,7 +19549,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 290,
+    "id": "KR-014",
+    "rowId": "KR-014",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -18900,7 +19579,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "DART head-office relocation disclosed 2026-09-21: Gunpo-si -> Suwon Ingye-dong, effective 2026-09-21; shareholder meeting same day approved articles-of-incorporation address change",
     "timing": "Moved late Sept 2026 - new Suwon Ingye-dong office setup/furnishing likely current",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "GoInsider (DART disclosure feed)",
     "sourceUrl": "https://goinsider.kr/stock/00367871",
@@ -18925,14 +19604,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on EnBio (\uc778\ubc14\uc774\uc624, KOSDAQ 352940)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding EnBio (\uc778\ubc14\uc774\uc624, KOSDAQ 352940)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 291,
+    "id": "KR-015",
+    "rowId": "KR-015",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -18960,7 +19641,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Board-resolved head-office relocation: Ace Gwanggyo Tower -> Unit 39, Dakkuem Business Center, effective 2026-09-23",
     "timing": "Moved late Sept 2026 - fresh space, recent fit-out",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "TipRanks (disclosure-feed rewrite)",
     "sourceUrl": "https://www.tipranks.com/news/company-announcements/celestra-relocates-head-office-within-suwon-to-boost-operational-efficiency",
@@ -18985,14 +19666,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Celestra Inc. (KOSDAQ 352770, formerly Clinomics)'s upcoming office milestone at Dakkuem Business Center Unit 39! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Celestra Inc. (KOSDAQ 352770, formerly Clinomics)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Dakkuem Business Center Unit 39, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 292,
+    "id": "KR-016",
+    "rowId": "KR-016",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19020,7 +19703,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation completed on AI/cloud business expansion (announced 2026-09-21, CEO Koo Bon-cheol) - GPU-based AI infrastructure solutions firm",
     "timing": "Already moved in - fit-out window may be closed, needs verification",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "Money Today",
     "sourceUrl": "https://www.mt.co.kr/future/2026/09/21/2026092115450783645",
@@ -19045,14 +19728,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Softworks (\uc18c\ud504\ud2b8\uc6cd\uc2a4)'s upcoming office milestone at building/area undisclosed! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Softworks (\uc18c\ud504\ud2b8\uc6cd\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at building/area undisclosed, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 293,
+    "id": "KR-017",
+    "rowId": "KR-017",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19080,7 +19765,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Planned group relocation move (GenstarMate Q1 2026 report, planned table) - largest footprint in dataset",
     "timing": "Planned as of Q1 2026 survey; if completed, fit-out likely done - phased/expansion watch given ~533k sq ft scale",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19105,14 +19790,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Daemyung Sono / T'way Air (\ub300\uba85\uc18c\ub178 \u00b7 \ud2f0\uc6e8\uc774\ud56d\uacf5)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Daemyung Sono / T'way Air (\ub300\uba85\uc18c\ub178 \u00b7 \ud2f0\uc6e8\uc774\ud56d\uacf5)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 294,
+    "id": "KR-018",
+    "rowId": "KR-018",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19140,7 +19827,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Q1 2026 completed relocation",
     "timing": "Moved H1 2026 - expansion/renewal watchlist, not near-term furnishing",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19165,14 +19852,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Korea Insurance Development Institute (\ubcf4\ud5d8\uac1c\ubc1c\uc6d0)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Korea Insurance Development Institute (\ubcf4\ud5d8\uac1c\ubc1c\uc6d0)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 295,
+    "id": "KR-019",
+    "rowId": "KR-019",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19200,7 +19889,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Q1 2026 completed relocation",
     "timing": "Moved H1 2026 - watch for follow-on/expansion signals",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19225,14 +19914,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Toriden (\ud1a0\ub9ac\ub4e0)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Toriden (\ud1a0\ub9ac\ub4e0)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 296,
+    "id": "KR-020",
+    "rowId": "KR-020",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19260,7 +19951,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Planned relocation (GenstarMate Q1 2026 report, planned table)",
     "timing": "Planned as of Q1 2026 - verify completion before outreach",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19285,14 +19976,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on K-sure (Korea Trade Insurance Corp, \ud55c\uad6d\ubb34\uc5ed\ubcf4\ud5d8\uacf5\uc0ac)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding K-sure (Korea Trade Insurance Corp, \ud55c\uad6d\ubb34\uc5ed\ubcf4\ud5d8\uacf5\uc0ac)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 297,
+    "id": "KR-021",
+    "rowId": "KR-021",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19320,7 +20013,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Planned relocation (GenstarMate Q1 2026 report, planned table)",
     "timing": "Planned as of Q1 2026 - prime-to-prime CBD move, strong signal if executed; verify completion",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19345,14 +20038,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Encar.com (\uc5d4\uce74)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Encar.com (\uc5d4\uce74)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 298,
+    "id": "KR-022",
+    "rowId": "KR-022",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19380,7 +20075,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Q1 2026 completed relocation",
     "timing": "Moved H1 2026 - expansion/renewal watch",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19405,14 +20100,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on TKG Huchems (TKG\ud734\ucea0\uc2a4)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding TKG Huchems (TKG\ud734\ucea0\uc2a4)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 299,
+    "id": "KR-023",
+    "rowId": "KR-023",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19440,7 +20137,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Q1 2026 completed relocation",
     "timing": "Moved H1 2026; building unidentified - confirm destination before outreach",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19465,14 +20162,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Xi S&D (\uc790\uc774\uc5d0\uc2a4\uc564\ub514)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Xi S&D (\uc790\uc774\uc5d0\uc2a4\uc564\ub514)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 300,
+    "id": "KR-024",
+    "rowId": "KR-024",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19500,7 +20199,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Q1 2026 completed relocation",
     "timing": "Moved H1 2026 - expansion/renewal watch",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19525,14 +20224,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on The Founders (\ub354\ud30c\uc6b4\ub354\uc988)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding The Founders (\ub354\ud30c\uc6b4\ub354\uc988)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 301,
+    "id": "KR-025",
+    "rowId": "KR-025",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19560,7 +20261,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Planned relocation (GenstarMate Q1 2026 report, planned table)",
     "timing": "Planned as of Q1 2026 - verify completion before outreach",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "GenstarMate Q1 2026 Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2026/05/261Q-Korea-Office-Market-Report-\uc800\uc6a9\ub7c9-1.pdf",
@@ -19585,14 +20286,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Beauty Selection (\ubdf0\ud2f0\uc140\ub809\uc158)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Beauty Selection (\ubdf0\ud2f0\uc140\ub809\uc158)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 336,
+    "id": "KR-060",
+    "rowId": "KR-060",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19620,7 +20323,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Completed HQ relocation in March 2026; size/building not stated",
     "timing": "Moved Mar 2026 \u2014 furnishing likely complete; tail/upgrade opportunity only",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 1Q26 Korea Office Leasing, market commentary",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/1Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
@@ -19645,14 +20348,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on The Pure Lab's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding The Pure Lab's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 338,
+    "id": "KR-062",
+    "rowId": "KR-062",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19680,7 +20385,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocated to Daishin Finance Center; size not stated",
     "timing": "Moved 1Q26 \u2014 fit-out likely done or tail phase",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 1Q26 Korea Office Leasing, market commentary",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/1Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
@@ -19705,14 +20410,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hanwha Ocean's upcoming office milestone at Daishin Finance Center! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hanwha Ocean's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Daishin Finance Center, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 340,
+    "id": "KR-064",
+    "rowId": "KR-064",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19772,7 +20479,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 345,
+    "id": "KR-069",
+    "rowId": "KR-069",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19800,7 +20509,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Plans to consolidate offices across four floors at Parc.1 Tower 2; size not stated",
     "timing": "Planned (3Q26) \u2014 pre-fit-out; high priority",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 3Q26 Korea Office Leasing, market commentary",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/3Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
@@ -19825,14 +20534,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on IGIS's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding IGIS's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 347,
+    "id": "KR-071",
+    "rowId": "KR-071",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19860,7 +20571,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move to \uac15\ub0a8N\ud0c0\uc6cc, 1,100\ud3c9 (\u22483,630 sqm)",
     "timing": "Q1 2025 \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 251Q (2025 Q1)",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-251Q-Korea-Office-Market-Report.pdf",
@@ -19885,14 +20596,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \ud06c\ub808\uc774\ubc84\ucf54\ud37c\ub808\uc774\uc158's upcoming office milestone at Seoul! With your fit-out window currently active for your 39,072 sq ft (3,630 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \ud06c\ub808\uc774\ubc84\ucf54\ud37c\ub808\uc774\uc158's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 351,
+    "id": "KR-075",
+    "rowId": "KR-075",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19920,7 +20633,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Expected move to \uc13c\ud130\ud544\ub4dc \uc774\uc2a4\ud2b8, 1,000\ud3c9 (\u22483,300 sqm)",
     "timing": "Q1 2025 expected \u2014 historical",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "GenstarMate 251Q (2025 Q1), expected-move appendix",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-251Q-Korea-Office-Market-Report.pdf",
@@ -19945,14 +20658,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:15 + T:5 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \uc2a4\ud0c0\ubc85\uc2a4 \ucf54\ub9ac\uc544 (Starbucks Korea)'s upcoming office milestone at Seoul! With your fit-out window currently active for your 35,520 sq ft (3,300 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \uc2a4\ud0c0\ubc85\uc2a4 \ucf54\ub9ac\uc544 (Starbucks Korea)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 361,
+    "id": "KR-085",
+    "rowId": "KR-085",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -19980,7 +20695,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Reconstruction/relocation-driven space reshuffling in Yeouido; no size/building",
     "timing": "4Q25 \u2014 historical; watchlist",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "Newmark 4Q25 Korea Office Leasing",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/4Q25-Korea-Office-Leasing-Market_Conditions_Trends-Korean.pdf",
@@ -20005,14 +20720,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mirae Asset Securities (\ubbf8\ub798\uc5d0\uc14b\uc99d\uad8c)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mirae Asset Securities (\ubbf8\ub798\uc5d0\uc14b\uc99d\uad8c)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 362,
+    "id": "KR-086",
+    "rowId": "KR-086",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20038,15 +20755,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal: considered relocating, decided to stay at IFC",
-    "timing": "Renewal decided Q3 2024 \u2014 monitor next lease cycle",
+    "timing": "Renewal decided Q3 2024",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2024-Q3 Office Market Report (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q3-office-market-report-eng/pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -20065,14 +20782,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Meritz Fire & Marine Insurance (\uba54\ub9ac\uce20\ud654\uc7ac)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Meritz Fire & Marine Insurance (\uba54\ub9ac\uce20\ud654\uc7ac)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 363,
+    "id": "KR-087",
+    "rowId": "KR-087",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20100,7 +20819,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "123 py (~407 sqm) Q4 2024; follow-on 287 py (~949 sqm) signed Q2 2025",
     "timing": "Relocation Q4 2024, expanded Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 24-Q4 / 25-Q2 Office Market Reports (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report-eng/pdf",
@@ -20125,14 +20844,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on K Bank (\ucf00\uc774\ubc45\ud06c)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding K Bank (\ucf00\uc774\ubc45\ud06c)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 369,
+    "id": "KR-093",
+    "rowId": "KR-093",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20160,7 +20881,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "622 py (~2,056 sqm); also 1,500 py (~4,959 sqm) planned move to A Pro Square per GenstarMate 244Q appendix",
     "timing": "Relocation Q4 2024 + planned move \u2014 fit-out likely complete / monitor Phase 2",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2024-Q4 (KOR) + GenstarMate 244Q",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -20185,14 +20906,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Samsung Securities (\uc0bc\uc131\uc99d\uad8c)'s upcoming office milestone at A Pro Square! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Samsung Securities (\uc0bc\uc131\uc99d\uad8c)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at A Pro Square, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 374,
+    "id": "KR-098",
+    "rowId": "KR-098",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20220,7 +20943,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "118 py (~390 sqm) Q4 2024; follow-on 256 py (~846 sqm) Seohyeon 265 Q2 2025",
     "timing": "Two leases Q4 2024 + Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 24-Q4 (KOR) / 25-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report/pdf",
@@ -20245,14 +20968,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Samsung Life Insurance (\uc0bc\uc131\uc0dd\uba85\ubcf4\ud5d8\uc8fc\uc2dd\ud68c\uc0ac)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Samsung Life Insurance (\uc0bc\uc131\uc0dd\uba85\ubcf4\ud5d8\uc8fc\uc2dd\ud68c\uc0ac)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 381,
+    "id": "KR-105",
+    "rowId": "KR-105",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20312,7 +21037,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 384,
+    "id": "KR-108",
+    "rowId": "KR-108",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20340,7 +21067,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Intra-district move from Bundang First Tower (size not stated)",
     "timing": "Relocation completed Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 244Q Korea Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-244Q_Korea-Office-Market-Report.pdf",
@@ -20365,14 +21092,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JoyCity (\uc870\uc774\uc2dc\ud2f0)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JoyCity (\uc870\uc774\uc2dc\ud2f0)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 385,
+    "id": "KR-109",
+    "rowId": "KR-109",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20400,7 +21129,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move (size not stated)",
     "timing": "Relocation Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 244Q Korea Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-244Q_Korea-Office-Market-Report.pdf",
@@ -20425,14 +21154,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Carver Korea (\uce74\ubc84\ucf54\ub9ac\uc544)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Carver Korea (\uce74\ubc84\ucf54\ub9ac\uc544)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 386,
+    "id": "KR-110",
+    "rowId": "KR-110",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20460,7 +21191,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Move (size not stated)",
     "timing": "Relocation Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 244Q Korea Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-244Q_Korea-Office-Market-Report.pdf",
@@ -20485,14 +21216,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Allerman (\uc54c\ub808\ub974\ub9dd \u2014 name transliteration uncertain)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Allerman (\uc54c\ub808\ub974\ub9dd \u2014 name transliteration uncertain)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 391,
+    "id": "KR-115",
+    "rowId": "KR-115",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20520,7 +21253,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1,134 py (~3,749 sqm) Q1 2025; follow-on 398 py (~1,316 sqm) One Centennial Q2 2025",
     "timing": "Two leases Q1 + Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 25-Q1 / 25-Q2 (ENG)",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -20545,14 +21278,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Woori Bank's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Woori Bank's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 396,
+    "id": "KR-120",
+    "rowId": "KR-120",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20580,7 +21315,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Lease signed (size not stated)",
     "timing": "New lease signed Q1 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "R Square 2025-Q1 (ENG) prose",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q1-office-market-report-eng/pdf",
@@ -20605,14 +21340,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Neuberger Berman Asset Management's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Neuberger Berman Asset Management's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 401,
+    "id": "KR-125",
+    "rowId": "KR-125",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20640,7 +21377,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Owner-occupier relocation to newly purchased building",
     "timing": "Relocation Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "R Square 2025-Q2 (ENG) prose",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -20665,14 +21402,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hanwha Hotels & Resorts (\ud55c\ud654\ud638\ud154\uc564\ub4dc\ub9ac\uc870\ud2b8)'s upcoming office milestone at from Hanwha Building! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hanwha Hotels & Resorts (\ud55c\ud654\ud638\ud154\uc564\ub4dc\ub9ac\uc870\ud2b8)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at from Hanwha Building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 402,
+    "id": "KR-126",
+    "rowId": "KR-126",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -20700,7 +21439,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Owner-occupier relocation",
     "timing": "Relocation Q2 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "R Square 2025-Q2 (ENG) prose",
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2025-q2-office-market-report-eng/pdf",
@@ -20725,14 +21464,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hanwha Galleria (\ud55c\ud654\uac24\ub7ec\ub9ac\uc544)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hanwha Galleria (\ud55c\ud654\uac24\ub7ec\ub9ac\uc544)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 436,
+    "id": "MY-007",
+    "rowId": "MY-007",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -20792,7 +21533,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 454,
+    "id": "MY-028",
+    "rowId": "MY-028",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -20852,7 +21595,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 462,
+    "id": "MY-036",
+    "rowId": "MY-036",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -20880,7 +21625,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Singapore quantum startup opened new Johor Bahru office for quantum-computing control hardware development, reported ~Sep 2026",
     "timing": "Small/newly opened - early-stage workspace needs",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Semiconductor & Hardware",
     "source": "TechRepublic",
     "sourceUrl": "https://www.techrepublic.com/article/news-aqsolotl-quantum-hardware-apac-malaysia-singapore/",
@@ -20905,14 +21650,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on AQSolotl's upcoming office milestone at UTM Technovation Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Johor Bahru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding AQSolotl's commercial workplace portfolio in Johor Bahru. As your team reviews ongoing workspace requirements at UTM Technovation Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 464,
+    "id": "MY-038",
+    "rowId": "MY-038",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -20937,7 +21684,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Opened new Asia regional HQ at Maxis Tower on Jul 4, 2026",
+    "signal": "Opened new Asia regional HQ at Maxis Tower on Jul 4, 2026 with",
     "timing": "Just moved in (Jul 2026) - furnishing/expansion likely in progress",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -20972,7 +21719,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 468,
+    "id": "MY-042",
+    "rowId": "MY-042",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21000,7 +21749,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Opened Malaysia Technology & Innovation Hub in George Town, reported Aug 13, 2026; hardware development (servers, storage, networking, laptops) + global engineering, system integration, supply-chain ops",
     "timing": "Hub recently opened - fit-out likely just completed or completing; watch for growth/expansion phases",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Semiconductor & Hardware",
     "source": "InvestPenang press release feed",
     "sourceUrl": "https://investpenang.gov.my/gallery/",
@@ -21025,14 +21774,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ISSQUARED Inc.'s upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ISSQUARED Inc.'s commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 473,
+    "id": "MY-048",
+    "rowId": "MY-048",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21092,7 +21843,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 474,
+    "id": "MY-049",
+    "rowId": "MY-049",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21152,7 +21905,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 475,
+    "id": "MY-050",
+    "rowId": "MY-050",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21212,7 +21967,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 478,
+    "id": "MY-053",
+    "rowId": "MY-053",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21272,7 +22029,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 479,
+    "id": "MY-054",
+    "rowId": "MY-054",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21332,7 +22091,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 480,
+    "id": "MY-055",
+    "rowId": "MY-055",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21392,7 +22153,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 481,
+    "id": "MY-056",
+    "rowId": "MY-056",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21452,7 +22215,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 482,
+    "id": "MY-057",
+    "rowId": "MY-057",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21480,7 +22245,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Penang Silicon Design @ 5KM+ 2nd-batch incubatee \u2014 new office demand",
     "timing": "Early-stage; phased demand as incubation scales",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Semiconductor & Hardware",
     "source": "CBRE|WTW MOR 2026 Penang deck, Office Sector \u2013 Key Highlights 2025",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2026/01/2_Penang-1.pdf",
@@ -21505,14 +22270,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Channel Microsystems's upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Channel Microsystems's commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 483,
+    "id": "MY-058",
+    "rowId": "MY-058",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21540,7 +22307,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Penang Silicon Design @ 5KM+ 2nd-batch incubatee \u2014 new office demand",
     "timing": "Early-stage; phased demand as incubation scales",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "CBRE|WTW MOR 2026 Penang deck, Office Sector \u2013 Key Highlights 2025",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2026/01/2_Penang-1.pdf",
@@ -21565,14 +22332,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Tenasic Technology's upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Tenasic Technology's commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 484,
+    "id": "MY-059",
+    "rowId": "MY-059",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21600,7 +22369,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Notable occupier movement \u2014 moved into TNB Gold Bangsar",
     "timing": "1H 2026 move; furnishing likely recent/current",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "CBRE|WTW Property Market Performance 1H 2026 snapshot, Purpose-Built Office",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2026/09/CBREWTW-1H-2026-Snapshot.pdf",
@@ -21625,14 +22394,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Edwards Lifesciences's upcoming office milestone at Kuala Lumpur! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Edwards Lifesciences's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Kuala Lumpur, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 491,
+    "id": "MY-066",
+    "rowId": "MY-066",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21692,7 +22463,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 492,
+    "id": "MY-067",
+    "rowId": "MY-067",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21720,7 +22493,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Launched new LEED Gold-certified office in 1H 2025, occupying eight floors within Sunshine Tower, launched 1H 2025)",
     "timing": "New office launched 1H 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "CBRE|WTW Property Market Performance 1H 2025 (Penang Purpose-Built Office)",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2025/09/1H2025-Snapshot_Final.pdf",
@@ -21745,14 +22518,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Citi Malaysia (Citi Transaction Services Malaysia Sdn Bhd \u2013 CTSM Penang)'s upcoming office milestone at Air Itam \u2013 Sunshine Tower @ Sunshine Central! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Citi Malaysia (Citi Transaction Services Malaysia Sdn Bhd \u2013 CTSM Penang)'s commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Air Itam \u2013 Sunshine Tower @ Sunshine Central, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 493,
+    "id": "MY-068",
+    "rowId": "MY-068",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21780,7 +22555,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named as notable tenant of fully-occupied GBS by the Sea; building obtained CCC in 4Q 2024, officially launched per 1H 2025 report",
     "timing": "New occupancy 1H 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "CBRE|WTW Property Market Performance 1H 2025 (Penang Purpose-Built Office)",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2025/09/1H2025-Snapshot_Final.pdf",
@@ -21805,14 +22580,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Celestica (Platform and Cloud Solutions Malaysia)'s upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Celestica (Platform and Cloud Solutions Malaysia)'s commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 494,
+    "id": "MY-069",
+    "rowId": "MY-069",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21840,7 +22617,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named as notable tenant of fully-occupied GBS by the Sea; CCC 4Q 2024, launched per 1H 2025 report",
     "timing": "New occupancy 1H 2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "CBRE|WTW Property Market Performance 1H 2025 (Penang Purpose-Built Office)",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2025/09/1H2025-Snapshot_Final.pdf",
@@ -21865,14 +22642,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Microsoft (Knowledge Capital Centre)'s upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Microsoft (Knowledge Capital Centre)'s commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 496,
+    "id": "MY-071",
+    "rowId": "MY-071",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21900,7 +22679,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Inaugural occupant of Silicon Research & Incubation Space; expanding firm; announced 1H 2025",
     "timing": "Expansion into incubation space 1H 2025 \u2014 monitor scale-up",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "CBRE|WTW Property Market Performance 1H 2025 (Penang Purpose-Built Office)",
     "sourceUrl": "https://cbre-wtw.com.my/wp-content/uploads/2025/09/1H2025-Snapshot_Final.pdf",
@@ -21925,14 +22704,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Sophic Automation's upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Sophic Automation's commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 502,
+    "id": "MY-077",
+    "rowId": "MY-077",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -21960,7 +22741,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Extended network with new facility at The Gardens North Tower in 2H2025; size in sq ft unstated",
     "timing": "New facility in 2H2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank Malaysia Real Estate Highlights 2H 2025",
     "sourceUrl": "https://kfmconnect.com.my/reh2h2025",
@@ -21985,14 +22766,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Universal Serviced Offices's upcoming office milestone at KL Fringe \u2014 The Gardens North Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Universal Serviced Offices's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at KL Fringe \u2014 The Gardens North Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 2
   },
   {
-    "id": 503,
+    "id": "MY-078",
+    "rowId": "MY-078",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -22020,7 +22803,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New regional office expansion at Corporate Tower 7, Pavilion Damansara Heights; size and signing date unstated (photo caption, Knight Frank acted as Project Management & Commercial Consultant)",
     "timing": "Expansion reported in 2H2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank Malaysia Real Estate Highlights 2H 2025",
     "sourceUrl": "https://kfmconnect.com.my/reh2h2025",
@@ -22045,14 +22828,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JTI's upcoming office milestone at KL Fringe \u2014 Corporate Tower 7! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JTI's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at KL Fringe \u2014 Corporate Tower 7, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 507,
+    "id": "LK-002",
+    "rowId": "LK-002",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22112,7 +22897,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 509,
+    "id": "LK-004",
+    "rowId": "LK-004",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22140,7 +22927,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Group workspace expansion tracked in statutory filings",
     "timing": "Expansion signal only; HQ owned - lower priority",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "AR 2025/26, Note 14",
     "sourceUrl": "https://hayleys.com/wp-content/uploads/2026/06/Hayleys-PLC-Annual-Report-2025-26.pdf",
@@ -22165,14 +22952,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hayleys's upcoming office milestone at Colombo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hayleys's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 510,
+    "id": "LK-005",
+    "rowId": "LK-005",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22232,7 +23021,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 511,
+    "id": "LK-006",
+    "rowId": "LK-006",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22292,7 +23083,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 514,
+    "id": "LK-009",
+    "rowId": "LK-009",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22352,7 +23145,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 515,
+    "id": "LK-010",
+    "rowId": "LK-010",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22412,7 +23207,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 3
   },
   {
-    "id": 516,
+    "id": "LK-011",
+    "rowId": "LK-011",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22472,7 +23269,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 518,
+    "id": "LK-013",
+    "rowId": "LK-013",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22532,7 +23331,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 519,
+    "id": "LK-014",
+    "rowId": "LK-014",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22560,7 +23361,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Corporate office moved to Cinnamon Life Integrated Resort",
     "timing": "John Keells group corporate-office fit-out - engage via group facilities",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "lankatalks.com",
     "sourceUrl": "https://lankatalks.com/post/cinnamon-life-integrated-resort-presents-an-unparalleled-opportunity-for-businesses-to-reach-new-heights-through-its-premium-commercial-spaces",
@@ -22585,14 +23386,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Cinnamon Hotels & Resorts's upcoming office milestone at Colombo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Cinnamon Hotels & Resorts's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 521,
+    "id": "LK-016",
+    "rowId": "LK-016",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22620,7 +23423,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New City Office opened at No. 50, Thurstan Road, Colombo 3 (financial services, affiliated with Future Life Holdings)",
     "timing": "Branch/city-office fit-out - engage",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "marketeer.lk",
     "sourceUrl": "https://marketeer.lk/2026/10/08/nbsl-opens-new-colombo-city-office/",
@@ -22645,14 +23448,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on NBSL's upcoming office milestone at Colombo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding NBSL's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 522,
+    "id": "LK-017",
+    "rowId": "LK-017",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22712,7 +23517,71 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 532,
+    "id": "LK-024",
+    "rowId": "LK-024",
+    "rowKind": "Deal",
+    "country": "Sri Lanka",
+    "countryCode": "LK",
+    "flag": "\ud83c\uddf1\ud83c\uddf0",
+    "currency": "LKR",
+    "currencySymbol": "SL Rs",
+    "company": "Edotco",
+    "market": "Colombo / Nationwide",
+    "city": "Colombo",
+    "submarket": "Colombo",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Expansion",
+    "isTypeDisclosed": false,
+    "isTypeInferred": true,
+    "dealDate": "2026-10-14",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-14",
+    "daysAgo": 1,
+    "signal": "130 macro towers, 300 smart lamp poles, 650 energy sites over 30 months",
+    "timing": "30-month rollout from late 2026; SL ops expansion likely grows Colombo HQ/ops team 2026-27 - medium-term watch",
+    "urgency": "Active",
+    "fitoutWindow": "0\u20131 Year",
+    "sector": "Corporate & Commercial",
+    "source": "BOI Sri Lanka",
+    "sourceUrl": "https://www.telecompaper.com/news/edotco-signs-usd-10-million-boi-investment-deal-to-expand-sri-lanka-digital-infrastructure--1583348",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], I noticed Edotco's commercial momentum at Colombo. As your workplace strategy evolves in Colombo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
+    "id": "LK-027",
+    "rowId": "LK-027",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22738,8 +23607,8 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "New office opened ~Sep 20, 2026 (approximate, 6th anniversary); expansion planned into Africa, East Asia, Middle East",
-    "timing": "New office occupied; global expansion underway - track for next move",
-    "urgency": "Immediate",
+    "timing": "New office occupied; global push suggests further headcount growth - track for next move",
+    "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
     "source": "News (Ceylon Business Reporter)",
@@ -22772,7 +23641,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 534,
+    "id": "LK-030",
+    "rowId": "LK-030",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -22800,7 +23671,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Colpetty branch relocation to No. 53A, D. S. Senanayaka Mawatha, Colombo 08, effective May 9, 2026 (announced April 2026 via official customer notice)",
     "timing": "Branch move = near-term fit-out demand; watch for wider branch/HQ footprint shifts",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Janashakthi Finance (official notice)",
     "sourceUrl": "https://www.janashakthifinance.lk/wp-content/uploads/2026/04/Notice-Colpetty-relocation-.pdf",
@@ -22825,14 +23696,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 65,
       "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Janashakthi Finance PLC's upcoming office milestone at Colombo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Janashakthi Finance PLC's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 1,
+    "id": "CN-001",
+    "rowId": "CN-001",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -22858,7 +23731,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewed 1,717 sqm",
-    "timing": "Renewal signed Q4 2025 \u2014 monitor for next lease cycle",
+    "timing": "Renewal signed Q4 2025",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Industrial & MedTech",
@@ -22866,7 +23739,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com.cn/images/upload/4/AC5BFA7BD6864A01AF5428F9122759F3.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -22892,7 +23765,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 2,
+    "id": "CN-002",
+    "rowId": "CN-002",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -22918,7 +23793,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewed 1,713 sqm",
-    "timing": "Renewal signed Q4 2025 \u2014 monitor for next lease cycle",
+    "timing": "Renewal signed Q4 2025",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Industrial & MedTech",
@@ -22926,7 +23801,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com.cn/images/upload/4/AC5BFA7BD6864A01AF5428F9122759F3.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -22952,7 +23827,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 6,
+    "id": "CN-006",
+    "rowId": "CN-006",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -22978,7 +23855,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewed 1,009 sqm",
-    "timing": "Renewal signed Q2 2026 \u2014 monitor for next lease cycle",
+    "timing": "Renewal signed Q2 2026",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Enterprise Software & Tech",
@@ -22986,7 +23863,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/beijing-office-marketbeat-q2-2026-final.pdf?rev=ad1e0bcd8363476682a9f02d7564766e",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -23012,7 +23889,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 34,
+    "id": "CN-034",
+    "rowId": "CN-034",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -23038,15 +23917,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal, 1,455 sqm \u2014 Kerry Centre, CBD",
-    "timing": "Signed Q3 2025 \u2014 monitor next lease cycle",
+    "timing": "Signed Q3 2025",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Beijing Office MarketBeat Q3 2025",
     "sourceUrl": "https://www.cushmanwakefield.com.cn/images/upload/4/D5A835A9AF1A41898E809339C45D7018.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -23065,14 +23944,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on DLA Piper's upcoming office milestone at Beijing! With your fit-out window currently active for your 15,661 sq ft (1,455 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding DLA Piper's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 40,
+    "id": "CN-040",
+    "rowId": "CN-040",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -23098,15 +23979,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 1,191 sqm \u2014 Oriental Plaza, East 2nd Ring Road",
-    "timing": "Renewal signed Q3 2022 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q3 2022",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "C&W Beijing Office MarketBeat Q3 2022",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2022/q3/apac-and-gc/beijing-office-marketbeat-q3-2022-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -23125,14 +24006,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Diaoyutai MGM Hospitality, Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 12,819 sq ft (1,191 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Diaoyutai MGM Hospitality, Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 45,
+    "id": "CN-045",
+    "rowId": "CN-045",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -23158,15 +24041,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 1,705 sqm \u2014 World Financial Center, CBD",
-    "timing": "Renewal signed Q3 2023 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q3 2023",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "C&W Beijing Office MarketBeat Q3 2023",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2023/q3/apac-and-gc/beijing-office-marketbeat-q3-2023-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -23185,14 +24068,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mundipharma (China) Pharmaceutical Co., Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 18,352 sq ft (1,705 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mundipharma (China) Pharmaceutical Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 46,
+    "id": "CN-046",
+    "rowId": "CN-046",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -23218,15 +24103,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 1,075 sqm \u2014 SK Tower, CBD",
-    "timing": "Renewal signed Q4 2023 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q4 2023",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Beijing Office MarketBeat Q4 2023",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2023/q4/apac-and-gc/beijing-office-marketbeat-q4-2023-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -23245,14 +24130,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Dentsply Sirona Dental Solutions (Shanghai) Co., Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 11,571 sq ft (1,075 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Dentsply Sirona Dental Solutions (Shanghai) Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 47,
+    "id": "CN-047",
+    "rowId": "CN-047",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -23278,15 +24165,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 852 sqm \u2014 China World Trade Center Tower I, CBD",
-    "timing": "Renewal signed Q2 2024 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q2 2024",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "C&W Beijing Office MarketBeat Q2 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q2/apac-and-gc/beijing-office-marketbeat-q2-2024-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -23305,14 +24192,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Wood Mackenzie Co., Ltd's upcoming office milestone at Beijing! With your fit-out window currently active for your 9,170 sq ft (852 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Wood Mackenzie Co., Ltd's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 49,
+    "id": "CN-049",
+    "rowId": "CN-049",
+    "rowKind": "Deal",
     "country": "China",
     "countryCode": "CN",
     "flag": "\ud83c\udde8\ud83c\uddf3",
@@ -23338,15 +24227,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "Renewal 1,087 sqm \u2014 Lei Shing Hong Center, WangJing-Jiuxianqiao",
-    "timing": "Renewal signed Q3 2024 \u2014 monitor next lease cycle",
+    "timing": "Renewal signed Q3 2024",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Retail, Travel & Consumer",
     "source": "C&W Beijing Office MarketBeat Q3 2024",
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q3/apac-and-gc/beijing-office-marketbeat-q3-2024-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "Renewal \u2014 track next lease cycle",
+    "trackerTrend": "Renewal",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -23365,14 +24254,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:10 + T:5 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Beijing Aoma Star Pleasure Medical Beauty Clinic Co., LTD's upcoming office milestone at Beijing! With your fit-out window currently active for your 11,700 sq ft (1,087 sqm) space, Steelcase APAC has supported several recent flagship migrations across Beijing. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Beijing Aoma Star Pleasure Medical Beauty Clinic Co., LTD's commercial workplace portfolio in Beijing. As your team reviews ongoing workspace requirements at Beijing, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 80,
+    "id": "IN-024",
+    "rowId": "IN-024",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23400,7 +24291,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1.2M sq ft LOI, Prestige JRC Signature Towers (2 towers), ORR; 20-yr; >; completion Oct 2027",
     "timing": "pre-commitment - engage early for 2027 fit-out spec",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "livemint.com",
     "sourceUrl": "https://www.livemint.com/companies/news/hsbc-signs-1-2-million-sq-ft-gcc-deal-with-prestige-group-in-bengaluru-11782897349203.html",
@@ -23425,14 +24316,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], notice HSBC's workspace milestone at Bengaluru approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs for your 1.20M sq ft space, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding HSBC's commercial workplace portfolio in Bengaluru. As your team reviews ongoing workspace requirements at Bengaluru, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 87,
+    "id": "IN-031",
+    "rowId": "IN-031",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23492,7 +24385,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 88,
+    "id": "IN-032",
+    "rowId": "IN-032",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23552,7 +24447,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 93,
+    "id": "IN-037",
+    "rowId": "IN-037",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23580,7 +24477,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1.61L sq ft, six floors Sector 32, 5-yr from 4 Feb 2026",
     "timing": "Occupied; watch expansion",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "htsyndication.com",
     "sourceUrl": "https://www.htsyndication.com/hindustan-times/article/concentrix-inks-5-year-lease-for-1.6-lakh-sq-ft-office-space-in-gurugram-at-rrs.r1.53-crore-monthly-rent/100048319",
@@ -23605,14 +24502,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Concentrix's upcoming office milestone at Gurugram! With your fit-out window currently active for your 1.61 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Concentrix's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 94,
+    "id": "IN-038",
+    "rowId": "IN-038",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23640,7 +24539,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1.75L sq ft, RMZ Ecoworld Series 20 Bellandur, 5-yr from 1 Feb 2026",
     "timing": "Fit-out likely done; late-phase/expansion plays",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "saptashwatv.com",
     "sourceUrl": "https://www.saptashwatv.com/finance/disney-leases-1-75-lakh-sq-ft-office-space-in-bengaluru-s-bellandur-at-inr2-01-crore-monthly-rent-13593.html",
@@ -23665,14 +24564,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Disney's upcoming office milestone at Bengaluru! With your fit-out window currently active for your 1.75 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Disney's commercial workplace portfolio in Bengaluru. As your team reviews ongoing workspace requirements at Bengaluru, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 95,
+    "id": "IN-039",
+    "rowId": "IN-039",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23700,7 +24601,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1.21L sq ft at Prestige Skytech Sky One, Poppalguda, 5-yr, rent from 15 Apr 2026 after 7-mo fit-out",
     "timing": "Own-office lease; broker relationship value",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "crematrix.com",
     "sourceUrl": "https://www.crematrix.com/blog/jll-leases-1-2-lakh-sq-ft-at-prestige-skytech-hyderabad-for-\u20b964-lakh-a-month/",
@@ -23725,14 +24626,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:10 + S:25 + T:20 + St:5 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JLL's upcoming office milestone at Hyderabad! With your fit-out window currently active for your 1.21 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JLL's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 105,
+    "id": "IN-053",
+    "rowId": "IN-053",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23792,7 +24695,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 108,
+    "id": "IN-056",
+    "rowId": "IN-056",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23852,7 +24757,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 111,
+    "id": "IN-059",
+    "rowId": "IN-059",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23912,7 +24819,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 141,
+    "id": "IN-089",
+    "rowId": "IN-089",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -23938,9 +24847,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.25 Mn sf at Knowledge City, Madhapur \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -23965,14 +24874,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Bosch's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Bosch's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 214,
+    "id": "JP-029",
+    "rowId": "JP-029",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -24000,7 +24911,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ functions (postal/logistics divisions; phased move from 2027-02, complete 2027-04; reported 2026-09-27 (floor areas not disclosed)",
     "timing": "Fit-out planning/contracting happening now for two destinations; engage ASAP",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
     "source": "Yomiuri Shimbun 2026-09-27 (docomo news mirror)",
     "sourceUrl": "https://topics.smt.docomo.ne.jp/article/yomiuri/business/20260926-567-GYT1T00357",
@@ -24025,14 +24936,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Japan Post's workspace milestone at Tokyo approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Japan Post's upcoming office milestone at Tokyo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 337,
+    "id": "KR-061",
+    "rowId": "KR-061",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -24060,7 +24973,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Vacated floors 7\u20139 of Parc1 Tower 1 in Feb 2026 (move-out; destination not stated)",
     "timing": "Move-out signal \u2014 destination unknown; watchlist for new-location fit-out",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 1Q26 Korea Office Leasing, market commentary",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/1Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
@@ -24085,14 +24998,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on LG Chem's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding LG Chem's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 346,
+    "id": "KR-070",
+    "rowId": "KR-070",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -24152,7 +25067,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 430,
+    "id": "MY-001",
+    "rowId": "MY-001",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -24212,7 +25129,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 505,
+    "id": "MY-080",
+    "rowId": "MY-080",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -24240,7 +25159,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Opened new branch on Jalan Kelawai, George Town, commenced operations 1 July 2025; size and deal type unstated (branch opening, not a corporate HQ move)",
     "timing": "New branch opened 1 July 2025 \u2014 fit-out complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank Malaysia Real Estate Highlights 2H 2025",
     "sourceUrl": "https://kfmconnect.com.my/reh2h2025",
@@ -24265,14 +25184,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 60,
       "summary": "R:40 + S:0 + T:5 + St:15 = 60"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Allianz Malaysia's upcoming office milestone at Penang! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Allianz Malaysia's commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 513,
+    "id": "LK-008",
+    "rowId": "LK-008",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -24332,7 +25253,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 77,
+    "id": "IN-021",
+    "rowId": "IN-021",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -24360,7 +25283,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "255,713 sq ft, Panchshil Vantage, Wagholi; 10-yr; 187,996 sq ft from Dec 2026 + 67,717 sq ft from Jun 2027",
     "timing": "Fit-out window Dec 2026-Jun 2027 - engage now for spec",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
     "source": "nexnews.org",
     "sourceUrl": "https://nexnews.org/business/tiaa-global-capabilities-leases-256-lakh-sq-ft-pune-office-in-320-crore-deal",
@@ -24385,14 +25308,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
     },
-    "suggestedOpeningLine": "Hi [Name], notice TIAA Global Capabilities's workspace milestone at Pune approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on TIAA Global Capabilities's upcoming office milestone at Pune! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 82,
+    "id": "IN-026",
+    "rowId": "IN-026",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -24452,7 +25377,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 279,
+    "id": "KR-003",
+    "rowId": "KR-003",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -24480,7 +25407,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New HQ ~218,000 sqm (66,000 pyeong / ~2.35M sq ft) on former E-Mart Seongsu site; completion 2027; consolidating Gangnam + Pangyo orgs",
     "timing": "Mega HQ under construction - engage for 2027 fit-out spec",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "Seoul Economic Daily",
     "sourceUrl": "https://en.sedaily.com/finance/2026/08/25/beyond-a-hotspot-seongsu-emerges-as-seouls-next-business",
@@ -24505,14 +25432,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Krafton's workspace milestone at Seoul approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Krafton's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 517,
+    "id": "LK-012",
+    "rowId": "LK-012",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -24572,7 +25501,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 520,
+    "id": "LK-015",
+    "rowId": "LK-015",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -24600,7 +25531,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New headquarters opened 7 Sep 2026 at 103 Barnes Place, Colombo 7; expanding into interior design and property management services",
     "timing": "Small HQ but design-led; luxury realtor = useful referral source",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "lankabusinessnews.com",
     "sourceUrl": "https://www.lankabusinessnews.com/73avenue-realtors-opens-new-headquarters-in-colombo-7/",
@@ -24625,14 +25556,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 55,
       "summary": "R:30 + S:0 + T:20 + St:5 = 55"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on 73Avenue Realtors's upcoming office milestone at Colombo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding 73Avenue Realtors's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 523,
+    "id": "LK-018",
+    "rowId": "LK-018",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -24657,11 +25590,11 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q3",
     "dateFound": "2026-08-17",
     "daysAgo": 59,
-    "signal": "New Corporate Head Office at No. 82, Barnes Place, Colombo 07; regional healthcare organisation",
+    "signal": "New Corporate Head Office at No. 82, Barnes Place, Colombo 07",
     "timing": "New HQ admin hub - engage facilities",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
-    "sector": "Industrial & MedTech",
+    "sector": "Corporate & Commercial",
     "source": "businesscafe.lk",
     "sourceUrl": "https://businesscafe.lk/business-news/luxury-living/21656-royal-nursing-home-opens-new-corporate-head-office-in-colombo-07-marking-new-chapter-in-regional-growth",
     "dealValue": "Commercial Terms",
@@ -24692,7 +25625,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 86,
+    "id": "IN-030",
+    "rowId": "IN-030",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -24752,7 +25687,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 91,
+    "id": "IN-035",
+    "rowId": "IN-035",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -24780,7 +25717,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "2.23L sq ft at Meenakshi Eco Park Tower 1, Khajaguda, 5-yr from 24 Feb 2026",
     "timing": "Occupied; watch expansion",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "htsyndication.com",
     "sourceUrl": "https://htsyndication.com/hindustan-times/article/hyderabad-real-estate%3A-invesco-leases-2.2-lakh-sq-ft-office-space-for-rrs.r1.52-crore-monthly-rent/99447341",
@@ -24805,14 +25742,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Invesco's upcoming office milestone at Meenakshi Eco Park! With your fit-out window currently active for your 2.23 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Invesco's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Meenakshi Eco Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 103,
+    "id": "IN-051",
+    "rowId": "IN-051",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -24872,7 +25811,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 104,
+    "id": "IN-052",
+    "rowId": "IN-052",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -24932,7 +25873,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 107,
+    "id": "IN-055",
+    "rowId": "IN-055",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -24992,7 +25935,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 109,
+    "id": "IN-057",
+    "rowId": "IN-057",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25052,7 +25997,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 110,
+    "id": "IN-058",
+    "rowId": "IN-058",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25080,7 +26027,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Leased 1.97L sq ft (all 17 floors, commercial tower), Kharadi; 5-yr; registered Dec 30, 2025",
     "timing": "New occupancy - engage",
     "urgency": "Active",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
     "source": "CRE Matrix",
     "sourceUrl": "https://www.crematrix.com/blog/awfis-space-solutions-secures-1-97-lakh-sq-ft-office-space-in-punes-kharadi/",
@@ -25105,14 +26052,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:0 + S:25 + T:20 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Awfis's commercial workplace portfolio in Pune. As your team reviews ongoing workspace requirements at Pune, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Awfis's upcoming office milestone at Pune! With your fit-out window currently active for your 1.97 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 123,
+    "id": "IN-071",
+    "rowId": "IN-071",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25138,9 +26087,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.60 Mn sf at Bagmane Capital \u2013 Rome South, ORR \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25165,14 +26114,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Amazon's upcoming office milestone at Bengaluru! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Amazon's commercial workplace portfolio in Bengaluru. As your team reviews ongoing workspace requirements at Bengaluru, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 124,
+    "id": "IN-072",
+    "rowId": "IN-072",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25198,9 +26149,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.25 Mn sf at RMZ Millenia, OMR \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25225,14 +26176,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Saipem's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Saipem's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 125,
+    "id": "IN-073",
+    "rowId": "IN-073",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25258,9 +26211,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.22 Mn sf at DLF Cybercity, Mount Poonamallee Road \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25285,14 +26238,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Citi's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Citi's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 126,
+    "id": "IN-074",
+    "rowId": "IN-074",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25318,9 +26273,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "1.00 Mn sf at Divyashree Orion Block B, Gachibowli \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25345,14 +26300,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Wells Fargo's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Wells Fargo's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 127,
+    "id": "IN-075",
+    "rowId": "IN-075",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25378,9 +26335,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.34 Mn sf at Oberoi Commerz 3, Malad \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25405,14 +26362,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Morgan Stanley's upcoming office milestone at Mumbai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Morgan Stanley's commercial workplace portfolio in Mumbai. As your team reviews ongoing workspace requirements at Mumbai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 128,
+    "id": "IN-076",
+    "rowId": "IN-076",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25438,9 +26397,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.25 Mn sf at Gigaplex Tower 9, Thane Belapur Road \u2014 Key Lease Transactions table (deal type unstated); note HDFC Ltd merged into HDFC Bank in Jul 2023",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25465,14 +26424,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on HDFC's upcoming office milestone at Gigaplex Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding HDFC's commercial workplace portfolio in Mumbai. As your team reviews ongoing workspace requirements at Gigaplex Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 129,
+    "id": "IN-077",
+    "rowId": "IN-077",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25498,9 +26459,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.40 Mn sf at Artha SEZ, TechZone IV \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25525,14 +26486,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Netmagic's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Netmagic's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 130,
+    "id": "IN-078",
+    "rowId": "IN-078",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25558,9 +26521,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.40 Mn sf at Capital Tower 2, MG Road \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25585,14 +26548,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Zomato's upcoming office milestone at Capital Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Zomato's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Capital Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 131,
+    "id": "IN-079",
+    "rowId": "IN-079",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25618,9 +26583,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.21 Mn sf at Candor Tech Space, Sector-48 \u2014 Key Lease Transactions table (deal type unstated); likely Encore Capital's Midland Credit Management arm",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25645,14 +26610,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Encore Midland Credit Management's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Encore Midland Credit Management's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 132,
+    "id": "IN-080",
+    "rowId": "IN-080",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25678,9 +26645,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.62 Mn sf at Commerzone Building-3, Yerwada \u2014 Key Lease Transactions table (deal type unstated); second Amazon deal in this edition (other: Bengaluru 0.60)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25705,14 +26672,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Amazon's upcoming office milestone at Commerzone Building! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Amazon's commercial workplace portfolio in Pune. As your team reviews ongoing workspace requirements at Commerzone Building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 133,
+    "id": "IN-081",
+    "rowId": "IN-081",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25738,9 +26707,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.25 Mn sf at ICC Teck Park [sic], Shivaji Nagar \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25765,14 +26734,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mindtree's upcoming office milestone at ICC Teck Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mindtree's commercial workplace portfolio in Pune. As your team reviews ongoing workspace requirements at ICC Teck Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 134,
+    "id": "IN-082",
+    "rowId": "IN-082",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25798,9 +26769,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.60 Mn sf at Adventz Infinity, Salt Lake V \u2014 Key Lease Transactions table (deal type unstated); second Mindtree deal in this edition (other: Pune 0.25)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25825,14 +26796,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mindtree's upcoming office milestone at Kolkata! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kolkata. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mindtree's commercial workplace portfolio in Kolkata. As your team reviews ongoing workspace requirements at Kolkata, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 135,
+    "id": "IN-083",
+    "rowId": "IN-083",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25858,9 +26831,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.15 Mn sf at Amar Business Zone, Baner \u2014 Key Lease Transactions table (deal type unstated); source spells 'Indiqube'",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25885,14 +26858,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Indiqube's upcoming office milestone at Pune! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Indiqube's commercial workplace portfolio in Pune. As your team reviews ongoing workspace requirements at Pune, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 136,
+    "id": "IN-084",
+    "rowId": "IN-084",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25918,9 +26893,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.23 Mn sf at Candor Tech Space, Rajarhat \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H2 FY22 (Oct 2021\u2013Mar 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Annual Update FY2021-22",
     "sourceUrl": "https://new-website-anarock.s3.ap-south-1.amazonaws.com/India_Office_Market_Annual_Update_FY_22_62a4460f2c.pdf",
@@ -25945,14 +26920,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Capgemini's upcoming office milestone at Kolkata! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kolkata. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Capgemini's commercial workplace portfolio in Kolkata. As your team reviews ongoing workspace requirements at Kolkata, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 137,
+    "id": "IN-085",
+    "rowId": "IN-085",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -25978,9 +26955,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.50 Mn sf at Prestige Techno Star, Whitefield \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26005,14 +26982,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on AMD's upcoming office milestone at Bengaluru! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding AMD's commercial workplace portfolio in Bengaluru. As your team reviews ongoing workspace requirements at Bengaluru, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 138,
+    "id": "IN-086",
+    "rowId": "IN-086",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26038,9 +27017,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.60 Mn sf at Embassy Manyata Business Park, Nagawara ORR \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26065,14 +27044,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ANZ's upcoming office milestone at Embassy Manyata Business Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ANZ's commercial workplace portfolio in Bengaluru. As your team reviews ongoing workspace requirements at Embassy Manyata Business Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 139,
+    "id": "IN-087",
+    "rowId": "IN-087",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26098,9 +27079,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.40 Mn sf at Embassy Splendid Techzone, Pallavaram \u2014 Key Lease Transactions table (deal type unstated); second Wells Fargo deal in this harvest (other: Hyderabad 1.00, H2 FY22)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26125,14 +27106,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Wells Fargo's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Wells Fargo's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 140,
+    "id": "IN-088",
+    "rowId": "IN-088",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26158,9 +27141,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.10 Mn sf at Ocean Lifespace, Guindy \u2014 Key Lease Transactions table (deal type unstated); source spells 'IndiQube'; second IndiQube/Indiqube deal in this harvest (other: Pune 0.15, H2 FY22)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26185,14 +27168,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on IndiQube's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding IndiQube's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 142,
+    "id": "IN-090",
+    "rowId": "IN-090",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26218,9 +27203,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.35 Mn sf at My Home Twitza, HITEC City \u2014 Key Lease Transactions table (deal type unstated); source spells 'Pwc'",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26245,14 +27230,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on PwC's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding PwC's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 143,
+    "id": "IN-091",
+    "rowId": "IN-091",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26278,9 +27265,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.30 Mn sf at Phoenix Centaurus, Gachibowli \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26305,14 +27292,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ZF Technology's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ZF Technology's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 144,
+    "id": "IN-092",
+    "rowId": "IN-092",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26338,9 +27327,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.50 Mn sf at Quantum, Thane \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26365,14 +27354,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on IDFC's upcoming office milestone at Mumbai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding IDFC's commercial workplace portfolio in Mumbai. As your team reviews ongoing workspace requirements at Mumbai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 145,
+    "id": "IN-093",
+    "rowId": "IN-093",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26398,9 +27389,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.28 Mn sf at Agastya Corporate Park, Kurla \u2014 Key Lease Transactions table (deal type unstated); source spells 'M&M Finacial' [sic]",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26425,14 +27416,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on M&M Financial's upcoming office milestone at Agastya Corporate Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across MMR. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding M&M Financial's commercial workplace portfolio in MMR. As your team reviews ongoing workspace requirements at Agastya Corporate Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 146,
+    "id": "IN-094",
+    "rowId": "IN-094",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26458,9 +27451,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.10 Mn sf at Wadhwa Platina, BKC \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26485,14 +27478,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Avendus Capital's upcoming office milestone at Mumbai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Avendus Capital's commercial workplace portfolio in Mumbai. As your team reviews ongoing workspace requirements at Mumbai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 147,
+    "id": "IN-095",
+    "rowId": "IN-095",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26518,9 +27513,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.10 Mn sf at One Skymark, Noida Expressway, Noida \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26545,14 +27540,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Network 18's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Network 18's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 148,
+    "id": "IN-096",
+    "rowId": "IN-096",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26578,9 +27575,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.15 Mn sf at Vatika One on One, NH-8, Gurgaon \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26605,14 +27602,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Air India's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Air India's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 149,
+    "id": "IN-097",
+    "rowId": "IN-097",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26638,9 +27637,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.20 Mn sf at DLF Downtown, NH-8, Gurgaon \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26665,14 +27664,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Syneos Health's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Syneos Health's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 150,
+    "id": "IN-098",
+    "rowId": "IN-098",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26698,7 +27699,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.18 Mn sf at Splendor Trade Tower, Sector-65, Gurgaon \u2014 Key Lease Transactions table (deal type unstated); tenant given as 'Reliance' only, group entity unspecified",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
     "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
@@ -26732,7 +27733,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 151,
+    "id": "IN-099",
+    "rowId": "IN-099",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26758,9 +27761,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.42 Mn sf at Bluegrass Business Park, Yerwada \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26785,14 +27788,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mastercard's upcoming office milestone at Bluegrass Business Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mastercard's commercial workplace portfolio in Pune. As your team reviews ongoing workspace requirements at Bluegrass Business Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 152,
+    "id": "IN-100",
+    "rowId": "IN-100",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26818,9 +27823,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.24 Mn sf at International Tech Park Phase-1, Kharadi \u2014 Key Lease Transactions table (deal type unstated); name transcribed exactly as printed ('ZS Associate')",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26845,14 +27850,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ZS Associate's upcoming office milestone at International Tech Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ZS Associate's commercial workplace portfolio in Pune. As your team reviews ongoing workspace requirements at International Tech Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 153,
+    "id": "IN-101",
+    "rowId": "IN-101",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26878,9 +27885,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.10 Mn sf at DLF IT Park, Rajarhat \u2014 Key Lease Transactions table (deal type unstated); row appears twice in source, counted once",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26905,14 +27912,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on AML Right Source's upcoming office milestone at DLF IT Park! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kolkata. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding AML Right Source's commercial workplace portfolio in Kolkata. As your team reviews ongoing workspace requirements at DLF IT Park, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 154,
+    "id": "IN-102",
+    "rowId": "IN-102",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26938,9 +27947,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.70 Mn sf at Godrej Waterside, Salt Lake \u2014 Key Lease Transactions table (deal type unstated)",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -26965,14 +27974,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on IFS's upcoming office milestone at Kolkata! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kolkata. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding IFS's commercial workplace portfolio in Kolkata. As your team reviews ongoing workspace requirements at Kolkata, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 155,
+    "id": "IN-103",
+    "rowId": "IN-103",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -26998,9 +28009,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.40 Mn sf at Media Siti, Salt Lake \u2014 Key Lease Transactions table (deal type unstated); tenant cell reads 'Accolade Broadcasting / Continuum' \u2014 treated as one tenant; 'Continuum' unverified",
-    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022) \u2014 monitor next lease cycle",
+    "timing": "Lease signed H1 FY23 (Apr\u2013Sep 2022)",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "ANAROCK India Office Market Update H1 FY23",
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Half_Yearly_Update_H1_FY_23_efcc21c331.pdf",
@@ -27025,14 +28036,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Accolade Broadcasting's upcoming office milestone at Kolkata! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kolkata. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Accolade Broadcasting's commercial workplace portfolio in Kolkata. As your team reviews ongoing workspace requirements at Kolkata, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 157,
+    "id": "IN-105",
+    "rowId": "IN-105",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27060,7 +28073,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex operators with large-scale expansions in H1 2026; building, size, deal type unstated",
     "timing": "Expansion in H1 2026 \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27085,14 +28098,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Opulence Spaces's upcoming office milestone at Ahmedabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Ahmedabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Opulence Spaces's commercial workplace portfolio in Ahmedabad. As your team reviews ongoing workspace requirements at Ahmedabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 158,
+    "id": "IN-106",
+    "rowId": "IN-106",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27120,7 +28135,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex operators with large-scale expansions in H1 2026; building, size, deal type unstated",
     "timing": "Expansion in H1 2026 \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27145,14 +28160,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Vibrant Co.Work's upcoming office milestone at Ahmedabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Ahmedabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Vibrant Co.Work's commercial workplace portfolio in Ahmedabad. As your team reviews ongoing workspace requirements at Ahmedabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 159,
+    "id": "IN-107",
+    "rowId": "IN-107",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27180,7 +28197,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex operators with large-scale expansions in H1 2026; building, size, deal type unstated",
     "timing": "Expansion in H1 2026 \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27205,14 +28222,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Incuspaze's upcoming office milestone at Ahmedabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Ahmedabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Incuspaze's commercial workplace portfolio in Ahmedabad. As your team reviews ongoing workspace requirements at Ahmedabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 160,
+    "id": "IN-108",
+    "rowId": "IN-108",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27238,15 +28257,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among occupiers with large transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "New",
     "trackerNotes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
@@ -27265,14 +28284,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on DHL's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding DHL's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 161,
+    "id": "IN-109",
+    "rowId": "IN-109",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27300,7 +28321,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex/managed-office operators with major transactions in Chennai, Hyderabad and NCR in H1 2026; building, size, deal type unstated",
     "timing": "Transactions in H1 2026 across three cities \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27325,14 +28346,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Simpliwork's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Simpliwork's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 162,
+    "id": "IN-110",
+    "rowId": "IN-110",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27360,7 +28383,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex operators with major transactions in H1 2026; building, size, deal type unstated",
     "timing": "Transaction in H1 2026 \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27385,14 +28408,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Workez's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Workez's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 163,
+    "id": "IN-111",
+    "rowId": "IN-111",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27418,9 +28443,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with transactions in H1 2026; building, size, deal type unstated (healthcare occupier)",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Industrial & MedTech",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27445,14 +28470,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Geri Care Hospital's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Geri Care Hospital's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 164,
+    "id": "IN-112",
+    "rowId": "IN-112",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27478,9 +28505,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with transactions in H1 2026; building, size, deal type unstated (education occupier, borderline prospect)",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27505,14 +28532,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Raja Rajeshwari Engineering College's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Raja Rajeshwari Engineering College's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 165,
+    "id": "IN-113",
+    "rowId": "IN-113",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27538,9 +28567,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27565,14 +28594,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on AnnexMed's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding AnnexMed's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 166,
+    "id": "IN-114",
+    "rowId": "IN-114",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27598,9 +28629,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27625,14 +28656,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Chargebee's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Chargebee's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 167,
+    "id": "IN-115",
+    "rowId": "IN-115",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27658,9 +28691,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among third-party IT services occupiers with notable transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27685,14 +28718,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Alldigi Tech (Allsec)'s upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Alldigi Tech (Allsec)'s commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 168,
+    "id": "IN-116",
+    "rowId": "IN-116",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27718,9 +28753,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among third-party IT services occupiers with notable transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27745,14 +28780,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Altimetrik's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Altimetrik's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 169,
+    "id": "IN-117",
+    "rowId": "IN-117",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27778,9 +28815,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among third-party IT services occupiers with notable transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27805,14 +28842,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Novac Technology Solutions's upcoming office milestone at Chennai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Novac Technology Solutions's commercial workplace portfolio in Chennai. As your team reviews ongoing workspace requirements at Chennai, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 170,
+    "id": "IN-118",
+    "rowId": "IN-118",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27838,15 +28877,15 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among GCC occupiers leading leasing in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "New",
     "trackerNotes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
@@ -27865,14 +28904,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on L'Or\u00e9al's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding L'Or\u00e9al's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 171,
+    "id": "IN-119",
+    "rowId": "IN-119",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27898,9 +28939,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among GCC occupiers leading leasing in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27925,14 +28966,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ArcelorMittal's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ArcelorMittal's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 172,
+    "id": "IN-120",
+    "rowId": "IN-120",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -27960,7 +29003,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex/managed-office operators with major transactions in H1 2026; building, size, deal type unstated",
     "timing": "Transaction in H1 2026 \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -27985,14 +29028,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Skootr's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Skootr's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 173,
+    "id": "IN-121",
+    "rowId": "IN-121",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28018,9 +29063,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with key transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28045,14 +29090,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Bajaj Finance's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Bajaj Finance's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 174,
+    "id": "IN-122",
+    "rowId": "IN-122",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28078,9 +29125,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with key transactions in H1 2026; building, size, deal type unstated \u2014 distinct subsidiary; 'HDFC' on the tab is the parent, not this entity",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28105,14 +29152,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on HDFC Credila's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding HDFC Credila's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 175,
+    "id": "IN-123",
+    "rowId": "IN-123",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28138,7 +29187,7 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with key transactions in H1 2026; building, size, deal type unstated \u2014 entity unspecified in source (Apollo Hospitals vs Apollo Tyres vs other); name as printed",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle; verify entity before outreach",
+    "timing": "Transaction in H1 2026; verify entity before outreach",
     "urgency": "Active",
     "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
@@ -28172,7 +29221,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 176,
+    "id": "IN-124",
+    "rowId": "IN-124",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28198,9 +29249,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with key transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28225,14 +29276,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Mahindra Finance's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Mahindra Finance's commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 177,
+    "id": "IN-125",
+    "rowId": "IN-125",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28292,7 +29345,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 178,
+    "id": "IN-126",
+    "rowId": "IN-126",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28318,9 +29373,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with key leases in H1 2026; building, size, deal type unstated \u2014 name as printed ('Maruti'; presumably Maruti Suzuki, not confirmed)",
-    "timing": "Lease in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Lease in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28345,14 +29400,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Maruti's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Maruti's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 179,
+    "id": "IN-127",
+    "rowId": "IN-127",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28378,9 +29435,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with key leases in H1 2026; building, size, deal type unstated",
-    "timing": "Lease in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Lease in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28405,14 +29462,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Indiabulls's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Indiabulls's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 180,
+    "id": "IN-128",
+    "rowId": "IN-128",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28438,9 +29497,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among India-facing occupiers with key leases in H1 2026; building, size, deal type unstated",
-    "timing": "Lease in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Lease in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28465,14 +29524,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Tata AIG's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Tata AIG's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 181,
+    "id": "IN-129",
+    "rowId": "IN-129",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28500,7 +29561,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex workspace operators with transactions in H1 2026; building, size, deal type unstated \u2014 distinct company from 'Table Space' already on the India tab; do not merge",
     "timing": "Transaction in H1 2026 \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28525,14 +29586,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Tablespace's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Tablespace's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 182,
+    "id": "IN-130",
+    "rowId": "IN-130",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28560,7 +29623,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Named among flex workspace operators with transactions in H1 2026; building, size, deal type unstated",
     "timing": "Transaction in H1 2026 \u2014 flex operator, repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28585,14 +29648,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Workshaala's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Workshaala's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 185,
+    "id": "IN-133",
+    "rowId": "IN-133",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -28618,9 +29683,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-15",
     "daysAgo": 0,
     "signal": "Named among GCC occupiers with completed transactions in H1 2026; building, size, deal type unstated",
-    "timing": "Transaction in H1 2026 \u2014 monitor next lease cycle",
+    "timing": "Transaction in H1 2026",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank India Real Estate \u2013 Office and Residential Market \u2013 H1 2026",
     "sourceUrl": "https://www.knightfrank.co.in/research/india-real-estate-office-and-residential-market-h1-2026-12927.aspx",
@@ -28645,14 +29710,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on ANSR's upcoming office milestone at Gurugram! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Gurugram. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding ANSR's commercial workplace portfolio in Gurugram. As your team reviews ongoing workspace requirements at Gurugram, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 222,
+    "id": "JP-037",
+    "rowId": "JP-037",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -28680,7 +29747,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ to WeWork Shiroyama Trust Tower 21F; operations from March 2026; announced 2026-01-26",
     "timing": "Flex-space move; cost-flexibility driven \u2014 smaller near-term ticket",
     "urgency": "Near-Term",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Company press release",
     "sourceUrl": "https://ac.ksj.co.jp/pdf/news-260301.pdf",
@@ -28705,14 +29772,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on \u682a\u5f0f\u4f1a\u793e\u30a2\u30fc\u30ad\u30c6\u30af\u30c8\u30b3\u30a2 (Architect Core)'s upcoming office milestone at WeWork Shiroyama Trust Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding \u682a\u5f0f\u4f1a\u793e\u30a2\u30fc\u30ad\u30c6\u30af\u30c8\u30b3\u30a2 (Architect Core)'s commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at WeWork Shiroyama Trust Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 354,
+    "id": "KR-078",
+    "rowId": "KR-078",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -28740,7 +29809,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Expected co-movers to SK-C\ud0c0\uc6cc alongside SKC; sizes not broken out",
     "timing": "Q1 2025 expected \u2014 historical; weak signal",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 251Q (2025 Q1), expected-move appendix",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-251Q-Korea-Office-Market-Report.pdf",
@@ -28765,14 +29834,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on SK C&C / Tmap Mobility's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding SK C&C / Tmap Mobility's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 360,
+    "id": "KR-084",
+    "rowId": "KR-084",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -28800,7 +29871,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Cited as a major tenant move among prime offices; no size/building",
     "timing": "4Q25 \u2014 historical; weak signal",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 4Q25 Korea Office Leasing",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/4Q25-Korea-Office-Leasing-Market_Conditions_Trends-Korean.pdf",
@@ -28825,14 +29896,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on 111% (111\ud37c\uc13c\ud2b8)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding 111% (111\ud37c\uc13c\ud2b8)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 382,
+    "id": "KR-106",
+    "rowId": "KR-106",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -28860,7 +29933,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Absorbed remaining vacancy (size not stated)",
     "timing": "Move Q4 2024 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "GenstarMate 244Q Korea Office Market Report",
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/09/GenstarMate-244Q_Korea-Office-Market-Report.pdf",
@@ -28885,14 +29958,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Olive Young (\uc62c\ub9ac\ube0c\uc601)'s upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Olive Young (\uc62c\ub9ac\ube0c\uc601)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Seoul, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 442,
+    "id": "MY-014",
+    "rowId": "MY-014",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -28952,7 +30027,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 4
   },
   {
-    "id": 456,
+    "id": "MY-030",
+    "rowId": "MY-030",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29012,7 +30089,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 459,
+    "id": "MY-033",
+    "rowId": "MY-033",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29040,7 +30119,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Trustee/financial-services firm opened Johor Bahru branch",
     "timing": "Small branch - light signal; source is a press wire, verify before outreach",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "financialcontent.com (press wire)",
     "sourceUrl": "https://markets.financialcontent.com/stocks/article/accwirecq-2026-9-23-lkn-group-launches-the-best-trustee-services-in-johor-bahru-and-what-it-signals-for-southern-malaysias-wealth-management-market",
@@ -29065,14 +30144,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on LKN Group's upcoming office milestone at Johor Bahru! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Johor Bahru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding LKN Group's commercial workplace portfolio in Johor Bahru. As your team reviews ongoing workspace requirements at Johor Bahru, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 487,
+    "id": "MY-062",
+    "rowId": "MY-062",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29100,7 +30181,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New 24,700-sq ft Spaces outlet at Republik TTDI + ~1,600-sq ft Regus Express at Crowne Plaza (first Regus Express concept in Malaysia)",
     "timing": "Opened 1H 2026; flex operator = repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank REH 1H 2026, flex-space table",
     "sourceUrl": "https://www.knightfrank.com.my/site-assets/pdf/my-real-estate-highlights-1h-2026.pdf",
@@ -29125,14 +30206,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on IWG (Spaces / Regus Express)'s upcoming office milestone at Crowne Plaza! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding IWG (Spaces / Regus Express)'s commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Crowne Plaza, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 488,
+    "id": "MY-063",
+    "rowId": "MY-063",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29160,7 +30243,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Entered the Malaysian market at Menara Hap Seng 3 (Singapore-listed flex operator)",
     "timing": "1H 2026 market entry; regional flex operator = repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "Knight Frank REH 1H 2026, flex-space table",
     "sourceUrl": "https://www.knightfrank.com.my/site-assets/pdf/my-real-estate-highlights-1h-2026.pdf",
@@ -29185,14 +30268,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JustCo's upcoming office milestone at Kuala Lumpur! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding JustCo's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Kuala Lumpur, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 489,
+    "id": "MY-064",
+    "rowId": "MY-064",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29220,7 +30305,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Professional services firm establishing its presence at MVS North Tower",
     "timing": "1H 2026 establishment; furnishing current",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank REH 1H 2026, Johor office section",
     "sourceUrl": "https://www.knightfrank.com.my/site-assets/pdf/my-real-estate-highlights-1h-2026.pdf",
@@ -29245,14 +30330,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Grant Thornton's upcoming office milestone at MVS North Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Johor Bahru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Grant Thornton's commercial workplace portfolio in Johor Bahru. As your team reviews ongoing workspace requirements at MVS North Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 497,
+    "id": "MY-072",
+    "rowId": "MY-072",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29312,7 +30399,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 498,
+    "id": "MY-073",
+    "rowId": "MY-073",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29372,7 +30461,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 499,
+    "id": "MY-074",
+    "rowId": "MY-074",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29432,7 +30523,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 500,
+    "id": "MY-075",
+    "rowId": "MY-075",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29460,7 +30553,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New office at The Gardens North Tower in 2H2025 \u2014 Australian project management consultancy; size and deal type unstated",
     "timing": "New office in 2H2025 \u2014 fit-out likely complete",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Knight Frank Malaysia Real Estate Highlights 2H 2025",
     "sourceUrl": "https://kfmconnect.com.my/reh2h2025",
@@ -29485,14 +30578,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on TBH's upcoming office milestone at KL Fringe \u2014 The Gardens North Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding TBH's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at KL Fringe \u2014 The Gardens North Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": true,
     "buildingTenantCount": 2
   },
   {
-    "id": 506,
+    "id": "LK-001",
+    "rowId": "LK-001",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -29552,7 +30647,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 508,
+    "id": "LK-003",
+    "rowId": "LK-003",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -29578,9 +30675,9 @@ var INITIAL_LEADS_DATA = [
     "dateFound": "2026-10-13",
     "daysAgo": 2,
     "signal": "Active lease portfolio maturity tracked in statutory filings",
-    "timing": "Lease maturities fell due within 12 months - engage Group Admin",
+    "timing": "~Rs 2.2bn fell due within 12 months - engage Group Admin",
     "urgency": "Active",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "BFSI (Banking & Finance)",
     "source": "AR 2024/25, Note 27.1",
     "sourceUrl": "https://www.lolc.com/storage/4924/LOLC-Holdings-AR-2025.pdf",
@@ -29605,14 +30702,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], notice LOLC Holdings's workspace milestone at Colombo approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], I noticed LOLC Holdings's commercial momentum at Colombo. As your workplace strategy evolves in Colombo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 528,
+    "id": "LK-023",
+    "rowId": "LK-023",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -29637,8 +30736,8 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Designated a Secondary Business of Strategic Importance (gazette 10 Apr 2026; CPCEC Authorised Person licence CPCEC/2026/0174 issued 5 Feb 2026); IT/Advisory/R&D facility in Port City Colombo",
-    "timing": "Commercial operation due within 3 months of gazette (~mid-2026); phased workspace demand",
+    "signal": "Designated a Secondary Business of Strategic Importance (gazette 10 Apr 2026; CPCEC Authorised Person licence CPCEC/2026/0174 issued 5 Feb 2026); IT/Advisory/R&D; FDI; employment 10 (yr1) -> 120 (yr5)",
+    "timing": "Commercial operation due within 3 months of gazette (~mid-2026); 10->120 headcount plan = phased workspace demand",
     "urgency": "Active",
     "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
@@ -29646,8 +30745,8 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.portcitycolombo.gov.lk/resources/documents/extragazettes/2483-54_E.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -29672,67 +30771,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 529,
-    "country": "Sri Lanka",
-    "countryCode": "LK",
-    "flag": "\ud83c\uddf1\ud83c\uddf0",
-    "currency": "LKR",
-    "currencySymbol": "SL Rs",
-    "company": "Edotco",
-    "market": "Colombo / Nationwide",
-    "city": "Colombo",
-    "submarket": "Colombo",
-    "building": "",
-    "isBuildingDisclosed": false,
-    "isBuildingInferred": false,
-    "areaSqFt": null,
-    "areaFormatted": "Not disclosed",
-    "sizeTier": "Undisclosed",
-    "isSizeDisclosed": false,
-    "isSizeInferred": false,
-    "dealType": "Unstated",
-    "isTypeDisclosed": false,
-    "isTypeInferred": true,
-    "dealDate": "22 Sep 2026",
-    "dealQuarter": "2026-Q3",
-    "dateFound": "https://www.telecompaper.com/news/edotco-signs-usd-10-million-boi-investment-deal-to-expand-sri-lanka-digital-infrastructure--1583348",
-    "daysAgo": 30,
-    "signal": "Digital infrastructure development agreement with BOI Sri Lanka signed 22 Sep 2026; 130 macro towers",
-    "timing": "BOI Sri Lanka",
-    "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
-    "sector": "Enterprise Software & Tech",
-    "source": "300 smart lamp poles",
-    "sourceUrl": "650 energy sites over 30 months",
-    "dealValue": "Commercial Terms",
-    "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
-    "heatScore": 50,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (30d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 5,
-      "typeReason": "General commercial deal (Unstated: 5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 50,
-      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Edotco's upcoming office milestone at Colombo! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
-    "isNonDealRow": false,
-    "sourceRowsMerged": 1,
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
-  },
-  {
-    "id": 530,
+    "id": "LK-025",
+    "rowId": "LK-025",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -29757,17 +30798,17 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "BOI agreement registered 13 Aug 2026 for 350MW combined-cycle power plant; 42-month build; LTL Holdings subsidiary",
-    "timing": "Operational staging 2026-27; office signal limited - low priority",
+    "signal": "BOI agreement registered 13 Aug 2026 for 350MW combined-cycle power plant, 196.19M loans, 5M other); 42-month build; LTL Holdings subsidiary",
+    "timing": "Construction-phase and O&M staffing 2026-27; office signal limited (mostly plant jobs) - low priority, marginal row",
     "urgency": "Active",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "BFSI (Banking & Finance)",
     "source": "BOI Sri Lanka",
     "sourceUrl": "https://enterprisenews.lk/?p=17703",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014 (baseline)",
-    "trackerNotes": "2026-10-14",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -29785,14 +30826,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Sahasdhanavi Limited's workspace milestone at Colombo approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Sahasdhanavi Limited's commercial momentum at Colombo. As your workplace strategy evolves in Colombo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 201,
+    "id": "JP-016",
+    "rowId": "JP-016",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -29852,7 +30895,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 431,
+    "id": "MY-002",
+    "rowId": "MY-002",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29912,7 +30957,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 2
   },
   {
-    "id": 433,
+    "id": "MY-004",
+    "rowId": "MY-004",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -29972,7 +31019,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 4
   },
   {
-    "id": 437,
+    "id": "MY-008",
+    "rowId": "MY-008",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -30032,7 +31081,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 439,
+    "id": "MY-010",
+    "rowId": "MY-010",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -30092,7 +31143,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 447,
+    "id": "MY-019",
+    "rowId": "MY-019",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -30120,7 +31173,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Relocation completed/announced 1H2026; sq ft not disclosed",
     "timing": "HQ relocation likely already fitted out; play is refresh cycles - longer horizon",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "Knight Frank REH 1H2026",
     "sourceUrl": "https://www.knightfrank.com.my/research/reports/malaysia-real-estate-highlights",
@@ -30145,14 +31198,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 45,
       "summary": "R:20 + S:0 + T:20 + St:5 = 45"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Alliance Bank's upcoming office milestone at Kuala Lumpur! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Alliance Bank's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Kuala Lumpur, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 457,
+    "id": "MY-031",
+    "rowId": "MY-031",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -30212,7 +31267,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 458,
+    "id": "MY-032",
+    "rowId": "MY-032",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -30240,7 +31297,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "14th outlet opened at Menara IIB (formerly Medini 9), ~13,417 sq ft, positioned for JS-SEZ cross-border demand",
     "timing": "Flex operator expanding - furniture buyers at volume; engage",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "theiskandarian.com",
     "sourceUrl": "https://theiskandarian.com/johor-singapore-special-economic-zone-gains-new-business-hub-with-launch-of-infinity8-reserve-iib/",
@@ -30265,14 +31322,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 45,
       "summary": "R:10 + S:10 + T:20 + St:5 = 45"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on INFINITY8 Reserve IIB's upcoming office milestone at Johor Bahru! With your fit-out window currently active for your 13,417 sq ft space, Steelcase APAC has supported several recent flagship migrations across Johor Bahru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding INFINITY8 Reserve IIB's commercial workplace portfolio in Johor Bahru. As your team reviews ongoing workspace requirements at Johor Bahru, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 526,
+    "id": "LK-021",
+    "rowId": "LK-021",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -30300,7 +31359,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Tender (MOE/ADM/LOG/MIN-PROC./2026/01) for 40,000 sq ft office premises with parking on 2-yr extendable rental",
     "timing": "Government office lease - follow up on award; furnishing tender likely follows",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Government & Public Tenders",
     "source": "energymin.gov.lk",
     "sourceUrl": "https://energymin.gov.lk/wp-content/uploads/2026/02/Paper-advertisement-English.pdf",
@@ -30325,14 +31384,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 40,
       "summary": "R:0 + S:15 + T:20 + St:5 = 40"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Ministry of Energy's upcoming office milestone at Colombo! With your fit-out window currently active for your 40,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Ministry of Energy's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 84,
+    "id": "IN-028",
+    "rowId": "IN-028",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -30392,7 +31453,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 89,
+    "id": "IN-033",
+    "rowId": "IN-033",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -30452,7 +31515,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 90,
+    "id": "IN-034",
+    "rowId": "IN-034",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -30480,7 +31545,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "9L+ sq ft, 10-yr, from 9 Jan 2026; plus announced new 1.1M sq ft Bengaluru + 901,115 sq ft Hyderabad tech centres by end 2027",
     "timing": "Current fit-out + 2027 campus pipeline - engage now",
     "urgency": "Immediate",
-    "fitoutWindow": "1 Year",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Enterprise Software & Tech",
     "source": "thehindubusinessline.com",
     "sourceUrl": "https://www.thehindubusinessline.com/companies/uber-bets-big-on-india-with-two-new-tech-centres-in-bengaluru-hyderabad/article70979047.ece",
@@ -30505,14 +31570,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], notice Uber's workspace milestone at Hyderabad approaching within the next 12 months. As your team begins scoping workspace requirements and designer briefs, Steelcase APAC would love to share our latest research on agile, hybrid collaboration settings to help inform your planning.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Uber's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 92,
+    "id": "IN-036",
+    "rowId": "IN-036",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -30572,7 +31639,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 96,
+    "id": "IN-040",
+    "rowId": "IN-040",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -30600,7 +31669,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "1.65L sq ft, ACE Capitol Tower 2 Sector 132 (via Onward Coworkx), from 1 Mar 2026",
     "timing": "Reported 3 Apr 2026, just before window; distinct deal from other Accenture rows",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "IT & Global Consulting",
     "source": "angelone.in",
     "sourceUrl": "https://www.angelone.in/news/market-updates/it-giant-accenture-leases-1-65-lakh-sq-ft-office-space-in-noida-for-195-crore-over-5-years",
@@ -30625,14 +31694,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:0 + S:25 + T:5 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Accenture (Noida - distinct deal)'s upcoming office milestone at Noida! With your fit-out window currently active for your 1.65 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Noida. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Accenture (Noida - distinct deal)'s commercial workplace portfolio in Noida. As your team reviews ongoing workspace requirements at Noida, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 106,
+    "id": "IN-054",
+    "rowId": "IN-054",
+    "rowKind": "Deal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -30692,7 +31763,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 202,
+    "id": "JP-017",
+    "rowId": "JP-017",
+    "rowKind": "Deal",
     "country": "Japan",
     "countryCode": "JP",
     "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -30720,7 +31793,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ moved to Tenjin Sumitomo Seimei FJ Business Center 9F, 2026-06-01, with company rename (area not disclosed)",
     "timing": "Rebrand + relocation - workplace refresh opportunity",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Straight Press (PR TIMES repost)",
     "sourceUrl": "https://straightpress.jp/company_news/detail?pr=000000029.000021379",
@@ -30745,14 +31818,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Cross Daily's upcoming office milestone at Tenjin Sumitomo Seimei FJ Business Center! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Cross Daily's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Tenjin Sumitomo Seimei FJ Business Center, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 280,
+    "id": "KR-004",
+    "rowId": "KR-004",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -30780,7 +31855,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "construction from H1 2026, completion end 2030",
     "timing": "Long-horizon mega project - early engagement",
     "urgency": "Pipeline",
-    "fitoutWindow": "3 Years & Above",
+    "fitoutWindow": "2+ Years",
     "sector": "Industrial & MedTech",
     "source": "KED Global",
     "sourceUrl": "https://www.kedglobal.com/corporate-investment/newsView/ked202604240006",
@@ -30805,14 +31880,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC. We track long-range commercial developments across Seoul and see Hyundai Motor Group (HMG Future Complex)'s multi-year campus horizon at Seoul. We'd love to connect early to share master workplace planning frameworks as you shape your long-term workplace portfolio.",
+    "suggestedOpeningLine": "Hi [Name], I noticed Hyundai Motor Group (HMG Future Complex)'s commercial momentum at Seoul. As your workplace strategy evolves in Seoul, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 281,
+    "id": "KR-005",
+    "rowId": "KR-005",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -30872,7 +31949,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
-    "id": 282,
+    "id": "KR-006",
+    "rowId": "KR-006",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -30900,7 +31979,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation to Samwon PFV Office (building 36,281 sqm / ~390,500 sq ft; lease size undisclosed)",
     "timing": "Relocation - fit-out window",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "Newmark 2Q26 Korea Office Leasing Market",
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/2Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
@@ -30925,14 +32004,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Hyundai AutoEver's upcoming office milestone at Samwon PFV Office (building! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Hyundai AutoEver's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Samwon PFV Office (building, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 284,
+    "id": "KR-008",
+    "rowId": "KR-008",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -30992,7 +32073,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 434,
+    "id": "MY-005",
+    "rowId": "MY-005",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31052,7 +32135,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 4
   },
   {
-    "id": 438,
+    "id": "MY-009",
+    "rowId": "MY-009",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31112,7 +32197,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 452,
+    "id": "MY-026",
+    "rowId": "MY-026",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31172,7 +32259,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 453,
+    "id": "MY-027",
+    "rowId": "MY-027",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31232,7 +32321,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 476,
+    "id": "MY-051",
+    "rowId": "MY-051",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31292,7 +32383,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 477,
+    "id": "MY-052",
+    "rowId": "MY-052",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31320,7 +32413,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Launched \"the Hive Seafront\" coworking, 15,000 sq ft",
     "timing": "Flex operator expansion = repeat fit-out buyer",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Flex & Coworking",
     "source": "EIN Presswire",
     "sourceUrl": "https://biotech.einnews.com/pr_news/880720339/the-flexi-group-doubles-down-on-penang-bringing-the-hive-to-malaysia",
@@ -31345,14 +32438,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:0 + S:10 + T:20 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on The Flexi Group's upcoming office milestone at Penang! With your fit-out window currently active for your 15,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Penang. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding The Flexi Group's commercial workplace portfolio in Penang. As your team reviews ongoing workspace requirements at Penang, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 525,
+    "id": "LK-020",
+    "rowId": "LK-020",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -31380,7 +32475,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Opened first Colombo Port City branch as an Authorised Person under the Port City Economic Commission",
     "timing": "New branch fit-out; bank expanding in SEZ - watch for further Port City footprint",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "BFSI (Banking & Finance)",
     "source": "ceylonbusinessreporter.com",
     "sourceUrl": "https://ceylonbusinessreporter.com/2026/06/11/sampath-bank-opens-colombo-port-city-branch-to-advance-sri-lankas-global-investment-ambition/",
@@ -31405,14 +32500,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:10 + S:0 + T:20 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Sampath Bank PLC's upcoming office milestone at Building 1! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Sampath Bank PLC's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Building 1, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 527,
+    "id": "LK-022",
+    "rowId": "LK-022",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -31440,7 +32537,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Tender (SPP/Proc/2026-03) for 9,100-9,200 sq ft office building on 3-yr lease",
     "timing": "Government office lease - follow up on award; furnishing tender likely follows",
     "urgency": "Active",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Government & Public Tenders",
     "source": "wbb.gov.lk",
     "sourceUrl": "http://wbb.gov.lk/backend/assets/publications/web/procurement_notices/IFB_For_Lease_of_Building_for_Office_Accommodation_WBB_2026_En.pdf",
@@ -31465,14 +32562,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 35,
       "summary": "R:0 + S:10 + T:20 + St:5 = 35"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Welfare Benefits Board (Ministry of Finance)'s upcoming office milestone at Colombo! With your fit-out window currently active for your 9,200 sq ft space, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Welfare Benefits Board (Ministry of Finance)'s commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Colombo, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 443,
+    "id": "MY-015",
+    "rowId": "MY-015",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31532,7 +32631,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 444,
+    "id": "MY-016",
+    "rowId": "MY-016",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31592,7 +32693,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 445,
+    "id": "MY-017",
+    "rowId": "MY-017",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31652,7 +32755,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 446,
+    "id": "MY-018",
+    "rowId": "MY-018",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31712,7 +32817,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 448,
+    "id": "MY-020",
+    "rowId": "MY-020",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31772,7 +32879,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 4
   },
   {
-    "id": 449,
+    "id": "MY-021",
+    "rowId": "MY-021",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31832,7 +32941,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 450,
+    "id": "MY-022",
+    "rowId": "MY-022",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -31892,7 +33003,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 283,
+    "id": "KR-007",
+    "rowId": "KR-007",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -31952,7 +33065,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 285,
+    "id": "KR-009",
+    "rowId": "KR-009",
+    "rowKind": "Deal",
     "country": "Korea",
     "countryCode": "KR",
     "flag": "\ud83c\uddf0\ud83c\uddf7",
@@ -31980,7 +33095,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "HQ relocation to Cykan Tower planned 2026; building acquisition per Dec 16 filing",
     "timing": "Filing Dec 2025 (pre-window) - verify current status before outreach",
     "urgency": "Immediate",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Retail, Travel & Consumer",
     "source": "SGB Media",
     "sourceUrl": "http://sgbonline.com/misto-holdings-to-relocate-headquarters-to-gangnam-seoul/",
@@ -32005,14 +33120,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Misto Holdings (Fila)'s commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Cykan Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Misto Holdings (Fila)'s upcoming office milestone at Cykan Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
   {
-    "id": 435,
+    "id": "MY-006",
+    "rowId": "MY-006",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -32040,7 +33157,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "New expanded KL office opened; global payments/treasury platform scaling Malaysia hub",
     "timing": "Announced 31 Mar 2026, just before window - expansion fit-out, engage",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "businesstoday.com.my",
     "sourceUrl": "https://www.businesstoday.com.my/2026/03/31/global-payment-firm-sunrate-opens-new-office-in-kuala-lumpur/",
@@ -32065,14 +33182,16 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Sunrate's upcoming office milestone at Kuala Lumpur! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Sunrate's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Kuala Lumpur, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
   {
-    "id": 440,
+    "id": "MY-011",
+    "rowId": "MY-011",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -32097,7 +33216,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2025-Q4",
     "dateFound": "2026-04-01",
     "daysAgo": 197,
-    "signal": "Menara 1 Sentrum; new office/regional hub (new office; announced 4Q2025)",
+    "signal": "Menara 1 Sentrum; new office/regional hub (announced 4Q2025)",
     "timing": "Fit-out likely underway or just complete - act fast for remaining FF&E; regional hub = growth upside",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -32132,7 +33251,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 441,
+    "id": "MY-013",
+    "rowId": "MY-013",
+    "rowKind": "Deal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -32192,7 +33313,9 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
-    "id": 524,
+    "id": "LK-019",
+    "rowId": "LK-019",
+    "rowKind": "Deal",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -32220,7 +33343,7 @@ var INITIAL_LEADS_DATA = [
     "signal": "Unveiled new Colombo HQ at Mireka Tower, ending 87-year presence at Grandpass premises; HQ inauguration reported ~Apr 2026",
     "timing": "Flagship MNC HQ fit-out - likely completed; engage on refresh/expansion or as reference",
     "urgency": "Immediate",
-    "fitoutWindow": "0\u201360 Days",
+    "fitoutWindow": "Timing unknown",
     "sector": "Corporate & Commercial",
     "source": "srilankabiz.lk",
     "sourceUrl": "https://srilankabiz.lk/unilever-unveils-new-colombo-head-office/",
@@ -32245,7 +33368,7 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Unilever Sri Lanka's upcoming office milestone at Mireka Tower! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Colombo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Unilever Sri Lanka's commercial workplace portfolio in Colombo. As your team reviews ongoing workspace requirements at Mireka Tower, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,
@@ -32256,7 +33379,9 @@ if (typeof window !== 'undefined') window.INITIAL_LEADS_DATA = INITIAL_LEADS_DAT
 
 var INITIAL_NON_DEAL_SIGNALS = [
   {
-    "id": 100,
+    "id": "IN-044",
+    "rowId": "IN-044",
+    "rowKind": "Structural signal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -32284,7 +33409,7 @@ var INITIAL_NON_DEAL_SIGNALS = [
     "signal": "H1 2026: GCCs leased 19.2M sq ft = 45% of 42.6M sq ft gross leasing (up from 41%/15.78M in H1 2025); ANAROCK Chairman called it a structural shift (press release ~17 Jul 2026, approximate)",
     "timing": "GCC expansion demand is the dominant fit-out pipeline driver; prioritise Bengaluru, then Chennai/Hyderabad GCC corridors",
     "urgency": "Immediate",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Corporate & Commercial",
     "source": "ANAROCK",
     "sourceUrl": "https://corpwhizz.com/2026/07/17/gccs-drive-45-of-indias-grade-a-office-leasing-in-h1-2026-anarock/",
@@ -32309,12 +33434,14 @@ var INITIAL_NON_DEAL_SIGNALS = [
       "totalScore": 0,
       "summary": "Non-deal accounting / structural signal (0 pts)"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding GCC occupiers (structural)'s commercial workplace portfolio in Bengaluru. As your team reviews ongoing workspace requirements at Bengaluru, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], congratulations on GCC occupiers (structural)'s upcoming office milestone at Bengaluru! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": true,
     "sourceRowsMerged": 1
   },
   {
-    "id": 100,
+    "id": "IN-045",
+    "rowId": "IN-045",
+    "rowKind": "Structural signal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -32342,7 +33469,7 @@ var INITIAL_NON_DEAL_SIGNALS = [
     "signal": "Q2 2026 record: 24.6M sq ft leased Apr-Jun (highest single quarter ever, +18% q-o-q); flex largest occupier at 27% share, 4.6M sq ft - 90%+ above 5-yr quarterly average (press release ~6 Jul 2026, approximate)",
     "timing": "Managed/flex operators expanding fast = near-term bulk furniture/fit-out buyers; monitor operator expansion announcements",
     "urgency": "Immediate",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "Flex & Coworking",
     "source": "ANAROCK",
     "sourceUrl": "https://www.bizzbuzz.news/industry/realestate/india-office-market-record-leasing-q2-gcc-demand-1396636",
@@ -32367,12 +33494,14 @@ var INITIAL_NON_DEAL_SIGNALS = [
       "totalScore": 0,
       "summary": "Non-deal accounting / structural signal (0 pts)"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Flex/coworking operators (structural)'s commercial workplace portfolio in Pan-India. As your team reviews ongoing workspace requirements at Pan-India, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Flex/coworking operators (structural)'s upcoming office milestone at Pan-India! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Pan-India. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": true,
     "sourceRowsMerged": 1
   },
   {
-    "id": 100,
+    "id": "IN-046",
+    "rowId": "IN-046",
+    "rowKind": "Structural signal",
     "country": "India",
     "countryCode": "IN",
     "flag": "\ud83c\uddee\ud83c\uddf3",
@@ -32400,7 +33529,7 @@ var INITIAL_NON_DEAL_SIGNALS = [
     "signal": "9M 2026 (Jan-Sep): coworking overtook IT/ITeS as #1 occupier with 26% share (vs 23% in 9M 2025); BFSI 21%; net absorption 42.9M sq ft; avg rentals +8% to",
     "timing": "Hyderabad is the fastest-growing leasing market - highest-urgency geography",
     "urgency": "Active",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "0\u201360 Days",
     "sector": "BFSI (Banking & Finance)",
     "source": "ANAROCK",
     "sourceUrl": "https://cxotoday.com/media-coverage/coworking-largest-occupier-indias-office-market-records-43-mn-sft-leasing-in-9m-2026/",
@@ -32425,21 +33554,23 @@ var INITIAL_NON_DEAL_SIGNALS = [
       "totalScore": 0,
       "summary": "Non-deal accounting / structural signal (0 pts)"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Coworking operators + BFSI (structural)'s commercial workplace portfolio in Hyderabad. As your team reviews ongoing workspace requirements at Hyderabad, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Coworking operators + BFSI (structural)'s upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": true,
     "sourceRowsMerged": 1
   },
   {
-    "id": 102,
-    "country": "India",
-    "countryCode": "IN",
-    "flag": "\ud83c\uddee\ud83c\uddf3",
-    "currency": "INR",
-    "currencySymbol": "\u20b9",
-    "company": "Karnataka government agency (unspecified)",
-    "market": "Karnataka",
-    "city": "Karnataka",
-    "submarket": "Karnataka",
+    "id": "MY-012",
+    "rowId": "MY-012",
+    "rowKind": "Scraper error",
+    "country": "Malaysia",
+    "countryCode": "MY",
+    "flag": "\ud83c\uddf2\ud83c\uddfe",
+    "currency": "MYR",
+    "currencySymbol": "RM",
+    "company": "BTDUex",
+    "market": "TRX (Exchange 106)",
+    "city": "Kuala Lumpur",
+    "submarket": "TRX",
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
@@ -32451,17 +33582,17 @@ var INITIAL_NON_DEAL_SIGNALS = [
     "dealType": "Unstated",
     "isTypeDisclosed": false,
     "isTypeInferred": false,
-    "dealDate": "2026-10-14",
-    "dealQuarter": "2026-Q4",
-    "dateFound": "2026-10-14",
-    "daysAgo": 1,
-    "signal": "Tender ~mid-2026 (approximate): 'Hiring of office accommodation on rent'; closed 8 July 2026",
-    "timing": "Confirms government office demand flows through Karnataka e-Proc - marginal row, agency unnamed",
-    "urgency": "Active",
-    "fitoutWindow": "Timing unknown",
-    "sector": "Government & Public Tenders",
-    "source": "karnatakatenders.in",
-    "sourceUrl": "https://www.karnatakatenders.in/quicksearch.aspx?st=qs&o=2&si=2&tt=&SerCat=38&SerText=Shop+Lease&tenders=Shop+Lease+tenders",
+    "dealDate": "2026-04-01",
+    "dealQuarter": "2025-Q4",
+    "dateFound": "2026-04-01",
+    "daysAgo": 197,
+    "signal": "First permanent Southeast Asian office (new office; 4Q2025); sq ft not disclosed",
+    "timing": "New regional foothold, likely in fit-out - fintech, good profile; engage now",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Corporate & Commercial",
+    "source": "Knight Frank 4Q2025 (via The Edge)",
+    "sourceUrl": "https://theedgemalaysia.com/node/797184",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
     "trackerTrend": "\u2014",
@@ -32483,18 +33614,20 @@ var INITIAL_NON_DEAL_SIGNALS = [
       "totalScore": 0,
       "summary": "Non-deal accounting / structural signal (0 pts)"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Karnataka government agency (unspecified)'s commercial workplace portfolio in Karnataka. As your team reviews ongoing workspace requirements at Karnataka, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], congratulations on BTDUex's upcoming office milestone at Kuala Lumpur! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Kuala Lumpur. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": true,
     "sourceRowsMerged": 1
   },
   {
-    "id": 451,
+    "id": "MY-023",
+    "rowId": "MY-023",
+    "rowKind": "Accounting signal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
     "currency": "MYR",
     "currencySymbol": "RM",
-    "company": "Maybank (MFRS 16 renewal signal)",
+    "company": "Maybank",
     "market": "Nationwide (HQ KL)",
     "city": "Kuala Lumpur",
     "submarket": "HQ KL",
@@ -32513,10 +33646,10 @@ var INITIAL_NON_DEAL_SIGNALS = [
     "dealQuarter": "2026-Q1",
     "dateFound": "2026-03-04",
     "daysAgo": 225,
-    "signal": "317m (2024), +46%; undiscounted <1yr; new leases; ROU +32%",
+    "signal": "[Accounting signal \u2014 not a lease deal] ,317m (2024), +46%; undiscounted <1yr; new leases; ROU +32%",
     "timing": "Big <1yr surge + RM1.08bn new leases - different signal from the Merdeka 118 HQ move; suggests branch/office renewal wave. Group-level proxy, not office-only",
     "urgency": "Active",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "BFSI (Banking & Finance)",
     "source": "AR 2025, Note 26(iv) + Note 21",
     "sourceUrl": "https://www.jpx.co.jp/english/equities/products/tpbm/announcement/detail/b5b4pj000001jm0p-att/vk0khi000001frct.pdf",
@@ -32541,12 +33674,14 @@ var INITIAL_NON_DEAL_SIGNALS = [
       "totalScore": 0,
       "summary": "Non-deal accounting / structural signal (0 pts)"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Maybank (MFRS 16 renewal signal)'s commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Kuala Lumpur, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], I noticed Maybank's commercial momentum at Kuala Lumpur. As your workplace strategy evolves in Kuala Lumpur, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": true,
     "sourceRowsMerged": 1
   },
   {
-    "id": 451,
+    "id": "MY-024",
+    "rowId": "MY-024",
+    "rowKind": "Accounting signal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
@@ -32571,10 +33706,10 @@ var INITIAL_NON_DEAL_SIGNALS = [
     "dealQuarter": "2025-Q4",
     "dateFound": "2025-12-16",
     "daysAgo": 303,
-    "signal": "Group <1yr, but COMPANY-level <1yr surged to",
+    "signal": "[Accounting signal \u2014 not a lease deal] Group <1yr, but COMPANY-level <1yr surged to",
     "timing": "Company-level +61% <1yr spike is the one office-relevant flag in plantations - verify before outreach",
     "urgency": "Active",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "0\u20131 Year",
     "sector": "Corporate & Commercial",
     "source": "AR 2025, Note 33 & liquidity-risk note",
     "sourceUrl": "https://landmatrix.org/media/uploads/KLK-AnnualReport-2025_q7TykfJ.pdf",
@@ -32599,18 +33734,20 @@ var INITIAL_NON_DEAL_SIGNALS = [
       "totalScore": 0,
       "summary": "Non-deal accounting / structural signal (0 pts)"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Kuala Lumpur Kepong (KLK)'s commercial workplace portfolio in Nationwide. As your team reviews ongoing workspace requirements at Nationwide, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], I noticed Kuala Lumpur Kepong (KLK)'s commercial momentum at Nationwide. As your workplace strategy evolves in Nationwide, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": true,
     "sourceRowsMerged": 1
   },
   {
-    "id": 470,
+    "id": "MY-044",
+    "rowId": "MY-044",
+    "rowKind": "Structural signal",
     "country": "Malaysia",
     "countryCode": "MY",
     "flag": "\ud83c\uddf2\ud83c\uddfe",
     "currency": "MYR",
     "currencySymbol": "RM",
-    "company": "(early-funnel) MIDA-approved services/digital investment pipeline",
+    "company": "MIDA \u2014 structural pipeline (not a company)",
     "market": "Johor (JS-SEZ), Klang Valley (Selangor/KL), Penang",
     "city": "Kuala Lumpur",
     "submarket": "JS-SEZ",
@@ -32629,10 +33766,10 @@ var INITIAL_NON_DEAL_SIGNALS = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "MIDA 1H 2026: services sector approved investment pipeline; information & communications, data centres/cloud; Selangor; Johor; KL",
+    "signal": "[Structural signal \u2014 not a lease deal] MIDA 1H 2026: services sector, 1,750 projects; information & communications, data centres/cloud; Selangor; Johor; KL",
     "timing": "Early-funnel: approved investment, office need likely within 12-24 months; no company names disclosed - pipeline demand, not a lease signal",
     "urgency": "Pipeline",
-    "fitoutWindow": "Timing unknown",
+    "fitoutWindow": "1\u20132 Years",
     "sector": "Enterprise Software & Tech",
     "source": "MIDA media release (1H 2026 approved investments)",
     "sourceUrl": "https://www.mida.gov.my/media-release/malaysia-secures-rm218-5-billion-in-approved-investments-in-1h-2026-with-domestic-investment-in-manufacturing-up-23/",
@@ -32657,12 +33794,14 @@ var INITIAL_NON_DEAL_SIGNALS = [
       "totalScore": 0,
       "summary": "Non-deal accounting / structural signal (0 pts)"
     },
-    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding (early-funnel) MIDA-approved services/digital investment pipeline's commercial workplace portfolio in Kuala Lumpur. As your team reviews ongoing workspace requirements at Kuala Lumpur, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "suggestedOpeningLine": "Hi [Name], I noticed MIDA \u2014 structural pipeline (not a company)'s commercial momentum at Kuala Lumpur. As your workplace strategy evolves in Kuala Lumpur, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
     "isNonDealRow": true,
     "sourceRowsMerged": 1
   },
   {
-    "id": 533,
+    "id": "LK-028",
+    "rowId": "LK-028",
+    "rowKind": "Baseline watchlist",
     "country": "Sri Lanka",
     "countryCode": "LK",
     "flag": "\ud83c\uddf1\ud83c\uddf0",
@@ -33162,7 +34301,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Smartworks",
     "country": "India",
     "market": "Hyderabad",
-    "currentSnapshot": "230,846 sq ft renewed at Aurobindo Galaxy; 5 yrs from 1 Mar 2026 (lease cycle model)",
+    "currentSnapshot": "230,846 sq ft renewed at Aurobindo Galaxy; 5 yrs from 1 Mar 2026",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -33937,7 +35076,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Commercial Bank of Ceylon",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Active branch network lease cycle tracked in statutory filings",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -33968,7 +35107,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Dialog Axiata",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Airtel Lanka amalgamation office-relocation tracked in statutory filings",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -33999,7 +35138,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "LOLC Holdings",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Active lease portfolio maturity tracked in statutory filings",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34030,7 +35169,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Hayleys",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Group workspace expansion tracked in statutory filings",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34061,7 +35200,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "C W Mackie (via CFLB)",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Head-office Crown lease (34 & 36 D. R. Wijewardena Mawatha, Colombo 10) lapsed 10 Jun 2024; renewal in process",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34092,7 +35231,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "CBC Finance",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "New HQ inaugurated 5 Oct 2026 at 211 Dr. N.M. Perera Mawatha, Colombo 08; relocating from Kandy",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34123,7 +35262,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Ceylon Shipping Corporation",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Tender Mar 2026: ~15,000 sq ft building on 5-yr lease for Head Office; bids closed 6 Apr 2026",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34154,7 +35293,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "The Executive Centre",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "New 8,900 sq ft centre, Level 33 East Tower WTC, opening 1 Dec 2026",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34185,7 +35324,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Publicis Groupe Sri Lanka",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Relocated to 20th floor, The Optimist, Colombo 03 (announced 8 Oct 2026)",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34215,8 +35354,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 49,
     "company": "Cambridge University Press & Assessment",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo (World Trade Center)",
+    "market": "Colombo (World Trade Center)",
+    "currentSnapshot": "New office at World Trade Center Colombo from 1 Aug 2026, via directly employed local team at Cambridge University Press & Assessment Lanka (Pvt) Ltd",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34246,8 +35385,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 50,
     "company": "IGT 1 Outsourcing Lanka (Pvt) Ltd",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Port City Colombo",
+    "market": "Port City Colombo",
+    "currentSnapshot": "Signed lease for two office buildings at the Business Centre, Port City Colombo",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34277,8 +35416,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 51,
     "company": "EY GDS Sri Lanka",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo 01 (WTC East Tower)",
+    "market": "Colombo 01 (WTC East Tower)",
+    "currentSnapshot": "New office on Level 22 inaugurated 1 Sep 2026; newly refurbished cybersecurity center on Level 20",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34308,8 +35447,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 52,
     "company": "HCL Technologies Sri Lanka",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo (Cinnamon Life, Beira Lake)",
+    "market": "Colombo (Cinnamon Life, Beira Lake)",
+    "currentSnapshot": "Moved into 10 floors at The Offices at Cinnamon Life as part of expansion and relocation of operations",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34339,8 +35478,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 53,
     "company": "Cinnamon Hotels & Resorts",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo (Cinnamon Life)",
+    "market": "Colombo (Cinnamon Life)",
+    "currentSnapshot": "Corporate office moved to Cinnamon Life Integrated Resort",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34370,8 +35509,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 54,
     "company": "73Avenue Realtors",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo 07",
+    "market": "Colombo 07",
+    "currentSnapshot": "New headquarters opened 7 Sep 2026 at 103 Barnes Place, Colombo 7; expanding into interior design and property management services",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34401,8 +35540,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 55,
     "company": "NBSL",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo 03",
+    "market": "Colombo 03",
+    "currentSnapshot": "New City Office opened at No. 50, Thurstan Road, Colombo 3 (financial services, affiliated with Future Life Holdings)",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34432,8 +35571,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 56,
     "company": "Bureau Veritas Sri Lanka",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo 10",
+    "market": "Colombo 10",
+    "currentSnapshot": "Relocated to 7th Floor, JFI Tower 3, No. 75 Piyadasa Sirisena Mawatha, Colombo 10 (announcement page undated)",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34463,8 +35602,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 57,
     "company": "Royal Nursing Home (Pvt) Ltd",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo 07",
+    "market": "Colombo 07",
+    "currentSnapshot": "New Corporate Head Office at No. 82, Barnes Place, Colombo 07",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34494,8 +35633,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 58,
     "company": "Unilever Sri Lanka",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo (Mireka Tower, Havelock City)",
+    "market": "Colombo (Mireka Tower, Havelock City)",
+    "currentSnapshot": "Unveiled new Colombo HQ at Mireka Tower, ending 87-year presence at Grandpass premises; HQ inauguration reported ~Apr 2026",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34525,8 +35664,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 59,
     "company": "Sampath Bank PLC",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Port City Colombo (Building 1, Business Centre)",
+    "market": "Port City Colombo (Building 1, Business Centre)",
+    "currentSnapshot": "Opened first Colombo Port City branch as an Authorised Person under the Port City Economic Commission",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34556,8 +35695,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 60,
     "company": "Ministry of Energy",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo / Sri Jayawardenepura Kotte / Rajagiriya",
+    "market": "Colombo / Sri Jayawardenepura Kotte / Rajagiriya",
+    "currentSnapshot": "Tender (MOE/ADM/LOG/MIN-PROC./2026/01) for 40,000 sq ft office premises with parking on 2-yr extendable rental",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34587,8 +35726,8 @@ var INITIAL_TRACKER_DATA = [
     "id": 61,
     "company": "Welfare Benefits Board (Ministry of Finance)",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo 01-07 / Battaramulla",
+    "market": "Colombo 01-07 / Battaramulla",
+    "currentSnapshot": "Tender (SPP/Proc/2026-03) for 9,100-9,200 sq ft office building on 3-yr lease",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34619,7 +35758,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Maybank",
     "country": "Malaysia",
     "market": "KL City (Merdeka 118)",
-    "currentSnapshot": "HQ relocation completed 6 May 2026; ~650,000 sq ft across 33 floors on 20-yr lease; tower renamed Menara Merdeka Maybank 28 Jul 2026",
+    "currentSnapshot": "HQ relocation completed 6 May 2026; ~650,000 sq ft across 33 floors on 20-yr lease; tower renamed Menara Merdeka Maybank 28 Jul 2026. [Accounting signal \u2014 separate row] ,317m (2024), +46%; undiscounted <1yr; new leases; ROU +32%.",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34929,7 +36068,7 @@ var INITIAL_TRACKER_DATA = [
     "company": "Tencent Holdings Ltd",
     "country": "Malaysia",
     "market": "KL Sentral",
-    "currentSnapshot": "Menara 1 Sentrum; new office/regional hub (new office; announced 4Q2025)",
+    "currentSnapshot": "Menara 1 Sentrum; new office/regional hub (announced 4Q2025)",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -34953,6 +36092,37 @@ var INITIAL_TRACKER_DATA = [
       "status": 5,
       "totalScore": 25,
       "summary": "R:0 + S:0 + T:20 + St:5 = 25"
+    }
+  },
+  {
+    "id": 73,
+    "company": "BTDUex",
+    "country": "Malaysia",
+    "market": "TRX (Exchange 106)",
+    "currentSnapshot": "First permanent Southeast Asian office (new office; 4Q2025); sq ft not disclosed",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
+    "hasChange": false,
+    "trend": "\u2014",
+    "status": "Watch",
+    "lastChecked": "2026-10-14",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (30d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
     }
   },
   {
@@ -35266,7 +36436,38 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 86,
+    "id": 84,
+    "company": "Kuala Lumpur Kepong (KLK)",
+    "country": "Malaysia",
+    "market": "Nationwide",
+    "currentSnapshot": "Group <1yr, but COMPANY-level <1yr surged to",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
+    "hasChange": false,
+    "trend": "\u2014",
+    "status": "Watch",
+    "lastChecked": "2026-10-14",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (30d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    }
+  },
+  {
+    "id": 85,
     "company": "TT Vision Holdings",
     "country": "Malaysia",
     "market": "Bayan Lepas (Industrial Park)",
@@ -35297,7 +36498,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 87,
+    "id": 86,
     "company": "Global Electronics Association (IPC)",
     "country": "Malaysia",
     "market": "Bayan Lepas",
@@ -35328,7 +36529,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 88,
+    "id": 87,
     "company": "Efinix",
     "country": "Malaysia",
     "market": "Bayan Lepas (GBS @ Penang Airport)",
@@ -35359,7 +36560,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 89,
+    "id": 88,
     "company": "KYZEN",
     "country": "Malaysia",
     "market": "Penang",
@@ -35390,7 +36591,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 90,
+    "id": 89,
     "company": "ViTrox",
     "country": "Malaysia",
     "market": "Penang",
@@ -35421,7 +36622,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 91,
+    "id": 90,
     "company": "TP (Teleperformance)",
     "country": "Malaysia",
     "market": "Johor Bahru (JS-SEZ)",
@@ -35452,7 +36653,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 92,
+    "id": 91,
     "company": "Delta Electronics",
     "country": "Malaysia",
     "market": "Iskandar Puteri (SiLC)",
@@ -35483,7 +36684,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 93,
+    "id": 92,
     "company": "INFINITY8 Reserve IIB",
     "country": "Malaysia",
     "market": "Iskandar Puteri (Medini, Menara IIB)",
@@ -35514,7 +36715,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 94,
+    "id": 93,
     "company": "LKN Group",
     "country": "Malaysia",
     "market": "Johor Bahru",
@@ -35545,7 +36746,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 95,
+    "id": 94,
     "company": "Jeju Air",
     "country": "Korea",
     "market": "Gangseo-gu, Seoul (near Gimpo Airport)",
@@ -35576,7 +36777,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 96,
+    "id": 95,
     "company": "HMM",
     "country": "Korea",
     "market": "Busan (Bujeon-dong, DB Insurance bldg floors 14-17)",
@@ -35607,7 +36808,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 97,
+    "id": 96,
     "company": "Krafton",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul",
@@ -35638,7 +36839,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 98,
+    "id": 97,
     "company": "Hyundai Motor Group (HMG Future Complex)",
     "country": "Korea",
     "market": "Bokjeong-dong, Songpa-gu, Seoul",
@@ -35669,7 +36870,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 99,
+    "id": 98,
     "company": "Gmarket",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul (AM Plus Office)",
@@ -35700,7 +36901,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 100,
+    "id": 99,
     "company": "Hyundai AutoEver",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul (Samwon PFV Office)",
@@ -35731,7 +36932,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 101,
+    "id": 100,
     "company": "Park Systems",
     "country": "Korea",
     "market": "Gwacheon (Knowledge & Information Town)",
@@ -35762,7 +36963,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 102,
+    "id": 101,
     "company": "KITA (Korea International Trade Association)",
     "country": "Korea",
     "market": "Yeouido, Seoul (3 IFC)",
@@ -35793,7 +36994,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 103,
+    "id": 102,
     "company": "Misto Holdings (Fila)",
     "country": "Korea",
     "market": "Gangnam, Seoul (Cykan Tower, Nonhyeon-dong)",
@@ -35824,7 +37025,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 104,
+    "id": 103,
     "company": "Ubion",
     "country": "Korea",
     "market": "Guro-gu, Seoul (Daeryung Post Tower 3rd, floors 5-6)",
@@ -35855,7 +37056,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 105,
+    "id": 104,
     "company": "Micro Digital",
     "country": "Korea",
     "market": "Seongnam (Pangyo to Jungwon-gu)",
@@ -35886,7 +37087,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 106,
+    "id": 105,
     "company": "JTB",
     "country": "Japan",
     "market": "Tokyo (Shinbashi/Shiodome)",
@@ -35917,7 +37118,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 107,
+    "id": 106,
     "company": "Sumitomo Densetsu",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -35948,7 +37149,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 108,
+    "id": 107,
     "company": "Yamada Consulting Group",
     "country": "Japan",
     "market": "Tokyo (Marunouchi/Otemachi)",
@@ -35979,7 +37180,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 109,
+    "id": 108,
     "company": "TerraSky",
     "country": "Japan",
     "market": "Tokyo (Kyobashi/Yaesu/Nihonbashi)",
@@ -36010,7 +37211,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 110,
+    "id": 109,
     "company": "Nihon M&A Center Holdings",
     "country": "Japan",
     "market": "Tokyo (Kyobashi/Yaesu/Nihonbashi)",
@@ -36041,7 +37242,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 111,
+    "id": 110,
     "company": "NAGASE",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi Kobunacho)",
@@ -36072,7 +37273,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 112,
+    "id": 111,
     "company": "ispace",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -36103,7 +37304,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 113,
+    "id": 112,
     "company": "Hexagon Manufacturing Intelligence",
     "country": "Japan",
     "market": "Tokyo (Toranomon)",
@@ -36134,7 +37335,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 114,
+    "id": 113,
     "company": "SB C&S",
     "country": "Japan",
     "market": "Tokyo (Shibaura/Hamamatsucho)",
@@ -36165,7 +37366,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 115,
+    "id": 114,
     "company": "JTOWER",
     "country": "Japan",
     "market": "Tokyo (Roppongi)",
@@ -36196,7 +37397,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 116,
+    "id": 115,
     "company": "Persol & Server Works",
     "country": "Japan",
     "market": "Tokyo (Iidabashi, Chiyoda-ku)",
@@ -36227,7 +37428,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 117,
+    "id": 116,
     "company": "Digirise",
     "country": "Japan",
     "market": "Tokyo (Shibadaimon/Hamamatsucho)",
@@ -36258,7 +37459,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 118,
+    "id": 117,
     "company": "Fuji Sash",
     "country": "Japan",
     "market": "Kawasaki (Takatsu-ku)",
@@ -36289,7 +37490,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 119,
+    "id": 118,
     "company": "Transcosmos Digital Technology",
     "country": "Japan",
     "market": "Yokohama (Minato Mirai)",
@@ -36320,7 +37521,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 120,
+    "id": 119,
     "company": "SALESCORE",
     "country": "Japan",
     "market": "Osaka (Umeda)",
@@ -36351,7 +37552,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 121,
+    "id": 120,
     "company": "Live Search",
     "country": "Japan",
     "market": "Fukuoka (Tenjin - Tenjin Big Bang)",
@@ -36382,7 +37583,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 122,
+    "id": 121,
     "company": "Cross Daily",
     "country": "Japan",
     "market": "Fukuoka (Tenjin - Tenjin Big Bang)",
@@ -36413,7 +37614,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 123,
+    "id": 122,
     "company": "I-PEX",
     "country": "Japan",
     "market": "Nagoya (Meieki)",
@@ -36444,7 +37645,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 124,
+    "id": 123,
     "company": "Aile (TSE Prime: 3854)",
     "country": "Japan",
     "market": "Nagoya (Meieki)",
@@ -36475,7 +37676,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 125,
+    "id": 124,
     "company": "Datachain",
     "country": "Japan",
     "market": "Tokyo (Higashi-Shimbashi, Minato-ku)",
@@ -36506,7 +37707,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 126,
+    "id": 125,
     "company": "2nd Village",
     "country": "Japan",
     "market": "Tokyo (Ginza, Chuo-ku)",
@@ -36537,7 +37738,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 127,
+    "id": 126,
     "company": "dodoAI",
     "country": "Japan",
     "market": "Tokyo (Ebisu, Shibuya-ku)",
@@ -36568,7 +37769,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 128,
+    "id": 127,
     "company": "DAIJOBU",
     "country": "Japan",
     "market": "Tokyo (Shinjuku Gyoen)",
@@ -36599,7 +37800,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 129,
+    "id": 128,
     "company": "Nippon System Technology (JAST)",
     "country": "Japan",
     "market": "Tokyo (Takanawa, Minato-ku)",
@@ -36630,11 +37831,11 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 130,
+    "id": 129,
     "company": "Amova Asset Management (ex-Nikko AM)",
     "country": "Japan",
     "market": "Tokyo (Azabudai, Minato-ku)",
-    "currentSnapshot": "HQ moved to Azabudai Hills Mori JP Tower 8F; operations began 2026-09-14 (office size not disclosed)",
+    "currentSnapshot": "HQ moved to Azabudai Hills Mori JP Tower 8F (Minato-ku Azabudai 1-3-1); operations began 2026-09-14; purpose = hybrid-work support + BCP strengthening (office size not disclosed)",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
     "hasChange": false,
@@ -36661,7 +37862,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 131,
+    "id": 130,
     "company": "Meisei Kogyo (TSE Prime: 1976)",
     "country": "Japan",
     "market": "Osaka (Hommachi, Chuo-ku)",
@@ -36692,7 +37893,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 132,
+    "id": 131,
     "company": "KOKUYO",
     "country": "Japan",
     "market": "Osaka (Umeda - Grand Green Osaka)",
@@ -36723,7 +37924,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 133,
+    "id": 132,
     "company": "Public Technologies",
     "country": "Japan",
     "market": "Tokyo (Yushima, Bunkyo-ku)",
@@ -36754,7 +37955,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 134,
+    "id": 133,
     "company": "Japan Post",
     "country": "Japan",
     "market": "Tokyo (Otemachi -> Monzen-Nakacho + Asakusa)",
@@ -36785,7 +37986,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 135,
+    "id": 134,
     "company": "Hochiki",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi-Honcho, Chuo-ku)",
@@ -36816,7 +38017,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 136,
+    "id": 135,
     "company": "Keyware Solutions",
     "country": "Japan",
     "market": "Tokyo (Shinjuku)",
@@ -36847,7 +38048,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 137,
+    "id": 136,
     "company": "Tokyu Architects & Engineers",
     "country": "Japan",
     "market": "Tokyo (Osaki/Higashi-Gotanda, Shinagawa-ku)",
@@ -36878,19 +38079,19 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 138,
+    "id": 137,
     "company": "Infineon Technologies",
     "country": "India",
     "market": "Bengaluru (Whitefield - Bagmane Solarium City)",
     "currentSnapshot": "Leased ~6.31 lakh sq ft (floors G-9) for 10 years, 8-month rent-free; lease starts 1 Dec 2026 (reported 1 Sep 2026)",
-    "previousSnapshot": "Construction World",
-    "change": "",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
-    "status": "Watch",
-    "lastChecked": "Active",
-    "notes": "2026-10-14",
-    "heatScore": 90,
+    "trend": "\u2014",
+    "status": "Active",
+    "lastChecked": "2026-10-14",
+    "notes": "",
+    "heatScore": 100,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
@@ -36898,30 +38099,30 @@ var INITIAL_TRACKER_DATA = [
       "sizeReason": "Mega campus (631,000 sq ft)",
       "typePts": 20,
       "typeReason": "High fit-out demand (New lease)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
       "recency": 40,
       "size": 25,
       "dealType": 20,
-      "status": 5,
-      "totalScore": 90,
-      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+      "status": 15,
+      "totalScore": 100,
+      "summary": "R:40 + S:25 + T:20 + St:15 = 100"
     }
   },
   {
-    "id": 139,
+    "id": 138,
     "company": "Intuit",
     "country": "India",
     "market": "Bengaluru (Embassy TechVillage, Outer Ring Road)",
     "currentSnapshot": "Leased 6.3+ lakh sq ft across multiple towers, per Propstack registration docs (registered ~Sep-Oct 2026, approximate)",
-    "previousSnapshot": "PropNewsTime",
-    "change": "",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
-    "status": "Watch",
-    "lastChecked": "Active",
-    "notes": "2026-10-14",
-    "heatScore": 65,
+    "trend": "\u2014",
+    "status": "Active",
+    "lastChecked": "2026-10-14",
+    "notes": "",
+    "heatScore": 75,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
@@ -36929,29 +38130,29 @@ var INITIAL_TRACKER_DATA = [
       "sizeReason": "Size undisclosed (0 pts)",
       "typePts": 20,
       "typeReason": "High fit-out demand (New lease)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
       "recency": 40,
       "size": 0,
       "dealType": 20,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     }
   },
   {
-    "id": 140,
+    "id": 139,
     "company": "Dharma Productions",
     "country": "India",
     "market": "Mumbai (Andheri West - Lotus Signature, Veera Desai Rd)",
     "currentSnapshot": "Leased 5,500 sq ft (8th floor), 4-year term, per Square Yards registration docs (~Sep 2026, approximate)",
-    "previousSnapshot": "Leased 5,500 sq ft (8th floor), 4-year term, per Square Yards registration docs (~Sep 2026, approximate)",
-    "change": "",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
+    "trend": "\u2014",
     "status": "Watch",
-    "lastChecked": "Watch",
-    "notes": "2026-10-14",
+    "lastChecked": "2026-10-14",
+    "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -36971,18 +38172,18 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 141,
+    "id": 140,
     "company": "Narcotics Control Bureau (NCB), Agartala",
     "country": "India",
     "market": "Agartala, Tripura",
     "currentSnapshot": "Tender published ~8 Oct 2026: 'Hiring of office accommodation on rent basis for NCB, Agartala'; estimated",
-    "previousSnapshot": "firsttender.com",
-    "change": "",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
+    "trend": "\u2014",
     "status": "Watch",
-    "lastChecked": "Watch",
-    "notes": "2026-10-14",
+    "lastChecked": "2026-10-14",
+    "notes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -37002,19 +38203,19 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 142,
+    "id": 141,
     "company": "Income Tax Department",
     "country": "India",
     "market": "Palghar, Maharashtra",
     "currentSnapshot": "Live tender: 'Hiring Of Office Accommodation On Rent/lease Basis At Palghar'; bid submission closes 23 Oct 2026 - open right now",
-    "previousSnapshot": "nationaltenders.com",
-    "change": "",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
-    "status": "Watch",
-    "lastChecked": "Active",
-    "notes": "2026-10-14",
-    "heatScore": 65,
+    "trend": "\u2014",
+    "status": "Active",
+    "lastChecked": "2026-10-14",
+    "notes": "",
+    "heatScore": 75,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
@@ -37022,30 +38223,30 @@ var INITIAL_TRACKER_DATA = [
       "sizeReason": "Size undisclosed (0 pts)",
       "typePts": 20,
       "typeReason": "High fit-out demand (New lease)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
       "recency": 40,
       "size": 0,
       "dealType": 20,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     }
   },
   {
-    "id": 143,
+    "id": 142,
     "company": "Starbucks",
     "country": "India",
     "market": "Chennai",
     "currentSnapshot": "First India GCC announced; MoU with Tamil Nadu government (reported ~Sep 2026, approximate)",
-    "previousSnapshot": "Analytics Insight",
-    "change": "",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
-    "status": "Watch",
-    "lastChecked": "Active",
-    "notes": "2026-10-14",
-    "heatScore": 65,
+    "trend": "\u2014",
+    "status": "Active",
+    "lastChecked": "2026-10-14",
+    "notes": "",
+    "heatScore": 75,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
@@ -37053,29 +38254,29 @@ var INITIAL_TRACKER_DATA = [
       "sizeReason": "Size undisclosed (0 pts)",
       "typePts": 20,
       "typeReason": "High fit-out demand (Pre-commitment)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
       "recency": 40,
       "size": 0,
       "dealType": 20,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     }
   },
   {
-    "id": 144,
+    "id": 143,
     "company": "Wulfstan Analytics (Pvt) Ltd",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Port City, Colombo",
-    "previousSnapshot": "Port City Colombo (CPCEC gazette)",
-    "change": "",
+    "market": "Port City, Colombo",
+    "currentSnapshot": "Designated a Secondary Business of Strategic Importance (gazette 10 Apr 2026; CPCEC Authorised Person licence CPCEC/2026/0174 issued 5 Feb 2026); IT/Advisory/R&D; FDI; employment 10 (yr1) -> 120 (yr5)",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
+    "trend": "\u2014",
     "status": "Watch",
-    "lastChecked": "Watch",
-    "notes": "2026-10-14",
+    "lastChecked": "2026-10-14",
+    "notes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
       "recencyPts": 40,
@@ -37095,22 +38296,53 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 145,
+    "id": 144,
     "company": "Edotco",
     "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Colombo / Nationwide",
-    "previousSnapshot": "BOI Sri Lanka",
-    "change": "",
+    "market": "Colombo / Nationwide",
+    "currentSnapshot": "130 macro towers, 300 smart lamp poles, 650 energy sites over 30 months",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
     "hasChange": false,
-    "trend": "\u2014 (baseline)",
+    "trend": "\u2014",
     "status": "Watch",
-    "lastChecked": "Watch",
-    "notes": "2026-10-14",
+    "lastChecked": "2026-10-14",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    }
+  },
+  {
+    "id": 145,
+    "company": "Sahasdhanavi Limited",
+    "country": "Sri Lanka",
+    "market": "Kerawalapitiya, Western Province",
+    "currentSnapshot": "BOI agreement registered 13 Aug 2026 for 350MW combined-cycle power plant, 196.19M loans, 5M other); 42-month build; LTL Holdings subsidiary",
+    "previousSnapshot": "",
+    "change": "\u2014 (baseline)",
+    "hasChange": false,
+    "trend": "\u2014",
+    "status": "Watch",
+    "lastChecked": "2026-10-14",
+    "notes": "",
     "heatScore": 50,
     "heatScoreBreakdown": {
       "recencyPts": 40,
-      "recencyReason": "Fresh signal (30d ago)",
+      "recencyReason": "Fresh signal (1d ago)",
       "sizePts": 0,
       "sizeReason": "Size undisclosed (0 pts)",
       "typePts": 5,
@@ -37127,40 +38359,9 @@ var INITIAL_TRACKER_DATA = [
   },
   {
     "id": 146,
-    "company": "Sahasdhanavi Limited",
-    "country": "Sri Lanka",
-    "market": "Colombo",
-    "currentSnapshot": "Kerawalapitiya, Western Province",
-    "previousSnapshot": "BOI Sri Lanka",
-    "change": "",
-    "hasChange": false,
-    "trend": "\u2014 (baseline)",
-    "status": "Watch",
-    "lastChecked": "Watch",
-    "notes": "2026-10-14",
-    "heatScore": 50,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 5,
-      "typeReason": "General commercial deal (Unstated: 5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 50,
-      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
-  },
-  {
-    "id": 147,
     "company": "Exel BPO",
     "country": "Sri Lanka",
-    "market": "Colombo",
+    "market": "Sri Lanka",
     "currentSnapshot": "Expansion announced ~Oct 1, 2026 (approximate): UK-focused outsourcing firm expansion in Colombo",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
@@ -37188,10 +38389,10 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 148,
+    "id": 147,
     "company": "Soft Gallery (Pvt) Ltd",
     "country": "Sri Lanka",
-    "market": "Colombo",
+    "market": "Sri Lanka",
     "currentSnapshot": "New office opened ~Sep 20, 2026 (approximate, 6th anniversary); expansion planned into Africa, East Asia, Middle East",
     "previousSnapshot": "",
     "change": "\u2014 (baseline)",
@@ -37219,7 +38420,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 149,
+    "id": 148,
     "company": "Syntiant Corp.",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas)",
@@ -37250,7 +38451,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 150,
+    "id": 149,
     "company": "DayOne Data Centers",
     "country": "Malaysia",
     "market": "Johor (Iskandar Puteri) + KL",
@@ -37281,7 +38482,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 151,
+    "id": 150,
     "company": "AQSolotl",
     "country": "Malaysia",
     "market": "Johor Bahru (UTM Technovation Park)",
@@ -37312,7 +38513,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 152,
+    "id": 151,
     "company": "HRnetGroup (SGX:CHZ)",
     "country": "Malaysia",
     "market": "KL (Damansara Heights)",
@@ -37324,26 +38525,26 @@ var INITIAL_TRACKER_DATA = [
     "status": "Active",
     "lastChecked": "2026-10-14",
     "notes": "",
-    "heatScore": 75,
+    "heatScore": 85,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
+      "sizePts": 10,
+      "sizeReason": "Boutique office (5,000 sq ft)",
       "typePts": 20,
       "typeReason": "High fit-out demand (Pre-commitment)",
       "statusPts": 15,
       "statusReason": "Active priority (+15)",
       "recency": 40,
-      "size": 0,
+      "size": 10,
       "dealType": 20,
       "status": 15,
-      "totalScore": 75,
-      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
+      "totalScore": 85,
+      "summary": "R:40 + S:10 + T:20 + St:15 = 85"
     }
   },
   {
-    "id": 153,
+    "id": 152,
     "company": "myWorld Asia",
     "country": "Malaysia",
     "market": "KL (Maxis Tower)",
@@ -37374,7 +38575,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 154,
+    "id": 153,
     "company": "Eppendorf SE",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -37405,7 +38606,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 155,
+    "id": 154,
     "company": "Intuitive (Intuitive Surgical, Inc.)",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -37436,7 +38637,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 156,
+    "id": 155,
     "company": "MKS Inc. (NASDAQ: MKSI)",
     "country": "Malaysia",
     "market": "Penang",
@@ -37467,7 +38668,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 157,
+    "id": 156,
     "company": "ISSQUARED Inc.",
     "country": "Malaysia",
     "market": "Penang (George Town)",
@@ -37498,7 +38699,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 158,
+    "id": 157,
     "company": "AIXTRON SE",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -37529,7 +38730,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 159,
+    "id": 158,
     "company": "AmBank (M) Bhd",
     "country": "Malaysia",
     "market": "Klang Valley (KL city centre)",
@@ -37560,7 +38761,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 160,
+    "id": 159,
     "company": "Universiti Tun Abdul Razak",
     "country": "Malaysia",
     "market": "Klang Valley (Jalan Tun Razak, KLCC corridor)",
@@ -37591,7 +38792,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 161,
+    "id": 160,
     "company": "WORQ",
     "country": "Malaysia",
     "market": "Klang Valley (KL Eco City)",
@@ -37622,7 +38823,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 162,
+    "id": 161,
     "company": "Leadcorp (\ub9ac\ub4dc\ucf54\ud504)",
     "country": "Korea",
     "market": "Seoul Jung-gu (Euljiro) - Crystal Square, 12-14F of 17F building (~5,572 pyeong / ~198,300 sq ft total)",
@@ -37653,7 +38854,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 163,
+    "id": 162,
     "company": "Hana Financial Group (\ud558\ub098\uae08\uc735\uadf8\ub8f9)",
     "country": "Korea",
     "market": "Incheon Cheongna Hana Dream Town new HQ (B7/15F, ~38,873 pyeong / ~1,383,200 sq ft)",
@@ -37684,7 +38885,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 164,
+    "id": 163,
     "company": "EnBio (\uc778\ubc14\uc774\uc624, KOSDAQ 352940)",
     "country": "Korea",
     "market": "Suwon Ingye-dong (Gyeongsu-daero 465, Paldal-gu)",
@@ -37715,7 +38916,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 165,
+    "id": 164,
     "company": "Celestra Inc. (KOSDAQ 352770, formerly Clinomics)",
     "country": "Korea",
     "market": "Suwon Yeongtong-gu (Gwanggyojungang-ro, Dakkuem Business Center Unit 39)",
@@ -37746,7 +38947,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 166,
+    "id": 165,
     "company": "Softworks (\uc18c\ud504\ud2b8\uc6cd\uc2a4)",
     "country": "Korea",
     "market": "Seoul Seocho-gu (building/area undisclosed)",
@@ -37777,7 +38978,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 167,
+    "id": 166,
     "company": "Daemyung Sono / T'way Air (\ub300\uba85\uc18c\ub178 \u00b7 \ud2f0\uc6e8\uc774\ud56d\uacf5)",
     "country": "Korea",
     "market": "Seoul Others (Magok, Gangseo-gu) - Le West City Tower C, 15,000 pyeong (~533,700 sq ft)",
@@ -37808,7 +39009,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 168,
+    "id": 167,
     "company": "Korea Insurance Development Institute (\ubcf4\ud5d8\uac1c\ubc1c\uc6d0)",
     "country": "Korea",
     "market": "Seoul YBD (Yeouido) - NH Financial Tower, 2,200 pyeong (~78,276 sq ft)",
@@ -37839,7 +39040,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 169,
+    "id": 168,
     "company": "Toriden (\ud1a0\ub9ac\ub4e0)",
     "country": "Korea",
     "market": "Seoul Others (Songpa) - Lotte World Tower, 2,200 pyeong (~78,276 sq ft)",
@@ -37870,7 +39071,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 170,
+    "id": 169,
     "company": "K-sure (Korea Trade Insurance Corp, \ud55c\uad6d\ubb34\uc5ed\ubcf4\ud5d8\uacf5\uc0ac)",
     "country": "Korea",
     "market": "Seoul YBD (Yeouido) - Three IFC, 2,000 pyeong (~71,160 sq ft)",
@@ -37901,7 +39102,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 171,
+    "id": 170,
     "company": "Encar.com (\uc5d4\uce74)",
     "country": "Korea",
     "market": "Seoul CBD (Jung-gu) - Grand Central, 1,900 pyeong (~67,602 sq ft)",
@@ -37932,7 +39133,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 172,
+    "id": 171,
     "company": "TKG Huchems (TKG\ud734\ucea0\uc2a4)",
     "country": "Korea",
     "market": "Seoul CBD (Jung-gu) - Tower 107, 1,500 pyeong (~53,370 sq ft)",
@@ -37963,7 +39164,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 173,
+    "id": 172,
     "company": "Xi S&D (\uc790\uc774\uc5d0\uc2a4\uc564\ub514)",
     "country": "Korea",
     "market": "Seoul CBD, 1,500 pyeong (~53,370 sq ft) (destination building not captured)",
@@ -37994,7 +39195,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 174,
+    "id": 173,
     "company": "The Founders (\ub354\ud30c\uc6b4\ub354\uc988)",
     "country": "Korea",
     "market": "Seoul GBD (Gangnam-gu) - Glass Tower, 1,200 pyeong (~42,696 sq ft)",
@@ -38025,7 +39226,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 175,
+    "id": 174,
     "company": "Beauty Selection (\ubdf0\ud2f0\uc140\ub809\uc158)",
     "country": "Korea",
     "market": "Seoul GBD (Gangnam-gu) - Anam Tower, 1,200 pyeong (~42,696 sq ft)",
@@ -38056,7 +39257,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 176,
+    "id": 175,
     "company": "Walmart Global Tech",
     "country": "India",
     "market": "Bengaluru",
@@ -38087,7 +39288,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 177,
+    "id": 176,
     "company": "MANN+HUMMEL",
     "country": "India",
     "market": "Bengaluru",
@@ -38118,7 +39319,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 178,
+    "id": 177,
     "company": "Labcorp",
     "country": "India",
     "market": "Bengaluru",
@@ -38149,7 +39350,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 179,
+    "id": 178,
     "company": "Dream11 (Sporta Technologies)",
     "country": "India",
     "market": "Mumbai",
@@ -38180,7 +39381,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 180,
+    "id": 179,
     "company": "Apple India",
     "country": "India",
     "market": "Hyderabad",
@@ -38211,7 +39412,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 181,
+    "id": 180,
     "company": "Table Space",
     "country": "India",
     "market": "Gurugram",
@@ -38242,7 +39443,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 182,
+    "id": 181,
     "company": "Workday",
     "country": "India",
     "market": "Chennai",
@@ -38273,7 +39474,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 183,
+    "id": 182,
     "company": "Intercontinental Exchange",
     "country": "India",
     "market": "Pune",
@@ -38304,7 +39505,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 184,
+    "id": 183,
     "company": "Awfis",
     "country": "India",
     "market": "Pune",
@@ -38335,7 +39536,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 185,
+    "id": 184,
     "company": "\u30e2\u30a4\u682a\u5f0f\u4f1a\u793e (Moi Inc., TSE Growth: 5031)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -38366,7 +39567,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 186,
+    "id": 185,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30cf\u30a4\u30d6\u30ea\u30c3\u30c9\u30c6\u30af\u30ce\u30ed\u30b8\u30fc\u30ba (Hybrid Technologies, TSE Growth: 4260)",
     "country": "Japan",
     "market": "Tokyo (Nakano)",
@@ -38397,7 +39598,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 187,
+    "id": 186,
     "company": "\u30d5\u30a7\u30a4\u30b9\u30cd\u30c3\u30c8\u30ef\u30fc\u30af (Face Network, TSE: 3489)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -38428,7 +39629,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 188,
+    "id": 187,
     "company": "\u682a\u5f0f\u4f1a\u793ecomeru",
     "country": "Japan",
     "market": "Osaka (Honmachi)",
@@ -38459,7 +39660,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 189,
+    "id": 188,
     "company": "TVer",
     "country": "Japan",
     "market": "Tokyo (Akasaka)",
@@ -38490,7 +39691,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 190,
+    "id": 189,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30a2\u30fc\u30ad\u30c6\u30af\u30c8\u30b3\u30a2 (Architect Core)",
     "country": "Japan",
     "market": "Tokyo (Toranomon)",
@@ -38521,7 +39722,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 191,
+    "id": 190,
     "company": "\u682a\u5f0f\u4f1a\u793eFP\u30d1\u30fc\u30c8\u30ca\u30fc (FP Partner, TSE Prime: 7388)",
     "country": "Japan",
     "market": "Tokyo (Taito)",
@@ -38552,7 +39753,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 192,
+    "id": 191,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30d5\u30a1\u30f3\u30c9\u30af\u30ea\u30a8\u30fc\u30b7\u30e7\u30f3\u30b0\u30eb\u30fc\u30d7 (Fund Creation Group, TSE: 3266)",
     "country": "Japan",
     "market": "Tokyo (Roppongi)",
@@ -38583,7 +39784,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 193,
+    "id": 192,
     "company": "\u5317\u6d5c\u30ad\u30e3\u30d4\u30bf\u30eb\u30d1\u30fc\u30c8\u30ca\u30fc\u30ba\u682a\u5f0f\u4f1a\u793e (Kitahama Capital Partners, TSE Standard: 2134)",
     "country": "Japan",
     "market": "Osaka (Kitahama)",
@@ -38614,7 +39815,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 194,
+    "id": 193,
     "company": "Viva Republica (Toss)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -38645,7 +39846,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 195,
+    "id": 194,
     "company": "GC Biopharma (GC\ub179\uc2ed\uc790) & affiliates",
     "country": "Korea",
     "market": "Seoul (Seongsu/Others)",
@@ -38676,7 +39877,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 196,
+    "id": 195,
     "company": "NH Nonghyup Financial Group",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -38707,7 +39908,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 197,
+    "id": 196,
     "company": "Korea Financial Telecommunications & Clearings Institute (\uae08\uc735\uacb0\uc81c\uc6d0)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -38738,7 +39939,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 198,
+    "id": 197,
     "company": "Samsung Fire & Marine Insurance (\uc0bc\uc131\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -38769,7 +39970,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 199,
+    "id": 198,
     "company": "Lotte E&C (\ub86f\ub370\uac74\uc124)",
     "country": "Korea",
     "market": "Seoul (Magok/Others)",
@@ -38800,7 +40001,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 200,
+    "id": 199,
     "company": "Hanwha TotalEnergies (\ud55c\ud654\ud1a0\ud0c8\uc5d0\ub108\uc9c0\uc2a4)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -38831,7 +40032,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 201,
+    "id": 200,
     "company": "Korea Fire Insurance Association (\ud654\uc7ac\ubcf4\ud5d8\ud611\ud68c)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -38862,7 +40063,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 202,
+    "id": 201,
     "company": "Team Sparta (\ud300\uc2a4\ud30c\ub974\ud0c0)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -38893,7 +40094,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 203,
+    "id": 202,
     "company": "Data Universe (\ub370\uc774\ud130\uc720\ub2c8\ubc84\uc2a4)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -38924,7 +40125,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 204,
+    "id": 203,
     "company": "Woori Card",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -38955,7 +40156,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 205,
+    "id": 204,
     "company": "Simmons (Simmons Korea)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -38986,7 +40187,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 206,
+    "id": 205,
     "company": "Kurly (Market Kurly)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -39017,7 +40218,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 207,
+    "id": 206,
     "company": "Datadog",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -39048,7 +40249,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 208,
+    "id": 207,
     "company": "PJ Law Group",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -39079,7 +40280,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 209,
+    "id": 208,
     "company": "Korea Insurance Research Institute",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -39110,7 +40311,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 210,
+    "id": 209,
     "company": "Hwaseung Corporation",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -39141,7 +40342,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 211,
+    "id": 210,
     "company": "DL Group",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -39172,11 +40373,11 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 212,
+    "id": 211,
     "company": "Asia Actual",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "New office opened in Colombo, January 2026 \u2014 16th APAC market (medical-device regulatory consulting); led locally by Sanjula Senarath",
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
@@ -39203,11 +40404,11 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 213,
+    "id": 212,
     "company": "VFS Global",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "New Malta Visa Application Centre \u2014 80,000 sq ft at No. 675, Dr. Danister De Silva Mawatha, Colombo 9; operational from Feb 1, 2026 (jointly with Malta High Commission, New Delhi)",
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
@@ -39234,11 +40435,11 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 214,
+    "id": 213,
     "company": "Janashakthi Finance PLC",
     "country": "Sri Lanka",
     "market": "Colombo",
-    "currentSnapshot": "Colombo",
+    "currentSnapshot": "Colpetty branch relocation to No. 53A, D. S. Senanayaka Mawatha, Colombo 08, effective May 9, 2026 (announced April 2026 via official customer notice)",
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
@@ -39265,7 +40466,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 215,
+    "id": 214,
     "company": "Boeing",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -39296,7 +40497,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 216,
+    "id": 215,
     "company": "PT Telekomunikasi Indonesia International (Telin)",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -39327,7 +40528,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 217,
+    "id": 216,
     "company": "ABP Group (cybersecurity tech provider)",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Eco City)",
@@ -39358,7 +40559,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 218,
+    "id": 217,
     "company": "Hyundai Motor Company",
     "country": "Malaysia",
     "market": "Kuala Lumpur (TRX)",
@@ -39389,7 +40590,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 219,
+    "id": 218,
     "company": "Incora",
     "country": "Malaysia",
     "market": "Johor",
@@ -39420,7 +40621,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 220,
+    "id": 219,
     "company": "The Flexi Group",
     "country": "Malaysia",
     "market": "Penang (George Town)",
@@ -39451,7 +40652,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 221,
+    "id": 220,
     "company": "Mitsubishi",
     "country": "China",
     "market": "Beijing (Lufthansa, Genesis Beijing)",
@@ -39459,7 +40660,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -39482,7 +40683,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 222,
+    "id": 221,
     "company": "Bristol Myers Squibb",
     "country": "China",
     "market": "Beijing (CBD, Exchange Twin Towers)",
@@ -39490,7 +40691,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -39513,7 +40714,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 223,
+    "id": 222,
     "company": "Amgen",
     "country": "China",
     "market": "Beijing (CBD, FFC)",
@@ -39521,7 +40722,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -39544,7 +40745,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 224,
+    "id": 223,
     "company": "Beichen Xingqiong (Beijing) Technology Co., Ltd",
     "country": "China",
     "market": "Beijing (Qinglong Technology Tower)",
@@ -39575,7 +40776,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 225,
+    "id": 224,
     "company": "IBM",
     "country": "China",
     "market": "Beijing (CBD, CP Center)",
@@ -39583,7 +40784,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -39606,7 +40807,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 226,
+    "id": 225,
     "company": "Aladdin Environmental Protection Group Co., Ltd",
     "country": "China",
     "market": "Beijing (CBD, China Central Place)",
@@ -39614,7 +40815,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -39637,7 +40838,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 227,
+    "id": 226,
     "company": "Xylem Beijing Technology Co., Ltd",
     "country": "China",
     "market": "Beijing (WangJing-Jiuxianqiao, Universal Business Park)",
@@ -39645,7 +40846,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -39668,7 +40869,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 228,
+    "id": 227,
     "company": "YY Sports",
     "country": "China",
     "market": "Shanghai (Hongkou, Life Hub @ Bund Central)",
@@ -39699,7 +40900,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 229,
+    "id": 228,
     "company": "Rolex",
     "country": "China",
     "market": "Shanghai (Huangpu, K11 Atelier)",
@@ -39730,7 +40931,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 230,
+    "id": 229,
     "company": "American Bureau of Shipping",
     "country": "China",
     "market": "Shanghai (Huangpu, Corporate Avenue Phase II No.5)",
@@ -39761,7 +40962,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 231,
+    "id": 230,
     "company": "Goldstate Capital Fund Management",
     "country": "China",
     "market": "Shanghai (Yangjing, The Pier)",
@@ -39792,7 +40993,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 232,
+    "id": 231,
     "company": "PDD Holdings (Pinduoduo parent)",
     "country": "China",
     "market": "Shanghai (Changning, Crystal Bridge)",
@@ -39823,7 +41024,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 233,
+    "id": 232,
     "company": "Lalamove",
     "country": "China",
     "market": "Shanghai (Changning, Crystal Bridge Tower 6)",
@@ -39854,7 +41055,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 234,
+    "id": 233,
     "company": "ByteDance",
     "country": "China",
     "market": "Beijing (Olympic Park area, Parcel OS-15)",
@@ -39885,7 +41086,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 235,
+    "id": 234,
     "company": "Netmarble",
     "country": "Korea",
     "market": "Seoul (Guro)",
@@ -39916,7 +41117,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 236,
+    "id": 235,
     "company": "Wisdom Bud Information Technology",
     "country": "China",
     "market": "Beijing",
@@ -39947,7 +41148,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 237,
+    "id": 236,
     "company": "Standard Chartered Bank (China) Co., Ltd. Beijing Branch",
     "country": "China",
     "market": "Beijing",
@@ -39978,7 +41179,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 238,
+    "id": 237,
     "company": "Rednote",
     "country": "China",
     "market": "Beijing",
@@ -40009,7 +41210,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 239,
+    "id": 238,
     "company": "JD Health Comprehensive Clinic",
     "country": "China",
     "market": "Beijing",
@@ -40040,7 +41241,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 240,
+    "id": 239,
     "company": "CICC",
     "country": "China",
     "market": "Beijing",
@@ -40048,7 +41249,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -40071,7 +41272,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 241,
+    "id": 240,
     "company": "Beijing Dentons Law Offices, LLP",
     "country": "China",
     "market": "Shanghai",
@@ -40079,7 +41280,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -40102,7 +41303,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 242,
+    "id": 241,
     "company": "Allianz Group",
     "country": "China",
     "market": "Shanghai",
@@ -40110,7 +41311,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -40133,7 +41334,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 243,
+    "id": 242,
     "company": "YKK",
     "country": "China",
     "market": "Shanghai",
@@ -40164,7 +41365,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 244,
+    "id": 243,
     "company": "ANA",
     "country": "China",
     "market": "Shanghai",
@@ -40195,7 +41396,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 245,
+    "id": 244,
     "company": "LV",
     "country": "China",
     "market": "Shanghai",
@@ -40226,7 +41427,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 246,
+    "id": 245,
     "company": "Hui Ye Law Firm",
     "country": "China",
     "market": "Shanghai",
@@ -40257,7 +41458,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 247,
+    "id": 246,
     "company": "Red Chamber",
     "country": "China",
     "market": "Shanghai",
@@ -40288,7 +41489,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 248,
+    "id": 247,
     "company": "BZW Law Firm",
     "country": "China",
     "market": "Shanghai",
@@ -40319,7 +41520,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 249,
+    "id": 248,
     "company": "DBS Bank",
     "country": "China",
     "market": "Shanghai",
@@ -40350,7 +41551,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 250,
+    "id": 249,
     "company": "Zhihuishu",
     "country": "China",
     "market": "Shanghai",
@@ -40381,7 +41582,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 251,
+    "id": 250,
     "company": "Logitech",
     "country": "China",
     "market": "Shanghai",
@@ -40412,7 +41613,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 252,
+    "id": 251,
     "company": "CPIC Fund",
     "country": "China",
     "market": "Shanghai",
@@ -40443,7 +41644,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 253,
+    "id": 252,
     "company": "Beijing Pocket First Machine Network Technology Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -40474,7 +41675,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 254,
+    "id": 253,
     "company": "TUBI",
     "country": "China",
     "market": "Beijing",
@@ -40482,7 +41683,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -40505,7 +41706,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 255,
+    "id": 254,
     "company": "DLA Piper",
     "country": "China",
     "market": "Beijing",
@@ -40513,7 +41714,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -40536,7 +41737,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 256,
+    "id": 255,
     "company": "Oli's Kitchen",
     "country": "China",
     "market": "Shanghai",
@@ -40567,7 +41768,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 257,
+    "id": 256,
     "company": "DHL",
     "country": "China",
     "market": "Shanghai",
@@ -40598,7 +41799,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 258,
+    "id": 257,
     "company": "Tiffany",
     "country": "China",
     "market": "Shanghai",
@@ -40629,7 +41830,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 259,
+    "id": 258,
     "company": "Linklaters LLP",
     "country": "China",
     "market": "Shanghai",
@@ -40660,7 +41861,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 260,
+    "id": 259,
     "company": "MetLife Korea",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40691,7 +41892,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 261,
+    "id": 260,
     "company": "Lotte Rental",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40722,7 +41923,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 262,
+    "id": 261,
     "company": "KPFIS",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40753,7 +41954,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 263,
+    "id": 262,
     "company": "LG Household & Health Care",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40784,7 +41985,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 264,
+    "id": 263,
     "company": "KB Kookmin Card IT Services",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40815,7 +42016,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 265,
+    "id": 264,
     "company": "Kim & Chang",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40846,7 +42047,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 266,
+    "id": 265,
     "company": "IQVIA",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -40877,7 +42078,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 267,
+    "id": 266,
     "company": "Hyundai Marine & Fire Insurance",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40908,7 +42109,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 268,
+    "id": 267,
     "company": "Anthropic",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40939,7 +42140,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 269,
+    "id": 268,
     "company": "Wyatt",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -40970,7 +42171,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 270,
+    "id": 269,
     "company": "Hyosung ITX",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41001,7 +42202,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 271,
+    "id": 270,
     "company": "Woori Investment & Securities",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41032,7 +42233,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 272,
+    "id": 271,
     "company": "Prada",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41063,7 +42264,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 273,
+    "id": 272,
     "company": "Apple",
     "country": "Korea",
     "market": "Seoul (YBD \u2014 district not stated; cited in YBD section)",
@@ -41094,7 +42295,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 274,
+    "id": 273,
     "company": "Shinmi Global",
     "country": "Korea",
     "market": "Seoul (district not stated; cited in YBD section)",
@@ -41125,7 +42326,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 275,
+    "id": 274,
     "company": "The Pure Lab",
     "country": "Korea",
     "market": "Seoul (YBD context)",
@@ -41156,7 +42357,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 276,
+    "id": 275,
     "company": "LG Chem",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41187,7 +42388,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 277,
+    "id": 276,
     "company": "Hanwha Ocean",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41218,7 +42419,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 278,
+    "id": 277,
     "company": "Hugel",
     "country": "Korea",
     "market": "Seoul (market not stated)",
@@ -41249,7 +42450,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 279,
+    "id": 278,
     "company": "McDonald's Korea",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41280,7 +42481,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 280,
+    "id": 279,
     "company": "Tesla",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41311,7 +42512,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 281,
+    "id": 280,
     "company": "Sanofi-Aventis",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41342,7 +42543,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 282,
+    "id": 281,
     "company": "NPIXEL",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41373,7 +42574,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 283,
+    "id": 282,
     "company": "AITRICS",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41404,7 +42605,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 284,
+    "id": 283,
     "company": "IGIS",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41435,7 +42636,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 285,
+    "id": 284,
     "company": "Mirae Asset Financial Group (affiliate, unspecified)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41466,7 +42667,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 286,
+    "id": 285,
     "company": "\ud06c\ub808\uc774\ubc84\ucf54\ud37c\ub808\uc774\uc158",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41497,7 +42698,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 287,
+    "id": 286,
     "company": "KB Kookmin Bank / KB Kookmin Card",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41528,7 +42729,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 288,
+    "id": 287,
     "company": "\ud55c\uad6d\uc804\ud30c\uc9c4\ud765\ud611\ud68c (Korea Radio Promotion Association)",
     "country": "Korea",
     "market": "Seoul (Magok)",
@@ -41559,7 +42760,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 289,
+    "id": 288,
     "company": "SSG.COM",
     "country": "Korea",
     "market": "Seoul (Yeongdeungpo)",
@@ -41590,7 +42791,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 290,
+    "id": 289,
     "company": "\uc2a4\ud0c0\ubc85\uc2a4 \ucf54\ub9ac\uc544 (Starbucks Korea)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41621,7 +42822,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 291,
+    "id": 290,
     "company": "\uc5d0\uc5b4\uc778\ucc9c (Air Incheon)",
     "country": "Korea",
     "market": "Seoul (Magok)",
@@ -41652,7 +42853,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 292,
+    "id": 291,
     "company": "SKC",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41683,7 +42884,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 293,
+    "id": 292,
     "company": "SK C&C / Tmap Mobility",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41714,7 +42915,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 294,
+    "id": 293,
     "company": "\ucf54\ub9ac\uc548\ub9ac (Korean Re)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -41745,7 +42946,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 295,
+    "id": 294,
     "company": "\uc5d0\uc2a4\uc528\ucf00\uc774\ucef4\ud37c\ub2c8",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41776,7 +42977,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 296,
+    "id": 295,
     "company": "\uc2e0\uc138\uacc4\uc544\uc774\uc564\uc528 (Shinsegae I&C)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41807,7 +43008,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 297,
+    "id": 296,
     "company": "\ubbf8\ub798\uc5d0\uc14b\uc0dd\uba85\ubcf4\ud5d8 (Mirae Asset Life Insurance)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41838,7 +43039,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 298,
+    "id": 297,
     "company": "\ube57\uc378 (Bithumb)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -41869,7 +43070,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 299,
+    "id": 298,
     "company": "111% (111\ud37c\uc13c\ud2b8)",
     "country": "Korea",
     "market": "Seoul (not stated)",
@@ -41900,7 +43101,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 300,
+    "id": 299,
     "company": "Mirae Asset Securities (\ubbf8\ub798\uc5d0\uc14b\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -41931,7 +43132,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 301,
+    "id": 300,
     "company": "Nojima",
     "country": "Japan",
     "market": "Tokyo \u2013 Shinagawa Konanguchi",
@@ -41962,7 +43163,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 302,
+    "id": 301,
     "company": "Nippon Sanso Holdings / Taiyo Nippon Sanso",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon + Minatomirai",
@@ -41993,7 +43194,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 303,
+    "id": 302,
     "company": "DENSO",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon",
@@ -42024,7 +43225,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 304,
+    "id": 303,
     "company": "AIG General Insurance",
     "country": "Japan",
     "market": "Tokyo \u2013 Toranomon/Kamiyacho",
@@ -42055,7 +43256,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 305,
+    "id": 304,
     "company": "CREEK & RIVER",
     "country": "Japan",
     "market": "Tokyo \u2013 Toranomon/Kamiyacho",
@@ -42086,7 +43287,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 306,
+    "id": 305,
     "company": "Northsand",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -42117,7 +43318,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 307,
+    "id": 306,
     "company": "CHUGAI PHARMACEUTICAL",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -42148,7 +43349,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 308,
+    "id": 307,
     "company": "Tokyo Tatemono",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -42179,7 +43380,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 309,
+    "id": 308,
     "company": "DENTSU SOKEN",
     "country": "Japan",
     "market": "Tokyo \u2013 Marunouchi/Otemachi",
@@ -42210,7 +43411,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 310,
+    "id": 309,
     "company": "Hitachi Construction Machinery",
     "country": "Japan",
     "market": "Tokyo \u2013 Marunouchi/Otemachi",
@@ -42241,7 +43442,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 311,
+    "id": 310,
     "company": "Bank of America",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -42272,7 +43473,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 312,
+    "id": 311,
     "company": "JERA",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -42303,7 +43504,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 313,
+    "id": 312,
     "company": "Daiichi Sankyo",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -42334,7 +43535,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 314,
+    "id": 313,
     "company": "HENNGE",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -42365,7 +43566,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 315,
+    "id": 314,
     "company": "CAPCOM",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -42396,7 +43597,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 316,
+    "id": 315,
     "company": "uSonar",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -42427,7 +43628,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 317,
+    "id": 316,
     "company": "Marufuji Sheetpiling",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -42458,7 +43659,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 318,
+    "id": 317,
     "company": "Dai-Dan",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -42489,7 +43690,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 319,
+    "id": 318,
     "company": "Central Glass",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -42520,7 +43721,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 320,
+    "id": 319,
     "company": "LIFULL",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -42551,7 +43752,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 321,
+    "id": 320,
     "company": "Leverages",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -42582,7 +43783,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 322,
+    "id": 321,
     "company": "Mizuno",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -42613,7 +43814,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 323,
+    "id": 322,
     "company": "Sumitomo Mitsui Trust Panasonic Finance",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon",
@@ -42644,7 +43845,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 324,
+    "id": 323,
     "company": "Cognizant Technology Solutions",
     "country": "India",
     "market": "Chennai",
@@ -42675,7 +43876,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 325,
+    "id": 324,
     "company": "WeWork",
     "country": "India",
     "market": "Chennai",
@@ -42706,7 +43907,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 326,
+    "id": 325,
     "company": "TCS",
     "country": "India",
     "market": "Chennai",
@@ -42737,7 +43938,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 327,
+    "id": 326,
     "company": "Deloitte",
     "country": "India",
     "market": "Chennai",
@@ -42768,7 +43969,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 328,
+    "id": 327,
     "company": "The Executive Centre",
     "country": "India",
     "market": "Chennai",
@@ -42799,7 +44000,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 329,
+    "id": 328,
     "company": "Syntel",
     "country": "India",
     "market": "Navi Mumbai",
@@ -42830,7 +44031,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 330,
+    "id": 329,
     "company": "Marsh McLennan",
     "country": "India",
     "market": "Mumbai (Powai)",
@@ -42861,7 +44062,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 331,
+    "id": 330,
     "company": "Euronet Services India",
     "country": "India",
     "market": "Thane (Mumbai)",
@@ -42892,7 +44093,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 332,
+    "id": 331,
     "company": "Meta",
     "country": "India",
     "market": "Mumbai (BKC)",
@@ -42923,7 +44124,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 333,
+    "id": 332,
     "company": "Hero MotoCorp",
     "country": "India",
     "market": "NCR (Delhi)",
@@ -42954,7 +44155,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 334,
+    "id": 333,
     "company": "IREP Workspaces",
     "country": "India",
     "market": "NCR (Gurugram)",
@@ -42985,7 +44186,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 335,
+    "id": 334,
     "company": "Advanced Micro Devices (AMD)",
     "country": "Malaysia",
     "market": "Penang",
@@ -43016,7 +44217,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 336,
+    "id": 335,
     "company": "Coherent Corp.",
     "country": "Malaysia",
     "market": "Penang",
@@ -43047,7 +44248,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 337,
+    "id": 336,
     "company": "Bitdeer Technologies Group",
     "country": "Malaysia",
     "market": "Penang",
@@ -43078,7 +44279,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 338,
+    "id": 337,
     "company": "Channel Microsystems",
     "country": "Malaysia",
     "market": "Penang",
@@ -43109,7 +44310,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 339,
+    "id": 338,
     "company": "Tenasic Technology",
     "country": "Malaysia",
     "market": "Penang",
@@ -43140,7 +44341,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 340,
+    "id": 339,
     "company": "Edwards Lifesciences",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -43171,7 +44372,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 341,
+    "id": 340,
     "company": "Quanterm Logistics",
     "country": "Malaysia",
     "market": "Penang",
@@ -43202,7 +44403,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 342,
+    "id": 341,
     "company": "PE Land",
     "country": "Malaysia",
     "market": "Penang",
@@ -43233,7 +44434,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 343,
+    "id": 342,
     "company": "IWG (Spaces / Regus Express)",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -43264,7 +44465,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 344,
+    "id": 343,
     "company": "JustCo",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -43295,7 +44496,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 345,
+    "id": 344,
     "company": "Grant Thornton",
     "country": "Malaysia",
     "market": "Johor (Iskandar Malaysia)",
@@ -43326,7 +44527,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 346,
+    "id": 345,
     "company": "Co-labs",
     "country": "Malaysia",
     "market": "Johor (Iskandar Malaysia)",
@@ -43357,7 +44558,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 347,
+    "id": 346,
     "company": "IJM Land Penang",
     "country": "Malaysia",
     "market": "Penang",
@@ -43388,38 +44589,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 348,
-    "company": "Amazon",
-    "country": "India",
-    "market": "Bengaluru (ORR)",
-    "currentSnapshot": "0.60 Mn sf at Bagmane Capital \u2013 Rome South, ORR \u2014 Key Lease Transactions table (deal type unstated)",
-    "previousSnapshot": "",
-    "change": "New",
-    "hasChange": true,
-    "trend": "New signal \u2014 assess",
-    "status": "Watch",
-    "lastChecked": "2026-10-14",
-    "notes": "",
-    "heatScore": 50,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 5,
-      "typeReason": "General commercial deal (Unstated: 5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 50,
-      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
-  },
-  {
-    "id": 349,
+    "id": 347,
     "company": "Saipem",
     "country": "India",
     "market": "Chennai (OMR)",
@@ -43450,7 +44620,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 350,
+    "id": 348,
     "company": "Citi",
     "country": "India",
     "market": "Chennai (Mount Poonamallee Road)",
@@ -43481,38 +44651,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 351,
-    "company": "Wells Fargo",
-    "country": "India",
-    "market": "Hyderabad (Gachibowli)",
-    "currentSnapshot": "1.00 Mn sf at Divyashree Orion Block B, Gachibowli \u2014 Key Lease Transactions table (deal type unstated)",
-    "previousSnapshot": "",
-    "change": "New",
-    "hasChange": true,
-    "trend": "New signal \u2014 assess",
-    "status": "Watch",
-    "lastChecked": "2026-10-14",
-    "notes": "",
-    "heatScore": 50,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 5,
-      "typeReason": "General commercial deal (Unstated: 5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 50,
-      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
-  },
-  {
-    "id": 352,
+    "id": 349,
     "company": "Morgan Stanley",
     "country": "India",
     "market": "MMR (Malad)",
@@ -43543,7 +44682,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 353,
+    "id": 350,
     "company": "HDFC",
     "country": "India",
     "market": "MMR (Thane Belapur Road)",
@@ -43574,7 +44713,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 354,
+    "id": 351,
     "company": "Netmagic",
     "country": "India",
     "market": "NCR (TechZone IV)",
@@ -43605,7 +44744,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 355,
+    "id": 352,
     "company": "Zomato",
     "country": "India",
     "market": "NCR (MG Road)",
@@ -43636,7 +44775,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 356,
+    "id": 353,
     "company": "Encore Midland Credit Management",
     "country": "India",
     "market": "NCR (Sector-48)",
@@ -43667,11 +44806,11 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 357,
+    "id": 354,
     "company": "Amazon",
     "country": "India",
-    "market": "Pune (Yerwada)",
-    "currentSnapshot": "0.62 Mn sf at Commerzone Building-3, Yerwada \u2014 Key Lease Transactions table (deal type unstated); second Amazon deal in this edition (other: Bengaluru 0.60)",
+    "market": "Bengaluru + Pune",
+    "currentSnapshot": "Two deals in this ANAROCK edition (deal type unstated): 0.60 Mn sf at Bagmane Capital \u2013 Rome South, Bengaluru ORR + 0.62 Mn sf at Commerzone Building-3, Yerwada, Pune.",
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
@@ -43698,11 +44837,11 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 358,
+    "id": 355,
     "company": "Mindtree",
     "country": "India",
-    "market": "Pune (Shivaji Nagar)",
-    "currentSnapshot": "0.25 Mn sf at ICC Teck Park [sic], Shivaji Nagar \u2014 Key Lease Transactions table (deal type unstated)",
+    "market": "Pune + Kolkata",
+    "currentSnapshot": "Two deals in this ANAROCK edition (deal type unstated): 0.25 Mn sf at ICC Teck Park [sic], Shivaji Nagar, Pune + 0.60 Mn sf at Adventz Infinity, Salt Lake V, Kolkata.",
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
@@ -43729,38 +44868,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 359,
-    "company": "Mindtree",
-    "country": "India",
-    "market": "Kolkata (Salt Lake V)",
-    "currentSnapshot": "0.60 Mn sf at Adventz Infinity, Salt Lake V \u2014 Key Lease Transactions table (deal type unstated); second Mindtree deal in this edition (other: Pune 0.25)",
-    "previousSnapshot": "",
-    "change": "New",
-    "hasChange": true,
-    "trend": "New signal \u2014 assess",
-    "status": "Watch",
-    "lastChecked": "2026-10-14",
-    "notes": "",
-    "heatScore": 50,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 5,
-      "typeReason": "General commercial deal (Unstated: 5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 50,
-      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
-  },
-  {
-    "id": 360,
+    "id": 356,
     "company": "Indiqube",
     "country": "India",
     "market": "Pune (Baner)",
@@ -43791,7 +44899,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 361,
+    "id": 357,
     "company": "Capgemini",
     "country": "India",
     "market": "Kolkata (Rajarhat)",
@@ -43822,7 +44930,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 362,
+    "id": 358,
     "company": "AMD",
     "country": "India",
     "market": "Bengaluru (Whitefield)",
@@ -43853,7 +44961,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 363,
+    "id": 359,
     "company": "ANZ",
     "country": "India",
     "market": "Bengaluru (ORR)",
@@ -43884,11 +44992,11 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 364,
+    "id": 360,
     "company": "Wells Fargo",
     "country": "India",
-    "market": "Chennai (Pallavaram)",
-    "currentSnapshot": "0.40 Mn sf at Embassy Splendid Techzone, Pallavaram \u2014 Key Lease Transactions table (deal type unstated); second Wells Fargo deal in this harvest (other: Hyderabad 1.00, H2 FY22)",
+    "market": "Hyderabad + Chennai",
+    "currentSnapshot": "Two deals (deal type unstated): 1.00 Mn sf at Divyashree Orion Block B, Gachibowli, Hyderabad (H2 FY22) + 0.40 Mn sf at Embassy Splendid Techzone, Pallavaram, Chennai (later harvest).",
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
@@ -43915,7 +45023,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 365,
+    "id": 361,
     "company": "IndiQube",
     "country": "India",
     "market": "Chennai (Guindy)",
@@ -43946,7 +45054,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 366,
+    "id": 362,
     "company": "Bosch",
     "country": "India",
     "market": "Hyderabad (Madhapur)",
@@ -43977,7 +45085,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 367,
+    "id": 363,
     "company": "PwC",
     "country": "India",
     "market": "Hyderabad (HITEC City)",
@@ -44008,7 +45116,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 368,
+    "id": 364,
     "company": "ZF Technology",
     "country": "India",
     "market": "Hyderabad (Gachibowli)",
@@ -44039,7 +45147,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 369,
+    "id": 365,
     "company": "IDFC",
     "country": "India",
     "market": "MMR (Thane)",
@@ -44070,7 +45178,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 370,
+    "id": 366,
     "company": "M&M Financial",
     "country": "India",
     "market": "MMR (Kurla)",
@@ -44101,7 +45209,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 371,
+    "id": 367,
     "company": "Avendus Capital",
     "country": "India",
     "market": "MMR (BKC)",
@@ -44132,7 +45240,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 372,
+    "id": 368,
     "company": "Network 18",
     "country": "India",
     "market": "NCR (Noida Expressway)",
@@ -44163,7 +45271,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 373,
+    "id": 369,
     "company": "Air India",
     "country": "India",
     "market": "NCR (NH-8, Gurgaon)",
@@ -44194,7 +45302,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 374,
+    "id": 370,
     "company": "Syneos Health",
     "country": "India",
     "market": "NCR (NH-8, Gurgaon)",
@@ -44225,7 +45333,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 375,
+    "id": 371,
     "company": "Reliance",
     "country": "India",
     "market": "NCR (Sector-65, Gurgaon)",
@@ -44256,7 +45364,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 376,
+    "id": 372,
     "company": "Mastercard",
     "country": "India",
     "market": "Pune (Yerwada)",
@@ -44287,7 +45395,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 377,
+    "id": 373,
     "company": "ZS Associate",
     "country": "India",
     "market": "Pune (Kharadi)",
@@ -44318,7 +45426,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 378,
+    "id": 374,
     "company": "AML Right Source",
     "country": "India",
     "market": "Kolkata (Rajarhat)",
@@ -44349,7 +45457,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 379,
+    "id": 375,
     "company": "IFS",
     "country": "India",
     "market": "Kolkata (Salt Lake)",
@@ -44380,7 +45488,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 380,
+    "id": 376,
     "company": "Accolade Broadcasting",
     "country": "India",
     "market": "Kolkata (Salt Lake)",
@@ -44411,7 +45519,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 381,
+    "id": 377,
     "company": "OMNICOM",
     "country": "China",
     "market": "Beijing",
@@ -44419,7 +45527,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44442,7 +45550,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 382,
+    "id": 378,
     "company": "Diaoyutai MGM Hospitality, Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44450,7 +45558,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44473,7 +45581,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 383,
+    "id": 379,
     "company": "Gucci",
     "country": "China",
     "market": "Shanghai",
@@ -44481,7 +45589,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44504,7 +45612,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 384,
+    "id": 380,
     "company": "Kao",
     "country": "China",
     "market": "Shanghai",
@@ -44512,7 +45620,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44535,7 +45643,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 385,
+    "id": 381,
     "company": "DYSON",
     "country": "China",
     "market": "Shanghai",
@@ -44543,7 +45651,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44566,7 +45674,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 386,
+    "id": 382,
     "company": "Airbnb Information Technology (Beijing) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44574,7 +45682,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44597,7 +45705,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 387,
+    "id": 383,
     "company": "Mundipharma (China) Pharmaceutical Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44605,7 +45713,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44628,7 +45736,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 388,
+    "id": 384,
     "company": "Dentsply Sirona Dental Solutions (Shanghai) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44636,7 +45744,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44659,7 +45767,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 389,
+    "id": 385,
     "company": "Wood Mackenzie Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44667,7 +45775,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44690,7 +45798,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 390,
+    "id": 386,
     "company": "Advanced Micro Devices (China) Co.,Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44698,7 +45806,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44721,7 +45829,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 391,
+    "id": 387,
     "company": "Beijing Aoma Star Pleasure Medical Beauty Clinic Co., LTD",
     "country": "China",
     "market": "Beijing",
@@ -44729,7 +45837,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -44752,38 +45860,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 392,
-    "company": "L'OR\u00c9AL",
-    "country": "China",
-    "market": "Shanghai",
-    "currentSnapshot": "Renewal 23,000 sq ft (~2,137 sqm) \u2014 Jinghua Building, Core Jing'an",
-    "previousSnapshot": "",
-    "change": "New",
-    "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
-    "status": "Watch",
-    "lastChecked": "2026-10-14",
-    "notes": "",
-    "heatScore": 65,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (1d ago)",
-      "sizePts": 15,
-      "sizeReason": "Mid-size fit-out (23,000 sq ft)",
-      "typePts": 5,
-      "typeReason": "Renewal refresh benchmark (5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 15,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 65,
-      "summary": "R:40 + S:15 + T:5 + St:5 = 65"
-    }
-  },
-  {
-    "id": 393,
+    "id": 388,
     "company": "Glory Terminal Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44814,7 +45891,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 394,
+    "id": 389,
     "company": "Shuxing Technology (Beijing) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -44845,7 +45922,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 395,
+    "id": 390,
     "company": "Postal Savings Bank of China Limited Beijing Branch",
     "country": "China",
     "market": "Beijing",
@@ -44876,7 +45953,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 396,
+    "id": 391,
     "company": "Manulife-Sinochem",
     "country": "China",
     "market": "Shanghai",
@@ -44907,7 +45984,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 397,
+    "id": 392,
     "company": "Babemax",
     "country": "China",
     "market": "Shanghai",
@@ -44938,7 +46015,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 398,
+    "id": 393,
     "company": "99Bill.com",
     "country": "China",
     "market": "Shanghai",
@@ -44969,7 +46046,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 399,
+    "id": 394,
     "company": "Meritz Fire & Marine Insurance (\uba54\ub9ac\uce20\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul, YBD (IFC)",
@@ -44977,7 +46054,7 @@ var INITIAL_TRACKER_DATA = [
     "previousSnapshot": "",
     "change": "New",
     "hasChange": true,
-    "trend": "Renewal \u2014 track next lease cycle",
+    "trend": "Renewal",
     "status": "Watch",
     "lastChecked": "2026-10-14",
     "notes": "",
@@ -45000,7 +46077,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 400,
+    "id": 395,
     "company": "K Bank (\ucf00\uc774\ubc45\ud06c)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Samphung Nexus Bldg, Eulji-ro 158",
@@ -45031,7 +46108,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 401,
+    "id": 396,
     "company": "Social News (\uc18c\uc15c\ub274\uc2a4)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Gwanghwamun G Square, Sejong-daero 22-gil 12",
@@ -45062,7 +46139,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 402,
+    "id": 397,
     "company": "Hanwha Life Financial Services (\ud55c\ud654\uc0dd\uba85\uae08\uc735\uc11c\ube44\uc2a4)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul City Tower, Huam-ro 110",
@@ -45093,7 +46170,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 403,
+    "id": 398,
     "company": "A Plus Asset Advisor (\uc5d0\uc774\ud50c\ub7ec\uc2a4\uc5d0\uc14b\uc5b4\ub4dc\ubc14\uc774\uc800)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -45124,7 +46201,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 404,
+    "id": 399,
     "company": "Chrono Studio (\ud06c\ub85c\ub178\uc2a4\ud29c\ub514\uc624; NPIXEL subsidiary)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 The Pinnacle Yeoksam 2, Teheran-ro 145",
@@ -45155,7 +46232,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 405,
+    "id": 400,
     "company": "Wezon (\uc704\uc874 \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Landmark Tower, Gangnam-daero 508",
@@ -45186,7 +46263,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 406,
+    "id": 401,
     "company": "Samsung Securities (\uc0bc\uc131\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Lynn Square, Teheran-ro 201",
@@ -45217,7 +46294,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 407,
+    "id": 402,
     "company": "Creditbon (\ud06c\ub808\ub527\ubcf8 \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Centerfield West, Seocho-daero 398",
@@ -45248,7 +46325,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 408,
+    "id": 403,
     "company": "Sentbe (\uc13c\ud2b8\ube44)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouidae-ro 70",
@@ -45279,7 +46356,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 409,
+    "id": 404,
     "company": "Lakewood Partners (\ub808\uc774\ud06c\uc6b0\ub4dc\ud30c\ud2b8\ub108\uc2a4)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Yeouido Finance Tower, Gukjegeumyung-ro 2-gil 32",
@@ -45310,7 +46387,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 410,
+    "id": 405,
     "company": "Galaxy Corporation (\uac24\ub7ed\uc11c\ucf54\ud37c\ub808\uc774\uc158)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 IFC, Gukjegeumyung-ro 10",
@@ -45341,7 +46418,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 411,
+    "id": 406,
     "company": "Samsung Life Insurance (\uc0bc\uc131\uc0dd\uba85\ubcf4\ud5d8\uc8fc\uc2dd\ud68c\uc0ac)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Bundang Yemij Bldg, Hwangsaeul-ro 258beon-gil 31",
@@ -45372,7 +46449,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 412,
+    "id": 407,
     "company": "Weekly Hair (\u321c\uc704\ud074\ub9ac\ud5e4\uc5b4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 SPC Center, Jeongja-il-ro 166",
@@ -45403,7 +46480,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 413,
+    "id": 408,
     "company": "Daekyo Edu Camp (\u321c\ub300\uad50\uc5d0\ub4c0\ucea0\ud504)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Byucksan Techno Pia Knowledge Industry Center, Dunchon-daero 560",
@@ -45434,7 +46511,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 414,
+    "id": 409,
     "company": "People Life (\ud53c\ud50c\ub77c\uc774\ud504\u321c)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 UI Building, Yanghyeon-ro 405beon-gil 4-11",
@@ -45465,7 +46542,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 415,
+    "id": 410,
     "company": "Celltrion Pharm (\uc140\ud2b8\ub9ac\uc628\uc81c\uc57d)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Gwacheon Smart K, Gwacheon-daero 7-gil 20",
@@ -45496,7 +46573,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 416,
+    "id": 411,
     "company": "Novatec (\ub178\ubc14\ud14d \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Songpa Terra Tower 2, Songpa-daero 201",
@@ -45527,7 +46604,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 417,
+    "id": 412,
     "company": "WZCOM (\ub354\ube14\uc720\uc81c\ud2b8\ucf64)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Avenue 123, Itaewon-ro 191",
@@ -45558,7 +46635,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 418,
+    "id": 413,
     "company": "F&F (\uc5d0\ud504\uc564\uc5d0\ud504)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Center Point Gangnam",
@@ -45589,7 +46666,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 419,
+    "id": 414,
     "company": "Olive Young (\uc62c\ub9ac\ube0c\uc601)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Factorial Seongsu",
@@ -45620,7 +46697,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 420,
+    "id": 415,
     "company": "Nice Payments (\ub098\uc774\uc2a4\ud398\uc774\uba3c\uce20)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Semicolon Mullae N Tower",
@@ -45651,7 +46728,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 421,
+    "id": 416,
     "company": "JoyCity (\uc870\uc774\uc2dc\ud2f0)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 JoyCity Tower, Sunae",
@@ -45682,7 +46759,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 422,
+    "id": 417,
     "company": "Carver Korea (\uce74\ubc84\ucf54\ub9ac\uc544)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 FKI Tower",
@@ -45713,7 +46790,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 423,
+    "id": 418,
     "company": "Allerman (\uc54c\ub808\ub974\ub9dd \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul \u2014 Allerman Tower",
@@ -45744,7 +46821,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 424,
+    "id": 419,
     "company": "SGI Seoul Guarantee Insurance (SGI\uc11c\uc6b8\ubcf4\uc99d)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Boryeong Building, Changgyeonggung-ro 136",
@@ -45775,7 +46852,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 425,
+    "id": 420,
     "company": "HLMC",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Sampung Nexus, Euljiro 4-ga 310-68",
@@ -45806,7 +46883,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 426,
+    "id": 421,
     "company": "Toss Income (\ud1a0\uc2a4 affiliate of Viva Republica)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 POSCO Tower Yeoksam, Teheran-ro 134",
@@ -45837,7 +46914,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 427,
+    "id": 422,
     "company": "Goorm (\uad6c\ub984)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 The Pinnacle Yeoksam 2, Teheran-ro 145",
@@ -45868,7 +46945,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 428,
+    "id": 423,
     "company": "Woori Bank",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 1, Yeouidaero 108",
@@ -45899,7 +46976,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 429,
+    "id": 424,
     "company": "Leferi (\ub808\ud398\ub9ac)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 2, Yeouidaero 108",
@@ -45930,7 +47007,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 430,
+    "id": 425,
     "company": "PineStreet Asset Management",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 2, Yeouidaero 108",
@@ -45961,7 +47038,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 431,
+    "id": 426,
     "company": "Hyundai Motor Securities (\ud604\ub300\ucc28\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouidae-ro 70",
@@ -45992,7 +47069,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 432,
+    "id": 427,
     "company": "Hyundai Transys (\ud604\ub300\ud2b8\ub79c\uc2dc\uc2a4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Hyundai Dept Store Office, Pangyoyeok-ro 146beon-gil 20",
@@ -46023,7 +47100,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 433,
+    "id": 428,
     "company": "Neuberger Berman Asset Management",
     "country": "Korea",
     "market": "Seoul, Others \u2014 One Grove, Gonghang-daero 165 (Magok)",
@@ -46054,7 +47131,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 434,
+    "id": 429,
     "company": "NH Nonghyup Life Insurance (NH\ub18d\ud611\uc0dd\uba85)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Soonhwa Tower, Sejong-daero 7-gil 43",
@@ -46085,7 +47162,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 435,
+    "id": 430,
     "company": "Lotte Card (\ub86f\ub370\uce74\ub4dc)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Booyoung Taepyeong Building, Sejong-daero 55",
@@ -46116,7 +47193,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 436,
+    "id": 431,
     "company": "Mdic",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -46147,7 +47224,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 437,
+    "id": 432,
     "company": "RCI Financial Korea",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -46178,7 +47255,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 438,
+    "id": 433,
     "company": "Hanwha Hotels & Resorts (\ud55c\ud654\ud638\ud154\uc564\ub4dc\ub9ac\uc870\ud2b8)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Hongdae H Square (from Hanwha Building, Sogong-dong)",
@@ -46209,7 +47286,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 439,
+    "id": 434,
     "company": "Hanwha Galleria (\ud55c\ud654\uac24\ub7ec\ub9ac\uc544)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Hongdae H Square (same)",
@@ -46240,7 +47317,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 440,
+    "id": 435,
     "company": "eOpsoft",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 L7 Hotels Gangnam Tower, Teheran-ro 415",
@@ -46271,7 +47348,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 441,
+    "id": 436,
     "company": "Supercent (\uc288\ud37c\uc13c\ud2b8)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Lotte World Tower, Olympic-ro 300",
@@ -46302,7 +47379,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 442,
+    "id": 437,
     "company": "KIS Appraisal (\ud55c\uad6d\ud22c\uc790\ud3c9\uac00)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Centennial, Yeouidae-ro 70",
@@ -46333,7 +47410,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 443,
+    "id": 438,
     "company": "Rebellions (\ub9ac\ubca8\ub9ac\uc628)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Newborn Tower, Jeongja 1-ro 156beon-gil 6",
@@ -46364,7 +47441,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 444,
+    "id": 439,
     "company": "Keyinside (\ud0a4\uc778\uc0ac\uc774\ub4dc)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Yemij Building, Pangyoyeok-ro 14-1",
@@ -46395,7 +47472,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 445,
+    "id": 440,
     "company": "MiL.k Partners (\ubc00\ud06c\ud30c\ud2b8\ub108\uc2a4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Yemij Building, Pangyoyeok-ro 14-1",
@@ -46426,7 +47503,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 446,
+    "id": 441,
     "company": "NEXUS (name as printed)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Alpharium Tower, Daewangpangyo-ro 606beon-gil 10",
@@ -46457,7 +47534,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 447,
+    "id": 442,
     "company": "Korea Insurance Brokerage",
     "country": "Korea",
     "market": "Seoul, Others \u2014 K-Square Magok Tower 3, Magokjungang-ro 105-7",
@@ -46488,7 +47565,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 448,
+    "id": 443,
     "company": "NH Capital (NH\uce90\ud53c\ud0c8)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouido-dong 23-2",
@@ -46519,7 +47596,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 449,
+    "id": 444,
     "company": "Hanwha I&A",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Korea Chamber of Commerce & Industry bldg, Namdaemun-ro 4-ga 45",
@@ -46550,7 +47627,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 450,
+    "id": 445,
     "company": "New Balance",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 INNO 88, Unni-dong 98-5",
@@ -46581,7 +47658,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 451,
+    "id": 446,
     "company": "Shinhan Life (\uc2e0\ud55c\uc0dd\uba85)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Central Place, Jungnim-dong 419",
@@ -46612,7 +47689,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 452,
+    "id": 447,
     "company": "BlackRock",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Gran Seoul, Cheongjin-dong 70",
@@ -46643,7 +47720,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 453,
+    "id": 448,
     "company": "Heungkuk Fire & Marine Insurance (\ud765\uad6d\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Handuk Building, Jongno 6-ga 242-1",
@@ -46674,7 +47751,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 454,
+    "id": 449,
     "company": "Onecell Mediclinic",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 NR Tower, Samseong-dong 9-21",
@@ -46705,7 +47782,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 455,
+    "id": 450,
     "company": "Snowflake",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Posco Tower Yeoksam, Yeoksam-dong 735-3",
@@ -46736,7 +47813,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 456,
+    "id": 451,
     "company": "Unilever",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Samsung-dong Building, Samseong-dong 157-1",
@@ -46767,7 +47844,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 457,
+    "id": 452,
     "company": "BY4M (name as printed)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 K407, Yeoksam-dong 747-25",
@@ -46798,7 +47875,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 458,
+    "id": 453,
     "company": "Korea Investment Real Estate Trust (\ud55c\uad6d\ud22c\uc790\ubd80\ub3d9\uc0b0\uc2e0\ud0c1)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 FKI Tower, Yeouido-dong 28-1",
@@ -46829,7 +47906,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 459,
+    "id": 454,
     "company": "Ryukyung PSG Asset Management",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Yeouido Finance Tower, Yeouido-dong 23-8",
@@ -46860,7 +47937,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 460,
+    "id": 455,
     "company": "LIG Nex1 (LIG\ub125\uc2a4\uc6d0)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 H Square S Tower, Sampyeong-dong 680",
@@ -46891,7 +47968,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 461,
+    "id": 456,
     "company": "Synopsys",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 H Square S Tower, Sampyeong-dong 680",
@@ -46922,7 +47999,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 462,
+    "id": 457,
     "company": "VIOL",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Two Sun Building, Sampyeong-dong 672",
@@ -46953,7 +48030,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 463,
+    "id": 458,
     "company": "Kakao Pay Securities (\uce74\uce74\uc624\ud398\uc774\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Tech One, Baekhyeon-dong 534",
@@ -46984,7 +48061,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 464,
+    "id": 459,
     "company": "Hanil Electric (\ud55c\uc77c\uc804\uae30)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Semicolon Mullae, Mullae-dong 55-18",
@@ -47015,7 +48092,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 465,
+    "id": 460,
     "company": "Gear2 (name as printed)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 MUSINSA S1, Seongsu-dong 2-ga 324-2",
@@ -47046,7 +48123,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 466,
+    "id": 461,
     "company": "Leterinity (\ub808\ud130\ub2c8\ud2f0)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 K-Square Magok, Magok-dong 768-1",
@@ -47077,7 +48154,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 467,
+    "id": 462,
     "company": "Jupiter Telecommunications Co., Ltd",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -47108,7 +48185,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 468,
+    "id": 463,
     "company": "Fujitsu",
     "country": "Japan",
     "market": "Tokyo (Hamamatsucho / Onarimon)",
@@ -47139,7 +48216,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 469,
+    "id": 464,
     "company": "Canon IT Solutions Inc.",
     "country": "Japan",
     "market": "Tokyo (Kita-Shinagawa / Higashi-Shinagawa)",
@@ -47170,7 +48247,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 470,
+    "id": 465,
     "company": "Delta Electronics, Inc.",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -47201,7 +48278,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 471,
+    "id": 466,
     "company": "JASRAC",
     "country": "Japan",
     "market": "Tokyo (Akasaka)",
@@ -47232,7 +48309,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 472,
+    "id": 467,
     "company": "Abilio Servicer",
     "country": "Japan",
     "market": "Tokyo (Toyosu)",
@@ -47263,7 +48340,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 473,
+    "id": 468,
     "company": "Skylark Holdings",
     "country": "Japan",
     "market": "Tokyo (Nakano)",
@@ -47294,7 +48371,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 474,
+    "id": 469,
     "company": "Mirait One",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -47325,7 +48402,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 475,
+    "id": 470,
     "company": "NTT DATA Group Corporation",
     "country": "Japan",
     "market": "Tokyo (Osaki / Gotanda)",
@@ -47356,7 +48433,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 476,
+    "id": 471,
     "company": "Accenture Japan Ltd",
     "country": "Japan",
     "market": "Tokyo (Harumi / Kachidoki)",
@@ -47387,7 +48464,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 477,
+    "id": 472,
     "company": "JA MITSUI LEASING, LTD.",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -47418,7 +48495,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 478,
+    "id": 473,
     "company": "H.I.S. Co., Ltd.",
     "country": "Japan",
     "market": "Tokyo (Nishi-Shinjuku)",
@@ -47449,7 +48526,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 479,
+    "id": 474,
     "company": "CMIC HOLDINGS Co., Ltd.",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -47480,7 +48557,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 480,
+    "id": 475,
     "company": "RYODEN (TSE Prime: 8084)",
     "country": "Japan",
     "market": "Tokyo (Kojimachi, Chiyoda-ku)",
@@ -47511,7 +48588,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 481,
+    "id": 476,
     "company": "\u30d3\u30fc\u30c8\u30ec\u30f3\u30c9 Beatrend (TSE Growth: 4020)",
     "country": "Japan",
     "market": "Tokyo (Kita-Shinagawa)",
@@ -47542,7 +48619,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 482,
+    "id": 477,
     "company": "KeyHolder (TSE Standard: 4712)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -47573,7 +48650,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 483,
+    "id": 478,
     "company": "\u30c7\u30a3\u30fb\u30a2\u30a4\u30fb\u30b7\u30b9\u30c6\u30e0 D.I.System (TSE Standard: 4421)",
     "country": "Japan",
     "market": "Tokyo (Marunouchi)",
@@ -47604,7 +48681,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 484,
+    "id": 479,
     "company": "Honda Motor",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -47635,7 +48712,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 485,
+    "id": 480,
     "company": "Mizuho Leasing",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -47666,7 +48743,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 486,
+    "id": 481,
     "company": "Nomura Real Estate Development",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -47697,7 +48774,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 487,
+    "id": 482,
     "company": "KDDI",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi)",
@@ -47728,7 +48805,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 488,
+    "id": 483,
     "company": "Maruha Nichiro",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi)",
@@ -47759,7 +48836,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 489,
+    "id": 484,
     "company": "Sanko Metal Industrial",
     "country": "Japan",
     "market": "Tokyo (Mita / Tamachi)",
@@ -47790,7 +48867,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 490,
+    "id": 485,
     "company": "Kenko Mayonnaise",
     "country": "Japan",
     "market": "Tokyo (Bancho / Kojimachi)",
@@ -47821,7 +48898,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 491,
+    "id": 486,
     "company": "Kobe Steel Group",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi / Yaesu)",
@@ -47852,7 +48929,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 492,
+    "id": 487,
     "company": "Japan Pulp and Paper",
     "country": "Japan",
     "market": "Tokyo (Kyobashi / Yaesu / Nihonbashi)",
@@ -47883,7 +48960,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 493,
+    "id": 488,
     "company": "coconala",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -47914,7 +48991,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 494,
+    "id": 489,
     "company": "Citi Malaysia (Citi Transaction Services Malaysia Sdn Bhd \u2013 CTSM Penang)",
     "country": "Malaysia",
     "market": "Penang (Air Itam \u2013 Sunshine Tower @ Sunshine Central)",
@@ -47945,7 +49022,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 495,
+    "id": 490,
     "company": "Celestica (Platform and Cloud Solutions Malaysia)",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
@@ -47976,7 +49053,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 496,
+    "id": 491,
     "company": "Microsoft (Knowledge Capital Centre)",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
@@ -48007,7 +49084,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 497,
+    "id": 492,
     "company": "SkyeChip",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -48038,7 +49115,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 498,
+    "id": 493,
     "company": "Sophic Automation",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -48069,7 +49146,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 499,
+    "id": 494,
     "company": "Filpal",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -48100,7 +49177,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 500,
+    "id": 495,
     "company": "Infinecs Lab",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -48131,7 +49208,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 501,
+    "id": 496,
     "company": "Silicon X",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -48162,7 +49239,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 502,
+    "id": 497,
     "company": "Arvind Ltd.",
     "country": "India",
     "market": "Ahmedabad (Sindhu Bhavan Road)",
@@ -48193,7 +49270,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 503,
+    "id": 498,
     "company": "Opulence Spaces",
     "country": "India",
     "market": "Ahmedabad",
@@ -48224,7 +49301,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 504,
+    "id": 499,
     "company": "Vibrant Co.Work",
     "country": "India",
     "market": "Ahmedabad",
@@ -48255,7 +49332,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 505,
+    "id": 500,
     "company": "Incuspaze",
     "country": "India",
     "market": "Ahmedabad",
@@ -48286,7 +49363,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 506,
+    "id": 501,
     "company": "Simpliwork",
     "country": "India",
     "market": "Chennai; Hyderabad; Delhi NCR",
@@ -48317,7 +49394,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 507,
+    "id": 502,
     "company": "Workez",
     "country": "India",
     "market": "Chennai",
@@ -48348,7 +49425,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 508,
+    "id": 503,
     "company": "Geri Care Hospital",
     "country": "India",
     "market": "Chennai",
@@ -48379,7 +49456,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 509,
+    "id": 504,
     "company": "Raja Rajeshwari Engineering College",
     "country": "India",
     "market": "Chennai",
@@ -48410,7 +49487,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 510,
+    "id": 505,
     "company": "AnnexMed",
     "country": "India",
     "market": "Chennai",
@@ -48441,7 +49518,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 511,
+    "id": 506,
     "company": "Chargebee",
     "country": "India",
     "market": "Chennai",
@@ -48472,7 +49549,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 512,
+    "id": 507,
     "company": "Alldigi Tech (Allsec)",
     "country": "India",
     "market": "Chennai",
@@ -48503,7 +49580,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 513,
+    "id": 508,
     "company": "Altimetrik",
     "country": "India",
     "market": "Chennai",
@@ -48534,7 +49611,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 514,
+    "id": 509,
     "company": "Novac Technology Solutions",
     "country": "India",
     "market": "Chennai",
@@ -48565,7 +49642,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 515,
+    "id": 510,
     "company": "ArcelorMittal",
     "country": "India",
     "market": "Hyderabad",
@@ -48596,7 +49673,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 516,
+    "id": 511,
     "company": "Skootr",
     "country": "India",
     "market": "Hyderabad",
@@ -48627,7 +49704,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 517,
+    "id": 512,
     "company": "Bajaj Finance",
     "country": "India",
     "market": "Hyderabad",
@@ -48658,7 +49735,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 518,
+    "id": 513,
     "company": "HDFC Credila",
     "country": "India",
     "market": "Hyderabad",
@@ -48689,7 +49766,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 519,
+    "id": 514,
     "company": "Apollo",
     "country": "India",
     "market": "Hyderabad",
@@ -48720,7 +49797,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 520,
+    "id": 515,
     "company": "Mahindra Finance",
     "country": "India",
     "market": "Hyderabad",
@@ -48751,7 +49828,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 521,
+    "id": 516,
     "company": "Akasa",
     "country": "India",
     "market": "Kolkata",
@@ -48782,7 +49859,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 522,
+    "id": 517,
     "company": "Maruti",
     "country": "India",
     "market": "Delhi NCR",
@@ -48813,7 +49890,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 523,
+    "id": 518,
     "company": "Indiabulls",
     "country": "India",
     "market": "Delhi NCR",
@@ -48844,7 +49921,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 524,
+    "id": 519,
     "company": "Tata AIG",
     "country": "India",
     "market": "Delhi NCR",
@@ -48875,7 +49952,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 525,
+    "id": 520,
     "company": "Tablespace",
     "country": "India",
     "market": "Delhi NCR",
@@ -48906,7 +49983,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 526,
+    "id": 521,
     "company": "Workshaala",
     "country": "India",
     "market": "Delhi NCR",
@@ -48937,7 +50014,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 527,
+    "id": 522,
     "company": "Amdocs",
     "country": "India",
     "market": "Delhi NCR",
@@ -48968,7 +50045,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 528,
+    "id": 523,
     "company": "ANSR",
     "country": "India",
     "market": "Delhi NCR",
@@ -48999,7 +50076,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 529,
+    "id": 524,
     "company": "TBH",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 The Gardens North Tower)",
@@ -49030,7 +50107,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 530,
+    "id": 525,
     "company": "Common Ground",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL City \u2014 Menara Darussalam)",
@@ -49061,7 +50138,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 531,
+    "id": 526,
     "company": "Universal Serviced Offices",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 The Gardens North Tower)",
@@ -49092,7 +50169,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 532,
+    "id": 527,
     "company": "JTI",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 Corporate Tower 7, Pavilion Damansara Heights)",
@@ -49123,7 +50200,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 533,
+    "id": 528,
     "company": "Bank Rakyat",
     "country": "Malaysia",
     "market": "Johor Bahru (Menara 2, Coronation Square)",
@@ -49154,7 +50231,7 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 534,
+    "id": 529,
     "company": "Allianz Malaysia",
     "country": "Malaysia",
     "market": "Penang (George Town \u2014 Jalan Kelawai)",
@@ -49185,81 +50262,19 @@ var INITIAL_TRACKER_DATA = [
     }
   },
   {
-    "id": 535,
-    "company": "DHL",
-    "country": "India",
-    "market": "Mumbai",
-    "currentSnapshot": "Named among occupiers with large transactions in H1 2026; building, size unstated \u2014 ongoing leasing activity",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
-    "status": "Watch",
-    "lastChecked": "2026-10-15",
-    "notes": "",
-    "heatScore": 50,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (0d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 5,
-      "typeReason": "General commercial deal (Unstated: 5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 50,
-      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
-  },
-  {
-    "id": 536,
-    "company": "L'Or\u00e9al",
-    "country": "India",
-    "market": "Mumbai",
-    "currentSnapshot": "Named among GCC occupiers leading leasing in H1 2026; building, size unstated \u2014 GCC expansion footprint",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
-    "status": "Watch",
-    "lastChecked": "2026-10-15",
-    "notes": "",
-    "heatScore": 50,
-    "heatScoreBreakdown": {
-      "recencyPts": 40,
-      "recencyReason": "Fresh signal (0d ago)",
-      "sizePts": 0,
-      "sizeReason": "Size undisclosed (0 pts)",
-      "typePts": 5,
-      "typeReason": "General commercial deal (Unstated: 5 pts)",
-      "statusPts": 5,
-      "statusReason": "Monitored account (+5)",
-      "recency": 40,
-      "size": 0,
-      "dealType": 5,
-      "status": 5,
-      "totalScore": 50,
-      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
-    }
-  },
-  {
-    "id": 537,
+    "id": 530,
     "company": "BlackRock",
     "country": "India",
     "market": "Delhi NCR",
-    "currentSnapshot": "Named among GCC occupiers with pre-commitments in H1 2026; building, size unstated \u2014 pre-commitment, not a completed lease",
+    "currentSnapshot": "Pre-commitment in H1 2026 (GCC pre-commitment; building, size unstated) \u2014 forward fit-out pipeline; delivery date unknown.",
     "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "Pre-commitment \u2014 forward fit-out pipeline",
-    "status": "Watch",
+    "change": "New Tracker row (per-market split)",
+    "hasChange": true,
+    "trend": "New",
+    "status": "Active",
     "lastChecked": "2026-10-15",
     "notes": "",
-    "heatScore": 65,
+    "heatScore": 75,
     "heatScoreBreakdown": {
       "recencyPts": 40,
       "recencyReason": "Fresh signal (0d ago)",
@@ -49267,6 +50282,130 @@ var INITIAL_TRACKER_DATA = [
       "sizeReason": "Size undisclosed (0 pts)",
       "typePts": 20,
       "typeReason": "High fit-out demand (Pre-commitment)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 75,
+      "summary": "R:40 + S:0 + T:20 + St:15 = 75"
+    }
+  },
+  {
+    "id": 531,
+    "company": "DHL",
+    "country": "India",
+    "market": "Chennai",
+    "currentSnapshot": "Named among occupiers with large transactions in H1 2026 (Chennai); building, size, deal type unstated \u2014 monitor next expiry cycle.",
+    "previousSnapshot": "",
+    "change": "New Tracker row (per-market split)",
+    "hasChange": true,
+    "trend": "New",
+    "status": "Watch",
+    "lastChecked": "2026-10-15",
+    "notes": "",
+    "heatScore": 50,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    }
+  },
+  {
+    "id": 532,
+    "company": "L'Or\u00e9al",
+    "country": "India",
+    "market": "Hyderabad",
+    "currentSnapshot": "Named among GCC occupiers leading leasing in H1 2026 (Hyderabad); building, size, deal type unstated \u2014 monitor next expiry cycle.",
+    "previousSnapshot": "",
+    "change": "New Tracker row (per-market split)",
+    "hasChange": true,
+    "trend": "New",
+    "status": "Watch",
+    "lastChecked": "2026-10-15",
+    "notes": "",
+    "heatScore": 50,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    }
+  },
+  {
+    "id": 533,
+    "company": "L'Or\u00e9al",
+    "country": "China",
+    "market": "Shanghai",
+    "currentSnapshot": "Renewal signed Q4 2024 \u2014 23,000 sq ft (~2,137 sqm), Jinghua Building, Core Jing'an, Shanghai \u2014 monitor next expiry cycle.",
+    "previousSnapshot": "",
+    "change": "New Tracker row (per-market split)",
+    "hasChange": true,
+    "trend": "New",
+    "status": "Watch",
+    "lastChecked": "2026-10-15",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 15,
+      "sizeReason": "Mid-size fit-out (23,000 sq ft)",
+      "typePts": 5,
+      "typeReason": "Renewal refresh benchmark (5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 15,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:15 + T:5 + St:5 = 65"
+    }
+  },
+  {
+    "id": 534,
+    "company": "Karnataka government agency (unspecified)",
+    "country": "India",
+    "market": "Karnataka",
+    "currentSnapshot": "Tender ~mid-2026 (approximate): 'Hiring of office accommodation on rent'; closed 8 July 2026 \u2014 confirms government office demand flows through Karnataka e-Proc. Marginal row; agency unnamed.",
+    "previousSnapshot": "",
+    "change": "New Tracker row (join completeness)",
+    "hasChange": true,
+    "trend": "New",
+    "status": "Watch",
+    "lastChecked": "2026-10-15",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (1d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
       "statusPts": 5,
       "statusReason": "Monitored account (+5)",
       "recency": 40,
@@ -49413,7 +50552,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "company": "Smartworks",
     "country": "India",
     "market": "Hyderabad",
-    "snapshot": "230,846 sq ft renewed at Aurobindo Galaxy; 5 yrs from 1 Mar 2026 (lease cycle model)",
+    "snapshot": "230,846 sq ft renewed at Aurobindo Galaxy; 5 yrs from 1 Mar 2026",
     "source": "Seeded from country tabs"
   },
   {
@@ -49926,7 +51065,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "company": "Tencent Holdings Ltd",
     "country": "Malaysia",
     "market": "KL Sentral",
-    "snapshot": "Menara 1 Sentrum; new office/regional hub (new office; announced 4Q2025)",
+    "snapshot": "Menara 1 Sentrum; new office/regional hub (announced 4Q2025)",
     "source": "Seeded from country tabs"
   },
   {
@@ -50439,7 +51578,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "company": "Amova Asset Management (ex-Nikko AM)",
     "country": "Japan",
     "market": "Tokyo (Azabudai, Minato-ku)",
-    "snapshot": "HQ moved to Azabudai Hills Mori JP Tower 8F; operations began 2026-09-14 (office size not disclosed)",
+    "snapshot": "HQ moved to Azabudai Hills Mori JP Tower 8F (Minato-ku Azabudai 1-3-1); operations began 2026-09-14; purpose = hybrid-work support + BCP strengthening (office size not disclosed)",
     "source": "Company press release 2026-01-30"
   },
   {
@@ -50529,7 +51668,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "company": "Dharma Productions",
     "country": "Mumbai (Andheri West - Lotus Signature, Veera Desai Rd)",
     "market": "Leased 5,500 sq ft (8th floor), 4-year term at Rs 15L/month (~Rs 7.75 cr total), per Square Yards registration docs (~Sep 2026, approximate)",
-    "snapshot": "Leased 5,500 sq ft (8th floor), 4-year term, per Square Yards registration docs (~Sep 2026, approximate)",
+    "snapshot": "Realty+",
     "source": "https://www.rprealtyplus.com/news-views/dharma-productions-leases-office-in-andheri-for-rs-15-lakh-122135.html"
   },
   {
@@ -50592,7 +51731,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "company": "Exel BPO",
     "country": "Sri Lanka",
     "market": "Expansion announced ~Oct 1, 2026 (approximate): UK-focused outsourcing firm to hire 200+ Sri Lankan talents in next 12 months; MD targets 100% talent-acquisition growth in 2 years",
-    "snapshot": "Expansion announced ~Oct 1, 2026 (approximate): UK-focused outsourcing firm expansion in Colombo",
+    "snapshot": "News (Outsource Accelerator)",
     "source": "https://news.outsourceaccelerator.com/exel-bpo-to-expand-sri-lanka-operations/?__s=f62xzebhtwnconv4r7"
   },
   {
@@ -50909,7 +52048,7 @@ var INITIAL_SOURCES_DATA = [
     "normalPrice": "Quote-based (contact sales)",
     "trustLevel": "High - largest property data-tech partner in Malaysia; enterprise clients include developers, banks, valuers, city planners",
     "databaseSize": "2.1M+ listings; national transaction + geospatial data (MY/SG/TH/VN/ID)",
-    "howToUse": "Territory planning: supply pipeline, transaction trends, valuations. Not tenant-milestone level.",
+    "howToUse": "Territory planning: supply pipeline, transaction trends, valuations. Not tenant-renewal level.",
     "sourceUrl": "https://www.businesstoday.com.my/2022/12/08/propertyguru-unveils-propertyguru-for-business-with-the-aims-to-guide-enterprise-clients/"
   },
   {
@@ -50974,7 +52113,7 @@ var INITIAL_SOURCES_DATA = [
     "normalPrice": "Quote-based (membership tiers - Ultimate/Agent/Developer/Business; prices not published)",
     "trustLevel": "Medium - Sri Lanka's leading property portal (75,000+ leads/month, 150K+ social followers), but listings are advertiser-posted, not verified lease transactions; no lease milestone data",
     "databaseSize": "830+ office rental listings; largest Colombo listings base (3x nearest competitor, per site)",
-    "howToUse": "Wanted' ads reveal active occupier demand; listings show available stock. Supply-side context, not lease milestones.",
+    "howToUse": "Wanted' ads reveal active occupier demand; listings show available stock. Supply-side context, not renewals.",
     "sourceUrl": "https://lankapropertyweb.com/membership-benefits/"
   },
   {
@@ -51052,7 +52191,7 @@ var INITIAL_SOURCES_DATA = [
     "normalPrice": "Quote-based (enterprise tiers; basic property search free)",
     "trustLevel": "High - Korea's #1 office DB with named tier-1 institutional clients (NPS, GIC, Blackstone, PAG, DWS, Samsung Securities, Woori Bank)",
     "databaseSize": "400,000+ buildings (Korea + Vietnam + Singapore); 40M integrated data points; ~7,000 commercial assets in time-series DB; ~1,600 office + ~1,100 logistics buildings surveyed monthly by 80+ field researchers",
-    "howToUse": "Per-building lease milestone dates + floor-level tenant mix - build exact pipeline target lists. The only true lease milestone database in the set.",
+    "howToUse": "Per-building lease milestone dates + floor-level tenant mix - build exact upcoming renewal target lists. The only true lease milestone database in the set.",
     "sourceUrl": "https://en.rsquare.co.kr/rsquare-analytics"
   },
   {
@@ -51156,7 +52295,7 @@ var INITIAL_SOURCES_DATA = [
     "normalPrice": "Free",
     "trustLevel": "Medium-High - registration-data reporting",
     "databaseSize": "Top markets",
-    "howToUse": "Named deals are post-signature: use for fit-out-window (furniture spec) outreach, not pipeline.",
+    "howToUse": "Named deals are post-signature: use for fit-out-window (furniture spec) outreach, not upcoming renewal.",
     "sourceUrl": "https://www.thehindubusinessline.com"
   },
   {
@@ -51455,7 +52594,7 @@ var INITIAL_SOURCES_DATA = [
     "normalPrice": "Quote-based (Free vs Pro tiers; no public price list)",
     "trustLevel": "High - data sourced from certified government registration documents; backed by DMGI (Daily Mail group) + Real Capital Analytics; clients include Blackstone and BNP Paribas; strategic enterprise agreement with CBRE South Asia (Sep 2026)",
     "databaseSize": "Top 7-8 office markets (Mumbai, Delhi-NCR, Bengaluru, Pune, Chennai, Hyderabad, Kolkata); transaction-level registered deed data (no public total published)",
-    "howToUse": "THE lease intelligence database for India: filter registered deeds by end date; build 12-18 month pipeline target lists per city. Highest-ROI paid source in the set.",
+    "howToUse": "THE lease milestone database for India: filter registered deeds by end date; build 12-18 month upcoming renewal target lists per city. Highest-ROI paid source in the set.",
     "sourceUrl": "https://www.propstack.com/terms"
   },
   {
