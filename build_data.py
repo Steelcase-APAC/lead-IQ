@@ -140,49 +140,110 @@ def clean_signal_text(sig):
     s = re.sub(r'countdown', 'timeline', s, flags=re.I)
     s = re.sub(r'renewal-date prediction', 'renewal milestone', s, flags=re.I)
 
-    # 2. Remove out-of-schema headcount / staff figures (Fix 6, Fix 8b)
+    # 2. Specific prompt-audited text repairs (Item 2)
+    # Exel BPO
+    s = re.sub(r'UK-focused outsourcing firm to hire 200\+ Sri Lankan talents in next 12 months; MD targets 100% talent-acquisition growth in 2 years',
+               'UK-focused outsourcing firm expansion announced', s, flags=re.I)
+    # LKN Group
+    s = re.sub(r'\(KL-founded,\s*1,000\+\s*partners\);\s*targets\s*500\s*new\s*advisers\s*in\s*JB\s*by\s*end-2027', '', s, flags=re.I)
+    # Target
+    s = re.sub(r'(?:,\s*|;\s*)?5,700\+\s*team\s*members\b', '', s, flags=re.I)
+    # Adobe
+    s = re.sub(r'(?:,\s*|;\s*)?~?700\+\s*seats\b', '', s, flags=re.I)
+    # Ant International
+    s = re.sub(r'(?:,\s*|;\s*)?~?1,500\s*talents\s*planned\b', '', s, flags=re.I)
+    # The Flexi Group
+    s = re.sub(r'(?:,\s*|;\s*)?250\s*members\b', '', s, flags=re.I)
+    # WORQ
+    s = re.sub(r'(?:,\s*|;\s*)?~?500\s*members\b', '', s, flags=re.I)
+    # Tencent
+    s = re.sub(r',\s*capacity\s+up\s+to\s+\d+[\d,]*\s*staff\s*\(new\s+set-up;\s*', ' (', s, flags=re.I)
+    s = re.sub(r'\bcapacity\s+up\s+to\s+\d+[\d,]*\s*(?:staff|employees|seats|people)?', '', s, flags=re.I)
+    s = re.sub(r'\bcapacity\s+up\s+to\b', '', s, flags=re.I)
+
+    # AmBank / AmFIRST REIT
+    s = re.sub(r'AmFIRST REIT disposing 46-storey Menara AmBank office tower to AmBank \(M\) Bhd.*?completion targeted Q4 2026\)', 
+               'AmBank (M) Bhd acquiring 46-storey Menara AmBank office tower from AmFIRST REIT (completion targeted Q4 2026)', s, flags=re.I)
+
+    # Sri Lanka statutory accounting notes
+    s = re.sub(r'Lease-liability maturity <1 yr:.*', 'Active branch network lease cycle tracked in statutory filings', s, flags=re.I)
+    s = re.sub(r'Group ROU maturity <1 yr:.*', 'Active lease portfolio maturity tracked in statutory filings', s, flags=re.I)
+    s = re.sub(r'Group lease liabilities.*?(?:amalgamation|merger).*', 'Airtel Lanka amalgamation office-consolidation tracked in statutory filings', s, flags=re.I)
+    s = re.sub(r'Group ROU assets.*', 'Group workspace expansion tracked in statutory filings', s, flags=re.I)
+
+    # Broken redaction fragments
+    s = re.sub(r'\bfor\s+(?:\bRM|\bRs\.?|\bUSD|\bEUR|\$)?\s*[\d\.,]+(?:m|bn|cr|b)?(?:\s*cash)?\b', '', s, flags=re.I)
+    s = re.sub(r'\bfor\s*;\b', '', s, flags=re.I)
+    s = re.sub(r'\bto\s*;\b', '', s, flags=re.I)
+
+    # 3. Remove all out-of-schema headcount / staff / seats / members / talents figures
     headcount_patterns = [
-        r'(?:,\s*|;\s*)?\b(?:capacity\s+up\s+to|~?|\d+\s*(?:→|->)\s*)\d+[\d,]*\s*(?:staff|engineers?|employees?|jobs?|professionals?|highly\s+skilled\s+jobs?)\b[^\;\,]*',
-        r'(?:,\s*|;\s*)?\b\d+[\d,]*\+?\s*(?:engineers?|staff|employees?|professionals?|jobs?|highly\s+skilled\s+jobs?)\b[^\;\,]*',
-        r'\(4\s*(?:→|->)\s*50\s*staff\)',
-        r'\(200\+\s*professionals\)',
+        r'(?:,\s*|;\s*)?\b\d+[\d,]*\s*[-–—to]+\s*\d+[\d,]*\s*(?:seats|staff|employees|members|talents|people|advisers)\b',
+        r'(?:,\s*|;\s*)?\b(?:to\s+)?hire\s+\d+[\d,]*\+?\s*(?:Sri\s+Lankan\s+)?(?:talents?|staff|employees?|people)\b[^\;\,]*',
+        r'(?:,\s*|;\s*)?MD\s+targets\s+\d+%\s*(?:talent-acquisition\s+)?growth.*?(?:in\s+\d+\s+years?)?',
+        r'\btargets?\s+\d+[\d,]*\s*(?:new\s+)?(?:advisers?|staff|employees?|talents?|members?)\b[^\;\,]*',
+        r'\(KL-founded,\s*\d+[\d,]*\+?\s*partners\)',
+        r'\b\d+[\d,]*\+?\s*partners\b',
+        r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*team\s+members\b',
+        r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*(?:members|talents planned|talents)\b',
+        r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*seats\b',
+        r'(?:,\s*|;\s*)?~?\d+[\d,]*\+?\s*(?:highly\s+skilled\s+)?(?:jobs|staff|employees|engineers|professionals)\b[^\;\,]*',
+        r'\(\d+\s*(?:→|->)\s*\d+\s*staff\)',
+        r'\(\d+\+?\s*professionals\)',
         r'(?:,\s*|;\s*)?\b10-15\s+staff\b[^\;\,]*',
         r'(?:,\s*|;\s*)?\b15%\s*YoY\s*internal\s*headcount\s*growth\b',
         r'(?:,\s*|;\s*)?\bheadcount\s*(?:\+\d+%|\w+)?\s*(?:YoY|growth)?[^\;\,]*',
         r'to\s+widen\s+office\s+area\s+for\s+headcount\s+growth',
         r'(?:,\s*|;\s*)?staff\s*move-in[^\;\,]*',
         r'could\s+no\s+longer\s+house\s+headcount\s+or\s+client\s+co-creation\s+space',
+        r'could\s+no\s+longer\s+house',
         r'planned\s*~?\d+\s+headcount[^\;\,]*',
         r'suggests\s+further\s+headcount\s+growth[^\;\,]*',
         r'(?:,\s*|;\s*)?~\d+\s+employees\s+consolidated[^\;\,]*',
-        r'(?:,\s*|;\s*)?\d+[\d,]*\+?\s*(?:multilingual\s+)?digital\s+professionals[^\;\,]*'
+        r'(?:,\s*|;\s*)?\d+[\d,]*\+?\s*(?:multilingual\s+)?digital\s+professionals[^\;\,]*',
+        r'~\s*;'
     ]
     for pat in headcount_patterns:
         s = re.sub(pat, '', s, flags=re.I)
 
-    # 3. Remove out-of-schema financial figures presented as deals (Fix 6, Fix 8c)
+    # 4. Remove out-of-schema financial figures presented as deals (with strict word boundaries)
     financial_patterns = [
-        r'(?:,\s*|;\s*)?Rs\s*[\d\.,]+cr(?:\/mo)?[^\;\,]*',
-        r'(?:,\s*|;\s*)?Rs\s*[\d\.,]+(?:bn|m)[^\;\,]*',
-        r'(?:,\s*|;\s*)?RM\s*[\d\.,]+(?:bn|m)[^\;\,]*',
-        r'(?:,\s*|;\s*)?EUR\s*[\d\.,]+m[^\;\,]*',
-        r'(?:,\s*|;\s*)?US\$\s*[\d\.,]+m[^\;\,]*',
+        r'(?:,\s*|;\s*)?~?\s*(?:multi-year\s+lease\s+)?est\.?\s*(?:\bRs\.?|\bRM|\bUSD|\bEUR|\$|₹)\s*[\d\.,]+(?:\s*[-–—]\s*[\d\.,]+)?\s*(?:cr|bn|m|b|lakh)?(?:\/mo|\/month)?\b[^\;\,]*',
+        r'(?:,\s*|;\s*)?~?\s*(?:\bRs\.?|\bRM|\bUSD|\bEUR|\$|₹)\s*[\d\.,]+(?:\s*[-–—]\s*[\d\.,]+)?\s*(?:cr|bn|m|b|lakh)?(?:\/mo|\/month)?\b[^\;\,]*',
         r'(?:,\s*|;\s*)?~\d+\s+trillion\s+won[^\;\,]*',
         r'(?:,\s*|;\s*)?(?:bridge\s+before\s+)?\$[0-9]+B\s*',
         r'(?:,\s*|;\s*)?Group\s+lease\s+liabilities[^\;\,]*',
         r'(?:,\s*|;\s*)?Group\s+ROU\s+assets[^\;\,]*',
         r'(?:,\s*|;\s*)?lease\s+liabilities[^\;\,]*',
-        r'(?:,\s*|;\s*)?ROU\s+assets[^\;\,]*'
+        r'(?:,\s*|;\s*)?ROU\s+assets[^\;\,]*',
+        r'Lease-liability\s+maturity\s*<\s*1\s*yr:[^\;\,]*',
+        r'Group\s+ROU\s+maturity\s*<\s*1\s*yr:[^\;\,]*',
+        r',\d+\.\d+m'
     ]
     for pat in financial_patterns:
         s = re.sub(pat, '', s, flags=re.I)
 
-    # Clean double punctuation and empty parentheses
-    s = re.sub(r';\s*;', ';', s)
-    s = re.sub(r',\s*,', ',', s)
-    s = re.sub(r'\(\s*\)', '', s)
-    s = re.sub(r'\s{2,}', ' ', s)
-    return s.strip(' ;,')
+    # 5. Clean punctuation, empty parentheses, and dangling fragments iteratively
+    for _ in range(3):
+        s = re.sub(r'\(\s*\)', '', s)
+        s = re.sub(r';\s*;+', ';', s)
+        s = re.sub(r',\s*,+', ',', s)
+        s = re.sub(r';\s*,', ';', s)
+        s = re.sub(r',\s*;', ';', s)
+        s = re.sub(r'\(\s*;', '(', s)
+        s = re.sub(r'\(\s*,', '(', s)
+        s = re.sub(r';\s*\)', ')', s)
+        s = re.sub(r',\s*\)', ')', s)
+        s = re.sub(r',\s*\(', ' (', s)
+        s = re.sub(r':\s*;', ':', s)
+        s = re.sub(r':\s*,', ':', s)
+        s = re.sub(r'~\s*;', ';', s)
+        s = re.sub(r'~\s*,', ',', s)
+        s = re.sub(r'~\s*\)', ')', s)
+        s = re.sub(r'\s{2,}', ' ', s)
+
+    return s.strip(' ;,~')
+
 
 def clean_timing_text(timing):
     if not timing: return ''
@@ -407,6 +468,8 @@ def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_n
         return 'Relocation', True, False
     if any(k in c_lower for k in ['intuitive', 'eppendorf', 'aixtron']):
         return 'New lease', True, False
+    if 'commercial bank of ceylon' in c_lower:
+        return 'Unstated', False, False
 
     # Check explicit column if given
     if explicit_type and explicit_type.strip():
@@ -418,17 +481,26 @@ def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_n
 
     text = (signal_str + ' ' + timing_str).lower()
 
-    if any(k in text for k in ['relocat', 'moved to', 'moved into', 'moves into', 'shifting', 'move completed', 'relocation', 'consolidat']):
+    # If broker explicitly noted deal type is unstated / not stated in table, preserve Unstated unless explicit keywords present
+    if re.search(r'deal\s+type\s+(?:un)?stated', signal_str, re.I):
+        return 'Unstated', False, True
+
+    if any(k in text for k in ['relocat', 'moved to', 'moved into', 'moves into', 'shifting', 'move completed', 'relocation', 'consolidat', 'hq moved', 'new dedicated hq']):
         return 'Relocation', False, True
     if any(k in text for k in ['renew', 'extended lease', 'lease extension', 'renewal']):
         return 'Renewal', False, True
-    if any(k in text for k in ['pre-lease', 'pre-leased', 'pre-commit', 'pre-construction', 'bought', 'purchase', 'acquired', 'own-use', 'bought site', 'committed to occupy']):
+    if any(k in text for k in ['pre-lease', 'pre-leased', 'pre-commit', 'pre-construction', 'bought', 'purchase', 'acquired', 'own-use', 'bought site', 'committed to occupy', 'construction from']):
         return 'Pre-commitment', False, True
-    if any(k in text for k in ['expand', 'expansion', 'additional space', 'added level', 'scaling', 'added footprint']):
+    if any(k in text for k in ['expand', 'expansion', 'additional space', 'added level', 'scaling', 'added footprint', 'footprint now']):
         return 'Expansion', False, True
-    if any(k in text for k in ['entered lease agreement', 'signed lease agreement', 'concluded agreement', 'lease agreement', 'new office', 'new set-up', 'inaugurated', 'launched', 'first permanent', 'opened new', 'new branch', 'new facility', 'new hq', 'opened super center']):
-        return 'New lease', False, True
-    if any(k in text for k in ['tender', 'renting commercial space']):
+    if any(k in text for k in [
+        'leased', 'leasing', 'lease transaction', 'signed lease', 'lease agreement', 'entered lease',
+        'two leases', 'multi-year lease', 'lease signed', 'new lease', 'new entry at', 'new office',
+        'new set-up', 'inaugurated', 'launched', 'first permanent', 'opened new', 'new branch',
+        'new facility', 'new hq', 'opened super center', 'tender', 'renting commercial space',
+        'rent-free', 'rent from', '-yr lease', 'year lease', 'lease starts', 'takes', 'taken up', 'secured space',
+        'new gcc', 'new centre', 'new center', 'new campus', 'new r&d', 'new engineering', 'office opened'
+    ]) or re.search(r'\b\d+\s*[-–—]?\s*(?:yr|year)s?\b', text) or re.search(r'\b\d+y\d*m?\b', text):
         return 'New lease', False, True
 
     return 'Unstated', False, True
@@ -488,7 +560,9 @@ def compute_fitout_window(comp, country, sig, timing, deal_date, deal_quarter, d
     c_lower = comp.lower()
     t_text = (timing + ' ' + sig).lower()
 
-    # Fix 3 specific target overrides
+    # Fix 3 & Round 3 specific target overrides
+    if 'nippon system technology' in c_lower:
+        return '1 Year' # planned during FY2026 (by ~2027-03)
     if 'jp morgan' in c_lower and ('goisu' in t_text or 'bkc' in t_text or '1.16l' in t_text):
         return '0–60 Days' # Q4 2026 handover NOW
     if 'intuitive' in c_lower and 'malaysia' in country.lower():
@@ -711,6 +785,16 @@ def build_all():
             for idx, r in enumerate(rows[1:]):
                 if not r or not any(r) or not r[0].strip(): continue
                 comp = clean_company_name(r[0])
+
+                # Item 3: Omit garbled BTDUex scraper artifact
+                if comp.lower() == 'btduex':
+                    continue
+
+                # Item 5: Exclude non-deal rows uniformly from corporate accounts
+                is_non_deal = comp.lower() in NON_DEAL_COMPANIES or any(nd in comp.lower() for nd in ['(mfrs 16', 'mida-approved', 'structural)', 'directory (baseline'])
+                if is_non_deal:
+                    continue
+
                 country_raw = r[1].strip() if len(r)>1 else ''
                 market_raw = r[2].strip() if len(r)>2 else ''
                 curr_snap = clean_signal_text(r[3].strip() if len(r)>3 else '')
@@ -774,7 +858,7 @@ def build_all():
                 mkt = r[3].strip() if len(r)>3 else ''
                 snap = clean_signal_text(r[4].strip() if len(r)>4 else '')
                 src = r[5].strip() if len(r)>5 else ''
-                if not comp: continue
+                if not comp or comp.lower() == 'btduex': continue
 
                 snapshots_records.append({
                     'id': idx + 1,
@@ -822,6 +906,7 @@ def build_all():
 
     # 4. Parse Market Tabs (Country Leads - 545 raw rows)
     all_leads = []
+    non_deal_signals = []
     lead_id = 1
     building_cluster_counts = {}
     pwc_malaysia_merged = False
@@ -853,6 +938,12 @@ def build_all():
 
             for r in raw_data_rows:
                 comp = clean_company_name(r[0])
+
+                # Item 3: Omit garbled BTDUex scraper row
+                if comp.lower() == 'btduex':
+                    print("  [Omit] Dropped garbled BTDUex scraper row as per Item 3.")
+                    continue
+
                 mkt = r[1].strip() if len(r)>1 else ''
                 explicit_bldg = r[2].strip() if len(r)>2 else ''
                 explicit_size = r[3].strip() if len(r)>3 else ''
@@ -864,7 +955,7 @@ def build_all():
                 timing_raw = r[9].strip() if len(r)>9 else ''
                 date_found = r[10].strip() if len(r)>10 else '2026-10-14'
 
-                # Flag non-deal accounting / structural rows (Fix 8c, 8d)
+                # Flag non-deal accounting / structural rows (Fix 8c, 8d, Item 5)
                 is_non_deal = comp.lower() in NON_DEAL_COMPANIES or any(nd in comp.lower() for nd in ['(mfrs 16', 'mida-approved', 'structural)', 'directory (baseline'])
 
                 # Fix 4: Deduplicate PwC Malaysia Menara Ethos
@@ -969,8 +1060,11 @@ def build_all():
                 if lead_record['sourceRowsMerged'] == 2:
                     lead_record['auditNote'] = "Merged 2 source rows: initial pre-construction announcement and construction contract update for Menara Ethos HQ."
 
-                all_leads.append(lead_record)
-                lead_id += 1
+                if is_non_deal:
+                    non_deal_signals.append(lead_record)
+                else:
+                    all_leads.append(lead_record)
+                    lead_id += 1
 
     # Map primary lead's heat score to tracker record
     lead_by_comp_country = {}
@@ -1002,8 +1096,12 @@ def build_all():
 
     # Compute high-level metrics
     total_raw_rows = sum(per_country_raw_counts.values()) # 545
-    distinct_opportunities = len(all_leads) # 544
-    unique_companies = len(tracker_records) # 534 corporate accounts
+    distinct_opportunities = len(all_leads) # 535 verified commercial deals
+    unique_companies = len(tracker_records) # 531 corporate accounts (single-source)
+
+    per_country_deal_counts = {}
+    for l in all_leads:
+        per_country_deal_counts[l['country']] = per_country_deal_counts.get(l['country'], 0) + 1
 
     disclosed_sizes = [l['areaSqFt'] for l in all_leads if l['areaSqFt'] is not None and not l['isNonDealRow']]
     total_disclosed_sqft = sum(disclosed_sizes)
@@ -1014,35 +1112,38 @@ def build_all():
     database_metrics = {
         'totalTrackedRows': total_raw_rows,
         'totalDeals': distinct_opportunities,
+        'nonDealSignalsCount': len(non_deal_signals),
         'uniqueCompanies': unique_companies,
-        'uniqueAccountsBreakdown': '534 monitored corporate accounts (reconciles 540 lead pairs with 6 non-deal structural rows excluded)',
+        'uniqueAccountsBreakdown': f"{unique_companies} monitored corporate accounts ({len(non_deal_signals)} non-deal macro/accounting signals excluded)",
         'accountStatuses': {
             'active': sum(1 for t in tracker_records if t['status'] == 'Active'),
             'watch': sum(1 for t in tracker_records if t['status'] == 'Watch'),
             'engaged': sum(1 for t in tracker_records if t['status'] == 'Engaged')
         },
         'perCountryRows': per_country_raw_counts,
+        'perCountryDeals': per_country_deal_counts,
         'totalDisclosedSqFt': total_disclosed_sqft,
         'totalDisclosedSqFtFormatted': f"{total_disclosed_sqft / 1000000:.1f}M sq ft",
         'buildingDisclosureRate': round(building_disclosure_rate, 1),
         'sizeDisclosureRate': round(size_disclosure_rate, 1),
         'typeDisclosureRate': round(type_disclosure_rate, 1),
         'multiTenantHubsCount': len(cluster_buildings),
-        'zeroToSixtyCount': sum(1 for l in all_leads if l['fitoutWindow'] == '0–60 Days' and not l['isNonDealRow']),
-        'oneYearCount': sum(1 for l in all_leads if l['fitoutWindow'] == '1 Year' and not l['isNonDealRow']),
-        'twoYearsCount': sum(1 for l in all_leads if l['fitoutWindow'] == '2 Years' and not l['isNonDealRow']),
-        'threeYearsAboveCount': sum(1 for l in all_leads if l['fitoutWindow'] == '3 Years & Above' and not l['isNonDealRow']),
+        'zeroToSixtyCount': sum(1 for l in all_leads if l['fitoutWindow'] == '0–60 Days'),
+        'oneYearCount': sum(1 for l in all_leads if l['fitoutWindow'] == '1 Year'),
+        'twoYearsCount': sum(1 for l in all_leads if l['fitoutWindow'] == '2 Years'),
+        'threeYearsAboveCount': sum(1 for l in all_leads if l['fitoutWindow'] == '3 Years & Above'),
         'timingUnknownCount': sum(1 for l in all_leads if l['fitoutWindow'] == 'Timing unknown'),
         'disclaimerNotice': 'Disclosed sizes only — partial total. Never implies unstated leases are zero.',
         'knownBoundaries': {
             'japanMalaysiaRenewals': 'Japan has 0 lease renewals recorded (relocation focus). Malaysia records 0 physical office renewals (1 non-deal MFRS 16 accounting disclosure excluded).',
-            'chinaRenewals': 'China renewals reflect historical reference benchmarks (Q3 2022 – Q4 2024); recent 2025–2026 deals reflect high-confidence relocations & owner purchases.',
+            'chinaRenewals': 'China renewals reflect historical reference benchmarks (Q3 2022 – Q4 2024); recent 2025–2026 deals reflect high-confidence relocations, new leases & pre-commitments.',
             'indiaLeases': 'High transaction volume via ANAROCK and corporate filings; unstated deal types are treated conservatively and excluded from relocation totals.'
         }
     }
 
     print(f"Total tracked rows: {total_raw_rows} (India: {per_country_raw_counts['India']}, Sri Lanka: {per_country_raw_counts['Sri Lanka']}, Malaysia: {per_country_raw_counts['Malaysia']}, Japan: {per_country_raw_counts['Japan']}, Korea: {per_country_raw_counts['Korea']}, China: {per_country_raw_counts['China']})")
-    print(f"Distinct opportunities after PwC dedupe: {distinct_opportunities}")
+    print(f"Distinct commercial deals: {distinct_opportunities}")
+    print(f"Non-deal macro/accounting signals: {len(non_deal_signals)}")
     print(f"Corporate accounts (single-source): {unique_companies} (Active: {database_metrics['accountStatuses']['active']}, Watch: {database_metrics['accountStatuses']['watch']}, Engaged: {database_metrics['accountStatuses']['engaged']})")
     print(f"Disclosed footprint: {database_metrics['totalDisclosedSqFtFormatted']}")
     print(f"Building disclosure: {database_metrics['buildingDisclosureRate']}%")
@@ -1071,6 +1172,8 @@ def build_all():
         f.write(f"if (typeof window !== 'undefined') window.INITIAL_METRICS = INITIAL_METRICS;\n\n")
         f.write(f"var INITIAL_LEADS_DATA = {json.dumps(all_leads, indent=2)};\n")
         f.write(f"if (typeof window !== 'undefined') window.INITIAL_LEADS_DATA = INITIAL_LEADS_DATA;\n\n")
+        f.write(f"var INITIAL_NON_DEAL_SIGNALS = {json.dumps(non_deal_signals, indent=2)};\n")
+        f.write(f"if (typeof window !== 'undefined') window.INITIAL_NON_DEAL_SIGNALS = INITIAL_NON_DEAL_SIGNALS;\n\n")
         f.write(f"var INITIAL_TRACKER_DATA = {json.dumps(tracker_records, indent=2)};\n")
         f.write(f"if (typeof window !== 'undefined') window.INITIAL_TRACKER_DATA = INITIAL_TRACKER_DATA;\n\n")
         f.write(f"var INITIAL_SNAPSHOTS_DATA = {json.dumps(snapshots_records, indent=2)};\n")

@@ -467,8 +467,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dedup unique corporate accounts (Single-source: 534)
     if (state.activeCountry === 'ALL') {
-      kpiUniqueCompanies.textContent = (state.metrics.uniqueCompanies || 534).toLocaleString();
-      kpiCompaniesSub.textContent = '534 monitored corporate accounts (6 non-deal rows excluded)';
+      kpiUniqueCompanies.textContent = (state.metrics.uniqueCompanies || 531).toLocaleString();
+      kpiCompaniesSub.textContent = `${state.metrics.uniqueCompanies || 531} monitored corporate accounts (8 non-deal macro/accounting signals excluded)`;
     } else {
       const countryAccounts = state.tracker.filter(t => t.country.toLowerCase() === state.activeCountry.toLowerCase());
       kpiUniqueCompanies.textContent = countryAccounts.length.toLocaleString();
@@ -1522,7 +1522,7 @@ document.addEventListener('DOMContentLoaded', () => {
         count060: relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length,
         count1Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '1 Year' || l.fitoutWindow === '1-Year: Scoping & Probing').length,
         count2Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '2 Years' || l.fitoutWindow === '2-Year: Relationship Building').length,
-        count3Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above' || l.fitoutWindow === 'Pre-Lease Pipeline').length,
+        count3Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above').length,
         countUnknown: relevantTotalLeads.filter(l => l.fitoutWindow === 'Timing unknown').length
       };
     }
@@ -1532,7 +1532,7 @@ document.addEventListener('DOMContentLoaded', () => {
       '0–60 Days': { icon: '⚡', label: '0–60 Days', count: counts.count060, heading: '⚡ 0–60 Days Prime Fit-Out Execution Window' },
       '1 Year': { icon: '🎯', label: '1 Year', count: counts.count1Yr, heading: '🎯 1-Year Scoping & Probing Pipeline' },
       '2 Years': { icon: '🤝', label: '2 Years', count: counts.count2Yr, heading: '🤝 2-Year Relationship Building Pipeline' },
-      '3 Years & Above': { icon: '🔮', label: '3 Years & Above', count: counts.count3Yr, heading: '🔮 3+ Years Strategic & Pre-Lease Pipeline' },
+      '3 Years & Above': { icon: '🔮', label: '3 Years & Above', count: counts.count3Yr, heading: '🔮 3+ Years Strategic & Pre-commitment Pipeline' },
       'Timing unknown': { icon: '⏱️', label: 'Timing unknown', count: counts.countUnknown, heading: '⏱️ Pipeline With Timing Unknown' }
     };
 
