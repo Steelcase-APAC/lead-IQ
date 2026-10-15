@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabCoverageBtn = document.getElementById('tabCoverageBtn');
   const tabTrackerCount = document.getElementById('tabTrackerCount');
   const tabHubsCount = document.getElementById('tabHubsCount');
+  const appVersionBadge = document.getElementById('appVersionBadge');
 
   // Views
   const viewRadar = document.getElementById('viewRadar');
@@ -248,6 +249,12 @@ document.addEventListener('DOMContentLoaded', () => {
     state.theme = state.theme === 'dark' ? 'light' : 'dark';
     applyTheme(state.theme);
   });
+
+  // App Version Badge
+  if (appVersionBadge) {
+    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.21');
+    appVersionBadge.textContent = `v${ver}`;
+  }
 
   // Toast Notification Helper
   function showToast(message, icon = '✓') {

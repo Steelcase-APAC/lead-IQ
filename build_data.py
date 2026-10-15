@@ -1143,7 +1143,16 @@ def build_all():
     size_disclosure_rate = len(disclosed_sizes) / distinct_opportunities * 100
     type_disclosure_rate = sum(1 for l in all_leads if l['dealType'] != 'Unstated' and not l['isNonDealRow']) / distinct_opportunities * 100
 
+    app_version = '2.21'
+    if os.path.exists('version.json'):
+        try:
+            with open('version.json', 'r', encoding='utf-8') as vf:
+                app_version = str(json.load(vf).get('version', '2.21'))
+        except Exception:
+            pass
+
     database_metrics = {
+        'version': app_version,
         'totalTrackedRows': raw_total,
         'totalDeals': distinct_opportunities,
         'nonDealSignalsCount': non_deal_count,
@@ -1185,6 +1194,7 @@ def build_all():
     print(f"Building disclosure: {database_metrics['buildingDisclosureRate']}%")
     print(f"Size disclosure: {database_metrics['sizeDisclosureRate']}%")
     print(f"Type disclosure: {database_metrics['typeDisclosureRate']}%")
+    print(f"Lead-IQ Version: v{app_version}")
 
     # Output to data.js
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -1202,6 +1212,8 @@ def build_all():
     with open(data_js_path, 'w', encoding='utf-8') as f:
         f.write(f"// Lease-IQ Master Data Engine - Built {timestamp}\n")
         f.write(f"// Auto-compiled from 9 Google Sheet / CSV source feeds\n\n")
+        f.write(f"var APP_VERSION = \"{app_version}\";\n")
+        f.write(f"if (typeof window !== 'undefined') window.APP_VERSION = APP_VERSION;\n\n")
         f.write(f"var GOOGLE_SHEET_CONFIG = {json.dumps(sheet_config, indent=2)};\n")
         f.write(f"if (typeof window !== 'undefined') window.GOOGLE_SHEET_CONFIG = GOOGLE_SHEET_CONFIG;\n\n")
         f.write(f"var INITIAL_METRICS = {json.dumps(database_metrics, indent=2)};\n")
