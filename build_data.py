@@ -994,13 +994,23 @@ def build_all():
         'India': 0, 'Sri Lanka': 0, 'Malaysia': 0, 'Japan': 0, 'Korea': 0, 'China': 0
     }
 
+    # Explicit known country tabs - auxiliary tabs (like Source Sweep, Snapshots, Tracker, Sources) are safely ignored
+    KNOWN_COUNTRY_TABS = {
+        'india.csv': 'India',
+        'sri_lanka.csv': 'Sri Lanka',
+        'malaysia.csv': 'Malaysia',
+        'japan.csv': 'Japan',
+        'korea.csv': 'Korea',
+        'china.csv': 'China'
+    }
+
     market_files = sorted(glob.glob('data/*.csv'))
     for f in market_files:
         basename = os.path.basename(f)
-        if basename in ('company_tracker.csv', 'snapshots.csv', 'sources.csv'):
+        if basename.lower() not in KNOWN_COUNTRY_TABS:
             continue
-        country_name = basename.replace('.csv', '').replace('_', ' ').title()
-        if country_name == 'South Korea': country_name = 'Korea'
+        country_name = KNOWN_COUNTRY_TABS[basename.lower()]
+
         meta = COUNTRY_METADATA_REGISTRY.get(country_name, {
             'code': country_name[:2].upper(),
             'flag': '🌐',
