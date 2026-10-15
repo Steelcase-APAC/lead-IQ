@@ -1,60 +1,111 @@
-// Lease-IQ - Executive Overview Controller
-// Preserves all scorecards, 4 charts, country tabs, and Company Tracker
-// Adopts the clean black-and-white minimalist design language
+// Steelcase APAC Lease-IQ - Sales Radar & Executive Dashboard Controller
+// 10 Core Capabilities, Dual-Layer Parser Support, and PlannerHub Minimalist Outlines
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Application State
+  // =========================================================
+  // 1. APPLICATION STATE
+  // =========================================================
   const state = {
     theme: localStorage.getItem('cre_theme') || 'light',
-    activeTab: 'deals', // 'deals' or 'tracker'
-    activeCountry: 'Malaysia',
-    leads: Array.isArray(INITIAL_LEADS_DATA) ? [...INITIAL_LEADS_DATA] : [],
+    activeView: 'analytics', // 'analytics' (default home page) | 'radar' | 'scoping' | 'relationship' | 'tracker' | 'hubs' | 'coverage'
+    activeCountry: 'ALL',
+    radarViewMode: 'table', // 'table' (default in Sales Radar) | 'card'
+    radarSort: 'heat', // 'heat' | 'recency' | 'size' | 'company'
+    analyticsTimelineMode: 'deal', // 'deal' | 'found'
+    analyticsHubMetric: 'deals', // 'deals' | 'sqft'
+    filters: {
+      search: '',
+      submarket: 'ALL',
+      dealType: 'ALL',
+      window: 'ALL',
+      sizeTier: 'ALL',
+      status: 'ALL'
+    },
+    leads: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_LEADS_DATA) && window.INITIAL_LEADS_DATA.length) 
+           ? [...window.INITIAL_LEADS_DATA] 
+           : (typeof INITIAL_LEADS_DATA !== 'undefined' && Array.isArray(INITIAL_LEADS_DATA) ? [...INITIAL_LEADS_DATA] : []),
     filteredLeads: [],
-    tracker: Array.isArray(INITIAL_TRACKER_DATA) ? [...INITIAL_TRACKER_DATA] : [],
+    tracker: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_TRACKER_DATA) && window.INITIAL_TRACKER_DATA.length)
+           ? [...window.INITIAL_TRACKER_DATA]
+           : (typeof INITIAL_TRACKER_DATA !== 'undefined' && Array.isArray(INITIAL_TRACKER_DATA) ? [...INITIAL_TRACKER_DATA] : []),
     filteredTracker: [],
-    dealsViewMode: 'table', // 'table' or 'card'
-    dealsFilters: {
-      search: '',
-      city: 'ALL',
-      sector: 'ALL',
-      urgency: 'ALL'
-    },
-    trackerFilters: {
-      search: '',
-      country: 'ALL',
-      status: 'ALL',
-      change: 'ALL'
-    },
-    hubMetric: 'deals', // 'deals' or 'sqft'
-    charts: {}
+    snapshots: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_SNAPSHOTS_DATA) && window.INITIAL_SNAPSHOTS_DATA.length)
+           ? [...window.INITIAL_SNAPSHOTS_DATA]
+           : (typeof INITIAL_SNAPSHOTS_DATA !== 'undefined' && Array.isArray(INITIAL_SNAPSHOTS_DATA) ? [...INITIAL_SNAPSHOTS_DATA] : []),
+    sources: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_SOURCES_DATA) && window.INITIAL_SOURCES_DATA.length)
+           ? [...window.INITIAL_SOURCES_DATA]
+           : (typeof INITIAL_SOURCES_DATA !== 'undefined' && Array.isArray(INITIAL_SOURCES_DATA) ? [...INITIAL_SOURCES_DATA] : []),
+    metrics: (typeof window !== 'undefined' && window.INITIAL_METRICS && Object.keys(window.INITIAL_METRICS).length)
+           ? window.INITIAL_METRICS
+           : (typeof INITIAL_METRICS !== 'undefined' ? INITIAL_METRICS : {}),
+    userStatuses: JSON.parse(localStorage.getItem('cre_user_statuses') || '{}'),
+    userNotes: JSON.parse(localStorage.getItem('cre_user_notes') || '{}'),
+    charts: {},
+    activeDossierCompany: null
   };
 
-  // Restore cached sync if available
-  const cachedSync = localStorage.getItem('cre_cached_sync');
-  if (cachedSync) {
-    try {
-      const parsed = JSON.parse(cachedSync);
-      if (parsed && parsed.leads && parsed.tracker) {
-        state.leads = parsed.leads;
-        state.tracker = parsed.tracker;
-        if (parsed.lastSynced) {
-          const syncEl = document.getElementById('syncTimestamp');
-          if (syncEl) syncEl.textContent = `Synced: ${parsed.lastSynced}`;
+  // If leads empty on init, immediately auto-fetch from /api/sync
+  if (state.leads.length === 0) {
+    fetch('/api/sync')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.leads && data.leads.length > 0) {
+          state.leads = data.leads;
+          state.tracker = data.tracker || state.tracker;
+          state.snapshots = data.snapshots || state.snapshots;
+          state.sources = data.sources || state.sources;
+          state.metrics = data.metrics || state.metrics;
+          applyUserOverrides();
+          populateSubmarketsDropdown();
+          filterAndSortLeads();
         }
-      }
-    } catch (e) {
-      console.warn('Cache warning:', e);
-    }
+      })
+      .catch(err => console.warn('Sync fallback error:', err));
   }
 
-  // DOM Elements - Navigation & Actions
-  const tabDealsBtn = document.getElementById('tabDealsBtn');
-  const tabTrackerBtn = document.getElementById('tabTrackerBtn');
-  const tabDealsCount = document.getElementById('tabDealsCount');
-  const tabTrackerCount = document.getElementById('tabTrackerCount');
-  const viewDeals = document.getElementById('viewDeals');
-  const viewTracker = document.getElementById('viewTracker');
+  // Apply user status overrides to leads and tracker
+  function applyUserOverrides() {
+    state.leads.forEach(lead => {
+      const customStatus = state.userStatuses[lead.company];
+      if (customStatus) {
+        lead.trackerStatus = customStatus;
+        // Recalculate heat score modifier
+        const baseScore = lead.heatScore - (lead.heatScoreBreakdown ? lead.heatScoreBreakdown.statusPts : 0);
+        let newStatusPts = 5;
+        let newStatusReason = 'Monitored account (+5)';
+        if (customStatus === 'Active') {
+          newStatusPts = 15;
+          newStatusReason = 'Active sales priority (+15)';
+        } else if (customStatus === 'Engaged') {
+          newStatusPts = -20;
+          newStatusReason = 'Already in active sales discussions (-20)';
+        }
+        lead.heatScore = Math.max(0, Math.min(100, baseScore + newStatusPts));
+        if (lead.heatScoreBreakdown) {
+          lead.heatScoreBreakdown.statusPts = newStatusPts;
+          lead.heatScoreBreakdown.statusReason = newStatusReason;
+          lead.heatScoreBreakdown.totalScore = lead.heatScore;
+        }
+      }
+      if (state.userNotes[lead.company]) {
+        lead.trackerNotes = state.userNotes[lead.company];
+      }
+    });
 
+    state.tracker.forEach(t => {
+      if (state.userStatuses[t.company]) {
+        t.status = state.userStatuses[t.company];
+      }
+      if (state.userNotes[t.company]) {
+        t.notes = state.userNotes[t.company];
+      }
+    });
+  }
+  applyUserOverrides();
+
+  // =========================================================
+  // 2. DOM ELEMENT REFERENCES
+  // =========================================================
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIcon = document.getElementById('themeIcon');
   const btnSyncRefresh = document.getElementById('btnSyncRefresh');
@@ -62,932 +113,1593 @@ document.addEventListener('DOMContentLoaded', () => {
   const syncTimestamp = document.getElementById('syncTimestamp');
   const btnExportCsv = document.getElementById('btnExportCsv');
 
-  // Country Selector (Header Dropdown)
+  // Navigation
   const countrySelect = document.getElementById('countrySelect');
   const headerMarketFlag = document.getElementById('headerMarketFlag');
-  const activeCountryBadge = document.getElementById('activeCountryBadge');
+  const tabAnalyticsBtn = document.getElementById('tabAnalyticsBtn');
+  const navRadarDropdownWrap = document.getElementById('navRadarDropdownWrap');
+  const tabRadarDropdownBtn = document.getElementById('tabRadarDropdownBtn');
+  const radarDropdownIcon = document.getElementById('radarDropdownIcon');
+  const radarDropdownLabel = document.getElementById('radarDropdownLabel');
+  const radarDropdownBadge = document.getElementById('radarDropdownBadge');
+  const navRadarDropdownMenu = document.getElementById('navRadarDropdownMenu');
+  const dropCountAll = document.getElementById('dropCountAll');
+  const dropCount060 = document.getElementById('dropCount060');
+  const dropCount1Yr = document.getElementById('dropCount1Yr');
+  const dropCount2Yr = document.getElementById('dropCount2Yr');
+  const dropCount3Yr = document.getElementById('dropCount3Yr');
+  const tabTrackerBtn = document.getElementById('tabTrackerBtn');
+  const tabHubsBtn = document.getElementById('tabHubsBtn');
+  const tabCoverageBtn = document.getElementById('tabCoverageBtn');
+  const tabTrackerCount = document.getElementById('tabTrackerCount');
+  const tabHubsCount = document.getElementById('tabHubsCount');
 
-  // Deals Scorecards
-  const kpiTotalDeals = document.getElementById('kpiTotalDeals');
-  const kpiDealsSubtitle = document.getElementById('kpiDealsSubtitle');
+  // Views
+  const viewRadar = document.getElementById('viewRadar');
+  const viewAnalytics = document.getElementById('viewAnalytics');
+  const viewTracker = document.getElementById('viewTracker');
+  const viewHubs = document.getElementById('viewHubs');
+  const viewCoverage = document.getElementById('viewCoverage');
+  const radarViewHeading = document.getElementById('radarViewHeading');
+
+  // Scorecards
+  const kpiUniqueCompanies = document.getElementById('kpiUniqueCompanies');
+  const kpiCompaniesSub = document.getElementById('kpiCompaniesSub');
   const kpiTotalSqFt = document.getElementById('kpiTotalSqFt');
-  const kpiImmediate = document.getElementById('kpiImmediate');
-  const kpiImmediateBar = document.getElementById('kpiImmediateBar');
-  const kpiImmediateSubtitle = document.getElementById('kpiImmediateSubtitle');
-  const kpiPipeline = document.getElementById('kpiPipeline');
-  const kpiDealValue = document.getElementById('kpiDealValue');
-  const kpiCurrencySubtitle = document.getElementById('kpiCurrencySubtitle');
-  const chartCityTitle = document.getElementById('chartCityTitle');
-  const chartCitySubtitle = document.getElementById('chartCitySubtitle');
+  const kpiHighPriority = document.getElementById('kpiHighPriority');
+  const kpiHighPriorityBar = document.getElementById('kpiHighPriorityBar');
+  const kpiHighPrioritySub = document.getElementById('kpiHighPrioritySub');
+  const kpiMultiTenantHubs = document.getElementById('kpiMultiTenantHubs');
+  const kpiActiveMarkets = document.getElementById('kpiActiveMarkets');
+  const kpiMarketBreakdown = document.getElementById('kpiMarketBreakdown');
+
+  // Filter Bar
+  const globalSearchInput = document.getElementById('globalSearchInput');
+  const filterSubmarket = document.getElementById('filterSubmarket');
+  const filterDealType = document.getElementById('filterDealType');
+  const filterWindow = document.getElementById('filterWindow');
+  const filterSizeTier = document.getElementById('filterSizeTier');
+  const filterStatus = document.getElementById('filterStatus');
+  const btnResetFilters = document.getElementById('btnResetFilters');
+
+  // Radar Controls & Containers
+  const radarVisibleCount = document.getElementById('radarVisibleCount');
+  const radarTotalCount = document.getElementById('radarTotalCount');
+  const activeFilterBadge = document.getElementById('activeFilterBadge');
+  const radarSortSelect = document.getElementById('radarSortSelect');
+  const btnRadarCardView = document.getElementById('btnRadarCardView');
+  const btnRadarTableView = document.getElementById('btnRadarTableView');
+  const radarCardsGrid = document.getElementById('radarCardsGrid');
+  const radarTableContainer = document.getElementById('radarTableContainer');
+  const radarTableBody = document.getElementById('radarTableBody');
+  const radarEmptyState = document.getElementById('radarEmptyState');
+
+  // Analytics Controls & Chart Canvases
+  const btnTimelineDealDate = document.getElementById('btnTimelineDealDate');
+  const btnTimelineFoundDate = document.getElementById('btnTimelineFoundDate');
+  const chartTimelineTitle = document.getElementById('chartTimelineTitle');
+  const chartTimelineSub = document.getElementById('chartTimelineSub');
   const btnHubDeals = document.getElementById('btnHubDeals');
   const btnHubSqft = document.getElementById('btnHubSqft');
-
-  // Deals Filters & Controls
-  const dealsSearchInput = document.getElementById('dealsSearchInput');
-  const dealsCityFilter = document.getElementById('dealsCityFilter');
-  const dealsSectorFilter = document.getElementById('dealsSectorFilter');
-  const dealsUrgencyFilter = document.getElementById('dealsUrgencyFilter');
-  const btnResetDealsFilters = document.getElementById('btnResetDealsFilters');
-  const dealsVisibleCount = document.getElementById('dealsVisibleCount');
-  const dealsTotalCount = document.getElementById('dealsTotalCount');
-
-  const btnTableView = document.getElementById('btnTableView');
-  const btnCardView = document.getElementById('btnCardView');
-  const tableViewContainer = document.getElementById('tableViewContainer');
-  const cardViewContainer = document.getElementById('cardViewContainer');
-  const dealsTableBody = document.getElementById('dealsTableBody');
-  const dealsEmptyState = document.getElementById('dealsEmptyState');
+  const timelineCanvas = document.getElementById('timelineChart');
+  const submarketCanvas = document.getElementById('submarketChart');
+  const dealTypeCanvas = document.getElementById('dealTypeChart');
+  const sizeHistogramCanvas = document.getElementById('sizeHistogramChart');
 
   // Tracker Elements
   const kpiTrackerTotal = document.getElementById('kpiTrackerTotal');
   const kpiTrackerActive = document.getElementById('kpiTrackerActive');
   const kpiTrackerWatch = document.getElementById('kpiTrackerWatch');
-  const deltaFeedList = document.getElementById('deltaFeedList');
+  const kpiTrackerEngaged = document.getElementById('kpiTrackerEngaged');
   const deltaFeedCount = document.getElementById('deltaFeedCount');
-
-  const trackerSearchInput = document.getElementById('trackerSearchInput');
-  const trackerCountryFilter = document.getElementById('trackerCountryFilter');
-  const trackerStatusFilter = document.getElementById('trackerStatusFilter');
-  const trackerChangeFilter = document.getElementById('trackerChangeFilter');
-  const btnResetTrackerFilters = document.getElementById('btnResetTrackerFilters');
+  const deltaFeedList = document.getElementById('deltaFeedList');
   const trackerTableBody = document.getElementById('trackerTableBody');
 
-  // Modals
-  const dealModal = document.getElementById('dealModal');
-  const dealModalCloseBtn = document.getElementById('dealModalCloseBtn');
-  const trackerModal = document.getElementById('trackerModal');
-  const trackerModalCloseBtn = document.getElementById('trackerModalCloseBtn');
+  // Hubs Elements
+  const hubsCountPill = document.getElementById('hubsCountPill');
+  const hubsCatalogGrid = document.getElementById('hubsCatalogGrid');
 
-  // Initialize Theme
+  // Coverage Elements
+  const gaugeBuildingRate = document.getElementById('gaugeBuildingRate');
+  const gaugeBuildingBar = document.getElementById('gaugeBuildingBar');
+  const gaugeSizeRate = document.getElementById('gaugeSizeRate');
+  const gaugeSizeBar = document.getElementById('gaugeSizeBar');
+  const gaugeTypeRate = document.getElementById('gaugeTypeRate');
+  const gaugeTypeBar = document.getElementById('gaugeTypeBar');
+  const gaugeSourcesCount = document.getElementById('gaugeSourcesCount');
+  const sourcesSearchInput = document.getElementById('sourcesSearchInput');
+  const sourcesTableBody = document.getElementById('sourcesTableBody');
+
+  // Dossier Modal Elements
+  const company360Modal = document.getElementById('company360Modal');
+  const modal360CloseBtn = document.getElementById('modal360CloseBtn');
+  const dossierCompanyTitle = document.getElementById('dossierCompanyTitle');
+  const dossierMarketSub = document.getElementById('dossierMarketSub');
+  const dossierStatusBadge = document.getElementById('dossierStatusBadge');
+  const dossierCountryBadge = document.getElementById('dossierCountryBadge');
+  const dossierSectorBadge = document.getElementById('dossierSectorBadge');
+  const dossierHeatScoreBadge = document.getElementById('dossierHeatScoreBadge');
+  const dossierPitchText = document.getElementById('dossierPitchText');
+  const btnCopyDossierPitch = document.getElementById('btnCopyDossierPitch');
+  const dossierDealsCount = document.getElementById('dossierDealsCount');
+  const dossierDealsList = document.getElementById('dossierDealsList');
+  const dossierSnapshotsCount = document.getElementById('dossierSnapshotsCount');
+  const dossierSnapshotsList = document.getElementById('dossierSnapshotsList');
+  const dossierStatusSelect = document.getElementById('dossierStatusSelect');
+  const dossierNotesInput = document.getElementById('dossierNotesInput');
+  const btnSaveDossierNotes = document.getElementById('btnSaveDossierNotes');
+
+  const toastContainer = document.getElementById('toastContainer');
+
+  // =========================================================
+  // 3. THEME MANAGEMENT
+  // =========================================================
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    themeIcon.textContent = t === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('cre_theme', t);
+    // Refresh chart theme
+    if (state.charts.timeline) renderAllCharts();
+  }
   applyTheme(state.theme);
-
-  // Initialize All 4 Charts
-  initializeCharts();
-
-  // Populate dynamic city dropdown
-  populateCityFilter();
-
-  // Initial Filter & Render
-  applyDealsFilters();
-  applyTrackerFilters();
-  renderDeltaFeed();
-  updateTabCounts();
-
-  // -------------------------------------------------------------
-  // THEME MANAGEMENT (Black & White Minimalist Theme)
-  // -------------------------------------------------------------
   themeToggleBtn.addEventListener('click', () => {
-    state.theme = state.theme === 'light' ? 'dark' : 'light';
-    localStorage.setItem('cre_theme', state.theme);
+    state.theme = state.theme === 'dark' ? 'light' : 'dark';
     applyTheme(state.theme);
   });
 
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
-    updateChartsTheme();
+  // Toast Notification Helper
+  function showToast(message, icon = '✓') {
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+    toastContainer.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(8px)';
+      setTimeout(() => toast.remove(), 250);
+    }, 2800);
   }
 
-  function updateChartsTheme() {
-    const isLight = state.theme === 'light';
-    const textColor = isLight ? '#71717a' : '#a1a1aa';
-    const gridColor = isLight ? '#e4e4e7' : '#27272a';
+  // Country Flag helper
+  const COUNTRY_FLAGS = {
+    'China': '🇨🇳', 'India': '🇮🇳', 'Japan': '🇯🇵', 'Korea': '🇰🇷',
+    'South Korea': '🇰🇷', 'Malaysia': '🇲🇾', 'Sri Lanka': '🇱🇰', 'ALL': '🌐'
+  };
 
-    Object.values(state.charts).forEach(chart => {
-      if (!chart) return;
-      if (chart.options.scales) {
-        if (chart.options.scales.x) {
-          if (chart.options.scales.x.ticks) chart.options.scales.x.ticks.color = textColor;
-          if (chart.options.scales.x.grid) {
-            chart.options.scales.x.grid.color = gridColor;
-            chart.options.scales.x.grid.borderDash = [4, 4];
-          }
-        }
-        if (chart.options.scales.y) {
-          if (chart.options.scales.y.ticks) chart.options.scales.y.ticks.color = textColor;
-          if (chart.options.scales.y.grid) {
-            chart.options.scales.y.grid.color = gridColor;
-            chart.options.scales.y.grid.borderDash = [4, 4];
-          }
-        }
-      }
-      if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
-        chart.options.plugins.legend.labels.color = textColor;
-      }
-      if (chart.data && chart.data.datasets && chart.data.datasets[0] && chart.config.type === 'doughnut') {
-        chart.data.datasets[0].borderColor = isLight ? '#ffffff' : '#121215';
-      }
-      chart.update();
+  // =========================================================
+  // 4. FILTERING & SEARCH ENGINE
+  // =========================================================
+  function populateSubmarketsDropdown() {
+    const marketLeads = state.activeCountry === 'ALL'
+      ? state.leads
+      : state.leads.filter(l => l.country === state.activeCountry);
+
+    const submarkets = new Set();
+    marketLeads.forEach(l => {
+      if (l.submarket && l.submarket !== 'ALL') submarkets.add(l.submarket);
+      if (l.city && l.city !== l.country) submarkets.add(l.city);
     });
-  }
 
-  // -------------------------------------------------------------
-  // MAIN VIEW TABS: Deals vs Tracker
-  // -------------------------------------------------------------
-  tabDealsBtn.addEventListener('click', () => {
-    state.activeTab = 'deals';
-    tabDealsBtn.classList.add('active');
-    tabTrackerBtn.classList.remove('active');
-    viewDeals.style.display = 'block';
-    viewTracker.style.display = 'none';
-  });
+    const sorted = Array.from(submarkets).sort();
+    const currentVal = filterSubmarket.value;
+    filterSubmarket.innerHTML = '<option value="ALL">All Submarkets & Hubs</option>';
+    sorted.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s;
+      opt.textContent = s;
+      filterSubmarket.appendChild(opt);
+    });
 
-  tabTrackerBtn.addEventListener('click', () => {
-    state.activeTab = 'tracker';
-    tabTrackerBtn.classList.add('active');
-    tabDealsBtn.classList.remove('active');
-    viewDeals.style.display = 'none';
-    viewTracker.style.display = 'block';
-  });
-
-  function updateTabCounts() {
-    tabDealsCount.textContent = state.leads.length;
-    tabTrackerCount.textContent = state.tracker.length;
-    dealsTotalCount.textContent = state.leads.length;
-  }
-
-  // -------------------------------------------------------------
-  // MARKET SELECTION (Header Dropdown)
-  // -------------------------------------------------------------
-  if (countrySelect) {
-    state.activeCountry = countrySelect.value || 'Malaysia';
-    if (headerMarketFlag) {
-      headerMarketFlag.textContent = getCountryFlag(state.activeCountry);
+    if (sorted.includes(currentVal)) {
+      filterSubmarket.value = currentVal;
+    } else {
+      filterSubmarket.value = 'ALL';
+      state.filters.submarket = 'ALL';
     }
-    if (activeCountryBadge) {
-      activeCountryBadge.textContent = state.activeCountry === 'ALL' ? '🌐 All Markets' : `${getCountryFlag(state.activeCountry)} ${state.activeCountry}`;
-    }
-
-    countrySelect.addEventListener('change', (e) => {
-      const country = e.target.value;
-      state.activeCountry = country;
-
-      if (headerMarketFlag) {
-        headerMarketFlag.textContent = getCountryFlag(country);
-      }
-
-      if (activeCountryBadge) {
-        activeCountryBadge.textContent = country === 'ALL' ? '🌐 All Markets' : `${getCountryFlag(country)} ${country}`;
-      }
-
-      if (trackerCountryFilter) {
-        trackerCountryFilter.value = country;
-        state.trackerFilters.country = country;
-      }
-
-      populateCityFilter();
-      state.dealsFilters.city = 'ALL';
-
-      applyDealsFilters();
-      applyTrackerFilters();
-    });
   }
 
-  function getCountryFlag(country) {
-    const flags = { 'India': '🇮🇳', 'Malaysia': '🇲🇾', 'Korea': '🇰🇷', 'Japan': '🇯🇵', 'Sri Lanka': '🇱🇰' };
-    return flags[country] || '🌐';
-  }
-
-  // Hub Distribution Metric Toggle
-  if (btnHubDeals && btnHubSqft) {
-    btnHubDeals.addEventListener('click', () => {
-      state.hubMetric = 'deals';
-      btnHubDeals.classList.add('active');
-      btnHubSqft.classList.remove('active');
-      updateDealsCharts();
-    });
-
-    btnHubSqft.addEventListener('click', () => {
-      state.hubMetric = 'sqft';
-      btnHubSqft.classList.add('active');
-      btnHubDeals.classList.remove('active');
-      updateDealsCharts();
-    });
-  }
-
-  // -------------------------------------------------------------
-  // DEALS FILTERING & SCORECARDS
-  // -------------------------------------------------------------
-  function populateCityFilter() {
-    const country = state.activeCountry;
-    let relevantLeads = state.leads;
-    if (country !== 'ALL') {
-      relevantLeads = state.leads.filter(l => l.country === country);
-    }
-    const cities = Array.from(new Set(relevantLeads.map(l => l.city).filter(Boolean))).sort();
-    dealsCityFilter.innerHTML = `<option value="ALL">All Cities / Submarkets (${cities.length})</option>` +
-      cities.map(c => `<option value="${c}">${c}</option>`).join('');
-  }
-
-  dealsSearchInput.addEventListener('input', (e) => {
-    state.dealsFilters.search = e.target.value.toLowerCase().trim();
-    applyDealsFilters();
-  });
-
-  dealsCityFilter.addEventListener('change', (e) => {
-    state.dealsFilters.city = e.target.value;
-    applyDealsFilters();
-  });
-
-  dealsSectorFilter.addEventListener('change', (e) => {
-    state.dealsFilters.sector = e.target.value;
-    applyDealsFilters();
-  });
-
-  dealsUrgencyFilter.addEventListener('change', (e) => {
-    state.dealsFilters.urgency = e.target.value;
-    applyDealsFilters();
-  });
-
-  btnResetDealsFilters.addEventListener('click', () => {
-    dealsSearchInput.value = '';
-    dealsCityFilter.value = 'ALL';
-    dealsSectorFilter.value = 'ALL';
-    dealsUrgencyFilter.value = 'ALL';
-    state.dealsFilters = { search: '', city: 'ALL', sector: 'ALL', urgency: 'ALL' };
-    applyDealsFilters();
-  });
-
-  btnTableView.addEventListener('click', () => {
-    state.dealsViewMode = 'table';
-    btnTableView.classList.add('active');
-    btnCardView.classList.remove('active');
-    tableViewContainer.style.display = 'block';
-    cardViewContainer.style.display = 'none';
-  });
-
-  btnCardView.addEventListener('click', () => {
-    state.dealsViewMode = 'card';
-    btnCardView.classList.add('active');
-    btnTableView.classList.remove('active');
-    tableViewContainer.style.display = 'none';
-    cardViewContainer.style.display = 'grid';
-  });
-
-  function applyDealsFilters() {
-    const { search, city, sector, urgency } = state.dealsFilters;
-    const country = state.activeCountry;
+  function filterAndSortLeads() {
+    const query = state.filters.search.toLowerCase().trim();
+    const selSubmarket = state.filters.submarket;
+    const selDealType = state.filters.dealType;
+    const selWindow = state.filters.window;
+    const selSizeTier = state.filters.sizeTier;
+    const selStatus = state.filters.status;
 
     state.filteredLeads = state.leads.filter(lead => {
-      if (country !== 'ALL' && lead.country !== country) return false;
-      if (search) {
-        const text = `${lead.company} ${lead.country} ${lead.market} ${lead.city} ${lead.signal} ${lead.sector} ${lead.source}`.toLowerCase();
-        if (!text.includes(search)) return false;
+      // 1. Country Filter
+      if (state.activeCountry !== 'ALL' && lead.country !== state.activeCountry) {
+        return false;
       }
-      if (city !== 'ALL' && lead.city !== city) return false;
-      if (sector !== 'ALL' && lead.sector !== sector) return false;
-      if (urgency !== 'ALL' && lead.urgency !== urgency) return false;
+
+      // 2. Search Query
+      if (query) {
+        const hay = `${lead.company} ${lead.building || ''} ${lead.market || ''} ${lead.submarket || ''} ${lead.city || ''} ${lead.signal || ''} ${lead.sector || ''} ${lead.dealType || ''}`.toLowerCase();
+        if (!hay.includes(query)) return false;
+      }
+
+      // 3. Submarket Filter
+      if (selSubmarket !== 'ALL') {
+        const subMatch = (lead.submarket && lead.submarket.toLowerCase() === selSubmarket.toLowerCase()) ||
+                         (lead.city && lead.city.toLowerCase() === selSubmarket.toLowerCase());
+        if (!subMatch) return false;
+      }
+
+      // 4. Deal Type Filter
+      if (selDealType !== 'ALL' && lead.dealType !== selDealType) {
+        return false;
+      }
+
+      // 5. Fit-out Window Filter
+      if (selWindow !== 'ALL' && lead.fitoutWindow !== selWindow) {
+        return false;
+      }
+
+      // 6. Size Tier Filter
+      if (selSizeTier !== 'ALL' && lead.sizeTier !== selSizeTier) {
+        return false;
+      }
+
+      // 7. Tracker Status Filter
+      if (selStatus !== 'ALL' && lead.trackerStatus !== selStatus) {
+        return false;
+      }
+
       return true;
     });
 
-    updateDealsKPIs();
-    renderDealsDisplays();
-    updateDealsCharts();
-  }
+    // Sort
+    const sortMode = state.radarSort;
+    state.filteredLeads.sort((a, b) => {
+      if (sortMode === 'heat') {
+        return b.heatScore - a.heatScore;
+      }
+      if (sortMode === 'recency') {
+        return (a.daysAgo || 999) - (b.daysAgo || 999);
+      }
+      if (sortMode === 'size') {
+        return (b.areaSqFt || 0) - (a.areaSqFt || 0);
+      }
+      if (sortMode === 'company') {
+        return a.company.localeCompare(b.company);
+      }
+      return 0;
+    });
 
-  function updateDealsKPIs() {
-    const total = state.filteredLeads.length;
-    dealsVisibleCount.textContent = total;
-    kpiTotalDeals.textContent = total;
-    kpiDealsSubtitle.textContent = state.activeCountry === 'ALL' ? 'Across 22 active submarkets' : `Across ${state.activeCountry} market`;
+    // Update Counts & Badges
+    radarVisibleCount.textContent = state.filteredLeads.length.toLocaleString();
+    const relevantTotalLeads = state.activeCountry === 'ALL'
+      ? state.leads
+      : state.leads.filter(l => l.country === state.activeCountry);
 
-    const totalSqFt = state.filteredLeads.reduce((acc, curr) => {
-      if ((curr.areaSqFt || 0) < 10000000) return acc + (curr.areaSqFt || 0);
-      return acc;
-    }, 0);
-    const millions = (totalSqFt / 1000000).toFixed(2);
-    kpiTotalSqFt.textContent = `${millions}M sq ft`;
+    radarTotalCount.textContent = relevantTotalLeads.length.toLocaleString();
 
-    const immediate = state.filteredLeads.filter(l => l.urgency === 'Immediate').length;
-    kpiImmediate.textContent = immediate;
-    const immPct = total > 0 ? Math.round((immediate / total) * 100) : 0;
-    kpiImmediateBar.style.width = `${immPct}%`;
-    if (kpiImmediateSubtitle) kpiImmediateSubtitle.textContent = `${immPct}% of active portfolio`;
+    const countAll = relevantTotalLeads.length;
+    const count060 = relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length;
+    const count1Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '1 Year' || l.fitoutWindow === '1-Year: Scoping & Probing').length;
+    const count2Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '2 Years' || l.fitoutWindow === '2-Year: Relationship Building').length;
+    const count3Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above' || l.fitoutWindow === 'Pre-Lease Pipeline').length;
 
-    const pipeline = state.filteredLeads.filter(l => l.urgency === 'Pipeline' || l.urgency === 'Active').length;
-    if (kpiPipeline) kpiPipeline.textContent = pipeline;
+    if (dropCountAll) dropCountAll.textContent = countAll.toLocaleString();
+    if (dropCount060) dropCount060.textContent = count060.toLocaleString();
+    if (dropCount1Yr) dropCount1Yr.textContent = count1Yr.toLocaleString();
+    if (dropCount2Yr) dropCount2Yr.textContent = count2Yr.toLocaleString();
+    if (dropCount3Yr) dropCount3Yr.textContent = count3Yr.toLocaleString();
 
-    const country = state.activeCountry;
-    if (country === 'India') {
-      kpiDealValue.textContent = '₹10,500+ Cr';
-      kpiCurrencySubtitle.textContent = 'INR lease commitments';
-    } else if (country === 'Malaysia') {
-      kpiDealValue.textContent = 'RM 3.5+ Bn';
-      kpiCurrencySubtitle.textContent = 'MYR lease commitments';
-    } else if (country === 'Korea') {
-      kpiDealValue.textContent = '₩8.2+ Trillion';
-      kpiCurrencySubtitle.textContent = 'KRW lease commitments';
-    } else if (country === 'Japan') {
-      kpiDealValue.textContent = '¥25+ Billion';
-      kpiCurrencySubtitle.textContent = 'JPY lease commitments';
-    } else if (country === 'Sri Lanka') {
-      kpiDealValue.textContent = 'SL Rs 48+ Bn';
-      kpiCurrencySubtitle.textContent = 'LKR lease commitments';
-    } else {
-      kpiDealValue.textContent = '5 Currencies';
-      kpiCurrencySubtitle.textContent = 'Multi-currency APAC commitments';
+    updateRadarDropdownUI(state.filters.window, { countAll, count060, count1Yr, count2Yr, count3Yr });
+
+    const flag = COUNTRY_FLAGS[state.activeCountry] || '🌐';
+    activeFilterBadge.textContent = state.activeCountry === 'ALL' ? '🌐 All Markets' : `${flag} ${state.activeCountry}`;
+
+    // Render Views
+    renderExecutiveScorecards();
+    if (state.activeView === 'radar') {
+      renderRadarView();
+    } else if (state.activeView === 'analytics') {
+      renderAllCharts();
+    } else if (state.activeView === 'tracker') {
+      renderTrackerView();
+    } else if (state.activeView === 'hubs') {
+      renderHubsView();
+    } else if (state.activeView === 'coverage') {
+      renderCoverageView();
     }
   }
 
-  function renderDealsDisplays() {
+  // =========================================================
+  // 5. EXECUTIVE SCORECARDS
+  // =========================================================
+  function renderExecutiveScorecards() {
+    const relevantLeads = state.activeCountry === 'ALL'
+      ? state.leads
+      : state.leads.filter(l => l.country === state.activeCountry);
+
+    // Dedup unique companies by (Company + Country)
+    const uniqueAccountSet = new Set(relevantLeads.map(l => `${l.company}___${l.country}`));
+    kpiUniqueCompanies.textContent = uniqueAccountSet.size.toLocaleString();
+    kpiCompaniesSub.textContent = state.activeCountry === 'ALL'
+      ? 'Deduplicated across 6 APAC markets'
+      : `Deduplicated accounts in ${state.activeCountry}`;
+
+    // Partial Disclosed Footprint Total
+    const totalSqFt = relevantLeads.reduce((sum, l) => sum + (l.areaSqFt || 0), 0);
+    if (totalSqFt >= 1000000) {
+      kpiTotalSqFt.textContent = `${(totalSqFt / 1000000).toFixed(1)}M sq ft`;
+    } else if (totalSqFt > 0) {
+      kpiTotalSqFt.textContent = `${Math.round(totalSqFt).toLocaleString()} sq ft`;
+    } else {
+      kpiTotalSqFt.textContent = 'Undisclosed';
+    }
+
+    // High Priority Radar (Heat >= 70 or Prime window)
+    const highPri = relevantLeads.filter(l => l.heatScore >= 70 || l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length;
+    kpiHighPriority.textContent = highPri.toLocaleString();
+    const pct = relevantLeads.length > 0 ? Math.round((highPri / relevantLeads.length) * 100) : 0;
+    kpiHighPriorityBar.style.width = `${pct}%`;
+    kpiHighPrioritySub.textContent = `${pct}% prime fit-out window (0–60d)`;
+
+    // Multi-Tenant Hubs (buildings with >= 2 tenants in this market)
+    const bldgCounts = {};
+    relevantLeads.forEach(l => {
+      if (l.building) bldgCounts[l.building] = (bldgCounts[l.building] || 0) + 1;
+    });
+    const multiBldgs = Object.values(bldgCounts).filter(c => c >= 2).length;
+    kpiMultiTenantHubs.textContent = multiBldgs.toLocaleString();
+
+    // Market summary badge
+    if (state.activeCountry === 'ALL') {
+      kpiActiveMarkets.textContent = '6 Markets';
+      kpiMarketBreakdown.textContent = 'CN · IN · JP · KR · MY · LK';
+    } else {
+      const subCount = new Set(relevantLeads.map(l => l.submarket || l.city)).size;
+      kpiActiveMarkets.textContent = `${relevantLeads.length} Deals`;
+      kpiMarketBreakdown.textContent = `Across ${subCount} submarkets`;
+    }
+  }
+
+  // =========================================================
+  // 6. VIEW 1: 🔥 SALES RADAR (HOT LIST)
+  // =========================================================
+  function renderRadarView() {
     if (state.filteredLeads.length === 0) {
-      tableViewContainer.style.display = 'none';
-      cardViewContainer.style.display = 'none';
-      dealsEmptyState.style.display = 'block';
+      radarCardsGrid.style.display = 'none';
+      radarTableContainer.style.display = 'none';
+      radarEmptyState.style.display = 'block';
       return;
     }
+    radarEmptyState.style.display = 'none';
 
-    dealsEmptyState.style.display = 'none';
-    if (state.dealsViewMode === 'table') {
-      tableViewContainer.style.display = 'block';
-      cardViewContainer.style.display = 'none';
+    if (state.radarViewMode === 'card') {
+      radarCardsGrid.style.display = 'grid';
+      radarTableContainer.style.display = 'none';
+      renderRadarCards();
     } else {
-      tableViewContainer.style.display = 'none';
-      cardViewContainer.style.display = 'grid';
+      radarCardsGrid.style.display = 'none';
+      radarTableContainer.style.display = 'block';
+      renderRadarTable();
     }
+  }
 
-    // Render Table
-    dealsTableBody.innerHTML = state.filteredLeads.map(lead => {
-      const urgencyClass = lead.urgency.toLowerCase().replace(/[^a-z]/g, '');
-      return `
-        <tr onclick="window.openDealModal(${lead.id})">
-          <td style="font-weight: 700;">${lead.company}</td>
-          <td><span class="badge-clean">${lead.flag || ''} ${lead.country}</span></td>
-          <td style="color: var(--text-secondary);">${lead.market}</td>
-          <td><span class="badge-clean">${lead.sector}</span></td>
-          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 600;">${lead.areaFormatted}</td>
-          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent-blue);">${lead.dealValue}</td>
-          <td style="max-width: 240px; font-size: 11.5px; color: var(--text-secondary);">${lead.timing}</td>
-          <td><span class="badge-clean ${urgencyClass}">${lead.urgency}</span></td>
-          <td>
-            <a href="${lead.sourceUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); font-size: 11.5px; text-decoration: none;" onclick="event.stopPropagation()">
-              ${lead.source} ↗
+  function getFitoutWindowClass(w) {
+    if (!w) return 'settled';
+    if (w.includes('0–60') || w.includes('0-60') || w.includes('Prime')) return 'prime';
+    if (w.includes('1 Year') || w.includes('Scoping') || w.includes('1-Year') || w.includes('1-Yr')) return 'scoping';
+    if (w.includes('2 Years') || w.includes('Relationship') || w.includes('2-Year') || w.includes('2-Yr')) return 'relationship';
+    if (w.includes('3 Years') || w.includes('3+ Years') || w.includes('Above') || w.includes('Pipeline')) return 'longrange';
+    if (w.includes('Active')) return 'active';
+    return 'settled';
+  }
+
+  function renderRadarCards() {
+    radarCardsGrid.innerHTML = '';
+    const frag = document.createDocumentFragment();
+
+    state.filteredLeads.forEach(lead => {
+      const card = document.createElement('article');
+      card.className = 'sales-radar-card';
+
+      // Heat Score Badge Class
+      const heatClass = lead.heatScore >= 75 ? 'heat-score-badge heat-high' : 'heat-score-badge';
+      const windowClass = getFitoutWindowClass(lead.fitoutWindow);
+      const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
+
+      const breakdown = lead.heatScoreBreakdown || {};
+      const tooltipText = `Heat Score ${lead.heatScore}/100 Breakdown:
+• Recency: +${breakdown.recencyPts || 0} (${breakdown.recencyReason || 'Recency'})
+• Size: +${breakdown.sizePts || 0} (${breakdown.sizeReason || 'Size'})
+• Deal Type: +${breakdown.typePts || 0} (${breakdown.typeReason || 'Type'})
+• Sales Status: ${breakdown.statusPts >= 0 ? '+' : ''}${breakdown.statusPts || 0} (${breakdown.statusReason || 'Status'})`;
+
+      card.innerHTML = `
+        <div class="card-top-row">
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <span class="${heatClass}" title="${tooltipText}">
+              🔥 ${lead.heatScore}/100
+            </span>
+            <span class="window-pill ${windowClass}">
+              ${lead.fitoutWindow}
+            </span>
+          </div>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <span class="badge-clean">${lead.flag} ${lead.country}</span>
+            <span class="badge-clean" style="font-size: 10px;">${lead.sector}</span>
+          </div>
+        </div>
+
+        <div class="card-company-header">
+          <h4 data-company="${escapeHtml(lead.company)}">${escapeHtml(lead.company)}</h4>
+          <div class="card-building-loc">
+            <span>📍 ${escapeHtml(lead.submarket || lead.city)}</span>
+            ${lead.building ? `<strong>· ${escapeHtml(lead.building)}</strong>` : ''}
+            ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" title="${lead.buildingTenantCount} moving tenants in this building!">🏢 Multi-Tenant Hub (${lead.buildingTenantCount} tenants)</span>` : ''}
+          </div>
+        </div>
+
+        <div class="card-meta-chips">
+          <span class="chip-tag tag-deal-type">${escapeHtml(lead.dealType)}</span>
+          <span class="chip-tag ${isSizeDisclosed ? 'size-disclosed' : 'size-undisclosed'}" title="${isSizeDisclosed ? 'Disclosed area' : 'Size genuinely not stated in source news'}">
+            ${isSizeDisclosed ? `📐 ${lead.areaFormatted}` : '📐 Not disclosed'}
+          </span>
+          <span class="chip-tag" style="font-family: 'JetBrains Mono', monospace;">
+            💰 ${escapeHtml(lead.dealValue)}
+          </span>
+          <span class="chip-tag" style="font-size: 10.5px;">
+            🕒 ${escapeHtml(lead.dealQuarter || lead.dealDate)}
+          </span>
+        </div>
+
+        <div class="card-signal-snippet">
+          <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Signal:</strong>
+          ${escapeHtml(lead.signal)}
+          ${lead.timing ? `<div style="margin-top: 4px; font-weight: 600; color: var(--accent-blue);">Strategy: ${escapeHtml(lead.timing)}</div>` : ''}
+        </div>
+
+        <!-- Suggested Opening Line (The core question: What do I say?) -->
+        <div class="opening-pitch-container">
+          <div class="opening-pitch-top">
+            <span class="opening-pitch-label">🎯 Suggested Opening Line</span>
+            <button class="btn-copy-script" data-pitch="${escapeHtml(lead.suggestedOpeningLine)}" title="Copy sales pitch to clipboard">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Script</span>
+            </button>
+          </div>
+          <p class="opening-pitch-text">"${escapeHtml(lead.suggestedOpeningLine)}"</p>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="card-action-bar">
+          <div class="card-action-bar-left">
+            <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(lead.company)}">
+              🏢 360 View
+            </button>
+            <a href="${escapeHtml(lead.sourceUrl || '#')}" target="_blank" rel="noopener noreferrer" class="btn-card-action" title="Verify via ${escapeHtml(lead.source)}">
+              🔗 ${escapeHtml(lead.source ? (lead.source.length > 18 ? lead.source.substring(0, 16) + '...' : lead.source) : 'Source')} ↗
             </a>
-          </td>
-        </tr>
-      `;
-    }).join('');
-
-    // Render Card Grid View
-    cardViewContainer.innerHTML = state.filteredLeads.map(lead => {
-      const urgencyClass = lead.urgency.toLowerCase().replace(/[^a-z]/g, '');
-      return `
-        <div class="lead-catalog-card" onclick="window.openDealModal(${lead.id})">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-            <div>
-              <strong style="font-size: 14px; display: block;">${lead.company}</strong>
-              <span style="font-size: 11px; color: var(--text-muted);">${lead.flag || ''} ${lead.market}</span>
-            </div>
-            <span class="badge-clean ${urgencyClass}">${lead.urgency}</span>
           </div>
-
-          <div style="background: var(--bg-card-subtle); padding: 10px; border-radius: 6px; border: 1px solid var(--border-light); font-size: 11.5px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.45;">
-            ${lead.signal}
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11.5px; margin-bottom: 12px;">
-            <div><span style="color: var(--text-muted);">Area:</span> <strong style="font-family: 'JetBrains Mono', monospace;">${lead.areaFormatted}</strong></div>
-            <div><span style="color: var(--text-muted);">Value:</span> <strong style="font-family: 'JetBrains Mono', monospace; color: var(--accent-blue);">${lead.dealValue}</strong></div>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 8px;">
-            <span class="badge-clean">${lead.sector}</span>
-            <a href="${lead.sourceUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); font-size: 11px; text-decoration: none;" onclick="event.stopPropagation()">
-              ${lead.source} ↗
-            </a>
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <select class="card-status-select" data-company="${escapeHtml(lead.company)}">
+              <option value="Active" ${lead.trackerStatus === 'Active' ? 'selected' : ''}>🟢 Active</option>
+              <option value="Watch" ${lead.trackerStatus === 'Watch' ? 'selected' : ''}>🟡 Watch</option>
+              <option value="Engaged" ${lead.trackerStatus === 'Engaged' ? 'selected' : ''}>🟣 Engaged</option>
+            </select>
           </div>
         </div>
       `;
-    }).join('');
+
+      frag.appendChild(card);
+    });
+
+    radarCardsGrid.appendChild(frag);
+
+    // Attach card event listeners
+    attachCardListeners(radarCardsGrid);
   }
 
-  // -------------------------------------------------------------
-  // ALL 4 CHARTS (Black & White Minimalist Design)
-  // -------------------------------------------------------------
-  function initializeCharts() {
-    const isLight = state.theme === 'light';
-    const textColor = isLight ? '#64748b' : '#94a3b8';
-    const gridColor = isLight ? '#e2e8f0' : '#1e293b';
-    const darkBarColor = isLight ? '#0f172a' : '#f8fafc';
+  function renderRadarTable() {
+    radarTableBody.innerHTML = '';
+    const frag = document.createDocumentFragment();
 
-    // Chart 1: Market Distribution (Single clean bar with metric toggle)
-    const cityCtx = document.getElementById('cityChart').getContext('2d');
-    state.charts.cityChart = new Chart(cityCtx, {
+    state.filteredLeads.forEach(lead => {
+      const tr = document.createElement('tr');
+      const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
+      const windowClass = getFitoutWindowClass(lead.fitoutWindow);
+
+      tr.innerHTML = `
+        <td>
+          <span class="heat-score-badge ${lead.heatScore >= 75 ? 'heat-high' : ''}" style="font-size: 10.5px; padding: 2px 5px;">
+            🔥 ${lead.heatScore}
+          </span>
+        </td>
+        <td>
+          <strong class="company-link" data-company="${escapeHtml(lead.company)}" style="cursor: pointer; color: var(--text-primary);">
+            ${escapeHtml(lead.company)}
+          </strong>
+        </td>
+        <td>${lead.flag} ${lead.country}</td>
+        <td>
+          <span>${escapeHtml(lead.submarket || lead.city)}</span>
+          ${lead.building ? `<br><small style="color: var(--text-muted);">${escapeHtml(lead.building)}</small>` : ''}
+          ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" style="font-size: 9px; padding: 1px 3px;">🏢 Hub</span>` : ''}
+        </td>
+        <td><span class="chip-tag tag-deal-type" style="font-size: 10px;">${escapeHtml(lead.dealType)}</span></td>
+        <td>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; ${isSizeDisclosed ? 'color: var(--accent-blue); font-weight: 700;' : 'color: var(--text-muted);'}">
+            ${isSizeDisclosed ? lead.areaFormatted : 'Not disclosed'}
+          </span>
+        </td>
+        <td><span class="window-pill ${windowClass}" style="font-size: 10px;">${lead.fitoutWindow}</span></td>
+        <td style="max-width: 280px; font-size: 11.5px; line-height: 1.35;">
+          ${escapeHtml(lead.signal)}
+        </td>
+        <td>
+          <select class="card-status-select" data-company="${escapeHtml(lead.company)}" style="font-size: 10.5px; padding: 2px;">
+            <option value="Active" ${lead.trackerStatus === 'Active' ? 'selected' : ''}>Active</option>
+            <option value="Watch" ${lead.trackerStatus === 'Watch' ? 'selected' : ''}>Watch</option>
+            <option value="Engaged" ${lead.trackerStatus === 'Engaged' ? 'selected' : ''}>Engaged</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(lead.company)}" style="padding: 2px 6px; font-size: 11px;">
+            360 ↗
+          </button>
+        </td>
+      `;
+
+      frag.appendChild(tr);
+    });
+
+    radarTableBody.appendChild(frag);
+    attachCardListeners(radarTableBody);
+  }
+
+  function attachCardListeners(container) {
+    // 1. Copy script buttons
+    container.querySelectorAll('.btn-copy-script').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const pitch = btn.getAttribute('data-pitch');
+        navigator.clipboard.writeText(pitch).then(() => {
+          const originalText = btn.innerHTML;
+          btn.classList.add('copied');
+          btn.innerHTML = `<span>✓ Copied!</span>`;
+          showToast('Suggested opening script copied to clipboard!', '📋');
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.innerHTML = originalText;
+          }, 2000);
+        });
+      });
+    });
+
+    // 2. Open 360 Dossier
+    container.querySelectorAll('.btn-open-dossier, .card-company-header h4, .company-link').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const comp = el.getAttribute('data-company');
+        openCompanyDossier(comp);
+      });
+    });
+
+    // 3. Status Change Dropdown
+    container.querySelectorAll('.card-status-select').forEach(sel => {
+      sel.addEventListener('change', (e) => {
+        e.stopPropagation();
+        const comp = sel.getAttribute('data-company');
+        const newStatus = sel.value;
+        updateCompanyStatus(comp, newStatus);
+      });
+    });
+  }
+
+  function updateCompanyStatus(company, newStatus) {
+    state.userStatuses[company] = newStatus;
+    localStorage.setItem('cre_user_statuses', JSON.stringify(state.userStatuses));
+    applyUserOverrides();
+    showToast(`Updated status of ${company} to ${newStatus}`, '✓');
+    filterAndSortLeads();
+  }
+
+  // =========================================================
+  // 7. VIEW 2: 📊 PIPELINE & ANALYTICS CHARTS
+  // =========================================================
+  function renderAllCharts() {
+    renderTimelineChart();
+    renderSubmarketChart();
+    renderDealTypeChart();
+    renderSizeHistogramChart();
+  }
+
+  function getChartColors() {
+    const isDark = state.theme === 'dark';
+    return {
+      text: isDark ? '#a1a1aa' : '#52525b',
+      grid: isDark ? '#27272a' : '#e4e4e7',
+      primary: isDark ? '#ffffff' : '#000000',
+      accent: '#2563eb',
+      accentSubtle: isDark ? '#1e3a8a' : '#bfdbfe',
+      types: {
+        'Relocation': '#2563eb',
+        'Expansion': '#10b981',
+        'Renewal': '#8b5cf6',
+        'New Setup': '#f59e0b',
+        'Own-use Purchase': '#ec4899',
+        'Pre-lease': '#06b6d4',
+        'Government Tender': '#64748b',
+        'Consolidation': '#f97316',
+        'Unstated': '#71717a'
+      }
+    };
+  }
+
+  function renderTimelineChart() {
+    if (!timelineCanvas) return;
+    if (state.charts.timeline) state.charts.timeline.destroy();
+
+    const colors = getChartColors();
+    const mode = state.analyticsTimelineMode; // 'deal' or 'found'
+    const leads = state.filteredLeads;
+
+    // Group deals by quarter/time bucket and deal type
+    const quarterMap = {};
+    const dealTypes = ['Relocation', 'Expansion', 'Renewal', 'New Setup', 'Pre-lease', 'Own-use Purchase', 'Unstated'];
+
+    leads.forEach(l => {
+      let q = l.dealQuarter || '2026-Q3';
+      if (mode === 'found') {
+        const d = l.dateFound ? l.dateFound.substring(0, 7) : '2026-10';
+        q = d;
+      }
+      if (!quarterMap[q]) {
+        quarterMap[q] = {};
+        dealTypes.forEach(t => { quarterMap[q][t] = 0; });
+      }
+      const t = l.dealType && quarterMap[q][l.dealType] !== undefined ? l.dealType : 'Unstated';
+      quarterMap[q][t] = (quarterMap[q][t] || 0) + 1;
+    });
+
+    // Sort quarters chronologically
+    const sortedQuarters = Object.keys(quarterMap).sort();
+
+    const datasets = dealTypes.map(type => ({
+      label: type,
+      data: sortedQuarters.map(q => quarterMap[q][type] || 0),
+      backgroundColor: colors.types[type] || '#71717a',
+      borderRadius: 2
+    }));
+
+    chartTimelineTitle.textContent = mode === 'deal'
+      ? 'Deal Velocity by Transaction Quarter'
+      : 'Intelligence Capture Timeline by Month Found';
+    chartTimelineSub.textContent = `Stacked breakdown across ${leads.length} filtered deals`;
+
+    state.charts.timeline = new Chart(timelineCanvas, {
       type: 'bar',
       data: {
-        labels: [],
-        datasets: [
-          {
-            label: 'Deals Count',
-            data: [],
-            backgroundColor: '#2563eb',
-            borderRadius: 6,
-            maxBarThickness: 38
-          }
-        ]
+        labels: sortedQuarters,
+        datasets: datasets
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { display: false },
+          legend: {
+            position: 'bottom',
+            labels: { color: colors.text, boxWidth: 10, font: { size: 10.5, family: 'Inter' } }
+          },
           tooltip: {
-            backgroundColor: '#0f172a',
-            titleColor: '#ffffff',
-            bodyColor: '#cbd5e1',
-            borderColor: '#334155',
-            borderWidth: 1,
-            padding: 10,
-            displayColors: false,
-            callbacks: {
-              label: function(context) {
-                const item = context.raw;
-                const chart = context.chart;
-                const meta = chart._hubMeta && chart._hubMeta[context.dataIndex];
-                if (state.hubMetric === 'deals') {
-                  const sqftStr = meta ? meta.sqftFmt : '';
-                  return [` Deals: ${item} verified opportunities`, sqftStr ? ` Footprint: ${sqftStr}` : ' Footprint: Undisclosed'];
-                } else {
-                  const countStr = meta ? meta.count : '';
-                  const sqftStr = meta ? meta.sqftFmt : `${item.toLocaleString()} sq ft`;
-                  return [` Footprint: ${sqftStr}`, countStr !== undefined ? ` Deals Count: ${countStr}` : ''];
-                }
-              }
-            }
+            mode: 'index',
+            intersect: false
           }
         },
         scales: {
           x: {
+            stacked: true,
             grid: { display: false },
-            ticks: {
-              color: textColor,
-              font: { size: 11, family: 'Inter' },
-              maxRotation: 25,
-              minRotation: 0
-            }
+            ticks: { color: colors.text, font: { size: 10, family: 'JetBrains Mono' } }
           },
           y: {
-            beginAtZero: true,
-            grid: { color: gridColor, borderDash: [4, 4] },
-            ticks: {
-              color: textColor,
-              font: { size: 11 },
-              callback: function(value) {
-                if (state.hubMetric === 'deals') {
-                  return Number.isInteger(value) ? value : '';
-                }
-                if (value >= 1000000) return (value / 1000000).toFixed(1) + 'M';
-                if (value >= 100000) return (value / 100000).toFixed(1) + 'L';
-                if (value >= 1000) return (value / 1000).toFixed(0) + 'k';
-                return value;
-              }
-            }
+            stacked: true,
+            grid: { color: colors.grid },
+            ticks: { color: colors.text, font: { size: 10, family: 'JetBrains Mono' } }
           }
         }
       }
     });
+  }
 
-    // Chart 2: Sector Doughnut
-    const sectorCtx = document.getElementById('sectorChart').getContext('2d');
-    state.charts.sectorChart = new Chart(sectorCtx, {
-      type: 'doughnut',
-      data: {
-        labels: [],
-        datasets: [{
-          data: [],
-          backgroundColor: [
-            '#000000', '#2563eb', '#3f3f46', '#60a5fa',
-            '#71717a', '#1d4ed8', '#a1a1aa', '#cbd5e1', '#18181b'
-          ],
-          borderWidth: 2,
-          borderColor: isLight ? '#ffffff' : '#121215'
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'right', labels: { color: textColor, font: { size: 10.5 }, boxWidth: 10 } }
-        },
-        cutout: '65%'
-      }
+  function renderSubmarketChart() {
+    if (!submarketCanvas) return;
+    if (state.charts.submarket) state.charts.submarket.destroy();
+
+    const colors = getChartColors();
+    const metric = state.analyticsHubMetric; // 'deals' or 'sqft'
+    const leads = state.filteredLeads;
+
+    const hubMap = {};
+    leads.forEach(l => {
+      const hub = l.submarket || l.city || 'Regional';
+      if (!hubMap[hub]) hubMap[hub] = { deals: 0, sqft: 0 };
+      hubMap[hub].deals += 1;
+      hubMap[hub].sqft += (l.areaSqFt || 0);
     });
 
-    // Chart 3: Deal Size Classification
-    const sizeCtx = document.getElementById('sizeChart').getContext('2d');
-    state.charts.sizeChart = new Chart(sizeCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Boutique (<50k)', 'Mid (50k-150k)', 'Large (150k-500k)', 'Mega (500k+)'],
-        datasets: [{
-          label: 'Deals',
-          data: [0, 0, 0, 0],
-          backgroundColor: [
-            '#a1a1aa',
-            '#52525b',
-            '#2563eb',
-            '#000000'
-          ],
-          borderRadius: 4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } },
-          y: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { size: 11 }, stepSize: 1 } }
-        }
-      }
-    });
+    const sortedHubs = Object.entries(hubMap)
+      .sort((a, b) => b[1][metric] - a[1][metric])
+      .slice(0, 8);
 
-    // Chart 4: Timing Urgency Pipeline
-    const urgencyCtx = document.getElementById('urgencyChart').getContext('2d');
-    state.charts.urgencyChart = new Chart(urgencyCtx, {
+    const labels = sortedHubs.map(h => h[0]);
+    const dataValues = sortedHubs.map(h => metric === 'deals' ? h[1].deals : Math.round(h[1].sqft / 1000));
+
+    state.charts.submarket = new Chart(submarketCanvas, {
       type: 'bar',
       data: {
-        labels: ['Immediate (NOW)', 'Near-Term (Q4 26 - Q1 27)', 'Active Occupancy', 'Pre-Lease Pipeline'],
+        labels: labels,
         datasets: [{
-          label: 'Count',
-          data: [0, 0, 0, 0],
-          backgroundColor: [
-            '#2563eb',
-            '#000000',
-            '#52525b',
-            '#a1a1aa'
-          ],
-          borderRadius: 4
+          label: metric === 'deals' ? 'Deals Count' : 'Footprint (k sq ft)',
+          data: dataValues,
+          backgroundColor: '#000000',
+          borderRadius: 3
         }]
       },
       options: {
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
+        plugins: {
+          legend: { display: false }
+        },
         scales: {
-          x: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { size: 11 }, stepSize: 1 } },
-          y: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } }
+          x: {
+            grid: { color: colors.grid },
+            ticks: { color: colors.text, font: { size: 10, family: 'JetBrains Mono' } }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: colors.text, font: { size: 10.5, family: 'Inter', weight: '600' } }
+          }
         }
       }
     });
   }
 
-  function updateDealsCharts() {
-    const data = state.filteredLeads;
-    const country = state.activeCountry;
+  function renderDealTypeChart() {
+    if (!dealTypeCanvas) return;
+    if (state.charts.dealType) state.charts.dealType.destroy();
 
-    // 1. City / Market Distribution
-    const isDealsMetric = state.hubMetric === 'deals';
-    const isLight = state.theme === 'light';
-    const darkBarColor = isLight ? '#0f172a' : '#f8fafc';
-    const barColor = isDealsMetric ? '#2563eb' : darkBarColor;
+    const colors = getChartColors();
+    const leads = state.filteredLeads;
 
-    if (country === 'ALL') {
-      chartCityTitle.textContent = 'Market Share by Country (Pan-APAC)';
-      if (chartCitySubtitle) {
-        chartCitySubtitle.textContent = isDealsMetric ? 'Active commercial deal opportunities by market' : 'Total disclosed square footage leased across markets';
-      }
-
-      const countryMap = {};
-      data.forEach(l => {
-        const c = l.country || 'Other';
-        if (!countryMap[c]) countryMap[c] = { count: 0, sqft: 0 };
-        countryMap[c].count++;
-        if ((l.areaSqFt || 0) < 10000000) countryMap[c].sqft += (l.areaSqFt || 0);
-      });
-
-      const sortKey = isDealsMetric ? 'count' : 'sqft';
-      const labels = Object.keys(countryMap).sort((a, b) => countryMap[b][sortKey] - countryMap[a][sortKey]);
-      state.charts.cityChart.data.labels = labels.map(c => `${getCountryFlag(c)} ${c}`);
-
-      if (isDealsMetric) {
-        state.charts.cityChart.data.datasets[0].data = labels.map(c => countryMap[c].count);
-        state.charts.cityChart.data.datasets[0].label = 'Deals Count';
-        state.charts.cityChart.options.scales.y.ticks.stepSize = 1;
-      } else {
-        state.charts.cityChart.data.datasets[0].data = labels.map(c => countryMap[c].sqft);
-        state.charts.cityChart.data.datasets[0].label = 'Leased Sq Ft';
-        state.charts.cityChart.options.scales.y.ticks.stepSize = undefined;
-      }
-
-      state.charts.cityChart._hubMeta = labels.map(c => ({
-        count: countryMap[c].count,
-        sqftFmt: countryMap[c].sqft >= 1000000 ? `${(countryMap[c].sqft / 1000000).toFixed(2)}M sq ft` : (countryMap[c].sqft > 0 ? `${countryMap[c].sqft.toLocaleString()} sq ft` : 'Undisclosed')
-      }));
-
-    } else {
-      chartCityTitle.textContent = `${country} Hub Distribution`;
-      if (chartCitySubtitle) {
-        chartCitySubtitle.textContent = isDealsMetric ? `Active commercial deals by regional submarket` : `Total square footage leased by regional hub`;
-      }
-
-      const cityMap = {};
-      data.forEach(l => {
-        const city = l.city || 'Other';
-        if (!cityMap[city]) cityMap[city] = { count: 0, sqft: 0 };
-        cityMap[city].count++;
-        if ((l.areaSqFt || 0) < 10000000) cityMap[city].sqft += (l.areaSqFt || 0);
-      });
-
-      const sortKey = isDealsMetric ? 'count' : 'sqft';
-      const labels = Object.keys(cityMap).sort((a, b) => cityMap[b][sortKey] - cityMap[a][sortKey]).slice(0, 8);
-      state.charts.cityChart.data.labels = labels;
-
-      if (isDealsMetric) {
-        state.charts.cityChart.data.datasets[0].data = labels.map(c => cityMap[c].count);
-        state.charts.cityChart.data.datasets[0].label = 'Deals Count';
-        state.charts.cityChart.options.scales.y.ticks.stepSize = 1;
-      } else {
-        state.charts.cityChart.data.datasets[0].data = labels.map(c => cityMap[c].sqft);
-        state.charts.cityChart.data.datasets[0].label = 'Leased Sq Ft';
-        state.charts.cityChart.options.scales.y.ticks.stepSize = undefined;
-      }
-
-      state.charts.cityChart._hubMeta = labels.map(c => ({
-        count: cityMap[c].count,
-        sqftFmt: cityMap[c].sqft >= 1000000 ? `${(cityMap[c].sqft / 1000000).toFixed(2)}M sq ft` : (cityMap[c].sqft > 0 ? `${cityMap[c].sqft.toLocaleString()} sq ft` : 'Undisclosed')
-      }));
-    }
-
-    state.charts.cityChart.data.datasets[0].backgroundColor = barColor;
-    state.charts.cityChart.update();
-
-    // 2. Sector
-    const sectorMap = {};
-    data.forEach(l => {
-      const sec = l.sector || 'Other';
-      sectorMap[sec] = (sectorMap[sec] || 0) + 1;
-    });
-    const sectorLabels = Object.keys(sectorMap);
-    state.charts.sectorChart.data.labels = sectorLabels;
-    state.charts.sectorChart.data.datasets[0].data = sectorLabels.map(s => sectorMap[s]);
-    state.charts.sectorChart.update();
-
-    // 3. Size
-    let boutique = 0, mid = 0, large = 0, mega = 0;
-    data.forEach(l => {
-      const s = l.areaSqFt || 0;
-      if (s <= 0) return;
-      if (s < 50000) boutique++;
-      else if (s < 150000) mid++;
-      else if (s < 500000) large++;
-      else mega++;
-    });
-    state.charts.sizeChart.data.datasets[0].data = [boutique, mid, large, mega];
-    state.charts.sizeChart.update();
-
-    // 4. Urgency
-    let imm = 0, near = 0, act = 0, pipe = 0;
-    data.forEach(l => {
-      if (l.urgency === 'Immediate') imm++;
-      else if (l.urgency === 'Near-Term') near++;
-      else if (l.urgency === 'Active') act++;
-      else pipe++;
-    });
-    state.charts.urgencyChart.data.datasets[0].data = [imm, near, act, pipe];
-    state.charts.urgencyChart.update();
-  }
-
-  // -------------------------------------------------------------
-  // COMPANY TRACKER VIEW
-  // -------------------------------------------------------------
-  trackerSearchInput.addEventListener('input', (e) => {
-    state.trackerFilters.search = e.target.value.toLowerCase().trim();
-    applyTrackerFilters();
-  });
-
-  trackerCountryFilter.addEventListener('change', (e) => {
-    state.trackerFilters.country = e.target.value;
-    applyTrackerFilters();
-  });
-
-  trackerStatusFilter.addEventListener('change', (e) => {
-    state.trackerFilters.status = e.target.value;
-    applyTrackerFilters();
-  });
-
-  trackerChangeFilter.addEventListener('change', (e) => {
-    state.trackerFilters.change = e.target.value;
-    applyTrackerFilters();
-  });
-
-  btnResetTrackerFilters.addEventListener('click', () => {
-    trackerSearchInput.value = '';
-    trackerCountryFilter.value = 'ALL';
-    trackerStatusFilter.value = 'ALL';
-    trackerChangeFilter.value = 'ALL';
-    state.trackerFilters = { search: '', country: 'ALL', status: 'ALL', change: 'ALL' };
-    applyTrackerFilters();
-  });
-
-  function applyTrackerFilters() {
-    const { search, country, status, change } = state.trackerFilters;
-    const globalCountry = state.activeCountry;
-
-    state.filteredTracker = state.tracker.filter(item => {
-      const targetCountry = country !== 'ALL' ? country : globalCountry;
-      if (targetCountry !== 'ALL' && item.country !== targetCountry) return false;
-      if (status !== 'ALL' && item.status !== status) return false;
-      if (change === 'CHANGED' && !item.hasChange) return false;
-      if (change === 'BASELINE' && item.hasChange) return false;
-      if (search) {
-        const text = `${item.company} ${item.country} ${item.market} ${item.trend} ${item.change} ${item.currentSnapshot} ${item.notes}`.toLowerCase();
-        if (!text.includes(search)) return false;
-      }
-      return true;
+    const counts = {};
+    leads.forEach(l => {
+      const t = l.dealType || 'Unstated';
+      counts[t] = (counts[t] || 0) + 1;
     });
 
-    updateTrackerKPIs();
-    renderTrackerTable();
+    const labels = Object.keys(counts);
+    const data = Object.values(counts);
+    const bgColors = labels.map(l => colors.types[l] || '#71717a');
+
+    state.charts.dealType = new Chart(dealTypeCanvas, {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: data,
+          backgroundColor: bgColors,
+          borderWidth: 2,
+          borderColor: colors.grid
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '65%',
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: { color: colors.text, boxWidth: 10, font: { size: 10.5, family: 'Inter' } }
+          }
+        }
+      }
+    });
   }
 
-  function updateTrackerKPIs() {
-    kpiTrackerTotal.textContent = state.filteredTracker.length;
-    kpiTrackerActive.textContent = state.filteredTracker.filter(t => t.status === 'Active').length;
-    kpiTrackerWatch.textContent = state.filteredTracker.filter(t => t.status === 'Watch').length;
+  function renderSizeHistogramChart() {
+    if (!sizeHistogramCanvas) return;
+    if (state.charts.sizeHistogram) state.charts.sizeHistogram.destroy();
+
+    const colors = getChartColors();
+    const leads = state.filteredLeads;
+
+    const tiers = {
+      'Mega (>100k)': 0,
+      'Large (50k-100k)': 0,
+      'Mid (20k-50k)': 0,
+      'Boutique (<20k)': 0,
+      'Undisclosed': 0
+    };
+
+    leads.forEach(l => {
+      const tier = l.sizeTier || 'Undisclosed';
+      if (tiers[tier] !== undefined) tiers[tier] += 1;
+      else tiers['Undisclosed'] += 1;
+    });
+
+    state.charts.sizeHistogram = new Chart(sizeHistogramCanvas, {
+      type: 'bar',
+      data: {
+        labels: Object.keys(tiers),
+        datasets: [{
+          label: 'Deals Count',
+          data: Object.values(tiers),
+          backgroundColor: ['#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#d1d5db'],
+          borderRadius: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { color: colors.text, font: { size: 10, family: 'Inter' } }
+          },
+          y: {
+            grid: { color: colors.grid },
+            ticks: { color: colors.text, font: { size: 10, family: 'JetBrains Mono' } }
+          }
+        }
+      }
+    });
   }
 
-  function renderDeltaFeed() {
-    const deltaItems = state.tracker.filter(t => t.hasChange || t.status === 'Active').slice(0, 3);
-    deltaFeedCount.textContent = `${state.tracker.filter(t => t.hasChange).length} Meaningful Changes This Cycle`;
+  // =========================================================
+  // 8. VIEW 3: 📋 WORKING QUEUE (COMPANY TRACKER)
+  // =========================================================
+  function renderTrackerView() {
+    const trackerData = state.tracker;
+    const activeCountry = state.activeCountry;
 
-    deltaFeedList.innerHTML = deltaItems.map(item => `
-      <div class="delta-feed-card-item" onclick="window.openTrackerModal(${item.id})">
-        <strong style="font-size: 13px; display: block; margin-bottom: 2px;">${item.company} (${getCountryFlag(item.country)} ${item.country})</strong>
-        <p style="margin-bottom: 4px; color: var(--accent-blue); font-weight: 600; font-size: 11.5px;">
-          Trend: ${item.trend || item.status}
-        </p>
-        <p style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.4;">${item.change || item.currentSnapshot.slice(0, 95) + '...'}</p>
-      </div>
-    `).join('');
-  }
+    const relevant = activeCountry === 'ALL'
+      ? trackerData
+      : trackerData.filter(t => t.country.toLowerCase().includes(activeCountry.toLowerCase()) || activeCountry.toLowerCase().includes(t.country.toLowerCase()));
 
-  function renderTrackerTable() {
-    trackerTableBody.innerHTML = state.filteredTracker.map(item => {
-      const statusClass = item.status === 'Active' ? 'active' : 'watch';
-      const changeStyle = item.hasChange ? 'style="color: var(--accent-blue); font-weight: 700;"' : 'style="color: var(--text-muted);"';
-      return `
-        <tr onclick="window.openTrackerModal(${item.id})">
-          <td style="font-weight: 700;">${item.company}</td>
-          <td><span class="badge-clean">${item.country}</span></td>
-          <td style="color: var(--text-secondary);">${item.market || item.country}</td>
-          <td><span class="badge-clean ${statusClass}">${item.status}</span></td>
-          <td style="color: var(--accent-blue); font-weight: 600; font-size: 11.5px;">${item.trend}</td>
-          <td ${changeStyle} style="font-size: 11.5px;">${item.change}</td>
-          <td style="max-width: 240px; font-size: 11.5px; color: var(--text-secondary); line-height: 1.4;">${item.currentSnapshot.slice(0, 85)}...</td>
-          <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted);">${item.lastChecked}</td>
-          <td>
-            <button class="btn-action-outline" style="padding: 3px 8px; font-size: 11px;" onclick="event.stopPropagation(); window.openTrackerModal(${item.id})">
-              Compare
-            </button>
-          </td>
-        </tr>
+    // Update Ribbon Metrics
+    kpiTrackerTotal.textContent = relevant.length.toLocaleString();
+    const activeCount = relevant.filter(t => t.status === 'Active').length;
+    const watchCount = relevant.filter(t => t.status === 'Watch').length;
+    const engagedCount = relevant.filter(t => t.status === 'Engaged').length;
+
+    kpiTrackerActive.textContent = activeCount.toLocaleString();
+    kpiTrackerWatch.textContent = watchCount.toLocaleString();
+    kpiTrackerEngaged.textContent = engagedCount.toLocaleString();
+    tabTrackerCount.textContent = relevant.length.toLocaleString();
+
+    // Render Weekly Delta Feed (meaningful changes)
+    const changed = relevant.filter(t => t.hasChange);
+    deltaFeedCount.textContent = `${changed.length} Strategic Triggers`;
+
+    deltaFeedList.innerHTML = '';
+    const feedFrag = document.createDocumentFragment();
+
+    changed.slice(0, 6).forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'delta-card-item';
+      card.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <strong style="color: var(--text-primary); font-size: 13px;">${escapeHtml(item.company)}</strong>
+          <span class="badge-clean active" style="font-size: 9.5px;">${item.status}</span>
+        </div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">📍 ${escapeHtml(item.market || item.country)}</div>
+        <div style="font-size: 11.5px; line-height: 1.4; color: var(--text-secondary); background: var(--bg-hover); padding: 6px 8px; border-radius: 4px;">
+          <strong>Delta:</strong> ${escapeHtml(item.change)}
+        </div>
       `;
-    }).join('');
+      card.addEventListener('click', () => openCompanyDossier(item.company));
+      feedFrag.appendChild(card);
+    });
+    deltaFeedList.appendChild(feedFrag);
+
+    // Render Tracker Matrix Table
+    trackerTableBody.innerHTML = '';
+    const tableFrag = document.createDocumentFragment();
+
+    relevant.slice(0, 150).forEach(t => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>
+          <strong class="company-link" data-company="${escapeHtml(t.company)}" style="cursor: pointer; color: var(--text-primary);">
+            ${escapeHtml(t.company)}
+          </strong>
+        </td>
+        <td>${escapeHtml(t.country)}</td>
+        <td>${escapeHtml(t.market)}</td>
+        <td>
+          <select class="card-status-select" data-company="${escapeHtml(t.company)}">
+            <option value="Active" ${t.status === 'Active' ? 'selected' : ''}>Active</option>
+            <option value="Watch" ${t.status === 'Watch' ? 'selected' : ''}>Watch</option>
+            <option value="Engaged" ${t.status === 'Engaged' ? 'selected' : ''}>Engaged</option>
+          </select>
+        </td>
+        <td style="font-size: 11.5px; max-width: 180px;">${escapeHtml(t.trend)}</td>
+        <td style="font-size: 11.5px; max-width: 200px; color: ${t.hasChange ? 'var(--accent-blue)' : 'var(--text-muted)'}; font-weight: ${t.hasChange ? '700' : '400'};">
+          ${escapeHtml(t.change)}
+        </td>
+        <td style="font-size: 11.5px; max-width: 240px;">
+          ${escapeHtml(t.currentSnapshot)}
+        </td>
+        <td style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-muted);">
+          ${escapeHtml(t.lastChecked)}
+        </td>
+        <td>
+          <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(t.company)}" style="padding: 2px 6px; font-size: 11px;">
+            360 ↗
+          </button>
+        </td>
+      `;
+      tableFrag.appendChild(tr);
+    });
+
+    trackerTableBody.appendChild(tableFrag);
+
+    // Attach listeners
+    attachCardListeners(trackerTableBody);
   }
 
-  // -------------------------------------------------------------
-  // MODALS
-  // -------------------------------------------------------------
-  window.openDealModal = function(id) {
-    const lead = state.leads.find(l => l.id === id);
-    if (!lead) return;
+  // =========================================================
+  // 9. VIEW 4: 🏢 MULTI-TENANT HUBS (BUILDING CLUSTERS)
+  // =========================================================
+  function renderHubsView() {
+    const leads = state.activeCountry === 'ALL'
+      ? state.leads
+      : state.leads.filter(l => l.country === state.activeCountry);
 
-    document.getElementById('dealModalCompany').textContent = lead.company;
-    document.getElementById('dealModalMarket').textContent = `📍 ${lead.market} • ${lead.country}`;
-    document.getElementById('dealModalArea').textContent = `${lead.areaFormatted} (${(lead.areaSqFt || 0).toLocaleString()} sq ft)`;
-    document.getElementById('dealModalValue').textContent = lead.dealValue;
-    document.getElementById('dealModalSignal').textContent = lead.signal;
-    document.getElementById('dealModalTiming').textContent = lead.timing;
-
-    const urgencyBadge = document.getElementById('dealModalUrgency');
-    urgencyBadge.className = `badge-clean ${lead.urgency.toLowerCase().replace(/[^a-z]/g, '')}`;
-    urgencyBadge.textContent = lead.urgency;
-
-    document.getElementById('dealModalCountry').textContent = `${lead.flag || ''} ${lead.country}`;
-    document.getElementById('dealModalSector').textContent = lead.sector;
-
-    const sourceLink = document.getElementById('dealModalSourceLink');
-    sourceLink.href = lead.sourceUrl;
-    sourceLink.textContent = `Verify on ${lead.source} ↗`;
-
-    dealModal.classList.add('open');
-  };
-
-  dealModalCloseBtn.addEventListener('click', () => dealModal.classList.remove('open'));
-  dealModal.addEventListener('click', (e) => {
-    if (e.target === dealModal) dealModal.classList.remove('open');
-  });
-
-  window.openTrackerModal = function(id) {
-    const item = state.tracker.find(t => t.id === id);
-    if (!item) return;
-
-    document.getElementById('trackerModalCompany').textContent = item.company;
-    document.getElementById('trackerModalMarket').textContent = `📍 ${item.market || item.country} • ${item.country}`;
-
-    const statusBadge = document.getElementById('trackerModalStatus');
-    statusBadge.className = `badge-clean ${item.status === 'Active' ? 'active' : 'watch'}`;
-    statusBadge.textContent = item.status;
-
-    document.getElementById('trackerModalCountry').textContent = item.country;
-    document.getElementById('trackerModalDate').textContent = `Audited: ${item.lastChecked}`;
-
-    document.getElementById('trackerModalPrevSnapshot').textContent = item.previousSnapshot || 'No prior snapshot logged (Initial Baseline)';
-    document.getElementById('trackerModalCurrSnapshot').textContent = item.currentSnapshot || 'No snapshot data';
-    document.getElementById('trackerModalChange').textContent = item.change;
-    document.getElementById('trackerModalTrend').textContent = `Trend Velocity: ${item.trend}`;
-    document.getElementById('trackerModalNotes').textContent = item.notes ? `Internal Notes: ${item.notes}` : '';
-
-    trackerModal.classList.add('open');
-  };
-
-  trackerModalCloseBtn.addEventListener('click', () => trackerModal.classList.remove('open'));
-  trackerModal.addEventListener('click', (e) => {
-    if (e.target === trackerModal) trackerModal.classList.remove('open');
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      dealModal.classList.remove('open');
-      trackerModal.classList.remove('open');
-    }
-  });
-
-  // -------------------------------------------------------------
-  // SYNC & EXPORT
-  // -------------------------------------------------------------
-  btnSyncRefresh.addEventListener('click', async () => {
-    syncIcon.style.animation = 'spin 1s linear infinite';
-    try {
-      const resp = await fetch('http://localhost:8089/api/sync', { cache: 'no-store' });
-      if (resp.ok) {
-        const data = await resp.json();
-        if (data && data.leads && data.tracker) {
-          state.leads = data.leads;
-          state.tracker = data.tracker;
-          const now = new Date().toLocaleTimeString();
-          syncTimestamp.textContent = `Synced: ${now}`;
-          localStorage.setItem('cre_cached_sync', JSON.stringify({
-            leads: data.leads,
-            tracker: data.tracker,
-            lastSynced: now
-          }));
+    // Group leads by building
+    const clusters = {};
+    leads.forEach(l => {
+      if (l.building) {
+        if (!clusters[l.building]) {
+          clusters[l.building] = {
+            building: l.building,
+            submarket: l.submarket || l.city,
+            country: l.country,
+            flag: l.flag,
+            tenants: [],
+            totalSqFt: 0
+          };
         }
+        clusters[l.building].tenants.push(l);
+        clusters[l.building].totalSqFt += (l.areaSqFt || 0);
       }
-      applyDealsFilters();
-      applyTrackerFilters();
-      renderDeltaFeed();
-      updateTabCounts();
-    } catch (e) {
-      console.warn('Sync notice:', e);
-    } finally {
-      syncIcon.style.animation = 'none';
-    }
-  });
+    });
 
-  btnExportCsv.addEventListener('click', () => {
-    const isTracker = state.activeTab === 'tracker';
-    if (!isTracker) {
-      const headers = ['Company', 'Country', 'Market', 'Sector', 'Area_Sq_Ft', 'Deal_Value', 'Signal', 'Timing', 'Urgency', 'Source'];
-      const rows = state.filteredLeads.map(l => [
-        `"${(l.company || '').replace(/"/g, '""')}"`,
-        `"${(l.country || '').replace(/"/g, '""')}"`,
-        `"${(l.market || '').replace(/"/g, '""')}"`,
-        `"${(l.sector || '').replace(/"/g, '""')}"`,
-        l.areaSqFt || 0,
-        `"${(l.dealValue || '').replace(/"/g, '""')}"`,
-        `"${(l.signal || '').replace(/"/g, '""')}"`,
-        `"${(l.timing || '').replace(/"/g, '""')}"`,
-        `"${(l.urgency || '').replace(/"/g, '""')}"`,
-        `"${(l.source || '').replace(/"/g, '""')}"`
-      ]);
-      downloadCsv('Lease_IQ_Deals_Export.csv', headers, rows);
+    // Filter buildings with >= 2 moving tenants
+    const multiClusters = Object.values(clusters).filter(c => c.tenants.length >= 2);
+    multiClusters.sort((a, b) => b.tenants.length - a.tenants.length);
+
+    hubsCountPill.textContent = `${multiClusters.length} Target Buildings Identified`;
+    tabHubsCount.textContent = multiClusters.length.toString();
+
+    hubsCatalogGrid.innerHTML = '';
+    const frag = document.createDocumentFragment();
+
+    multiClusters.forEach(cluster => {
+      const card = document.createElement('article');
+      card.className = 'hub-cluster-card';
+
+      const sqftFormatted = cluster.totalSqFt > 0
+        ? (cluster.totalSqFt >= 1000000 ? `${(cluster.totalSqFt / 1000000).toFixed(2)}M sq ft` : `${cluster.totalSqFt.toLocaleString()} sq ft`)
+        : 'Disclosed area partial';
+
+      card.innerHTML = `
+        <div class="hub-card-header">
+          <div>
+            <h4>🏢 ${escapeHtml(cluster.building)}</h4>
+            <span>📍 ${escapeHtml(cluster.submarket)} · ${cluster.flag} ${cluster.country}</span>
+          </div>
+          <span class="hub-cluster-pill" style="font-size: 11.5px; padding: 3px 8px;">
+            ${cluster.tenants.length} Moving Tenants
+          </span>
+        </div>
+
+        <div style="display: flex; gap: 8px; align-items: center; font-size: 12px; margin-top: 2px;">
+          <span style="font-weight: 700; color: var(--text-primary);">Total Disclosed:</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-blue);">${sqftFormatted}</span>
+        </div>
+
+        <div class="hub-tenants-list">
+          ${cluster.tenants.map(t => `
+            <div class="hub-tenant-row">
+              <div>
+                <strong class="company-link" data-company="${escapeHtml(t.company)}" style="cursor: pointer; font-size: 12.5px;">
+                  ${escapeHtml(t.company)}
+                </strong>
+                <div style="font-size: 11px; color: var(--text-muted);">${escapeHtml(t.dealType)} · ${t.areaFormatted}</div>
+              </div>
+              <span class="window-pill ${getFitoutWindowClass(t.fitoutWindow)}" style="font-size: 10px;">
+                ${t.fitoutWindow}
+              </span>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="hub-playbook-box">
+          <strong>Strategic Playbook:</strong> Multiple concurrent moves in this tower provide massive trip leverage. Book back-to-back meetings with facility leads to pitch Steelcase agile workstations and common-area FF&E in one trip.
+        </div>
+      `;
+
+      frag.appendChild(card);
+    });
+
+    hubsCatalogGrid.appendChild(frag);
+
+    // Attach listeners
+    hubsCatalogGrid.querySelectorAll('.company-link').forEach(el => {
+      el.addEventListener('click', () => {
+        openCompanyDossier(el.getAttribute('data-company'));
+      });
+    });
+  }
+
+  // =========================================================
+  // 10. VIEW 5: ℹ️ COVERAGE & DATA TRUST
+  // =========================================================
+  function renderCoverageView() {
+    const metrics = state.metrics;
+    if (metrics.buildingDisclosureRate) {
+      gaugeBuildingRate.textContent = `${metrics.buildingDisclosureRate}%`;
+      gaugeBuildingBar.style.width = `${metrics.buildingDisclosureRate}%`;
+    }
+    if (metrics.sizeDisclosureRate) {
+      gaugeSizeRate.textContent = `${metrics.sizeDisclosureRate}%`;
+      gaugeSizeBar.style.width = `${metrics.sizeDisclosureRate}%`;
+    }
+    if (metrics.typeDisclosureRate) {
+      gaugeTypeRate.textContent = `${metrics.typeDisclosureRate}%`;
+      gaugeTypeBar.style.width = `${metrics.typeDisclosureRate}%`;
+    }
+    if (state.sources) {
+      gaugeSourcesCount.textContent = `${state.sources.length} Sources`;
+    }
+
+    renderSourcesTable();
+  }
+
+  function renderSourcesTable() {
+    const q = state.sourcesSearch.toLowerCase().trim();
+    const filtered = state.sources.filter(s => {
+      if (!q) return true;
+      const hay = `${s.country} ${s.source} ${s.whatItCovers} ${s.tier} ${s.normalPrice} ${s.trustLevel} ${s.howToUse}`.toLowerCase();
+      return hay.includes(q);
+    });
+
+    sourcesTableBody.innerHTML = '';
+    const frag = document.createDocumentFragment();
+
+    filtered.forEach(s => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><span class="badge-clean">${escapeHtml(s.country)}</span></td>
+        <td>
+          <span class="badge-clean ${s.isPaid ? 'active' : ''}" style="font-weight: 700;">
+            ${escapeHtml(s.tier)}
+          </span>
+        </td>
+        <td><strong style="color: var(--text-primary);">${escapeHtml(s.source)}</strong></td>
+        <td style="font-size: 11.5px; max-width: 240px;">${escapeHtml(s.whatItCovers)}</td>
+        <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; max-width: 140px;">${escapeHtml(s.normalPrice || 'Free')}</td>
+        <td>
+          <span style="font-size: 11px; font-weight: 600;">
+            ${escapeHtml(s.trustLevel)}
+          </span>
+        </td>
+        <td style="font-size: 11.5px; max-width: 280px; line-height: 1.4;">${escapeHtml(s.howToUse)}</td>
+        <td>
+          <a href="${escapeHtml(s.sourceUrl || '#')}" target="_blank" rel="noopener noreferrer" class="btn-card-action" style="padding: 2px 6px; font-size: 11px;">
+            Visit ↗
+          </a>
+        </td>
+      `;
+      frag.appendChild(tr);
+    });
+
+    sourcesTableBody.appendChild(frag);
+  }
+
+  if (sourcesSearchInput) {
+    sourcesSearchInput.addEventListener('input', (e) => {
+      state.sourcesSearch = e.target.value;
+      renderSourcesTable();
+    });
+  }
+
+  // =========================================================
+  // 11. SLIDE-OVER DRAWER / MODAL: COMPANY 360 DOSSIER
+  // =========================================================
+  function openCompanyDossier(companyName) {
+    state.activeDossierCompany = companyName;
+
+    // Find all cross-market deals for this company
+    const matchingDeals = state.leads.filter(l => l.company.toLowerCase() === companyName.toLowerCase());
+    const primaryDeal = matchingDeals[0] || {};
+
+    // Find tracker record
+    const trackerRec = state.tracker.find(t => t.company.toLowerCase() === companyName.toLowerCase()) || {};
+
+    // Find snapshots
+    const matchingSnapshots = state.snapshots.filter(s => s.company.toLowerCase() === companyName.toLowerCase());
+
+    dossierCompanyTitle.textContent = companyName;
+    dossierMarketSub.textContent = `${primaryDeal.submarket || primaryDeal.city || trackerRec.market || 'Regional'} · ${primaryDeal.building || 'Building undisclosed'} (${primaryDeal.country || trackerRec.country})`;
+
+    // Status Badge
+    const status = trackerRec.status || primaryDeal.trackerStatus || 'Watch';
+    dossierStatusBadge.textContent = status;
+    dossierStatusBadge.className = `badge-clean ${status === 'Active' ? 'active' : ''}`;
+    dossierStatusSelect.value = status;
+
+    // Country & Sector
+    dossierCountryBadge.textContent = `${primaryDeal.flag || '🌐'} ${primaryDeal.country || trackerRec.country || 'APAC'}`;
+    dossierSectorBadge.textContent = primaryDeal.sector || 'Corporate';
+
+    // Heat score badge
+    const heat = primaryDeal.heatScore || 65;
+    dossierHeatScoreBadge.textContent = `🔥 Heat Score: ${heat}/100`;
+
+    // Tailored Pitch
+    const pitch = primaryDeal.suggestedOpeningLine || `Hi [Name], congratulations on ${companyName}'s commercial momentum. Steelcase APAC provides premium ergonomic furniture and high-collaboration workspace design. Would you be open to an introductory conversation?`;
+    dossierPitchText.textContent = `"${pitch}"`;
+
+    // Notes
+    dossierNotesInput.value = state.userNotes[companyName] || trackerRec.notes || '';
+
+    // Render Cross-Market Deals
+    dossierDealsCount.textContent = matchingDeals.length.toString();
+    dossierDealsList.innerHTML = '';
+    if (matchingDeals.length > 0) {
+      matchingDeals.forEach(deal => {
+        const item = document.createElement('div');
+        item.style.padding = '8px 10px';
+        item.style.marginBottom = '6px';
+        item.style.background = 'var(--bg-card)';
+        item.style.border = '1px solid var(--border-light)';
+        item.style.borderRadius = '4px';
+        item.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+            <strong style="font-size: 12.5px;">${deal.flag} ${deal.country} — ${escapeHtml(deal.market)}</strong>
+            <span class="chip-tag tag-deal-type" style="font-size: 10px;">${escapeHtml(deal.dealType)}</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 4px;">
+            ${escapeHtml(deal.signal)}
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted);">
+            <span>Disclosed: <strong style="color: var(--accent-blue);">${deal.areaFormatted}</strong></span>
+            <a href="${escapeHtml(deal.sourceUrl || '#')}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); text-decoration: none;">Verify Source ↗</a>
+          </div>
+        `;
+        dossierDealsList.appendChild(item);
+      });
     } else {
-      const headers = ['Company', 'Country', 'Market', 'Status', 'Trend', 'Change', 'Current_Snapshot', 'Previous_Snapshot', 'Last_Checked'];
-      const rows = state.filteredTracker.map(t => [
-        `"${(t.company || '').replace(/"/g, '""')}"`,
-        `"${(t.country || '').replace(/"/g, '""')}"`,
-        `"${(t.market || '').replace(/"/g, '""')}"`,
-        `"${(t.status || '').replace(/"/g, '""')}"`,
-        `"${(t.trend || '').replace(/"/g, '""')}"`,
-        `"${(t.change || '').replace(/"/g, '""')}"`,
-        `"${(t.currentSnapshot || '').replace(/"/g, '""')}"`,
-        `"${(t.previousSnapshot || '').replace(/"/g, '""')}"`,
-        `"${(t.lastChecked || '').replace(/"/g, '""')}"`
-      ]);
-      downloadCsv('Lease_IQ_Company_Tracker_Export.csv', headers, rows);
+      dossierDealsList.innerHTML = '<p style="font-size: 12px; color: var(--text-muted);">No transaction rows found for this account.</p>';
+    }
+
+    // Render Historical Snapshots
+    dossierSnapshotsCount.textContent = matchingSnapshots.length.toString();
+    dossierSnapshotsList.innerHTML = '';
+    if (matchingSnapshots.length > 0) {
+      matchingSnapshots.forEach(snap => {
+        const item = document.createElement('div');
+        item.style.padding = '8px 10px';
+        item.style.marginBottom = '6px';
+        item.style.background = 'var(--bg-card)';
+        item.style.border = '1px solid var(--border-light)';
+        item.style.borderRadius = '4px';
+        item.innerHTML = `
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-bottom: 2px;">
+            <span>Week: <strong style="font-family: 'JetBrains Mono', monospace;">${escapeHtml(snap.week)}</strong></span>
+            <span>${escapeHtml(snap.source)}</span>
+          </div>
+          <div style="font-size: 12px; line-height: 1.4; color: var(--text-primary);">
+            ${escapeHtml(snap.snapshot)}
+          </div>
+        `;
+        dossierSnapshotsList.appendChild(item);
+      });
+    } else {
+      dossierSnapshotsList.innerHTML = '<p style="font-size: 12px; color: var(--text-muted);">No snapshot history recorded for this account.</p>';
+    }
+
+    company360Modal.classList.add('open');
+  }
+
+  // Copy Dossier Pitch
+  if (btnCopyDossierPitch) {
+    btnCopyDossierPitch.addEventListener('click', () => {
+      const pitch = dossierPitchText.textContent.replace(/^"|"$/g, '');
+      navigator.clipboard.writeText(pitch).then(() => {
+        showToast('Tailored pitch copied to clipboard!', '📋');
+      });
+    });
+  }
+
+  // Save Dossier Notes
+  if (btnSaveDossierNotes) {
+    btnSaveDossierNotes.addEventListener('click', () => {
+      const comp = state.activeDossierCompany;
+      if (!comp) return;
+      const note = dossierNotesInput.value.trim();
+      const status = dossierStatusSelect.value;
+
+      state.userNotes[comp] = note;
+      state.userStatuses[comp] = status;
+
+      localStorage.setItem('cre_user_notes', JSON.stringify(state.userNotes));
+      localStorage.setItem('cre_user_statuses', JSON.stringify(state.userStatuses));
+
+      applyUserOverrides();
+      showToast(`Saved triage notes and status for ${comp}`, '✓');
+      filterAndSortLeads();
+      company360Modal.classList.remove('open');
+    });
+  }
+
+  if (modal360CloseBtn) {
+    modal360CloseBtn.addEventListener('click', () => {
+      company360Modal.classList.remove('open');
+    });
+  }
+
+  company360Modal.addEventListener('click', (e) => {
+    if (e.target === company360Modal) {
+      company360Modal.classList.remove('open');
     }
   });
 
-  function downloadCsv(filename, headers, rows) {
-    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+  // =========================================================
+  // 12. NAVIGATION & VIEW SWITCHING
+  // =========================================================
+  function switchView(viewName) {
+    state.activeView = viewName;
+
+    // Update Nav buttons
+    [tabAnalyticsBtn, tabRadarDropdownBtn, tabTrackerBtn, tabHubsBtn, tabCoverageBtn].forEach(btn => {
+      if (btn) btn.classList.remove('active');
+    });
+
+    // Hide all view panels
+    [viewRadar, viewAnalytics, viewTracker, viewHubs, viewCoverage].forEach(view => {
+      if (view) view.style.display = 'none';
+    });
+
+    if (viewName === 'analytics') {
+      if (tabAnalyticsBtn) tabAnalyticsBtn.classList.add('active');
+      viewAnalytics.style.display = 'block';
+      renderAllCharts();
+    } else if (viewName === 'radar') {
+      if (tabRadarDropdownBtn) tabRadarDropdownBtn.classList.add('active');
+      viewRadar.style.display = 'block';
+      renderRadarView();
+    } else if (viewName === 'tracker') {
+      if (tabTrackerBtn) tabTrackerBtn.classList.add('active');
+      viewTracker.style.display = 'block';
+      renderTrackerView();
+    } else if (viewName === 'hubs') {
+      if (tabHubsBtn) tabHubsBtn.classList.add('active');
+      viewHubs.style.display = 'block';
+      renderHubsView();
+    } else if (viewName === 'coverage') {
+      if (tabCoverageBtn) tabCoverageBtn.classList.add('active');
+      viewCoverage.style.display = 'block';
+      renderCoverageView();
+    }
+  }
+
+  function updateRadarDropdownUI(horizon, counts) {
+    if (!counts) {
+      const relevantTotalLeads = state.activeCountry === 'ALL'
+        ? state.leads
+        : state.leads.filter(l => l.country === state.activeCountry);
+      counts = {
+        countAll: relevantTotalLeads.length,
+        count060: relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length,
+        count1Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '1 Year' || l.fitoutWindow === '1-Year: Scoping & Probing').length,
+        count2Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '2 Years' || l.fitoutWindow === '2-Year: Relationship Building').length,
+        count3Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '3 Years & Above' || l.fitoutWindow === 'Pre-Lease Pipeline').length
+      };
+    }
+
+    const horizonConfig = {
+      'ALL': { icon: '🔥', label: 'Sales Radar', count: counts.countAll, heading: 'Who to Call This Week' },
+      '0–60 Days': { icon: '⚡', label: '0–60 Days', count: counts.count060, heading: '⚡ 0–60 Days Prime Fit-Out Execution Window' },
+      '1 Year': { icon: '🎯', label: '1 Year', count: counts.count1Yr, heading: '🎯 1-Year Scoping & Probing Pipeline' },
+      '2 Years': { icon: '🤝', label: '2 Years', count: counts.count2Yr, heading: '🤝 2-Year Relationship Building Pipeline' },
+      '3 Years & Above': { icon: '🔮', label: '3 Years & Above', count: counts.count3Yr, heading: '🔮 3+ Years Strategic & Pre-Lease Pipeline' }
+    };
+
+    const cfg = horizonConfig[horizon] || horizonConfig['ALL'];
+    if (radarDropdownIcon) radarDropdownIcon.textContent = cfg.icon;
+    if (radarDropdownLabel) radarDropdownLabel.textContent = cfg.label;
+    if (radarDropdownBadge) radarDropdownBadge.textContent = cfg.count.toLocaleString();
+    if (radarViewHeading) radarViewHeading.textContent = cfg.heading;
+
+    // Highlight active item in dropdown menu
+    const items = document.querySelectorAll('#navRadarDropdownMenu .nav-dropdown-item');
+    items.forEach(btn => {
+      if (btn.getAttribute('data-horizon') === horizon) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // Analytics Button
+  if (tabAnalyticsBtn) tabAnalyticsBtn.addEventListener('click', () => switchView('analytics'));
+
+  // Sales Radar Dropdown Trigger Button
+  if (tabRadarDropdownBtn) {
+    tabRadarDropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navRadarDropdownWrap && navRadarDropdownWrap.classList.contains('open');
+      if (isOpen) {
+        navRadarDropdownWrap.classList.remove('open');
+        tabRadarDropdownBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        if (navRadarDropdownWrap) navRadarDropdownWrap.classList.add('open');
+        tabRadarDropdownBtn.setAttribute('aria-expanded', 'true');
+      }
+      if (state.activeView !== 'radar') {
+        switchView('radar');
+      }
+    });
+  }
+
+  // Dropdown Items selection
+  document.querySelectorAll('#navRadarDropdownMenu .nav-dropdown-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const horizon = item.getAttribute('data-horizon');
+      state.filters.window = horizon;
+      if (filterWindow) filterWindow.value = horizon;
+      updateRadarDropdownUI(horizon);
+      filterAndSortLeads();
+      switchView('radar');
+      if (navRadarDropdownWrap) navRadarDropdownWrap.classList.remove('open');
+      if (tabRadarDropdownBtn) tabRadarDropdownBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close dropdown on click outside
+  document.addEventListener('click', (e) => {
+    if (navRadarDropdownWrap && !navRadarDropdownWrap.contains(e.target)) {
+      navRadarDropdownWrap.classList.remove('open');
+      if (tabRadarDropdownBtn) tabRadarDropdownBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close dropdown on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navRadarDropdownWrap && navRadarDropdownWrap.classList.contains('open')) {
+      navRadarDropdownWrap.classList.remove('open');
+      if (tabRadarDropdownBtn) tabRadarDropdownBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  if (tabTrackerBtn) tabTrackerBtn.addEventListener('click', () => switchView('tracker'));
+  if (tabHubsBtn) tabHubsBtn.addEventListener('click', () => switchView('hubs'));
+  if (tabCoverageBtn) tabCoverageBtn.addEventListener('click', () => switchView('coverage'));
+
+  // Country Market Select
+  countrySelect.addEventListener('change', (e) => {
+    state.activeCountry = e.target.value;
+    headerMarketFlag.textContent = COUNTRY_FLAGS[state.activeCountry] || '🌐';
+    populateSubmarketsDropdown();
+    filterAndSortLeads();
+  });
+
+  // Radar View Mode Toggles
+  btnRadarCardView.addEventListener('click', () => {
+    state.radarViewMode = 'card';
+    btnRadarCardView.classList.add('active');
+    btnRadarTableView.classList.remove('active');
+    renderRadarView();
+  });
+
+  btnRadarTableView.addEventListener('click', () => {
+    state.radarViewMode = 'table';
+    btnRadarTableView.classList.add('active');
+    btnRadarCardView.classList.remove('active');
+    renderRadarView();
+  });
+
+  // Radar Sort Select
+  radarSortSelect.addEventListener('change', (e) => {
+    state.radarSort = e.target.value;
+    filterAndSortLeads();
+  });
+
+  // Analytics Toggles
+  if (btnTimelineDealDate && btnTimelineFoundDate) {
+    btnTimelineDealDate.addEventListener('click', () => {
+      state.analyticsTimelineMode = 'deal';
+      btnTimelineDealDate.classList.add('active');
+      btnTimelineFoundDate.classList.remove('active');
+      renderTimelineChart();
+    });
+    btnTimelineFoundDate.addEventListener('click', () => {
+      state.analyticsTimelineMode = 'found';
+      btnTimelineFoundDate.classList.add('active');
+      btnTimelineDealDate.classList.remove('active');
+      renderTimelineChart();
+    });
+  }
+
+  if (btnHubDeals && btnHubSqft) {
+    btnHubDeals.addEventListener('click', () => {
+      state.analyticsHubMetric = 'deals';
+      btnHubDeals.classList.add('active');
+      btnHubSqft.classList.remove('active');
+      renderSubmarketChart();
+    });
+    btnHubSqft.addEventListener('click', () => {
+      state.analyticsHubMetric = 'sqft';
+      btnHubSqft.classList.add('active');
+      btnHubDeals.classList.remove('active');
+      renderSubmarketChart();
+    });
+  }
+
+  // Filter Input Listeners
+  globalSearchInput.addEventListener('input', (e) => {
+    state.filters.search = e.target.value;
+    filterAndSortLeads();
+  });
+
+  filterSubmarket.addEventListener('change', (e) => {
+    state.filters.submarket = e.target.value;
+    filterAndSortLeads();
+  });
+
+  filterDealType.addEventListener('change', (e) => {
+    state.filters.dealType = e.target.value;
+    filterAndSortLeads();
+  });
+
+  filterWindow.addEventListener('change', (e) => {
+    state.filters.window = e.target.value;
+    updateRadarDropdownUI(e.target.value);
+    filterAndSortLeads();
+  });
+
+  filterSizeTier.addEventListener('change', (e) => {
+    state.filters.sizeTier = e.target.value;
+    filterAndSortLeads();
+  });
+
+  filterStatus.addEventListener('change', (e) => {
+    state.filters.status = e.target.value;
+    filterAndSortLeads();
+  });
+
+  btnResetFilters.addEventListener('click', () => {
+    state.filters = {
+      search: '',
+      submarket: 'ALL',
+      dealType: 'ALL',
+      window: 'ALL',
+      sizeTier: 'ALL',
+      status: 'ALL'
+    };
+    globalSearchInput.value = '';
+    filterSubmarket.value = 'ALL';
+    filterDealType.value = 'ALL';
+    filterWindow.value = 'ALL';
+    filterSizeTier.value = 'ALL';
+    filterStatus.value = 'ALL';
+    updateRadarDropdownUI('ALL');
+    filterAndSortLeads();
+  });
+
+  // =========================================================
+  // 13. LIVE GOOGLE SHEET SYNC
+  // =========================================================
+  btnSyncRefresh.addEventListener('click', () => {
+    syncIcon.style.animation = 'spin 0.8s linear infinite';
+    syncTimestamp.textContent = 'Syncing...';
+
+    fetch('/api/sync')
+      .then(res => res.json())
+      .then(data => {
+        syncIcon.style.animation = 'none';
+        if (data.leads && data.leads.length > 0) {
+          state.leads = data.leads;
+          state.tracker = data.tracker || state.tracker;
+          state.snapshots = data.snapshots || state.snapshots;
+          state.sources = data.sources || state.sources;
+          state.metrics = data.metrics || state.metrics;
+          applyUserOverrides();
+          populateSubmarketsDropdown();
+          filterAndSortLeads();
+          syncTimestamp.textContent = `Synced: ${data.lastSynced || 'Just now'}`;
+          showToast(`Synced ${data.leads.length} leads across ${data.markets.length} markets!`, '🔄');
+        } else {
+          syncTimestamp.textContent = 'Synced';
+          showToast('Live sync completed', '✓');
+        }
+      })
+      .catch(err => {
+        syncIcon.style.animation = 'none';
+        syncTimestamp.textContent = 'Offline / Cached';
+        console.warn('Sync error:', err);
+        showToast('Sync server offline, running from cached data.js', '⚠️');
+      });
+  });
+
+  // Add CSS spin animation
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = `@keyframes spin { 100% { transform: rotate(360deg); } }`;
+  if (document.head) document.head.appendChild(styleSheet);
+
+  // =========================================================
+  // 14. EXPORT TO CSV
+  // =========================================================
+  btnExportCsv.addEventListener('click', () => {
+    const data = state.filteredLeads;
+    if (!data.length) {
+      showToast('No leads to export', '⚠️');
+      return;
+    }
+
+    const headers = ['Heat Score', 'Company', 'Country', 'Market', 'Submarket', 'Building', 'Deal Type', 'Size (sq ft)', 'Disclosed Size Formatted', 'Deal Value', 'Deal Date / Quarter', 'Fit-out Window', 'Signal', 'Timing Strategy', 'Sales Status', 'Source', 'Source URL'];
+    const rows = data.map(l => [
+      l.heatScore,
+      `"${(l.company || '').replace(/"/g, '""')}"`,
+      `"${(l.country || '').replace(/"/g, '""')}"`,
+      `"${(l.market || '').replace(/"/g, '""')}"`,
+      `"${(l.submarket || '').replace(/"/g, '""')}"`,
+      `"${(l.building || '').replace(/"/g, '""')}"`,
+      `"${(l.dealType || '').replace(/"/g, '""')}"`,
+      l.areaSqFt !== null ? l.areaSqFt : 'Not disclosed',
+      `"${(l.areaFormatted || '').replace(/"/g, '""')}"`,
+      `"${(l.dealValue || '').replace(/"/g, '""')}"`,
+      `"${(l.dealQuarter || l.dealDate || '').replace(/"/g, '""')}"`,
+      `"${(l.fitoutWindow || '').replace(/"/g, '""')}"`,
+      `"${(l.signal || '').replace(/"/g, '""')}"`,
+      `"${(l.timing || '').replace(/"/g, '""')}"`,
+      `"${(l.trackerStatus || '').replace(/"/g, '""')}"`,
+      `"${(l.source || '').replace(/"/g, '""')}"`,
+      `"${(l.sourceUrl || '').replace(/"/g, '""')}"`
+    ]);
+
+    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
+    const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
-    link.setAttribute('href', encodeURI(csvContent));
-    link.setAttribute('download', filename);
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `steelcase_lease_iq_${state.activeCountry.toLowerCase()}_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    showToast(`Exported ${data.length} records to CSV!`, '📥');
+  });
+
+  // Helper function to escape HTML
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
+
+  // =========================================================
+  // INITIALIZATION
+  // =========================================================
+  populateSubmarketsDropdown();
+  filterAndSortLeads();
+  switchView('analytics');
 });

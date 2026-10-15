@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lease-IQ - Executive Overview & Deal Flow Intelligence</title>
+  <title>Steelcase APAC - Lease-IQ Sales Radar & Executive Overview</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.svg">
   <link rel="apple-touch-icon" href="favicon.svg">
@@ -12,13 +12,15 @@
 </head>
 <body>
   <div class="dashboard-wrapper">
-    <!-- TOP NAV BAR (Black Executive Header Bar) -->
+    <!-- ============================================== -->
+    <!-- TOP NAV BAR (Solid Black Executive Bar)       -->
+    <!-- ============================================== -->
     <header class="top-nav-bar">
-      <!-- Left: Logo, Brand & Market Dropdown -->
+      <!-- Left: Brand Logo & Integrated Market Dropdown -->
       <div class="header-left-group">
-        <div class="brand-block">
-          <div class="brand-icon-box" title="Lease-IQ Commercial Real Estate">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="brand-block" title="Steelcase APAC Lease-IQ">
+          <div class="brand-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 21V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17"></path>
               <path d="M12 21V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v12"></path>
               <path d="M2 21h20"></path>
@@ -30,49 +32,121 @@
             </svg>
           </div>
           <div class="brand-info">
-            <h1>Lease-IQ</h1>
-            <span>EXECUTIVE OVERVIEW</span>
+            <h1 class="brand-title">Lease-IQ</h1>
+            <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
           </div>
         </div>
 
         <div class="header-vsep"></div>
 
-        <!-- Market Selector Dropdown (Integrated in Black Header) -->
-        <div class="header-market-dropdown" title="Select APAC Market">
-          <span class="market-dropdown-flag" id="headerMarketFlag">🇲🇾</span>
+        <!-- Integrated Market Dropdown -->
+        <div class="header-market-dropdown" title="Select APAC Market Filter">
+          <span class="market-dropdown-flag" id="headerMarketFlag">🌐</span>
           <select id="countrySelect" class="market-dropdown-select" aria-label="Select APAC Market">
-            <option value="Malaysia" selected>Malaysia (RM MYR)</option>
-            <option value="ALL">🌐 All Markets (APAC)</option>
+            <option value="ALL" selected>🌐 All Markets (APAC)</option>
+            <option value="China">🇨🇳 China (¥ CNY)</option>
             <option value="India">🇮🇳 India (₹ INR)</option>
-            <option value="Korea">🇰🇷 South Korea (₩ KRW)</option>
             <option value="Japan">🇯🇵 Japan (¥ JPY)</option>
+            <option value="Korea">🇰🇷 South Korea (₩ KRW)</option>
+            <option value="Malaysia">🇲🇾 Malaysia (RM MYR)</option>
             <option value="Sri Lanka">🇱🇰 Sri Lanka (SL Rs LKR)</option>
           </select>
           <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
       </div>
 
-      <!-- Center: Segmented Navigation -->
-      <div class="segmented-nav-group">
-        <button id="tabDealsBtn" class="segment-btn active">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-          Market Deals Feed (<span id="tabDealsCount">183</span>)
+      <!-- Center: Main View Navigation Tabs -->
+      <nav class="segmented-nav-group" aria-label="Dashboard Views">
+        <button id="tabAnalyticsBtn" class="segment-btn active" title="Deal velocity, submarkets, and footprint analytics">
+          <span class="tab-icon">📊</span>
+          <span>Analytics</span>
         </button>
-        <button id="tabTrackerBtn" class="segment-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Company Tracker (<span id="tabTrackerCount">175</span>)
-        </button>
-      </div>
 
-      <!-- Right: Sync Capsule, Theme Toggle, Export -->
-      <div class="header-right-group">
-        <div class="sync-status-capsule">
-          <div class="sync-indicator"></div>
-          <div class="sync-meta">
-            <strong>Synced (Google Sheet)</strong>
-            <span id="syncTimestamp">Just now (auto-sync 2h)</span>
+        <!-- Sales Radar Horizon Dropdown (0–60d, 1-Yr, 2-Yr, 3+ Yrs) -->
+        <div class="nav-radar-dropdown" id="navRadarDropdownWrap">
+          <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by Lease & Fit-Out Horizon">
+            <span class="tab-icon" id="radarDropdownIcon">🔥</span>
+            <span id="radarDropdownLabel">Sales Radar</span>
+            <span class="tab-badge" id="radarDropdownBadge">545</span>
+            <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="navRadarDropdownMenu">
+            <div class="nav-dropdown-header">Sales Radar Horizons</div>
+            <button type="button" class="nav-dropdown-item active" data-horizon="ALL">
+              <div class="item-left">
+                <span class="item-icon">🔥</span>
+                <div class="item-text">
+                  <span class="item-title">All Radar Opportunities</span>
+                  <span class="item-desc">All prioritized opportunities</span>
+                </div>
+              </div>
+              <span class="item-badge" id="dropCountAll">545</span>
+            </button>
+            <button type="button" class="nav-dropdown-item" data-horizon="0–60 Days">
+              <div class="item-left">
+                <span class="item-icon">⚡</span>
+                <div class="item-text">
+                  <span class="item-title">0–60 Days</span>
+                  <span class="item-desc">Prime fit-out execution window</span>
+                </div>
+              </div>
+              <span class="item-badge" id="dropCount060">383</span>
+            </button>
+            <button type="button" class="nav-dropdown-item" data-horizon="1 Year">
+              <div class="item-left">
+                <span class="item-icon">🎯</span>
+                <div class="item-text">
+                  <span class="item-title">1 Year</span>
+                  <span class="item-desc">Start scoping & probe space needs</span>
+                </div>
+              </div>
+              <span class="item-badge" id="dropCount1Yr">18</span>
+            </button>
+            <button type="button" class="nav-dropdown-item" data-horizon="2 Years">
+              <div class="item-left">
+                <span class="item-icon">🤝</span>
+                <div class="item-text">
+                  <span class="item-title">2 Years</span>
+                  <span class="item-desc">Start building relationship</span>
+                </div>
+              </div>
+              <span class="item-badge" id="dropCount2Yr">102</span>
+            </button>
+            <button type="button" class="nav-dropdown-item" data-horizon="3 Years & Above">
+              <div class="item-left">
+                <span class="item-icon">🔮</span>
+                <div class="item-text">
+                  <span class="item-title">3 Years & Above</span>
+                  <span class="item-desc">Strategic long-range campus pipeline</span>
+                </div>
+              </div>
+              <span class="item-badge" id="dropCount3Yr">42</span>
+            </button>
           </div>
-          <button id="btnSyncRefresh" class="btn-icon-sq" style="border: none; width: 24px; height: 24px; background: transparent; padding: 0;" title="Refresh data from Google Sheet">
+        </div>
+
+        <button id="tabTrackerBtn" class="segment-btn" title="Active sales working queue">
+          <span class="tab-icon">📋</span>
+          <span>Queue</span>
+          <span class="tab-badge" id="tabTrackerCount">534</span>
+        </button>
+        <button id="tabHubsBtn" class="segment-btn" title="Buildings with 2+ tenant signals">
+          <span class="tab-icon">🏢</span>
+          <span>Hubs</span>
+          <span class="tab-badge hub-alert" id="tabHubsCount">15</span>
+        </button>
+        <button id="tabCoverageBtn" class="segment-btn" title="Known boundaries, data completeness & 92 sources">
+          <span class="tab-icon">ℹ️</span>
+          <span>Coverage</span>
+        </button>
+      </nav>
+
+      <!-- Right: Sync Capsule, Theme, Google Sheet, Export -->
+      <div class="header-right-group">
+        <div class="sync-status-capsule" title="Google Sheet dynamic database sync">
+          <div class="sync-indicator"></div>
+          <span class="sync-text-label">Synced</span>
+          <button id="btnSyncRefresh" class="btn-sync-icon" title="Trigger live sync from Google Sheet">
             <svg id="syncIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
           </button>
         </div>
@@ -81,11 +155,11 @@
           <span id="themeIcon">🌙</span>
         </button>
 
-        <a href="https://docs.google.com/spreadsheets/d/1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-icon-sq" title="Open Google Sheet Source">
+        <a href="https://docs.google.com/spreadsheets/d/1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-icon-sq" title="Open Source Google Sheet">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
         </a>
 
-        <button id="btnExportCsv" class="btn-action-outline">
+        <button id="btnExportCsv" class="btn-action-outline" title="Export filtered deals to CSV">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           Export
         </button>
@@ -93,374 +167,358 @@
     </header>
 
     <!-- ============================================== -->
-    <!-- VIEW 1: MARKET DEALS FEED                     -->
+    <!-- EXECUTIVE SCORECARDS ROW (5-Column Flat Grid)   -->
     <!-- ============================================== -->
-    <main id="viewDeals">
-      <!-- Macro Intelligence Ticker -->
-      <section class="macro-ticker-card">
-        <div class="macro-ticker-item">
-          <span class="macro-tag-badge">Structural Shift</span>
-          <div class="macro-text-block">
-            <strong>45% of Grade A Leasing</strong> (19.2M sq ft in H1 2026) driven by GCCs, led by Bengaluru (70%) & Hyderabad (48%).
+    <section class="scorecards-row" id="globalScorecardsRow">
+      <!-- Card 1: Unique Monitored Accounts -->
+      <div class="scorecard-box">
+        <div class="scorecard-top-line">
+          <span class="scorecard-label-text">UNIQUE ACCOUNTS</span>
+          <div class="scorecard-sq-icon" title="Deduplicated by Company + Country">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
         </div>
-        <div class="macro-ticker-item">
-          <span class="macro-tag-badge">Flex Record</span>
-          <div class="macro-text-block">
-            <strong>24.6M sq ft</strong> leased in Q2 2026. Managed coworking operators took 27% share (+90% above 5-yr avg).
-          </div>
-        </div>
-        <div class="macro-ticker-item">
-          <span class="macro-tag-badge">Growth Velocity</span>
-          <div class="macro-text-block">
-            <strong>Hyderabad +54% Y-o-Y</strong> absorption surge; BFSI & Tech campus expansions booming.
-          </div>
-        </div>
-      </section>
+        <div class="scorecard-big-num" id="kpiUniqueCompanies">540</div>
+        <div class="scorecard-sub-info" id="kpiCompaniesSub">Deduplicated across 6 APAC markets</div>
+      </div>
 
-      <!-- 5 KPI SCORECARDS (PlannerHub Exact 5-Column Grid) -->
-      <section class="scorecards-row">
-        <!-- Card 1: Total Opportunities -->
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">TOTAL OPPORTUNITIES</span>
-            <div class="scorecard-sq-icon" title="Verified Pipeline">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiTotalDeals">183</div>
-          <div class="scorecard-sub-info" id="kpiDealsSubtitle">Across 22 active submarkets</div>
-        </div>
-
-        <!-- Card 2: Disclosed Footprint -->
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">DISCLOSED FOOTPRINT</span>
-            <div class="scorecard-sq-icon" title="Leased Space">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiTotalSqFt">21.7M sq ft</div>
-          <div class="scorecard-sub-info" id="kpiSqFtSubtitle">Across verified campus deals</div>
-        </div>
-
-        <!-- Card 3: Immediate Fit-Outs -->
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">IMMEDIATE FIT-OUTS</span>
-            <div class="scorecard-sq-icon icon-blue" title="Fit-Outs Underway">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiImmediate">58</div>
-          <div class="scorecard-progress-track">
-            <div class="scorecard-progress-bar" id="kpiImmediateBar" style="width: 32%;"></div>
-          </div>
-          <div class="scorecard-sub-info" id="kpiImmediateSubtitle">32% of active portfolio</div>
-        </div>
-
-        <!-- Card 4: Pre-Lease Pipeline -->
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">PRE-LEASE PIPELINE</span>
-            <div class="scorecard-sq-icon" title="Future Pipeline">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiPipeline">34</div>
-          <div class="scorecard-sub-info">Pre-commitments for 2027+ delivery</div>
-        </div>
-
-        <!-- Card 5: Disclosed Value -->
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">DISCLOSED VALUE</span>
-            <div class="scorecard-sq-icon icon-black" title="Cumulative Commitments">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="8"></line><line x1="12" y1="16" x2="12" y2="18"></line></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiDealValue" style="font-size: 26px;">5 Currencies</div>
-          <div class="scorecard-sub-info" id="kpiCurrencySubtitle">Cumulative rental commitments</div>
-        </div>
-      </section>
-
-      <!-- 4 VISUAL CHARTS (Restored Grid!) -->
-      <section class="charts-2x2-grid">
-        <!-- Chart 1: Market Distribution by City -->
-        <div class="chart-panel-card">
-          <div class="chart-panel-header">
-            <div class="chart-title-content">
-              <h3 id="chartCityTitle">Market Distribution by City</h3>
-              <p id="chartCitySubtitle">Active deals count by regional hub</p>
-            </div>
-            <!-- Metric Toggle Pills (Switches between Deals Count and Footprint) -->
-            <div class="chart-metric-toggle" id="hubMetricToggle" title="Toggle metric visualization">
-              <button class="toggle-pill-btn active" id="btnHubDeals" data-metric="deals">Deals Count</button>
-              <button class="toggle-pill-btn" id="btnHubSqft" data-metric="sqft">Footprint (Sq Ft)</button>
-            </div>
-          </div>
-          <div class="chart-surface">
-            <canvas id="cityChart"></canvas>
+      <!-- Card 2: Disclosed Pipeline Footprint -->
+      <div class="scorecard-box">
+        <div class="scorecard-top-line">
+          <span class="scorecard-label-text">DISCLOSED PIPELINE</span>
+          <div class="scorecard-sq-icon icon-blue" title="Partial total of disclosed sizes">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           </div>
         </div>
-
-        <!-- Chart 2: Sector Doughnut -->
-        <div class="chart-panel-card">
-          <div class="chart-panel-header">
-            <div class="chart-title-content">
-              <h3>Occupier Industry Breakdown</h3>
-              <p>Proportion of deals by business vertical</p>
-            </div>
-          </div>
-          <div class="chart-surface">
-            <canvas id="sectorChart"></canvas>
-          </div>
-        </div>
-
-        <!-- Chart 3: Deal Size Classification -->
-        <div class="chart-panel-card">
-          <div class="chart-panel-header">
-            <div class="chart-title-content">
-              <h3>Deal Size Classification</h3>
-              <p>Mega campuses vs mid & boutique leases</p>
-            </div>
-          </div>
-          <div class="chart-surface">
-            <canvas id="sizeChart"></canvas>
-          </div>
-        </div>
-
-        <!-- Chart 4: Timing Urgency Pipeline -->
-        <div class="chart-panel-card">
-          <div class="chart-panel-header">
-            <div class="chart-title-content">
-              <h3>Fit-Out Timing & Urgency Pipeline</h3>
-              <p>Vendor engagement window breakdown</p>
-            </div>
-          </div>
-          <div class="chart-surface">
-            <canvas id="urgencyChart"></canvas>
-          </div>
-        </div>
-      </section>
-
-      <!-- FILTER & SEARCH BAR -->
-      <section class="controls-filter-bar">
-        <div class="search-box-input-wrap">
-          <svg class="search-icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="dealsSearchInput" placeholder="Search company, tech park, building, or market...">
-        </div>
-
-        <div class="select-filter-group">
-          <label>CITY</label>
-          <select id="dealsCityFilter">
-            <option value="ALL">All Cities / Submarkets</option>
-          </select>
-          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-
-        <div class="select-filter-group">
-          <label>SECTOR</label>
-          <select id="dealsSectorFilter">
-            <option value="ALL">All Industries</option>
-            <option value="BFSI (Banking & Finance)">BFSI (Banking & Finance)</option>
-            <option value="Enterprise Software & Tech">Enterprise Software & Tech</option>
-            <option value="Semiconductor & Hardware">Semiconductor & Hardware</option>
-            <option value="IT & Global Consulting">IT & Global Consulting</option>
-            <option value="Retail, Travel & Consumer">Retail, Travel & Consumer</option>
-            <option value="Industrial & MedTech">Industrial & MedTech</option>
-            <option value="Flex & Coworking">Flex & Coworking</option>
-            <option value="Government & Public Tenders">Government & Tenders</option>
-          </select>
-          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-
-        <div class="select-filter-group">
-          <label>URGENCY</label>
-          <select id="dealsUrgencyFilter">
-            <option value="ALL">All Urgencies</option>
-            <option value="Immediate">Immediate / Fitting Out NOW</option>
-            <option value="Near-Term">Near-Term (Q4 2026 - Q1 2027)</option>
-            <option value="Active">Active Occupancy / Watch</option>
-            <option value="Pipeline">Pre-Lease / 2027+ Pipeline</option>
-          </select>
-          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-
-        <button id="btnResetDealsFilters" class="btn-reset-light">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
-          Reset
-        </button>
-      </section>
-
-      <!-- RESULTS SUMMARY & VIEW TOGGLE -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 13px; color: var(--text-secondary);">
-        <div>
-          Showing <strong id="dealsVisibleCount">0</strong> of <span id="dealsTotalCount">0</span> tracked opportunities
-          <span id="activeCountryBadge" style="margin-left: 8px;" class="badge-clean">🌐 All Markets</span>
-        </div>
-        <div class="segmented-nav-group">
-          <button id="btnTableView" class="segment-btn active" style="padding: 4px 10px; font-size: 12px;">Table View</button>
-          <button id="btnCardView" class="segment-btn" style="padding: 4px 10px; font-size: 12px;">Card View</button>
+        <div class="scorecard-big-num" id="kpiTotalSqFt">38.7M sq ft</div>
+        <div class="scorecard-sub-info text-disclaimer" title="Data Honesty: Undisclosed deals are excluded from sum">
+          ⚠️ Disclosed sizes only — partial total
         </div>
       </div>
 
-      <!-- DATA TABLE VIEW -->
-      <section id="tableViewContainer" class="table-wrapper-card">
-        <div class="table-top-meta">
-          <h4>Commercial Deals & Opportunity Ledger</h4>
-          <span style="font-size: 12px; color: var(--text-muted);">Click any row to inspect full lease profile</span>
+      <!-- Card 3: High Priority Radar -->
+      <div class="scorecard-box">
+        <div class="scorecard-top-line">
+          <span class="scorecard-label-text">HIGH-PRIORITY RADAR</span>
+          <div class="scorecard-sq-icon" title="Heat Score >= 70 or Prime Fit-Out">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
         </div>
-        <div class="table-scroll-surface">
-          <table class="data-grid-table">
-            <thead>
-              <tr>
-                <th>Company</th>
-                <th>Market</th>
-                <th>District / City</th>
-                <th>Sector</th>
-                <th>Disclosed Area</th>
-                <th>Deal Value</th>
-                <th>Timing Implication</th>
-                <th>Urgency</th>
-                <th>Source</th>
-              </tr>
-            </thead>
-            <tbody id="dealsTableBody">
-              <!-- Populated via JavaScript -->
-            </tbody>
-          </table>
+        <div class="scorecard-big-num" id="kpiHighPriority" style="color: var(--accent-blue);">182</div>
+        <div class="scorecard-progress-track">
+          <div class="scorecard-progress-bar" id="kpiHighPriorityBar" style="width: 33%;"></div>
         </div>
-      </section>
-
-      <!-- CARD GRID VIEW -->
-      <section id="cardViewContainer" class="cards-catalog-view" style="display: none;">
-        <!-- Populated via JavaScript -->
-      </section>
-
-      <!-- Empty State -->
-      <div id="dealsEmptyState" style="display: none; text-align: center; padding: 48px; color: var(--text-muted);">
-        <h3>No matching commercial leads found</h3>
-        <p>Try clearing your search term or adjusting filters.</p>
+        <div class="scorecard-sub-info" id="kpiHighPrioritySub">Prime fit-out window (0–60d)</div>
       </div>
-    </main>
+
+      <!-- Card 4: Multi-Tenant Building Hubs -->
+      <div class="scorecard-box">
+        <div class="scorecard-top-line">
+          <span class="scorecard-label-text">MULTI-TENANT HUBS</span>
+          <div class="scorecard-sq-icon icon-black" title="Buildings with 2+ tenant signals">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14"></path></svg>
+          </div>
+        </div>
+        <div class="scorecard-big-num" id="kpiMultiTenantHubs">15</div>
+        <div class="scorecard-sub-info">High-yield multi-tenant visits</div>
+      </div>
+
+      <!-- Card 5: Market Coverage -->
+      <div class="scorecard-box">
+        <div class="scorecard-top-line">
+          <span class="scorecard-label-text">REGIONAL COVERAGE</span>
+          <div class="scorecard-sq-icon" title="Active APAC coverage">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </div>
+        </div>
+        <div class="scorecard-big-num" id="kpiActiveMarkets" style="font-size: 22px;">6 Markets</div>
+        <div class="scorecard-sub-info" id="kpiMarketBreakdown">CN · IN · JP · KR · MY · LK</div>
+      </div>
+    </section>
 
     <!-- ============================================== -->
-    <!-- VIEW 2: COMPANY TRACKER (SURVEILLANCE RADAR)  -->
+    <!-- GLOBAL COMPOSABLE FILTER TOOLBAR               -->
     <!-- ============================================== -->
-    <main id="viewTracker" style="display: none;">
-      <!-- Tracker 4 KPI Scorecards -->
-      <section class="scorecards-row">
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">MONITORED ACCOUNTS</span>
-            <div class="scorecard-sq-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiTrackerTotal">175</div>
-          <div class="scorecard-sub-info">Continuous surveillance database</div>
-        </div>
-
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">ACTIVE SALES STATUS</span>
-            <div class="scorecard-sq-icon icon-blue">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiTrackerActive" style="color: var(--accent-blue);">18</div>
-          <div class="scorecard-sub-info">Fit-out / relocation active now</div>
-        </div>
-
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">ON WATCHLIST</span>
-            <div class="scorecard-sq-icon">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" id="kpiTrackerWatch">157</div>
-          <div class="scorecard-sub-info">Monitored for upcoming renewal & RFP</div>
-        </div>
-
-        <div class="scorecard-box">
-          <div class="scorecard-top-line">
-            <span class="scorecard-label-text">WEEKLY AUDIT CYCLE</span>
-            <div class="scorecard-sq-icon icon-black">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-            </div>
-          </div>
-          <div class="scorecard-big-num" style="font-size: 22px;">2026-10-14</div>
-          <div class="scorecard-sub-info">Verified against Snapshots database</div>
-        </div>
-      </section>
-
-      <!-- Weekly Delta Stream Box -->
-      <section class="delta-stream-box">
-        <div class="delta-stream-header">
-          <h4>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-            <span>Weekly Delta Feed & Strategic Account Triggers</span>
-          </h4>
-          <span class="badge-clean" id="deltaFeedCount">Meaningful Changes Reported</span>
-        </div>
-        <div class="delta-cards-grid" id="deltaFeedList">
-          <!-- Populated via JavaScript -->
-        </div>
-      </section>
-
-      <!-- Tracker Filters -->
-      <section class="controls-filter-bar">
+    <section class="controls-filter-bar">
+      <!-- Row 1: Search Box -->
+      <div class="filters-search-row">
         <div class="search-box-input-wrap">
           <svg class="search-icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="trackerSearchInput" placeholder="Search monitored company, country, trend, notes...">
+          <input type="text" id="globalSearchInput" placeholder="Search company, tech park, tower, signal text, submarket...">
+        </div>
+      </div>
+
+      <!-- Row 2: 5 Filter Dropdowns + Reset Button in a balanced grid -->
+      <div class="filters-dropdowns-row">
+        <div class="select-filter-group">
+          <label>SUBMARKET</label>
+          <select id="filterSubmarket">
+            <option value="ALL">All Submarkets & Hubs</option>
+          </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <div class="select-filter-group">
-          <label>COUNTRY</label>
-          <select id="trackerCountryFilter">
-            <option value="ALL">All Countries</option>
-            <option value="India">🇮🇳 India</option>
-            <option value="Malaysia">🇲🇾 Malaysia</option>
-            <option value="Korea">🇰🇷 South Korea</option>
-            <option value="Japan">🇯🇵 Japan</option>
-            <option value="Sri Lanka">🇱🇰 Sri Lanka</option>
+          <label>DEAL TYPE</label>
+          <select id="filterDealType">
+            <option value="ALL">All Deal Types</option>
+            <option value="Relocation">Relocation (Prime Fit-Out)</option>
+            <option value="Expansion">Expansion (Scaling)</option>
+            <option value="New Setup">New Setup (Regional Hub)</option>
+            <option value="Pre-lease">Pre-lease (Future Pipeline)</option>
+            <option value="Own-use Purchase">Own-use Purchase</option>
+            <option value="Renewal">Renewal (Refurbish/Watch)</option>
+            <option value="Government Tender">Government Tender</option>
+            <option value="Consolidation">Consolidation</option>
+          </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+
+        <div class="select-filter-group">
+          <label>FIT-OUT WINDOW</label>
+          <select id="filterWindow">
+            <option value="ALL">All Windows</option>
+            <option value="0–60 Days">⚡ 0–60 Days (Prime Fit-Out)</option>
+            <option value="1 Year">🎯 1 Year (Scoping & Probing)</option>
+            <option value="2 Years">🤝 2 Years (Relationship Building)</option>
+            <option value="3 Years & Above">🔮 3 Years & Above (Strategic)</option>
+          </select>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+
+        <div class="select-filter-group">
+          <label>SIZE TIER</label>
+          <select id="filterSizeTier">
+            <option value="ALL">All Size Tiers</option>
+            <option value="Mega (>100k)">Mega (>100k sq ft)</option>
+            <option value="Large (50k-100k)">Large (50k–100k sq ft)</option>
+            <option value="Mid (20k-50k)">Mid (20k–50k sq ft)</option>
+            <option value="Boutique (<20k)">Boutique (&lt;20k sq ft)</option>
+            <option value="Undisclosed">Size Not Disclosed</option>
           </select>
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
         <div class="select-filter-group">
           <label>STATUS</label>
-          <select id="trackerStatusFilter">
-            <option value="ALL">All Statuses</option>
-            <option value="Active">Active (18 Sales Triggers)</option>
-            <option value="Watch">Watch (157 Monitored)</option>
+          <select id="filterStatus">
+            <option value="ALL">All Account Statuses</option>
+            <option value="Active">Active Priority</option>
+            <option value="Watch">Watchlist</option>
+            <option value="Engaged">Engaged in Sales</option>
           </select>
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
 
-        <div class="select-filter-group">
-          <label>CHANGE</label>
-          <select id="trackerChangeFilter">
-            <option value="ALL">All Changes</option>
-            <option value="CHANGED">Changed / New Delta Only</option>
-            <option value="BASELINE">Baseline Monitored</option>
-          </select>
-          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-
-        <button id="btnResetTrackerFilters" class="btn-reset-light">
+        <button id="btnResetFilters" class="btn-reset-light" title="Reset all filters">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
           Reset
         </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEW 1: 🔥 SALES RADAR (HOT LIST)              -->
+    <!-- ============================================== -->
+    <main id="viewRadar" class="view-panel" style="display: none;">
+      <!-- Section Header & Controls -->
+      <div class="results-sub-header">
+        <div class="results-left-meta">
+          <h3>
+            <span id="radarViewHeading">Who to Call This Week</span>
+            <span class="sub-lead-question">"Who do I call this week, and what do I say?"</span>
+          </h3>
+          <div class="results-counts-tag">
+            Showing <strong id="radarVisibleCount">0</strong> of <span id="radarTotalCount">0</span> prioritized sales opportunities
+            <span id="activeFilterBadge" class="badge-clean">🌐 All Markets</span>
+          </div>
+        </div>
+
+        <div class="results-right-controls">
+          <!-- Sort Dropdown -->
+          <div class="sort-selector-group">
+            <label>SORT BY:</label>
+            <select id="radarSortSelect">
+              <option value="heat" selected>🔥 Heat Score (Highest)</option>
+              <option value="recency">📅 Recency (Newest Signal)</option>
+              <option value="size">📐 Size (Largest Footprint)</option>
+              <option value="company">🏢 Company Name (A-Z)</option>
+            </select>
+          </div>
+
+          <!-- View Mode Toggle (Table View Default) -->
+          <div class="segmented-nav-group">
+            <button id="btnRadarCardView" class="segment-btn" style="padding: 4px 10px; font-size: 12px;" title="Rich sales pitch cards">Card View</button>
+            <button id="btnRadarTableView" class="segment-btn active" style="padding: 4px 10px; font-size: 12px;" title="Executive data table">Table View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Catalog View -->
+      <div id="radarCardsGrid" class="cards-catalog-view" style="display: none;">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Table View Container (Default View) -->
+      <div id="radarTableContainer" class="table-wrapper-card" style="display: block;">
+        <div class="table-scroll-surface">
+          <table class="data-grid-table">
+            <thead>
+              <tr>
+                <th>Heat</th>
+                <th>Company</th>
+                <th>Country</th>
+                <th>Building / Submarket</th>
+                <th>Deal Type</th>
+                <th>Disclosed Size</th>
+                <th>Fit-Out Window</th>
+                <th>Timing & Implication</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="radarTableBody">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="radarEmptyState" class="empty-state-panel" style="display: none;">
+        <div class="empty-icon">🔍</div>
+        <h3>No matching sales opportunities found</h3>
+        <p>Try clearing your search query or loosening your filters.</p>
+        <button class="btn-action-outline" onclick="document.getElementById('btnResetFilters').click()">Reset Filters</button>
+      </div>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- VIEW 2: 📊 PIPELINE & ANALYTICS (DEFAULT HOME) -->
+    <!-- ============================================== -->
+    <main id="viewAnalytics" class="view-panel">
+      <!-- Analytics Header -->
+      <div class="analytics-header-banner">
+        <div>
+          <h3>Deal Flow Intelligence & Submarket Analytics</h3>
+          <p>Interactive spatial distribution and deal velocity across APAC</p>
+        </div>
+        <div class="metric-switch-pills" id="analyticsTimelineToggle">
+          <button class="toggle-pill-btn active" id="btnTimelineDealDate" data-mode="deal">By Event / Quarter</button>
+          <button class="toggle-pill-btn" id="btnTimelineFoundDate" data-mode="found">By Date Discovered</button>
+        </div>
+      </div>
+
+      <!-- 4 Visual Panels Grid -->
+      <div class="charts-2x2-grid">
+        <!-- Chart 1: Deal Activity Timeline -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-header">
+            <div class="chart-title-content">
+              <h3 id="chartTimelineTitle">Deal Velocity Over Time</h3>
+              <p id="chartTimelineSub">Quarterly deal volume stacked by Deal Type</p>
+            </div>
+            <span class="badge-clean">Stacked by Type</span>
+          </div>
+          <div class="chart-surface">
+            <canvas id="timelineChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 2: Top Regional Submarkets & Hubs -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-header">
+            <div class="chart-title-content">
+              <h3>Top Regional Submarkets & Hubs</h3>
+              <p>Leading corporate destinations in active market</p>
+            </div>
+            <div class="metric-switch-pills" id="hubMetricToggle">
+              <button class="toggle-pill-btn active" id="btnHubDeals" data-metric="deals">Deals</button>
+              <button class="toggle-pill-btn" id="btnHubSqft" data-metric="sqft">Sq Ft</button>
+            </div>
+          </div>
+          <div class="chart-surface">
+            <canvas id="submarketChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 3: Deal Type Breakdown -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-header">
+            <div class="chart-title-content">
+              <h3>Deal Type Breakdown</h3>
+              <p>Relocations vs Expansions vs Renewals</p>
+            </div>
+            <span class="badge-clean" id="dealTypeLeadRate">Fit-Out Weighted</span>
+          </div>
+          <div class="chart-surface">
+            <canvas id="dealTypeChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 4: Deal Size Distribution Histogram -->
+        <div class="chart-panel-card">
+          <div class="chart-panel-header">
+            <div class="chart-title-content">
+              <h3>Deal Size Classification</h3>
+              <p>Campus scale vs boutique and undisclosed transactions</p>
+            </div>
+            <span class="badge-clean">Partial Total Basis</span>
+          </div>
+          <div class="chart-surface">
+            <canvas id="sizeHistogramChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- VIEW 3: 📋 WORKING QUEUE (COMPANY TRACKER)     -->
+    <!-- ============================================== -->
+    <main id="viewTracker" class="view-panel" style="display: none;">
+      <!-- Working Queue Status Bar -->
+      <div class="tracker-status-ribbon">
+        <div class="status-summary-card">
+          <span class="ribbon-label">TOTAL MONITORED</span>
+          <strong id="kpiTrackerTotal">534</strong>
+          <span class="ribbon-sub">Surveillance database</span>
+        </div>
+        <div class="status-summary-card active-border">
+          <span class="ribbon-label">ACTIVE OUTREACH</span>
+          <strong id="kpiTrackerActive" style="color: var(--accent-blue);">18</strong>
+          <span class="ribbon-sub">Immediate fit-out priority</span>
+        </div>
+        <div class="status-summary-card">
+          <span class="ribbon-label">WATCHLIST</span>
+          <strong id="kpiTrackerWatch">510</strong>
+          <span class="ribbon-sub">Pre-expiry & expansion</span>
+        </div>
+        <div class="status-summary-card">
+          <span class="ribbon-label">ENGAGED IN SALES</span>
+          <strong id="kpiTrackerEngaged">6</strong>
+          <span class="ribbon-sub">Steelcase sales discussions</span>
+        </div>
+      </div>
+
+      <!-- Weekly Delta Alert Stream -->
+      <section class="delta-stream-box">
+        <div class="delta-stream-header">
+          <h4>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span>Weekly Delta Feed & Strategic Account Triggers</span>
+          </h4>
+          <span class="badge-clean" id="deltaFeedCount">Meaningful Deltas</span>
+        </div>
+        <div class="delta-cards-grid" id="deltaFeedList">
+          <!-- Populated by app.js -->
+        </div>
       </section>
 
       <!-- Tracker Table View -->
       <section class="table-wrapper-card">
         <div class="table-top-meta">
-          <h4>Account Surveillance Matrix</h4>
-          <span style="font-size: 12px; color: var(--text-muted);">Comparing current state vs previous snapshot</span>
+          <h4>Account Surveillance & Working Queue Matrix</h4>
+          <span style="font-size: 12px; color: var(--text-muted);">Change status inline to update your pipeline</span>
         </div>
         <div class="table-scroll-surface">
           <table class="data-grid-table">
@@ -469,105 +527,214 @@
                 <th>Company</th>
                 <th>Country</th>
                 <th>Market</th>
-                <th>Status</th>
-                <th>Trend Note</th>
-                <th>Computed Change / Delta</th>
+                <th>Status (Editable)</th>
+                <th>Trend / Directive</th>
+                <th>Computed Delta</th>
                 <th>Latest Snapshot</th>
-                <th>Last Checked</th>
+                <th>Last Audited</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody id="trackerTableBody">
-              <!-- Populated via JavaScript -->
+              <!-- Populated by app.js -->
             </tbody>
           </table>
         </div>
       </section>
     </main>
-  </div>
 
-  <!-- Deal Details Modal -->
-  <div id="dealModal" class="modal-overlay">
-    <div class="modal-dialog-card">
-      <button id="dealModalCloseBtn" class="modal-x-btn">&times;</button>
-      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-        <span id="dealModalUrgency" class="badge-clean immediate">Immediate</span>
-        <span id="dealModalCountry" class="badge-clean">India</span>
-        <span id="dealModalSector" class="badge-clean">Tech</span>
-      </div>
-      <h2 id="dealModalCompany" style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">Company Name</h2>
-      <p id="dealModalMarket" style="font-size: 13px; color: var(--text-muted); margin-bottom: 18px;">Market Details</p>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
-        <div class="diff-content-panel">
-          <span style="display: block; font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Area</span>
-          <strong id="dealModalArea" style="font-size: 15px; font-family: 'JetBrains Mono', monospace;">150,000 sq ft</strong>
-        </div>
-        <div class="diff-content-panel">
-          <span style="display: block; font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Deal Value</span>
-          <strong id="dealModalValue" style="font-size: 15px; font-family: 'JetBrains Mono', monospace; color: var(--accent-blue);">Commercial Terms</strong>
-        </div>
-      </div>
-
-      <div class="diff-content-panel">
-        <h5 style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;">Key Lease Signal</h5>
-        <p id="dealModalSignal" style="font-size: 13px; line-height: 1.5;">Signal description</p>
-      </div>
-
-      <div class="diff-content-panel" style="border-left: 3px solid var(--accent-blue);">
-        <h5 style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;">Timing Implication & Strategy</h5>
-        <p id="dealModalTiming" style="font-size: 13px; line-height: 1.5; font-weight: 500;">Timing strategy</p>
-      </div>
-
-      <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
-        <a id="dealModalSourceLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-action-outline">
-          Verify via News Source ↗
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Company Tracker Diff Modal -->
-  <div id="trackerModal" class="modal-overlay">
-    <div class="modal-dialog-card">
-      <button id="trackerModalCloseBtn" class="modal-x-btn">&times;</button>
-      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-        <span id="trackerModalStatus" class="badge-clean active">Active</span>
-        <span id="trackerModalCountry" class="badge-clean">Malaysia</span>
-        <span id="trackerModalDate" class="badge-clean">Audited: 2026-10-14</span>
-      </div>
-      <h2 id="trackerModalCompany" style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">Company Name</h2>
-      <p id="trackerModalMarket" style="font-size: 13px; color: var(--text-muted); margin-bottom: 18px;">Market Details</p>
-
-      <div class="diff-content-panel">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px;">
+    <!-- ============================================== -->
+    <!-- VIEW 4: 🏢 MULTI-TENANT HUBS (CLUSTERS)         -->
+    <!-- ============================================== -->
+    <main id="viewHubs" class="view-panel" style="display: none;">
+      <!-- Hubs Strategic Banner -->
+      <div class="hubs-alert-banner">
+        <div class="hubs-banner-content">
+          <div class="hubs-banner-icon">🏢</div>
           <div>
-            <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px;">Previous Snapshot</span>
-            <p id="trackerModalPrevSnapshot" style="font-size: 12px; line-height: 1.5; color: var(--text-secondary); background: var(--bg-card); padding: 8px; border-radius: 6px; border: 1px solid var(--border-light); min-height: 60px;">—</p>
-          </div>
-          <div>
-            <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px;">Latest Snapshot (Current)</span>
-            <p id="trackerModalCurrSnapshot" style="font-size: 12px; line-height: 1.5; color: var(--text-primary); background: var(--bg-card); padding: 8px; border-radius: 6px; border: 1px solid var(--border-light); min-height: 60px;">—</p>
+            <h3>Multi-Tenant Target Hubs — High Yield Visits</h3>
+            <p>Buildings and business parks with 2 or more moving/expanding tenants. Coordinate multiple sales appointments in a single trip to maximize rep efficiency.</p>
           </div>
         </div>
-        <div style="padding: 8px 12px; border-radius: 6px; background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(37, 99, 235, 0.2); font-size: 12px;">
-          <span style="color: var(--accent-blue); font-weight: 700;">Computed Delta:</span>
-          <strong id="trackerModalChange" style="color: var(--text-primary); margin-left: 4px;">—</strong>
+        <span class="badge-clean" id="hubsCountPill">15 Target Buildings Identified</span>
+      </div>
+
+      <!-- Hubs Grid -->
+      <div class="hubs-catalog-grid" id="hubsCatalogGrid">
+        <!-- Populated by app.js -->
+      </div>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- VIEW 5: ℹ️ COVERAGE & DATA TRUST               -->
+    <!-- ============================================== -->
+    <main id="viewCoverage" class="view-panel" style="display: none;">
+      <!-- Plain-Language Known Boundaries Banner -->
+      <div class="boundaries-alert-box">
+        <div class="boundaries-header">
+          <span class="alert-icon">⚠️</span>
+          <h4>Known Database Boundaries & Transparency Notice</h4>
+        </div>
+        <div class="boundaries-grid">
+          <div class="boundary-item">
+            <strong>Japan & Malaysia:</strong>
+            <p>0 lease renewals recorded in current dataset. The intelligence engine focuses on relocations, flagship migrations, and new footprint expansions.</p>
+          </div>
+          <div class="boundary-item">
+            <strong>China Dataset:</strong>
+            <p>Renewals reflect historical reference benchmarks (Q3 2022 – Q4 2024); recent 2025–2026 deals reflect high-confidence relocations & owner purchases.</p>
+          </div>
+          <div class="boundary-item">
+            <strong>India Dataset:</strong>
+            <p>High transaction volume via ANAROCK and corporate filings; unstated deal types are treated conservatively and excluded from relocation totals.</p>
+          </div>
+          <div class="boundary-item">
+            <strong>Data Honesty Rule:</strong>
+            <p>Total square footage is explicitly labeled as a <em>"partial total"</em> because undisclosed deals are excluded from sums, never assumed to be zero.</p>
+          </div>
         </div>
       </div>
 
-      <div class="diff-content-panel" style="border-left: 3px solid var(--accent-blue);">
-        <h5 style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;">Trend Assessment & Sales Directive</h5>
-        <p id="trackerModalTrend" style="font-size: 13px; font-weight: 600; color: var(--text-primary);">—</p>
-        <p id="trackerModalNotes" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;"></p>
+      <!-- Data Completeness Gauges -->
+      <div class="scorecards-row" style="margin-bottom: 24px;">
+        <div class="scorecard-box">
+          <div class="scorecard-top-line">
+            <span class="scorecard-label-text">BUILDING DISCLOSURE RATE</span>
+          </div>
+          <div class="scorecard-big-num" id="gaugeBuildingRate">24.4%</div>
+          <div class="scorecard-progress-track">
+            <div class="scorecard-progress-bar" id="gaugeBuildingBar" style="width: 24.4%;"></div>
+          </div>
+          <div class="scorecard-sub-info">Explicit or verified tower name</div>
+        </div>
+
+        <div class="scorecard-box">
+          <div class="scorecard-top-line">
+            <span class="scorecard-label-text">SIZE DISCLOSURE RATE</span>
+          </div>
+          <div class="scorecard-big-num" id="gaugeSizeRate">51.0%</div>
+          <div class="scorecard-progress-track">
+            <div class="scorecard-progress-bar" id="gaugeSizeBar" style="width: 51.0%;"></div>
+          </div>
+          <div class="scorecard-sub-info">Exact or converted sq ft disclosed</div>
+        </div>
+
+        <div class="scorecard-box">
+          <div class="scorecard-top-line">
+            <span class="scorecard-label-text">DEAL TYPE RESOLUTION</span>
+          </div>
+          <div class="scorecard-big-num" id="gaugeTypeRate">62.2%</div>
+          <div class="scorecard-progress-track">
+            <div class="scorecard-progress-bar" id="gaugeTypeBar" style="width: 62.2%;"></div>
+          </div>
+          <div class="scorecard-sub-info">Relocation, expansion, or renewal</div>
+        </div>
+
+        <div class="scorecard-box">
+          <div class="scorecard-top-line">
+            <span class="scorecard-label-text">INTELLIGENCE SOURCES</span>
+          </div>
+          <div class="scorecard-big-num" id="gaugeSourcesCount">92 Sources</div>
+          <div class="scorecard-sub-info">24 Paid databases · 68 Free trackers</div>
+        </div>
       </div>
 
-      <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
-        <button class="btn-action-outline" onclick="document.getElementById('trackerModal').classList.remove('open')">Close</button>
+      <!-- 92 Sources Library Table -->
+      <section class="table-wrapper-card">
+        <div class="table-top-meta">
+          <h4>Commercial Real Estate Intelligence Sources Library (92 Verified Feeds)</h4>
+          <input type="text" id="sourcesSearchInput" class="table-search-input" placeholder="Search sources, country, pricing, trust level...">
+        </div>
+        <div class="table-scroll-surface">
+          <table class="data-grid-table">
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Tier</th>
+                <th>Source Name</th>
+                <th>What It Covers</th>
+                <th>Typical Pricing</th>
+                <th>Trust Level</th>
+                <th>How Sales Reps Should Use It</th>
+                <th>Access</th>
+              </tr>
+            </thead>
+            <tbody id="sourcesTableBody">
+              <!-- Populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- SLIDE-OVER DRAWER / MODAL: COMPANY 360 VIEW    -->
+    <!-- ============================================== -->
+    <div id="company360Modal" class="modal-overlay">
+      <div class="modal-dialog-card modal-360-card">
+        <button id="modal360CloseBtn" class="modal-x-btn" title="Close dossier">&times;</button>
+
+        <div class="company-360-header">
+          <div class="dossier-meta-pills">
+            <span id="dossierStatusBadge" class="badge-clean active">Active</span>
+            <span id="dossierCountryBadge" class="badge-clean">Malaysia</span>
+            <span id="dossierSectorBadge" class="badge-clean">BFSI</span>
+            <span id="dossierHeatScoreBadge" class="badge-clean heat-high">🔥 Heat Score: 85/100</span>
+          </div>
+          <h2 id="dossierCompanyTitle">Company Name</h2>
+          <p id="dossierMarketSub">Submarket & Building</p>
+        </div>
+
+        <!-- Tailored Pitch Generator Box -->
+        <div class="sales-pitch-box">
+          <div class="sales-pitch-header">
+            <span class="pitch-title">🎯 Tailored Steelcase Opening Pitch</span>
+            <button id="btnCopyDossierPitch" class="btn-copy-script">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy Script</span>
+            </button>
+          </div>
+          <p id="dossierPitchText" class="sales-pitch-body">Pitch content</p>
+        </div>
+
+        <!-- Cross-Market Deal History -->
+        <div class="dossier-section-box">
+          <h5>Cross-Market Deals & Moving Signals (<span id="dossierDealsCount">1</span>)</h5>
+          <div class="dossier-deals-list" id="dossierDealsList">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Snapshot History Timeline -->
+        <div class="dossier-section-box">
+          <h5>Historical Snapshot Audit Trail (<span id="dossierSnapshotsCount">0</span>)</h5>
+          <div class="dossier-snapshots-list" id="dossierSnapshotsList">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Rep Working Notes & Status Switcher -->
+        <div class="dossier-section-box">
+          <h5>Sales Triage & Working Notes</h5>
+          <div class="dossier-status-row">
+            <label>Update Status:</label>
+            <select id="dossierStatusSelect" class="dossier-status-dropdown">
+              <option value="Active">🟢 Active Priority (In Outreach)</option>
+              <option value="Watch">🟡 Watchlist (Monitoring)</option>
+              <option value="Engaged">🟣 Engaged in Sales</option>
+            </select>
+            <button id="btnSaveDossierNotes" class="btn-action-outline">Save Notes</button>
+          </div>
+          <textarea id="dossierNotesInput" class="dossier-notes-area" placeholder="Add custom sales notes, rep name, next call date..."></textarea>
+        </div>
       </div>
     </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-notification-container"></div>
   </div>
 
+  <!-- Scripts -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
