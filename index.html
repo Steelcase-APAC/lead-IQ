@@ -154,10 +154,10 @@
       <!-- Right: Sync Capsule, Theme, Google Sheet, Export -->
       <div class="header-right-group">
         <div class="sync-status-capsule" id="syncStatusCapsule" title="Google Sheet dynamic database sync">
-          <div class="sync-indicator live" id="syncIndicator"></div>
+          <div class="sync-indicator cached" id="syncIndicator"></div>
           <div class="sync-info-wrap">
-            <span class="sync-text-label" id="syncStatusText">Live (Google Sheet)</span>
-            <span class="sync-timestamp-label" id="syncTimestamp">Data as of: Oct 15, 2026 16:00</span>
+            <span class="sync-text-label" id="syncStatusText">Offline / Cached</span>
+            <span class="sync-timestamp-label" id="syncTimestamp">Local data.js fallback</span>
           </div>
           <button id="btnSyncRefresh" class="btn-sync-icon" title="Fetch latest data live from Google Sheet">
             <svg id="syncIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>

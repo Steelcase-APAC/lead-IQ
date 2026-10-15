@@ -26,12 +26,12 @@ INDEX_HTML = 'index.html'
 
 def load_version_info():
     if not os.path.exists(VERSION_FILE):
-        return {'version': '2.21', 'step': 0.01}
+        return {'version': '2.22', 'step': 0.01}
     try:
         with open(VERSION_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     except Exception:
-        return {'version': '2.21', 'step': 0.01}
+        return {'version': '2.22', 'step': 0.01}
 
 def save_version_info(data):
     with open(VERSION_FILE, 'w', encoding='utf-8') as f:
@@ -88,7 +88,7 @@ def main():
     args = parser.parse_args()
 
     v_data = load_version_info()
-    old_version = str(v_data.get('version', '2.21'))
+    old_version = str(v_data.get('version', '2.22'))
     step = args.step if args.step is not None else float(v_data.get('step', 0.01))
 
     if args.set_version:

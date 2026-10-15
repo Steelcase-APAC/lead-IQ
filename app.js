@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sizeTier: 'ALL',
       status: 'ALL'
     },
+    sourcesSearch: '',
     leads: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_LEADS_DATA) && window.INITIAL_LEADS_DATA.length) 
            ? [...window.INITIAL_LEADS_DATA] 
            : (typeof INITIAL_LEADS_DATA !== 'undefined' && Array.isArray(INITIAL_LEADS_DATA) ? [...INITIAL_LEADS_DATA] : []),
@@ -44,8 +45,52 @@ document.addEventListener('DOMContentLoaded', () => {
     activeDossierCompany: null
   };
 
-  // Live fetch from published Google Sheet CSVs at load (non-blocking: falls back to data.js immediately)
-  fetchLiveGoogleSheetData(false);
+  // Fallback data ground-truth enforcement (IN-003, CN-013, MY-046, IWG, WORQ)
+  state.leads.forEach(lead => {
+    if (lead.id === 'IN-003') {
+      lead.areaSqFt = null;
+      lead.areaFormatted = 'Not disclosed';
+      lead.dealType = 'Unstated';
+      lead.heatScore = 50;
+      if (lead.heatScoreBreakdown) {
+        lead.heatScoreBreakdown.sizePts = 0;
+        lead.heatScoreBreakdown.size = 0;
+        lead.heatScoreBreakdown.typePts = 5;
+        lead.heatScoreBreakdown.dealType = 5;
+        lead.heatScoreBreakdown.totalScore = 50;
+        lead.heatScoreBreakdown.summary = 'R:40 + S:0 + T:5 + St:5 = 50';
+      }
+    } else if (lead.id === 'CN-013') {
+      lead.areaSqFt = null;
+      lead.areaFormatted = 'Not disclosed';
+      lead.dealType = 'Pre-commitment';
+      lead.heatScore = 65;
+      if (lead.heatScoreBreakdown) {
+        lead.heatScoreBreakdown.sizePts = 0;
+        lead.heatScoreBreakdown.size = 0;
+        lead.heatScoreBreakdown.typePts = 20;
+        lead.heatScoreBreakdown.dealType = 20;
+        lead.heatScoreBreakdown.totalScore = 65;
+        lead.heatScoreBreakdown.summary = 'R:40 + S:0 + T:20 + St:5 = 65';
+      }
+    } else if (lead.id === 'MY-046') {
+      lead.dealType = 'Unstated';
+      if (lead.heatScoreBreakdown) {
+        lead.heatScoreBreakdown.typePts = 5;
+        lead.heatScoreBreakdown.dealType = 5;
+        lead.heatScore = (lead.heatScoreBreakdown.recencyPts || 40) + (lead.heatScoreBreakdown.sizePts || 25) + 5 + (lead.heatScoreBreakdown.statusPts || 5);
+        lead.heatScoreBreakdown.totalScore = lead.heatScore;
+        lead.heatScoreBreakdown.summary = `R:${lead.heatScoreBreakdown.recencyPts || 40} + S:${lead.heatScoreBreakdown.sizePts || 25} + T:5 + St:${lead.heatScoreBreakdown.statusPts || 5} = ${lead.heatScore}`;
+      }
+    } else if (lead.company && (lead.company.includes('IWG') || lead.company.includes('WORQ'))) {
+      lead.areaSqFt = null;
+      lead.areaFormatted = 'Not disclosed';
+      if (lead.heatScoreBreakdown) {
+        lead.heatScoreBreakdown.sizePts = 0;
+        lead.heatScoreBreakdown.size = 0;
+      }
+    }
+  });
 
   // Apply user status overrides to leads and tracker
   function applyUserOverrides() {
@@ -236,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // App Version Badge
   if (appVersionBadge) {
-    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.21');
+    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.22');
     appVersionBadge.textContent = `v${ver}`;
   }
 
@@ -1419,7 +1464,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderSourcesTable() {
-    const q = state.sourcesSearch.toLowerCase().trim();
+    const q = (state.sourcesSearch || '').toLowerCase().trim();
     const filtered = state.sources.filter(s => {
       if (!q) return true;
       const hay = `${s.country} ${s.source} ${s.whatItCovers} ${s.tier} ${s.normalPrice} ${s.trustLevel} ${s.howToUse}`.toLowerCase();
@@ -1938,6 +1983,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function fetchLiveGoogleSheetData(isManualRefresh = false) {
     const syncStatusText = document.getElementById('syncStatusText');
     const syncIndicator = document.getElementById('syncIndicator');
+    const syncIcon = document.getElementById('syncIcon');
+    const syncTimestamp = document.getElementById('syncTimestamp');
 
     if (syncIcon) syncIcon.style.animation = 'spin 0.8s linear infinite';
     if (syncStatusText) syncStatusText.textContent = 'Syncing...';
@@ -2209,7 +2256,9 @@ document.addEventListener('DOMContentLoaded', () => {
       applyUserOverrides();
       populateSubmarketsDropdown();
       filterAndSortLeads();
-      renderTrackerTable();
+      renderTrackerView();
+      renderHubsView();
+      renderCoverageView();
 
       // Update Live Sync Capsule UI
       if (syncIcon) syncIcon.style.animation = 'none';
@@ -2223,9 +2272,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => {
       console.warn('Live Sheet fetch failed, falling back to cached dataset:', err);
+      const syncIcon = document.getElementById('syncIcon');
+      const syncStatusText = document.getElementById('syncStatusText');
+      const syncTimestamp = document.getElementById('syncTimestamp');
+      const syncIndicator = document.getElementById('syncIndicator');
+
       if (syncIcon) syncIcon.style.animation = 'none';
       if (syncStatusText) syncStatusText.textContent = 'Offline / Cached';
-      if (syncTimestamp) syncTimestamp.textContent = 'Data as of: Oct 15, 2026 16:00';
+      if (syncTimestamp) syncTimestamp.textContent = 'Local data.js fallback';
       if (syncIndicator) syncIndicator.className = 'sync-indicator cached';
       if (isManualRefresh) {
         showToast('Google Sheet unreachable — running from offline cached data', '⚠️');
@@ -2301,4 +2355,7 @@ document.addEventListener('DOMContentLoaded', () => {
   populateSubmarketsDropdown();
   filterAndSortLeads();
   switchView('analytics');
+
+  // Trigger live Google Sheet background fetch (non-blocking, runs after initial render)
+  fetchLiveGoogleSheetData(false);
 });
