@@ -386,6 +386,26 @@ document.addEventListener('DOMContentLoaded', () => {
     return s.replace(/\s*\/\s*/g, '/');
   }
 
+  function updateCountrySelectCounts() {
+    if (!countrySelect) return;
+    const rawCounts = state.metrics && state.metrics.perCountryRows ? state.metrics.perCountryRows : {
+      'China': 56, 'India': 134, 'Japan': 91, 'Korea': 153, 'Malaysia': 80, 'Sri Lanka': 31
+    };
+    const totalRaw = state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 545;
+    const totalDeals = state.leads ? state.leads.length : 537;
+
+    for (let i = 0; i < countrySelect.options.length; i++) {
+      const opt = countrySelect.options[i];
+      if (opt.value === 'ALL') {
+        opt.textContent = `🌐 All Markets (${totalRaw} rows · ${totalDeals} deals)`;
+      } else if (rawCounts[opt.value] !== undefined) {
+        const flag = COUNTRY_FLAGS[opt.value] || '';
+        const displayName = opt.value === 'Korea' ? 'South Korea' : opt.value;
+        opt.textContent = `${flag} ${displayName} (${rawCounts[opt.value]} rows)`;
+      }
+    }
+  }
+
   function populateSubmarketsDropdown() {
     const marketLeads = state.activeCountry === 'ALL'
       ? state.leads
@@ -2290,6 +2310,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       applyUserOverrides();
+      updateCountrySelectCounts();
       populateSubmarketsDropdown();
       filterAndSortLeads();
       renderTrackerView();
@@ -2388,6 +2409,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // INITIALIZATION
   // =========================================================
+  updateCountrySelectCounts();
   populateSubmarketsDropdown();
   filterAndSortLeads();
   switchView('analytics');

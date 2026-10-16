@@ -1,7 +1,7 @@
-// Lease-IQ Master Data Engine - Built 2026-10-16 14:17:03
+// Lease-IQ Master Data Engine - Built 2026-10-16 14:23:05
 // Auto-compiled from 9 Google Sheet / CSV source feeds
 
-var APP_VERSION = "2.24";
+var APP_VERSION = "2.25";
 if (typeof window !== 'undefined') window.APP_VERSION = APP_VERSION;
 
 var GOOGLE_SHEET_CONFIG = {
@@ -14,9 +14,9 @@ var GOOGLE_SHEET_CONFIG = {
     "Malaysia",
     "Sri Lanka"
   ],
-  "lastBuilt": "2026-10-16 14:17:03",
+  "lastBuilt": "2026-10-16 14:23:05",
   "metrics": {
-    "version": "2.24",
+    "version": "2.25",
     "totalTrackedRows": 545,
     "totalDeals": 537,
     "nonDealSignalsCount": 8,
@@ -84,7 +84,7 @@ var GOOGLE_SHEET_CONFIG = {
 if (typeof window !== 'undefined') window.GOOGLE_SHEET_CONFIG = GOOGLE_SHEET_CONFIG;
 
 var INITIAL_METRICS = {
-  "version": "2.24",
+  "version": "2.25",
   "totalTrackedRows": 545,
   "totalDeals": 537,
   "nonDealSignalsCount": 8,
@@ -25689,7 +25689,7 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 50,
       "summary": "R:40 + S:0 + T:5 + St:5 = 50"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on JP Morgan's upcoming handover at Goisu Realty (Sumitomo) Tower, BKC. With the fit-out window active for Q4 2026, Steelcase APAC would love to connect with your facilities and real estate team to share our latest agile workstation research and premium ergonomics for your front office.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on JP Morgan's upcoming office milestone at Mumbai! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "isMultiTenantHub": false,

@@ -32,7 +32,7 @@
             </svg>
           </div>
           <div class="brand-info">
-            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.24</span></h1>
+            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.25</span></h1>
             <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
           </div>
         </div>
@@ -43,9 +43,9 @@
         <div class="header-market-dropdown" title="Select APAC Market Filter">
           <span class="market-dropdown-flag" id="headerMarketFlag">🌐</span>
           <select id="countrySelect" class="market-dropdown-select" aria-label="Select APAC Market">
-            <option value="ALL" selected>🌐 All Markets (544 rows · 536 deals)</option>
+            <option value="ALL" selected>🌐 All Markets (545 rows · 537 deals)</option>
             <option value="China">🇨🇳 China (56 rows)</option>
-            <option value="India">🇮🇳 India (133 rows)</option>
+            <option value="India">🇮🇳 India (134 rows)</option>
             <option value="Japan">🇯🇵 Japan (91 rows)</option>
             <option value="Korea">🇰🇷 South Korea (153 rows)</option>
             <option value="Malaysia">🇲🇾 Malaysia (80 rows)</option>
@@ -67,7 +67,7 @@
           <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by Lease & Fit-Out Horizon">
             <span class="tab-icon" id="radarDropdownIcon">🔥</span>
             <span id="radarDropdownLabel">Sales Radar</span>
-            <span class="tab-badge" id="radarDropdownBadge">536</span>
+            <span class="tab-badge" id="radarDropdownBadge">537</span>
             <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="navRadarDropdownMenu">
@@ -80,7 +80,7 @@
                   <span class="item-desc">All prioritized opportunities</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCountAll">536</span>
+              <span class="item-badge" id="dropCountAll">537</span>
             </button>
             <button type="button" class="nav-dropdown-item" data-horizon="0–60 Days">
               <div class="item-left">
@@ -341,7 +341,7 @@
             <span class="sub-lead-question">"Who do I call this week, and what do I say?"</span>
           </h3>
           <div class="results-counts-tag">
-            Showing <strong id="radarVisibleCount">536</strong> of <span id="radarTotalCount">536</span> prioritized sales opportunities (<span id="radarRawCount">544</span> tracked signals / rows)
+            Showing <strong id="radarVisibleCount">537</strong> of <span id="radarTotalCount">537</span> prioritized sales opportunities (<span id="radarRawCount">545</span> tracked signals / rows)
             <span id="activeFilterBadge" class="badge-clean">🌐 All Markets</span>
           </div>
         </div>
@@ -617,12 +617,12 @@
             <p>Total square footage is explicitly labeled as a <em>"partial total"</em> because undisclosed deals are excluded from sums, never assumed to be zero.</p>
           </div>
           <div class="boundary-item">
-            <strong>Full Reconciliation Bridge (544 raw sheet rows → 536 commercial deals):</strong>
-            <p><strong>544 raw rows − 8 non-deal = 536 deals</strong> (544 raw rows in current Sheet; 8 non-deal macro/accounting/structural/scraper signals segregated = 536 verified commercial deals across APAC; BTDUex is categorized under non-deal scraper errors; PwC duplicate was merged directly in Sheet). Exclusions itemized by name: <em>GCC occupiers (structural), Flex/coworking operators (structural), Coworking operators + BFSI (structural), EDB ICT/BPM exporter directory (baseline watchlist), Maybank (Accounting signal), Kuala Lumpur Kepong (KLK) (Accounting signal), MIDA — structural pipeline (not a company) (Structural signal), and BTDUex (Scraper error)</em>.</p>
+            <strong>Full Reconciliation Bridge (545 raw sheet rows → 537 commercial deals):</strong>
+            <p><strong>545 raw rows − 8 non-deal = 537 deals</strong> (545 raw rows in current Sheet; 8 non-deal macro/accounting/structural/scraper signals segregated = 537 verified commercial deals across APAC; BTDUex is categorized under non-deal scraper errors; PwC duplicate was merged directly in Sheet). Exclusions itemized by name: <em>GCC occupiers (structural), Flex/coworking operators (structural), Coworking operators + BFSI (structural), EDB ICT/BPM exporter directory (baseline watchlist), Maybank (Accounting signal), Kuala Lumpur Kepong (KLK) (Accounting signal), MIDA — structural pipeline (not a company) (Structural signal), and BTDUex (Scraper error)</em>.</p>
           </div>
           <div class="boundary-item">
             <strong>Changelog (Round 4 / Round 5):</strong>
-            <p><strong>Hub count changed 22 → 15:</strong> Multi-tenant hubs reconciled from 22 to 15 verified commercial building clusters (≥2 verified tenants) by itemized audit: (1) Exchange 106 dropped BTDUex scraper artifact; (2) Menara Maybank excluded after isolating Maybank MFRS 16 accounting disclosure; (3) Wisma Taiko excluded after isolating KLK non-deal entry; (4) Standardized and deduplicated building entities (PwC duplicate was merged directly in Sheet).</p>
+            <p><strong>Hub count aligned to 14:</strong> Multi-tenant hubs reconciled to 14 verified commercial building clusters (≥2 verified commercial tenants) strictly from the explicit Building column with Signal-prose regex retired.</p>
           </div>
         </div>
       </div>

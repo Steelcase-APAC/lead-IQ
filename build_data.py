@@ -764,11 +764,6 @@ def generate_opening_script(comp, city, building, deal_type, sqft_formatted, sig
     target_loc = building if building else city
     size_mention = f" for your {sqft_formatted} space" if sqft_formatted != 'Not disclosed' else ""
 
-    if 'jp morgan' in comp.lower() and ('goisu' in signal.lower() or 'bkc' in signal.lower()):
-        return (f"Hi [Name], congratulations on JP Morgan's upcoming handover at Goisu Realty (Sumitomo) Tower, BKC. "
-                f"With the fit-out window active for Q4 2026{size_mention}, Steelcase APAC would love to connect with your "
-                f"facilities and real estate team to share our latest agile workstation research and premium ergonomics for your front office.")
-
     if fitout_window == 'Timing unknown':
         return (f"Hi [Name], reaching out from Steelcase APAC regarding {comp}'s commercial workplace portfolio in {city}. "
                 f"As your team reviews ongoing workspace requirements at {target_loc}, Steelcase provides premium ergonomic furniture "
