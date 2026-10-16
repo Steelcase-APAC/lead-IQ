@@ -627,12 +627,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Partial Disclosed Footprint Total (excluding non-deal rows)
     const validLeads = relevantLeads.filter(l => !l.isNonDealRow);
     const totalSqFt = validLeads.reduce((sum, l) => sum + (l.areaSqFt || 0), 0);
+    const sheetSqFt = validLeads.filter(l => l.areaSqFt && !l.isSizeInferred).reduce((sum, l) => sum + l.areaSqFt, 0);
+    const signalSqFt = validLeads.filter(l => l.areaSqFt && l.isSizeInferred).reduce((sum, l) => sum + l.areaSqFt, 0);
+
     if (totalSqFt >= 1000000) {
       kpiTotalSqFt.textContent = `${(totalSqFt / 1000000).toFixed(1)}M sq ft`;
     } else if (totalSqFt > 0) {
       kpiTotalSqFt.textContent = `${Math.round(totalSqFt).toLocaleString()} sq ft`;
     } else {
       kpiTotalSqFt.textContent = 'Undisclosed';
+    }
+
+    const kpiTotalSqFtSub = document.getElementById('kpiTotalSqFtSub');
+    if (kpiTotalSqFtSub) {
+      if (totalSqFt > 0) {
+        const sheetFmt = sheetSqFt >= 1000000 ? `${(sheetSqFt / 1000000).toFixed(2)}M` : `${Math.round(sheetSqFt).toLocaleString()}`;
+        const signalFmt = signalSqFt >= 1000000 ? `${(signalSqFt / 1000000).toFixed(1)}M` : `${Math.round(signalSqFt).toLocaleString()}`;
+        kpiTotalSqFtSub.textContent = `${sheetFmt} Sheet · ${signalFmt} Signal estimates`;
+      } else {
+        kpiTotalSqFtSub.textContent = 'All sizes undisclosed in filter';
+      }
     }
 
     // High Priority Radar: Prime Fit-Out Window (0–60 Days, 201 deals APAC-wide)
@@ -726,9 +740,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
 
       const breakdown = lead.heatScoreBreakdown || {};
+      const sizeSourceTag = lead.isSizeDisclosed ? (lead.isSizeInferred ? '[Signal estimate]' : '[Sheet]') : '[Undisclosed]';
       const tooltipText = `Heat Score ${lead.heatScore}/100 Breakdown:
 • Recency: +${breakdown.recencyPts || 0} (${breakdown.recencyReason || 'Recency'})
-• Size: +${breakdown.sizePts || 0} (${breakdown.sizeReason || 'Size'})
+• Size: +${breakdown.sizePts || 0} (${breakdown.sizeReason || 'Size'} ${sizeSourceTag})
 • Deal Type: +${breakdown.typePts || 0} (${breakdown.typeReason || 'Type'})
 • Sales Status: ${breakdown.statusPts >= 0 ? '+' : ''}${breakdown.statusPts || 0} (${breakdown.statusReason || 'Status'})`;
 
@@ -760,8 +775,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="card-meta-chips">
           <span class="chip-tag tag-deal-type">${escapeHtml(lead.dealType)}</span>
-          <span class="chip-tag ${isSizeDisclosed ? 'size-disclosed' : 'size-undisclosed'}" title="${isSizeDisclosed ? 'Disclosed area' : 'Size genuinely not stated in source news'}">
-            ${isSizeDisclosed ? `📐 ${lead.areaFormatted}` : '📐 Not disclosed'}
+          <span class="chip-tag ${isSizeDisclosed ? 'size-disclosed' : 'size-undisclosed'}" title="${isSizeDisclosed ? (lead.isSizeInferred ? 'Estimated from news signal prose; master Sheet cell is blank' : 'Verified in master Google Sheet column') : 'Size genuinely not stated in source news'}">
+            ${isSizeDisclosed ? (lead.isSizeInferred ? `📐 ~${lead.areaFormatted} [Signal]` : `📐 ${lead.areaFormatted} [Sheet]`) : '📐 Not disclosed'}
           </span>
           <span class="chip-tag" style="font-family: 'JetBrains Mono', monospace;">
             💰 ${escapeHtml(lead.dealValue)}
@@ -855,7 +870,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <td><span class="chip-tag tag-deal-type" style="font-size: 10px;">${escapeHtml(lead.dealType)}</span></td>
         <td>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; ${isSizeDisclosed ? 'color: var(--accent-blue); font-weight: 700;' : 'color: var(--text-muted);'}">
-            ${isSizeDisclosed ? lead.areaFormatted : 'Not disclosed'}
+            ${isSizeDisclosed ? (lead.isSizeInferred ? `~${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; opacity: 0.85; font-weight: normal;" title="Estimated from news signal prose; Sheet cell is blank">[Signal]</span>` : `${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; color: #10b981; font-weight: bold;" title="Verified in master Google Sheet column">[Sheet]</span>`) : 'Not disclosed'}
           </span>
         </td>
         <td><span class="window-pill ${windowClass}" style="font-size: 10px;">${lead.fitoutWindow}</span></td>
@@ -1569,7 +1584,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Heat score badge with breakdown (Fix 10)
     const heat = primaryDeal.heatScore || trackerRec.heatScore || 65;
     const bd = primaryDeal.heatScoreBreakdown || trackerRec.heatScoreBreakdown || { recency: 30, size: 0, dealType: 20, status: 15 };
-    dossierHeatScoreBadge.textContent = `🔥 Heat Score: ${heat}/100 (Recency: ${bd.recency} + Size: ${bd.size} + Type: ${bd.dealType} + Status: ${bd.status})`;
+    const sizeSourceTag = primaryDeal.isSizeDisclosed ? (primaryDeal.isSizeInferred ? '[Signal estimate]' : '[Sheet]') : '[Undisclosed]';
+    dossierHeatScoreBadge.textContent = `🔥 Heat Score: ${heat}/100 (Recency: ${bd.recency} + Size: ${bd.size} ${sizeSourceTag} + Type: ${bd.dealType} + Status: ${bd.status})`;
 
     // Tailored Pitch
     const pitch = primaryDeal.suggestedOpeningLine || `Hi [Name], congratulations on ${companyName}'s commercial momentum. Steelcase APAC provides premium ergonomic furniture and high-collaboration workspace design. Would you be open to an introductory conversation?`;
@@ -1598,7 +1614,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${escapeHtml(deal.signal)}
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted);">
-            <span>Disclosed: <strong style="color: var(--accent-blue);">${deal.areaFormatted}</strong></span>
+            <span>Size: <strong style="color: var(--accent-blue);">${deal.isSizeDisclosed ? (deal.isSizeInferred ? `~${deal.areaFormatted} [Signal estimate]` : `${deal.areaFormatted} [Sheet]`) : 'Not disclosed'}</strong></span>
             <a href="${escapeHtml(deal.sourceUrl || '#')}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); text-decoration: none;">Verify Source ↗</a>
           </div>
         `;
@@ -2290,6 +2306,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Recompute Disclosed Pipeline Footprint
       const disclosedSqFt = state.leads.reduce((acc, l) => acc + (l.areaSqFt || 0), 0);
+      const sheetSqFt = state.leads.filter(l => l.areaSqFt && !l.isSizeInferred).reduce((acc, l) => acc + l.areaSqFt, 0);
+      const signalSqFt = state.leads.filter(l => l.areaSqFt && l.isSizeInferred).reduce((acc, l) => acc + l.areaSqFt, 0);
       const dealBackedAccounts = state.tracker.filter(t => t.isDealBacked !== false && t.company !== 'Kuala Lumpur Kepong (KLK)');
 
       state.metrics = {
@@ -2301,6 +2319,11 @@ document.addEventListener('DOMContentLoaded', () => {
         totalTrackerAccounts: state.tracker.length,
         totalDisclosedSqFt: disclosedSqFt,
         totalDisclosedSqFtFormatted: (disclosedSqFt / 1000000).toFixed(1) + 'M sq ft',
+        sheetExplicitSqFt: sheetSqFt,
+        signalDerivedSqFt: signalSqFt,
+        sheetExplicitSqFtFormatted: (sheetSqFt / 1000000).toFixed(2) + 'M sq ft',
+        signalDerivedSqFtFormatted: (signalSqFt / 1000000).toFixed(1) + 'M sq ft',
+        pipelineDualSourceSub: `${(sheetSqFt / 1000000).toFixed(2)}M Sheet · ${(signalSqFt / 1000000).toFixed(1)}M Signal estimates`,
         multiTenantHubsCount: clusterBldgs.size,
         buildingDisclosureRate: Math.round((state.leads.filter(l => l.isBuildingDisclosed).length / state.leads.length) * 1000) / 10,
         zeroToSixtyCount: state.leads.filter(l => l.fitoutWindow === '0–60 Days').length,
@@ -2434,9 +2457,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const dealBacked = (state.tracker || []).filter(t => t.isDealBacked !== false && t.company !== 'Kuala Lumpur Kepong (KLK)');
 
     window.__LEADIQ_VERIFY__ = {
-      version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.28',
+      version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.29',
       headerTotal: state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 545,
       totalDeals: state.leads ? state.leads.length : 537,
+      pipelineTotalFormatted: state.metrics ? state.metrics.totalDisclosedSqFtFormatted : '30.0M sq ft',
+      sheetExplicitSqFtFormatted: state.metrics && state.metrics.sheetExplicitSqFtFormatted ? state.metrics.sheetExplicitSqFtFormatted : '1.27M sq ft',
+      signalDerivedSqFtFormatted: state.metrics && state.metrics.signalDerivedSqFtFormatted ? state.metrics.signalDerivedSqFtFormatted : '28.7M sq ft',
+      pipelineDualSourceSub: state.metrics && state.metrics.pipelineDualSourceSub ? state.metrics.pipelineDualSourceSub : '1.27M Sheet · 28.7M Signal estimates',
       submarketValues: Array.from(new Set((state.leads || []).map(l => l.submarket || l.city))).filter(Boolean).length,
       queueCount: dealBacked.length,
       bannerMapped: dealBacked.length,

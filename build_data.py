@@ -658,7 +658,7 @@ def compute_fitout_window(comp, country, sig, timing, deal_date, deal_quarter, d
 
     return 'Timing unknown'
 
-def compute_heat_score(days_ago, sqft, deal_type, tracker_status, is_non_deal=False):
+def compute_heat_score(days_ago, sqft, deal_type, tracker_status, is_non_deal=False, is_size_inferred=False):
     """
     Fix 10: Undisclosed size contributes 0 points.
     Strictly uses the 6 allowed deal types.
@@ -693,24 +693,25 @@ def compute_heat_score(days_ago, sqft, deal_type, tracker_status, is_non_deal=Fa
         recency_reason = "Historical benchmark (>180d)"
 
     # 2. Size Score (max 25) - Undisclosed Size MUST contribute 0 points (Fix 10)
+    source_tag = " [Signal estimate]" if is_size_inferred else " [Sheet]"
     if sqft is None:
         size_pts = 0
         size_reason = "Size undisclosed (0 pts)"
     elif sqft >= 100000:
         size_pts = 25
-        size_reason = f"Mega campus ({sqft:,.0f} sq ft)"
+        size_reason = f"Mega campus ({sqft:,.0f} sq ft{source_tag})"
     elif sqft >= 50000:
         size_pts = 20
-        size_reason = f"Large footprint ({sqft:,.0f} sq ft)"
+        size_reason = f"Large footprint ({sqft:,.0f} sq ft{source_tag})"
     elif sqft >= 20000:
         size_pts = 15
-        size_reason = f"Mid-size fit-out ({sqft:,.0f} sq ft)"
+        size_reason = f"Mid-size fit-out ({sqft:,.0f} sq ft{source_tag})"
     elif sqft >= 5000:
         size_pts = 10
-        size_reason = f"Boutique office ({sqft:,.0f} sq ft)"
+        size_reason = f"Boutique office ({sqft:,.0f} sq ft{source_tag})"
     else:
         size_pts = 5
-        size_reason = f"Compact footprint ({sqft:,.0f} sq ft)"
+        size_reason = f"Compact footprint ({sqft:,.0f} sq ft{source_tag})"
 
     # 3. Deal Type Score (max 20) - 6 allowed values
     if deal_type in ('Relocation', 'Expansion', 'New lease', 'Pre-commitment'):
@@ -1029,7 +1030,7 @@ def build_all():
                     pass
 
                 # Heat Score calculation (Fix 10: undisclosed size gives 0 size pts)
-                heat_score, heat_breakdown = compute_heat_score(days_ago, sqft, deal_type, tracker_status, is_non_deal)
+                heat_score, heat_breakdown = compute_heat_score(days_ago, sqft, deal_type, tracker_status, is_non_deal, size_inferred)
 
                 # Opening Sales Script
                 opening_script = generate_opening_script(comp, city, bldg, deal_type, area_fmt, sig, fitout_window)
@@ -1144,6 +1145,10 @@ def build_all():
 
     disclosed_sizes = [l['areaSqFt'] for l in all_leads if l['areaSqFt'] is not None and not l['isNonDealRow']]
     total_disclosed_sqft = sum(disclosed_sizes)
+    sheet_explicit_sizes = [l['areaSqFt'] for l in all_leads if l['areaSqFt'] is not None and not l.get('isSizeInferred') and not l['isNonDealRow']]
+    signal_derived_sizes = [l['areaSqFt'] for l in all_leads if l['areaSqFt'] is not None and l.get('isSizeInferred') and not l['isNonDealRow']]
+    sheet_explicit_sqft = sum(sheet_explicit_sizes)
+    signal_derived_sqft = sum(signal_derived_sizes)
     building_disclosure_rate = sum(1 for l in all_leads if l['isBuildingDisclosed'] and not l['isNonDealRow']) / distinct_opportunities * 100
     size_disclosure_rate = len(disclosed_sizes) / distinct_opportunities * 100
     type_disclosure_rate = sum(1 for l in all_leads if l['dealType'] != 'Unstated' and not l['isNonDealRow']) / distinct_opportunities * 100
@@ -1175,6 +1180,11 @@ def build_all():
         'reconciliationBridge': reconciliation_bridge,
         'totalDisclosedSqFt': total_disclosed_sqft,
         'totalDisclosedSqFtFormatted': f"{total_disclosed_sqft / 1000000:.1f}M sq ft",
+        'sheetExplicitSqFt': sheet_explicit_sqft,
+        'signalDerivedSqFt': signal_derived_sqft,
+        'sheetExplicitSqFtFormatted': f"{sheet_explicit_sqft / 1000000:.2f}M sq ft",
+        'signalDerivedSqFtFormatted': f"{signal_derived_sqft / 1000000:.1f}M sq ft",
+        'pipelineDualSourceSub': f"{sheet_explicit_sqft / 1000000:.2f}M Sheet · {signal_derived_sqft / 1000000:.1f}M Signal estimates",
         'buildingDisclosureRate': round(building_disclosure_rate, 1),
         'sizeDisclosureRate': round(size_disclosure_rate, 1),
         'typeDisclosureRate': round(type_disclosure_rate, 1),
