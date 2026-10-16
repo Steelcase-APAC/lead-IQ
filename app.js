@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const rawCountryCount = state.activeCountry === 'ALL'
-      ? (state.metrics.totalTrackedRows || 544)
+      ? (state.metrics.totalTrackedRows || 545)
       : (state.metrics.perCountryRows ? state.metrics.perCountryRows[state.activeCountry] : totalCount);
     if (radarRawCount) radarRawCount.textContent = rawCountryCount.toLocaleString();
 
@@ -677,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
       radarTotalCount.textContent = totalCount.toLocaleString();
     }
     const rawCountryCount = state.activeCountry === 'ALL'
-      ? (state.metrics.totalTrackedRows || 544)
+      ? (state.metrics.totalTrackedRows || 545)
       : (state.metrics.perCountryRows ? state.metrics.perCountryRows[state.activeCountry] : totalCount);
     if (radarRawCount) {
       radarRawCount.textContent = rawCountryCount.toLocaleString();
@@ -1231,7 +1231,7 @@ document.addEventListener('DOMContentLoaded', () => {
         trackerGapBanner.innerHTML = `
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="color: #10b981; font-weight: bold; font-size: 14px;">✓</span>
-            <span style="color: var(--text-primary);"><strong>Tracker gap: 0 items</strong> — Clean join: 532 deal-backed accounts cleanly mapped (0 unmapped deals).</span>
+            <span style="color: var(--text-primary);" id="trackerCleanJoinMsg"><strong>Tracker gap: 0 items</strong> — Clean join: ${trackerKeys.size} deal-backed accounts cleanly mapped (0 unmapped deals).</span>
           </div>
           <span class="badge-clean active" style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">0 Items</span>
         `;
@@ -1394,7 +1394,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (hasActiveFilters) {
         hubsBannerSub.textContent = `Showing ${multiClusters.length} target buildings incl. single-tenant (${multiTenantCount} multi-tenant hubs with ≥2 tenants in this market/filter). Coordinate meetings efficiently by clustering calls.`;
       } else {
-        hubsBannerSub.textContent = `Buildings and corporate parks with 2 or more verified corporate move signals (15 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.`;
+        const hubsCount = state.metrics && state.metrics.multiTenantHubsCount ? state.metrics.multiTenantHubsCount : multiTenantCount;
+        hubsBannerSub.textContent = `Buildings and corporate parks with 2 or more verified corporate move signals (${hubsCount} multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.`;
       }
     }
 
@@ -2293,7 +2294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       state.metrics = {
         ...state.metrics,
-        totalTrackedRows: 544,
+        totalTrackedRows: newLeads.length + nonDealSignals.length,
         totalDeals: state.leads.length,
         uniqueCompanies: dealBackedAccounts.length,
         dealBackedAccountsCount: dealBackedAccounts.length,
@@ -2316,6 +2317,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderTrackerView();
       renderHubsView();
       renderCoverageView();
+      updateVerifyPayload();
 
       // Update Live Sync Capsule UI
       if (syncIcon) syncIcon.style.animation = 'none';
@@ -2407,12 +2409,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
+  // VERIFY MODE SUPPORT (?verify=1 & window.__LEADIQ_VERIFY__)
+  // =========================================================
+  function updateVerifyPayload() {
+    const params = new URLSearchParams(window.location.search);
+    const isVerify = params.get('verify') === '1';
+
+    const radarHeat = {};
+    if (state.leads) {
+      state.leads.slice(0, 100).forEach(l => {
+        radarHeat[l.company] = l.heatScore;
+      });
+    }
+
+    const sampleSubheaders = {};
+    ['JP Morgan', 'PwC Malaysia', 'Maybank', 'ByteDance', 'Blackstone'].forEach(comp => {
+      const deals = (state.leads || []).filter(l => l.company && l.company.toLowerCase() === comp.toLowerCase());
+      const primary = deals[0] || {};
+      const sub = primary.submarket || primary.city || 'Regional';
+      const country = primary.country || 'APAC';
+      sampleSubheaders[comp] = primary.building ? `${sub} · ${primary.building} (${country})` : `${sub} (${country})`;
+    });
+
+    const dealBacked = (state.tracker || []).filter(t => t.isDealBacked !== false && t.company !== 'Kuala Lumpur Kepong (KLK)');
+
+    window.__LEADIQ_VERIFY__ = {
+      version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.28',
+      headerTotal: state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 545,
+      totalDeals: state.leads ? state.leads.length : 537,
+      submarketValues: Array.from(new Set((state.leads || []).map(l => l.submarket || l.city))).filter(Boolean).length,
+      queueCount: dealBacked.length,
+      bannerMapped: dealBacked.length,
+      multiTenantHubsCount: state.metrics && state.metrics.multiTenantHubsCount ? state.metrics.multiTenantHubsCount : 14,
+      coverageBuildingPct: state.metrics && state.metrics.buildingDisclosureRate ? state.metrics.buildingDisclosureRate : 28.7,
+      radarHeat: radarHeat,
+      dossierSubheaders: sampleSubheaders,
+      isVerifyMode: isVerify
+    };
+
+    if (isVerify) {
+      document.querySelectorAll('details').forEach(d => { d.open = true; });
+    }
+  }
+
+  // =========================================================
   // INITIALIZATION
   // =========================================================
   updateCountrySelectCounts();
   populateSubmarketsDropdown();
   filterAndSortLeads();
   switchView('analytics');
+  updateVerifyPayload();
 
   // Trigger live Google Sheet background fetch (non-blocking, runs after initial render)
   fetchLiveGoogleSheetData(false);

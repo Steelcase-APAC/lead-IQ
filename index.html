@@ -32,7 +32,7 @@
             </svg>
           </div>
           <div class="brand-info">
-            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.27</span></h1>
+            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.28</span></h1>
             <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
           </div>
         </div>
@@ -138,12 +138,12 @@
         <button id="tabTrackerBtn" class="segment-btn" title="Active sales working queue">
           <span class="tab-icon">📋</span>
           <span>Queue</span>
-          <span class="tab-badge" id="tabTrackerCount">532</span>
+          <span class="tab-badge" id="tabTrackerCount" data-testid="queue-count">533</span>
         </button>
         <button id="tabHubsBtn" class="segment-btn" title="Buildings with 2+ tenant signals">
           <span class="tab-icon">🏢</span>
           <span>Hubs</span>
-          <span class="tab-badge hub-alert" id="tabHubsCount">15</span>
+          <span class="tab-badge hub-alert" id="tabHubsCount" data-testid="hubs-count-badge">14</span>
         </button>
         <button id="tabCoverageBtn" class="segment-btn" title="Known boundaries, data completeness & 92 sources">
           <span class="tab-icon">ℹ️</span>
@@ -191,8 +191,8 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiUniqueCompanies">532</div>
-        <div class="scorecard-sub-info" id="kpiCompaniesSub">532 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
+        <div class="scorecard-big-num" id="kpiUniqueCompanies">533</div>
+        <div class="scorecard-sub-info" id="kpiCompaniesSub">533 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
       </div>
 
       <!-- Card 2: Disclosed Pipeline Footprint -->
@@ -492,7 +492,7 @@
       <div id="trackerGapBanner" class="tracker-gap-banner clean" style="margin-bottom: 16px; padding: 10px 14px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; font-size: 12.5px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="color: #10b981; font-weight: bold; font-size: 14px;">✓</span>
-          <span style="color: var(--text-primary);"><strong>Tracker gap: 0 items</strong> — Clean join: 532 deal-backed accounts cleanly mapped (0 unmapped deals).</span>
+          <span style="color: var(--text-primary);" id="trackerCleanJoinMsg" data-testid="banner-mapped"><strong>Tracker gap: 0 items</strong> — Clean join: 533 deal-backed accounts cleanly mapped (0 unmapped deals).</span>
         </div>
         <span class="badge-clean active" style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">0 Items</span>
       </div>
@@ -501,12 +501,12 @@
       <div class="tracker-status-ribbon">
         <div class="status-summary-card">
           <span class="ribbon-label">TOTAL MONITORED</span>
-          <strong id="kpiTrackerTotal">532</strong>
+          <strong id="kpiTrackerTotal">533</strong>
           <span class="ribbon-sub">Deal-backed accounts (account-level)</span>
         </div>
         <div class="status-summary-card active-border">
           <span class="ribbon-label">ACTIVE OUTREACH</span>
-          <strong id="kpiTrackerActive" style="color: var(--accent-blue);">124</strong>
+          <strong id="kpiTrackerActive" style="color: var(--accent-blue);">125</strong>
           <span class="ribbon-sub">Immediate fit-out priority (account-level)</span>
         </div>
         <div class="status-summary-card">
@@ -575,12 +575,12 @@
           <div class="hubs-banner-icon">🏢</div>
           <div>
             <h3>Multi-Tenant Target Hubs — High Yield Visits</h3>
-            <p id="hubsBannerSub">Buildings and corporate parks with 2 or more verified corporate move signals (15 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.</p>
+            <p id="hubsBannerSub">Buildings and corporate parks with 2 or more verified corporate move signals (14 multi-tenant hubs identified across APAC; single-tenant moves and undisclosed addresses excluded). Coordinate multiple meetings in one trip.</p>
             <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;"><strong>Hubs Qualification Criteria:</strong> Multi-tenant commercial hubs strictly require ≥2 verified corporate tenant move opportunities. In filtered market views, the catalog displays all identified target buildings (including single-tenant moves) to provide full visibility while clearly differentiating multi-tenant hubs (≥2 tenants) from single-tenant buildings.</p>
-            <p style="font-size: 11.5px; color: var(--accent-blue); margin-top: 4px; font-weight: 500;"><strong>Changelog:</strong> Hub count changed 22 → 15 after itemized audit: (1) Exchange 106 dropped BTDUex scraper artifact; (2) Menara Maybank excluded after isolating Maybank MFRS 16; (3) Wisma Taiko excluded after isolating KLK; (4) Standardized and deduplicated building entities (PwC duplicate merged directly in Sheet).</p>
+            <p style="font-size: 11.5px; color: var(--accent-blue); margin-top: 4px; font-weight: 500;"><strong>Changelog:</strong> Hub count changed 22 → 14 after itemized audit: (1) Exchange 106 dropped BTDUex scraper artifact; (2) Menara Maybank excluded after isolating Maybank MFRS 16; (3) Wisma Taiko excluded after isolating KLK; (4) Standardized and deduplicated building entities (PwC duplicate merged directly in Sheet).</p>
           </div>
         </div>
-        <span class="badge-clean" id="hubsCountPill">15 Multi-Tenant Hubs (≥2 tenants)</span>
+        <span class="badge-clean" id="hubsCountPill" data-testid="hubs-count">14 Multi-Tenant Hubs (≥2 tenants)</span>
       </div>
 
       <!-- Hubs Grid -->
@@ -681,9 +681,9 @@
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">BUILDING DISCLOSURE RATE</span>
           </div>
-          <div class="scorecard-big-num" id="gaugeBuildingRate">24.4%</div>
+          <div class="scorecard-big-num" id="gaugeBuildingRate" data-testid="building-disclosure-pct">28.7%</div>
           <div class="scorecard-progress-track">
-            <div class="scorecard-progress-bar" id="gaugeBuildingBar" style="width: 24.4%;"></div>
+            <div class="scorecard-progress-bar" id="gaugeBuildingBar" style="width: 28.7%;"></div>
           </div>
           <div class="scorecard-sub-info">Explicit or verified tower name</div>
         </div>
@@ -692,9 +692,9 @@
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">SIZE DISCLOSURE RATE</span>
           </div>
-          <div class="scorecard-big-num" id="gaugeSizeRate">51.0%</div>
+          <div class="scorecard-big-num" id="gaugeSizeRate">47.7%</div>
           <div class="scorecard-progress-track">
-            <div class="scorecard-progress-bar" id="gaugeSizeBar" style="width: 51.0%;"></div>
+            <div class="scorecard-progress-bar" id="gaugeSizeBar" style="width: 47.7%;"></div>
           </div>
           <div class="scorecard-sub-info">Exact or converted sq ft disclosed</div>
         </div>
@@ -703,9 +703,9 @@
           <div class="scorecard-top-line">
             <span class="scorecard-label-text">DEAL TYPE RESOLUTION</span>
           </div>
-          <div class="scorecard-big-num" id="gaugeTypeRate">62.2%</div>
+          <div class="scorecard-big-num" id="gaugeTypeRate">79.7%</div>
           <div class="scorecard-progress-track">
-            <div class="scorecard-progress-bar" id="gaugeTypeBar" style="width: 80.2%;"></div>
+            <div class="scorecard-progress-bar" id="gaugeTypeBar" style="width: 79.7%;"></div>
           </div>
           <div class="scorecard-sub-info">All deal types except Unstated</div>
         </div>
@@ -762,7 +762,7 @@
             <span id="dossierHeatScoreBadge" class="badge-clean heat-high">🔥 Heat Score: 85/100</span>
           </div>
           <h2 id="dossierCompanyTitle">Company Name</h2>
-          <p id="dossierMarketSub">Submarket & Building</p>
+          <p id="dossierMarketSub" data-testid="dossier-sub">Submarket & Building</p>
         </div>
 
         <!-- Tailored Pitch Generator Box -->
