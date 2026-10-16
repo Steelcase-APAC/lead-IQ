@@ -1,7 +1,7 @@
-// Lease-IQ Master Data Engine - Built 2026-10-16 14:48:54
+// Lease-IQ Master Data Engine - Built 2026-10-16 14:50:41
 // Auto-compiled from 9 Google Sheet / CSV source feeds
 
-var APP_VERSION = "2.26";
+var APP_VERSION = "2.27";
 if (typeof window !== 'undefined') window.APP_VERSION = APP_VERSION;
 
 var GOOGLE_SHEET_CONFIG = {
@@ -14,9 +14,9 @@ var GOOGLE_SHEET_CONFIG = {
     "Malaysia",
     "Sri Lanka"
   ],
-  "lastBuilt": "2026-10-16 14:48:54",
+  "lastBuilt": "2026-10-16 14:50:41",
   "metrics": {
-    "version": "2.26",
+    "version": "2.27",
     "totalTrackedRows": 545,
     "totalDeals": 537,
     "nonDealSignalsCount": 8,
@@ -84,7 +84,7 @@ var GOOGLE_SHEET_CONFIG = {
 if (typeof window !== 'undefined') window.GOOGLE_SHEET_CONFIG = GOOGLE_SHEET_CONFIG;
 
 var INITIAL_METRICS = {
-  "version": "2.26",
+  "version": "2.27",
   "totalTrackedRows": 545,
   "totalDeals": 537,
   "nonDealSignalsCount": 8,

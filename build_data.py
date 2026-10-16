@@ -1354,6 +1354,7 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
 
     assert jpmorgan and jpmorgan['areaFormatted'] == 'Not disclosed' and jpmorgan['areaSqFt'] is None, f"Assertion 3 failed for JP Morgan size: {jpmorgan['areaFormatted']}"
     assert jpmorgan['dealType'] == 'Unstated', f"Assertion 3 failed for JP Morgan deal type: {jpmorgan['dealType']}"
+    assert jpmorgan['building'] == '' and not jpmorgan['isBuildingDisclosed'], f"Assertion 3 failed for JP Morgan building: {jpmorgan['building']}"
     assert jpmorgan['heatScore'] == 50, f"Assertion 3 failed for JP Morgan heat score: {jpmorgan['heatScore']} != 50"
 
     assert bytedance and bytedance['areaFormatted'] == 'Not disclosed' and bytedance['areaSqFt'] is None, f"Assertion 3 failed for ByteDance size: {bytedance['areaFormatted']}"
