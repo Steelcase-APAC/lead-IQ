@@ -76,15 +76,16 @@ def check_for_new_entry(doc_text):
         if state.get("last_processed_hash") == current_hash:
             return last, "UP_TO_DATE"
         
-        # Check for pause/start protocol signals
+        # Check for pause/start protocol signals (strict: header or first line of body)
         is_paused = state.get("is_paused", False)
-        text_lower = (last["header"] + "\n" + last["body"]).lower()
+        first_line = last["body"].strip().split("\n")[0].upper() if last["body"].strip() else ""
+        header_upper = last["header"].upper()
         
-        if "pause" in text_lower:
+        if "PAUSE" in header_upper or first_line.startswith("PAUSE"):
             state["is_paused"] = True
             save_state(state)
             return last, "PAUSE_SIGNAL_FROM_ANGIE"
-        elif "start" in text_lower:
+        elif "START" in header_upper or first_line.startswith("START"):
             state["is_paused"] = False
             save_state(state)
             return last, "START_SIGNAL_FROM_ANGIE"
