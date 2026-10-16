@@ -117,7 +117,7 @@ if __name__ == "__main__":
     doc = read_handoff_doc()
     last_entry, status = check_for_new_entry(doc)
     print(f"Status: {status}")
-    if status == "NEW_ENTRY_FROM_ANGIE":
+    if status in ("NEW_ENTRY_FROM_ANGIE", "START_SIGNAL_FROM_ANGIE", "PAUSE_SIGNAL_FROM_ANGIE"):
         print("--- NEW ENTRY FROM ANGIE ---")
         print(last_entry["header"])
         print(last_entry["body"])
@@ -125,4 +125,5 @@ if __name__ == "__main__":
         print(f"Doc is up to date (last entry: {last_entry['header'] if last_entry else 'None'}).")
     else:
         print(f"Details: {last_entry}")
+
 

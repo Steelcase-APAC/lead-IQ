@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // App Version Badge
   if (appVersionBadge) {
-    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.22');
+    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.23');
     appVersionBadge.textContent = `v${ver}`;
   }
 
@@ -302,6 +302,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const COUNTRY_FLAGS = {
     'China': '🇨🇳', 'India': '🇮🇳', 'Japan': '🇯🇵', 'Korea': '🇰🇷',
     'South Korea': '🇰🇷', 'Malaysia': '🇲🇾', 'Sri Lanka': '🇱🇰', 'ALL': '🌐'
+  };
+
+  const COUNTRY_METADATA = {
+    'China': { code: 'CN', flag: '🇨🇳', currency: 'CNY', symbol: '¥' },
+    'India': { code: 'IN', flag: '🇮🇳', currency: 'INR', symbol: '₹' },
+    'Japan': { code: 'JP', flag: '🇯🇵', currency: 'JPY', symbol: '¥' },
+    'Korea': { code: 'KR', flag: '🇰🇷', currency: 'KRW', symbol: '₩' },
+    'South Korea': { code: 'KR', flag: '🇰🇷', currency: 'KRW', symbol: '₩' },
+    'Malaysia': { code: 'MY', flag: '🇲🇾', currency: 'MYR', symbol: 'RM' },
+    'Sri Lanka': { code: 'LK', flag: '🇱🇰', currency: 'LKR', symbol: 'SL Rs' }
   };
 
   // =========================================================
@@ -383,12 +393,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submarkets = new Set();
     marketLeads.forEach(l => {
-      const canon = canonicalSubmarket(l.submarket);
-      if (canon && canon !== 'ALL') submarkets.add(canon);
-      if (l.city && l.city !== l.country) {
-        const canonCity = canonicalSubmarket(l.city);
-        if (canonCity && canonCity !== 'ALL') submarkets.add(canonCity);
-      }
+      const mkt = (l.market || l.submarket || '').trim();
+      if (mkt && mkt !== 'ALL') submarkets.add(mkt);
     });
 
     const sorted = Array.from(submarkets).sort();
@@ -431,13 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 3. Submarket Filter
       if (selSubmarket !== 'ALL') {
-        const leadSub = canonicalSubmarket(lead.submarket);
-        const leadCity = canonicalSubmarket(lead.city);
-        const subMatch = (leadSub && leadSub.toLowerCase() === selSubmarket.toLowerCase()) ||
-                         (leadCity && leadCity.toLowerCase() === selSubmarket.toLowerCase()) ||
-                         (lead.submarket && lead.submarket.toLowerCase() === selSubmarket.toLowerCase()) ||
-                         (lead.city && lead.city.toLowerCase() === selSubmarket.toLowerCase());
-        if (!subMatch) return false;
+        const leadMkt = (lead.market || lead.submarket || '').trim();
+        if (leadMkt.toLowerCase() !== selSubmarket.toLowerCase()) {
+          return false;
+        }
       }
 
       // 4. Deal Type Filter
@@ -2091,8 +2094,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const cached = initialMap.get(rowId) || {};
 
           let bldg = explicitBldg || cached.building || '';
-          let submarket = canonicalSubmarket(cached.submarket || mkt);
-          let city = cached.city || country;
+          let submarket = mkt.trim();
+          let city = cached.city || (mkt.includes('(') ? mkt.split('(')[0].trim() : mkt.trim()) || country;
           let sector = cached.sector || 'Corporate & Commercial';
           let urgency = cached.urgency || 'Active';
           let openingScript = cached.suggestedOpeningLine || '';
@@ -2139,13 +2142,19 @@ document.addEventListener('DOMContentLoaded', () => {
                                trackerByCompName.get(comp.toLowerCase());
           const trackerStatus = trackerMatch ? trackerMatch.status : (cached.trackerStatus || 'Watch');
 
+          const cMeta = COUNTRY_METADATA[country] || { code: country.slice(0, 2).toUpperCase(), flag: COUNTRY_FLAGS[country] || '🌐', currency: 'USD', symbol: '$' };
+
           const record = {
             id: rowId,
             rowId: rowId,
             rowKind: rowKind,
             company: comp,
             country: country,
-            market: mkt,
+            countryCode: cached.countryCode || cMeta.code,
+            flag: cached.flag || cMeta.flag,
+            currency: cached.currency || cMeta.currency,
+            currencySymbol: cached.currencySymbol || cMeta.symbol,
+            market: mkt.trim(),
             city: city,
             submarket: submarket,
             building: bldg,
@@ -2196,6 +2205,32 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       newLeads.sort((a, b) => b.heatScore - a.heatScore);
+
+      // Map primary deal's heat score to tracker record (highest heat score wins)
+      const leadByCompCountry = new Map();
+      newLeads.forEach(l => {
+        const key = `${l.company.toLowerCase().trim()}:::${l.country.toLowerCase().trim()}`;
+        if (!leadByCompCountry.has(key) || l.heatScore > leadByCompCountry.get(key).heatScore) {
+          leadByCompCountry.set(key, l);
+        }
+      });
+
+      newTracker.forEach(rec => {
+        let matchLead = leadByCompCountry.get(`${rec.company.toLowerCase().trim()}:::${rec.country.toLowerCase().trim()}`);
+        if (!matchLead) {
+          for (let [k, l] of leadByCompCountry.entries()) {
+            if (k.startsWith(rec.company.toLowerCase().trim() + ':::')) {
+              matchLead = l;
+              break;
+            }
+          }
+        }
+        if (matchLead) {
+          rec.heatScore = matchLead.heatScore;
+          rec.heatScoreBreakdown = matchLead.heatScoreBreakdown;
+        }
+      });
+
 
       // 3. Process Snapshots & Sources
       const newSnapshots = (tabMap['Snapshots'] || []).slice(1).map((r, i) => ({
