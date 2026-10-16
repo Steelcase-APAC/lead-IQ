@@ -1531,7 +1531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const matchingSnapshots = state.snapshots.filter(s => s.company.toLowerCase() === companyName.toLowerCase());
 
     dossierCompanyTitle.textContent = companyName;
-    const bldg = primaryDeal.building || (companyName.toLowerCase().includes('jp morgan') ? 'Goisu Realty (Sumitomo) Tower' : 'Building undisclosed');
+    const bldg = primaryDeal.building || 'Building undisclosed';
     const sub = primaryDeal.submarket || primaryDeal.city || trackerRec.market || 'Regional';
     dossierMarketSub.textContent = `${sub} · ${bldg} (${primaryDeal.country || trackerRec.country})`;
 
@@ -2093,7 +2093,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Pull enriched baseline from initial compilation if available
           const cached = initialMap.get(rowId) || {};
 
-          let bldg = explicitBldg || cached.building || '';
+          let bldg = explicitBldg;
           let submarket = mkt.trim();
           let city = cached.city || (mkt.includes('(') ? mkt.split('(')[0].trim() : mkt.trim()) || country;
           let sector = cached.sector || 'Corporate & Commercial';
@@ -2281,6 +2281,7 @@ document.addEventListener('DOMContentLoaded', () => {
         totalDisclosedSqFt: disclosedSqFt,
         totalDisclosedSqFtFormatted: (disclosedSqFt / 1000000).toFixed(1) + 'M sq ft',
         multiTenantHubsCount: clusterBldgs.size,
+        buildingDisclosureRate: Math.round((state.leads.filter(l => l.isBuildingDisclosed).length / state.leads.length) * 1000) / 10,
         zeroToSixtyCount: state.leads.filter(l => l.fitoutWindow === '0–60 Days').length,
         oneYearCount: state.leads.filter(l => l.fitoutWindow === '0–1 Year').length,
         twoYearsCount: state.leads.filter(l => l.fitoutWindow === '1–2 Years').length,

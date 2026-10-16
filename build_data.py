@@ -413,47 +413,12 @@ def canonical_submarket(subm):
     return s
 
 def extract_building_and_submarket(comp, country, market_str, signal_str, explicit_bldg=''):
-    submarket = ''
-    building = explicit_bldg.strip() if explicit_bldg else ''
-    is_inferred = False
-
-    # Fix 8f: JP Morgan BKC building from Signal
-    if 'jp morgan' in comp.lower() and ('goisu' in signal_str.lower() or 'bkc' in signal_str.lower()):
-        return 'BKC', 'Goisu Realty (Sumitomo) Tower', True, False
-
-    # Fix 8e: BTDUex garbled tenant
-    if comp.lower() == 'btduex':
-        return 'TRX', '', False, False
-
-    # Read submarket verbatim from canonical Market column (drop parenthetical regex extraction)
     submarket = market_str.strip()
+    building = explicit_bldg.strip() if explicit_bldg else ''
+    has_bldg = bool(building)
+    return submarket, building, has_bldg, False
 
-    # If no building found yet, try regex from signal (case-insensitive)
-    if not building and signal_str:
-        m_sig = re.search(r'(?:at|in|into|to|building[:\s])\s+([A-Z0-9][A-Za-z0-9\s\.\-&\'\(\)]+?(?:Tower|Center|Centre|Park|Plaza|Hub|Building|Campus|Square|Tech Park|Heights|Court|City Center|Atelier|Bridge|106|118|M-SQUARE|MK-SQUARE|Suites))', signal_str, re.I)
-        if m_sig:
-            candidate = m_sig.group(1).strip()
-            if len(candidate) <= 50 and candidate.lower() not in KNOWN_SUBMARKETS:
-                building = candidate
-                is_inferred = True
 
-    # Standardize notable buildings
-    if building:
-        b_clean = building.strip()
-        if re.search(r'merdeka\s*118', b_clean, re.I): building = 'Merdeka 118'
-        elif re.search(r'exchange\s*106', b_clean, re.I): building = 'Exchange 106'
-        elif re.search(r'menara\s*ethos', b_clean, re.I): building = 'Menara Ethos'
-        elif re.search(r'capstone\s*corporate\s*suites', b_clean, re.I): building = 'Capstone Corporate Suites'
-        elif re.search(r'torch\s*tower', b_clean, re.I): building = 'Torch Tower'
-        elif re.search(r'rmz\s*ecoworld', b_clean, re.I): building = 'RMZ Ecoworld Campus'
-        elif re.search(r'dlf\s*cyber\s*city', b_clean, re.I): building = 'DLF Cyber City'
-        elif re.search(r'crystal\s*bridge', b_clean, re.I): building = 'Crystal Bridge'
-        elif re.search(r'k11\s*atelier', b_clean, re.I): building = 'K11 Atelier'
-        elif re.search(r'wisma\s*unirazak', b_clean, re.I): building = 'Wisma Unirazak'
-        elif re.search(r'goisu\s*realty', b_clean, re.I): building = 'Goisu Realty (Sumitomo) Tower'
-
-    submarket = canonical_submarket(submarket)
-    return submarket, building, bool(building), is_inferred
 
 def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False, row_id=''):
     """
@@ -1148,7 +1113,8 @@ def build_all():
 
     # Tag multi-tenant building clusters (buildings with 2+ tenants, excluding non-deal rows)
     cluster_buildings = {k for k, v in building_cluster_counts.items() if v >= 2}
-    print(f"Identified {len(cluster_buildings)} multi-tenant building clusters with >=2 companies!")
+    print(f"Identified {len(cluster_buildings)} multi-tenant building clusters with >=2 companies: {sorted(list(cluster_buildings))}")
+
     for lead in all_leads:
         lead['isMultiTenantHub'] = (lead['building'] in cluster_buildings) and not lead['isNonDealRow']
         lead['buildingTenantCount'] = building_cluster_counts.get(lead['building'], 1) if lead['building'] else 0
@@ -1436,9 +1402,10 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print("[PASS] Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings.")
     passed += 1
 
-    # Assertion 7: Mechanism 6 Hubs counts & evidenced changelog verified (multi-tenant hubs)
-    assert metrics['multiTenantHubsCount'] >= 14, f"Assertion 7 failed: multiTenantHubsCount is {metrics['multiTenantHubsCount']}"
-    print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified ({metrics['multiTenantHubsCount']} multi-tenant hubs across APAC).")
+    # Assertion 7: Mechanism 6 Hubs counts & evidenced changelog verified (14 multi-tenant hubs)
+    assert metrics['multiTenantHubsCount'] == 14, f"Assertion 7 failed: multiTenantHubsCount is {metrics['multiTenantHubsCount']}, expected 14"
+    assert metrics['buildingDisclosureRate'] == 28.7, f"Assertion 7 failed: buildingDisclosureRate is {metrics['buildingDisclosureRate']}, expected 28.7"
+    print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified (14 multi-tenant hubs, 28.7% building disclosure across APAC).")
     passed += 1
 
     # Assertion 8: Fit-out window distribution verified for Deal rows only (202 / 10 / 2 / 3 / 320 = 537)
