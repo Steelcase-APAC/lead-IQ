@@ -1551,9 +1551,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const matchingSnapshots = state.snapshots.filter(s => s.company.toLowerCase() === companyName.toLowerCase());
 
     dossierCompanyTitle.textContent = companyName;
-    const bldg = primaryDeal.building || 'Building undisclosed';
     const sub = primaryDeal.submarket || primaryDeal.city || trackerRec.market || 'Regional';
-    dossierMarketSub.textContent = `${sub} · ${bldg} (${primaryDeal.country || trackerRec.country})`;
+    const country = primaryDeal.country || trackerRec.country || 'APAC';
+    dossierMarketSub.textContent = primaryDeal.building ? `${sub} · ${primaryDeal.building} (${country})` : `${sub} (${country})`;
 
     // Status Badge
     const status = trackerRec.status || primaryDeal.trackerStatus || 'Watch';
