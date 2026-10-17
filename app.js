@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const state = {
     theme: localStorage.getItem('cre_theme') || 'light',
-    activeView: 'analytics', // 'analytics' (default home page) | 'radar' | 'scoping' | 'relationship' | 'tracker' | 'hubs' | 'coverage'
+    activeView: 'analytics', // 'analytics' (default home page) | 'radar' | 'tracker' | 'targetAccounts' | 'hubs' | 'coverage'
     activeCountry: 'ALL',
     radarViewMode: 'table', // 'table' (default in Sales Radar) | 'card'
-    radarSort: 'heat', // 'heat' | 'recency' | 'size' | 'company'
+    radarSort: 'talkBy', // 'talkBy' (default in v2.30) | 'heat' | 'recency' | 'size' | 'company'
+    lateStageCollapsed: true,
     analyticsTimelineMode: 'deal', // 'deal' | 'found'
     analyticsHubMetric: 'deals', // 'deals' | 'sqft'
     filters: {
@@ -30,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
            ? [...window.INITIAL_TRACKER_DATA]
            : (typeof INITIAL_TRACKER_DATA !== 'undefined' && Array.isArray(INITIAL_TRACKER_DATA) ? [...INITIAL_TRACKER_DATA] : []),
     filteredTracker: [],
+    watchlist: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_WATCHLIST_DATA))
+           ? [...window.INITIAL_WATCHLIST_DATA]
+           : (typeof INITIAL_WATCHLIST_DATA !== 'undefined' && Array.isArray(INITIAL_WATCHLIST_DATA) ? [...INITIAL_WATCHLIST_DATA] : []),
     snapshots: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_SNAPSHOTS_DATA) && window.INITIAL_SNAPSHOTS_DATA.length)
            ? [...window.INITIAL_SNAPSHOTS_DATA]
            : (typeof INITIAL_SNAPSHOTS_DATA !== 'undefined' && Array.isArray(INITIAL_SNAPSHOTS_DATA) ? [...INITIAL_SNAPSHOTS_DATA] : []),
@@ -153,12 +157,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const radarDropdownBadge = document.getElementById('radarDropdownBadge');
   const navRadarDropdownMenu = document.getElementById('navRadarDropdownMenu');
   const dropCountAll = document.getElementById('dropCountAll');
-  const dropCount060 = document.getElementById('dropCount060');
-  const dropCount1Yr = document.getElementById('dropCount1Yr');
-  const dropCount2Yr = document.getElementById('dropCount2Yr');
-  const dropCount3Yr = document.getElementById('dropCount3Yr');
-  const dropCountUnknown = document.getElementById('dropCountUnknown');
+  const dropCountEngage = document.getElementById('dropCountEngage');
+  const dropCountCompete = document.getElementById('dropCountCompete');
+  const dropCountFight = document.getElementById('dropCountFight');
+  const dropCountFitout = document.getElementById('dropCountFitout');
+  const dropCountNurture = document.getElementById('dropCountNurture');
+  const dropCountFar = document.getElementById('dropCountFar');
+  const dropCountUndated = document.getElementById('dropCountUndated');
   const tabTrackerBtn = document.getElementById('tabTrackerBtn');
+  const tabTargetAccountsBtn = document.getElementById('tabTargetAccountsBtn');
+  const tabWatchlistCount = document.getElementById('tabWatchlistCount');
   const tabHubsBtn = document.getElementById('tabHubsBtn');
   const tabCoverageBtn = document.getElementById('tabCoverageBtn');
   const tabTrackerCount = document.getElementById('tabTrackerCount');
@@ -169,9 +177,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const viewRadar = document.getElementById('viewRadar');
   const viewAnalytics = document.getElementById('viewAnalytics');
   const viewTracker = document.getElementById('viewTracker');
+  const viewTargetAccounts = document.getElementById('viewTargetAccounts');
   const viewHubs = document.getElementById('viewHubs');
   const viewCoverage = document.getElementById('viewCoverage');
   const radarViewHeading = document.getElementById('radarViewHeading');
+
+  // Late Stage Collapsible Container
+  const lateStageContainer = document.getElementById('lateStageContainer');
+  const toggleLateStageBtn = document.getElementById('toggleLateStageBtn');
+  const lateStageCountBadge = document.getElementById('lateStageCountBadge');
+  const lateStageContent = document.getElementById('lateStageContent');
+  const lateStageTableBody = document.getElementById('lateStageTableBody');
+  const lateStageCardsGrid = document.getElementById('lateStageCardsGrid');
+
+  // Target Accounts Watchlist Elements
+  const watchlistContentContainer = document.getElementById('watchlistContentContainer');
+  const watchlistTableBody = document.getElementById('watchlistTableBody');
+  const watchlistEmptyState = document.getElementById('watchlistEmptyState');
+  const watchlistVisibleCount = document.getElementById('watchlistVisibleCount');
 
   // Scorecards
   const kpiUniqueCompanies = document.getElementById('kpiUniqueCompanies');
@@ -281,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // App Version Badge
   if (appVersionBadge) {
-    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.23');
+    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.30');
     appVersionBadge.textContent = `v${ver}`;
   }
 
@@ -468,15 +491,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
       }
 
-      // 5. Fit-out Window Filter
+      // 5. First-Mover Engagement Lane / Fit-out Window Filter
       if (selWindow !== 'ALL') {
-        const matchesWindow = (lead.fitoutWindow === selWindow) ||
+        const matchesWindow = (lead.firstMoverLane === selWindow) ||
+                              (lead.fitoutWindow === selWindow) ||
+                              (selWindow === 'Engage now (12–18m)' && lead.firstMoverLane === 'Engage now (12–18m)') ||
+                              (selWindow === 'Compete now (6–12m)' && lead.firstMoverLane === 'Compete now (6–12m)') ||
+                              (selWindow === 'Fight harder (0–6m)' && lead.firstMoverLane === 'Fight harder (0–6m)') ||
+                              (selWindow === 'Fit-out in progress (<0m)' && lead.firstMoverLane === 'Fit-out in progress (<0m)') ||
+                              (selWindow === 'Nurture (18–24m)' && lead.firstMoverLane === 'Nurture (18–24m)') ||
+                              (selWindow === 'Far watch (>24m)' && lead.firstMoverLane === 'Far watch (>24m)') ||
+                              (selWindow === 'Undated' && lead.firstMoverLane === 'Undated') ||
                               (selWindow === '0–1 Year' && (lead.fitoutWindow === '1 Year' || lead.fitoutWindow === '0–1 Year')) ||
                               (selWindow === '1–2 Years' && (lead.fitoutWindow === '2 Years' || lead.fitoutWindow === '1–2 Years')) ||
                               (selWindow === '2+ Years' && (lead.fitoutWindow === '3 Years & Above' || lead.fitoutWindow === '2+ Years')) ||
-                              (selWindow === '1 Year' && (lead.fitoutWindow === '0–1 Year' || lead.fitoutWindow === '1 Year')) ||
-                              (selWindow === '2 Years' && (lead.fitoutWindow === '1–2 Years' || lead.fitoutWindow === '2 Years')) ||
-                              (selWindow === '3 Years & Above' && (lead.fitoutWindow === '2+ Years' || lead.fitoutWindow === '3 Years & Above'));
+                              (selWindow === 'Timing unknown' && (lead.fitoutWindow === 'Timing unknown' || lead.firstMoverLane === 'Undated'));
         if (!matchesWindow) return false;
       }
 
@@ -496,6 +525,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sort
     const sortMode = state.radarSort;
     state.filteredLeads.sort((a, b) => {
+      if (sortMode === 'talkBy') {
+        const dateA = a.talkByDate ? new Date(a.talkByDate).getTime() : Infinity;
+        const dateB = b.talkByDate ? new Date(b.talkByDate).getTime() : Infinity;
+        if (dateA !== dateB) return dateA - dateB;
+        if (a.isDatingPriority !== b.isDatingPriority) {
+          return a.isDatingPriority ? -1 : 1;
+        }
+        return b.heatScore - a.heatScore;
+      }
       if (sortMode === 'heat') {
         return b.heatScore - a.heatScore;
       }
@@ -526,25 +564,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const rawCountryCount = state.activeCountry === 'ALL'
-      ? (state.metrics.totalTrackedRows || 545)
+      ? (state.metrics.totalTrackedRows || 571)
       : (state.metrics.perCountryRows ? state.metrics.perCountryRows[state.activeCountry] : totalCount);
     if (radarRawCount) radarRawCount.textContent = rawCountryCount.toLocaleString();
 
     const countAll = relevantTotalLeads.length;
-    const count060 = relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days').length;
-    const count1Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '0–1 Year' || l.fitoutWindow === '1 Year').length;
-    const count2Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '1–2 Years' || l.fitoutWindow === '2 Years').length;
-    const count3Yr = relevantTotalLeads.filter(l => l.fitoutWindow === '2+ Years' || l.fitoutWindow === '3 Years & Above').length;
-    const countUnknown = relevantTotalLeads.filter(l => l.fitoutWindow === 'Timing unknown').length;
+    const countEngage = relevantTotalLeads.filter(l => l.firstMoverLane === 'Engage now (12–18m)').length;
+    const countCompete = relevantTotalLeads.filter(l => l.firstMoverLane === 'Compete now (6–12m)').length;
+    const countFight = relevantTotalLeads.filter(l => l.firstMoverLane === 'Fight harder (0–6m)').length;
+    const countFitout = relevantTotalLeads.filter(l => l.firstMoverLane === 'Fit-out in progress (<0m)').length;
+    const countNurture = relevantTotalLeads.filter(l => l.firstMoverLane === 'Nurture (18–24m)').length;
+    const countFar = relevantTotalLeads.filter(l => l.firstMoverLane === 'Far watch (>24m)').length;
+    const countUndated = relevantTotalLeads.filter(l => l.firstMoverLane === 'Undated').length;
 
     if (dropCountAll) dropCountAll.textContent = countAll.toLocaleString();
-    if (dropCount060) dropCount060.textContent = count060.toLocaleString();
-    if (dropCount1Yr) dropCount1Yr.textContent = count1Yr.toLocaleString();
-    if (dropCount2Yr) dropCount2Yr.textContent = count2Yr.toLocaleString();
-    if (dropCount3Yr) dropCount3Yr.textContent = count3Yr.toLocaleString();
-    if (dropCountUnknown) dropCountUnknown.textContent = countUnknown.toLocaleString();
+    if (dropCountEngage) dropCountEngage.textContent = countEngage.toLocaleString();
+    if (dropCountCompete) dropCountCompete.textContent = countCompete.toLocaleString();
+    if (dropCountFight) dropCountFight.textContent = countFight.toLocaleString();
+    if (dropCountFitout) dropCountFitout.textContent = countFitout.toLocaleString();
+    if (dropCountNurture) dropCountNurture.textContent = countNurture.toLocaleString();
+    if (dropCountFar) dropCountFar.textContent = countFar.toLocaleString();
+    if (dropCountUndated) dropCountUndated.textContent = countUndated.toLocaleString();
 
-    updateRadarDropdownUI(state.filters.window, { countAll, count060, count1Yr, count2Yr, count3Yr, countUnknown });
+    updateRadarDropdownUI(state.filters.window, { countAll, countEngage, countCompete, countFight, countFitout, countNurture, countFar, countUndated });
 
     const flag = COUNTRY_FLAGS[state.activeCountry] || '🌐';
     activeFilterBadge.textContent = state.activeCountry === 'ALL' ? '🌐 All Markets' : `${flag} ${state.activeCountry}`;
@@ -716,185 +758,251 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function getFitoutWindowClass(w) {
-    if (!w) return 'settled';
-    if (w.includes('0–60') || w.includes('0-60') || w.includes('Prime')) return 'prime';
-    if (w.includes('1 Year') || w.includes('Scoping') || w.includes('1-Year') || w.includes('1-Yr')) return 'scoping';
-    if (w.includes('2 Years') || w.includes('Relationship') || w.includes('2-Year') || w.includes('2-Yr')) return 'relationship';
-    if (w.includes('3 Years') || w.includes('3+ Years') || w.includes('Above') || w.includes('Pipeline')) return 'longrange';
-    if (w.includes('Active')) return 'active';
-    return 'settled';
+  function getLaneClass(lane) {
+    if (!lane) return 'undated';
+    if (lane.includes('Engage now')) return 'engage-now hero';
+    if (lane.includes('Compete now')) return 'compete-now';
+    if (lane.includes('Fight harder')) return 'fight-harder';
+    if (lane.includes('Fit-out in progress')) return 'fitout-progress';
+    if (lane.includes('Nurture')) return 'nurture';
+    if (lane.includes('Far watch')) return 'far-watch';
+    return 'undated';
   }
 
-  function renderRadarCards() {
-    radarCardsGrid.innerHTML = '';
-    const frag = document.createDocumentFragment();
+  function createRadarCard(lead) {
+    const card = document.createElement('article');
+    card.className = 'sales-radar-card';
 
-    state.filteredLeads.forEach(lead => {
-      const card = document.createElement('article');
-      card.className = 'sales-radar-card';
+    const heatClass = lead.heatScore >= 75 ? 'heat-score-badge heat-high' : 'heat-score-badge';
+    const laneClass = getLaneClass(lead.firstMoverLane);
+    const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
 
-      // Heat Score Badge Class
-      const heatClass = lead.heatScore >= 75 ? 'heat-score-badge heat-high' : 'heat-score-badge';
-      const windowClass = getFitoutWindowClass(lead.fitoutWindow);
-      const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
-
-      const breakdown = lead.heatScoreBreakdown || {};
-      const sizeSourceTag = lead.isSizeDisclosed ? (lead.isSizeInferred ? '[Signal estimate]' : '[Sheet]') : '[Undisclosed]';
-      const tooltipText = `Heat Score ${lead.heatScore}/100 Breakdown:
+    const breakdown = lead.heatScoreBreakdown || {};
+    const sizeSourceTag = lead.isSizeDisclosed ? (lead.isSizeInferred ? '[Signal estimate]' : '[Sheet]') : '[Undisclosed]';
+    const tooltipText = `Heat Score ${lead.heatScore}/100 Breakdown:
 • Recency: +${breakdown.recencyPts || 0} (${breakdown.recencyReason || 'Recency'})
 • Size: +${breakdown.sizePts || 0} (${breakdown.sizeReason || 'Size'} ${sizeSourceTag})
 • Deal Type: +${breakdown.typePts || 0} (${breakdown.typeReason || 'Type'})
 • Sales Status: ${breakdown.statusPts >= 0 ? '+' : ''}${breakdown.statusPts || 0} (${breakdown.statusReason || 'Status'})`;
 
-      card.innerHTML = `
-        <div class="card-top-row">
-          <div style="display: flex; gap: 6px; align-items: center;">
-            <span class="${heatClass}" title="${tooltipText}">
-              🔥 ${lead.heatScore}/100
-            </span>
-            <span class="window-pill ${windowClass}">
-              ${lead.fitoutWindow}
-            </span>
-          </div>
-          <div style="display: flex; gap: 6px; align-items: center;">
-            <span class="badge-clean" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: var(--accent-blue);" title="Contract Row ID">${escapeHtml(lead.rowId || lead.id)}</span>
-            <span class="badge-clean">${lead.flag} ${lead.country}</span>
-            <span class="badge-clean" style="font-size: 10px;">${lead.sector}</span>
-          </div>
-        </div>
-
-        <div class="card-company-header">
-          <h4 data-company="${escapeHtml(lead.company)}">${escapeHtml(lead.company)}</h4>
-          <div class="card-building-loc">
-            <span>📍 ${escapeHtml(lead.submarket || lead.city)}</span>
-            ${lead.building ? `<strong>· ${escapeHtml(lead.building)}</strong>` : ''}
-            ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" title="${lead.buildingTenantCount} moving tenants in this building!">🏢 Multi-Tenant Hub (${lead.buildingTenantCount} tenants)</span>` : ''}
-          </div>
-        </div>
-
-        <div class="card-meta-chips">
-          <span class="chip-tag tag-deal-type">${escapeHtml(lead.dealType)}</span>
-          <span class="chip-tag ${isSizeDisclosed ? 'size-disclosed' : 'size-undisclosed'}" title="${isSizeDisclosed ? (lead.isSizeInferred ? 'Estimated from news signal prose; master Sheet cell is blank' : 'Verified in master Google Sheet column') : 'Size genuinely not stated in source news'}">
-            ${isSizeDisclosed ? (lead.isSizeInferred ? `📐 ~${lead.areaFormatted} [Signal]` : `📐 ${lead.areaFormatted} [Sheet]`) : '📐 Not disclosed'}
+    card.innerHTML = `
+      <div class="card-top-row">
+        <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+          <span class="${heatClass}" title="${tooltipText}">
+            🔥 ${lead.heatScore}/100
           </span>
-          <span class="chip-tag" style="font-family: 'JetBrains Mono', monospace;">
-            💰 ${escapeHtml(lead.dealValue)}
+          <span class="first-mover-pill ${laneClass}">
+            ${escapeHtml(lead.firstMoverLane || 'Undated')}
           </span>
-          <span class="chip-tag" style="font-size: 10.5px;">
-            🕒 ${escapeHtml(lead.dealQuarter || lead.dealDate)}
-          </span>
+          ${lead.isCoarseBand ? `<span class="coarse-band-badge" title="${escapeHtml(lead.coarseTooltip || '')}">${escapeHtml(lead.coarseBadge || '[Coarse 12–24m]')}</span>` : ''}
+          ${lead.isDatingPriority ? `<span class="priority-dating-flag" title="${escapeHtml(lead.datingPriorityReason || '')}">🎯 Priority Dating</span>` : ''}
         </div>
-
-        <div class="card-signal-snippet">
-          <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Signal:</strong>
-          ${escapeHtml(lead.signal)}
-          ${lead.timing ? `<div style="margin-top: 4px; font-weight: 600; color: var(--accent-blue);">Strategy: ${escapeHtml(lead.timing)}</div>` : ''}
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span class="badge-clean" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: var(--accent-blue);" title="Contract Row ID">${escapeHtml(lead.rowId || lead.id)}</span>
+          <span class="badge-clean">${lead.flag} ${lead.country}</span>
+          <span class="badge-clean" style="font-size: 10px;">${lead.sector}</span>
         </div>
+      </div>
 
-        <!-- Suggested Opening Line (The core question: What do I say?) -->
-        <div class="opening-pitch-container">
-          <div class="opening-pitch-top">
-            <span class="opening-pitch-label">🎯 Suggested Opening Line</span>
-            <button class="btn-copy-script" data-pitch="${escapeHtml(lead.suggestedOpeningLine)}" title="Copy sales pitch to clipboard">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span>Copy Script</span>
-            </button>
-          </div>
-          <p class="opening-pitch-text">"${escapeHtml(lead.suggestedOpeningLine)}"</p>
+      <div class="card-company-header">
+        <h4 data-company="${escapeHtml(lead.company)}">${escapeHtml(lead.company)}</h4>
+        <div class="card-building-loc">
+          <span>📍 ${escapeHtml(lead.submarket || lead.city)}</span>
+          ${lead.building ? `<strong>· ${escapeHtml(lead.building)}</strong>` : ''}
+          ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" title="${lead.buildingTenantCount} moving tenants in this building!">🏢 Multi-Tenant Hub (${lead.buildingTenantCount} tenants)</span>` : ''}
         </div>
+      </div>
 
-        <!-- Action Bar -->
-        <div class="card-action-bar">
-          <div class="card-action-bar-left">
-            <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(lead.company)}">
-              🏢 360 View
-            </button>
-            <a href="${escapeHtml(lead.sourceUrl || '#')}" target="_blank" rel="noopener noreferrer" class="btn-card-action" title="Verify via ${escapeHtml(lead.source)}">
-              🔗 ${escapeHtml(lead.source ? (lead.source.length > 18 ? lead.source.substring(0, 16) + '...' : lead.source) : 'Source')} ↗
-            </a>
-          </div>
-          <div style="display: flex; align-items: center; gap: 4px;">
-            <select class="card-status-select" data-company="${escapeHtml(lead.company)}">
-              <option value="Active" ${lead.trackerStatus === 'Active' ? 'selected' : ''}>🟢 Active</option>
-              <option value="Watch" ${lead.trackerStatus === 'Watch' ? 'selected' : ''}>🟡 Watch</option>
-              <option value="Engaged" ${lead.trackerStatus === 'Engaged' ? 'selected' : ''}>🟣 Engaged</option>
-            </select>
-          </div>
+      <div class="card-meta-chips">
+        <span class="chip-tag tag-deal-type">${escapeHtml(lead.dealType)}</span>
+        <span class="chip-tag" style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">
+          ⏱️ Talk-by: ${escapeHtml(lead.talkByFormatted || '—')}
+        </span>
+        <span class="chip-tag ${lead.areaFormatted === 'Unsure' ? 'size-undisclosed' : isSizeDisclosed ? 'size-disclosed' : 'size-undisclosed'}" title="${isSizeDisclosed ? (lead.isSizeInferred ? 'Estimated from news signal prose; master Sheet cell is blank' : 'Verified in master Google Sheet column') : 'Size genuinely not stated in source news'}">
+          📐 ${lead.areaFormatted === 'Unsure' ? 'Unsure' : isSizeDisclosed ? (lead.isSizeInferred ? `~${lead.areaFormatted} [Signal]` : `${lead.areaFormatted} [Sheet]`) : 'Not disclosed'}
+        </span>
+        <span class="chip-tag" style="font-family: 'JetBrains Mono', monospace;">
+          💰 ${escapeHtml(lead.dealValue)}
+        </span>
+        <span class="chip-tag" style="font-size: 10.5px;">
+          🕒 ${escapeHtml(lead.dealDate || lead.dealQuarter || '—')}
+        </span>
+      </div>
+
+      <div class="card-signal-snippet">
+        <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Signal:</strong>
+        ${escapeHtml(lead.signal)}
+        ${lead.timing ? `<div style="margin-top: 4px; font-weight: 600; color: var(--accent-blue);">Strategy: ${escapeHtml(lead.timing)}</div>` : ''}
+      </div>
+
+      <!-- Suggested Opening Line -->
+      <div class="opening-pitch-container">
+        <div class="opening-pitch-top">
+          <span class="opening-pitch-label">🎯 Suggested Opening Line</span>
+          <button class="btn-copy-script" data-pitch="${escapeHtml(lead.suggestedOpeningLine)}" title="Copy sales pitch to clipboard">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy Script</span>
+          </button>
         </div>
-      `;
+        <p class="opening-pitch-text">"${escapeHtml(lead.suggestedOpeningLine)}"</p>
+      </div>
 
-      frag.appendChild(card);
+      <!-- Action Bar -->
+      <div class="card-action-bar">
+        <div class="card-action-bar-left">
+          <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(lead.company)}">
+            🏢 360 View
+          </button>
+          <a href="${escapeHtml(lead.sourceUrl || '#')}" target="_blank" rel="noopener noreferrer" class="btn-card-action" title="Verify via ${escapeHtml(lead.source)}">
+            🔗 ${escapeHtml(lead.source ? (lead.source.length > 18 ? lead.source.substring(0, 16) + '...' : lead.source) : 'Source')} ↗
+          </a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 4px;">
+          <select class="card-status-select" data-company="${escapeHtml(lead.company)}">
+            <option value="Active" ${lead.trackerStatus === 'Active' ? 'selected' : ''}>🟢 Active</option>
+            <option value="Watch" ${lead.trackerStatus === 'Watch' ? 'selected' : ''}>🟡 Watch</option>
+            <option value="Engaged" ${lead.trackerStatus === 'Engaged' ? 'selected' : ''}>🟣 Engaged</option>
+          </select>
+        </div>
+      </div>
+    `;
+
+    return card;
+  }
+
+  function createRadarTableRow(lead) {
+    const tr = document.createElement('tr');
+    const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
+    const b = lead.heatScoreBreakdown || { recencyPts: 0, sizePts: 0, typePts: 0, statusPts: 0 };
+    const laneClass = getLaneClass(lead.firstMoverLane);
+
+    tr.innerHTML = `
+      <td>
+        <span class="heat-score-badge ${lead.heatScore >= 75 ? 'heat-high' : ''}" style="font-size: 10.5px; padding: 2px 5px;" title="${escapeHtml(b.summary || '')}">
+          🔥 ${lead.heatScore}
+        </span>
+        <div style="font-size: 9.5px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-top: 2px;" title="${escapeHtml(b.summary || '')}">
+          R:${b.recencyPts} S:${b.sizePts} T:${b.typePts} St:${b.statusPts}
+        </div>
+      </td>
+      <td>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <strong style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-primary); font-weight: 700;">
+            ${escapeHtml(lead.talkByFormatted || '—')}
+          </strong>
+          ${lead.isDatingPriority ? `<span class="priority-dating-flag" title="${escapeHtml(lead.datingPriorityReason || '')}">🎯 Priority Dating</span>` : ''}
+        </div>
+      </td>
+      <td>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span class="first-mover-pill ${laneClass}">${escapeHtml(lead.firstMoverLane || 'Undated')}</span>
+          ${lead.isCoarseBand ? `<span class="coarse-band-badge" title="${escapeHtml(lead.coarseTooltip || '')}">${escapeHtml(lead.coarseBadge || '[Coarse 12–24m]')}</span>` : ''}
+        </div>
+      </td>
+      <td>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span class="badge-clean" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 700; color: var(--accent-blue);" title="Contract Row ID">${escapeHtml(lead.rowId || lead.id)}</span>
+          <strong class="company-link" data-company="${escapeHtml(lead.company)}" style="cursor: pointer; color: var(--text-primary);">
+            ${escapeHtml(lead.company)}
+          </strong>
+        </div>
+      </td>
+      <td>${lead.flag} ${lead.country}</td>
+      <td>
+        <span>${escapeHtml(lead.submarket || lead.city)}</span>
+        ${lead.building ? `<br><small style="color: var(--text-muted);">${escapeHtml(lead.building)}</small>` : ''}
+        ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" style="font-size: 9px; padding: 1px 3px;">🏢 Hub</span>` : ''}
+      </td>
+      <td><span class="chip-tag tag-deal-type" style="font-size: 10px;">${escapeHtml(lead.dealType)}</span></td>
+      <td>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; ${lead.areaFormatted === 'Unsure' ? 'color: var(--text-muted); font-weight: 600;' : isSizeDisclosed ? 'color: var(--accent-blue); font-weight: 700;' : 'color: var(--text-muted);'}">
+          ${lead.areaFormatted === 'Unsure' ? 'Unsure' : isSizeDisclosed ? (lead.isSizeInferred ? `~${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; opacity: 0.85; font-weight: normal;" title="Estimated from news signal prose; Sheet cell is blank">[Signal]</span>` : `${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; color: #10b981; font-weight: bold;" title="Verified in master Google Sheet column">[Sheet]</span>`) : 'Not disclosed'}
+        </span>
+      </td>
+      <td style="max-width: 280px; font-size: 11.5px; line-height: 1.35;">
+        ${escapeHtml(lead.timing || lead.signal)}
+      </td>
+      <td>
+        <select class="card-status-select" data-company="${escapeHtml(lead.company)}" style="font-size: 10.5px; padding: 2px;">
+          <option value="Active" ${lead.trackerStatus === 'Active' ? 'selected' : ''}>Active</option>
+          <option value="Watch" ${lead.trackerStatus === 'Watch' ? 'selected' : ''}>Watch</option>
+          <option value="Engaged" ${lead.trackerStatus === 'Engaged' ? 'selected' : ''}>Engaged</option>
+        </select>
+      </td>
+      <td>
+        <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(lead.company)}" style="padding: 2px 6px; font-size: 11px;">
+          360 ↗
+        </button>
+      </td>
+    `;
+    return tr;
+  }
+
+  function renderRadarCards() {
+    radarCardsGrid.innerHTML = '';
+    if (lateStageCardsGrid) lateStageCardsGrid.innerHTML = '';
+
+    const isAllWindow = (state.filters.window === 'ALL');
+    const activeLeads = isAllWindow ? state.filteredLeads.filter(l => !l.isLateStage) : state.filteredLeads;
+    const lateLeads = isAllWindow ? state.filteredLeads.filter(l => l.isLateStage) : [];
+
+    const fragActive = document.createDocumentFragment();
+    activeLeads.forEach(lead => {
+      fragActive.appendChild(createRadarCard(lead));
     });
+    radarCardsGrid.appendChild(fragActive);
 
-    radarCardsGrid.appendChild(frag);
+    if (lateStageContainer) {
+      if (isAllWindow && lateLeads.length > 0) {
+        lateStageContainer.style.display = 'block';
+        if (lateStageCountBadge) lateStageCountBadge.textContent = lateLeads.length.toLocaleString();
+        if (lateStageCardsGrid) {
+          const fragLate = document.createDocumentFragment();
+          lateLeads.forEach(lead => {
+            fragLate.appendChild(createRadarCard(lead));
+          });
+          lateStageCardsGrid.appendChild(fragLate);
+          attachCardListeners(lateStageCardsGrid);
+        }
+      } else {
+        lateStageContainer.style.display = 'none';
+      }
+    }
 
-    // Attach card event listeners
     attachCardListeners(radarCardsGrid);
   }
 
   function renderRadarTable() {
     radarTableBody.innerHTML = '';
-    const frag = document.createDocumentFragment();
+    if (lateStageTableBody) lateStageTableBody.innerHTML = '';
 
-    state.filteredLeads.forEach(lead => {
-      const tr = document.createElement('tr');
-      const isSizeDisclosed = lead.isSizeDisclosed && lead.areaSqFt;
-      const windowClass = getFitoutWindowClass(lead.fitoutWindow);
+    const isAllWindow = (state.filters.window === 'ALL');
+    const activeLeads = isAllWindow ? state.filteredLeads.filter(l => !l.isLateStage) : state.filteredLeads;
+    const lateLeads = isAllWindow ? state.filteredLeads.filter(l => l.isLateStage) : [];
 
-      const b = lead.heatScoreBreakdown || { recencyPts: 0, sizePts: 0, typePts: 0, statusPts: 0 };
-
-      tr.innerHTML = `
-        <td>
-          <span class="heat-score-badge ${lead.heatScore >= 75 ? 'heat-high' : ''}" style="font-size: 10.5px; padding: 2px 5px;" title="${escapeHtml(b.summary || '')}">
-            🔥 ${lead.heatScore}
-          </span>
-          <div style="font-size: 9.5px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-top: 2px;" title="${escapeHtml(b.summary || '')}">
-            R:${b.recencyPts} S:${b.sizePts} T:${b.typePts} St:${b.statusPts}
-          </div>
-        </td>
-        <td>
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <span class="badge-clean" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 700; color: var(--accent-blue);" title="Contract Row ID">${escapeHtml(lead.rowId || lead.id)}</span>
-            <strong class="company-link" data-company="${escapeHtml(lead.company)}" style="cursor: pointer; color: var(--text-primary);">
-              ${escapeHtml(lead.company)}
-            </strong>
-          </div>
-        </td>
-        <td>${lead.flag} ${lead.country}</td>
-        <td>
-          <span>${escapeHtml(lead.submarket || lead.city)}</span>
-          ${lead.building ? `<br><small style="color: var(--text-muted);">${escapeHtml(lead.building)}</small>` : ''}
-          ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" style="font-size: 9px; padding: 1px 3px;">🏢 Hub</span>` : ''}
-        </td>
-        <td><span class="chip-tag tag-deal-type" style="font-size: 10px;">${escapeHtml(lead.dealType)}</span></td>
-        <td>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; ${isSizeDisclosed ? 'color: var(--accent-blue); font-weight: 700;' : 'color: var(--text-muted);'}">
-            ${isSizeDisclosed ? (lead.isSizeInferred ? `~${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; opacity: 0.85; font-weight: normal;" title="Estimated from news signal prose; Sheet cell is blank">[Signal]</span>` : `${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; color: #10b981; font-weight: bold;" title="Verified in master Google Sheet column">[Sheet]</span>`) : 'Not disclosed'}
-          </span>
-        </td>
-        <td><span class="window-pill ${windowClass}" style="font-size: 10px;">${lead.fitoutWindow}</span></td>
-        <td style="max-width: 280px; font-size: 11.5px; line-height: 1.35;">
-          ${escapeHtml(lead.signal)}
-        </td>
-        <td>
-          <select class="card-status-select" data-company="${escapeHtml(lead.company)}" style="font-size: 10.5px; padding: 2px;">
-            <option value="Active" ${lead.trackerStatus === 'Active' ? 'selected' : ''}>Active</option>
-            <option value="Watch" ${lead.trackerStatus === 'Watch' ? 'selected' : ''}>Watch</option>
-            <option value="Engaged" ${lead.trackerStatus === 'Engaged' ? 'selected' : ''}>Engaged</option>
-          </select>
-        </td>
-        <td>
-          <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(lead.company)}" style="padding: 2px 6px; font-size: 11px;">
-            360 ↗
-          </button>
-        </td>
-      `;
-
-      frag.appendChild(tr);
+    const fragActive = document.createDocumentFragment();
+    activeLeads.forEach(lead => {
+      fragActive.appendChild(createRadarTableRow(lead));
     });
+    radarTableBody.appendChild(fragActive);
 
-    radarTableBody.appendChild(frag);
+    if (lateStageContainer) {
+      if (isAllWindow && lateLeads.length > 0) {
+        lateStageContainer.style.display = 'block';
+        if (lateStageCountBadge) lateStageCountBadge.textContent = lateLeads.length.toLocaleString();
+        if (lateStageTableBody) {
+          const fragLate = document.createDocumentFragment();
+          lateLeads.forEach(lead => {
+            fragLate.appendChild(createRadarTableRow(lead));
+          });
+          lateStageTableBody.appendChild(fragLate);
+          attachCardListeners(lateStageTableBody);
+        }
+      } else {
+        lateStageContainer.style.display = 'none';
+      }
+    }
+
     attachCardListeners(radarTableBody);
   }
 
@@ -933,6 +1041,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const comp = sel.getAttribute('data-company');
         const newStatus = sel.value;
         updateCompanyStatus(comp, newStatus);
+      });
+    });
+
+    // 4. Multi-deal row toggle
+    container.querySelectorAll('.btn-multi-deal-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const comp = btn.getAttribute('data-company');
+        const rowId = `multi-deal-row-${comp.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+        const row = document.getElementById(rowId);
+        if (row) {
+          const isHidden = (row.style.display === 'none' || !row.style.display);
+          row.style.display = isHidden ? 'table-row' : 'none';
+          const chev = btn.querySelector('.deal-toggle-chevron');
+          if (chev) chev.textContent = isHidden ? '▴' : '▾';
+        }
       });
     });
   }
@@ -1294,6 +1418,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableFrag = document.createDocumentFragment();
 
     relevant.slice(0, 150).forEach(t => {
+      const compKey = t.company.toLowerCase().trim();
+      const compCountry = (t.country || '').toLowerCase().trim();
+      const deals = state.leads.filter(l => 
+        l.company.toLowerCase().trim() === compKey &&
+        (!compCountry || l.country.toLowerCase().trim() === compCountry)
+      );
+
       const tr = document.createElement('tr');
       const bd = t.heatScoreBreakdown || { recency: 30, size: 0, dealType: 20, status: 15 };
       tr.innerHTML = `
@@ -1311,9 +1442,17 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </td>
         <td>
-          <strong class="company-link" data-company="${escapeHtml(t.company)}" style="cursor: pointer; color: var(--text-primary);">
-            ${escapeHtml(t.company)}
-          </strong>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <strong class="company-link" data-company="${escapeHtml(t.company)}" style="cursor: pointer; color: var(--text-primary); font-size: 13px;">
+              ${escapeHtml(t.company)}
+            </strong>
+            ${deals.length > 1 ? `
+              <button class="btn-multi-deal-toggle" data-company="${escapeHtml(t.company)}" type="button" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(59, 130, 246, 0.12); color: #2563eb; border: 1px solid rgba(59, 130, 246, 0.28); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; cursor: pointer; width: fit-content;" title="Company has ${deals.length} active commercial deals. Click to view both deals inline.">
+                <span>⚡ ${deals.length} Deals Active</span>
+                <span class="deal-toggle-chevron">▾</span>
+              </button>
+            ` : ''}
+          </div>
         </td>
         <td>${escapeHtml(t.country)}</td>
         <td>${escapeHtml(t.market)}</td>
@@ -1341,12 +1480,120 @@ document.addEventListener('DOMContentLoaded', () => {
         </td>
       `;
       tableFrag.appendChild(tr);
+
+      if (deals.length > 1) {
+        const trExpand = document.createElement('tr');
+        trExpand.className = 'multi-deal-expand-row';
+        trExpand.id = `multi-deal-row-${escapeHtml(t.company.toLowerCase().replace(/[^a-z0-9]/g, '-'))}`;
+        trExpand.style.display = 'none';
+        trExpand.innerHTML = `
+          <td colspan="10" style="padding: 12px 16px; background: var(--bg-hover);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+              Active Commercial Deals for ${escapeHtml(t.company)} (${deals.length} distinct transactions across APAC)
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 10px;">
+              ${deals.map((d, i) => `
+                <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 6px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; color: var(--accent-blue);">${escapeHtml(d.id || d.rowId)} · Deal ${i+1}</span>
+                      <span class="chip-tag tag-deal-type" style="font-size: 9.5px; padding: 1px 5px;">${escapeHtml(d.dealType)}</span>
+                    </div>
+                    <span class="first-mover-pill ${getLaneClass(d.firstMoverLane)}" style="font-size: 9.5px; padding: 1px 6px;">${escapeHtml(d.firstMoverLane || 'Undated')}</span>
+                  </div>
+                  <div style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">
+                    📍 ${escapeHtml(d.market || d.city)} — <strong>${escapeHtml(d.building || 'Building undisclosed')}</strong>
+                  </div>
+                  <div style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 6px;">
+                    <strong>Size:</strong> <span style="color: var(--accent-blue); font-weight: 700;">${d.areaFormatted === 'Unsure' ? 'Unsure' : (d.areaFormatted || 'Not disclosed')}</span> &nbsp;|&nbsp;
+                    <strong>Talk-by:</strong> <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">${escapeHtml(d.talkByFormatted || '—')}</span>
+                  </div>
+                  <div style="font-size: 11px; color: var(--text-muted); line-height: 1.35; margin-bottom: 8px;">
+                    ${escapeHtml(d.signal || '')}
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding-top: 6px; border-top: 1px dashed var(--border-light);">
+                    <a href="${escapeHtml(d.sourceUrl || '#')}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">Verify Source ↗</a>
+                    <button class="btn-copy-script" data-pitch="${escapeHtml(d.suggestedOpeningLine || '')}" style="background: none; border: 1px solid var(--border-light); border-radius: 4px; font-size: 10px; padding: 2px 6px; cursor: pointer;">📋 Copy Pitch</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </td>
+        `;
+        tableFrag.appendChild(trExpand);
+      }
     });
 
     trackerTableBody.appendChild(tableFrag);
 
     // Attach listeners
     attachCardListeners(trackerTableBody);
+  }
+
+  // =========================================================
+  // 8b. VIEW: 🎯 TARGET ACCOUNTS (WATCHLIST)
+  // =========================================================
+  function renderTargetAccountsView() {
+    const list = state.watchlist || [];
+    if (tabWatchlistCount) tabWatchlistCount.textContent = list.length.toLocaleString();
+    if (watchlistVisibleCount) watchlistVisibleCount.textContent = list.length.toLocaleString();
+
+    if (list.length === 0) {
+      if (watchlistContentContainer) watchlistContentContainer.style.display = 'none';
+      if (watchlistEmptyState) watchlistEmptyState.style.display = 'block';
+      return;
+    }
+
+    if (watchlistEmptyState) watchlistEmptyState.style.display = 'none';
+    if (watchlistContentContainer) watchlistContentContainer.style.display = 'block';
+
+    if (watchlistTableBody) {
+      watchlistTableBody.innerHTML = '';
+      const frag = document.createDocumentFragment();
+
+      list.forEach(w => {
+        const tr = document.createElement('tr');
+        const matchedLead = state.leads.find(l => 
+          (w.matchedRowId && l.id === w.matchedRowId) ||
+          (l.company.toLowerCase() === w.company.toLowerCase())
+        );
+
+        tr.innerHTML = `
+          <td>
+            <strong class="company-link" data-company="${escapeHtml(w.company)}" style="cursor: pointer; color: var(--text-primary); font-size: 13px;">
+              ${escapeHtml(w.company)}
+            </strong>
+          </td>
+          <td>${escapeHtml(w.country || 'APAC')}</td>
+          <td>${escapeHtml(w.market || '—')}</td>
+          <td>
+            ${matchedLead ? `
+              <span class="badge-clean" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: var(--accent-blue);">${matchedLead.id}</span>
+              <span style="font-size: 11px;">${escapeHtml(matchedLead.building || matchedLead.submarket || '')}</span>
+            ` : '<span style="color: var(--text-muted); font-size: 11px;">No live deal matched</span>'}
+          </td>
+          <td>
+            <strong style="font-family: 'JetBrains Mono', monospace; font-size: 11px;">
+              ${matchedLead ? (matchedLead.talkByFormatted || '—') : '—'}
+            </strong>
+          </td>
+          <td>
+            ${matchedLead ? `<span class="first-mover-pill ${getLaneClass(matchedLead.firstMoverLane)}">${escapeHtml(matchedLead.firstMoverLane)}</span>` : '<span class="first-mover-pill undated">Undated</span>'}
+          </td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted);">${escapeHtml(w.dateAdded || '—')}</td>
+          <td style="font-size: 11.5px; color: var(--text-secondary); max-width: 260px;">${escapeHtml(w.notes || '—')}</td>
+          <td>
+            <button class="btn-card-action btn-open-dossier" data-company="${escapeHtml(w.company)}" style="padding: 2px 6px; font-size: 11px;">
+              360 ↗
+            </button>
+          </td>
+        `;
+        frag.appendChild(tr);
+      });
+
+      watchlistTableBody.appendChild(frag);
+      attachCardListeners(watchlistTableBody);
+    }
   }
 
   // =========================================================
@@ -1720,12 +1967,12 @@ document.addEventListener('DOMContentLoaded', () => {
     state.activeView = viewName;
 
     // Update Nav buttons
-    [tabAnalyticsBtn, tabRadarDropdownBtn, tabTrackerBtn, tabHubsBtn, tabCoverageBtn].forEach(btn => {
+    [tabAnalyticsBtn, tabRadarDropdownBtn, tabTrackerBtn, tabTargetAccountsBtn, tabHubsBtn, tabCoverageBtn].forEach(btn => {
       if (btn) btn.classList.remove('active');
     });
 
     // Hide all view panels
-    [viewRadar, viewAnalytics, viewTracker, viewHubs, viewCoverage].forEach(view => {
+    [viewRadar, viewAnalytics, viewTracker, viewTargetAccounts, viewHubs, viewCoverage].forEach(view => {
       if (view) view.style.display = 'none';
     });
 
@@ -1741,6 +1988,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (tabTrackerBtn) tabTrackerBtn.classList.add('active');
       viewTracker.style.display = 'block';
       renderTrackerView();
+    } else if (viewName === 'targetAccounts') {
+      if (tabTargetAccountsBtn) tabTargetAccountsBtn.classList.add('active');
+      viewTargetAccounts.style.display = 'block';
+      renderTargetAccountsView();
     } else if (viewName === 'hubs') {
       if (tabHubsBtn) tabHubsBtn.classList.add('active');
       viewHubs.style.display = 'block';
@@ -1759,30 +2010,31 @@ document.addEventListener('DOMContentLoaded', () => {
         : state.leads.filter(l => l.country === state.activeCountry);
       counts = {
         countAll: relevantTotalLeads.length,
-        count060: relevantTotalLeads.filter(l => l.fitoutWindow === '0–60 Days' || l.fitoutWindow === 'Prime (0-60d)').length,
-        count1Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '0–1 Year' || l.fitoutWindow === '1 Year' || l.fitoutWindow === '1-Year: Scoping & Probing').length,
-        count2Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '1–2 Years' || l.fitoutWindow === '2 Years' || l.fitoutWindow === '2-Year: Relationship Building').length,
-        count3Yr: relevantTotalLeads.filter(l => l.fitoutWindow === '2+ Years' || l.fitoutWindow === '3 Years & Above').length,
-        countUnknown: relevantTotalLeads.filter(l => l.fitoutWindow === 'Timing unknown').length
+        countEngage: relevantTotalLeads.filter(l => l.firstMoverLane === 'Engage now (12–18m)').length,
+        countCompete: relevantTotalLeads.filter(l => l.firstMoverLane === 'Compete now (6–12m)').length,
+        countFight: relevantTotalLeads.filter(l => l.firstMoverLane === 'Fight harder (0–6m)').length,
+        countFitout: relevantTotalLeads.filter(l => l.firstMoverLane === 'Fit-out in progress (<0m)').length,
+        countNurture: relevantTotalLeads.filter(l => l.firstMoverLane === 'Nurture (18–24m)').length,
+        countFar: relevantTotalLeads.filter(l => l.firstMoverLane === 'Far watch (>24m)').length,
+        countUndated: relevantTotalLeads.filter(l => l.firstMoverLane === 'Undated').length
       };
     }
 
     const horizonConfig = {
       'ALL': { icon: '🔥', label: 'Sales Radar', count: counts.countAll, heading: 'Who to Call This Week' },
-      '0–60 Days': { icon: '⚡', label: '0–60 Days', count: counts.count060, heading: '⚡ 0–60 Days Prime Fit-Out Execution Window' },
-      '0–1 Year': { icon: '🎯', label: '0–1 Year', count: counts.count1Yr, heading: '🎯 0–1 Year Scoping & Probing Pipeline' },
-      '1–2 Years': { icon: '🤝', label: '1–2 Years', count: counts.count2Yr, heading: '🤝 1–2 Years Relationship Building Pipeline' },
-      '2+ Years': { icon: '🔮', label: '2+ Years', count: counts.count3Yr, heading: '🔮 2+ Years Strategic & Pre-commitment Pipeline' },
-      '1 Year': { icon: '🎯', label: '0–1 Year', count: counts.count1Yr, heading: '🎯 0–1 Year Scoping & Probing Pipeline' },
-      '2 Years': { icon: '🤝', label: '1–2 Years', count: counts.count2Yr, heading: '🤝 1–2 Years Relationship Building Pipeline' },
-      '3 Years & Above': { icon: '🔮', label: '2+ Years', count: counts.count3Yr, heading: '🔮 2+ Years Strategic & Pre-commitment Pipeline' },
-      'Timing unknown': { icon: '⏱️', label: 'Timing unknown', count: counts.countUnknown, heading: '⏱️ Pipeline With Timing Unknown' }
+      'Engage now (12–18m)': { icon: '⭐', label: 'Engage now', count: counts.countEngage, heading: '⭐ Engage Now (12–18m) — Shape Design Briefs Early' },
+      'Compete now (6–12m)': { icon: '🎯', label: 'Compete now', count: counts.countCompete, heading: '🎯 Compete Now (6–12m) — RFP Active or Imminent' },
+      'Fight harder (0–6m)': { icon: '⚡', label: 'Fight harder', count: counts.countFight, heading: '⚡ Fight Harder (0–6m) — Late-Stage Rescue' },
+      'Fit-out in progress (<0m)': { icon: '🔨', label: 'In fit-out', count: counts.countFitout, heading: '🔨 Fit-out in Progress (<0m) — Day-2 & Add-ons' },
+      'Nurture (18–24m)': { icon: '🌱', label: 'Nurture', count: counts.countNurture, heading: '🌱 Nurture (18–24m) — Relationship Building' },
+      'Far watch (>24m)': { icon: '🔮', label: 'Far watch', count: counts.countFar, heading: '🔮 Far Watch (>24m) — Long-Range Campus Horizons' },
+      'Undated': { icon: '⏳', label: 'Undated', count: counts.countUndated, heading: '⏳ Undated Pipeline — Priority Dating for ≥50k sq ft & Watchlist' }
     };
 
     const cfg = horizonConfig[horizon] || horizonConfig['ALL'];
     if (radarDropdownIcon) radarDropdownIcon.textContent = cfg.icon;
     if (radarDropdownLabel) radarDropdownLabel.textContent = cfg.label;
-    if (radarDropdownBadge) radarDropdownBadge.textContent = cfg.count.toLocaleString();
+    if (radarDropdownBadge) radarDropdownBadge.textContent = (cfg.count !== undefined ? cfg.count : 0).toLocaleString();
     if (radarViewHeading) radarViewHeading.textContent = cfg.heading;
 
     // Highlight active item in dropdown menu
@@ -1849,8 +2101,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (tabTrackerBtn) tabTrackerBtn.addEventListener('click', () => switchView('tracker'));
+  if (tabTargetAccountsBtn) tabTargetAccountsBtn.addEventListener('click', () => switchView('targetAccounts'));
   if (tabHubsBtn) tabHubsBtn.addEventListener('click', () => switchView('hubs'));
   if (tabCoverageBtn) tabCoverageBtn.addEventListener('click', () => switchView('coverage'));
+
+  // Late Stage Collapsible Section Toggle
+  if (toggleLateStageBtn && lateStageContent) {
+    toggleLateStageBtn.addEventListener('click', () => {
+      state.lateStageCollapsed = !state.lateStageCollapsed;
+      lateStageContent.style.display = state.lateStageCollapsed ? 'none' : 'block';
+      toggleLateStageBtn.setAttribute('aria-expanded', String(!state.lateStageCollapsed));
+      toggleLateStageBtn.classList.toggle('expanded', !state.lateStageCollapsed);
+    });
+  }
 
   // Country Market Select
   countrySelect.addEventListener('change', (e) => {
@@ -2030,7 +2293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (syncStatusText) syncStatusText.textContent = 'Syncing...';
 
     const countryTabs = ['India', 'Sri Lanka', 'Malaysia', 'Japan', 'Korea', 'China'];
-    const allTabs = [...countryTabs, 'Company Tracker', 'Snapshots', 'Sources'];
+    const allTabs = [...countryTabs, 'Company Tracker', 'Snapshots', 'Sources', 'Watchlist'];
 
     const initialMap = new Map();
     if (typeof window !== 'undefined' && Array.isArray(window.INITIAL_LEADS_DATA)) {
@@ -2243,33 +2506,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
       newLeads.sort((a, b) => b.heatScore - a.heatScore);
 
-      // Map primary deal's heat score to tracker record (highest heat score wins)
-      const leadByCompCountry = new Map();
+      // Map deals to tracker record (fold multiple deals into one company row per country)
+      const dealsByCompCountry = new Map();
       newLeads.forEach(l => {
         const key = `${l.company.toLowerCase().trim()}:::${l.country.toLowerCase().trim()}`;
-        if (!leadByCompCountry.has(key) || l.heatScore > leadByCompCountry.get(key).heatScore) {
-          leadByCompCountry.set(key, l);
+        if (!dealsByCompCountry.has(key)) {
+          dealsByCompCountry.set(key, []);
         }
+        dealsByCompCountry.get(key).push(l);
       });
 
       newTracker.forEach(rec => {
-        let matchLead = leadByCompCountry.get(`${rec.company.toLowerCase().trim()}:::${rec.country.toLowerCase().trim()}`);
-        if (!matchLead) {
-          for (let [k, l] of leadByCompCountry.entries()) {
+        const key = `${rec.company.toLowerCase().trim()}:::${rec.country.toLowerCase().trim()}`;
+        let matchedDeals = dealsByCompCountry.get(key);
+        if (!matchedDeals) {
+          for (let [k, list] of dealsByCompCountry.entries()) {
             if (k.startsWith(rec.company.toLowerCase().trim() + ':::')) {
-              matchLead = l;
+              matchedDeals = list;
               break;
             }
           }
         }
-        if (matchLead) {
-          rec.heatScore = matchLead.heatScore;
-          rec.heatScoreBreakdown = matchLead.heatScoreBreakdown;
+        if (matchedDeals && matchedDeals.length > 0) {
+          rec.dealsCount = matchedDeals.length;
+          rec.dealIds = matchedDeals.map(d => d.id || d.rowId);
+          matchedDeals.sort((a, b) => b.heatScore - a.heatScore);
+          rec.heatScore = matchedDeals[0].heatScore;
+          rec.heatScoreBreakdown = matchedDeals[0].heatScoreBreakdown;
+        } else {
+          rec.dealsCount = 0;
+          rec.dealIds = [];
         }
       });
 
-
-      // 3. Process Snapshots & Sources
+      // 3. Process Snapshots, Sources & Watchlist
       const newSnapshots = (tabMap['Snapshots'] || []).slice(1).map((r, i) => ({
         id: i + 1,
         week: r[0] || '',
@@ -2290,6 +2560,15 @@ document.addEventListener('DOMContentLoaded', () => {
         trust: r[5] || 'High'
       })).filter(s => s.source);
 
+      const newWatchlist = (tabMap['Watchlist'] || []).slice(1).map((r, i) => ({
+        company: r[0] ? r[0].trim() : '',
+        country: r[1] ? r[1].trim() : '',
+        market: r[2] ? r[2].trim() : '',
+        matchedRowId: r[3] ? r[3].trim() : '',
+        dateAdded: r[4] ? r[4].trim() : '',
+        notes: r[5] ? r[5].trim() : ''
+      })).filter(w => w.company);
+
       // Commit to State
       if (newLeads.length > 0) {
         state.leads = newLeads;
@@ -2302,6 +2581,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (newSources.length > 0) {
         state.sources = newSources;
+      }
+      if (newWatchlist.length > 0) {
+        state.watchlist = newWatchlist;
+        if (tabWatchlistCount) tabWatchlistCount.textContent = newWatchlist.length.toLocaleString();
       }
 
       // Recompute Disclosed Pipeline Footprint
@@ -2457,18 +2740,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const dealBacked = (state.tracker || []).filter(t => t.isDealBacked !== false && t.company !== 'Kuala Lumpur Kepong (KLK)');
 
     window.__LEADIQ_VERIFY__ = {
-      version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.29',
-      headerTotal: state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 545,
-      totalDeals: state.leads ? state.leads.length : 537,
-      pipelineTotalFormatted: state.metrics ? state.metrics.totalDisclosedSqFtFormatted : '30.0M sq ft',
-      sheetExplicitSqFtFormatted: state.metrics && state.metrics.sheetExplicitSqFtFormatted ? state.metrics.sheetExplicitSqFtFormatted : '1.27M sq ft',
-      signalDerivedSqFtFormatted: state.metrics && state.metrics.signalDerivedSqFtFormatted ? state.metrics.signalDerivedSqFtFormatted : '28.7M sq ft',
-      pipelineDualSourceSub: state.metrics && state.metrics.pipelineDualSourceSub ? state.metrics.pipelineDualSourceSub : '1.27M Sheet · 28.7M Signal estimates',
+      version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.30',
+      headerTotal: state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 571,
+      totalDeals: state.leads ? state.leads.length : 563,
+      pipelineTotalFormatted: state.metrics ? state.metrics.totalDisclosedSqFtFormatted : '32.5M sq ft',
+      sheetExplicitSqFtFormatted: state.metrics && state.metrics.sheetExplicitSqFtFormatted ? state.metrics.sheetExplicitSqFtFormatted : '4.38M sq ft',
+      signalDerivedSqFtFormatted: state.metrics && state.metrics.signalDerivedSqFtFormatted ? state.metrics.signalDerivedSqFtFormatted : '28.1M sq ft',
+      pipelineDualSourceSub: state.metrics && state.metrics.pipelineDualSourceSub ? state.metrics.pipelineDualSourceSub : '4.38M Sheet · 28.1M Signal estimates',
       submarketValues: Array.from(new Set((state.leads || []).map(l => l.submarket || l.city))).filter(Boolean).length,
       queueCount: dealBacked.length,
       bannerMapped: dealBacked.length,
-      multiTenantHubsCount: state.metrics && state.metrics.multiTenantHubsCount ? state.metrics.multiTenantHubsCount : 14,
-      coverageBuildingPct: state.metrics && state.metrics.buildingDisclosureRate ? state.metrics.buildingDisclosureRate : 28.7,
+      multiTenantHubsCount: state.metrics && state.metrics.multiTenantHubsCount ? state.metrics.multiTenantHubsCount : 15,
+      coverageBuildingPct: state.metrics && state.metrics.buildingDisclosureRate ? state.metrics.buildingDisclosureRate : 32.7,
+      engageNowCount: (state.leads || []).filter(l => l.firstMoverLane === 'Engage now (12–18m)').length,
+      competeNowCount: (state.leads || []).filter(l => l.firstMoverLane === 'Compete now (6–12m)').length,
+      fightHarderCount: (state.leads || []).filter(l => l.firstMoverLane === 'Fight harder (0–6m)').length,
+      fitoutInProgressCount: (state.leads || []).filter(l => l.firstMoverLane === 'Fit-out in progress (<0m)').length,
+      nurtureCount: (state.leads || []).filter(l => l.firstMoverLane === 'Nurture (18–24m)').length,
+      farWatchCount: (state.leads || []).filter(l => l.firstMoverLane === 'Far watch (>24m)').length,
+      undatedCount: (state.leads || []).filter(l => l.firstMoverLane === 'Undated').length,
+      lateStageCount: (state.leads || []).filter(l => l.isLateStage).length,
+      coarseBandCount: (state.leads || []).filter(l => l.isCoarseBand).length,
+      datingPriorityCount: (state.leads || []).filter(l => l.isDatingPriority).length,
+      multiDealAccounts: (state.tracker || []).filter(t => (t.dealsCount || 1) >= 2).map(t => ({ company: t.company, country: t.country, dealsCount: t.dealsCount, dealIds: t.dealIds })),
+      appleIndiaDealsCount: ((state.tracker || []).find(t => t.company === 'Apple India') || {}).dealsCount || 0,
+      smartworksDealsCount: ((state.tracker || []).find(t => t.company === 'Smartworks') || {}).dealsCount || 0,
       radarHeat: radarHeat,
       dossierSubheaders: sampleSubheaders,
       isVerifyMode: isVerify

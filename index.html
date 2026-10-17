@@ -32,7 +32,7 @@
             </svg>
           </div>
           <div class="brand-info">
-            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.29</span></h1>
+            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.30</span></h1>
             <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
           </div>
         </div>
@@ -43,10 +43,10 @@
         <div class="header-market-dropdown" title="Select APAC Market Filter">
           <span class="market-dropdown-flag" id="headerMarketFlag">🌐</span>
           <select id="countrySelect" class="market-dropdown-select" aria-label="Select APAC Market">
-            <option value="ALL" selected>🌐 All Markets (545 rows · 537 deals)</option>
-            <option value="China">🇨🇳 China (56 rows)</option>
-            <option value="India">🇮🇳 India (134 rows)</option>
-            <option value="Japan">🇯🇵 Japan (91 rows)</option>
+            <option value="ALL" selected>🌐 All Markets (571 rows · 563 deals)</option>
+            <option value="China">🇨🇳 China (62 rows)</option>
+            <option value="India">🇮🇳 India (149 rows)</option>
+            <option value="Japan">🇯🇵 Japan (96 rows)</option>
             <option value="Korea">🇰🇷 South Korea (153 rows)</option>
             <option value="Malaysia">🇲🇾 Malaysia (80 rows)</option>
             <option value="Sri Lanka">🇱🇰 Sri Lanka (31 rows)</option>
@@ -62,16 +62,16 @@
           <span>Analytics</span>
         </button>
 
-        <!-- Sales Radar Horizon Dropdown (0–60d, 0-1 Yr, 1-2 Yr, 2+ Yrs, Timing unknown) -->
+        <!-- Sales Radar First-Mover Lane Dropdown -->
         <div class="nav-radar-dropdown" id="navRadarDropdownWrap">
-          <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by Lease & Fit-Out Horizon">
+          <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by First-Mover Engagement Lane">
             <span class="tab-icon" id="radarDropdownIcon">🔥</span>
             <span id="radarDropdownLabel">Sales Radar</span>
-            <span class="tab-badge" id="radarDropdownBadge">537</span>
+            <span class="tab-badge" id="radarDropdownBadge">563</span>
             <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="navRadarDropdownMenu">
-            <div class="nav-dropdown-header">Sales Radar Horizons</div>
+            <div class="nav-dropdown-header">First-Mover Engagement Lanes</div>
             <button type="button" class="nav-dropdown-item active" data-horizon="ALL">
               <div class="item-left">
                 <span class="item-icon">🔥</span>
@@ -80,57 +80,77 @@
                   <span class="item-desc">All prioritized opportunities</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCountAll">537</span>
+              <span class="item-badge" id="dropCountAll">563</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="0–60 Days">
+            <button type="button" class="nav-dropdown-item" data-horizon="Engage now (12–18m)">
               <div class="item-left">
-                <span class="item-icon">⚡</span>
+                <span class="item-icon">⭐</span>
                 <div class="item-text">
-                  <span class="item-title">0–60 Days</span>
-                  <span class="item-desc">Prime fit-out execution window</span>
+                  <span class="item-title">Engage now (12–18m)</span>
+                  <span class="item-desc">Hero lane: shape design briefs early</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCount060">201</span>
+              <span class="item-badge" id="dropCountEngage">2</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="0–1 Year">
+            <button type="button" class="nav-dropdown-item" data-horizon="Compete now (6–12m)">
               <div class="item-left">
                 <span class="item-icon">🎯</span>
                 <div class="item-text">
-                  <span class="item-title">0–1 Year</span>
-                  <span class="item-desc">Start scoping & probe space needs</span>
+                  <span class="item-title">Compete now (6–12m)</span>
+                  <span class="item-desc">RFP active or expected imminently</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCount1Yr">10</span>
+              <span class="item-badge" id="dropCountCompete">10</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="1–2 Years">
+            <button type="button" class="nav-dropdown-item" data-horizon="Fight harder (0–6m)">
               <div class="item-left">
-                <span class="item-icon">🤝</span>
+                <span class="item-icon">⚡</span>
                 <div class="item-text">
-                  <span class="item-title">1–2 Years</span>
-                  <span class="item-desc">Start building relationship</span>
+                  <span class="item-title">Fight harder (0–6m)</span>
+                  <span class="item-desc">Late-stage rescue / urgent displacement</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCount2Yr">2</span>
+              <span class="item-badge" id="dropCountFight">153</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="2+ Years">
+            <button type="button" class="nav-dropdown-item" data-horizon="Fit-out in progress (<0m)">
+              <div class="item-left">
+                <span class="item-icon">🔨</span>
+                <div class="item-text">
+                  <span class="item-title">Fit-out in progress (&lt;0m)</span>
+                  <span class="item-desc">Day-2 add-ons & expansion watch</span>
+                </div>
+              </div>
+              <span class="item-badge" id="dropCountFitout">53</span>
+            </button>
+            <button type="button" class="nav-dropdown-item" data-horizon="Nurture (18–24m)">
+              <div class="item-left">
+                <span class="item-icon">🌱</span>
+                <div class="item-text">
+                  <span class="item-title">Nurture (18–24m)</span>
+                  <span class="item-desc">Relationship building & pre-planning</span>
+                </div>
+              </div>
+              <span class="item-badge" id="dropCountNurture">0</span>
+            </button>
+            <button type="button" class="nav-dropdown-item" data-horizon="Far watch (>24m)">
               <div class="item-left">
                 <span class="item-icon">🔮</span>
                 <div class="item-text">
-                  <span class="item-title">2+ Years</span>
-                  <span class="item-desc">Strategic long-range campus pipeline</span>
+                  <span class="item-title">Far watch (&gt;24m)</span>
+                  <span class="item-desc">Long-range campus horizons</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCount3Yr">3</span>
+              <span class="item-badge" id="dropCountFar">3</span>
             </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Timing unknown">
+            <button type="button" class="nav-dropdown-item" data-horizon="Undated">
               <div class="item-left">
                 <span class="item-icon">⏳</span>
                 <div class="item-text">
-                  <span class="item-title">Timing Unknown</span>
-                  <span class="item-desc">Pipeline with undisclosed delivery</span>
+                  <span class="item-title">Undated (No date yet)</span>
+                  <span class="item-desc">Priority dating for ≥50k sq ft & watchlist</span>
                 </div>
               </div>
-              <span class="item-badge" id="dropCountUnknown">320</span>
+              <span class="item-badge" id="dropCountUndated">342</span>
             </button>
           </div>
         </div>
@@ -138,14 +158,19 @@
         <button id="tabTrackerBtn" class="segment-btn" title="Active sales working queue">
           <span class="tab-icon">📋</span>
           <span>Queue</span>
-          <span class="tab-badge" id="tabTrackerCount" data-testid="queue-count">533</span>
+          <span class="tab-badge" id="tabTrackerCount" data-testid="queue-count">557</span>
+        </button>
+        <button id="tabTargetAccountsBtn" class="segment-btn" title="Target enterprise accounts from Watchlist">
+          <span class="tab-icon">🎯</span>
+          <span>Target Accounts</span>
+          <span class="tab-badge" id="tabWatchlistCount" data-testid="watchlist-count">0</span>
         </button>
         <button id="tabHubsBtn" class="segment-btn" title="Buildings with 2+ tenant signals">
           <span class="tab-icon">🏢</span>
           <span>Hubs</span>
-          <span class="tab-badge hub-alert" id="tabHubsCount" data-testid="hubs-count-badge">14</span>
+          <span class="tab-badge hub-alert" id="tabHubsCount" data-testid="hubs-count-badge">15</span>
         </button>
-        <button id="tabCoverageBtn" class="segment-btn" title="Known boundaries, data completeness & 92 sources">
+        <button id="tabCoverageBtn" class="segment-btn" title="Known boundaries, data completeness & 118 sources">
           <span class="tab-icon">ℹ️</span>
           <span>Coverage</span>
         </button>
@@ -191,8 +216,8 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiUniqueCompanies">533</div>
-        <div class="scorecard-sub-info" id="kpiCompaniesSub">533 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
+        <div class="scorecard-big-num" id="kpiUniqueCompanies">557</div>
+        <div class="scorecard-sub-info" id="kpiCompaniesSub">557 monitored corporate accounts (8 non-deal macro/accounting signals excluded)</div>
       </div>
 
       <!-- Card 2: Disclosed Pipeline Footprint -->
@@ -203,25 +228,25 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiTotalSqFt">30.0M sq ft</div>
-        <div class="scorecard-sub-info text-disclaimer" id="kpiTotalSqFtSub" title="1.27M verified in Sheet · 28.7M signal-derived">
-          1.27M Sheet · 28.7M Signal estimates
+        <div class="scorecard-big-num" id="kpiTotalSqFt">32.5M sq ft</div>
+        <div class="scorecard-sub-info text-disclaimer" id="kpiTotalSqFtSub" title="4.38M verified in Sheet · 28.1M signal-derived">
+          4.38M Sheet · 28.1M Signal estimates
         </div>
       </div>
 
-      <!-- Card 3: High Priority Radar -->
+      <!-- Card 3: First-Mover Hero Radar -->
       <div class="scorecard-box">
         <div class="scorecard-top-line">
-          <span class="scorecard-label-text">PRIME FIT-OUT RADAR</span>
-          <div class="scorecard-sq-icon" title="Deals in 0–60 day prime fit-out execution window">
+          <span class="scorecard-label-text">FIRST-MOVER HERO LANE</span>
+          <div class="scorecard-sq-icon" title="Deals in 12–18 month early engagement window">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiHighPriority" style="color: var(--accent-blue);">201</div>
+        <div class="scorecard-big-num" id="kpiHighPriority" style="color: var(--accent-blue);">2</div>
         <div class="scorecard-progress-track">
-          <div class="scorecard-progress-bar" id="kpiHighPriorityBar" style="width: 37.5%;"></div>
+          <div class="scorecard-progress-bar" id="kpiHighPriorityBar" style="width: 100%;"></div>
         </div>
-        <div class="scorecard-sub-info" id="kpiHighPrioritySub">201 deals in prime window (0–60d)</div>
+        <div class="scorecard-sub-info" id="kpiHighPrioritySub">2 deals in hero lane (12–18m)</div>
       </div>
 
       <!-- Card 4: Multi-Tenant Building Hubs -->
@@ -232,7 +257,7 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14"></path></svg>
           </div>
         </div>
-        <div class="scorecard-big-num" id="kpiMultiTenantHubs">14</div>
+        <div class="scorecard-big-num" id="kpiMultiTenantHubs">15</div>
         <div class="scorecard-sub-info">High-yield multi-tenant visits</div>
       </div>
 
@@ -286,14 +311,16 @@
         </div>
 
         <div class="select-filter-group">
-          <label>FIT-OUT WINDOW</label>
+          <label>FIRST-MOVER LANE</label>
           <select id="filterWindow">
-            <option value="ALL">All Windows</option>
-            <option value="0–60 Days">⚡ 0–60 Days (Prime Fit-Out)</option>
-            <option value="0–1 Year">🎯 0–1 Year (Scoping & Probing)</option>
-            <option value="1–2 Years">🤝 1–2 Years (Relationship Building)</option>
-            <option value="2+ Years">🔮 2+ Years (Strategic Pipeline)</option>
-            <option value="Timing unknown">⏳ Timing unknown</option>
+            <option value="ALL">All Engagement Lanes</option>
+            <option value="Engage now (12–18m)">⭐ Engage now (12–18m) [Hero]</option>
+            <option value="Compete now (6–12m)">🎯 Compete now (6–12m)</option>
+            <option value="Fight harder (0–6m)">⚡ Fight harder (0–6m)</option>
+            <option value="Fit-out in progress (<0m)">🔨 Fit-out in progress (&lt;0m)</option>
+            <option value="Nurture (18–24m)">🌱 Nurture (18–24m)</option>
+            <option value="Far watch (>24m)">🔮 Far watch (&gt;24m)</option>
+            <option value="Undated">⏳ Undated (No date yet)</option>
           </select>
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
@@ -351,7 +378,8 @@
           <div class="sort-selector-group">
             <label>SORT BY:</label>
             <select id="radarSortSelect">
-              <option value="heat" selected>🔥 Heat Score (Highest)</option>
+              <option value="talkBy" selected>⏱️ Talk-by Date (Earliest / Urgent)</option>
+              <option value="heat">🔥 Heat Score (Highest)</option>
               <option value="recency">📅 Recency (Newest Signal)</option>
               <option value="size">📐 Size (Largest Footprint)</option>
               <option value="company">🏢 Company Name (A-Z)</option>
@@ -378,12 +406,13 @@
             <thead>
               <tr>
                 <th>Heat</th>
+                <th>Talk-by Date</th>
+                <th>First-Mover Lane</th>
                 <th>Company</th>
                 <th>Country</th>
                 <th>Building / Submarket</th>
                 <th>Deal Type</th>
                 <th>Disclosed Size</th>
-                <th>Fit-Out Window</th>
                 <th>Timing & Implication</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -393,6 +422,47 @@
               <!-- Rendered dynamically by app.js -->
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <!-- Late Stage Collapsible Section (Fight harder & Fit-out in progress) -->
+      <div id="lateStageContainer" class="late-stage-section">
+        <button id="toggleLateStageBtn" class="late-stage-toggle-btn" type="button" aria-expanded="false">
+          <div class="late-stage-btn-left">
+            <span class="late-stage-bolt">⚡</span>
+            <span class="late-stage-title">Late Stage Deals (<span id="lateStageCountBadge">206</span> deals in fit-out or final 6 months)</span>
+            <span class="late-stage-pill">Fight harder / In fit-out</span>
+          </div>
+          <div class="late-stage-btn-right">
+            <span class="late-stage-hint">Click to expand / collapse</span>
+            <svg class="late-stage-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div id="lateStageContent" class="late-stage-content" style="display: none;">
+          <div id="lateStageTableWrapper" class="table-wrapper-card" style="margin-top: 8px;">
+            <div class="table-scroll-surface">
+              <table class="data-grid-table">
+                <thead>
+                  <tr>
+                    <th>Heat</th>
+                    <th>Talk-by Date</th>
+                    <th>Lane</th>
+                    <th>Company</th>
+                    <th>Country</th>
+                    <th>Building / Submarket</th>
+                    <th>Deal Type</th>
+                    <th>Disclosed Size</th>
+                    <th>Timing & Implication</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="lateStageTableBody">
+                  <!-- Rendered dynamically by app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -492,7 +562,7 @@
       <div id="trackerGapBanner" class="tracker-gap-banner clean" style="margin-bottom: 16px; padding: 10px 14px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; font-size: 12.5px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="color: #10b981; font-weight: bold; font-size: 14px;">✓</span>
-          <span style="color: var(--text-primary);" id="trackerCleanJoinMsg" data-testid="banner-mapped"><strong>Tracker gap: 0 items</strong> — Clean join: 533 deal-backed accounts cleanly mapped (0 unmapped deals).</span>
+          <span style="color: var(--text-primary);" id="trackerCleanJoinMsg" data-testid="banner-mapped"><strong>Tracker gap: 0 items</strong> — Clean join: 557 deal-backed accounts cleanly mapped (0 unmapped deals).</span>
         </div>
         <span class="badge-clean active" style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">0 Items</span>
       </div>
@@ -501,7 +571,7 @@
       <div class="tracker-status-ribbon">
         <div class="status-summary-card">
           <span class="ribbon-label">TOTAL MONITORED</span>
-          <strong id="kpiTrackerTotal">533</strong>
+          <strong id="kpiTrackerTotal">557</strong>
           <span class="ribbon-sub">Deal-backed accounts (account-level)</span>
         </div>
         <div class="status-summary-card active-border">
@@ -511,7 +581,7 @@
         </div>
         <div class="status-summary-card">
           <span class="ribbon-label">WATCHLIST</span>
-          <strong id="kpiTrackerWatch">408</strong>
+          <strong id="kpiTrackerWatch">432</strong>
           <span class="ribbon-sub">Pipeline & expansions (account-level)</span>
         </div>
         <div class="status-summary-card">
@@ -546,6 +616,8 @@
             <thead>
               <tr>
                 <th>Heat Score</th>
+                <th>Talk-by Date</th>
+                <th>Lane</th>
                 <th>Company</th>
                 <th>Country</th>
                 <th>Market</th>
@@ -563,6 +635,60 @@
           </table>
         </div>
       </section>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- VIEW 3b: 🎯 TARGET ACCOUNTS (WATCHLIST)        -->
+    <!-- ============================================== -->
+    <main id="viewTargetAccounts" class="view-panel" style="display: none;">
+      <div class="results-sub-header">
+        <div class="results-left-meta">
+          <h3>
+            <span>🎯 Target Accounts Surveillance</span>
+            <span class="sub-lead-question">"Enterprise Watchlist Accounts & Strategic Influencing Radar"</span>
+          </h3>
+          <div class="results-counts-tag">
+            Tracking <strong id="watchlistVisibleCount">0</strong> strategic enterprise target accounts
+            <span class="badge-clean">Google Sheet: Watchlist tab</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content or Clean Empty State -->
+      <div id="watchlistContentContainer" class="table-wrapper-card" style="display: none;">
+        <div class="table-scroll-surface">
+          <table class="data-grid-table">
+            <thead>
+              <tr>
+                <th>Target Account</th>
+                <th>Country</th>
+                <th>Target Market</th>
+                <th>Matched Deal</th>
+                <th>Talk-by Date</th>
+                <th>First-Mover Lane</th>
+                <th>Date Added</th>
+                <th>Strategy Notes</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="watchlistTableBody">
+              <!-- Rendered by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Clean Empty State -->
+      <div id="watchlistEmptyState" class="empty-state-panel" style="display: block; padding: 48px 24px; text-align: center; background: var(--bg-card); border: var(--border-outline-thin); border-radius: 8px;">
+        <div style="font-size: 36px; margin-bottom: 12px;">🎯</div>
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Target Accounts Watchlist (0 accounts)</h3>
+        <p style="max-width: 560px; margin: 0 auto 16px; font-size: 13px; line-height: 1.5; color: var(--text-secondary);">
+          Standing by for target account uploads. Once Angela populates the <code>Watchlist</code> tab in the master Google Sheet, target enterprise accounts will automatically cross-reference with live APAC commercial deals and appear here with Talk-by deadlines.
+        </p>
+        <div style="display: inline-flex; gap: 8px; align-items: center; padding: 6px 12px; background: var(--bg-hover); border-radius: 6px; font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">
+          <span>Sheet Tab: Watchlist</span> · <span>Columns: Company, Country, Market, Matched Row ID, Date added, Notes</span>
+        </div>
+      </div>
     </main>
 
     <!-- ============================================== -->

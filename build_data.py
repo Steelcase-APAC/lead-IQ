@@ -436,6 +436,13 @@ def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False, ro
     if row_id in ('IN-003', 'CN-013') or (comp.lower() == 'jp morgan' and country == 'India') or (comp.lower() == 'bytedance' and country == 'China'):
         return None, "Not disclosed", "Undisclosed", False, False
 
+    # Unsure Rule (v2.30): If explicit size says Unsure or Signal text flags size as unsure, render "Unsure" verbatim
+    if explicit_size and explicit_size.strip().lower() == 'unsure':
+        return None, "Unsure", "Unsure", False, False
+
+    if re.search(r'size(?:\s+and\s+date)?\s+unsure', signal_str, re.I):
+        return None, "Unsure", "Unsure", False, False
+
     # 1. Use explicit size column if given
     if explicit_size and explicit_size.strip():
         try:
@@ -555,6 +562,8 @@ def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_n
 
 def extract_dates(explicit_date, date_found, signal_str, timing_str):
     deal_date = explicit_date.strip() if explicit_date else ''
+    if deal_date.lower() == 'unsure':
+        return 'Unsure', 'Unsure'
     quarter = ''
 
     combined = f"{deal_date} {timing_str} {signal_str} {date_found}"
@@ -814,6 +823,162 @@ def detect_sector(company, signal):
         return 'Government & Public Tenders'
     return 'Corporate & Commercial'
 
+def parse_handover_and_talk_by(handover_raw, fitout_window, signal, timing, row_id, company, country, area_sqft, is_watchlist=False, today=TODAY):
+    """
+    Parses Column 16 'Handover date' (source fact: exact date or quarter e.g. Q1 2028, blank if unknown, never guessed).
+    Implements approved quarter-start rule:
+      Q1 = Jan 1, Q2 = Apr 1, Q3 = Jul 1, Q4 = Oct 1.
+    Talk-by Date (Engage-by) = Handover date minus 12 months.
+    Maps into 7 First-Mover Lanes based on D_H (months until handover from today):
+      - Far watch (>24m)
+      - Nurture (18–24m)
+      - Engage now (12–18m) [Hero]
+      - Compete now (6–12m)
+      - Fight harder (0–6m) [Late-Stage]
+      - Fit-out in progress (<0m) [Late-Stage]
+      - Undated ("No date yet") [Priority Dating if area >= 50k sq ft or on Watchlist]
+    """
+    handover_str = (handover_raw or '').strip()
+    has_explicit = False
+    handover_date = None
+    handover_fmt = 'Unstated'
+    talk_by_date = None
+    talk_by_fmt = 'No date yet'
+    dh_months = None
+    first_mover_lane = 'Undated'
+    is_late_stage = False
+    is_coarse = False
+    coarse_badge = ''
+    coarse_tooltip = ''
+    is_dating_priority = False
+    priority_reason = ''
+
+    if handover_str:
+        # 1. Quarter match
+        m_q = re.search(r'Q([1-4])\s*(\d{4})', handover_str, re.I)
+        if m_q:
+            q_num = int(m_q.group(1))
+            year = int(m_q.group(2))
+            month_map = {1: 1, 2: 4, 3: 7, 4: 10}
+            h_month = month_map[q_num]
+            handover_date = datetime.date(year, h_month, 1)
+            handover_fmt = f'Q{q_num} {year}'
+            has_explicit = True
+            
+            # Talk-by = Handover minus 12 months
+            talk_by_date = datetime.date(year - 1, h_month, 1)
+            talk_by_fmt = f'Q{q_num} {year - 1}'
+            dh_months = (year - today.year) * 12 + (h_month - today.month)
+
+        # 2. Half-year match
+        elif re.search(r'H([1-2])\s*(\d{4})', handover_str, re.I):
+            m_h = re.search(r'H([1-2])\s*(\d{4})', handover_str, re.I)
+            h_num = int(m_h.group(1))
+            year = int(m_h.group(2))
+            h_month = 1 if h_num == 1 else 7
+            handover_date = datetime.date(year, h_month, 1)
+            handover_fmt = f'H{h_num} {year}'
+            has_explicit = True
+            talk_by_date = datetime.date(year - 1, h_month, 1)
+            talk_by_fmt = f'H{h_num} {year - 1}'
+            dh_months = (year - today.year) * 12 + (h_month - today.month)
+
+        # 3. Year only match
+        elif re.match(r'^(202\d|203\d)$', handover_str):
+            year = int(handover_str)
+            handover_date = datetime.date(year, 1, 1)
+            handover_fmt = str(year)
+            has_explicit = True
+            talk_by_date = datetime.date(year - 1, 1, 1)
+            talk_by_fmt = str(year - 1)
+            dh_months = (year - today.year) * 12 + (1 - today.month)
+
+        # 4. Standard ISO or date
+        else:
+            for fmt in ('%Y-%m-%d', '%d/%m/%Y', '%m/%d/%Y', '%b %Y', '%B %Y'):
+                try:
+                    dt = datetime.datetime.strptime(handover_str, fmt).date()
+                    handover_date = dt
+                    has_explicit = True
+                    handover_fmt = dt.strftime('%b %Y')
+                    talk_by_date = datetime.date(dt.year - 1, dt.month, min(dt.day, 28))
+                    talk_by_fmt = talk_by_date.strftime('%b %Y')
+                    dh_months = (dt.year - today.year) * 12 + (dt.month - today.month)
+                    break
+                except ValueError:
+                    pass
+
+    if has_explicit and dh_months is not None:
+        if dh_months > 24:
+            first_mover_lane = 'Far watch (>24m)'
+        elif dh_months > 18:
+            first_mover_lane = 'Nurture (18–24m)'
+        elif dh_months >= 12:
+            first_mover_lane = 'Engage now (12–18m)'
+        elif dh_months >= 6:
+            first_mover_lane = 'Compete now (6–12m)'
+        elif dh_months >= 0:
+            first_mover_lane = 'Fight harder (0–6m)'
+            is_late_stage = True
+        else:
+            first_mover_lane = 'Fit-out in progress (<0m)'
+            is_late_stage = True
+    else:
+        # Fallback to legacy fitout_window
+        fw = fitout_window or 'Timing unknown'
+        if fw == '1–2 Years':
+            first_mover_lane = 'Engage now (12–18m)'
+            is_coarse = True
+            coarse_badge = '[Coarse 12–24m]'
+            coarse_tooltip = 'Coarse bucket from legacy Sheet. Handover date verification in progress.'
+            talk_by_date = datetime.date(2026, 12, 1)
+            talk_by_fmt = 'Engage now'
+        elif fw == '0–1 Year':
+            first_mover_lane = 'Compete now (6–12m)'
+            is_coarse = True
+            coarse_badge = '[Coarse 0–12m]'
+            coarse_tooltip = 'Coarse bucket from legacy Sheet. Handover date verification in progress.'
+            talk_by_date = datetime.date(2026, 10, 15)
+            talk_by_fmt = 'Immediate / Near-term'
+        elif fw == '0–60 Days':
+            t_low = (timing + ' ' + signal).lower()
+            if any(k in t_low for k in ['underway', 'in progress', 'fitting out', 'fitted out', 'open', 'opened', 'started']):
+                first_mover_lane = 'Fit-out in progress (<0m)'
+                talk_by_date = datetime.date(2026, 8, 1)
+                talk_by_fmt = 'In fit-out'
+            else:
+                first_mover_lane = 'Fight harder (0–6m)'
+                talk_by_date = datetime.date(2026, 10, 1)
+                talk_by_fmt = 'Immediate'
+            is_late_stage = True
+        elif fw == '2+ Years':
+            first_mover_lane = 'Far watch (>24m)'
+            talk_by_date = datetime.date(2028, 1, 1)
+            talk_by_fmt = 'Post-2027'
+        else:
+            first_mover_lane = 'Undated'
+            talk_by_date = None
+            talk_by_fmt = 'No date yet'
+            if (area_sqft is not None and area_sqft >= 50000) or is_watchlist:
+                is_dating_priority = True
+                priority_reason = 'Disclosed footprint ≥ 50,000 sq ft' if (area_sqft and area_sqft >= 50000) else 'Target Watchlist account'
+
+    return {
+        'handoverDate': handover_date.isoformat() if handover_date else '',
+        'handoverFormatted': handover_fmt,
+        'hasHandoverDate': has_explicit,
+        'dhMonths': dh_months,
+        'talkByDate': talk_by_date.isoformat() if talk_by_date else None,
+        'talkByFormatted': talk_by_fmt,
+        'firstMoverLane': first_mover_lane,
+        'isLateStage': is_late_stage,
+        'isCoarseBand': is_coarse,
+        'coarseBadge': coarse_badge,
+        'coarseTooltip': coarse_tooltip,
+        'isDatingPriority': is_dating_priority,
+        'datingPriorityReason': priority_reason
+    }
+
 def build_all():
     print("Building Lease-IQ database strictly according to correction spec...")
 
@@ -933,7 +1098,35 @@ def build_all():
                 })
         print(f"Loaded and sanitized {len(sources_records)} intelligence sources from sources.csv")
 
-    # 4. Parse Market Tabs (Country Leads - 544 raw rows)
+    # 3b. Parse Watchlist (Target Accounts)
+    watchlist_records = []
+    watchlist_companies = set()
+    watchlist_file = 'data/watchlist.csv'
+    if os.path.exists(watchlist_file):
+        with open(watchlist_file, 'r', encoding='utf-8') as fp:
+            w_rows = list(csv.reader(fp))
+            if len(w_rows) > 1:
+                for idx, r in enumerate(w_rows[1:]):
+                    if not r or not any(r) or not r[0].strip(): continue
+                    w_comp = clean_company_name(r[0])
+                    w_country = r[1].strip() if len(r) > 1 else ''
+                    w_market = r[2].strip() if len(r) > 2 else ''
+                    w_matched_id = r[3].strip() if len(r) > 3 else ''
+                    w_date_added = r[4].strip() if len(r) > 4 else ''
+                    w_notes = r[5].strip() if len(r) > 5 else ''
+                    watchlist_companies.add(w_comp.lower())
+                    watchlist_records.append({
+                        'id': idx + 1,
+                        'company': w_comp,
+                        'country': w_country,
+                        'market': w_market,
+                        'matchedRowId': w_matched_id,
+                        'dateAdded': w_date_added,
+                        'notes': w_notes
+                    })
+        print(f"Loaded {len(watchlist_records)} accounts from watchlist.csv")
+
+    # 4. Parse Market Tabs (Country Leads - 569 raw rows)
     all_leads = []
     non_deal_signals = []
     dropped_scraper_rows = []
@@ -972,16 +1165,19 @@ def build_all():
 
         with open(f, 'r', encoding='utf-8') as fp:
             rows = list(csv.reader(fp))
+            if not rows: continue
+            header = [h.strip().lower() for h in rows[0]]
+            handover_col_idx = header.index('handover date') if 'handover date' in header else 15
             raw_data_rows = [r for r in rows[1:] if r and any(r) and r[0].strip()]
             per_country_raw_counts[country_name] = len(raw_data_rows)
             print(f"Parsing market tab [{country_name}] ({len(raw_data_rows)} raw rows)...")
 
             for r in raw_data_rows:
-                # 15-column schema:
+                # 15 or 16-column schema:
                 # 0: Row ID, 1: Company, 2: Country, 3: Market, 4: Building,
                 # 5: Size (sq ft), 6: Deal type, 7: Deal date / quarter, 8: Row kind,
                 # 9: Fit-out window, 10: Signal, 11: Source, 12: Source URL,
-                # 13: Timing implication, 14: Date found
+                # 13: Timing implication, 14: Date found, (optional 15: Handover date)
                 row_id = r[0].strip()
                 comp = clean_company_name(r[1])
                 country_raw = r[2].strip() if len(r)>2 and r[2].strip() else country_name
@@ -997,6 +1193,7 @@ def build_all():
                 url_link = r[12].strip() if len(r)>12 else '#'
                 timing_raw = r[13].strip() if len(r)>13 else ''
                 date_found = r[14].strip() if len(r)>14 else '2026-10-14'
+                handover_raw = r[handover_col_idx].strip() if len(r) > handover_col_idx else ''
 
                 is_deal = (row_kind == 'Deal')
                 is_non_deal = not is_deal
@@ -1014,6 +1211,10 @@ def build_all():
                 sector = detect_sector(comp, sig)
 
                 fitout_window = fitout_window_raw if fitout_window_raw else 'Timing unknown'
+
+                # First-Mover Engagement Reframe fields
+                is_watchlist_target = (comp.lower() in watchlist_companies)
+                fm_info = parse_handover_and_talk_by(handover_raw, fitout_window, sig, timing, row_id, comp, country_name, sqft, is_watchlist=is_watchlist_target, today=TODAY)
 
                 # Single-source Status from Company Tracker
                 tracker_match = tracker_by_company.get((comp.lower(), country_name.lower())) or tracker_by_name.get(comp.lower())
@@ -1081,7 +1282,22 @@ def build_all():
                     'heatScoreBreakdown': heat_breakdown,
                     'suggestedOpeningLine': opening_script,
                     'isNonDealRow': is_non_deal,
-                    'sourceRowsMerged': 1
+                    'sourceRowsMerged': 1,
+                    # First-Mover Engagement Reframe attributes
+                    'handoverDate': fm_info['handoverDate'],
+                    'handoverFormatted': fm_info['handoverFormatted'],
+                    'hasHandoverDate': fm_info['hasHandoverDate'],
+                    'dhMonths': fm_info['dhMonths'],
+                    'talkByDate': fm_info['talkByDate'],
+                    'talkByFormatted': fm_info['talkByFormatted'],
+                    'firstMoverLane': fm_info['firstMoverLane'],
+                    'isLateStage': fm_info['isLateStage'],
+                    'isCoarseBand': fm_info['isCoarseBand'],
+                    'coarseBadge': fm_info['coarseBadge'],
+                    'coarseTooltip': fm_info['coarseTooltip'],
+                    'isDatingPriority': fm_info['isDatingPriority'],
+                    'datingPriorityReason': fm_info['datingPriorityReason'],
+                    'isWatchlistTarget': is_watchlist_target
                 }
 
                 if is_non_deal:
@@ -1089,23 +1305,32 @@ def build_all():
                 else:
                     all_leads.append(lead_record)
 
-    # Map primary lead's heat score to tracker record
+    # Map primary lead's heat score and collect all deal IDs per company
     lead_by_comp_country = {}
+    all_deals_by_comp_country = {}
     for l in all_leads:
         key = (l['company'].lower().strip(), l['country'].lower().strip())
+        if key not in all_deals_by_comp_country:
+            all_deals_by_comp_country[key] = []
+        all_deals_by_comp_country[key].append(l['id'])
         if key not in lead_by_comp_country or l['heatScore'] > lead_by_comp_country[key]['heatScore']:
             lead_by_comp_country[key] = l
 
     for rec in tracker_records:
-        match_lead = lead_by_comp_country.get((rec['company'].lower().strip(), rec['country'].lower().strip()))
+        key = (rec['company'].lower().strip(), rec['country'].lower().strip())
+        match_lead = lead_by_comp_country.get(key)
+        deals = all_deals_by_comp_country.get(key, [])
         if not match_lead:
             for (c, _), l in lead_by_comp_country.items():
                 if c == rec['company'].lower().strip():
                     match_lead = l
+                    deals = all_deals_by_comp_country.get((c, _), [])
                     break
         if match_lead:
             rec['heatScore'] = match_lead['heatScore']
             rec['heatScoreBreakdown'] = match_lead['heatScoreBreakdown']
+        rec['dealIds'] = deals
+        rec['dealsCount'] = len(deals)
 
     # Tag multi-tenant building clusters (buildings with 2+ tenants, excluding non-deal rows)
     cluster_buildings = {k for k, v in building_cluster_counts.items() if v >= 2}
@@ -1115,8 +1340,15 @@ def build_all():
         lead['isMultiTenantHub'] = (lead['building'] in cluster_buildings) and not lead['isNonDealRow']
         lead['buildingTenantCount'] = building_cluster_counts.get(lead['building'], 1) if lead['building'] else 0
 
-    # Sort leads by default: Highest Heat Score first
-    all_leads.sort(key=lambda x: -x['heatScore'])
+    # Sort leads by default: Talk-by earliest first (with undated sorted by priority dating then heat score)
+    def lead_default_sort_key(l):
+        tb = l.get('talkByDate')
+        if tb:
+            return (0, tb, -l.get('heatScore', 0))
+        prio = 0 if l.get('isDatingPriority') else 1
+        return (1, prio, -l.get('heatScore', 0))
+
+    all_leads.sort(key=lead_default_sort_key)
 
     # Compute high-level metrics
     raw_total = sum(per_country_raw_counts.values()) # 544
@@ -1194,6 +1426,19 @@ def build_all():
         'twoYearsCount': sum(1 for l in all_leads if l['fitoutWindow'] == '1–2 Years'),
         'threeYearsAboveCount': sum(1 for l in all_leads if l['fitoutWindow'] == '2+ Years'),
         'timingUnknownCount': sum(1 for l in all_leads if l['fitoutWindow'] == 'Timing unknown'),
+        'firstMoverLanes': {
+            'engageNow': sum(1 for l in all_leads if l['firstMoverLane'] == 'Engage now (12–18m)'),
+            'competeNow': sum(1 for l in all_leads if l['firstMoverLane'] == 'Compete now (6–12m)'),
+            'fightHarder': sum(1 for l in all_leads if l['firstMoverLane'] == 'Fight harder (0–6m)'),
+            'fitoutInProgress': sum(1 for l in all_leads if l['firstMoverLane'] == 'Fit-out in progress (<0m)'),
+            'nurture': sum(1 for l in all_leads if l['firstMoverLane'] == 'Nurture (18–24m)'),
+            'farWatch': sum(1 for l in all_leads if l['firstMoverLane'] == 'Far watch (>24m)'),
+            'undated': sum(1 for l in all_leads if l['firstMoverLane'] == 'Undated'),
+        },
+        'lateStageCount': sum(1 for l in all_leads if l.get('isLateStage')),
+        'coarseBandCount': sum(1 for l in all_leads if l.get('isCoarseBand')),
+        'datingPriorityCount': sum(1 for l in all_leads if l.get('isDatingPriority')),
+        'watchlistCount': len(watchlist_records),
         'disclaimerNotice': 'Disclosed sizes only — partial total. Never implies unstated leases are zero.',
         'knownBoundaries': {
             'japanMalaysiaRenewals': 'Japan has 0 lease renewals recorded (relocation focus). Malaysia records 0 physical office renewals (1 non-deal MFRS 16 accounting disclosure excluded).',
@@ -1244,7 +1489,9 @@ def build_all():
         f.write(f"var INITIAL_SNAPSHOTS_DATA = {json.dumps(snapshots_records, indent=2)};\n")
         f.write(f"if (typeof window !== 'undefined') window.INITIAL_SNAPSHOTS_DATA = INITIAL_SNAPSHOTS_DATA;\n\n")
         f.write(f"var INITIAL_SOURCES_DATA = {json.dumps(sources_records, indent=2)};\n")
-        f.write(f"if (typeof window !== 'undefined') window.INITIAL_SOURCES_DATA = INITIAL_SOURCES_DATA;\n")
+        f.write(f"if (typeof window !== 'undefined') window.INITIAL_SOURCES_DATA = INITIAL_SOURCES_DATA;\n\n")
+        f.write(f"var INITIAL_WATCHLIST_DATA = {json.dumps(watchlist_records, indent=2)};\n")
+        f.write(f"if (typeof window !== 'undefined') window.INITIAL_WATCHLIST_DATA = INITIAL_WATCHLIST_DATA;\n")
 
     print(f"Successfully generated {data_js_path} ({os.path.getsize(data_js_path)} bytes)")
 
@@ -1320,7 +1567,7 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print("        LEASE-IQ REGRESSION SUITE RESULTS         ")
     print("="*50)
     passed = 0
-    total = 8
+    total = 10
 
     # Assertion 1: Invented-data cleanup & broken-text check
     broken_patterns = [
@@ -1376,20 +1623,24 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print("[PASS] Assertion 3: Structured columns only verified (JP Morgan H:50, ByteDance H:65, Uni Razak T:5).")
     passed += 1
 
-    # Assertion 4: Mechanism 3 Reconciliation bridge verified: 545 raw - 8 non-deal = 537 deals
+    # Assertion 4: Mechanism 3 Reconciliation bridge verified: 571 raw - 8 non-deal = 563 deals
     raw_total = sum(per_country_raw_counts.values())
-    assert raw_total == 545, f"Assertion 4 failed: raw_total is {raw_total}, expected 545"
-    assert per_country_raw_counts['India'] == 134, f"Assertion 4 failed: India raw rows is {per_country_raw_counts['India']}, expected 134"
+    assert raw_total == 571, f"Assertion 4 failed: raw_total is {raw_total}, expected 571"
+    assert per_country_raw_counts['India'] == 149, f"Assertion 4 failed: India raw rows is {per_country_raw_counts['India']}, expected 149"
     assert per_country_raw_counts['Malaysia'] == 80, f"Assertion 4 failed: Malaysia raw rows is {per_country_raw_counts['Malaysia']}, expected 80"
+    assert per_country_raw_counts['Japan'] == 96, f"Assertion 4 failed: Japan raw rows is {per_country_raw_counts['Japan']}, expected 96"
+    assert per_country_raw_counts['Korea'] == 153, f"Assertion 4 failed: Korea raw rows is {per_country_raw_counts['Korea']}, expected 153"
+    assert per_country_raw_counts['China'] == 62, f"Assertion 4 failed: China raw rows is {per_country_raw_counts['China']}, expected 62"
+    assert per_country_raw_counts['Sri Lanka'] == 31, f"Assertion 4 failed: Sri Lanka raw rows is {per_country_raw_counts['Sri Lanka']}, expected 31"
     assert len(non_deal_signals) == 8, f"Assertion 4 failed: non_deal_signals is {len(non_deal_signals)}, expected 8"
-    assert len(all_leads) == 537, f"Assertion 4 failed: total commercial deals is {len(all_leads)}, expected 537"
+    assert len(all_leads) == 563, f"Assertion 4 failed: total commercial deals is {len(all_leads)}, expected 563"
     assert raw_total - len(non_deal_signals) == len(all_leads)
     print(f"[PASS] Assertion 4: Mechanism 3 Reconciliation bridge verified: {raw_total} raw - {len(non_deal_signals)} non-deal = {len(all_leads)} deals.")
     passed += 1
 
-    # Assertion 5: Mechanism 4 Queue join check passed: 537 deals map to 533 deal-backed accounts
+    # Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 557 deal-backed accounts
     deal_backed = [t for t in tracker_records if t.get('isDealBacked', True)]
-    assert len(deal_backed) == 533, f"Assertion 5 failed: Expected 533 deal-backed accounts, found {len(deal_backed)}"
+    assert len(deal_backed) == 557, f"Assertion 5 failed: Expected 557 deal-backed accounts, found {len(deal_backed)}"
     assert not any('kuala lumpur kepong' in t['company'].lower() for t in deal_backed), "Assertion 5 failed: KLK must not appear in deal-backed accounts"
     tracker_keys = set((t['company'].lower().strip(), t['country'].lower().strip()) for t in deal_backed)
     missing_accounts = [(l['company'], l['country']) for l in all_leads if (l['company'].lower().strip(), l['country'].lower().strip()) not in tracker_keys]
@@ -1399,8 +1650,8 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     assert any('blackstone' in c for (c, k) in tracker_keys if k == 'india'), "Assertion 5 failed: Blackstone India missing from tracker"
     assert ("l'oréal", 'india') in tracker_keys or ("l'oreal", 'india') in tracker_keys, "Assertion 5 failed: L'Oréal India missing from tracker"
     assert ("l'oréal", 'china') in tracker_keys or ("l'oreal", 'china') in tracker_keys, "Assertion 5 failed: L'Oréal China missing from tracker"
-    assert metrics['totalDisclosedSqFtFormatted'] == '30.0M sq ft', f"Assertion 5 failed: Disclosed pipeline footprint is {metrics['totalDisclosedSqFtFormatted']}, expected 30.0M sq ft"
-    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 537 deals map to 533 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
+    assert metrics['totalDisclosedSqFtFormatted'] == '32.5M sq ft', f"Assertion 5 failed: Disclosed pipeline footprint is {metrics['totalDisclosedSqFtFormatted']}, expected 32.5M sq ft"
+    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 557 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
     passed += 1
 
     # Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings
@@ -1408,20 +1659,67 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print("[PASS] Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings.")
     passed += 1
 
-    # Assertion 7: Mechanism 6 Hubs counts & evidenced changelog verified (14 multi-tenant hubs)
-    assert metrics['multiTenantHubsCount'] == 14, f"Assertion 7 failed: multiTenantHubsCount is {metrics['multiTenantHubsCount']}, expected 14"
-    assert metrics['buildingDisclosureRate'] == 28.7, f"Assertion 7 failed: buildingDisclosureRate is {metrics['buildingDisclosureRate']}, expected 28.7"
-    print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified (14 multi-tenant hubs, 28.7% building disclosure across APAC).")
+    # Assertion 7: Mechanism 6 Hubs counts & evidenced changelog verified (15 multi-tenant hubs)
+    assert metrics['multiTenantHubsCount'] == 15, f"Assertion 7 failed: multiTenantHubsCount is {metrics['multiTenantHubsCount']}, expected 15"
+    assert metrics['buildingDisclosureRate'] == 32.7, f"Assertion 7 failed: buildingDisclosureRate is {metrics['buildingDisclosureRate']}, expected 32.7"
+    print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified (15 multi-tenant hubs, 32.7% building disclosure across APAC).")
     passed += 1
 
-    # Assertion 8: Fit-out window distribution verified for Deal rows only (202 / 10 / 2 / 3 / 320 = 537)
-    assert metrics['zeroToSixtyCount'] == 202, f"Assertion 8 failed: zeroToSixtyCount is {metrics['zeroToSixtyCount']}, expected 202"
+    # Assertion 8: Fit-out window distribution verified for Deal rows only (206 / 10 / 2 / 3 / 342 = 563)
+    assert metrics['zeroToSixtyCount'] == 206, f"Assertion 8 failed: zeroToSixtyCount is {metrics['zeroToSixtyCount']}, expected 206"
     assert metrics['oneYearCount'] == 10, f"Assertion 8 failed: oneYearCount is {metrics['oneYearCount']}, expected 10"
     assert metrics['twoYearsCount'] == 2, f"Assertion 8 failed: twoYearsCount is {metrics['twoYearsCount']}, expected 2"
     assert metrics['threeYearsAboveCount'] == 3, f"Assertion 8 failed: threeYearsAboveCount is {metrics['threeYearsAboveCount']}, expected 3"
-    assert metrics['timingUnknownCount'] == 320, f"Assertion 8 failed: timingUnknownCount is {metrics['timingUnknownCount']}, expected 320"
+    assert metrics['timingUnknownCount'] == 342, f"Assertion 8 failed: timingUnknownCount is {metrics['timingUnknownCount']}, expected 342"
     assert metrics['zeroToSixtyCount'] + metrics['oneYearCount'] + metrics['twoYearsCount'] + metrics['threeYearsAboveCount'] + metrics['timingUnknownCount'] == len(all_leads)
-    print(f"[PASS] Assertion 8: Fit-out window distribution verified (0–60d: 202 | 0–1yr: 10 | 1–2yr: 2 | 2+yr: 3 | unknown: 320 = 537 deals).")
+    print(f"[PASS] Assertion 8: Fit-out window distribution verified (0–60d: 206 | 0–1yr: 10 | 1–2yr: 2 | 2+yr: 3 | unknown: 342 = 563 deals).")
+    passed += 1
+
+    # Assertion 9: First-Mover Engagement Reframe verification (7 lanes sum to 563, late stage = 206, coarse = 12)
+    lanes = metrics['firstMoverLanes']
+    assert lanes['engageNow'] == 2, f"Assertion 9 failed: engageNow is {lanes['engageNow']}, expected 2"
+    assert lanes['competeNow'] == 10, f"Assertion 9 failed: competeNow is {lanes['competeNow']}, expected 10"
+    assert lanes['fightHarder'] == 153, f"Assertion 9 failed: fightHarder is {lanes['fightHarder']}, expected 153"
+    assert lanes['fitoutInProgress'] == 53, f"Assertion 9 failed: fitoutInProgress is {lanes['fitoutInProgress']}, expected 53"
+    assert lanes['nurture'] == 0, f"Assertion 9 failed: nurture is {lanes['nurture']}, expected 0"
+    assert lanes['farWatch'] == 3, f"Assertion 9 failed: farWatch is {lanes['farWatch']}, expected 3"
+    assert lanes['undated'] == 342, f"Assertion 9 failed: undated is {lanes['undated']}, expected 342"
+    total_lanes = sum(lanes.values())
+    assert total_lanes == 563, f"Assertion 9 failed: 7 lanes sum to {total_lanes}, expected 563"
+    assert metrics['lateStageCount'] == 206, f"Assertion 9 failed: lateStageCount is {metrics['lateStageCount']}, expected 206"
+    assert metrics['coarseBandCount'] == 12, f"Assertion 9 failed: coarseBandCount is {metrics['coarseBandCount']}, expected 12"
+    assert metrics['datingPriorityCount'] == 79, f"Assertion 9 failed: datingPriorityCount is {metrics['datingPriorityCount']}, expected 79"
+    
+    # Verify PwC Malaysia (MY-003) and Uni Razak (MY-046) mapped to Engage now with coarse badge
+    pwc = next((l for l in all_leads if l['id'] == 'MY-003'), None)
+    unirazak = next((l for l in all_leads if l['id'] == 'MY-046'), None)
+    assert pwc and pwc['firstMoverLane'] == 'Engage now (12–18m)' and pwc['isCoarseBand'], f"Assertion 9 failed for PwC Malaysia lane: {pwc}"
+    assert pwc['coarseBadge'] == '[Coarse 12–24m]', f"Assertion 9 failed for PwC coarseBadge: {pwc['coarseBadge']}"
+    assert unirazak and unirazak['firstMoverLane'] == 'Engage now (12–18m)' and unirazak['isCoarseBand'], f"Assertion 9 failed for Uni Razak lane: {unirazak}"
+    assert unirazak['coarseBadge'] == '[Coarse 12–24m]', f"Assertion 9 failed for Uni Razak coarseBadge: {unirazak['coarseBadge']}"
+    print(f"[PASS] Assertion 9: First-Mover Engagement Reframe verified (Engage: 2, Compete: 10, Fight: 153, Fitout: 53, Far: 3, Undated: 342 = 563 deals; Late Stage: 206, Coarse: 12, Priority Dating: 79).")
+    passed += 1
+
+    # Assertion 10: Multi-Deal & Unsure Rule verification (Angela v2.30 Decisions)
+    in148 = next((l for l in all_leads if l['id'] == 'IN-148'), None)
+    in149 = next((l for l in all_leads if l['id'] == 'IN-149'), None)
+    assert in148, "Assertion 10 failed: IN-148 (Apple India Embassy Zenith) missing"
+    assert in148['dealDate'] == 'Unsure', f"Assertion 10 failed: IN-148 dealDate is {in148['dealDate']}, expected 'Unsure'"
+    assert in148['areaFormatted'] == 'Unsure', f"Assertion 10 failed: IN-148 areaFormatted is {in148['areaFormatted']}, expected 'Unsure'"
+    assert in148['areaSqFt'] is None, f"Assertion 10 failed: IN-148 areaSqFt is {in148['areaSqFt']}, expected None"
+    assert in148['firstMoverLane'] == 'Undated', f"Assertion 10 failed: IN-148 lane is {in148['firstMoverLane']}, expected 'Undated'"
+
+    assert in149, "Assertion 10 failed: IN-149 (Smartworks Allicance Center) missing"
+    assert in149['areaSqFt'] == 480074, f"Assertion 10 failed: IN-149 areaSqFt is {in149['areaSqFt']}, expected 480074"
+    assert in149['isDatingPriority'] == True, f"Assertion 10 failed: IN-149 must have isDatingPriority == True"
+
+    apple_tracker = next((t for t in tracker_records if t['company'].lower() == 'apple india'), None)
+    smartworks_tracker = next((t for t in tracker_records if t['company'].lower() == 'smartworks'), None)
+    assert apple_tracker and apple_tracker.get('dealsCount') == 2, f"Assertion 10 failed: Apple India dealsCount is {apple_tracker.get('dealsCount')}, expected 2"
+    assert 'IN-054' in apple_tracker.get('dealIds', []) and 'IN-148' in apple_tracker.get('dealIds', []), f"Assertion 10 failed: Apple India dealIds is {apple_tracker.get('dealIds')}"
+    assert smartworks_tracker and smartworks_tracker.get('dealsCount') == 2, f"Assertion 10 failed: Smartworks dealsCount is {smartworks_tracker.get('dealsCount')}, expected 2"
+    assert 'IN-016' in smartworks_tracker.get('dealIds', []) and 'IN-149' in smartworks_tracker.get('dealIds', []), f"Assertion 10 failed: Smartworks dealIds is {smartworks_tracker.get('dealIds')}"
+    print("[PASS] Assertion 10: Multi-Deal & Unsure Rule verified (Apple India: 2 deals [IN-054, IN-148]; Smartworks: 2 deals [IN-016, IN-149]; IN-148 size/date 'Unsure' verbatim).")
     passed += 1
 
 
