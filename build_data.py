@@ -1638,9 +1638,9 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     print(f"[PASS] Assertion 4: Mechanism 3 Reconciliation bridge verified: {raw_total} raw - {len(non_deal_signals)} non-deal = {len(all_leads)} deals.")
     passed += 1
 
-    # Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 557 deal-backed accounts
+    # Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 556 deal-backed accounts
     deal_backed = [t for t in tracker_records if t.get('isDealBacked', True)]
-    assert len(deal_backed) == 557, f"Assertion 5 failed: Expected 557 deal-backed accounts, found {len(deal_backed)}"
+    assert len(deal_backed) == 556, f"Assertion 5 failed: Expected 556 deal-backed accounts, found {len(deal_backed)}"
     assert not any('kuala lumpur kepong' in t['company'].lower() for t in deal_backed), "Assertion 5 failed: KLK must not appear in deal-backed accounts"
     tracker_keys = set((t['company'].lower().strip(), t['country'].lower().strip()) for t in deal_backed)
     missing_accounts = [(l['company'], l['country']) for l in all_leads if (l['company'].lower().strip(), l['country'].lower().strip()) not in tracker_keys]
@@ -1651,7 +1651,7 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     assert ("l'oréal", 'india') in tracker_keys or ("l'oreal", 'india') in tracker_keys, "Assertion 5 failed: L'Oréal India missing from tracker"
     assert ("l'oréal", 'china') in tracker_keys or ("l'oreal", 'china') in tracker_keys, "Assertion 5 failed: L'Oréal China missing from tracker"
     assert metrics['totalDisclosedSqFtFormatted'] == '32.5M sq ft', f"Assertion 5 failed: Disclosed pipeline footprint is {metrics['totalDisclosedSqFtFormatted']}, expected 32.5M sq ft"
-    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 557 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
+    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 556 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
     passed += 1
 
     # Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings
@@ -1715,11 +1715,14 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
 
     apple_tracker = next((t for t in tracker_records if t['company'].lower() == 'apple india'), None)
     smartworks_tracker = next((t for t in tracker_records if t['company'].lower() == 'smartworks'), None)
+    indiqube_tracker = next((t for t in tracker_records if t['company'].lower() == 'indiqube'), None)
     assert apple_tracker and apple_tracker.get('dealsCount') == 2, f"Assertion 10 failed: Apple India dealsCount is {apple_tracker.get('dealsCount')}, expected 2"
     assert 'IN-054' in apple_tracker.get('dealIds', []) and 'IN-148' in apple_tracker.get('dealIds', []), f"Assertion 10 failed: Apple India dealIds is {apple_tracker.get('dealIds')}"
     assert smartworks_tracker and smartworks_tracker.get('dealsCount') == 2, f"Assertion 10 failed: Smartworks dealsCount is {smartworks_tracker.get('dealsCount')}, expected 2"
     assert 'IN-016' in smartworks_tracker.get('dealIds', []) and 'IN-149' in smartworks_tracker.get('dealIds', []), f"Assertion 10 failed: Smartworks dealIds is {smartworks_tracker.get('dealIds')}"
-    print("[PASS] Assertion 10: Multi-Deal & Unsure Rule verified (Apple India: 2 deals [IN-054, IN-148]; Smartworks: 2 deals [IN-016, IN-149]; IN-148 size/date 'Unsure' verbatim).")
+    assert indiqube_tracker and indiqube_tracker.get('dealsCount') == 2, f"Assertion 10 failed: IndiQube dealsCount is {indiqube_tracker.get('dealsCount')}, expected 2"
+    assert 'IN-083' in indiqube_tracker.get('dealIds', []) and 'IN-088' in indiqube_tracker.get('dealIds', []), f"Assertion 10 failed: IndiQube dealIds is {indiqube_tracker.get('dealIds')}"
+    print("[PASS] Assertion 10: Multi-Deal & Unsure Rule verified (Apple India: 2 deals [IN-054, IN-148]; Smartworks: 2 deals [IN-016, IN-149]; IndiQube: 2 deals [IN-083, IN-088]; IN-148 size/date 'Unsure' verbatim).")
     passed += 1
 
 
