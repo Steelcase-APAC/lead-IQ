@@ -1647,7 +1647,9 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     assert ("l'oréal", 'india') in tracker_keys or ("l'oreal", 'india') in tracker_keys, "Assertion 5 failed: L'Oréal India missing from tracker"
     assert ("l'oréal", 'china') in tracker_keys or ("l'oreal", 'china') in tracker_keys, "Assertion 5 failed: L'Oréal China missing from tracker"
     assert metrics['totalDisclosedSqFtFormatted'] == '33.6M sq ft', f"Assertion 5 failed: Disclosed pipeline footprint is {metrics['totalDisclosedSqFtFormatted']}, expected 33.6M sq ft"
-    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 564 deals map to 557 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
+    assert metrics['sheetExplicitSqFtFormatted'] == '5.84M sq ft', f"Assertion 5 failed: Sheet explicit footprint is {metrics['sheetExplicitSqFtFormatted']}, expected 5.84M sq ft"
+    assert metrics['sheetExplicitSqFt'] == 5844175, f"Assertion 5 failed: Sheet explicit sqft is {metrics['sheetExplicitSqFt']}, expected 5,844,175"
+    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 564 deals map to 557 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}, Sheet explicit: {metrics['sheetExplicitSqFtFormatted']}).")
     passed += 1
 
     # Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings
