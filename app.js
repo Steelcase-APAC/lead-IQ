@@ -1528,6 +1528,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <strong class="company-link" data-company="${escapeHtml(w.company)}" style="cursor: pointer; color: var(--text-primary); font-size: 13px;">
               ${escapeHtml(w.company)}
             </strong>
+            ${w.isPriorityGcc ? `<span class="badge-clean" style="font-size: 10px; font-weight: 700; color: #b45309; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 4px; padding: 1px 6px; margin-left: 6px;">Priority GCC</span>` : ''}
           </td>
           <td>${escapeHtml(w.country || 'APAC')}</td>
           <td>${escapeHtml(w.market || '—')}</td>
@@ -2517,14 +2518,55 @@ document.addEventListener('DOMContentLoaded', () => {
         trust: r[5] || 'High'
       })).filter(s => s.source);
 
-      const newWatchlist = (tabMap['Watchlist'] || []).slice(1).map((r, i) => ({
-        company: r[0] ? r[0].trim() : '',
-        country: r[1] ? r[1].trim() : '',
-        market: r[2] ? r[2].trim() : '',
-        matchedRowId: r[3] ? r[3].trim() : '',
-        dateAdded: r[4] ? r[4].trim() : '',
-        notes: r[5] ? r[5].trim() : ''
-      })).filter(w => w.company);
+      const watchlistRows = tabMap['Watchlist'] || [];
+      let newWatchlist = [];
+      if (watchlistRows.length > 1) {
+        const rawHeaders = watchlistRows[0].map(h => (h || '').trim());
+        const headers = rawHeaders.map(h => h.toLowerCase());
+
+        const findCol = (cands, defIdx) => {
+          for (const cand of cands) {
+            const idx = headers.findIndex(h => h === cand || h.includes(cand));
+            if (idx >= 0) return idx;
+          }
+          return defIdx < headers.length ? defIdx : -1;
+        };
+
+        const compIdx = findCol(['company', 'account'], 0);
+        const countryIdx = findCol(['country'], 1);
+        const marketIdx = findCol(['market', 'target market', 'submarket', 'city'], 2);
+        const matchedIdx = findCol(['matched row id', 'matched id', 'matched deal', 'deal id'], 3);
+        const dateIdx = findCol(['date added', 'date', 'added'], 4);
+        const tagIdx = findCol(['tag', 'tags', 'category'], -1);
+        const notesIdx = findCol(['notes', 'strategy notes', 'comment'], 5);
+
+        newWatchlist = watchlistRows.slice(1).map((r, i) => {
+          const comp = (compIdx >= 0 && compIdx < r.length ? r[compIdx] : (r[0] || '')).trim();
+          const country = (countryIdx >= 0 && countryIdx < r.length ? r[countryIdx] : (r[1] || '')).trim();
+          const market = (marketIdx >= 0 && marketIdx < r.length ? r[marketIdx] : (r[2] || '')).trim();
+          const matchedId = (matchedIdx >= 0 && matchedIdx < r.length ? r[matchedIdx] : (r[3] || '')).trim();
+          const dateAdded = (dateIdx >= 0 && dateIdx < r.length ? r[dateIdx] : (r[4] || '')).trim();
+          const rawTag = (tagIdx >= 0 && tagIdx < r.length ? r[tagIdx] : '').trim();
+          const notes = (notesIdx >= 0 && notesIdx < r.length ? r[notesIdx] : (r[5] || '')).trim();
+
+          const isPriorityGcc = rawTag.toLowerCase().includes('priority gcc') || notes.toLowerCase().includes('priority gcc');
+          const resolvedTag = rawTag || (isPriorityGcc ? 'Priority GCC' : '');
+          const tags = resolvedTag ? resolvedTag.split(',').map(t => t.trim()).filter(Boolean) : [];
+
+          return {
+            id: i + 1,
+            company: comp,
+            country: country,
+            market: market,
+            matchedRowId: matchedId,
+            dateAdded: dateAdded,
+            tag: resolvedTag,
+            tags: tags,
+            isPriorityGcc: isPriorityGcc,
+            notes: notes
+          };
+        }).filter(w => w.company);
+      }
 
       // Commit to State
       if (newLeads.length > 0) {

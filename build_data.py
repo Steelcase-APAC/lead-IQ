@@ -1102,14 +1102,41 @@ def build_all():
         with open(watchlist_file, 'r', encoding='utf-8') as fp:
             w_rows = list(csv.reader(fp))
             if len(w_rows) > 1:
+                raw_headers = [h.strip() for h in w_rows[0]]
+                headers = [h.lower() for h in raw_headers]
+
+                def find_col_idx(candidates, default_idx):
+                    for cand in candidates:
+                        for idx, h in enumerate(headers):
+                            if cand == h or cand in h:
+                                return idx
+                    return default_idx if default_idx < len(headers) else -1
+
+                comp_idx = find_col_idx(['company', 'account'], 0)
+                country_idx = find_col_idx(['country'], 1)
+                market_idx = find_col_idx(['market', 'target market', 'submarket', 'city'], 2)
+                matched_idx = find_col_idx(['matched row id', 'matched id', 'matched deal', 'deal id'], 3)
+                date_idx = find_col_idx(['date added', 'date', 'added'], 4)
+                tag_idx = find_col_idx(['tag', 'tags', 'category'], -1)
+                notes_idx = find_col_idx(['notes', 'strategy notes', 'comment'], 5)
+
                 for idx, r in enumerate(w_rows[1:]):
-                    if not r or not any(r) or not r[0].strip(): continue
-                    w_comp = clean_company_name(r[0])
-                    w_country = r[1].strip() if len(r) > 1 else ''
-                    w_market = r[2].strip() if len(r) > 2 else ''
-                    w_matched_id = r[3].strip() if len(r) > 3 else ''
-                    w_date_added = r[4].strip() if len(r) > 4 else ''
-                    w_notes = r[5].strip() if len(r) > 5 else ''
+                    if not r or not any(r): continue
+                    raw_comp = r[comp_idx].strip() if comp_idx >= 0 and comp_idx < len(r) else ''
+                    if not raw_comp: continue
+                    w_comp = clean_company_name(raw_comp)
+                    w_country = r[country_idx].strip() if country_idx >= 0 and country_idx < len(r) else ''
+                    w_market = r[market_idx].strip() if market_idx >= 0 and market_idx < len(r) else ''
+                    w_matched_id = r[matched_idx].strip() if matched_idx >= 0 and matched_idx < len(r) else ''
+                    w_date_added = r[date_idx].strip() if date_idx >= 0 and date_idx < len(r) else ''
+                    w_tag = r[tag_idx].strip() if tag_idx >= 0 and tag_idx < len(r) else ''
+                    w_notes = r[notes_idx].strip() if notes_idx >= 0 and notes_idx < len(r) else ''
+
+                    # Tag resolution: dedicated column first, fallback to Notes
+                    is_priority_gcc = ('priority gcc' in w_tag.lower()) or ('priority gcc' in w_notes.lower())
+                    resolved_tag = w_tag or ('Priority GCC' if is_priority_gcc else '')
+                    tags = [t.strip() for t in resolved_tag.split(',') if t.strip()] if resolved_tag else []
+
                     watchlist_companies.add(w_comp.lower())
                     watchlist_records.append({
                         'id': idx + 1,
@@ -1118,9 +1145,12 @@ def build_all():
                         'market': w_market,
                         'matchedRowId': w_matched_id,
                         'dateAdded': w_date_added,
+                        'tag': resolved_tag,
+                        'tags': tags,
+                        'isPriorityGcc': is_priority_gcc,
                         'notes': w_notes
                     })
-        print(f"Loaded {len(watchlist_records)} accounts from watchlist.csv")
+        print(f"Loaded {len(watchlist_records)} accounts from watchlist.csv ({sum(1 for w in watchlist_records if w['isPriorityGcc'])} Priority GCC)")
 
     # 4. Parse Market Tabs (Country Leads - 569 raw rows)
     all_leads = []
