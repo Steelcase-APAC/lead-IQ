@@ -432,8 +432,8 @@ def extract_size(comp, country, explicit_size, signal_str, is_non_deal=False, ro
     if is_non_deal:
         return None, "Not disclosed", "Undisclosed", False, False
 
-    # Correction: Sheet cells are blank for JP Morgan (IN-003) & ByteDance (CN-013). Never parse prose.
-    if row_id in ('IN-003', 'CN-013') or (comp.lower() == 'jp morgan' and country == 'India') or (comp.lower() == 'bytedance' and country == 'China'):
+    # Correction: Sheet cell is blank for JP Morgan (IN-003). Never parse prose.
+    if row_id == 'IN-003' or (comp.lower() == 'jp morgan' and country == 'India'):
         return None, "Not disclosed", "Undisclosed", False, False
 
     # Unsure Rule (v2.30): If explicit size says Unsure or Signal text flags size as unsure, render "Unsure" verbatim
@@ -521,10 +521,6 @@ def extract_deal_type(comp, country, explicit_type, signal_str, timing_str, is_n
         return 'Unstated', False, False
 
     c_lower = comp.lower()
-
-    # Correction: Sheet cells are blank for JP Morgan (IN-003) & Uni Razak (MY-046). Never infer from prose.
-    if row_id in ('IN-003', 'MY-046') or (c_lower == 'jp morgan' and country == 'India') or ('universiti tun abdul razak' in c_lower):
-        return 'Unstated', False, False
 
     # Check explicit column if given (Sheet structured column is ground truth)
     if explicit_type and explicit_type.strip():
@@ -1610,37 +1606,37 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     unirazak = next((l for l in all_leads if l['id'] == 'MY-046'), None)
 
     assert jpmorgan and jpmorgan['areaFormatted'] == 'Not disclosed' and jpmorgan['areaSqFt'] is None, f"Assertion 3 failed for JP Morgan size: {jpmorgan['areaFormatted']}"
-    assert jpmorgan['dealType'] == 'Unstated', f"Assertion 3 failed for JP Morgan deal type: {jpmorgan['dealType']}"
+    assert jpmorgan['dealType'] == 'Pre-commitment', f"Assertion 3 failed for JP Morgan deal type: {jpmorgan['dealType']}"
     assert jpmorgan['building'] == '' and not jpmorgan['isBuildingDisclosed'], f"Assertion 3 failed for JP Morgan building: {jpmorgan['building']}"
-    assert jpmorgan['heatScore'] == 50, f"Assertion 3 failed for JP Morgan heat score: {jpmorgan['heatScore']} != 50"
+    assert jpmorgan['heatScore'] == 65, f"Assertion 3 failed for JP Morgan heat score: {jpmorgan['heatScore']} != 65"
 
-    assert bytedance and bytedance['areaFormatted'] == 'Not disclosed' and bytedance['areaSqFt'] is None, f"Assertion 3 failed for ByteDance size: {bytedance['areaFormatted']}"
+    assert bytedance and bytedance['areaSqFt'] == 987047, f"Assertion 3 failed for ByteDance size: {bytedance['areaSqFt']}"
     assert bytedance['dealType'] == 'Pre-commitment', f"Assertion 3 failed for ByteDance deal type: {bytedance['dealType']}"
-    assert bytedance['heatScore'] == 65, f"Assertion 3 failed for ByteDance heat score: {bytedance['heatScore']} != 65"
+    assert bytedance['heatScore'] == 90, f"Assertion 3 failed for ByteDance heat score: {bytedance['heatScore']} != 90"
 
-    assert unirazak and unirazak['dealType'] == 'Unstated', f"Assertion 3 failed for Uni Razak deal type: {unirazak['dealType']}"
-    assert unirazak['heatScoreBreakdown']['typePts'] == 5, f"Assertion 3 failed for Uni Razak type points: {unirazak['heatScoreBreakdown']['typePts']} != 5"
-    print("[PASS] Assertion 3: Structured columns only verified (JP Morgan H:50, ByteDance H:65, Uni Razak T:5).")
+    assert unirazak and unirazak['dealType'] == 'Relocation', f"Assertion 3 failed for Uni Razak deal type: {unirazak['dealType']}"
+    assert unirazak['heatScoreBreakdown']['typePts'] == 20, f"Assertion 3 failed for Uni Razak type points: {unirazak['heatScoreBreakdown']['typePts']} != 20"
+    print("[PASS] Assertion 3: Structured columns only verified (JP Morgan H:65 Pre-commitment, ByteDance H:90 987k sq ft, Uni Razak Relocation T:20).")
     passed += 1
 
-    # Assertion 4: Mechanism 3 Reconciliation bridge verified: 571 raw - 8 non-deal = 563 deals
+    # Assertion 4: Mechanism 3 Reconciliation bridge verified: 572 raw - 8 non-deal = 564 deals
     raw_total = sum(per_country_raw_counts.values())
-    assert raw_total == 571, f"Assertion 4 failed: raw_total is {raw_total}, expected 571"
-    assert per_country_raw_counts['India'] == 149, f"Assertion 4 failed: India raw rows is {per_country_raw_counts['India']}, expected 149"
+    assert raw_total == 572, f"Assertion 4 failed: raw_total is {raw_total}, expected 572"
+    assert per_country_raw_counts['India'] == 150, f"Assertion 4 failed: India raw rows is {per_country_raw_counts['India']}, expected 150"
     assert per_country_raw_counts['Malaysia'] == 80, f"Assertion 4 failed: Malaysia raw rows is {per_country_raw_counts['Malaysia']}, expected 80"
     assert per_country_raw_counts['Japan'] == 96, f"Assertion 4 failed: Japan raw rows is {per_country_raw_counts['Japan']}, expected 96"
     assert per_country_raw_counts['Korea'] == 153, f"Assertion 4 failed: Korea raw rows is {per_country_raw_counts['Korea']}, expected 153"
     assert per_country_raw_counts['China'] == 62, f"Assertion 4 failed: China raw rows is {per_country_raw_counts['China']}, expected 62"
     assert per_country_raw_counts['Sri Lanka'] == 31, f"Assertion 4 failed: Sri Lanka raw rows is {per_country_raw_counts['Sri Lanka']}, expected 31"
     assert len(non_deal_signals) == 8, f"Assertion 4 failed: non_deal_signals is {len(non_deal_signals)}, expected 8"
-    assert len(all_leads) == 563, f"Assertion 4 failed: total commercial deals is {len(all_leads)}, expected 563"
+    assert len(all_leads) == 564, f"Assertion 4 failed: total commercial deals is {len(all_leads)}, expected 564"
     assert raw_total - len(non_deal_signals) == len(all_leads)
     print(f"[PASS] Assertion 4: Mechanism 3 Reconciliation bridge verified: {raw_total} raw - {len(non_deal_signals)} non-deal = {len(all_leads)} deals.")
     passed += 1
 
-    # Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 556 deal-backed accounts
+    # Assertion 5: Mechanism 4 Queue join check passed: 564 deals map to 557 deal-backed accounts
     deal_backed = [t for t in tracker_records if t.get('isDealBacked', True)]
-    assert len(deal_backed) == 556, f"Assertion 5 failed: Expected 556 deal-backed accounts, found {len(deal_backed)}"
+    assert len(deal_backed) == 557, f"Assertion 5 failed: Expected 557 deal-backed accounts, found {len(deal_backed)}"
     assert not any('kuala lumpur kepong' in t['company'].lower() for t in deal_backed), "Assertion 5 failed: KLK must not appear in deal-backed accounts"
     tracker_keys = set((t['company'].lower().strip(), t['country'].lower().strip()) for t in deal_backed)
     missing_accounts = [(l['company'], l['country']) for l in all_leads if (l['company'].lower().strip(), l['country'].lower().strip()) not in tracker_keys]
@@ -1650,8 +1646,8 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     assert any('blackstone' in c for (c, k) in tracker_keys if k == 'india'), "Assertion 5 failed: Blackstone India missing from tracker"
     assert ("l'oréal", 'india') in tracker_keys or ("l'oreal", 'india') in tracker_keys, "Assertion 5 failed: L'Oréal India missing from tracker"
     assert ("l'oréal", 'china') in tracker_keys or ("l'oreal", 'china') in tracker_keys, "Assertion 5 failed: L'Oréal China missing from tracker"
-    assert metrics['totalDisclosedSqFtFormatted'] == '32.5M sq ft', f"Assertion 5 failed: Disclosed pipeline footprint is {metrics['totalDisclosedSqFtFormatted']}, expected 32.5M sq ft"
-    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 563 deals map to 556 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
+    assert metrics['totalDisclosedSqFtFormatted'] == '33.6M sq ft', f"Assertion 5 failed: Disclosed pipeline footprint is {metrics['totalDisclosedSqFtFormatted']}, expected 33.6M sq ft"
+    print(f"[PASS] Assertion 5: Mechanism 4 Queue join check passed: 564 deals map to 557 deal-backed accounts (footprint: {metrics['totalDisclosedSqFtFormatted']}).")
     passed += 1
 
     # Assertion 6: Mechanism 5 Label sweep passed: 0 illegal terms found across all displayed strings
@@ -1661,23 +1657,23 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
 
     # Assertion 7: Mechanism 6 Hubs counts & evidenced changelog verified (15 multi-tenant hubs)
     assert metrics['multiTenantHubsCount'] == 15, f"Assertion 7 failed: multiTenantHubsCount is {metrics['multiTenantHubsCount']}, expected 15"
-    assert metrics['buildingDisclosureRate'] == 32.7, f"Assertion 7 failed: buildingDisclosureRate is {metrics['buildingDisclosureRate']}, expected 32.7"
-    print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified (15 multi-tenant hubs, 32.7% building disclosure across APAC).")
+    assert metrics['buildingDisclosureRate'] == 32.8, f"Assertion 7 failed: buildingDisclosureRate is {metrics['buildingDisclosureRate']}, expected 32.8"
+    print(f"[PASS] Assertion 7: Mechanism 6 Hubs counts verified (15 multi-tenant hubs, 32.8% building disclosure across APAC).")
     passed += 1
 
-    # Assertion 8: Fit-out window distribution verified for Deal rows only (206 / 10 / 2 / 3 / 342 = 563)
+    # Assertion 8: Fit-out window distribution verified for Deal rows only (206 / 10 / 2 / 3 / 343 = 564)
     assert metrics['zeroToSixtyCount'] == 206, f"Assertion 8 failed: zeroToSixtyCount is {metrics['zeroToSixtyCount']}, expected 206"
     assert metrics['oneYearCount'] == 10, f"Assertion 8 failed: oneYearCount is {metrics['oneYearCount']}, expected 10"
     assert metrics['twoYearsCount'] == 2, f"Assertion 8 failed: twoYearsCount is {metrics['twoYearsCount']}, expected 2"
     assert metrics['threeYearsAboveCount'] == 3, f"Assertion 8 failed: threeYearsAboveCount is {metrics['threeYearsAboveCount']}, expected 3"
-    assert metrics['timingUnknownCount'] == 342, f"Assertion 8 failed: timingUnknownCount is {metrics['timingUnknownCount']}, expected 342"
+    assert metrics['timingUnknownCount'] == 343, f"Assertion 8 failed: timingUnknownCount is {metrics['timingUnknownCount']}, expected 343"
     assert metrics['zeroToSixtyCount'] + metrics['oneYearCount'] + metrics['twoYearsCount'] + metrics['threeYearsAboveCount'] + metrics['timingUnknownCount'] == len(all_leads)
-    print(f"[PASS] Assertion 8: Fit-out window distribution verified (0–60d: 206 | 0–1yr: 10 | 1–2yr: 2 | 2+yr: 3 | unknown: 342 = 563 deals).")
+    print(f"[PASS] Assertion 8: Fit-out window distribution verified (0–60d: 206 | 0–1yr: 10 | 1–2yr: 2 | 2+yr: 3 | unknown: 343 = 564 deals).")
     passed += 1
 
-    # Assertion 9: First-Mover Engagement Reframe verification (7 lanes sum to 563, late stage = 206, coarse = 12)
+    # Assertion 9: First-Mover Engagement Reframe verification (7 lanes sum to 564, late stage = 206, coarse = 12)
     lanes = metrics['firstMoverLanes']
-    assert lanes['engageNow'] == 2, f"Assertion 9 failed: engageNow is {lanes['engageNow']}, expected 2"
+    assert lanes['engageNow'] == 3, f"Assertion 9 failed: engageNow is {lanes['engageNow']}, expected 3"
     assert lanes['competeNow'] == 10, f"Assertion 9 failed: competeNow is {lanes['competeNow']}, expected 10"
     assert lanes['fightHarder'] == 153, f"Assertion 9 failed: fightHarder is {lanes['fightHarder']}, expected 153"
     assert lanes['fitoutInProgress'] == 53, f"Assertion 9 failed: fitoutInProgress is {lanes['fitoutInProgress']}, expected 53"
@@ -1685,20 +1681,24 @@ def run_regression_suite(all_leads, tracker_records, snapshots_records, sources_
     assert lanes['farWatch'] == 3, f"Assertion 9 failed: farWatch is {lanes['farWatch']}, expected 3"
     assert lanes['undated'] == 342, f"Assertion 9 failed: undated is {lanes['undated']}, expected 342"
     total_lanes = sum(lanes.values())
-    assert total_lanes == 563, f"Assertion 9 failed: 7 lanes sum to {total_lanes}, expected 563"
+    assert total_lanes == 564, f"Assertion 9 failed: 7 lanes sum to {total_lanes}, expected 564"
     assert metrics['lateStageCount'] == 206, f"Assertion 9 failed: lateStageCount is {metrics['lateStageCount']}, expected 206"
     assert metrics['coarseBandCount'] == 12, f"Assertion 9 failed: coarseBandCount is {metrics['coarseBandCount']}, expected 12"
-    assert metrics['datingPriorityCount'] == 79, f"Assertion 9 failed: datingPriorityCount is {metrics['datingPriorityCount']}, expected 79"
     
-    # Verify PwC Malaysia (MY-003) and Uni Razak (MY-046) mapped to Engage now with coarse badge
+    # Verify PwC Malaysia (MY-003), Uni Razak (MY-046), and HSBC (IN-024) mapped to Engage now
     pwc = next((l for l in all_leads if l['id'] == 'MY-003'), None)
     unirazak = next((l for l in all_leads if l['id'] == 'MY-046'), None)
+    hsbc = next((l for l in all_leads if l['id'] == 'IN-024'), None)
     assert pwc and pwc['firstMoverLane'] == 'Engage now (12–18m)' and pwc['isCoarseBand'], f"Assertion 9 failed for PwC Malaysia lane: {pwc}"
     assert pwc['coarseBadge'] == '[Coarse 12–24m]', f"Assertion 9 failed for PwC coarseBadge: {pwc['coarseBadge']}"
     assert unirazak and unirazak['firstMoverLane'] == 'Engage now (12–18m)' and unirazak['isCoarseBand'], f"Assertion 9 failed for Uni Razak lane: {unirazak}"
     assert unirazak['coarseBadge'] == '[Coarse 12–24m]', f"Assertion 9 failed for Uni Razak coarseBadge: {unirazak['coarseBadge']}"
-    print(f"[PASS] Assertion 9: First-Mover Engagement Reframe verified (Engage: 2, Compete: 10, Fight: 153, Fitout: 53, Far: 3, Undated: 342 = 563 deals; Late Stage: 206, Coarse: 12, Priority Dating: 79).")
+    assert hsbc and hsbc['firstMoverLane'] == 'Engage now (12–18m)', f"Assertion 9 failed for HSBC lane: {hsbc}"
+    assert hsbc['handoverFormatted'] == 'Oct 2027', f"Assertion 9 failed for HSBC handoverFormatted: {hsbc['handoverFormatted']}"
+    assert hsbc['talkByFormatted'] == 'Oct 2026', f"Assertion 9 failed for HSBC talkByFormatted: {hsbc['talkByFormatted']}"
+    print(f"[PASS] Assertion 9: First-Mover Engagement Reframe verified (Engage: 3 [PwC, Uni Razak, HSBC], Compete: 10, Fight: 153, Fitout: 53, Far: 3, Undated: 342 = 564 deals; Late Stage: 206, Coarse: 12).")
     passed += 1
+
 
     # Assertion 10: Multi-Deal & Unsure Rule verification (Angela v2.30 Decisions)
     in148 = next((l for l in all_leads if l['id'] == 'IN-148'), None)

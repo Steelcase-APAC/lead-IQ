@@ -49,44 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     activeDossierCompany: null
   };
 
-  // Fallback data ground-truth enforcement (IN-003, CN-013, MY-046, IWG, WORQ)
+  // Mechanism 1: Multi-figure signals (IWG, WORQ) ensure Not disclosed
   state.leads.forEach(lead => {
-    if (lead.id === 'IN-003') {
-      lead.areaSqFt = null;
-      lead.areaFormatted = 'Not disclosed';
-      lead.dealType = 'Unstated';
-      lead.heatScore = 50;
-      if (lead.heatScoreBreakdown) {
-        lead.heatScoreBreakdown.sizePts = 0;
-        lead.heatScoreBreakdown.size = 0;
-        lead.heatScoreBreakdown.typePts = 5;
-        lead.heatScoreBreakdown.dealType = 5;
-        lead.heatScoreBreakdown.totalScore = 50;
-        lead.heatScoreBreakdown.summary = 'R:40 + S:0 + T:5 + St:5 = 50';
-      }
-    } else if (lead.id === 'CN-013') {
-      lead.areaSqFt = null;
-      lead.areaFormatted = 'Not disclosed';
-      lead.dealType = 'Pre-commitment';
-      lead.heatScore = 65;
-      if (lead.heatScoreBreakdown) {
-        lead.heatScoreBreakdown.sizePts = 0;
-        lead.heatScoreBreakdown.size = 0;
-        lead.heatScoreBreakdown.typePts = 20;
-        lead.heatScoreBreakdown.dealType = 20;
-        lead.heatScoreBreakdown.totalScore = 65;
-        lead.heatScoreBreakdown.summary = 'R:40 + S:0 + T:20 + St:5 = 65';
-      }
-    } else if (lead.id === 'MY-046') {
-      lead.dealType = 'Unstated';
-      if (lead.heatScoreBreakdown) {
-        lead.heatScoreBreakdown.typePts = 5;
-        lead.heatScoreBreakdown.dealType = 5;
-        lead.heatScore = (lead.heatScoreBreakdown.recencyPts || 40) + (lead.heatScoreBreakdown.sizePts || 25) + 5 + (lead.heatScoreBreakdown.statusPts || 5);
-        lead.heatScoreBreakdown.totalScore = lead.heatScore;
-        lead.heatScoreBreakdown.summary = `R:${lead.heatScoreBreakdown.recencyPts || 40} + S:${lead.heatScoreBreakdown.sizePts || 25} + T:5 + St:${lead.heatScoreBreakdown.statusPts || 5} = ${lead.heatScore}`;
-      }
-    } else if (lead.company && (lead.company.includes('IWG') || lead.company.includes('WORQ'))) {
+    if (lead.company && (lead.company.includes('IWG') || lead.company.includes('WORQ'))) {
       lead.areaSqFt = null;
       lead.areaFormatted = 'Not disclosed';
       if (lead.heatScoreBreakdown) {
@@ -2407,26 +2372,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let heatScore = cached.heatScore || 65;
           let heatBreakdown = cached.heatScoreBreakdown || { recency: 30, size: 0, dealType: 20, status: 5 };
 
-          // Explicit overrides from Sheet structured cells:
-          if (rowId === 'IN-003') {
-            areaSqFt = null;
-            areaFmt = 'Not disclosed';
-            dealType = 'Unstated';
-            heatScore = 50;
-            heatBreakdown = { recency: 40, size: 0, dealType: 5, status: 5, recencyPts: 40, sizePts: 0, typePts: 5, statusPts: 5, totalScore: 50, summary: 'R:40 + S:0 + T:5 + St:5 = 50' };
-          } else if (rowId === 'CN-013') {
-            areaSqFt = null;
-            areaFmt = 'Not disclosed';
-            dealType = explicitType || 'Pre-commitment';
-            heatScore = 65;
-            heatBreakdown = { recency: 40, size: 0, dealType: 20, status: 5, recencyPts: 40, sizePts: 0, typePts: 20, statusPts: 5, totalScore: 65, summary: 'R:40 + S:0 + T:20 + St:5 = 65' };
-          } else if (rowId === 'MY-046') {
-            dealType = explicitType || 'Unstated';
-            heatBreakdown = { ...heatBreakdown, typePts: 5, dealType: 5 };
-            heatScore = (heatBreakdown.recency || 40) + (heatBreakdown.size || 25) + 5 + (heatBreakdown.status || 5);
-            heatBreakdown.totalScore = heatScore;
-            heatBreakdown.summary = `R:${heatBreakdown.recency || 40} + S:${heatBreakdown.size || 25} + T:5 + St:${heatBreakdown.status || 5} = ${heatScore}`;
-          } else if (explicitSize && explicitSize.trim()) {
+          if (explicitSize && explicitSize.trim()) {
             const parsedVal = parseInt(explicitSize.replace(/,/g, '').replace(/\s+/g, ''), 10);
             if (!isNaN(parsedVal) && parsedVal > 0) {
               areaSqFt = parsedVal;
@@ -2486,7 +2432,18 @@ document.addEventListener('DOMContentLoaded', () => {
             heatScoreBreakdown: heatBreakdown,
             isMultiTenantHub: false,
             buildingTenantCount: 1,
-            isNonDealRow: isNonDeal
+            isNonDealRow: isNonDeal,
+            firstMoverLane: cached.firstMoverLane || 'Undated',
+            handoverDate: cached.handoverDate || '',
+            handoverFormatted: cached.handoverFormatted || 'Unstated',
+            hasHandoverDate: cached.hasHandoverDate || false,
+            talkByDate: cached.talkByDate || '',
+            talkByFormatted: cached.talkByFormatted || '',
+            firstMoverTooltip: cached.firstMoverTooltip || '',
+            isLateStage: cached.isLateStage || false,
+            coarseBadge: cached.coarseBadge || '',
+            isCoarseBand: cached.isCoarseBand || false,
+            isDatingPriority: cached.isDatingPriority || false
           };
 
           if (isDeal) {
@@ -2741,17 +2698,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.__LEADIQ_VERIFY__ = {
       version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.30',
-      headerTotal: state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 571,
-      totalDeals: state.leads ? state.leads.length : 563,
-      pipelineTotalFormatted: state.metrics ? state.metrics.totalDisclosedSqFtFormatted : '32.5M sq ft',
-      sheetExplicitSqFtFormatted: state.metrics && state.metrics.sheetExplicitSqFtFormatted ? state.metrics.sheetExplicitSqFtFormatted : '4.38M sq ft',
+      headerTotal: state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 572,
+      totalDeals: state.leads ? state.leads.length : 564,
+      pipelineTotalFormatted: state.metrics ? state.metrics.totalDisclosedSqFtFormatted : '33.6M sq ft',
+      sheetExplicitSqFtFormatted: state.metrics && state.metrics.sheetExplicitSqFtFormatted ? state.metrics.sheetExplicitSqFtFormatted : '5.50M sq ft',
       signalDerivedSqFtFormatted: state.metrics && state.metrics.signalDerivedSqFtFormatted ? state.metrics.signalDerivedSqFtFormatted : '28.1M sq ft',
-      pipelineDualSourceSub: state.metrics && state.metrics.pipelineDualSourceSub ? state.metrics.pipelineDualSourceSub : '4.38M Sheet · 28.1M Signal estimates',
+      pipelineDualSourceSub: state.metrics && state.metrics.pipelineDualSourceSub ? state.metrics.pipelineDualSourceSub : '5.50M Sheet · 28.1M Signal estimates',
       submarketValues: Array.from(new Set((state.leads || []).map(l => l.submarket || l.city))).filter(Boolean).length,
       queueCount: dealBacked.length,
       bannerMapped: dealBacked.length,
       multiTenantHubsCount: state.metrics && state.metrics.multiTenantHubsCount ? state.metrics.multiTenantHubsCount : 15,
-      coverageBuildingPct: state.metrics && state.metrics.buildingDisclosureRate ? state.metrics.buildingDisclosureRate : 32.7,
+      coverageBuildingPct: state.metrics && state.metrics.buildingDisclosureRate ? state.metrics.buildingDisclosureRate : 32.8,
       engageNowCount: (state.leads || []).filter(l => l.firstMoverLane === 'Engage now (12–18m)').length,
       competeNowCount: (state.leads || []).filter(l => l.firstMoverLane === 'Compete now (6–12m)').length,
       fightHarderCount: (state.leads || []).filter(l => l.firstMoverLane === 'Fight harder (0–6m)').length,
@@ -2765,6 +2722,7 @@ document.addEventListener('DOMContentLoaded', () => {
       multiDealAccounts: (state.tracker || []).filter(t => (t.dealsCount || 1) >= 2).map(t => ({ company: t.company, country: t.country, dealsCount: t.dealsCount, dealIds: t.dealIds })),
       appleIndiaDealsCount: ((state.tracker || []).find(t => t.company === 'Apple India') || {}).dealsCount || 0,
       smartworksDealsCount: ((state.tracker || []).find(t => t.company === 'Smartworks') || {}).dealsCount || 0,
+      indiqubeDealsCount: ((state.tracker || []).find(t => (t.company || '').toLowerCase() === 'indiqube') || {}).dealsCount || 0,
       radarHeat: radarHeat,
       dossierSubheaders: sampleSubheaders,
       isVerifyMode: isVerify
