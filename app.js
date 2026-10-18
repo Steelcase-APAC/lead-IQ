@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     activeView: 'analytics', // 'analytics' (default home page) | 'radar' | 'tracker' | 'targetAccounts' | 'hubs' | 'coverage'
     activeCountry: 'ALL',
     radarViewMode: 'table', // 'table' (default in Sales Radar) | 'card'
-    radarSort: 'talkBy', // 'talkBy' (default in v2.30) | 'heat' | 'recency' | 'size' | 'company'
+    radarSort: 'talkBy', // 'talkBy' (default in v2.30+) | 'heat' | 'recency' | 'size' | 'company'
     lateStageCollapsed: true,
     analyticsTimelineMode: 'deal', // 'deal' | 'found'
     analyticsHubMetric: 'deals', // 'deals' | 'sqft'
@@ -20,8 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
       dealType: 'ALL',
       window: 'ALL',
       sizeTier: 'ALL',
-      status: 'ALL'
+      status: 'ALL',
+      priorityGccOnly: false
     },
+    showConfidenceBadge: false, // Gated until Angie confirms Sheet backfill is complete
     sourcesSearch: '',
     leads: (typeof window !== 'undefined' && Array.isArray(window.INITIAL_LEADS_DATA) && window.INITIAL_LEADS_DATA.length) 
            ? [...window.INITIAL_LEADS_DATA] 
@@ -180,6 +182,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterSizeTier = document.getElementById('filterSizeTier');
   const filterStatus = document.getElementById('filterStatus');
   const btnResetFilters = document.getElementById('btnResetFilters');
+  const btnFilterPriorityGcc = document.getElementById('btnFilterPriorityGcc');
+  const countPriorityGccDeals = document.getElementById('countPriorityGccDeals');
+
+  // Immediate Action Banner Elements (Challenge 1)
+  const immediateActionBanner = document.getElementById('immediateActionBanner');
+  const immediateActionCount = document.getElementById('immediateActionCount');
+  const immediateActionFitoutCount = document.getElementById('immediateActionFitoutCount');
+  const immediateActionFightCount = document.getElementById('immediateActionFightCount');
+  const immediateActionTrayState = document.getElementById('immediateActionTrayState');
 
   // Radar Controls & Containers
   const radarVisibleCount = document.getElementById('radarVisibleCount');
@@ -269,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // App Version Badge
   if (appVersionBadge) {
-    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.30');
+    const ver = (state.metrics && state.metrics.version) || (typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.31');
     appVersionBadge.textContent = `v${ver}`;
   }
 
@@ -484,6 +495,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
       }
 
+      // 8. Priority GCC Filter (Challenge 2)
+      if (state.filters.priorityGccOnly && !lead.isPriorityGcc) {
+        return false;
+      }
+
       return true;
     });
 
@@ -550,6 +566,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dropCountNurture) dropCountNurture.textContent = countNurture.toLocaleString();
     if (dropCountFar) dropCountFar.textContent = countFar.toLocaleString();
     if (dropCountUndated) dropCountUndated.textContent = countUndated.toLocaleString();
+
+    // Immediate Action Banner counts (Challenge 1)
+    const lateLeadsAll = relevantTotalLeads.filter(l => l.isLateStage);
+    const fitoutLeads = relevantTotalLeads.filter(l => l.firstMoverLane === 'Fit-out in progress (<0m)');
+    const fightLeads = relevantTotalLeads.filter(l => l.firstMoverLane === 'Fight harder (0–6m)');
+    if (immediateActionCount) immediateActionCount.textContent = `${lateLeadsAll.length.toLocaleString()} deals`;
+    if (immediateActionFitoutCount) immediateActionFitoutCount.textContent = fitoutLeads.length.toLocaleString();
+    if (immediateActionFightCount) immediateActionFightCount.textContent = fightLeads.length.toLocaleString();
+
+    // Priority GCC Deals count badge (Challenge 2)
+    const pgccDealsCount = relevantTotalLeads.filter(l => l.isPriorityGcc).length;
+    if (countPriorityGccDeals) countPriorityGccDeals.textContent = pgccDealsCount.toLocaleString();
 
     updateRadarDropdownUI(state.filters.window, { countAll, countEngage, countCompete, countFight, countFitout, countNurture, countFar, countUndated });
 
@@ -761,6 +789,11 @@ document.addEventListener('DOMContentLoaded', () => {
           </span>
           ${lead.isCoarseBand ? `<span class="coarse-band-badge" title="${escapeHtml(lead.coarseTooltip || '')}">${escapeHtml(lead.coarseBadge || '[Coarse 12–24m]')}</span>` : ''}
           ${lead.isDatingPriority ? `<span class="priority-dating-flag" title="${escapeHtml(lead.datingPriorityReason || '')}">🎯 Priority Dating</span>` : ''}
+          ${state.showConfidenceBadge ? `
+            <span class="confidence-badge ${lead.hasConfidence ? 'tier-' + lead.confidence.toLowerCase().replace(/[^a-z0-9]/g, '-') : 'tier-unrated'}" title="Confidence Tier: ${escapeHtml(lead.confidence)}">
+              ${lead.hasConfidence ? '● ' : '○ '}${escapeHtml(lead.confidence)}
+            </span>
+          ` : ''}
         </div>
         <div style="display: flex; gap: 6px; align-items: center;">
           <span class="badge-clean" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: var(--accent-blue);" title="Contract Row ID">${escapeHtml(lead.rowId || lead.id)}</span>
@@ -770,10 +803,13 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="card-company-header">
-        <h4 data-company="${escapeHtml(lead.company)}">${escapeHtml(lead.company)}</h4>
+        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+          <h4 data-company="${escapeHtml(lead.company)}">${escapeHtml(lead.company)}</h4>
+          ${lead.isPriorityGcc ? `<span class="badge-priority-gcc" title="Priority GCC Target Account (from Watchlist)">🎯 Priority GCC</span>` : lead.isWatchlistTarget ? `<span class="badge-watchlist-target" title="Target Account (from Watchlist)">🎯 Watchlist</span>` : ''}
+        </div>
         <div class="card-building-loc">
           <span>📍 ${escapeHtml(lead.submarket || lead.city)}</span>
-          ${lead.building ? `<strong>· ${escapeHtml(lead.building)}</strong>` : ''}
+          ${lead.building ? `<strong>· 🏢 ${escapeHtml(lead.building)}</strong>` : ''}
           ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" title="${lead.buildingTenantCount} moving tenants in this building!">🏢 Multi-Tenant Hub (${lead.buildingTenantCount} tenants)</span>` : ''}
         </div>
       </div>
@@ -792,6 +828,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="chip-tag" style="font-size: 10.5px;">
           🕒 ${escapeHtml(lead.dealDate || lead.dealQuarter || '—')}
         </span>
+      </div>
+
+      <!-- Templated Call Angle (Challenge 4) -->
+      <div class="call-angle-card" style="margin: 8px 0; font-size: 11.5px; padding: 5px 8px;" title="Templated sales pitch angle from verbatim Sheet cells">
+        <span class="call-angle-tag">🎯 Call Angle:</span>
+        <span class="call-angle-text">${escapeHtml(lead.callAngle || '')}</span>
       </div>
 
       <div class="card-signal-snippet">
@@ -862,21 +904,32 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display: flex; flex-direction: column; gap: 3px;">
           <span class="first-mover-pill ${laneClass}">${escapeHtml(lead.firstMoverLane || 'Undated')}</span>
           ${lead.isCoarseBand ? `<span class="coarse-band-badge" title="${escapeHtml(lead.coarseTooltip || '')}">${escapeHtml(lead.coarseBadge || '[Coarse 12–24m]')}</span>` : ''}
+          ${state.showConfidenceBadge ? `
+            <span class="confidence-badge ${lead.hasConfidence ? 'tier-' + lead.confidence.toLowerCase().replace(/[^a-z0-9]/g, '-') : 'tier-unrated'}" title="Confidence Tier: ${escapeHtml(lead.confidence)}">
+              ${lead.hasConfidence ? '● ' : '○ '}${escapeHtml(lead.confidence)}
+            </span>
+          ` : ''}
         </div>
       </td>
       <td>
-        <div style="display: flex; align-items: center; gap: 6px;">
+        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
           <span class="badge-clean" style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 700; color: var(--accent-blue);" title="Contract Row ID">${escapeHtml(lead.rowId || lead.id)}</span>
           <strong class="company-link" data-company="${escapeHtml(lead.company)}" style="cursor: pointer; color: var(--text-primary);">
             ${escapeHtml(lead.company)}
           </strong>
+          ${lead.isPriorityGcc ? `<span class="badge-priority-gcc" title="Priority GCC Target Account (from Watchlist)">🎯 Priority GCC</span>` : lead.isWatchlistTarget ? `<span class="badge-watchlist-target" title="Target Account (from Watchlist)">🎯 Watchlist</span>` : ''}
         </div>
       </td>
       <td>${lead.flag} ${lead.country}</td>
       <td>
-        <span>${escapeHtml(lead.submarket || lead.city)}</span>
-        ${lead.building ? `<br><small style="color: var(--text-muted);">${escapeHtml(lead.building)}</small>` : ''}
-        ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" style="font-size: 9px; padding: 1px 3px;">🏢 Hub</span>` : ''}
+        ${lead.building ? `
+          <strong class="structured-bldg-name">🏢 ${escapeHtml(lead.building)}</strong>
+          <div class="submarket-muted">📍 ${escapeHtml(lead.submarket || lead.city)}</div>
+        ` : `
+          <div class="submarket-muted">📍 ${escapeHtml(lead.submarket || lead.city)}</div>
+          <small style="color: var(--text-muted); font-style: italic;">Building unstated</small>
+        `}
+        ${lead.isMultiTenantHub ? `<span class="hub-cluster-pill" style="font-size: 9px; padding: 1px 3px; display: inline-block; margin-top: 2px;">🏢 Hub</span>` : ''}
       </td>
       <td><span class="chip-tag tag-deal-type" style="font-size: 10px;">${escapeHtml(lead.dealType)}</span></td>
       <td>
@@ -884,8 +937,14 @@ document.addEventListener('DOMContentLoaded', () => {
           ${lead.areaFormatted === 'Unsure' ? 'Unsure' : isSizeDisclosed ? (lead.isSizeInferred ? `~${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; opacity: 0.85; font-weight: normal;" title="Estimated from news signal prose; Sheet cell is blank">[Signal]</span>` : `${lead.areaFormatted} <span class="badge-source" style="font-size: 9px; color: #10b981; font-weight: bold;" title="Verified in master Google Sheet column">[Sheet]</span>`) : 'Not disclosed'}
         </span>
       </td>
-      <td style="max-width: 280px; font-size: 11.5px; line-height: 1.35;">
-        ${escapeHtml(lead.timing || lead.signal)}
+      <td style="max-width: 290px; font-size: 11.5px; line-height: 1.35;">
+        <div class="call-angle-card" title="Templated sales pitch angle from verbatim Sheet cells">
+          <span class="call-angle-tag">🎯 Call Angle:</span>
+          <span class="call-angle-text">${escapeHtml(lead.callAngle || '')}</span>
+        </div>
+        <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.3;">
+          ${escapeHtml(lead.timing || lead.signal)}
+        </div>
       </td>
       <td>
         <select class="card-status-select" data-company="${escapeHtml(lead.company)}" style="font-size: 10.5px; padding: 2px;">
@@ -2071,13 +2130,53 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tabHubsBtn) tabHubsBtn.addEventListener('click', () => switchView('hubs'));
   if (tabCoverageBtn) tabCoverageBtn.addEventListener('click', () => switchView('coverage'));
 
-  // Late Stage Collapsible Section Toggle
+  // Late Stage Collapsible Section Toggle & Immediate Action Banner (Challenge 1)
+  function setLateStageCollapsed(collapsed) {
+    state.lateStageCollapsed = collapsed;
+    if (lateStageContent) {
+      lateStageContent.style.display = collapsed ? 'none' : 'block';
+    }
+    if (toggleLateStageBtn) {
+      toggleLateStageBtn.setAttribute('aria-expanded', String(!collapsed));
+      toggleLateStageBtn.classList.toggle('expanded', !collapsed);
+    }
+    if (immediateActionTrayState) {
+      immediateActionTrayState.textContent = collapsed ? '[Collapsed]' : '[Expanded]';
+    }
+  }
+
   if (toggleLateStageBtn && lateStageContent) {
     toggleLateStageBtn.addEventListener('click', () => {
-      state.lateStageCollapsed = !state.lateStageCollapsed;
-      lateStageContent.style.display = state.lateStageCollapsed ? 'none' : 'block';
-      toggleLateStageBtn.setAttribute('aria-expanded', String(!state.lateStageCollapsed));
-      toggleLateStageBtn.classList.toggle('expanded', !state.lateStageCollapsed);
+      setLateStageCollapsed(!state.lateStageCollapsed);
+    });
+  }
+
+  if (immediateActionBanner) {
+    const handleImmediateActionClick = () => {
+      if (state.lateStageCollapsed) {
+        setLateStageCollapsed(false);
+      }
+      if (lateStageContainer) {
+        lateStageContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    immediateActionBanner.addEventListener('click', handleImmediateActionClick);
+    immediateActionBanner.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleImmediateActionClick();
+      }
+    });
+  }
+
+  // Priority GCC Filter Button (Challenge 2)
+  if (btnFilterPriorityGcc) {
+    btnFilterPriorityGcc.addEventListener('click', () => {
+      state.filters.priorityGccOnly = !state.filters.priorityGccOnly;
+      btnFilterPriorityGcc.classList.toggle('active', state.filters.priorityGccOnly);
+      btnFilterPriorityGcc.setAttribute('aria-pressed', String(state.filters.priorityGccOnly));
+      filterAndSortLeads();
     });
   }
 
@@ -2178,7 +2277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Fix 9: Reset must reset EVERY filter including Market
+  // Fix 9: Reset must reset EVERY filter including Market & Priority GCC
   btnResetFilters.addEventListener('click', () => {
     state.filters = {
       search: '',
@@ -2186,8 +2285,13 @@ document.addEventListener('DOMContentLoaded', () => {
       dealType: 'ALL',
       window: 'ALL',
       sizeTier: 'ALL',
-      status: 'ALL'
+      status: 'ALL',
+      priorityGccOnly: false
     };
+    if (btnFilterPriorityGcc) {
+      btnFilterPriorityGcc.classList.remove('active');
+      btnFilterPriorityGcc.setAttribute('aria-pressed', 'false');
+    }
     state.activeCountry = 'ALL';
     countrySelect.value = 'ALL';
     headerMarketFlag.textContent = '🌐';
@@ -2739,7 +2843,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dealBacked = (state.tracker || []).filter(t => t.isDealBacked !== false && t.company !== 'Kuala Lumpur Kepong (KLK)');
 
     window.__LEADIQ_VERIFY__ = {
-      version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.30',
+      version: typeof APP_VERSION !== 'undefined' ? APP_VERSION : '2.31',
       headerTotal: state.metrics && state.metrics.totalTrackedRows ? state.metrics.totalTrackedRows : 572,
       totalDeals: state.leads ? state.leads.length : 564,
       pipelineTotalFormatted: state.metrics ? state.metrics.totalDisclosedSqFtFormatted : '33.6M sq ft',

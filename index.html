@@ -32,7 +32,7 @@
             </svg>
           </div>
           <div class="brand-info">
-            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.30</span></h1>
+            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.31</span></h1>
             <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
           </div>
         </div>
@@ -278,11 +278,18 @@
     <!-- GLOBAL COMPOSABLE FILTER TOOLBAR               -->
     <!-- ============================================== -->
     <section class="controls-filter-bar">
-      <!-- Row 1: Search Box -->
+      <!-- Row 1: Search Box + Priority GCC Quick Filter -->
       <div class="filters-search-row">
         <div class="search-box-input-wrap">
           <svg class="search-icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           <input type="text" id="globalSearchInput" placeholder="Search company, tech park, tower, signal text, submarket...">
+        </div>
+        <div class="filters-quick-actions">
+          <button id="btnFilterPriorityGcc" class="filter-quick-pill" type="button" title="Filter to 21 Priority GCC accounts with active deals (the remaining 22 accounts without Sheet deals remain in Target Accounts tab awaiting sweep)">
+            <span class="quick-pill-icon">🎯</span>
+            <span class="quick-pill-label">Priority GCC Deals</span>
+            <span class="quick-pill-count" id="countPriorityGccDeals">21</span>
+          </button>
         </div>
       </div>
 
@@ -391,6 +398,21 @@
             <button id="btnRadarCardView" class="segment-btn" style="padding: 4px 10px; font-size: 12px;" title="Rich sales pitch cards">Card View</button>
             <button id="btnRadarTableView" class="segment-btn active" style="padding: 4px 10px; font-size: 12px;" title="Executive data table">Table View</button>
           </div>
+        </div>
+      </div>
+
+      <!-- Immediate Action Banner (Challenge 1) -->
+      <div class="immediate-action-banner" id="immediateActionBanner" role="button" tabindex="0" title="Click to jump to and expand 206 Late Stage deals in fit-out or final 6 months">
+        <div class="action-banner-left">
+          <span class="action-bolt">⚡</span>
+          <span class="action-title">Immediate Action:</span>
+          <strong class="action-count" id="immediateActionCount">206 deals</strong>
+          <span class="action-split">(<span id="immediateActionFitoutCount">53</span> fit-out in progress · <span id="immediateActionFightCount">153</span> within 0–6m)</span>
+        </div>
+        <div class="action-banner-right">
+          <span class="action-jump-text">Jump to Late Stage tray</span>
+          <span class="action-tray-state" id="immediateActionTrayState">[Collapsed]</span>
+          <svg class="action-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
       </div>
 

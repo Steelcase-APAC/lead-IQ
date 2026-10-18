@@ -1097,6 +1097,8 @@ def build_all():
     # 3b. Parse Watchlist (Target Accounts)
     watchlist_records = []
     watchlist_companies = set()
+    watchlist_by_row_id = {}
+    watchlist_by_comp = {}
     watchlist_file = 'data/watchlist.csv'
     if os.path.exists(watchlist_file):
         with open(watchlist_file, 'r', encoding='utf-8') as fp:
@@ -1138,7 +1140,7 @@ def build_all():
                     tags = [t.strip() for t in resolved_tag.split(',') if t.strip()] if resolved_tag else []
 
                     watchlist_companies.add(w_comp.lower())
-                    watchlist_records.append({
+                    w_record = {
                         'id': idx + 1,
                         'company': w_comp,
                         'country': w_country,
@@ -1149,7 +1151,11 @@ def build_all():
                         'tags': tags,
                         'isPriorityGcc': is_priority_gcc,
                         'notes': w_notes
-                    })
+                    }
+                    watchlist_records.append(w_record)
+                    if w_matched_id:
+                        watchlist_by_row_id[w_matched_id] = w_record
+                    watchlist_by_comp[w_comp.lower()] = w_record
         print(f"Loaded {len(watchlist_records)} accounts from watchlist.csv ({sum(1 for w in watchlist_records if w['isPriorityGcc'])} Priority GCC)")
 
     # 4. Parse Market Tabs (Country Leads - 569 raw rows)
@@ -1194,16 +1200,17 @@ def build_all():
             if not rows: continue
             header = [h.strip().lower() for h in rows[0]]
             handover_col_idx = header.index('handover date') if 'handover date' in header else 15
+            confidence_col_idx = header.index('confidence') if 'confidence' in header else 16
             raw_data_rows = [r for r in rows[1:] if r and any(r) and r[0].strip()]
             per_country_raw_counts[country_name] = len(raw_data_rows)
             print(f"Parsing market tab [{country_name}] ({len(raw_data_rows)} raw rows)...")
 
             for r in raw_data_rows:
-                # 15 or 16-column schema:
+                # 15, 16, or 17-column schema:
                 # 0: Row ID, 1: Company, 2: Country, 3: Market, 4: Building,
                 # 5: Size (sq ft), 6: Deal type, 7: Deal date / quarter, 8: Row kind,
                 # 9: Fit-out window, 10: Signal, 11: Source, 12: Source URL,
-                # 13: Timing implication, 14: Date found, (optional 15: Handover date)
+                # 13: Timing implication, 14: Date found, 15: Handover date, 16: Confidence
                 row_id = r[0].strip()
                 comp = clean_company_name(r[1])
                 country_raw = r[2].strip() if len(r)>2 and r[2].strip() else country_name
@@ -1220,6 +1227,12 @@ def build_all():
                 timing_raw = r[13].strip() if len(r)>13 else ''
                 date_found = r[14].strip() if len(r)>14 else '2026-10-14'
                 handover_raw = r[handover_col_idx].strip() if len(r) > handover_col_idx else ''
+
+                # Confidence column (Column Q on live Google Sheet)
+                confidence_raw = r[confidence_col_idx].strip() if len(r) > confidence_col_idx else ''
+                VALID_CONFIDENCE_TIERS = {'Verified CRE Intel', 'High-Intent Signal', 'Early Discovery'}
+                has_confidence = (confidence_raw in VALID_CONFIDENCE_TIERS)
+                confidence = confidence_raw if has_confidence else 'Unrated Signal'
 
                 is_deal = (row_kind == 'Deal')
                 is_non_deal = not is_deal
@@ -1238,9 +1251,20 @@ def build_all():
 
                 fitout_window = fitout_window_raw if fitout_window_raw else 'Timing unknown'
 
+                # Watchlist / Priority GCC matching (Challenge 2)
+                w_match = watchlist_by_row_id.get(row_id) or watchlist_by_comp.get(comp.lower())
+                is_watchlist_target = bool(w_match)
+                is_priority_gcc = bool(w_match and w_match.get('isPriorityGcc'))
+                watchlist_tag = w_match.get('tag', '') if w_match else ''
+
                 # First-Mover Engagement Reframe fields
-                is_watchlist_target = (comp.lower() in watchlist_companies)
                 fm_info = parse_handover_and_talk_by(handover_raw, fitout_window, sig, timing, row_id, comp, country_name, sqft, is_watchlist=is_watchlist_target, today=TODAY)
+
+                # Templated Call Angle from verbatim Sheet cells (Challenge 4)
+                bldg_target = bldg if (has_bldg and bldg) else (submarket if submarket else (city if city else 'Regional'))
+                size_target = area_fmt if area_fmt else 'Not disclosed'
+                window_target = fm_info['talkByFormatted'] if fm_info.get('talkByFormatted') else 'Timing unknown'
+                call_angle = f"Target: {bldg_target} · Size: {size_target} · Window: {window_target}"
 
                 # Single-source Status from Company Tracker
                 tracker_match = tracker_by_company.get((comp.lower(), country_name.lower())) or tracker_by_name.get(comp.lower())
@@ -1323,7 +1347,13 @@ def build_all():
                     'coarseTooltip': fm_info['coarseTooltip'],
                     'isDatingPriority': fm_info['isDatingPriority'],
                     'datingPriorityReason': fm_info['datingPriorityReason'],
-                    'isWatchlistTarget': is_watchlist_target
+                    'isWatchlistTarget': is_watchlist_target,
+                    'isPriorityGcc': is_priority_gcc,
+                    'watchlistTag': watchlist_tag,
+                    'callAngle': call_angle,
+                    'confidence': confidence,
+                    'hasConfidence': has_confidence,
+                    'confidenceRaw': confidence_raw
                 }
 
                 if is_non_deal:
@@ -1465,6 +1495,9 @@ def build_all():
         'coarseBandCount': sum(1 for l in all_leads if l.get('isCoarseBand')),
         'datingPriorityCount': sum(1 for l in all_leads if l.get('isDatingPriority')),
         'watchlistCount': len(watchlist_records),
+        'watchlistPriorityGccCount': sum(1 for w in watchlist_records if w.get('isPriorityGcc')),
+        'priorityGccDealsCount': sum(1 for l in all_leads if l.get('isPriorityGcc')),
+        'watchlistDealsCount': sum(1 for l in all_leads if l.get('isWatchlistTarget')),
         'disclaimerNotice': 'Disclosed sizes only — partial total. Never implies unstated leases are zero.',
         'knownBoundaries': {
             'japanMalaysiaRenewals': 'Japan has 0 lease renewals recorded (relocation focus). Malaysia records 0 physical office renewals (1 non-deal MFRS 16 accounting disclosure excluded).',
