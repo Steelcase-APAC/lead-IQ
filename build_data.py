@@ -891,7 +891,7 @@ def parse_handover_and_talk_by(handover_raw, fitout_window, signal, timing, row_
 
         # 4. Standard ISO or date
         else:
-            for fmt in ('%Y-%m-%d', '%d/%m/%Y', '%m/%d/%Y', '%b %Y', '%B %Y'):
+            for fmt in ('%Y-%m-%d', '%d/%m/%Y', '%m/%d/%Y', '%d %b %Y', '%d %B %Y', '%b %Y', '%B %Y'):
                 try:
                     dt = datetime.datetime.strptime(handover_str, fmt).date()
                     handover_date = dt
