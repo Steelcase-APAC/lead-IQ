@@ -1,4 +1,4 @@
-// Lease-IQ Master Data Engine - Built 2026-10-18 13:23:01
+// Lease-IQ Master Data Engine - Built 2026-10-18 14:02:53
 // Auto-compiled from 9 Google Sheet / CSV source feeds
 
 var APP_VERSION = "2.31";
@@ -14,7 +14,7 @@ var GOOGLE_SHEET_CONFIG = {
     "Malaysia",
     "Sri Lanka"
   ],
-  "lastBuilt": "2026-10-18 13:23:01",
+  "lastBuilt": "2026-10-18 14:02:53",
   "metrics": {
     "version": "2.31",
     "totalTrackedRows": 572,

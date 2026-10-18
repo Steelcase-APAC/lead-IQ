@@ -104,28 +104,53 @@ body {
 }
 
 /* ========================================================= */
-/* TOP NAV BAR (Solid Black Executive Terminal Header)       */
+/* TOP NAV BAR (Solid Black Executive Terminal Header - 2 Rows) */
 /* ========================================================= */
 .top-nav-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   background: #000000;
   color: #ffffff;
   border: 1.5px solid #000000;
   border-radius: var(--card-radius);
-  padding: 0 16px;
-  height: 56px;
+  padding: 12px 18px 10px;
+  height: auto;
   margin-bottom: 20px;
-  gap: 16px;
+  gap: 10px;
   box-shadow: none;
   box-sizing: border-box;
+  position: relative;
+  z-index: 50;
 }
 
 [data-theme="dark"] .top-nav-bar {
   background: #121215;
   border-color: #27272a;
   color: #ffffff;
+}
+
+/* Rows inside Header */
+.top-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.top-nav-row-main {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .top-nav-row-main {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.top-nav-row-nav {
+  justify-content: flex-start;
+  padding-top: 1px;
 }
 
 .header-left-group {
@@ -274,7 +299,7 @@ body {
   pointer-events: none;
 }
 
-/* Center Segmented View Selector */
+/* View Navigation Tabs (Row 2) */
 .segmented-nav-group {
   display: inline-flex;
   align-items: center;
@@ -282,8 +307,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--control-radius);
   padding: 3px;
-  gap: 3px;
-  height: 36px;
+  gap: 4px;
+  height: 38px;
   box-sizing: border-box;
   flex-shrink: 0;
   white-space: nowrap;
@@ -292,22 +317,25 @@ body {
 .segment-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   background: transparent;
   border: none;
   color: #d4d4d8;
   font-family: inherit;
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 5px 10px;
+  padding: 5px 12px;
   border-radius: 4px;
   cursor: pointer;
   white-space: nowrap;
+  height: 30px;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
 }
 
 .segment-btn:hover {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .segment-btn.active {
@@ -347,7 +375,9 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 8px 5px 10px;
+  padding: 5px 10px 5px 12px;
+  height: 30px;
+  box-sizing: border-box;
 }
 
 .nav-radar-dropdown .nav-chevron {
@@ -1959,13 +1989,17 @@ body {
 
 @media (max-width: 1024px) {
   .top-nav-bar {
-    height: auto;
     padding: 10px 14px;
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
   }
-  .header-left-group, .segmented-nav-group, .header-right-group {
+  .top-nav-row {
     flex-wrap: wrap;
+    gap: 10px;
+  }
+  .segmented-nav-group {
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none;
   }
   .charts-2x2-grid {
     grid-template-columns: 1fr;
@@ -1980,14 +2014,23 @@ body {
     padding: 14px;
   }
   .top-nav-bar {
+    padding: 12px;
+    gap: 10px;
+  }
+  .top-nav-row-main {
     flex-direction: column;
     align-items: stretch;
-    height: auto;
-    padding: 12px;
-    gap: 12px;
+    gap: 10px;
   }
   .header-left-group {
     justify-content: space-between;
+    width: 100%;
+  }
+  .header-right-group {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
   }
   .segmented-nav-group {
     overflow-x: auto;

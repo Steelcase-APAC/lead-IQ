@@ -16,191 +16,195 @@
     <!-- TOP NAV BAR (Solid Black Executive Bar)       -->
     <!-- ============================================== -->
     <header class="top-nav-bar">
-      <!-- Left: Brand Logo & Integrated Market Dropdown -->
-      <div class="header-left-group">
-        <div class="brand-block" title="Steelcase APAC Lease-IQ">
-          <div class="brand-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 21V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17"></path>
-              <path d="M12 21V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v12"></path>
-              <path d="M2 21h20"></path>
-              <line x1="8" y1="7" x2="8" y2="7.01"></line>
-              <line x1="8" y1="11" x2="8" y2="11.01"></line>
-              <line x1="8" y1="15" x2="8" y2="15.01"></line>
-              <line x1="16" y1="13" x2="16" y2="13.01"></line>
-              <line x1="16" y1="17" x2="16" y2="17.01"></line>
-            </svg>
+      <!-- Row 1: Brand Logo, Market Dropdown & Executive Actions -->
+      <div class="top-nav-row top-nav-row-main">
+        <div class="header-left-group">
+          <div class="brand-block" title="Steelcase APAC Lease-IQ">
+            <div class="brand-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 21V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17"></path>
+                <path d="M12 21V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v12"></path>
+                <path d="M2 21h20"></path>
+                <line x1="8" y1="7" x2="8" y2="7.01"></line>
+                <line x1="8" y1="11" x2="8" y2="11.01"></line>
+                <line x1="8" y1="15" x2="8" y2="15.01"></line>
+                <line x1="16" y1="13" x2="16" y2="13.01"></line>
+                <line x1="16" y1="17" x2="16" y2="17.01"></line>
+              </svg>
+            </div>
+            <div class="brand-info">
+              <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.31</span></h1>
+              <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
+            </div>
           </div>
-          <div class="brand-info">
-            <h1 class="brand-title">Lease-IQ <span class="brand-version-badge" id="appVersionBadge">v2.31</span></h1>
-            <span class="brand-subtitle">STEELCASE APAC SALES RADAR</span>
+
+          <div class="header-vsep"></div>
+
+          <!-- Integrated Market Dropdown -->
+          <div class="header-market-dropdown" title="Select APAC Market Filter">
+            <span class="market-dropdown-flag" id="headerMarketFlag">🌐</span>
+            <select id="countrySelect" class="market-dropdown-select" aria-label="Select APAC Market">
+              <option value="ALL" selected>🌐 All Markets (572 rows · 564 deals)</option>
+              <option value="China">🇨🇳 China (62 rows)</option>
+              <option value="India">🇮🇳 India (150 rows)</option>
+              <option value="Japan">🇯🇵 Japan (96 rows)</option>
+              <option value="Korea">🇰🇷 South Korea (153 rows)</option>
+              <option value="Malaysia">🇲🇾 Malaysia (80 rows)</option>
+              <option value="Sri Lanka">🇱🇰 Sri Lanka (31 rows)</option>
+            </select>
+            <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </div>
 
-        <div class="header-vsep"></div>
+        <!-- Right: Sync Capsule, Theme, Google Sheet, Export -->
+        <div class="header-right-group">
+          <div class="sync-status-capsule" id="syncStatusCapsule" title="Google Sheet dynamic database sync">
+            <div class="sync-indicator cached" id="syncIndicator"></div>
+            <div class="sync-info-wrap">
+              <span class="sync-text-label" id="syncStatusText">Offline / Cached</span>
+              <span class="sync-timestamp-label" id="syncTimestamp">Local data.js fallback</span>
+            </div>
+            <button id="btnSyncRefresh" class="btn-sync-icon" title="Fetch latest data live from Google Sheet">
+              <svg id="syncIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </button>
+          </div>
 
-        <!-- Integrated Market Dropdown -->
-        <div class="header-market-dropdown" title="Select APAC Market Filter">
-          <span class="market-dropdown-flag" id="headerMarketFlag">🌐</span>
-          <select id="countrySelect" class="market-dropdown-select" aria-label="Select APAC Market">
-            <option value="ALL" selected>🌐 All Markets (572 rows · 564 deals)</option>
-            <option value="China">🇨🇳 China (62 rows)</option>
-            <option value="India">🇮🇳 India (150 rows)</option>
-            <option value="Japan">🇯🇵 Japan (96 rows)</option>
-            <option value="Korea">🇰🇷 South Korea (153 rows)</option>
-            <option value="Malaysia">🇲🇾 Malaysia (80 rows)</option>
-            <option value="Sri Lanka">🇱🇰 Sri Lanka (31 rows)</option>
-          </select>
-          <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+          <button id="themeToggleBtn" class="btn-icon-sq" title="Toggle Light/Dark Theme">
+            <span id="themeIcon">🌙</span>
+          </button>
+
+          <a href="https://docs.google.com/spreadsheets/d/1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-icon-sq" title="Open Source Google Sheet">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+
+          <button id="btnExportCsv" class="btn-action-outline" title="Export filtered deals to CSV">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Export
+          </button>
         </div>
       </div>
 
-      <!-- Center: Main View Navigation Tabs -->
-      <nav class="segmented-nav-group" aria-label="Dashboard Views">
-        <button id="tabAnalyticsBtn" class="segment-btn active" title="Deal velocity, submarkets, and footprint analytics">
-          <span class="tab-icon">📊</span>
-          <span>Analytics</span>
-        </button>
-
-        <!-- Sales Radar First-Mover Lane Dropdown -->
-        <div class="nav-radar-dropdown" id="navRadarDropdownWrap">
-          <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by First-Mover Engagement Lane">
-            <span class="tab-icon" id="radarDropdownIcon">🔥</span>
-            <span id="radarDropdownLabel">Sales Radar</span>
-            <span class="tab-badge" id="radarDropdownBadge">564</span>
-            <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      <!-- Row 2: View Navigation Tabs -->
+      <div class="top-nav-row top-nav-row-nav">
+        <nav class="segmented-nav-group" aria-label="Dashboard Views">
+          <button id="tabAnalyticsBtn" class="segment-btn active" title="Deal velocity, submarkets, and footprint analytics">
+            <span class="tab-icon">📊</span>
+            <span>Analytics</span>
           </button>
-          <div class="nav-dropdown-menu" id="navRadarDropdownMenu">
-            <div class="nav-dropdown-header">First-Mover Engagement Lanes</div>
-            <button type="button" class="nav-dropdown-item active" data-horizon="ALL">
-              <div class="item-left">
-                <span class="item-icon">🔥</span>
-                <div class="item-text">
-                  <span class="item-title">All Radar Opportunities</span>
-                  <span class="item-desc">All prioritized opportunities</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountAll">564</span>
-            </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Engage now (12–18m)">
-              <div class="item-left">
-                <span class="item-icon">⭐</span>
-                <div class="item-text">
-                  <span class="item-title">Engage now (12–18m)</span>
-                  <span class="item-desc">Hero lane: shape design briefs early</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountEngage">3</span>
-            </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Compete now (6–12m)">
-              <div class="item-left">
-                <span class="item-icon">🎯</span>
-                <div class="item-text">
-                  <span class="item-title">Compete now (6–12m)</span>
-                  <span class="item-desc">RFP active or expected imminently</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountCompete">10</span>
-            </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Fight harder (0–6m)">
-              <div class="item-left">
-                <span class="item-icon">⚡</span>
-                <div class="item-text">
-                  <span class="item-title">Fight harder (0–6m)</span>
-                  <span class="item-desc">Late-stage rescue / urgent displacement</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountFight">153</span>
-            </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Fit-out in progress (<0m)">
-              <div class="item-left">
-                <span class="item-icon">🔨</span>
-                <div class="item-text">
-                  <span class="item-title">Fit-out in progress (&lt;0m)</span>
-                  <span class="item-desc">Day-2 add-ons & expansion watch</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountFitout">53</span>
-            </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Nurture (18–24m)">
-              <div class="item-left">
-                <span class="item-icon">🌱</span>
-                <div class="item-text">
-                  <span class="item-title">Nurture (18–24m)</span>
-                  <span class="item-desc">Relationship building & pre-planning</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountNurture">0</span>
-            </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Far watch (>24m)">
-              <div class="item-left">
-                <span class="item-icon">🔮</span>
-                <div class="item-text">
-                  <span class="item-title">Far watch (&gt;24m)</span>
-                  <span class="item-desc">Long-range campus horizons</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountFar">3</span>
-            </button>
-            <button type="button" class="nav-dropdown-item" data-horizon="Undated">
-              <div class="item-left">
-                <span class="item-icon">⏳</span>
-                <div class="item-text">
-                  <span class="item-title">Undated (No date yet)</span>
-                  <span class="item-desc">Priority dating for ≥50k sq ft & watchlist</span>
-                </div>
-              </div>
-              <span class="item-badge" id="dropCountUndated">342</span>
-            </button>
-          </div>
-        </div>
 
-        <button id="tabTrackerBtn" class="segment-btn" title="Active sales working queue">
-          <span class="tab-icon">📋</span>
-          <span>Queue</span>
-          <span class="tab-badge" id="tabTrackerCount" data-testid="queue-count">557</span>
-        </button>
-        <button id="tabTargetAccountsBtn" class="segment-btn" title="Target enterprise accounts from Watchlist">
-          <span class="tab-icon">🎯</span>
-          <span>Target Accounts</span>
-          <span class="tab-badge" id="tabWatchlistCount" data-testid="watchlist-count">0</span>
-        </button>
-        <button id="tabHubsBtn" class="segment-btn" title="Buildings with 2+ tenant signals">
-          <span class="tab-icon">🏢</span>
-          <span>Hubs</span>
-          <span class="tab-badge hub-alert" id="tabHubsCount" data-testid="hubs-count-badge">15</span>
-        </button>
-        <button id="tabCoverageBtn" class="segment-btn" title="Known boundaries, data completeness & 118 sources">
-          <span class="tab-icon">ℹ️</span>
-          <span>Coverage</span>
-        </button>
-      </nav>
-
-      <!-- Right: Sync Capsule, Theme, Google Sheet, Export -->
-      <div class="header-right-group">
-        <div class="sync-status-capsule" id="syncStatusCapsule" title="Google Sheet dynamic database sync">
-          <div class="sync-indicator cached" id="syncIndicator"></div>
-          <div class="sync-info-wrap">
-            <span class="sync-text-label" id="syncStatusText">Offline / Cached</span>
-            <span class="sync-timestamp-label" id="syncTimestamp">Local data.js fallback</span>
+          <!-- Sales Radar First-Mover Lane Dropdown -->
+          <div class="nav-radar-dropdown" id="navRadarDropdownWrap">
+            <button id="tabRadarDropdownBtn" class="segment-btn dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" title="Sales Radar: Filter by First-Mover Engagement Lane">
+              <span class="tab-icon" id="radarDropdownIcon">🔥</span>
+              <span id="radarDropdownLabel">Sales Radar</span>
+              <span class="tab-badge" id="radarDropdownBadge">564</span>
+              <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="nav-dropdown-menu" id="navRadarDropdownMenu">
+              <div class="nav-dropdown-header">First-Mover Engagement Lanes</div>
+              <button type="button" class="nav-dropdown-item active" data-horizon="ALL">
+                <div class="item-left">
+                  <span class="item-icon">🔥</span>
+                  <div class="item-text">
+                    <span class="item-title">All Radar Opportunities</span>
+                    <span class="item-desc">All prioritized opportunities</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountAll">564</span>
+              </button>
+              <button type="button" class="nav-dropdown-item" data-horizon="Engage now (12–18m)">
+                <div class="item-left">
+                  <span class="item-icon">⭐</span>
+                  <div class="item-text">
+                    <span class="item-title">Engage now (12–18m)</span>
+                    <span class="item-desc">Hero lane: shape design briefs early</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountEngage">3</span>
+              </button>
+              <button type="button" class="nav-dropdown-item" data-horizon="Compete now (6–12m)">
+                <div class="item-left">
+                  <span class="item-icon">🎯</span>
+                  <div class="item-text">
+                    <span class="item-title">Compete now (6–12m)</span>
+                    <span class="item-desc">RFP active or expected imminently</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountCompete">10</span>
+              </button>
+              <button type="button" class="nav-dropdown-item" data-horizon="Fight harder (0–6m)">
+                <div class="item-left">
+                  <span class="item-icon">⚡</span>
+                  <div class="item-text">
+                    <span class="item-title">Fight harder (0–6m)</span>
+                    <span class="item-desc">Late-stage rescue / urgent displacement</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountFight">153</span>
+              </button>
+              <button type="button" class="nav-dropdown-item" data-horizon="Fit-out in progress (<0m)">
+                <div class="item-left">
+                  <span class="item-icon">🔨</span>
+                  <div class="item-text">
+                    <span class="item-title">Fit-out in progress (&lt;0m)</span>
+                    <span class="item-desc">Day-2 add-ons & expansion watch</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountFitout">53</span>
+              </button>
+              <button type="button" class="nav-dropdown-item" data-horizon="Nurture (18–24m)">
+                <div class="item-left">
+                  <span class="item-icon">🌱</span>
+                  <div class="item-text">
+                    <span class="item-title">Nurture (18–24m)</span>
+                    <span class="item-desc">Relationship building & pre-planning</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountNurture">0</span>
+              </button>
+              <button type="button" class="nav-dropdown-item" data-horizon="Far watch (>24m)">
+                <div class="item-left">
+                  <span class="item-icon">🔮</span>
+                  <div class="item-text">
+                    <span class="item-title">Far watch (&gt;24m)</span>
+                    <span class="item-desc">Long-range campus horizons</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountFar">3</span>
+              </button>
+              <button type="button" class="nav-dropdown-item" data-horizon="Undated">
+                <div class="item-left">
+                  <span class="item-icon">⏳</span>
+                  <div class="item-text">
+                    <span class="item-title">Undated (No date yet)</span>
+                    <span class="item-desc">Priority dating for ≥50k sq ft & watchlist</span>
+                  </div>
+                </div>
+                <span class="item-badge" id="dropCountUndated">342</span>
+              </button>
+            </div>
           </div>
-          <button id="btnSyncRefresh" class="btn-sync-icon" title="Fetch latest data live from Google Sheet">
-            <svg id="syncIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+
+          <button id="tabTrackerBtn" class="segment-btn" title="Active sales working queue">
+            <span class="tab-icon">📋</span>
+            <span>Queue</span>
+            <span class="tab-badge" id="tabTrackerCount" data-testid="queue-count">557</span>
           </button>
-        </div>
-
-        <button id="themeToggleBtn" class="btn-icon-sq" title="Toggle Light/Dark Theme">
-          <span id="themeIcon">🌙</span>
-        </button>
-
-        <a href="https://docs.google.com/spreadsheets/d/1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-icon-sq" title="Open Source Google Sheet">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        </a>
-
-        <button id="btnExportCsv" class="btn-action-outline" title="Export filtered deals to CSV">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Export
-        </button>
+          <button id="tabTargetAccountsBtn" class="segment-btn" title="Target enterprise accounts from Watchlist">
+            <span class="tab-icon">🎯</span>
+            <span>Target Accounts</span>
+            <span class="tab-badge" id="tabWatchlistCount" data-testid="watchlist-count">0</span>
+          </button>
+          <button id="tabHubsBtn" class="segment-btn" title="Buildings with 2+ tenant signals">
+            <span class="tab-icon">🏢</span>
+            <span>Hubs</span>
+            <span class="tab-badge hub-alert" id="tabHubsCount" data-testid="hubs-count-badge">15</span>
+          </button>
+          <button id="tabCoverageBtn" class="segment-btn" title="Known boundaries, data completeness & 118 sources">
+            <span class="tab-icon">ℹ️</span>
+            <span>Coverage</span>
+          </button>
+        </nav>
       </div>
     </header>
 
