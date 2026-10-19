@@ -9,6 +9,7 @@ and serves the web dashboard with real-time sync.
 import http.server
 import socketserver
 import urllib.request
+import urllib.parse
 import csv
 import io
 import json
@@ -228,6 +229,37 @@ def sync_from_google_sheets():
     print(f"[SYNC OK] Successfully rebuilt Lease-IQ engine: {len(result['leads'])} deals across {len(result['markets'])} markets at {result['lastSynced']}")
     return result
 
+_CACHED_DATA = None
+_LAST_SYNC_TIME = None
+
+def get_current_data(force=False):
+    global _CACHED_DATA, _LAST_SYNC_TIME
+    now = datetime.datetime.now()
+
+    # If cache exists and is fresh (< 60s) and not forced, serve immediately
+    if not force and _CACHED_DATA is not None and _LAST_SYNC_TIME is not None:
+        age = (now - _LAST_SYNC_TIME).total_seconds()
+        if age < 60:
+            print(f"[CACHE HIT] Serving in-memory Lease-IQ payload (age: {int(age)}s)")
+            return _CACHED_DATA
+
+    # If first start and not forced, initialize quickly from local files
+    if not force and _CACHED_DATA is None:
+        try:
+            import build_data
+            result = build_data.build_all()
+            _CACHED_DATA = result
+            _LAST_SYNC_TIME = now
+            print(f"[LOCAL INIT] Initialized dataset from local files at {result.get('lastSynced')}")
+            return _CACHED_DATA
+        except Exception as e:
+            print(f"[LOCAL INIT WARNING] Could not build from local files: {e}")
+
+    # Full Google Sheets live sync
+    _CACHED_DATA = sync_from_google_sheets()
+    _LAST_SYNC_TIME = now
+    return _CACHED_DATA
+
 class CustomHTTPHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
@@ -248,9 +280,12 @@ class CustomHTTPHandler(http.server.SimpleHTTPRequestHandler):
             except Exception:
                 pass
 
-        if self.path == '/api/sync':
+        if self.path.startswith('/api/sync'):
             try:
-                data = sync_from_google_sheets()
+                parsed = urllib.parse.urlparse(self.path)
+                params = urllib.parse.parse_qs(parsed.query)
+                force = 'force' in params and params['force'][0].lower() in ('true', '1', 'yes')
+                data = get_current_data(force=force)
                 response_bytes = json.dumps(data).encode('utf-8')
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')

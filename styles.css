@@ -578,6 +578,11 @@ body {
   box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
 }
 
+.sync-indicator.syncing {
+  background: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4);
+}
+
 .sync-indicator.live {
   background: #10b981;
   box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);

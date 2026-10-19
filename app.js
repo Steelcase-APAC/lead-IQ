@@ -2343,8 +2343,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function formatSyncTimestamp(date) {
-    const d = date || new Date();
-    const months = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'];
+    const d = (date && !isNaN(date.getTime())) ? date : new Date();
     const curMonth = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()];
     const day = d.getDate();
     const year = d.getFullYear();
@@ -2358,59 +2357,77 @@ document.addEventListener('DOMContentLoaded', () => {
     const syncIndicator = document.getElementById('syncIndicator');
     const syncIcon = document.getElementById('syncIcon');
     const syncTimestamp = document.getElementById('syncTimestamp');
+    const syncStatusCapsule = document.getElementById('syncStatusCapsule');
 
-    if (syncIcon) syncIcon.style.animation = 'spin 0.8s linear infinite';
-    if (syncStatusText) syncStatusText.textContent = 'Syncing...';
-
-    // 1. Try local server backend sync first if running on HTTP
     const isHttp = window.location.protocol.startsWith('http');
-    if (isHttp) {
-      const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-      const timeoutId = controller ? setTimeout(() => controller.abort(), 20000) : null;
 
-      fetch('/api/sync', { signal: controller ? controller.signal : undefined })
-        .then(res => {
-          if (timeoutId) clearTimeout(timeoutId);
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          return res.json();
-        })
-        .then(data => {
-          if (data && Array.isArray(data.leads) && data.leads.length > 0) {
-            state.leads = data.leads;
-            if (data.tracker) state.tracker = data.tracker;
-            if (data.snapshots) state.snapshots = data.snapshots;
-            if (data.sources) state.sources = data.sources;
-            if (data.metrics) state.metrics = data.metrics;
-
-            applyUserOverrides();
-            updateCountrySelectCounts();
-            populateSubmarketsDropdown();
-            filterAndSortLeads();
-            renderTrackerView();
-            renderHubsView();
-            renderCoverageView();
-            updateVerifyPayload();
-
-            if (syncIcon) syncIcon.style.animation = 'none';
-            if (syncStatusText) syncStatusText.textContent = 'Live (Google Sheet)';
-            if (syncTimestamp) syncTimestamp.textContent = `Data as of: ${formatSyncTimestamp(new Date())}`;
-            if (syncIndicator) syncIndicator.className = 'sync-indicator live';
-
-            if (isManualRefresh) {
-              showToast(`Synced ${state.leads.length} commercial deals live from Google Sheet!`, '🔄');
-            }
-            return;
-          }
-          throw new Error('Invalid backend payload');
-        })
-        .catch(err => {
-          console.warn('Backend /api/sync unavailable or timed out, trying direct GViz fetch:', err);
-          fallbackDirectSheetFetch(isManualRefresh);
-        });
+    // If opened via file://, browser security blocks direct Google Sheets CORS
+    if (!isHttp) {
+      if (syncIcon) syncIcon.style.animation = 'none';
+      if (syncStatusText) syncStatusText.textContent = 'Local File Mode';
+      if (syncTimestamp) syncTimestamp.textContent = 'Run server.py for Live Sync';
+      if (syncIndicator) syncIndicator.className = 'sync-indicator cached';
+      if (syncStatusCapsule) {
+        syncStatusCapsule.title = 'Opened via file://. Browser security (CORS) blocks direct Google Sheet requests. Run "python3 server.py" and open http://localhost:8089 for full live sync.';
+      }
+      if (isManualRefresh) {
+        showToast('Browser blocks Google Sheet sync in file:// mode. Start server with python3 server.py and open http://localhost:8089', '⚠️', 6000);
+      }
       return;
     }
 
-    fallbackDirectSheetFetch(isManualRefresh);
+    if (syncIcon) syncIcon.style.animation = 'spin 0.8s linear infinite';
+    if (syncStatusText) syncStatusText.textContent = 'Syncing...';
+    if (syncTimestamp) syncTimestamp.textContent = isManualRefresh ? 'Fetching live tabs...' : 'Checking Google Sheet...';
+    if (syncIndicator) syncIndicator.className = 'sync-indicator syncing';
+
+    const syncUrl = isManualRefresh ? '/api/sync?force=true' : '/api/sync';
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeoutId = controller ? setTimeout(() => controller.abort(), isManualRefresh ? 30000 : 15000) : null;
+
+    fetch(syncUrl, { signal: controller ? controller.signal : undefined })
+      .then(res => {
+        if (timeoutId) clearTimeout(timeoutId);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        if (data && Array.isArray(data.leads) && data.leads.length > 0) {
+          state.leads = data.leads;
+          if (data.tracker) state.tracker = data.tracker;
+          if (data.snapshots) state.snapshots = data.snapshots;
+          if (data.sources) state.sources = data.sources;
+          if (data.metrics) state.metrics = data.metrics;
+
+          applyUserOverrides();
+          updateCountrySelectCounts();
+          populateSubmarketsDropdown();
+          filterAndSortLeads();
+          renderTrackerView();
+          renderHubsView();
+          renderCoverageView();
+          updateVerifyPayload();
+
+          if (syncIcon) syncIcon.style.animation = 'none';
+          if (syncStatusText) syncStatusText.textContent = 'Live (Google Sheet)';
+          const syncDate = data.lastSynced ? new Date(data.lastSynced.replace(' ', 'T')) : new Date();
+          if (syncTimestamp) syncTimestamp.textContent = `Data as of: ${formatSyncTimestamp(syncDate)}`;
+          if (syncIndicator) syncIndicator.className = 'sync-indicator live';
+          if (syncStatusCapsule) {
+            syncStatusCapsule.title = 'Live sync active: connected to Google Sheet via Lease-IQ proxy';
+          }
+
+          if (isManualRefresh) {
+            showToast(`Synced ${state.leads.length} commercial deals live from Google Sheet!`, '🔄');
+          }
+          return;
+        }
+        throw new Error('Invalid backend payload');
+      })
+      .catch(err => {
+        console.warn('Backend /api/sync unavailable or timed out, trying direct GViz fetch:', err);
+        fallbackDirectSheetFetch(isManualRefresh);
+      });
   }
 
   function fallbackDirectSheetFetch(isManualRefresh = false) {
