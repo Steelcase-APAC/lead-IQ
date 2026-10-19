@@ -20,6 +20,13 @@ import re
 import datetime
 import os
 import glob
+import sys
+
+# Ensure UTF-8 output on all platforms (specifically Windows consoles)
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 
 TODAY = datetime.date(2026, 10, 15)
 

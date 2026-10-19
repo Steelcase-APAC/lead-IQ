@@ -56,7 +56,7 @@ def check_for_new_entry(doc_text):
         return None, "FAILED_TO_FETCH"
     
     # Split by entry headers: e.g. "ENTRY — Angie", "ENTRY — Antigravity", or "**Angie ...**"
-    entries = re.split(r'((?:ENTRY\s*—\s*[A-Za-z]+|\*{2}Angie[^\n]*|\*{2}Antigravity[^\n]*)[^\n]*)', doc_text)
+    entries = re.split(r'((?:ENTRY\s*—\s*[A-Za-z\-]+|\*{2}Angie[^\n]*|\*{2}Antigravity[^\n]*)[^\n]*)', doc_text)
     if len(entries) < 2:
         return None, "NO_ENTRIES_FOUND"
     
