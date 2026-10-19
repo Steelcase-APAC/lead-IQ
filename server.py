@@ -83,17 +83,20 @@ def discover_google_sheet_tabs():
     except Exception as e:
         print(f'[DISCOVERY ERROR] Failed to fetch htmlview: {e}')
 
-    # Safe fallback if offline or request blocked
+    # Safe fallback with verified tab GIDs
     if not tabs:
-        print('[DISCOVERY] Using fallback tab definitions')
+        print('[DISCOVERY] Using verified tab definitions')
         tabs = {
             'India': '6578112',
+            'Sri Lanka': '491101535',
             'Malaysia': '1410399683',
             'Korea': '107222265',
             'Japan': '192656001',
-            'Sri Lanka': '491101535',
             'China': '584186119',
-            'Company Tracker': '263587632'
+            'Company Tracker': '263587632',
+            'Snapshots': '1620946556',
+            'Sources': '1944959203',
+            'Watchlist': '1464911679'
         }
     return tabs
 
@@ -195,8 +198,11 @@ def sync_from_google_sheets():
     discovered_tabs = discover_google_sheet_tabs()
     print(f'[SYNC] Discovered {len(discovered_tabs)} tabs: {list(discovered_tabs.keys())}')
 
-    # 2. Fetch and save tabs to data/
-    for name, gid in discovered_tabs.items():
+    # 2. Fetch and save tabs to data/ concurrently
+    import concurrent.futures
+
+    def fetch_single_tab(item):
+        name, gid = item
         name_clean = name.strip()
         slug = name_clean.lower().replace(' ', '_')
         url = f'https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={gid}'
@@ -210,6 +216,9 @@ def sync_from_google_sheets():
                 print(f'[SYNC] Saved {slug}.csv ({len(content)} bytes)')
         except Exception as e:
             print(f'[SYNC WARNING] Could not download tab {name_clean}: {e}')
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
+        list(executor.map(fetch_single_tab, discovered_tabs.items()))
 
     # 3. Run the complete Lease-IQ Dual-Layer Parser and data builder
     import importlib
@@ -260,9 +269,10 @@ class CustomHTTPHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    socketserver.TCPServer.allow_reuse_address = True
     print(f'Starting Lease-IQ server with dynamic Google Sheets sync on port {PORT}...')
-    with socketserver.TCPServer(('', PORT), CustomHTTPHandler) as httpd:
+    ServerClass = getattr(http.server, 'ThreadingHTTPServer', socketserver.TCPServer)
+    ServerClass.allow_reuse_address = True
+    with ServerClass(('', PORT), CustomHTTPHandler) as httpd:
         print(f'Server started on http://localhost:{PORT}')
         try:
             httpd.serve_forever()

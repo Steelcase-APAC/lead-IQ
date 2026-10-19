@@ -6,33 +6,33 @@
 5,Ind AS 116 annual-report disclosures,India,Free,done,2026-10-17,"reviewed — nothing new: no downloadable PDFs on landing page; Ind AS 116 lease notes are an annual-batch source (new ARs arrive with annual-report season, not weekly); no new India office lease deal found in this check."
 6,CSE.lk annual reports (LKAS 116),Sri Lanka,Free,done,2026-10-17,"reviewed — nothing new: no downloadable PDFs on landing page; manual search found only aggregate lease-liability figures (Distilleries Co) and the already-known C.W. Mackie HQ Crown-lease renewal pursuit (already on Sri Lanka tab); Exterminators AR filing is a delay notice, no lease deal. No new named Sri Lanka office lease deal."
 7,UDA / Colombo Municipal Council approvals,Sri Lanka,Free,done,2026-10-17,"reviewed — nothing new: script downloaded 3 UDA Planning & Development Regulations PDFs (Sinhala/English); all 30 prescreened passages are regulation text about permit/certificate renewals — no named project approval, no named occupier, no lease deal. Source's useful material (approval notices) was not surfaced by the landing page; re-check next cycle."
-8,Bursa annual reports (MFRS 16),Malaysia,Free,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
+8,Bursa annual reports (MFRS 16),Malaysia,Free,error,never,download: curl exit 52 for https://www.bursamalaysia.com: curl: (52) Empty reply from server
 9,CBRE|WTW Malaysia market PDFs,Malaysia,Free,done,2026-10-16,"CLOSED 2026-10-16: 10 direct PDFs + 2H 2026 deck harvested, 0 new rows. 5-PDF follow-up done: JB deck + KV 4Q 2024 read fully (0 deals); 1H 2026 snapshot, MOR-2025, KV 1Q 2025 unrecoverable (curl + browser viewer both fail). 2H 2026 deck obtained via form (opened in tab). Other 4 form-gated untouched."
-10,Knight Frank Malaysia REH,Malaysia,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-11,NAPIC free reports,Malaysia,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+10,Knight Frank Malaysia REH,Malaysia,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+11,NAPIC free reports,Malaysia,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
 12,TDnet timely disclosures (HQ moves),Japan,Free,done,2026-10-17,ingested 5 rows; staged /home/hatch/workspace/lease-signals/staging/tdnet/confirmed.json
 13,EDINET statutory filings,Japan,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; EDINET is a search database, not a PDF feed. Japanese 本社移転 cross-check found one genuine HQ move (Cross Eye, Tokyo, 2026-10-01) — HELD for source #57 PR TIMES (its true source), not ingested here; Nomura Tachikawa retail-branch move held out as out of scope. No new EDINET-sourced deal."
-14,Cushman & Wakefield MarketBeat Japan,Japan,Free,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
+14,Cushman & Wakefield MarketBeat Japan,Japan,Free,blocked — 2026-10-19 (blocked),never,gate: blocked; stays due for retry
 15,Miki Shoji / Xymax,Japan,Free,done,2026-10-17,"reviewed — nothing new: Miki Shoji report PDF link failed (curl exit 52) and landing page surfaced no PDFs; manual check of the Sept 2026 Miki Shoji release (published 2026-10-08) shows aggregates only — Tokyo 5-ward vacancy 1.85%, rents up 32 months straight — no named tenant deal."
-16,Newmark Korea quarterly PDFs,Korea,Free,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
+16,Newmark Korea quarterly PDFs,Korea,Free,blocked — 2026-10-19 (blocked),never,gate: blocked; stays due for retry
 17,DART K-IFRS 1116 disclosures,Korea,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; DART is a search database, not a PDF feed. Korean HQ-move disclosure cross-check found no new named office move (template, law-firm newsletter, CIO award only). No new DART-sourced deal."
-18,Korea CRE free summaries (CBRE/JLL/Savills/KF),Korea,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+18,Korea CRE free summaries (CBRE/JLL/Savills/KF),Korea,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 19,MOLIT transaction prices,Korea,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; MOLIT is a transaction-price registry (price data, not named lease-deal announcements) — no new named office lease deal in this check."
 20,Nara Jangteo (g2b.go.kr),Korea,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; Korean procurement cross-check found only ICT/works tenders — one telecom-works item for an already-leased office (ABC Building, Jeonnam-Gwangju) is fit-out works, not a new lease, and a KIMM lease re-announcement is stale. No new named office lease deal."
 21,Zerin Properties ZP Weekly Corporate Real Estate,Malaysia,Free,hit-checked,2026-10-16,Pilot 2026-10-16: Issue 358 (Aug 2026) downloaded; 0 new rows — Maybank duplicates existing Merdeka 118 move; Sime Darby tenants anonymous; rest policy/industrial/commentary. URL-encoding fix noted for script.
 22,JLL KL office stats via EdgeProp (APPD series discontinued),Malaysia,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; recent JLL-via-EdgeProp pieces are aggregates only (2Q vacancies tightening, flight to quality, 2.64M sq ft supply by end-2026, Grade A scarcity from 2027) — no named tenant deal."
-23,InvestPenang press releases,Malaysia,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+23,InvestPenang press releases,Malaysia,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
 24,MIDA media releases (approved investments),Malaysia,Free,done,2026-10-17,"reviewed — nothing new: script staged the Q1 2026 investment-performance release (3 PDFs, June 2026); all 17 passages are manufacturing/industrial investments (Nexperia Seremban fab expansion, Syntiant Penang manufacturing/R&D campus, Congatec Penang R&D, Boston Scientific Batu Kawan production, Biocon Johor production, solar farms) — no building, no size, no office lease. Out of office-lease scope; no new row."
-25,SSM e-Search (free tier),Malaysia,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-26,Savills Malaysia research-and-news,Malaysia,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+25,SSM e-Search (free tier),Malaysia,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+26,Savills Malaysia research-and-news,Malaysia,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 27,MRT Corp procurement notices,Malaysia,Free,done,2026-10-17,"reviewed — nothing new: the one staged PDF is an RFP for leasing 424 notebooks + 18 high-end laptops (IT equipment lease, submission deadline 5 May 2026 — stale), not office leasing. No office lease deal."
-28,MCA21 Company/LLP Master Data,India,Free,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
+28,MCA21 Company/LLP Master Data,India,Free,blocked — 2026-10-19 (blocked),never,gate: blocked; stays due for retry
 29,CPP Portal (eprocure.gov.in),India,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; tender-aggregator cross-check found only military/quarters accommodation construction, housekeeping and security tenders — no corporate office-hiring lease tender."
 30,Karnataka e-Procurement (KPPP),India,Free,error,never,download: curl exit 52 for https://eproc.karnataka.gov.in: curl: (52) Empty reply from server
 31,ANAROCK Research Insights,India,Free,hit-checked,2026-10-16,Pilot 2026-10-16: 9M 2026 findings out via press (Oct 13); no named-deal PDF located via search — press gives aggregates only; 0 new rows.
 32,STPI centre 'List of Units',India,Free,done,2026-10-17,reviewed — nothing new: script downloaded only a website quality-certificate PDF (0 candidate passages); the actual List of Units was not surfaced. No new named lease deal.
 33,BOI Sri Lanka newsroom,Sri Lanka,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found a 350 MW power-plant BOI approval (Sahasdhanavi, industrial/power, not office) and a Sigenergy smart-energy market-entry release (no office lease named), plus institutional commentary. No new named Sri Lanka office lease deal."
-34,EDB Exporter Directory (srilankabusiness.com),Sri Lanka,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+34,EDB Exporter Directory (srilankabusiness.com),Sri Lanka,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 35,CSE Company Announcements (beyond ARs),Sri Lanka,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check of early-Oct 2026 CSE announcements found governance notices, rights issues, dividends and EGMs only (Standard Capital governance, Exterminators AR delay, Harischandra Mills dividend) — no office lease deal."
 36,irbank.net 適時開示検索,Japan,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; irbank is a TDnet-disclosure search database. The one HQ move surfaced by Japanese disclosure cross-checks this run (Cross Eye, Tokyo, 2026-10-01) is HELD for source #57 PR TIMES, its true source — not ingested here."
 37,kabutan.jp TDnet PDF archive,Japan,Free,error,never,download: HTTP 503 for https://tdnet-pdf.kabutan.jp/
@@ -41,7 +41,7 @@
 40,国土交通省 建築着工統計調査 (e-Stat),Japan,Free,done,2026-10-17,reviewed — nothing new: script downloaded the e-Stat construction-starts file (0 candidate passages); building-starts statistics are aggregates — no named tenant deal by design.
 41,OpenDART API,Korea,Free,error,never,download: curl exit 52 for https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019001: curl: (52) Empty reply from server
 42,GenstarMate Office Market Report,Korea,Free,done,2026-10-17,"reviewed — nothing new: script fetched the STALE Q2 2025 edition (not a new edition). Its tenant-move table (p.32) re-checked: 4 of 6 rows already on Korea tab from the 2026-10-14 backfill (SKC KR-077, Korean Re KR-079, Shinsegae I&C KR-081, Mirae Asset Life KR-082). HELD OUT, flagged for Angela's call: SCK Company (Centerfield East, 3,000 pyeong) — the backfill's KR-081 signal already quotes both Centerfield East figures (3,000/2,600 pyeong), so adding SCK separately would double-count without a KR-081 signal fix; National Institute for Lifelong Education (K-Square Magok, 2,800 pyeong) — public institution, Q2 2025 move, fit-out long complete. Text-only mentions (Tmap Mobility to SK-C Tower, Gureum Edu to Pinnacle Yeoksam II, Tmax to Geumgok-dong HQ) held out — no areas/buildings. No new edition found; re-check next cycle for the Q3 2026 report."
-43,Cushman & Wakefield Korea Seoul Office MarketBeat,Korea,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+43,Cushman & Wakefield Korea Seoul Office MarketBeat,Korea,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 44,KRX KIND disclosure search,Korea,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; KIND is a disclosure search database covering the same stream as DART (#17, also checked this run with no new HQ-move disclosure). No new KIND-sourced deal."
 45,Cushman & Wakefield — Beijing/Shanghai Office MarketBeat,China,Free,done,2026-10-17,"C&W #45 blocked-sites session 2026-10-17: Q3 2026 Beijing + Shanghai MarketBeat PDFs re-checked via live browser, no gate. All 7 Key Leasing Transactions deals already on China tab from 2026-10-14 harvest of the same PDFs (CN-017 Rednote, CN-018 JD Health, CN-019 CICC, CN-028 DBS Bank, CN-029 Zhihuishu, CN-030 Logitech, CN-031 CPIC Fund) + seen.md. 0 new rows. Existing rows carry blank Building/Size/Deal type per going-forward rule — NOT backfilled without approval."
 46,C&W — Greater China Top Office Supply & Demand Trends,China,Free,done,2026-10-17,"reviewed — nothing new: the deck is supply/demand aggregates by city (Beijing/Shanghai/Shenzhen/Guangzhou/Chengdu/HK/Taipei). One named item — MINISO Headquarters, Pazhou, Guangzhou, 103,897 sqm, 2026 — is a self-developed HQ property in a headquarters-supply section, not a lease deal; held out as out of lease scope. No new named lease deal."
@@ -51,69 +51,69 @@
 50,HKEX (hkexnews.hk),China,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found Yuanta's Taipei office lease (5-yr, rent-free interior-work period) — HELD OUT as out-of-scope geography (Taiwan not a covered track); Lung Fung Fanling connected leases — related-party operational premises, held out; E.Bon HK$26M office acquisition — purchase, not lease; CSCECL/Oi Wah items — lessor-side framework / related-party renewals. No new in-scope HKEX lease deal."
 51,SSE English (english.sse.com.cn),China,Free,done,2026-10-17,reviewed — nothing new: landing page surfaced no downloadable PDFs; SSE is a disclosure database. Cross-check found no SSE-sourced office lease deal (results were HKEX/Taiwan items: SIUD Shanghai related-party lease held out as affiliated-asset; Shangshi Changning letting is residential apartments; E.Bon/Chunghwa/Yuanta already assessed under #50). No new SSE deal.
 52,R Square — Office Market Reports (ENG+KOR),Korea,Free,done,2026-10-17,"reviewed — nothing new: script fetched the STALE 2024 Q4 edition (not a new edition). All named Q4 2024 items already covered on Korea tab: KB Bank/Anchor One = KR-072; KRPA/K Square Magok = KR-073; Wezon/Landmark Tower 581 py = KR-092; Samsung Life/Bundang Yemij = KR-098; Mirae Asset Life/One Sentinel pre-lease = KR-082; DL E&C Donuimun->Magok One = same event as KR-042 (DL Group vacating D Tower Donuimun), held out to avoid splitting one event; Hanwha Financial Services Metro Tower re-signing after remodelling — entity already on tab as KR-089 (relocated FROM Metro Tower), held out as ambiguous/covered. SKC/SK C&C items are planned-only. No new edition found; re-check next cycle for a 2026 edition."
-53,"Business press (BusinessLine, ET Realty)",India,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-54,RIU / LankaPropertyWeb free research,Sri Lanka,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-55,Local business press + state tenders,Sri Lanka,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+53,"Business press (BusinessLine, ET Realty)",India,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+54,RIU / LankaPropertyWeb free research,Sri Lanka,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+55,Local business press + state tenders,Sri Lanka,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 56,Business press + broker social,Malaysia,Free,done,2026-10-17,"reviewed — nothing new: Malaysia press cross-check found Mforce KL relocating its service centre + admin office to a 77,000 sq ft Segambut facility (opens 23 Oct 2026) — HELD OUT as predominantly motorcycle service centre/showroom/warehouse, not an office lease; and JustCo opening at Menara Affin @ TRX (opens 2 Nov 2026) — HELD OUT as a second-deal row for a company already on the Malaysia tab (MY-063, Menara Hap Seng 3), same open second-deal question as Apple/Smartworks — awaiting Angela's call. Rest were agent rental listings. No new row."
-57,PR TIMES / company news / Japan Times,Japan,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+57,PR TIMES / company news / Japan Times,Japan,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 58,"English business press (KED Global, SEDaily, Aju)",Korea,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; Korea press cross-check surfaced Newmark 1Q26/2Q26 report items — Gmarket (GFC->AM Plus Seongsu) = KR-005 already on tab; Hyundai AutoEver = KR-006 already on tab; Major Crime Investigation Office pre-lease at ReneSquare HELD OUT (government police-unit tenant, no size, no fit-out signal); Hana Securities building sale is capital-market; Pebblestone/Capstone Jeonju offices are small second offices with no building/size. No new row."
 59,EdgeProp.my DONE DEAL archive,Malaysia,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; DONE DEAL cross-check found only agent-reported deals with ANONYMOUS tenants (Nu Tower 1 expansion, Platinum Park RM43,350, MET Corporate Towers, G Tower, MOF Inc Tower) — no company name in any item, so no ingestible named deal. Sales items (Pavilion Embassy) are purchases, not leases."
-60,StarProperty news,Malaysia,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-61,Realty+ (rprealtyplus.com),India,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+60,StarProperty news,Malaysia,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+61,Realty+ (rprealtyplus.com),India,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 62,Naukri.com hiring data (indirect signal),India,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; hiring data is an indirect signal only (headcount growth, not a lease deal) and yields no named lease deal on its own. No new row."
-63,Kyodo News PR Wire,Japan,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+63,Kyodo News PR Wire,Japan,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 64,@Press,Japan,Free,done,2026-10-17,reviewed — nothing new: landing page surfaced no downloadable PDFs; Japanese press-release cross-check surfaced four HQ/office moves — SB C&S to Blue Front Shibaura Tower S = JP-009 already on tab; Persol & Serverworks to Iidabashi i-MARK ANNEX = JP-011 already on tab; SALESCORE Osaka to Umeda = JP-015 already on tab; 2nd Village to Ginza = JP-021 already on tab. No new row.
 65,Korea Newswire press-release archive,Korea,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; Korean press cross-check found McDonald's Korea HQ expansion move to Booyoung Taepyeong Building = KR-064 already on tab; Ssangyong C&E HQ move Seoul->Donghae plant site HELD OUT (factory-site HQ from December, no office building/size named); rest were conferences/workshops/awards. No new row."
-66,Mingtiandi,China,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-67,PropNewsTime,China,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+66,Mingtiandi,China,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+67,PropNewsTime,China,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
 68,三井不動産 corporate news releases,Japan,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; Mitsui news cross-check found only developer announcements — YAESU CORE hotel (hospitality, 2029), MFIP Ebina multi-use logistics facility tenants (Shin Nippon Air Conditioning R&D, Yokogawa Rental Lease technical centre, Fasmac lab — industrial/lab tenants, held out as non-office), Link-Lab Toyocho 1 lab building (no tenants named). No new named office tenant deal."
 69,Embassy REIT,India,Free,done,2026-10-17,ingested 9 rows; staged /home/hatch/workspace/lease-signals/staging/sweep-2026-10-17/embassy.json
 70,Mindspace REIT,India,Free,done,2026-10-17,ingested 1 rows; staged /home/hatch/workspace/lease-signals/staging/sweep-2026-10-17/mindspace.json
 71,DLF,India,Free,done,2026-10-17,"reviewed — nothing new: 3 files (AGM inspection, Q2 FY27 press release with aggregates, DLF Taramani Chennai IT-park expansion environmental clearance) — project/expansion and financial aggregates only; no named tenant deal."
-72,CapitaLand,India + China + Singapore,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-73,ANSR,India,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-74,Nasscom,India,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+72,CapitaLand,India + China + Singapore,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+73,ANSR,India,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+74,Nasscom,India,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
 75,Zinnov,India,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found thought-leadership (GCC setup guides, AI-native GCC) plus one named case — Sonatype's Hyderabad GCC (200+ engineers, Zinnov-powered) — HELD OUT: headcount announcement, no building/size/lease named. No new named lease deal."
 76,Japan National Tax Agency - Corporate Number / Houjin Bangou,Japan,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; the Corporate Number registry is a per-company address lookup, not a deal feed — it yields no named lease deal from a sweep check. No new row."
-77,USGBC LEED project directory,APAC,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-78,WELL Projects Directory,APAC,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-79,YourStory,India,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+77,USGBC LEED project directory,APAC,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+78,WELL Projects Directory,APAC,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+79,YourStory,India,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 80,Tech in Asia,APAC,Free,done,2026-10-17,ingested 1 rows; staged /home/hatch/workspace/lease-signals/staging/sweep-2026-10-17/techinasia.json
 81,DealStreetAsia,APAC,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found Anthropic's Singapore office (Singapore geography, out of scope), Hong Kong/India/Singapore/Manila market aggregates — no in-scope named lease deal."
 82,JLL - China city office market reports,China,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs (gated registration noted); cross-check found C&W Beijing MarketBeat Q3 2026 aggregates (TMT ~50% of new leased area, no named tenants), JLL investor-recovery commentary (capital markets, no tenant deals) and a JLL Shanghai Grade A framework piece (aggregates). No named tenant deal."
-83,CBRE - China research,China,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-84,World Property Journal,China,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+83,CBRE - China research,China,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+84,World Property Journal,China,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 85,guandian.cn / 观点网 (Guandian),China,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found Shenzhen Q3 2026 market aggregates (Cushman & Wakefield: ~26% of Grade A deals upgrade relocations, TMT 37.4% share, no named tenants), Knight Frank Guangzhou/Shanghai Q1 aggregates, and a New York hedge-fund deal (out of scope). No named tenant deal."
 86,SZSE - Shenzhen Stock Exchange,China,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found no in-scope named office lease deal — held out: Hon Hai subsidiary real-estate use-rights acquisition (RMB 109.4M rent, related-party, no building/location named); China Chengtong sale-and-leaseback (HKEX financial transaction); Chunghwa Telecom Taiwan office leases (Taiwan geography, out of scope); landlord aggregates (Seazen)."
 87,"China provincial/municipal procurement platforms, e.g. Shanghai",China,Free,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found no in-scope named office lease deal — held out: PDD Holdings $194M Shanghai office BUY (Crystal Bridge, Changning — purchase, not lease; PDD already on China tab from earlier coverage); ByteDance Beijing land tender (land acquisition, not lease); Shangshi City Development Changning lease (residential apartments, not office); PCGG Philippines tender (out of scope)."
-88,Knight Frank India - office reports,India,Free,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+88,Knight Frank India - office reports,India,Free,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 89,eir-parts.net - TDnet mirror,Japan,Free,error,never,download: curl exit 52 for https://ssl4.eir-parts.net/: curl: (52) Empty reply from server
-90,Construction World,India,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-91,Square Yards,India,Free,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-92,CoStar,Malaysia,Paid,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
-93,CoStar,India,Paid,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
-94,CoStar,Japan + Korea,Paid,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
+90,Construction World,India,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+91,Square Yards,India,Free,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+92,CoStar,Malaysia,Paid,blocked — 2026-10-19 (blocked),never,gate: blocked; stays due for retry
+93,CoStar,India,Paid,blocked — 2026-10-19 (blocked),never,gate: blocked; stays due for retry
+94,CoStar,Japan + Korea,Paid,blocked — 2026-10-19 (blocked),never,gate: blocked; stays due for retry
 95,CoStar,China,Paid,error,never,download: curl exit 52 for —: curl: (52) Empty reply from server
-96,NAPIC e-Data (JPPH),Malaysia,Paid,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-97,Brickz.my (iProperty / PropertyGuru),Malaysia,Paid,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
-98,PropertyGuru DataSense (For Business),Malaysia,Paid,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-99,Rahim & Co (Research & Consultancy),Malaysia,Paid,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-100,Big-4 brokerages paid research (JLL / CBRE / Knight Frank / Savills),Malaysia,Paid,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+96,NAPIC e-Data (JPPH),Malaysia,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+97,Brickz.my (iProperty / PropertyGuru),Malaysia,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+98,PropertyGuru DataSense (For Business),Malaysia,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+99,Rahim & Co (Research & Consultancy),Malaysia,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+100,Big-4 brokerages paid research (JLL / CBRE / Knight Frank / Savills),Malaysia,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
 101,CRE Matrix,India,Paid,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check held out 3 items — Accenture 123,000 sq ft at The Edge 2, Sitapura, Jaipur (reported as leased 'two years ago' ~2024, fit-out long complete; Accenture already has 2 India rows — second-deal rule OPEN); Durva Fintech 5,692 sq ft at Kanakia Wall Street, Andheri East (sub-scale); Kerawi Care 950 sq ft at Vastu Prestige, Andheri West (sub-scale)."
-102,LankaPropertyWeb (memberships),Sri Lanka,Paid,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+102,LankaPropertyWeb (memberships),Sri Lanka,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
 103,Research Intelligence Unit (RIU),Sri Lanka,Paid,done,2026-10-17,"reviewed — nothing new: script download failed (curl 18 on the 2020-2021 report); cross-check found an RIU London investment forum (investment dialogue, no named office lease), a Colombo Grade A rent academic study (no deals) and condo aggregates. No named office lease deal."
-104,MSCI Real Capital Analytics,Japan + Korea,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-105,CBRE Japan (proprietary research & advisory),Japan,Paid,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+104,MSCI Real Capital Analytics,Japan + Korea,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+105,CBRE Japan (proprietary research & advisory),Japan,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
 106,JLL Japan (proprietary research & advisory),Japan,Paid,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found market aggregates only (Tokyo flex-office supply growth, logistics vacancy, C&W Tokyo Grade A aggregates, investment commentary) — no named tenant deal. Flex-operator openings (IWG Signature, JustCo, Mitsui Workstyling) are operator expansions, not tenant leases."
-107,RSQUARE Analytics (RA),Korea,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-108,CBRE Korea (proprietary research & advisory),Korea,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+107,RSQUARE Analytics (RA),Korea,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+108,CBRE Korea (proprietary research & advisory),Korea,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 109,JLL Korea (proprietary research & advisory),Korea,Paid,done,2026-10-17,"reviewed — nothing new: landing page surfaced no downloadable PDFs; cross-check found aggregates only (officetel rents, Newmark Korea 1Q/2Q reports) — Gmarket and Hyundai AutoEver relocations already on Korea tab; ReneSquare pre-lease to Major Crime Investigation Office already held out (government police-unit tenant). No new named deal."
-110,Savills Korea (proprietary research & advisory),Korea,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-111,Knight Frank Korea (proprietary research & advisory),Korea,Paid,blocked — 2026-10-18 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
-112,Propstack,India,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-113,Nikkei Real Estate Market Report,Japan,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
+110,Savills Korea (proprietary research & advisory),Korea,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+111,Knight Frank Korea (proprietary research & advisory),Korea,Paid,blocked — 2026-10-19 (CAPTCHA),never,gate: CAPTCHA; stays due for retry
+112,Propstack,India,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+113,Nikkei Real Estate Market Report,Japan,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
 114,MSCI Real Assets (Real Capital Analytics),China,Paid,error,never,download: curl exit 52 for —: curl: (52) Empty reply from server
 115,China Index Academy / CREIS,China,Paid,error,never,download: curl exit 52 for —: curl: (52) Empty reply from server
-116,BCI Asia,APAC,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-117,Caixin Global,China,Paid,blocked — 2026-10-18 (consent),never,gate: consent; stays due for retry
-118,SCMP - South China Morning Post,China,Paid,blocked — 2026-10-18 (blocked),never,gate: blocked; stays due for retry
+116,BCI Asia,APAC,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+117,Caixin Global,China,Paid,blocked — 2026-10-19 (consent),never,gate: consent; stays due for retry
+118,SCMP - South China Morning Post,China,Paid,blocked — 2026-10-19 (blocked),never,gate: blocked; stays due for retry
