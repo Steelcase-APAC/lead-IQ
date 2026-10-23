@@ -6,5 +6,7 @@ __pycache__/
 .vscode/
 *.log
 handoff_state.json
+handoff_config.json
+handoff_config.local.json
 .venv/
 scratch/

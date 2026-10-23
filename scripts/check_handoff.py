@@ -8,10 +8,36 @@ import sys
 import json
 import urllib.request
 import re
+import os
+import hashlib
 from datetime import datetime
 
-EXPORT_URL = "https://docs.google.com/document/d/1oepGc6e3EtN8cTfAeKbbg9FuN16davN9X9hMtShIRiE/export?format=txt"
-WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxizo8ewS1OqxyD7VKIlxISYEuZ1zvAmH7PZbqoeJ4wfwvrG33u2RZThvLiU4XTR_Iy/exec"
+def get_config():
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    config = {
+        "docId": "1oepGc6e3EtN8cTfAeKbbg9FuN16davN9X9hMtShIRiE",
+        "docUrl": "https://docs.google.com/document/d/1oepGc6e3EtN8cTfAeKbbg9FuN16davN9X9hMtShIRiE/edit",
+        "exportUrl": "https://docs.google.com/document/d/1oepGc6e3EtN8cTfAeKbbg9FuN16davN9X9hMtShIRiE/export?format=txt",
+        "webhookUrl": ""
+    }
+    for filename in ["handoff_config.local.json", "handoff_config.json", "handoff_config.example.json"]:
+        p = os.path.join(base_dir, filename)
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    config.update(data)
+                    if config.get("webhookUrl") and config["webhookUrl"] != "PASTE_APPS_SCRIPT_WEBHOOK_URL_HERE":
+                        break
+            except Exception:
+                pass
+    if os.environ.get("HANDOFF_WEBHOOK_URL"):
+        config["webhookUrl"] = os.environ["HANDOFF_WEBHOOK_URL"]
+    return config
+
+CONFIG = get_config()
+EXPORT_URL = CONFIG.get("exportUrl")
+WEBHOOK_URL = CONFIG.get("webhookUrl")
 
 def read_handoff_doc():
     try:
@@ -21,9 +47,6 @@ def read_handoff_doc():
     except Exception as e:
         print(f"Error fetching doc: {e}", file=sys.stderr)
         return None
-
-import os
-import hashlib
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "..", "handoff_state.json")
 
@@ -99,6 +122,8 @@ def check_for_new_entry(doc_text):
     return last, "UNKNOWN_AUTHOR"
 
 def append_entry(text):
+    if not WEBHOOK_URL:
+        return False, "No webhookUrl configured in handoff_config.local.json or environment"
     data = text.encode("utf-8")
     req = urllib.request.Request(WEBHOOK_URL, data=data, headers={"Content-Type": "text/plain"})
     try:
@@ -126,5 +151,3 @@ if __name__ == "__main__":
         print(f"Doc is up to date (last entry: {last_entry['header'] if last_entry else 'None'}).")
     else:
         print(f"Details: {last_entry}")
-
-
