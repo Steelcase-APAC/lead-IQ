@@ -147,6 +147,9 @@ if __name__ == "__main__":
         print("--- NEW ENTRY FROM ANGIE ---")
         print(last_entry["header"])
         print(last_entry["body"])
+        if "--mark-read" in sys.argv:
+            mark_processed(last_entry)
+            print("[State marked as read]")
     elif status == "UP_TO_DATE":
         print(f"Doc is up to date (last entry: {last_entry['header'] if last_entry else 'None'}).")
     else:
