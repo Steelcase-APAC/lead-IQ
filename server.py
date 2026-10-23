@@ -18,7 +18,7 @@ import datetime
 import os
 import sys
 
-PORT = 8089
+PORT = int(os.environ.get('PORT', 8089))
 SHEET_ID = '1DojjV8QQH2Xbd6mpETIrqhmGSbRqlOxpKZbQsA5dQB0'
 
 # Comprehensive Country & Market Metadata Registry

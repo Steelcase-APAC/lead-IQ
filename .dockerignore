@@ -1,0 +1,12 @@
+.git
+.gitignore
+.venv
+scratch/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+.idea
+.vscode
+handoff_config.local.json
+handoff_state.json
