@@ -20,7 +20,7 @@ def get_config():
         "exportUrl": "https://docs.google.com/document/d/1oepGc6e3EtN8cTfAeKbbg9FuN16davN9X9hMtShIRiE/export?format=txt",
         "webhookUrl": ""
     }
-    for filename in ["handoff_config.local.json", "handoff_config.json", "handoff_config.example.json"]:
+    for filename in ["handoff_config.local.json", "handoff_config.example.json"]:
         p = os.path.join(base_dir, filename)
         if os.path.exists(p):
             try:
