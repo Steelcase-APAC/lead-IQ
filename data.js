@@ -1,4 +1,4 @@
-// Lease-IQ Master Data Engine - Built 2026-10-20 13:23:53
+// Lease-IQ Master Data Engine - Built 2026-10-23 22:16:29
 // Auto-compiled from 9 Google Sheet / CSV source feeds
 
 var APP_VERSION = "2.31";
@@ -14,42 +14,42 @@ var GOOGLE_SHEET_CONFIG = {
     "Malaysia",
     "Sri Lanka"
   ],
-  "lastBuilt": "2026-10-20 13:23:53",
+  "lastBuilt": "2026-10-23 22:16:29",
   "metrics": {
     "version": "2.31",
-    "totalTrackedRows": 573,
-    "totalDeals": 565,
+    "totalTrackedRows": 600,
+    "totalDeals": 592,
     "nonDealSignalsCount": 8,
-    "uniqueCompanies": 557,
-    "dealBackedAccountsCount": 557,
-    "totalTrackerAccounts": 558,
-    "uniqueAccountsBreakdown": "557 deal-backed corporate accounts (8 non-deal macro/accounting signals excluded)",
+    "uniqueCompanies": 581,
+    "dealBackedAccountsCount": 581,
+    "totalTrackerAccounts": 582,
+    "uniqueAccountsBreakdown": "581 deal-backed corporate accounts (8 non-deal macro/accounting signals excluded)",
     "accountStatuses": {
       "active": 126,
-      "watch": 431,
+      "watch": 455,
       "engaged": 0
     },
     "perCountryRows": {
-      "India": 150,
+      "India": 158,
       "Sri Lanka": 31,
       "Malaysia": 81,
-      "Japan": 96,
-      "Korea": 153,
-      "China": 62
+      "Japan": 107,
+      "Korea": 159,
+      "China": 64
     },
     "perCountryDeals": {
-      "India": 147,
-      "Korea": 153,
-      "China": 62,
-      "Japan": 96,
+      "India": 155,
+      "Korea": 159,
+      "China": 64,
+      "Japan": 107,
       "Malaysia": 77,
       "Sri Lanka": 30
     },
     "reconciliationBridge": {
-      "rawTotal": 573,
+      "rawTotal": 600,
       "nonDealCount": 8,
-      "totalDeals": 565,
-      "formula": "573 raw rows \u2212 8 non-deal = 565 deals",
+      "totalDeals": 592,
+      "formula": "600 raw rows \u2212 8 non-deal = 592 deals",
       "nonDealItems": [
         "GCC occupiers (structural) (India) \u2014 Structural signal",
         "Flex/coworking operators (structural) (India) \u2014 Structural signal",
@@ -60,40 +60,40 @@ var GOOGLE_SHEET_CONFIG = {
         "MIDA \u2014 structural pipeline (not a company) (Malaysia) \u2014 Structural signal",
         "EDB ICT/BPM exporter directory (baseline watchlist) (Sri Lanka) \u2014 Baseline watchlist"
       ],
-      "explanation": "573 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 565 commercial deals."
+      "explanation": "600 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 592 commercial deals."
     },
-    "totalDisclosedSqFt": 33741834,
-    "totalDisclosedSqFtFormatted": "33.7M sq ft",
-    "sheetExplicitSqFt": 6542075,
-    "signalDerivedSqFt": 27199759,
-    "sheetExplicitSqFtFormatted": "6.54M sq ft",
-    "signalDerivedSqFtFormatted": "27.2M sq ft",
-    "pipelineDualSourceSub": "6.54M Sheet \u00b7 27.2M Signal estimates",
-    "buildingDisclosureRate": 32.9,
-    "sizeDisclosureRate": 49.4,
-    "typeDisclosureRate": 80.9,
-    "multiTenantHubsCount": 15,
-    "zeroToSixtyCount": 206,
-    "oneYearCount": 10,
+    "totalDisclosedSqFt": 36872031,
+    "totalDisclosedSqFtFormatted": "36.9M sq ft",
+    "sheetExplicitSqFt": 10322272,
+    "signalDerivedSqFt": 26549759,
+    "sheetExplicitSqFtFormatted": "10.32M sq ft",
+    "signalDerivedSqFtFormatted": "26.5M sq ft",
+    "pipelineDualSourceSub": "10.32M Sheet \u00b7 26.5M Signal estimates",
+    "buildingDisclosureRate": 36.1,
+    "sizeDisclosureRate": 49.0,
+    "typeDisclosureRate": 81.4,
+    "multiTenantHubsCount": 16,
+    "zeroToSixtyCount": 218,
+    "oneYearCount": 11,
     "twoYearsCount": 2,
-    "threeYearsAboveCount": 3,
-    "timingUnknownCount": 344,
+    "threeYearsAboveCount": 4,
+    "timingUnknownCount": 357,
     "firstMoverLanes": {
       "engageNow": 3,
-      "competeNow": 10,
-      "fightHarder": 153,
-      "fitoutInProgress": 53,
+      "competeNow": 11,
+      "fightHarder": 158,
+      "fitoutInProgress": 60,
       "nurture": 0,
-      "farWatch": 3,
-      "undated": 343
+      "farWatch": 4,
+      "undated": 356
     },
-    "lateStageCount": 206,
-    "coarseBandCount": 12,
-    "datingPriorityCount": 99,
+    "lateStageCount": 218,
+    "coarseBandCount": 13,
+    "datingPriorityCount": 100,
     "watchlistCount": 147,
     "watchlistPriorityGccCount": 43,
     "priorityGccDealsCount": 21,
-    "watchlistDealsCount": 49,
+    "watchlistDealsCount": 51,
     "disclaimerNotice": "Disclosed sizes only \u2014 partial total. Never implies unstated leases are zero.",
     "knownBoundaries": {
       "japanMalaysiaRenewals": "Japan has 0 lease renewals recorded (relocation focus). Malaysia records 0 physical office renewals (1 non-deal MFRS 16 accounting disclosure excluded).",
@@ -106,39 +106,39 @@ if (typeof window !== 'undefined') window.GOOGLE_SHEET_CONFIG = GOOGLE_SHEET_CON
 
 var INITIAL_METRICS = {
   "version": "2.31",
-  "totalTrackedRows": 573,
-  "totalDeals": 565,
+  "totalTrackedRows": 600,
+  "totalDeals": 592,
   "nonDealSignalsCount": 8,
-  "uniqueCompanies": 557,
-  "dealBackedAccountsCount": 557,
-  "totalTrackerAccounts": 558,
-  "uniqueAccountsBreakdown": "557 deal-backed corporate accounts (8 non-deal macro/accounting signals excluded)",
+  "uniqueCompanies": 581,
+  "dealBackedAccountsCount": 581,
+  "totalTrackerAccounts": 582,
+  "uniqueAccountsBreakdown": "581 deal-backed corporate accounts (8 non-deal macro/accounting signals excluded)",
   "accountStatuses": {
     "active": 126,
-    "watch": 431,
+    "watch": 455,
     "engaged": 0
   },
   "perCountryRows": {
-    "India": 150,
+    "India": 158,
     "Sri Lanka": 31,
     "Malaysia": 81,
-    "Japan": 96,
-    "Korea": 153,
-    "China": 62
+    "Japan": 107,
+    "Korea": 159,
+    "China": 64
   },
   "perCountryDeals": {
-    "India": 147,
-    "Korea": 153,
-    "China": 62,
-    "Japan": 96,
+    "India": 155,
+    "Korea": 159,
+    "China": 64,
+    "Japan": 107,
     "Malaysia": 77,
     "Sri Lanka": 30
   },
   "reconciliationBridge": {
-    "rawTotal": 573,
+    "rawTotal": 600,
     "nonDealCount": 8,
-    "totalDeals": 565,
-    "formula": "573 raw rows \u2212 8 non-deal = 565 deals",
+    "totalDeals": 592,
+    "formula": "600 raw rows \u2212 8 non-deal = 592 deals",
     "nonDealItems": [
       "GCC occupiers (structural) (India) \u2014 Structural signal",
       "Flex/coworking operators (structural) (India) \u2014 Structural signal",
@@ -149,40 +149,40 @@ var INITIAL_METRICS = {
       "MIDA \u2014 structural pipeline (not a company) (Malaysia) \u2014 Structural signal",
       "EDB ICT/BPM exporter directory (baseline watchlist) (Sri Lanka) \u2014 Baseline watchlist"
     ],
-    "explanation": "573 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 565 commercial deals."
+    "explanation": "600 raw sheet rows \u2212 8 non-deal accounting/structural/scraper entries = 592 commercial deals."
   },
-  "totalDisclosedSqFt": 33741834,
-  "totalDisclosedSqFtFormatted": "33.7M sq ft",
-  "sheetExplicitSqFt": 6542075,
-  "signalDerivedSqFt": 27199759,
-  "sheetExplicitSqFtFormatted": "6.54M sq ft",
-  "signalDerivedSqFtFormatted": "27.2M sq ft",
-  "pipelineDualSourceSub": "6.54M Sheet \u00b7 27.2M Signal estimates",
-  "buildingDisclosureRate": 32.9,
-  "sizeDisclosureRate": 49.4,
-  "typeDisclosureRate": 80.9,
-  "multiTenantHubsCount": 15,
-  "zeroToSixtyCount": 206,
-  "oneYearCount": 10,
+  "totalDisclosedSqFt": 36872031,
+  "totalDisclosedSqFtFormatted": "36.9M sq ft",
+  "sheetExplicitSqFt": 10322272,
+  "signalDerivedSqFt": 26549759,
+  "sheetExplicitSqFtFormatted": "10.32M sq ft",
+  "signalDerivedSqFtFormatted": "26.5M sq ft",
+  "pipelineDualSourceSub": "10.32M Sheet \u00b7 26.5M Signal estimates",
+  "buildingDisclosureRate": 36.1,
+  "sizeDisclosureRate": 49.0,
+  "typeDisclosureRate": 81.4,
+  "multiTenantHubsCount": 16,
+  "zeroToSixtyCount": 218,
+  "oneYearCount": 11,
   "twoYearsCount": 2,
-  "threeYearsAboveCount": 3,
-  "timingUnknownCount": 344,
+  "threeYearsAboveCount": 4,
+  "timingUnknownCount": 357,
   "firstMoverLanes": {
     "engageNow": 3,
-    "competeNow": 10,
-    "fightHarder": 153,
-    "fitoutInProgress": 53,
+    "competeNow": 11,
+    "fightHarder": 158,
+    "fitoutInProgress": 60,
     "nurture": 0,
-    "farWatch": 3,
-    "undated": 343
+    "farWatch": 4,
+    "undated": 356
   },
-  "lateStageCount": 206,
-  "coarseBandCount": 12,
-  "datingPriorityCount": 99,
+  "lateStageCount": 218,
+  "coarseBandCount": 13,
+  "datingPriorityCount": 100,
   "watchlistCount": 147,
   "watchlistPriorityGccCount": 43,
   "priorityGccDealsCount": 21,
-  "watchlistDealsCount": 49,
+  "watchlistDealsCount": 51,
   "disclaimerNotice": "Disclosed sizes only \u2014 partial total. Never implies unstated leases are zero.",
   "knownBoundaries": {
     "japanMalaysiaRenewals": "Japan has 0 lease renewals recorded (relocation focus). Malaysia records 0 physical office renewals (1 non-deal MFRS 16 accounting disclosure excluded).",
@@ -312,7 +312,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://websitemedia.anarock.com/media/India_Office_Market_Update_H1_CY_2026_ace5926b4b.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "New signal \u2014 assess",
+    "trackerTrend": "Strengthening",
     "trackerNotes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -358,6 +358,88 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
+    "id": "IN-156",
+    "rowId": "IN-156",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "WeWork",
+    "market": "Bengaluru (Whitefield)",
+    "city": "Bengaluru",
+    "submarket": "Bengaluru (Whitefield)",
+    "building": "Infinix Palladium",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 170000,
+    "areaFormatted": "1.70 Lakh sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "Expansion",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Second deal: ~1.7 lakh sq ft (3,100+ desks) new centre opened 5 Oct 2026, part of 2.25 lakh sq ft Bengaluru+Pune expansion; separate +2,881-desk Pune agreement ( ops Jul 2027). Sizes approx \u2014 pending enrichment.",
+    "timing": "Enterprise subleasing momentum \u2014 watch tenant mix",
+    "urgency": "Pipeline",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Flex & Coworking",
+    "source": "Company PR via scanx.trade",
+    "sourceUrl": "https://scanx.trade/stock-market-news/companies/wework-india-adds-2-25-lakh-sq-ft-across-bengaluru-pune/52726682",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "Strengthening",
+    "trackerNotes": "",
+    "heatScore": 100,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (170,000 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 100,
+      "summary": "R:40 + S:25 + T:20 + St:15 = 100"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on WeWork's upcoming office milestone at Infinix Palladium! With your fit-out window currently active for your 1.70 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-08-01",
+    "talkByFormatted": "In fit-out",
+    "firstMoverLane": "Fit-out in progress (<0m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Infinix Palladium \u00b7 Size: 1.70 Lakh sq ft \u00b7 Window: In fit-out",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "KR-049",
     "rowId": "KR-049",
     "rowKind": "Deal",
@@ -385,7 +467,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q2",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Relocation to Centerfield, 34,000 sqm \u2014 largest single deal in the Q2 table",
+    "signal": "Relocation to Centerfield, 34,000 sqm \u2014 largest single deal in the Q2 table Relocated OUT of Crystal Square (Newmark Q3 2026) \u2014 sizeable block freed.",
     "timing": "Signed Q2 2026 \u2014 major fit-out in progress now",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -394,7 +476,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/south-korea--seoul--office-q2_2026_eng.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Relocation \u2014 fit-out demand",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -602,6 +684,88 @@ var INITIAL_LEADS_DATA = [
     "confidenceRaw": "",
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-157",
+    "rowId": "IN-157",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "WeWork",
+    "market": "Pune (Wakad)",
+    "city": "Pune",
+    "submarket": "Pune (Wakad)",
+    "building": "Millennium Towers",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 55000,
+    "areaFormatted": "55,000 sq ft",
+    "sizeTier": "Large (50k-100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "Expansion",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Second deal: ~55k sq ft (1,400 desks) new centre opened 5 Oct 2026; ~1.8 lakh sq ft at Millennium Towers already subleased to enterprise clients via Managed Office. Size approx \u2014 pending enrichment.",
+    "timing": "Enterprise subleasing momentum \u2014 watch tenant mix",
+    "urgency": "Active",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Flex & Coworking",
+    "source": "Company PR via scanx.trade",
+    "sourceUrl": "https://scanx.trade/stock-market-news/companies/wework-india-adds-2-25-lakh-sq-ft-across-bengaluru-pune/52726682",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Active",
+    "trackerTrend": "Strengthening",
+    "trackerNotes": "",
+    "heatScore": 95,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 20,
+      "sizeReason": "Large footprint (55,000 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 15,
+      "statusReason": "Active priority (+15)",
+      "recency": 40,
+      "size": 20,
+      "dealType": 20,
+      "status": 15,
+      "totalScore": 95,
+      "summary": "R:40 + S:20 + T:20 + St:15 = 95"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on WeWork's upcoming office milestone at Millennium Towers! With your fit-out window currently active for your 55,000 sq ft space, Steelcase APAC has supported several recent flagship migrations across Pune. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-08-01",
+    "talkByFormatted": "In fit-out",
+    "firstMoverLane": "Fit-out in progress (<0m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Millennium Towers \u00b7 Size: 55,000 sq ft \u00b7 Window: In fit-out",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
   },
   {
     "id": "JP-051",
@@ -1176,6 +1340,252 @@ var INITIAL_LEADS_DATA = [
     "confidenceRaw": "",
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-152",
+    "rowId": "IN-152",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "BNP Paribas",
+    "market": "Chennai",
+    "city": "Chennai",
+    "submarket": "Chennai",
+    "building": "One Radial",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 500000,
+    "areaFormatted": "5.00 Lakh sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Signed 10-yr lease for ~5 lakh sq ft across four floors at One Radial (Mindspace REIT), consolidating dispersed Chennai operations",
+    "timing": "Recent signing \u2014 fit-out window likely open now",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Corporate & Commercial",
+    "source": "ETRealty via constructionworld.in",
+    "sourceUrl": "https://www.constructionworld.in/policy-updates-and-economic-news/bnp-paribas-leases-500000-sq-ft-at-one-radial-in-chennai/98791",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (500,000 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on BNP Paribas's upcoming office milestone at One Radial! With your fit-out window currently active for your 5.00 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Chennai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-08-01",
+    "talkByFormatted": "In fit-out",
+    "firstMoverLane": "Fit-out in progress (<0m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": true,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: One Radial \u00b7 Size: 5.00 Lakh sq ft \u00b7 Window: In fit-out",
+    "confidence": "Verified CRE Intel",
+    "hasConfidence": true,
+    "confidenceRaw": "Verified CRE Intel",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "IN-155",
+    "rowId": "IN-155",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Sopra Steria India",
+    "market": "Noida (Noida Expressway)",
+    "city": "Noida",
+    "submarket": "Noida (Noida Expressway)",
+    "building": "Maconns Grand, Towers A & B",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 475000,
+    "areaFormatted": "4.75 Lakh sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "15-yr lease for ~4.75 lakh sq ft dedicated campus (ground + 17 floors) at Maconns Grand; 1,125 free car parks. Propstack documents.",
+    "timing": "New 15-yr campus \u2014 fit-out window open now",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Corporate & Commercial",
+    "source": "The CSR Journal",
+    "sourceUrl": "https://thecsrjournal.in/sopra-steria-india-limited-leases-475-lakh-sq-ft-office-space-in-noida-for-15-years-at-816-crore-total-rent",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (475,000 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Sopra Steria India's upcoming office milestone at Maconns Grand, Towers A & B! With your fit-out window currently active for your 4.75 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Noida. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-08-01",
+    "talkByFormatted": "In fit-out",
+    "firstMoverLane": "Fit-out in progress (<0m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Maconns Grand, Towers A & B \u00b7 Size: 4.75 Lakh sq ft \u00b7 Window: In fit-out",
+    "confidence": "Verified CRE Intel",
+    "hasConfidence": true,
+    "confidenceRaw": "Verified CRE Intel",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "IN-158",
+    "rowId": "IN-158",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Accenture",
+    "market": "Bengaluru (Bellandur)",
+    "city": "Bengaluru",
+    "submarket": "Bengaluru (Bellandur)",
+    "building": "Pritech Park",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 567000,
+    "areaFormatted": "5.67 Lakh sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Q3 2026",
+    "dealQuarter": "2026-Q3",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Late catch (announced 23 Sep 2026): 5.67 lakh sq ft at Pritech Park, Bellandur; distinct market from existing Accenture deals (Hyderabad, Pune, Thane, Noida). Size as reported.",
+    "timing": "Fit-out likely underway \u2014 engage now",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Enterprise Software & Tech",
+    "source": "India scan (trade press)",
+    "sourceUrl": "https://www.tradingview.com/news/moodys:4220c1c094d9e:0-infosys-to-run-us-bank-truist-s-gcc-to-onboard-1-000-employees/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "\u2014",
+    "trackerNotes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (567,000 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Accenture's upcoming office milestone at Pritech Park! With your fit-out window currently active for your 5.67 Lakh sq ft space, Steelcase APAC has supported several recent flagship migrations across Bengaluru. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-08-01",
+    "talkByFormatted": "In fit-out",
+    "firstMoverLane": "Fit-out in progress (<0m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": true,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Pritech Park \u00b7 Size: 5.67 Lakh sq ft \u00b7 Window: In fit-out",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
   },
   {
     "id": "KR-035",
@@ -2116,7 +2526,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.g-enews.com/article/Finance/2026/09/202609221610135759e30fcb1ba8_1",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -2444,7 +2854,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.globenewswire.com/news-release/2026/02/12/3236827/0/en/DayOne-Establishes-Regional-Operations-and-Training-Base-in-Johor-Expands-Kuala-Lumpur-Shared-Services-Center.html",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Strengthening",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -2650,6 +3060,88 @@ var INITIAL_LEADS_DATA = [
     "confidence": "Unrated Signal",
     "hasConfidence": false,
     "confidenceRaw": "",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
+    "id": "IN-151",
+    "rowId": "IN-151",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Truist Financial",
+    "market": "Hyderabad",
+    "city": "Hyderabad",
+    "submarket": "Hyderabad",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Infosys 5-yr build-operate-transfer deal to build Truist's AI-first GCC in Hyderabad; 1,000+ colleagues onboarding Oct 2026, consolidating supplier-delivered capabilities into one centre.",
+    "timing": "Onboarding underway \u2014 fit-out/recruitment window open NOW",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "BFSI (Banking & Finance)",
+    "source": "TradingView / Finanznachrichten",
+    "sourceUrl": "https://www.tradingview.com/news/moodys:4220c1c094d9e:0-infosys-to-run-us-bank-truist-s-gcc-to-onboard-1-000-employees/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Truist Financial's upcoming office milestone at Hyderabad! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Hyderabad. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-08-01",
+    "talkByFormatted": "In fit-out",
+    "firstMoverLane": "Fit-out in progress (<0m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Hyderabad \u00b7 Size: Not disclosed \u00b7 Window: In fit-out",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
   },
@@ -3226,6 +3718,88 @@ var INITIAL_LEADS_DATA = [
     "confidenceRaw": "",
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
+  },
+  {
+    "id": "KR-156",
+    "rowId": "KR-156",
+    "rowKind": "Deal",
+    "country": "Korea",
+    "countryCode": "KR",
+    "flag": "\ud83c\uddf0\ud83c\uddf7",
+    "currency": "KRW",
+    "currencySymbol": "\u20a9",
+    "company": "Hanwha General Insurance",
+    "market": "Seoul (CBD)",
+    "city": "Seoul",
+    "submarket": "Seoul (CBD)",
+    "building": "Central Place",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Q3 2026",
+    "dealQuarter": "2026-Q3",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "New lease at Central Place, CBD (Newmark Q3 2026 Seoul report).",
+    "timing": "Q3 lease \u2014 fit-out window open now",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "BFSI (Banking & Finance)",
+    "source": "Newmark Q3 2026 Seoul Office Market Report",
+    "sourceUrl": "https://www.prnewswire.com/apac/news-releases/newmark-releases-q3-2026-seoul-office-market-report-302911548.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Hanwha General Insurance's upcoming office milestone at Central Place! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-08-01",
+    "talkByFormatted": "In fit-out",
+    "firstMoverLane": "Fit-out in progress (<0m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Central Place \u00b7 Size: Not disclosed \u00b7 Window: In fit-out",
+    "confidence": "Verified CRE Intel",
+    "hasConfidence": true,
+    "confidenceRaw": "Verified CRE Intel",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
   },
   {
     "id": "MY-028",
@@ -4658,7 +5232,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.constructionworld.in/policy-updates-and-economic-news/infineon-takes-6-3-lakh-sq-ft-in-bengaluru-for-rs-7-5-billion-lease/96668",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Strengthening",
     "trackerNotes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -4895,7 +5469,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q2",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "Relocation to NH NongHyup Tower, 13,500 sqm",
+    "signal": "Relocation to NH NongHyup Tower, 13,500 sqm From Gangnam to CBD (Newmark Q3 2026).",
     "timing": "Signed Q2 2026 \u2014 fit-out active now",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -4904,7 +5478,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/south-korea--seoul--office-q2_2026_eng.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Relocation \u2014 fit-out demand",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -6426,6 +7000,88 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
+    "id": "JP-107",
+    "rowId": "JP-107",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "Sumitomo Densetsu",
+    "market": "Tokyo (Nihonbashi)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Nihonbashi)",
+    "building": "Nihonbashi Honcho MK-SQUARE",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 143436,
+    "areaFormatted": "143,436 sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Q2 2026",
+    "dealQuarter": "2026-Q2",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ relocation 143,436 sq ft to Nihonbashi Honcho MK-SQUARE (C&W Tokyo Q2 2026; backfill \u2014 missed in earlier harvest).",
+    "timing": "Move likely complete \u2014 engage for optimization",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Industrial & MedTech",
+    "source": "Cushman & Wakefield Tokyo Office Q2 2026",
+    "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/japan---tokyo---office-q2-2026-en.pdf?rev=d272581a9b8f415",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (143,436 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Sumitomo Densetsu's upcoming office milestone at Nihonbashi Honcho MK-SQUARE! With your fit-out window currently active for your 143,436 sq ft space, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-10-01",
+    "talkByFormatted": "Immediate",
+    "firstMoverLane": "Fight harder (0\u20136m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Nihonbashi Honcho MK-SQUARE \u00b7 Size: 143,436 sq ft \u00b7 Window: Immediate",
+    "confidence": "Verified CRE Intel",
+    "hasConfidence": true,
+    "confidenceRaw": "Verified CRE Intel",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "KR-047",
     "rowId": "KR-047",
     "rowKind": "Deal",
@@ -6520,8 +7176,8 @@ var INITIAL_LEADS_DATA = [
     "market": "Seoul (CBD)",
     "city": "Seoul",
     "submarket": "Seoul (CBD)",
-    "building": "",
-    "isBuildingDisclosed": false,
+    "building": "Seoul City Tower",
+    "isBuildingDisclosed": true,
     "isBuildingInferred": false,
     "areaSqFt": 27986,
     "areaFormatted": "27,986 sq ft (2,600 sqm)",
@@ -6544,7 +7200,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/south-korea--seoul--office-q2_2026_eng.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Expansion \u2014 growth demand",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 90,
     "heatScoreBreakdown": {
@@ -6563,7 +7219,7 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 90,
       "summary": "R:40 + S:15 + T:20 + St:15 = 90"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on LG Household & Health Care's upcoming office milestone at Seoul! With your fit-out window currently active for your 27,986 sq ft (2,600 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on LG Household & Health Care's upcoming office milestone at Seoul City Tower! With your fit-out window currently active for your 27,986 sq ft (2,600 sqm) space, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "handoverDate": "",
@@ -6582,12 +7238,12 @@ var INITIAL_LEADS_DATA = [
     "isWatchlistTarget": false,
     "isPriorityGcc": false,
     "watchlistTag": "",
-    "callAngle": "Target: Seoul (CBD) \u00b7 Size: 27,986 sq ft (2,600 sqm) \u00b7 Window: Immediate",
+    "callAngle": "Target: Seoul City Tower \u00b7 Size: 27,986 sq ft (2,600 sqm) \u00b7 Window: Immediate",
     "confidence": "Unrated Signal",
     "hasConfidence": false,
     "confidenceRaw": "",
     "isMultiTenantHub": false,
-    "buildingTenantCount": 0
+    "buildingTenantCount": 1
   },
   {
     "id": "KR-051",
@@ -6872,7 +7528,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q2/apac-and-gc/south-korea--seoul--office-q2_2026_eng.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Expansion \u2014 growth demand",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 90,
     "heatScoreBreakdown": {
@@ -8148,6 +8804,88 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
+    "id": "IN-153",
+    "rowId": "IN-153",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "SMBC",
+    "market": "Mumbai (BKC)",
+    "city": "Mumbai",
+    "submarket": "Mumbai (BKC)",
+    "building": "Sumitomo C65 (Goisu Realty)",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 49820,
+    "areaFormatted": "49,820 sq ft",
+    "sizeTier": "Mid (20k-50k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "5-yr leave-and-licence dated 6 Oct 2026 (registered), 9-mo rent-free with rent from Jun 2027",
+    "timing": "Fit-out window Oct 2026\u2013Jun 2027 (rent-free) \u2014 engage NOW",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Corporate & Commercial",
+    "source": "NoBrokerage",
+    "sourceUrl": "https://blog.nobrokerage.com/realestatenews/smbc-bkc-lease:-indias-financial-real-estate-market-boom-1792427674843",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 80,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 15,
+      "sizeReason": "Mid-size fit-out (49,820 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 15,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 80,
+      "summary": "R:40 + S:15 + T:20 + St:5 = 80"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on SMBC's upcoming office milestone at Sumitomo C65 (Goisu Realty)! With your fit-out window currently active for your 49,820 sq ft space, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-10-01",
+    "talkByFormatted": "Immediate",
+    "firstMoverLane": "Fight harder (0\u20136m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Sumitomo C65 (Goisu Realty) \u00b7 Size: 49,820 sq ft \u00b7 Window: Immediate",
+    "confidence": "Verified CRE Intel",
+    "hasConfidence": true,
+    "confidenceRaw": "Verified CRE Intel",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "MY-025",
     "rowId": "MY-025",
     "rowKind": "Deal",
@@ -8594,7 +9332,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://propnewstime.com/latestnewsstories/MzA2MTc=/intuit-signs-inr-915-crore-office-lease-for-6-3-lakh-sq-ft-in-bengaluru",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Watch",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -8758,7 +9496,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.analyticsinsight.net/news/starbucks-to-set-up-first-india-gcc-in-chennai-plans-800-tech-jobs",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Strengthening",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -9241,7 +9979,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
-    "signal": "HQ move from Sogong-dong Hanwha Building to Crystal Square on 2026-10-21 (reported 2026-10-09); affiliate Sillajen pre-moved to 3F in Apr 2025 as collaboration hub",
+    "signal": "HQ move from Sogong-dong Hanwha Building to Crystal Square on 2026-10-21 (reported 2026-10-09); affiliate Sillajen pre-moved to 3F in Apr 2025 as collaboration hub Consolidating with affiliate SillaGen (itbiznews 8 Oct 2026).",
     "timing": "Move 1 week away - fit-out imminent, immediate outreach",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -9250,7 +9988,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.itbiznews.com/news/articleView.html?idxno=227380",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Strengthening",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -9390,8 +10128,8 @@ var INITIAL_LEADS_DATA = [
     "market": "Seoul (GBD)",
     "city": "Seoul",
     "submarket": "Seoul (GBD)",
-    "building": "",
-    "isBuildingDisclosed": false,
+    "building": "Centerfield",
+    "isBuildingDisclosed": true,
     "isBuildingInferred": false,
     "areaSqFt": null,
     "areaFormatted": "Not disclosed",
@@ -9414,7 +10152,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/3Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "New signal \u2014 assess",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -9433,7 +10171,7 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Tesla's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Tesla's upcoming office milestone at Centerfield! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "handoverDate": "",
@@ -9452,12 +10190,12 @@ var INITIAL_LEADS_DATA = [
     "isWatchlistTarget": false,
     "isPriorityGcc": false,
     "watchlistTag": "",
-    "callAngle": "Target: Seoul (GBD) \u00b7 Size: Not disclosed \u00b7 Window: Immediate",
+    "callAngle": "Target: Centerfield \u00b7 Size: Not disclosed \u00b7 Window: Immediate",
     "confidence": "Unrated Signal",
     "hasConfidence": false,
     "confidenceRaw": "",
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
+    "isMultiTenantHub": true,
+    "buildingTenantCount": 2
   },
   {
     "id": "KR-066",
@@ -9472,8 +10210,8 @@ var INITIAL_LEADS_DATA = [
     "market": "Seoul (GBD)",
     "city": "Seoul",
     "submarket": "Seoul (GBD)",
-    "building": "",
-    "isBuildingDisclosed": false,
+    "building": "Centerfield",
+    "isBuildingDisclosed": true,
     "isBuildingInferred": false,
     "areaSqFt": null,
     "areaFormatted": "Not disclosed",
@@ -9496,7 +10234,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://eussa01corpweb.blob.core.windows.net/nmrkweb/uploads/documents/3Q26-Korea-Office-Leasing-Market_Conditions_Trends-English.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "New signal \u2014 assess",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -9515,7 +10253,7 @@ var INITIAL_LEADS_DATA = [
       "totalScore": 75,
       "summary": "R:40 + S:0 + T:20 + St:15 = 75"
     },
-    "suggestedOpeningLine": "Hi [Name], congratulations on Sanofi-Aventis's upcoming office milestone at Seoul! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "suggestedOpeningLine": "Hi [Name], congratulations on Sanofi-Aventis's upcoming office milestone at Centerfield! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
     "isNonDealRow": false,
     "sourceRowsMerged": 1,
     "handoverDate": "",
@@ -9534,12 +10272,12 @@ var INITIAL_LEADS_DATA = [
     "isWatchlistTarget": true,
     "isPriorityGcc": false,
     "watchlistTag": "",
-    "callAngle": "Target: Seoul (GBD) \u00b7 Size: Not disclosed \u00b7 Window: Immediate",
+    "callAngle": "Target: Centerfield \u00b7 Size: Not disclosed \u00b7 Window: Immediate",
     "confidence": "Unrated Signal",
     "hasConfidence": false,
     "confidenceRaw": "",
-    "isMultiTenantHub": false,
-    "buildingTenantCount": 0
+    "isMultiTenantHub": true,
+    "buildingTenantCount": 2
   },
   {
     "id": "KR-067",
@@ -11674,6 +12412,88 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
+    "id": "JP-098",
+    "rowId": "JP-098",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "UCB Japan",
+    "market": "Tokyo (Shinjuku)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Shinjuku)",
+    "building": "Meiji Yasuda Shinjuku Bldg 20F",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Jun 2027",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ move announced 20 Oct 2026; pharma growth story.",
+    "timing": "Move Jun 2027 \u2014 fit-out starts ~now; engage IMMEDIATELY",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "Industrial & MedTech",
+    "source": "PR TIMES via excite",
+    "sourceUrl": "http://www.excite.co.jp/news/article/prtimes_2026-10-20-93734-25/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on UCB Japan's upcoming office milestone at Meiji Yasuda Shinjuku Bldg 20F! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Tokyo. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-10-01",
+    "talkByFormatted": "Immediate",
+    "firstMoverLane": "Fight harder (0\u20136m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Meiji Yasuda Shinjuku Bldg 20F \u00b7 Size: Not disclosed \u00b7 Window: Immediate",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "KR-001",
     "rowId": "KR-001",
     "rowKind": "Deal",
@@ -12080,6 +12900,88 @@ var INITIAL_LEADS_DATA = [
     "confidence": "Unrated Signal",
     "hasConfidence": false,
     "confidenceRaw": "",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "KR-158",
+    "rowId": "KR-158",
+    "rowKind": "Deal",
+    "country": "Korea",
+    "countryCode": "KR",
+    "flag": "\ud83c\uddf0\ud83c\uddf7",
+    "currency": "KRW",
+    "currencySymbol": "\u20a9",
+    "company": "Woori Financial Group (affiliate, unspecified)",
+    "market": "Seoul (YBD)",
+    "city": "Seoul",
+    "submarket": "Seoul (YBD)",
+    "building": "One Centinel",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Expansion",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Q3 2026",
+    "dealQuarter": "2026-Q3",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Affiliate expansion at One Centinel, Yeouido (Newmark Q3 2026 Seoul report); specific affiliate unnamed \u2014 pending enrichment.",
+    "timing": "Expansion \u2014 fit-out likely active",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "BFSI (Banking & Finance)",
+    "source": "Newmark Q3 2026 Seoul Office Market Report",
+    "sourceUrl": "https://www.prnewswire.com/apac/news-releases/newmark-releases-q3-2026-seoul-office-market-report-302911548.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Woori Financial Group (affiliate, unspecified)'s upcoming office milestone at One Centinel! With your fit-out window currently active, Steelcase APAC has supported several recent flagship migrations across Seoul. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-10-01",
+    "talkByFormatted": "Immediate",
+    "firstMoverLane": "Fight harder (0\u20136m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: One Centinel \u00b7 Size: Not disclosed \u00b7 Window: Immediate",
+    "confidence": "Verified CRE Intel",
+    "hasConfidence": true,
+    "confidenceRaw": "Verified CRE Intel",
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
@@ -14052,6 +14954,88 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
+    "id": "IN-154",
+    "rowId": "IN-154",
+    "rowKind": "Deal",
+    "country": "India",
+    "countryCode": "IN",
+    "flag": "\ud83c\uddee\ud83c\uddf3",
+    "currency": "INR",
+    "currencySymbol": "\u20b9",
+    "company": "Qatar National Bank",
+    "market": "Mumbai (BKC)",
+    "city": "Mumbai",
+    "submarket": "Mumbai (BKC)",
+    "building": "Maker Maxity (4 North Avenue)",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 8079,
+    "areaFormatted": "8,079 sq ft",
+    "sizeTier": "Boutique (<20k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "Renewal",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Renewed at , 5 yrs, 4.5% annual escalation, lock-in till 25 Oct 2031, 10 car parks.",
+    "timing": "Just renewed \u2014 engage on renewal services/fit-out refresh",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u201360 Days",
+    "sector": "BFSI (Banking & Finance)",
+    "source": "ghar.tv",
+    "sourceUrl": "https://www.ghar.tv/blog/qatar-national-bank-secures-premium-bkc-office-at-record-breaking-775-per-sq-ft-in-strategic-lease-renewal/artid4751",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 60,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 10,
+      "sizeReason": "Boutique office (8,079 sq ft [Sheet])",
+      "typePts": 5,
+      "typeReason": "Renewal refresh benchmark (5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 10,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 60,
+      "summary": "R:40 + S:10 + T:5 + St:5 = 60"
+    },
+    "suggestedOpeningLine": "Hi [Name], congratulations on Qatar National Bank's upcoming office milestone at Maker Maxity (4 North Avenue)! With your fit-out window currently active for your 8,079 sq ft space, Steelcase APAC has supported several recent flagship migrations across Mumbai. We'd love to share agile, high-collaboration workspace settings to maximize employee engagement from day one.",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-10-01",
+    "talkByFormatted": "Immediate",
+    "firstMoverLane": "Fight harder (0\u20136m)",
+    "isLateStage": true,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Maker Maxity (4 North Avenue) \u00b7 Size: 8,079 sq ft \u00b7 Window: Immediate",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "JP-029",
     "rowId": "JP-029",
     "rowKind": "Deal",
@@ -14088,7 +15072,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://topics.smt.docomo.ne.jp/article/yomiuri/business/20260926-567-GYT1T00357",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -14334,7 +15318,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.mida.gov.my/media-release/aixrons-new-facility-in-penang-reinforces-malaysias-position-as-important-hub-for-advanced-semiconductor-manufacturing/",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -16375,7 +17359,7 @@ var INITIAL_LEADS_DATA = [
     "dealQuarter": "2026-Q3",
     "dateFound": "2026-07-01",
     "daysAgo": 106,
-    "signal": "HQ relocation to newly built AM Plus Office (building 29,726 sqm / ~320,000 sq ft; lease size undisclosed)",
+    "signal": "HQ relocation to newly built AM Plus Office (building 29,726 sqm / ~320,000 sq ft; lease size undisclosed) Vacating large block at Gangnam Finance Center (Newmark Q3 2026).",
     "timing": "Relocation to new build - fit-out window",
     "urgency": "Immediate",
     "fitoutWindow": "0\u201360 Days",
@@ -17248,6 +18232,88 @@ var INITIAL_LEADS_DATA = [
     "confidenceRaw": "",
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
+  },
+  {
+    "id": "CN-063",
+    "rowId": "CN-063",
+    "rowKind": "Deal",
+    "country": "China",
+    "countryCode": "CN",
+    "flag": "\ud83c\udde8\ud83c\uddf3",
+    "currency": "CNY",
+    "currencySymbol": "\u00a5",
+    "company": "Hypergryph",
+    "market": "Shanghai (Xuhui)",
+    "city": "Shanghai",
+    "submarket": "Shanghai (Xuhui)",
+    "building": "Xuhui Vanke Center Phase 3, Tower T1 (\u5f90\u6c47\u4e07\u79d1\u4e2d\u5fc3\u4e09\u671fT1)",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 968760,
+    "areaFormatted": "968,760 sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Q4 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Whole-tower (37 floors, ~90,000 sqm) new-lease HQ upgrade at Xuhui Riverside; broker Colliers (followed ~1 year); move-in end-2027.",
+    "timing": "Move-in end-2027; fit-out design/procurement window 2027 \u2014 engage NOW on design",
+    "urgency": "Immediate",
+    "fitoutWindow": "0\u20131 Year",
+    "sector": "Corporate & Commercial",
+    "source": "21\u4e16\u7eaa\u7ecf\u6d4e\u62a5\u9053",
+    "sourceUrl": "https://www.21jingji.com/article/20261015/1137f0dee87d7f3c1ffc183a84b475d1.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (968,760 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "suggestedOpeningLine": "Hi [Name], I noticed Hypergryph's commercial momentum at Xuhui Vanke Center Phase 3, Tower T1 (\u5f90\u6c47\u4e07\u79d1\u4e2d\u5fc3\u4e09\u671fT1). As your workplace strategy evolves in Shanghai, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2026-10-15",
+    "talkByFormatted": "Immediate / Near-term",
+    "firstMoverLane": "Compete now (6\u201312m)",
+    "isLateStage": false,
+    "isCoarseBand": true,
+    "coarseBadge": "[Coarse 0\u201312m]",
+    "coarseTooltip": "Coarse bucket from legacy Sheet. Handover date verification in progress.",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Xuhui Vanke Center Phase 3, Tower T1 (\u5f90\u6c47\u4e07\u79d1\u4e2d\u5fc3\u4e09\u671fT1) \u00b7 Size: 968,760 sq ft \u00b7 Window: Immediate / Near-term",
+    "confidence": "Verified CRE Intel",
+    "hasConfidence": true,
+    "confidenceRaw": "Verified CRE Intel",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
   },
   {
     "id": "JP-061",
@@ -18316,6 +19382,88 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
+    "id": "JP-097",
+    "rowId": "JP-097",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "ANA Holdings",
+    "market": "Tokyo (Yaesu)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Yaesu)",
+    "building": "YAESU CORE",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Spring 2030",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ relocation to YAESU CORE (Tokyo Yaesu), announced 16 Oct 2026; flagship-scale future signal.",
+    "timing": "Spring 2030 \u2014 engage ~2028\u201329 on design",
+    "urgency": "Immediate",
+    "fitoutWindow": "2+ Years",
+    "sector": "Corporate & Commercial",
+    "source": "Traffic News / Aviation Week",
+    "sourceUrl": "https://trafficnews.jp/post/719039",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], I noticed ANA Holdings's commercial momentum at YAESU CORE. As your workplace strategy evolves in Tokyo, Steelcase APAC provides premium ergonomic furniture and workplace intelligence to create high-performance office environments. Would you be open to a brief 10-minute introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": "2028-01-01",
+    "talkByFormatted": "Post-2027",
+    "firstMoverLane": "Far watch (>24m)",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: YAESU CORE \u00b7 Size: Not disclosed \u00b7 Window: Post-2027",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "KR-004",
     "rowId": "KR-004",
     "rowKind": "Deal",
@@ -18926,7 +20074,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/beijing-office-marketbeat-q3-2026-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "New occupier \u2014 fit-out demand",
+    "trackerTrend": "Expanding",
     "trackerNotes": "",
     "heatScore": 95,
     "heatScoreBreakdown": {
@@ -19008,7 +20156,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2026/q3/apac-and-gc/shanghai-office-marketbeat-q3-2026-final.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Relocation \u2014 fit-out demand",
+    "trackerTrend": "Strengthening",
     "trackerNotes": "",
     "heatScore": 95,
     "heatScoreBreakdown": {
@@ -19628,6 +20776,88 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
+    "id": "CN-064",
+    "rowId": "CN-064",
+    "rowKind": "Deal",
+    "country": "China",
+    "countryCode": "CN",
+    "flag": "\ud83c\udde8\ud83c\uddf3",
+    "currency": "CNY",
+    "currencySymbol": "\u00a5",
+    "company": "BlueFocus Data Technology",
+    "market": "Shanghai (Xuhui)",
+    "city": "Shanghai",
+    "submarket": "Shanghai (Xuhui)",
+    "building": "Shanghai Alibaba Center, Xuhui Riverside (floors 3-8)",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 188370,
+    "areaFormatted": "188,370 sq ft",
+    "sizeTier": "Mega (>100k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "New lease",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Q4 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Signed floors 3\u20138 (~17,500 sqm) riverside at Shanghai Alibaba Center, Xuhui Riverside; reported 9 Oct 2026 (late catch). Xuhui Riverside tech-cluster demand continues.",
+    "timing": "New lease signed; fit-out timing unstated \u2014 pending enrichment",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Enterprise Software & Tech",
+    "source": "\u89c2\u70b9\u7f51",
+    "sourceUrl": "https://easy.guandian.hk/article/20261009/610741.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (188,370 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding BlueFocus Data Technology's commercial workplace portfolio in Shanghai. As your team reviews ongoing workspace requirements at Shanghai Alibaba Center, Xuhui Riverside (floors 3-8), Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": true,
+    "datingPriorityReason": "Disclosed footprint \u2265 50,000 sq ft",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Shanghai Alibaba Center, Xuhui Riverside (floors 3-8) \u00b7 Size: 188,370 sq ft \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "IN-060",
     "rowId": "IN-060",
     "rowKind": "Deal",
@@ -19643,20 +20873,20 @@ var INITIAL_LEADS_DATA = [
     "building": "",
     "isBuildingDisclosed": false,
     "isBuildingInferred": false,
-    "areaSqFt": 650000,
-    "areaFormatted": "6.50 Lakh sq ft",
+    "areaSqFt": 645172,
+    "areaFormatted": "6.45 Lakh sq ft",
     "sizeTier": "Mega (>100k)",
     "isSizeDisclosed": true,
-    "isSizeInferred": true,
+    "isSizeInferred": false,
     "dealType": "New lease",
     "isTypeDisclosed": false,
     "isTypeInferred": true,
-    "dealDate": "2026-10-14",
+    "dealDate": "2026-10-20",
     "dealQuarter": "2026-Q4",
     "dateFound": "2026-10-14",
     "daysAgo": 1,
     "signal": "0.65 mn sq ft lease transaction at Embassy Splendid TechZone, Pallavaram\u2013Thoraipakkam Rd (ANAROCK Key Lease Transactions, H1 2026)",
-    "timing": "Deal transacted Jan\u2013Jun 2026; largest of the new finds \u2014 phased fit-out may still be running",
+    "timing": "Lease commenced 10 Sep 2026 \u2014 fit-out likely underway (registration-doc details added 2026-10-20)",
     "urgency": "Immediate",
     "fitoutWindow": "Timing unknown",
     "sector": "Enterprise Software & Tech",
@@ -19671,7 +20901,7 @@ var INITIAL_LEADS_DATA = [
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
       "sizePts": 25,
-      "sizeReason": "Mega campus (650,000 sq ft [Signal estimate])",
+      "sizeReason": "Mega campus (645,172 sq ft [Sheet])",
       "typePts": 20,
       "typeReason": "High fit-out demand (New lease)",
       "statusPts": 5,
@@ -19702,7 +20932,7 @@ var INITIAL_LEADS_DATA = [
     "isWatchlistTarget": false,
     "isPriorityGcc": false,
     "watchlistTag": "",
-    "callAngle": "Target: Chennai \u00b7 Size: 6.50 Lakh sq ft \u00b7 Window: No date yet",
+    "callAngle": "Target: Chennai \u00b7 Size: 6.45 Lakh sq ft \u00b7 Window: No date yet",
     "confidence": "Unrated Signal",
     "hasConfidence": false,
     "confidenceRaw": "",
@@ -25322,7 +26552,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://kfmconnect.com.my/reh2h2025",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Relocation \u2014 fit-out demand",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -30816,7 +32046,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.mingtiandi.com/real-estate/finance/tishman-mitsubishi-jv-sells-shanghai-offices-to-pinduoduo-parent/",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "pre-commitment \u2014 fit-out window",
+    "trackerTrend": "Strengthening",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -31636,7 +32866,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2024/q4/apac-and-gc/japan---tokyo---office-q4-2024-en.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Pre-commitment \u2014 forward fit-out pipeline",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -31964,7 +33194,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q1/apac-and-gc/japan---tokyo---office-q1-2025-en.pdf",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Active",
-    "trackerTrend": "Pre-commitment \u2014 forward fit-out pipeline",
+    "trackerTrend": "Steady",
     "trackerNotes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -32254,6 +33484,88 @@ var INITIAL_LEADS_DATA = [
     "confidenceRaw": "",
     "isMultiTenantHub": false,
     "buildingTenantCount": 0
+  },
+  {
+    "id": "JP-104",
+    "rowId": "JP-104",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "Kurumeshi",
+    "market": "Tokyo (Shibuya)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Shibuya)",
+    "building": "Shibuya First Place 2F",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": 9560,
+    "areaFormatted": "9,560 sq ft",
+    "sizeTier": "Boutique (<20k)",
+    "isSizeDisclosed": true,
+    "isSizeInferred": false,
+    "dealType": "Expansion",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ expansion 13 Oct 2026; doubled footprint (888.30\u33a1, ~2\u00d7 old 4,730 sq ft).",
+    "timing": "Doubled footprint \u2014 watch next expansion",
+    "urgency": "Active",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "PR TIMES",
+    "sourceUrl": "https://prtimes.jp/main/html/rd/p/000000250.000007949.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 75,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 10,
+      "sizeReason": "Boutique office (9,560 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 10,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 75,
+      "summary": "R:40 + S:10 + T:20 + St:5 = 75"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Kurumeshi's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Shibuya First Place 2F, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Shibuya First Place 2F \u00b7 Size: 9,560 sq ft \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
   },
   {
     "id": "KR-037",
@@ -36602,6 +37914,580 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 0
   },
   {
+    "id": "JP-099",
+    "rowId": "JP-099",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "Nissay MIRAIQA",
+    "market": "Tokyo (Takanawa)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Takanawa)",
+    "building": "THE LINKPILLAR 1 SOUTH 8F",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ relocated 19 Oct 2026 (Nippon Life subsidiary).",
+    "timing": "Already moved \u2014 top-up/phase-2 angle",
+    "urgency": "Active",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "PR TIMES",
+    "sourceUrl": "https://prtimes.jp/main/html/rd/p/000000069.000070478.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Nissay MIRAIQA's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at THE LINKPILLAR 1 SOUTH 8F, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: THE LINKPILLAR 1 SOUTH 8F \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "JP-100",
+    "rowId": "JP-100",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "Car Seven Digi Field",
+    "market": "Tokyo (Mita/Tamachi)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Mita/Tamachi)",
+    "building": "Mita Kokusai Bldg 1F",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Nov 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ move 2 Nov 2026.",
+    "timing": "Moves in <2 weeks \u2014 window nearly closed",
+    "urgency": "Active",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "PR TIMES via excite",
+    "sourceUrl": "http://www.excite.co.jp/news/article/Prtimes_2026-10-16-177546-12/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Car Seven Digi Field's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Mita Kokusai Bldg 1F, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Mita Kokusai Bldg 1F \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "JP-101",
+    "rowId": "JP-101",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "Univis Group",
+    "market": "Osaka (Umeda)",
+    "city": "Osaka",
+    "submarket": "Osaka (Umeda)",
+    "building": "Hankyu Terminal Bldg 8F",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Relocated + dual-HQ 13 Oct 2026; Kansai growth.",
+    "timing": "Moved; dual-HQ = more growth ahead",
+    "urgency": "Active",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "PR TIMES",
+    "sourceUrl": "https://prtimes.jp/main/html/rd/p/000000013.000116055.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Univis Group's commercial workplace portfolio in Osaka. As your team reviews ongoing workspace requirements at Hankyu Terminal Bldg 8F, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Hankyu Terminal Bldg 8F \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "JP-102",
+    "rowId": "JP-102",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "Planbase",
+    "market": "Osaka (Hommachi)",
+    "city": "Osaka",
+    "submarket": "Osaka (Hommachi)",
+    "building": "H1O Honmachi 328",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Osaka office moved 2 Oct 2026, announced 13 Oct.",
+    "timing": "Moved 2 Oct \u2014 top-up angle",
+    "urgency": "Active",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "PR TIMES",
+    "sourceUrl": "https://prtimes.jp/main/html/rd/p/000000064.000081815.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Planbase's commercial workplace portfolio in Osaka. As your team reviews ongoing workspace requirements at H1O Honmachi 328, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: H1O Honmachi 328 \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "JP-103",
+    "rowId": "JP-103",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "NSJAPAN",
+    "market": "Tokyo (Nihonbashi)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Nihonbashi)",
+    "building": "#ERROR!",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Expansion",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Expansion 1 Oct 2026, young fast-growing firm \u2014 repeat-expansion candidate.",
+    "timing": "Expanded; watch for next move",
+    "urgency": "Active",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "PR TIMES via excite",
+    "sourceUrl": "http://www.excite.co.jp/news/article/Prtimes_2026-10-14-156783-37/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding NSJAPAN's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at #ERROR!, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: #ERROR! \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "JP-105",
+    "rowId": "JP-105",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "Pandora Jewelry Japan",
+    "market": "Tokyo (Shibuya)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Shibuya)",
+    "building": "PMO Shibuya II 8F",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Office relocation + new showroom build-out Oct 2026.",
+    "timing": "Showroom fit-out likely active",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "GENIC Press",
+    "sourceUrl": "https://genicpress.com/2305269/",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Pandora Jewelry Japan's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at PMO Shibuya II 8F, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: PMO Shibuya II 8F \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "JP-106",
+    "rowId": "JP-106",
+    "rowKind": "Deal",
+    "country": "Japan",
+    "countryCode": "JP",
+    "flag": "\ud83c\uddef\ud83c\uddf5",
+    "currency": "JPY",
+    "currencySymbol": "\u00a5",
+    "company": "AURAM",
+    "market": "Tokyo (Shinagawa)",
+    "city": "Tokyo",
+    "submarket": "Tokyo (Shinagawa)",
+    "building": "Sumitomo Fudosan Osaki Garden Tower 9F",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ moved ~1 Oct 2026.",
+    "timing": "Just moved \u2014 top-up angle",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "Company news",
+    "sourceUrl": "https://www.auram.co.jp/en/news/20261001-head-office-relocation.html",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding AURAM's commercial workplace portfolio in Tokyo. As your team reviews ongoing workspace requirements at Sumitomo Fudosan Osaki Garden Tower 9F, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Sumitomo Fudosan Osaki Garden Tower 9F \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
     "id": "KR-002",
     "rowId": "KR-002",
     "rowKind": "Deal",
@@ -36638,7 +38524,7 @@ var INITIAL_LEADS_DATA = [
     "sourceUrl": "https://www.ajupress.com/view/20261013182070661",
     "dealValue": "Commercial Terms",
     "trackerStatus": "Watch",
-    "trackerTrend": "\u2014",
+    "trackerTrend": "Watch",
     "trackerNotes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -39058,6 +40944,170 @@ var INITIAL_LEADS_DATA = [
     "confidence": "Unrated Signal",
     "hasConfidence": false,
     "confidenceRaw": "",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "KR-154",
+    "rowId": "KR-154",
+    "rowKind": "Deal",
+    "country": "Korea",
+    "countryCode": "KR",
+    "flag": "\ud83c\uddf0\ud83c\uddf7",
+    "currency": "KRW",
+    "currencySymbol": "\u20a9",
+    "company": "Ryuk-Il C&S",
+    "market": "Seoul (GBD)",
+    "city": "Seoul",
+    "submarket": "Seoul (GBD)",
+    "building": "Samseong-dong, Gangnam-gu (from Ace High Tech City, Yeongdeungpo)",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Board-approved HQ relocation to Gangnam; move 21 Oct 2026, registry within 2 weeks; small-cap ( disclosure-confirmed.",
+    "timing": "Moves 21 Oct 2026",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "TIPranks",
+    "sourceUrl": "https://www.tipranks.com/news/company-announcements/ryuk-il-cs-relocates-head-office-to-gangnam-business-hub",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Ryuk-Il C&S's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Samseong-dong, Gangnam-gu (from Ace High Tech City, Yeongdeungpo), Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Samseong-dong, Gangnam-gu (from Ace High Tech City, Yeongdeungpo) \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "KR-155",
+    "rowId": "KR-155",
+    "rowKind": "Deal",
+    "country": "Korea",
+    "countryCode": "KR",
+    "flag": "\ud83c\uddf0\ud83c\uddf7",
+    "currency": "KRW",
+    "currencySymbol": "\u20a9",
+    "company": "HS Hyosung Information System",
+    "market": "Seoul (GBD)",
+    "city": "Seoul",
+    "submarket": "Seoul (GBD)",
+    "building": "Yeoksam-dong (from Cheongdam-dong)",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Relocation",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "HQ moved Cheongdam-dong \u2192 Yeoksam-dong 20 Oct 2026, with new AX/AI demo center; sister company of Hyosung ITX.",
+    "timing": "Just moved \u2014 demo-center fit-out angle",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "Sedaily (EN)",
+    "sourceUrl": "https://en.sedaily.com/finance/2026/10/20/hs-hyosung-information-system-moves-to-yeoksam-opens-ai",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding HS Hyosung Information System's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Yeoksam-dong (from Cheongdam-dong), Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Yeoksam-dong (from Cheongdam-dong) \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
     "isMultiTenantHub": false,
     "buildingTenantCount": 1
   },
@@ -45212,6 +47262,170 @@ var INITIAL_LEADS_DATA = [
     "buildingTenantCount": 1
   },
   {
+    "id": "KR-157",
+    "rowId": "KR-157",
+    "rowKind": "Deal",
+    "country": "Korea",
+    "countryCode": "KR",
+    "flag": "\ud83c\uddf0\ud83c\uddf7",
+    "currency": "KRW",
+    "currencySymbol": "\u20a9",
+    "company": "Shinhan Card",
+    "market": "Seoul (CBD)",
+    "city": "Seoul",
+    "submarket": "Seoul (CBD)",
+    "building": "Pine Avenue Tower A",
+    "isBuildingDisclosed": true,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Unstated",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Sale-and-leaseback completed 5 Oct 2026, 10-yr lease; no move \u2014 long-term occupancy locked.",
+    "timing": "SLB \u2014 no move; watch for relocation use of capital",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "EdgeProp",
+    "sourceUrl": "https://www.edgeprop.sg/property-news/south-koreas-shinhan-card-completes-sale-seoul-office-building-krw800-bil",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 50,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding Shinhan Card's commercial workplace portfolio in Seoul. As your team reviews ongoing workspace requirements at Pine Avenue Tower A, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Pine Avenue Tower A \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "High-Intent Signal",
+    "hasConfidence": true,
+    "confidenceRaw": "High-Intent Signal",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 1
+  },
+  {
+    "id": "KR-159",
+    "rowId": "KR-159",
+    "rowKind": "Deal",
+    "country": "Korea",
+    "countryCode": "KR",
+    "flag": "\ud83c\uddf0\ud83c\uddf7",
+    "currency": "KRW",
+    "currencySymbol": "\u20a9",
+    "company": "IMT",
+    "market": "",
+    "city": "Korea",
+    "submarket": "Korea",
+    "building": "",
+    "isBuildingDisclosed": false,
+    "isBuildingInferred": false,
+    "areaSqFt": null,
+    "areaFormatted": "Not disclosed",
+    "sizeTier": "Undisclosed",
+    "isSizeDisclosed": false,
+    "isSizeInferred": false,
+    "dealType": "Unstated",
+    "isTypeDisclosed": true,
+    "isTypeInferred": false,
+    "dealDate": "Oct 2026",
+    "dealQuarter": "2026-Q4",
+    "dateFound": "2026-10-20",
+    "daysAgo": 0,
+    "signal": "Board resolved 13 Oct 2026 to hold EGM 23 Nov 2026 to change registered-office address; destination unknown \u2014 office-move signal pending (Early Discovery).",
+    "timing": "EGM 23 Nov \u2014 watch destination",
+    "urgency": "Immediate",
+    "fitoutWindow": "Timing unknown",
+    "sector": "Corporate & Commercial",
+    "source": "DigitalToday",
+    "sourceUrl": "https://www.digitaltoday.co.kr/disclosure/articleView.html?idxno=706691",
+    "dealValue": "Commercial Terms",
+    "trackerStatus": "Watch",
+    "trackerTrend": "",
+    "trackerNotes": "",
+    "heatScore": 50,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    },
+    "suggestedOpeningLine": "Hi [Name], reaching out from Steelcase APAC regarding IMT's commercial workplace portfolio in Korea. As your team reviews ongoing workspace requirements at Korea, Steelcase provides premium ergonomic furniture and research-backed collaboration settings. Would you be open to a brief introductory conversation?",
+    "isNonDealRow": false,
+    "sourceRowsMerged": 1,
+    "handoverDate": "",
+    "handoverFormatted": "Unstated",
+    "hasHandoverDate": false,
+    "dhMonths": null,
+    "talkByDate": null,
+    "talkByFormatted": "No date yet",
+    "firstMoverLane": "Undated",
+    "isLateStage": false,
+    "isCoarseBand": false,
+    "coarseBadge": "",
+    "coarseTooltip": "",
+    "isDatingPriority": false,
+    "datingPriorityReason": "",
+    "isWatchlistTarget": false,
+    "isPriorityGcc": false,
+    "watchlistTag": "",
+    "callAngle": "Target: Korea \u00b7 Size: Not disclosed \u00b7 Window: No date yet",
+    "confidence": "Early Discovery",
+    "hasConfidence": true,
+    "confidenceRaw": "Early Discovery",
+    "isMultiTenantHub": false,
+    "buildingTenantCount": 0
+  },
+  {
     "id": "MY-033",
     "rowId": "MY-033",
     "rowKind": "Deal",
@@ -47172,7 +49386,7 @@ if (typeof window !== 'undefined') window.INITIAL_NON_DEAL_SIGNALS = INITIAL_NON
 
 var INITIAL_TRACKER_DATA = [
   {
-    "id": 1,
+    "id": 2,
     "company": "Booking.com",
     "country": "India",
     "market": "Bengaluru",
@@ -47209,7 +49423,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 2,
+    "id": 4,
     "company": "Qualcomm India",
     "country": "India",
     "market": "Bengaluru",
@@ -47246,7 +49460,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 3,
+    "id": 6,
     "company": "JP Morgan",
     "country": "India",
     "market": "Mumbai",
@@ -47283,7 +49497,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 4,
+    "id": 8,
     "company": "JP Morgan Services India",
     "country": "India",
     "market": "Mumbai",
@@ -47320,7 +49534,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 5,
+    "id": 10,
     "company": "BA Continuum India (Bank of America)",
     "country": "India",
     "market": "Mumbai",
@@ -47357,7 +49571,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 6,
+    "id": 12,
     "company": "Google India",
     "country": "India",
     "market": "Gurugram",
@@ -47394,7 +49608,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 7,
+    "id": 14,
     "company": "Airbnb GCC",
     "country": "India",
     "market": "Gurugram",
@@ -47431,7 +49645,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 8,
+    "id": 16,
     "company": "Topsoe",
     "country": "India",
     "market": "Noida",
@@ -47468,7 +49682,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 9,
+    "id": 18,
     "company": "Adobe",
     "country": "India",
     "market": "Noida",
@@ -47505,7 +49719,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 10,
+    "id": 20,
     "company": "Accenture",
     "country": "India",
     "market": "Hyderabad",
@@ -47538,12 +49752,13 @@ var INITIAL_TRACKER_DATA = [
     "isQueueItem": true,
     "dealIds": [
       "IN-010",
-      "IN-012"
+      "IN-012",
+      "IN-158"
     ],
-    "dealsCount": 2
+    "dealsCount": 3
   },
   {
-    "id": 11,
+    "id": 22,
     "company": "Tech Mahindra",
     "country": "India",
     "market": "Hyderabad",
@@ -47580,7 +49795,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 12,
+    "id": 24,
     "company": "Eaton Technologies",
     "country": "India",
     "market": "Pune",
@@ -47617,7 +49832,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 13,
+    "id": 26,
     "company": "Welspun Enterprises",
     "country": "India",
     "market": "Pune",
@@ -47654,7 +49869,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 14,
+    "id": 28,
     "company": "LTIMindtree",
     "country": "India",
     "market": "Chennai",
@@ -47691,7 +49906,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 15,
+    "id": 30,
     "company": "Smartworks",
     "country": "India",
     "market": "Hyderabad",
@@ -47729,7 +49944,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 2
   },
   {
-    "id": 16,
+    "id": 32,
     "company": "Genpact",
     "country": "India",
     "market": "Gurugram",
@@ -47766,7 +49981,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 17,
+    "id": 34,
     "company": "FedEx",
     "country": "India",
     "market": "Hyderabad",
@@ -47803,7 +50018,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 18,
+    "id": 36,
     "company": "Hartford Global Services",
     "country": "India",
     "market": "Hyderabad",
@@ -47840,7 +50055,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 19,
+    "id": 38,
     "company": "Accenture (Thane - new distinct deal)",
     "country": "India",
     "market": "Thane, Mumbai MMR",
@@ -47877,7 +50092,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 20,
+    "id": 40,
     "company": "TIAA Global Capabilities",
     "country": "India",
     "market": "Pune",
@@ -47914,7 +50129,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 21,
+    "id": 42,
     "company": "DHR Holdings (Danaher Corp)",
     "country": "India",
     "market": "Bengaluru",
@@ -47951,7 +50166,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 22,
+    "id": 44,
     "company": "Target",
     "country": "India",
     "market": "Bengaluru",
@@ -47988,7 +50203,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 23,
+    "id": 46,
     "company": "HSBC",
     "country": "India",
     "market": "Bengaluru",
@@ -48025,7 +50240,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 24,
+    "id": 48,
     "company": "Casio India",
     "country": "India",
     "market": "New Delhi",
@@ -48062,7 +50277,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 25,
+    "id": 50,
     "company": "Velotic",
     "country": "India",
     "market": "Hyderabad",
@@ -48099,7 +50314,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 26,
+    "id": 52,
     "company": "Julius Baer",
     "country": "India",
     "market": "Mumbai (Andheri East)",
@@ -48136,7 +50351,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 27,
+    "id": 54,
     "company": "McKinsey & Company",
     "country": "India",
     "market": "Mumbai (BKC)",
@@ -48173,7 +50388,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 28,
+    "id": 56,
     "company": "U.S. Bancorp",
     "country": "India",
     "market": "Chennai",
@@ -48210,7 +50425,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 29,
+    "id": 58,
     "company": "NVIDIA",
     "country": "India",
     "market": "Bengaluru",
@@ -48247,7 +50462,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 30,
+    "id": 60,
     "company": "Nike India",
     "country": "India",
     "market": "Bengaluru",
@@ -48284,7 +50499,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 31,
+    "id": 62,
     "company": "MediaTek",
     "country": "India",
     "market": "Noida",
@@ -48321,7 +50536,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 32,
+    "id": 64,
     "company": "Morningstar",
     "country": "India",
     "market": "Mumbai (Vashi, Navi Mumbai)",
@@ -48358,7 +50573,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 33,
+    "id": 66,
     "company": "Uber",
     "country": "India",
     "market": "Hyderabad",
@@ -48395,7 +50610,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 34,
+    "id": 68,
     "company": "Invesco",
     "country": "India",
     "market": "Hyderabad",
@@ -48432,7 +50647,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 35,
+    "id": 70,
     "company": "Boston Scientific",
     "country": "India",
     "market": "Pune",
@@ -48469,7 +50684,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 36,
+    "id": 72,
     "company": "Concentrix",
     "country": "India",
     "market": "Gurugram",
@@ -48506,7 +50721,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 37,
+    "id": 74,
     "company": "Disney",
     "country": "India",
     "market": "Bengaluru",
@@ -48543,7 +50758,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 38,
+    "id": 76,
     "company": "JLL",
     "country": "India",
     "market": "Hyderabad",
@@ -48580,7 +50795,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 39,
+    "id": 78,
     "company": "Accenture (Noida - distinct deal)",
     "country": "India",
     "market": "Noida",
@@ -48617,7 +50832,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 40,
+    "id": 80,
     "company": "Commercial Bank of Ceylon",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48654,7 +50869,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 41,
+    "id": 82,
     "company": "Dialog Axiata",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48691,7 +50906,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 42,
+    "id": 84,
     "company": "LOLC Holdings",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48728,7 +50943,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 43,
+    "id": 86,
     "company": "Hayleys",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48765,7 +50980,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 44,
+    "id": 88,
     "company": "C W Mackie (via CFLB)",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48802,7 +51017,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 45,
+    "id": 90,
     "company": "CBC Finance",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48839,7 +51054,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 46,
+    "id": 92,
     "company": "Ceylon Shipping Corporation",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48876,7 +51091,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 47,
+    "id": 94,
     "company": "The Executive Centre",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48913,7 +51128,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 48,
+    "id": 96,
     "company": "Publicis Groupe Sri Lanka",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -48950,7 +51165,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 49,
+    "id": 98,
     "company": "Cambridge University Press & Assessment",
     "country": "Sri Lanka",
     "market": "Colombo (World Trade Center)",
@@ -48987,7 +51202,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 50,
+    "id": 100,
     "company": "IGT 1 Outsourcing Lanka (Pvt) Ltd",
     "country": "Sri Lanka",
     "market": "Port City Colombo",
@@ -49024,7 +51239,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 51,
+    "id": 102,
     "company": "EY GDS Sri Lanka",
     "country": "Sri Lanka",
     "market": "Colombo 01 (WTC East Tower)",
@@ -49061,7 +51276,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 52,
+    "id": 104,
     "company": "HCL Technologies Sri Lanka",
     "country": "Sri Lanka",
     "market": "Colombo (Cinnamon Life, Beira Lake)",
@@ -49098,7 +51313,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 53,
+    "id": 106,
     "company": "Cinnamon Hotels & Resorts",
     "country": "Sri Lanka",
     "market": "Colombo (Cinnamon Life)",
@@ -49135,7 +51350,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 54,
+    "id": 108,
     "company": "73Avenue Realtors",
     "country": "Sri Lanka",
     "market": "Colombo 07",
@@ -49172,7 +51387,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 55,
+    "id": 110,
     "company": "NBSL",
     "country": "Sri Lanka",
     "market": "Colombo 03",
@@ -49209,7 +51424,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 56,
+    "id": 112,
     "company": "Bureau Veritas Sri Lanka",
     "country": "Sri Lanka",
     "market": "Colombo 10",
@@ -49246,7 +51461,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 57,
+    "id": 114,
     "company": "Royal Nursing Home (Pvt) Ltd",
     "country": "Sri Lanka",
     "market": "Colombo 07",
@@ -49283,7 +51498,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 58,
+    "id": 116,
     "company": "Unilever Sri Lanka",
     "country": "Sri Lanka",
     "market": "Colombo (Mireka Tower, Havelock City)",
@@ -49320,7 +51535,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 59,
+    "id": 118,
     "company": "Sampath Bank PLC",
     "country": "Sri Lanka",
     "market": "Port City Colombo (Building 1, Business Centre)",
@@ -49357,7 +51572,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 60,
+    "id": 120,
     "company": "Ministry of Energy",
     "country": "Sri Lanka",
     "market": "Colombo / Sri Jayawardenepura Kotte / Rajagiriya",
@@ -49394,7 +51609,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 61,
+    "id": 122,
     "company": "Welfare Benefits Board (Ministry of Finance)",
     "country": "Sri Lanka",
     "market": "Colombo 01-07 / Battaramulla",
@@ -49431,7 +51646,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 62,
+    "id": 124,
     "company": "Maybank",
     "country": "Malaysia",
     "market": "KL City (Merdeka 118)",
@@ -49468,7 +51683,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 63,
+    "id": 126,
     "company": "Bank of America",
     "country": "Malaysia",
     "market": "KL City (Merdeka 118)",
@@ -49505,7 +51720,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 64,
+    "id": 128,
     "company": "PwC Malaysia",
     "country": "Malaysia",
     "market": "TRX",
@@ -49542,7 +51757,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 65,
+    "id": 130,
     "company": "Huawei",
     "country": "Malaysia",
     "market": "TRX (Exchange 106)",
@@ -49579,7 +51794,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 66,
+    "id": 132,
     "company": "Ant International",
     "country": "Malaysia",
     "market": "TRX (Exchange 106)",
@@ -49616,7 +51831,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 67,
+    "id": 134,
     "company": "Sunrate",
     "country": "Malaysia",
     "market": "KLCC (Menara Binjai)",
@@ -49653,7 +51868,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 68,
+    "id": 136,
     "company": "Randstad Malaysia",
     "country": "Malaysia",
     "market": "Bangsar South",
@@ -49690,7 +51905,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 69,
+    "id": 138,
     "company": "Q2BI",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -49727,7 +51942,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 70,
+    "id": 140,
     "company": "Connecting Software",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -49764,7 +51979,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 71,
+    "id": 142,
     "company": "Marvel Capital Holdings",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -49801,7 +52016,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 72,
+    "id": 144,
     "company": "Tencent Holdings Ltd",
     "country": "Malaysia",
     "market": "KL Sentral",
@@ -49838,7 +52053,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 73,
+    "id": 146,
     "company": "Fingular",
     "country": "Malaysia",
     "market": "KL City",
@@ -49875,7 +52090,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 74,
+    "id": 148,
     "company": "Urban Pinnacle Ventures",
     "country": "Malaysia",
     "market": "TRX (Exchange 106)",
@@ -49912,7 +52127,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 75,
+    "id": 150,
     "company": "Yamada Consulting",
     "country": "Malaysia",
     "market": "Bangsar South (Mercu Aspire)",
@@ -49949,7 +52164,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 76,
+    "id": 152,
     "company": "Spire",
     "country": "Malaysia",
     "market": "Bangsar South (Mercu Aspire)",
@@ -49986,7 +52201,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 77,
+    "id": 154,
     "company": "Zoho",
     "country": "Malaysia",
     "market": "Subang Jaya",
@@ -50023,7 +52238,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 78,
+    "id": 156,
     "company": "Argon & Co",
     "country": "Malaysia",
     "market": "KL City",
@@ -50060,7 +52275,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 79,
+    "id": 158,
     "company": "Alliance Bank",
     "country": "Malaysia",
     "market": "KL City (Menara Alliance Bank)",
@@ -50097,7 +52312,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 80,
+    "id": 160,
     "company": "EA Sports (Electronic Arts)",
     "country": "Malaysia",
     "market": "TRX (Exchange 106)",
@@ -50134,7 +52349,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 81,
+    "id": 162,
     "company": "Xiaomi",
     "country": "Malaysia",
     "market": "KL City",
@@ -50171,7 +52386,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 82,
+    "id": 164,
     "company": "ByteDance",
     "country": "Malaysia",
     "market": "KL City",
@@ -50208,7 +52423,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 83,
+    "id": 166,
     "company": "Kuala Lumpur Kepong (KLK)",
     "country": "Malaysia",
     "market": "Nationwide",
@@ -50243,7 +52458,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 0
   },
   {
-    "id": 84,
+    "id": 168,
     "company": "TT Vision Holdings",
     "country": "Malaysia",
     "market": "Bayan Lepas (Industrial Park)",
@@ -50280,7 +52495,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 85,
+    "id": 170,
     "company": "Global Electronics Association (IPC)",
     "country": "Malaysia",
     "market": "Bayan Lepas",
@@ -50317,7 +52532,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 86,
+    "id": 172,
     "company": "Efinix",
     "country": "Malaysia",
     "market": "Bayan Lepas (GBS @ Penang Airport)",
@@ -50354,7 +52569,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 87,
+    "id": 174,
     "company": "KYZEN",
     "country": "Malaysia",
     "market": "Penang",
@@ -50391,7 +52606,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 88,
+    "id": 176,
     "company": "ViTrox",
     "country": "Malaysia",
     "market": "Penang",
@@ -50428,7 +52643,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 89,
+    "id": 178,
     "company": "TP (Teleperformance)",
     "country": "Malaysia",
     "market": "Johor Bahru (JS-SEZ)",
@@ -50465,7 +52680,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 90,
+    "id": 180,
     "company": "Delta Electronics",
     "country": "Malaysia",
     "market": "Iskandar Puteri (SiLC)",
@@ -50502,7 +52717,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 91,
+    "id": 182,
     "company": "INFINITY8 Reserve IIB",
     "country": "Malaysia",
     "market": "Iskandar Puteri (Medini, Menara IIB)",
@@ -50539,7 +52754,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 92,
+    "id": 184,
     "company": "LKN Group",
     "country": "Malaysia",
     "market": "Johor Bahru",
@@ -50576,7 +52791,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 93,
+    "id": 186,
     "company": "Jeju Air",
     "country": "Korea",
     "market": "Gangseo-gu, Seoul (near Gimpo Airport)",
@@ -50613,17 +52828,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 94,
+    "id": 188,
     "company": "HMM",
     "country": "Korea",
     "market": "Busan (Bujeon-dong, DB Insurance bldg floors 14-17)",
-    "currentSnapshot": "Temp HQ: 4 floors leased (lease signed Jul 2026); landmark HQ planned at North Port redevelopment zone (plans not finalized)",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "Unconfirmed rumor of relocation to Busan; if confirmed ~9 floors at Parc.1 Tower 1 (Yeouido) would free up. Watch only. Source: Korea scan.",
+    "previousSnapshot": "Temp HQ: 4 floors leased (lease signed Jul 2026); landmark HQ planned at North Port redevelopment zone (plans not finalized)",
+    "change": "Busan move rumor (unconfirmed)",
+    "hasChange": true,
+    "trend": "Watch",
     "status": "Watch",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 65,
     "heatScoreBreakdown": {
@@ -50650,7 +52865,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 95,
+    "id": 190,
     "company": "Krafton",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul",
@@ -50687,7 +52902,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 96,
+    "id": 192,
     "company": "Hyundai Motor Group (HMG Future Complex)",
     "country": "Korea",
     "market": "Bokjeong-dong, Songpa-gu, Seoul",
@@ -50724,7 +52939,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 97,
+    "id": 194,
     "company": "Gmarket",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul (AM Plus Office)",
@@ -50761,7 +52976,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 98,
+    "id": 196,
     "company": "Hyundai AutoEver",
     "country": "Korea",
     "market": "Seongsu-dong, Seoul (Samwon PFV Office)",
@@ -50798,7 +53013,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 99,
+    "id": 198,
     "company": "Park Systems",
     "country": "Korea",
     "market": "Gwacheon (Knowledge & Information Town)",
@@ -50835,7 +53050,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 100,
+    "id": 200,
     "company": "KITA (Korea International Trade Association)",
     "country": "Korea",
     "market": "Yeouido, Seoul (3 IFC)",
@@ -50872,7 +53087,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 101,
+    "id": 202,
     "company": "Misto Holdings (Fila)",
     "country": "Korea",
     "market": "Gangnam, Seoul (Cykan Tower, Nonhyeon-dong)",
@@ -50909,7 +53124,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 102,
+    "id": 204,
     "company": "Ubion",
     "country": "Korea",
     "market": "Guro-gu, Seoul (Daeryung Post Tower 3rd, floors 5-6)",
@@ -50946,7 +53161,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 103,
+    "id": 206,
     "company": "Micro Digital",
     "country": "Korea",
     "market": "Seongnam (Pangyo to Jungwon-gu)",
@@ -50983,7 +53198,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 104,
+    "id": 208,
     "company": "JTB",
     "country": "Japan",
     "market": "Tokyo (Shinbashi/Shiodome)",
@@ -51020,7 +53235,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 105,
+    "id": 210,
     "company": "Semlinks",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -51057,7 +53272,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 106,
+    "id": 212,
     "company": "Yamada Consulting Group",
     "country": "Japan",
     "market": "Tokyo (Marunouchi/Otemachi)",
@@ -51094,7 +53309,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 107,
+    "id": 214,
     "company": "TerraSky",
     "country": "Japan",
     "market": "Tokyo (Kyobashi/Yaesu/Nihonbashi)",
@@ -51131,7 +53346,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 108,
+    "id": 216,
     "company": "Nihon M&A Center Holdings",
     "country": "Japan",
     "market": "Tokyo (Kyobashi/Yaesu/Nihonbashi)",
@@ -51168,7 +53383,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 109,
+    "id": 218,
     "company": "NAGASE",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi Kobunacho)",
@@ -51205,7 +53420,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 110,
+    "id": 220,
     "company": "ispace",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -51242,7 +53457,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 111,
+    "id": 222,
     "company": "Hexagon Manufacturing Intelligence",
     "country": "Japan",
     "market": "Tokyo (Toranomon)",
@@ -51279,7 +53494,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 112,
+    "id": 224,
     "company": "SB C&S",
     "country": "Japan",
     "market": "Tokyo (Shibaura/Hamamatsucho)",
@@ -51316,7 +53531,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 113,
+    "id": 226,
     "company": "JTOWER",
     "country": "Japan",
     "market": "Tokyo (Roppongi)",
@@ -51353,7 +53568,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 114,
+    "id": 228,
     "company": "Persol & Server Works",
     "country": "Japan",
     "market": "Tokyo (Iidabashi, Chiyoda-ku)",
@@ -51390,7 +53605,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 115,
+    "id": 230,
     "company": "Digirise",
     "country": "Japan",
     "market": "Tokyo (Shibadaimon/Hamamatsucho)",
@@ -51427,7 +53642,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 116,
+    "id": 232,
     "company": "Fuji Sash",
     "country": "Japan",
     "market": "Kawasaki (Takatsu-ku)",
@@ -51464,7 +53679,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 117,
+    "id": 234,
     "company": "Transcosmos Digital Technology",
     "country": "Japan",
     "market": "Yokohama (Minato Mirai)",
@@ -51501,7 +53716,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 118,
+    "id": 236,
     "company": "SALESCORE",
     "country": "Japan",
     "market": "Osaka (Umeda)",
@@ -51538,7 +53753,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 119,
+    "id": 238,
     "company": "Live Search",
     "country": "Japan",
     "market": "Fukuoka (Tenjin - Tenjin Big Bang)",
@@ -51575,7 +53790,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 120,
+    "id": 240,
     "company": "Cross Daily",
     "country": "Japan",
     "market": "Fukuoka (Tenjin - Tenjin Big Bang)",
@@ -51612,7 +53827,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 121,
+    "id": 242,
     "company": "I-PEX",
     "country": "Japan",
     "market": "Nagoya (Meieki)",
@@ -51649,7 +53864,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 122,
+    "id": 244,
     "company": "Aile (TSE Prime: 3854)",
     "country": "Japan",
     "market": "Nagoya (Meieki)",
@@ -51686,7 +53901,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 123,
+    "id": 246,
     "company": "Datachain",
     "country": "Japan",
     "market": "Tokyo (Higashi-Shimbashi, Minato-ku)",
@@ -51723,7 +53938,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 124,
+    "id": 248,
     "company": "2nd Village",
     "country": "Japan",
     "market": "Tokyo (Ginza, Chuo-ku)",
@@ -51760,7 +53975,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 125,
+    "id": 250,
     "company": "dodoAI",
     "country": "Japan",
     "market": "Tokyo (Ebisu, Shibuya-ku)",
@@ -51797,7 +54012,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 126,
+    "id": 252,
     "company": "DAIJOBU",
     "country": "Japan",
     "market": "Tokyo (Shinjuku Gyoen)",
@@ -51834,7 +54049,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 127,
+    "id": 254,
     "company": "Nippon System Technology (JAST)",
     "country": "Japan",
     "market": "Tokyo (Takanawa, Minato-ku)",
@@ -51871,7 +54086,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 128,
+    "id": 256,
     "company": "Amova Asset Management (ex-Nikko AM)",
     "country": "Japan",
     "market": "Tokyo (Azabudai, Minato-ku)",
@@ -51908,7 +54123,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 129,
+    "id": 258,
     "company": "Meisei Kogyo (TSE Prime: 1976)",
     "country": "Japan",
     "market": "Osaka (Hommachi, Chuo-ku)",
@@ -51945,7 +54160,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 130,
+    "id": 260,
     "company": "KOKUYO",
     "country": "Japan",
     "market": "Osaka (Umeda - Grand Green Osaka)",
@@ -51982,7 +54197,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 131,
+    "id": 262,
     "company": "Public Technologies",
     "country": "Japan",
     "market": "Tokyo (Yushima, Bunkyo-ku)",
@@ -52019,17 +54234,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 132,
+    "id": 264,
     "company": "Japan Post",
     "country": "Japan",
     "market": "Tokyo (Otemachi -> Monzen-Nakacho + Asakusa)",
-    "currentSnapshot": "HQ functions (postal/logistics divisions; phased move from 2027-02, complete 2027-04; reported 2026-09-27 (floor areas not disclosed)",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "Acquired ~150,000 sqm Shinsuna (Koto) logistics facility (announced 2 Oct); consolidating Ginza/Kyobashi collection functions there by FY2028, redeveloping vacated downtown sites. Logistics/redevelopment, not office lease. Source: en.lnews.jp.",
+    "previousSnapshot": "HQ functions (postal/logistics divisions; phased move from 2027-02, complete 2027-04; reported 2026-09-27 (floor areas not disclosed)",
+    "change": "Premises-change intel (logistics, not office)",
+    "hasChange": true,
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -52056,7 +54271,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 133,
+    "id": 266,
     "company": "Hochiki",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi-Honcho, Chuo-ku)",
@@ -52093,7 +54308,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 134,
+    "id": 268,
     "company": "Keyware Solutions",
     "country": "Japan",
     "market": "Tokyo (Shinjuku)",
@@ -52130,7 +54345,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 135,
+    "id": 270,
     "company": "Tokyu Architects & Engineers",
     "country": "Japan",
     "market": "Tokyo (Osaki/Higashi-Gotanda, Shinagawa-ku)",
@@ -52167,17 +54382,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 136,
+    "id": 272,
     "company": "Infineon Technologies",
     "country": "India",
     "market": "Bengaluru (Whitefield - Bagmane Solarium City)",
-    "currentSnapshot": "Leased ~6.31 lakh sq ft (floors G-9) for 10 years, 8-month rent-free; lease starts 1 Dec 2026 (reported 1 Sep 2026)",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "Completed acquisition of Bengaluru-based C2i Semiconductor (8\u201312 Oct 2026); C2i team folds into Infineon Bangalore ops (~2,800 India employees). Source: technode.global.",
+    "previousSnapshot": "Leased ~6.31 lakh sq ft (floors G-9) for 10 years, 8-month rent-free; lease starts 1 Dec 2026 (reported 1 Sep 2026)",
+    "change": "R&D expansion via acquisition (C2i)",
+    "hasChange": true,
+    "trend": "Strengthening",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -52204,17 +54419,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 137,
+    "id": 274,
     "company": "Intuit",
     "country": "India",
     "market": "Bengaluru (Embassy TechVillage, Outer Ring Road)",
-    "currentSnapshot": "Leased 6.3+ lakh sq ft across multiple towers, per Propstack registration docs (registered ~Sep-Oct 2026, approximate)",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "FY2026 10-K (filed 9 Sep 2026, Item 2) shows principal Bangalore offices 478,000 sq ft with lease milestone 2026, plus additional leased Bangalore space not yet occupied \u2014 renewal-watch, no new announcement.",
+    "previousSnapshot": "Leased 6.3+ lakh sq ft across multiple towers, per Propstack registration docs (registered ~Sep-Oct 2026, approximate)",
+    "change": "Lease-expiry intel surfaced (Bangalore principal offices expire 2026)",
+    "hasChange": true,
+    "trend": "Watch",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -52241,7 +54456,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 138,
+    "id": 276,
     "company": "Dharma Productions",
     "country": "India",
     "market": "Mumbai (Andheri West - Lotus Signature, Veera Desai Rd)",
@@ -52278,7 +54493,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 139,
+    "id": 278,
     "company": "Narcotics Control Bureau (NCB), Agartala",
     "country": "India",
     "market": "Agartala, Tripura",
@@ -52315,7 +54530,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 140,
+    "id": 280,
     "company": "Income Tax Department",
     "country": "India",
     "market": "Palghar, Maharashtra",
@@ -52352,17 +54567,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 141,
+    "id": 282,
     "company": "Starbucks",
     "country": "India",
     "market": "Chennai",
-    "currentSnapshot": "First India GCC announced; MoU with Tamil Nadu government (reported ~Sep 2026, approximate)",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "CTO selected Chennai for the Starbucks Technology Hub (FY27, early planning; recruiting from Q1; outsourced roles in-housed) ~22 Sep 2026. Source: gcrmag.com.",
+    "previousSnapshot": "First India GCC announced; MoU with Tamil Nadu government (reported ~Sep 2026, approximate)",
+    "change": "Hub site selected \u2014 early planning",
+    "hasChange": true,
+    "trend": "Strengthening",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -52389,7 +54604,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 142,
+    "id": 284,
     "company": "Wulfstan Analytics (Pvt) Ltd",
     "country": "Sri Lanka",
     "market": "Port City, Colombo",
@@ -52426,7 +54641,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 143,
+    "id": 286,
     "company": "Edotco",
     "country": "Sri Lanka",
     "market": "Colombo / Nationwide",
@@ -52463,7 +54678,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 144,
+    "id": 288,
     "company": "Sahasdhanavi Limited",
     "country": "Sri Lanka",
     "market": "Kerawalapitiya, Western Province",
@@ -52500,7 +54715,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 145,
+    "id": 290,
     "company": "Exel BPO",
     "country": "Sri Lanka",
     "market": "Sri Lanka",
@@ -52537,7 +54752,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 146,
+    "id": 292,
     "company": "Soft Gallery (Pvt) Ltd",
     "country": "Sri Lanka",
     "market": "Sri Lanka",
@@ -52574,7 +54789,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 147,
+    "id": 294,
     "company": "Syntiant Corp.",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas)",
@@ -52611,17 +54826,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 148,
+    "id": 296,
     "company": "DayOne Data Centers",
     "country": "Malaysia",
     "market": "Johor (Iskandar Puteri) + KL",
-    "currentSnapshot": "Established regional operations + training base in Johor and expanding KL Global Shared Services Center to Phase II ( announced Feb 12, 2026 (pre-window)",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "Upsized Malaysia financing to ~US; billings >1GW, bookings ~2.3GW; filed US IPO 6 Oct (up to US",
+    "previousSnapshot": "Established regional operations + training base in Johor and expanding KL Global Shared Services Center to Phase II ( announced Feb 12, 2026 (pre-window)",
+    "change": "Financing upsized; US IPO filed",
+    "hasChange": true,
+    "trend": "Strengthening",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -52648,7 +54863,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 149,
+    "id": 298,
     "company": "AQSolotl",
     "country": "Malaysia",
     "market": "Johor Bahru (UTM Technovation Park)",
@@ -52685,7 +54900,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 150,
+    "id": 300,
     "company": "HRnetGroup (SGX:CHZ)",
     "country": "Malaysia",
     "market": "KL (Damansara Heights)",
@@ -52722,7 +54937,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 151,
+    "id": 302,
     "company": "myWorld Asia",
     "country": "Malaysia",
     "market": "KL (Maxis Tower)",
@@ -52759,7 +54974,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 152,
+    "id": 304,
     "company": "Eppendorf SE",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -52796,7 +55011,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 153,
+    "id": 306,
     "company": "Intuitive (Intuitive Surgical, Inc.)",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
@@ -52833,7 +55048,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 154,
+    "id": 308,
     "company": "MKS Inc. (NASDAQ: MKSI)",
     "country": "Malaysia",
     "market": "Penang",
@@ -52870,7 +55085,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 155,
+    "id": 310,
     "company": "ISSQUARED Inc.",
     "country": "Malaysia",
     "market": "Penang (George Town)",
@@ -52907,17 +55122,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 156,
+    "id": 312,
     "company": "AIXTRON SE",
     "country": "Malaysia",
     "market": "Penang (Bandar Cassia Technology Park)",
-    "currentSnapshot": "Concluded agreement with MIDA (May 5, 2026) for greenfield facility on 8.5-acre plot: integrated three-storey office building + cleanrooms + logistics; operational spring 2027, first deliveries 2H 2027",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "Q3 2026 results beat expectations (record orders) ~15 Oct; Penang plant earthworks underway, ops targeted Spring 2027. Source: semiconductor-today.com.",
+    "previousSnapshot": "Concluded agreement with MIDA (May 5, 2026) for greenfield facility on 8.5-acre plot: integrated three-storey office building + cleanrooms + logistics; operational spring 2027, first deliveries 2H 2027",
+    "change": "Results strong; Penang plant on track for Spring 2027",
+    "hasChange": true,
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -52944,7 +55159,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 157,
+    "id": 314,
     "company": "AmBank (M) Bhd",
     "country": "Malaysia",
     "market": "Klang Valley (KL city centre)",
@@ -52981,7 +55196,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 158,
+    "id": 316,
     "company": "Universiti Tun Abdul Razak",
     "country": "Malaysia",
     "market": "Klang Valley (Jalan Tun Razak, KLCC corridor)",
@@ -53018,7 +55233,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 159,
+    "id": 318,
     "company": "WORQ",
     "country": "Malaysia",
     "market": "Klang Valley (KL Eco City)",
@@ -53056,17 +55271,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 2
   },
   {
-    "id": 160,
+    "id": 320,
     "company": "Leadcorp (\ub9ac\ub4dc\ucf54\ud504)",
     "country": "Korea",
     "market": "Seoul Jung-gu (Euljiro) - Crystal Square, 12-14F of 17F building (~5,572 pyeong / ~198,300 sq ft total)",
-    "currentSnapshot": "HQ move from Sogong-dong Hanwha Building to Crystal Square on 2026-10-21 (reported 2026-10-09); affiliate Sillajen pre-moved to 3F in Apr 2025 as collaboration hub",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "HQ move to floors 12\u201314, Crystal Square, Euljiro confirmed 8 Oct 2026; move date 21 Oct; consolidating with affiliate SillaGen. Source: itbiznews.com.",
+    "previousSnapshot": "HQ move from Sogong-dong Hanwha Building to Crystal Square on 2026-10-21 (reported 2026-10-09); affiliate Sillajen pre-moved to 3F in Apr 2025 as collaboration hub",
+    "change": "Move confirmed with date 21 Oct",
+    "hasChange": true,
+    "trend": "Strengthening",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -53093,17 +55308,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 161,
+    "id": 322,
     "company": "Hana Financial Group (\ud558\ub098\uae08\uc735\uadf8\ub8f9)",
     "country": "Korea",
     "market": "Incheon Cheongna Hana Dream Town new HQ (B7/15F, ~38,873 pyeong / ~1,383,200 sq ft)",
-    "currentSnapshot": "Myeongdong/Euljiro -> Cheongna new HQ opened 2026-10-02, Hana Savings Bank, Hana F&I moving entire HQs) relocating in stages through year-end 2026; chairman also taking Cheongna office",
-    "previousSnapshot": "",
-    "change": "\u2014 (baseline)",
-    "hasChange": false,
-    "trend": "\u2014",
+    "currentSnapshot": "Cheongna HQ (Hana Dream Town) completed 30 Sep 2026 \u2014 move-in window now through Dec 2026; fit-out/FF&E deployment in progress.",
+    "previousSnapshot": "Myeongdong/Euljiro -> Cheongna new HQ opened 2026-10-02, Hana Savings Bank, Hana F&I moving entire HQs) relocating in stages through year-end 2026; chairman also taking Cheongna office",
+    "change": "HQ move-in window active",
+    "hasChange": true,
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -53130,7 +55345,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 162,
+    "id": 324,
     "company": "EnBio (\uc778\ubc14\uc774\uc624, KOSDAQ 352940)",
     "country": "Korea",
     "market": "Suwon Ingye-dong (Gyeongsu-daero 465, Paldal-gu)",
@@ -53167,7 +55382,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 163,
+    "id": 326,
     "company": "Celestra Inc. (KOSDAQ 352770, formerly Clinomics)",
     "country": "Korea",
     "market": "Suwon Yeongtong-gu (Gwanggyojungang-ro, Dakkuem Business Center Unit 39)",
@@ -53204,7 +55419,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 164,
+    "id": 328,
     "company": "Softworks (\uc18c\ud504\ud2b8\uc6cd\uc2a4)",
     "country": "Korea",
     "market": "Seoul Seocho-gu (building/area undisclosed)",
@@ -53241,7 +55456,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 165,
+    "id": 330,
     "company": "Daemyung Sono / Trinity Airways (\ub300\uba85\uc18c\ub178 \u00b7 \ud2b8\ub9ac\ub2c8\ud2f0\ud56d\uacf5)",
     "country": "Korea",
     "market": "Seoul Others (Magok, Gangseo-gu) - Le West City Tower C, 15,000 pyeong (~533,700 sq ft)",
@@ -53278,7 +55493,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 166,
+    "id": 332,
     "company": "Korea Insurance Development Institute (\ubcf4\ud5d8\uac1c\ubc1c\uc6d0)",
     "country": "Korea",
     "market": "Seoul YBD (Yeouido) - NH Financial Tower, 2,200 pyeong (~78,276 sq ft)",
@@ -53315,7 +55530,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 167,
+    "id": 334,
     "company": "Toriden (\ud1a0\ub9ac\ub4e0)",
     "country": "Korea",
     "market": "Seoul Others (Songpa) - Lotte World Tower, 2,200 pyeong (~78,276 sq ft)",
@@ -53352,7 +55567,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 168,
+    "id": 336,
     "company": "K-sure (Korea Trade Insurance Corp, \ud55c\uad6d\ubb34\uc5ed\ubcf4\ud5d8\uacf5\uc0ac)",
     "country": "Korea",
     "market": "Seoul YBD (Yeouido) - Three IFC, 2,000 pyeong (~71,160 sq ft)",
@@ -53389,7 +55604,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 169,
+    "id": 338,
     "company": "Encar.com (\uc5d4\uce74)",
     "country": "Korea",
     "market": "Seoul CBD (Jung-gu) - Grand Central, 1,900 pyeong (~67,602 sq ft)",
@@ -53426,7 +55641,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 170,
+    "id": 340,
     "company": "TKG Huchems (TKG\ud734\ucea0\uc2a4)",
     "country": "Korea",
     "market": "Seoul CBD (Jung-gu) - Tower 107, 1,500 pyeong (~53,370 sq ft)",
@@ -53463,7 +55678,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 171,
+    "id": 342,
     "company": "Xi S&D (\uc790\uc774\uc5d0\uc2a4\uc564\ub514)",
     "country": "Korea",
     "market": "Seoul CBD, 1,500 pyeong (~53,370 sq ft) (destination building not captured)",
@@ -53500,7 +55715,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 172,
+    "id": 344,
     "company": "The Founders (\ub354\ud30c\uc6b4\ub354\uc988)",
     "country": "Korea",
     "market": "Seoul GBD (Gangnam-gu) - Glass Tower, 1,200 pyeong (~42,696 sq ft)",
@@ -53537,7 +55752,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 173,
+    "id": 346,
     "company": "Beauty Selection (\ubdf0\ud2f0\uc140\ub809\uc158)",
     "country": "Korea",
     "market": "Seoul GBD (Gangnam-gu) - Anam Tower, 1,200 pyeong (~42,696 sq ft)",
@@ -53574,7 +55789,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 174,
+    "id": 348,
     "company": "Walmart Global Tech",
     "country": "India",
     "market": "Bengaluru",
@@ -53611,7 +55826,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 175,
+    "id": 350,
     "company": "MANN+HUMMEL",
     "country": "India",
     "market": "Bengaluru",
@@ -53648,7 +55863,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 176,
+    "id": 352,
     "company": "Labcorp",
     "country": "India",
     "market": "Bengaluru",
@@ -53685,7 +55900,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 177,
+    "id": 354,
     "company": "Dream11 (Sporta Technologies)",
     "country": "India",
     "market": "Mumbai",
@@ -53722,7 +55937,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 178,
+    "id": 356,
     "company": "Apple India",
     "country": "India",
     "market": "Hyderabad",
@@ -53760,7 +55975,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 2
   },
   {
-    "id": 179,
+    "id": 358,
     "company": "Table Space",
     "country": "India",
     "market": "Gurugram",
@@ -53797,7 +56012,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 180,
+    "id": 360,
     "company": "Workday",
     "country": "India",
     "market": "Chennai",
@@ -53834,7 +56049,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 181,
+    "id": 362,
     "company": "Intercontinental Exchange",
     "country": "India",
     "market": "Pune",
@@ -53871,7 +56086,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 182,
+    "id": 364,
     "company": "Awfis",
     "country": "India",
     "market": "Pune",
@@ -53908,7 +56123,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 183,
+    "id": 366,
     "company": "\u30e2\u30a4\u682a\u5f0f\u4f1a\u793e (Moi Inc., TSE Growth: 5031)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -53945,7 +56160,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 184,
+    "id": 368,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30cf\u30a4\u30d6\u30ea\u30c3\u30c9\u30c6\u30af\u30ce\u30ed\u30b8\u30fc\u30ba (Hybrid Technologies, TSE Growth: 4260)",
     "country": "Japan",
     "market": "Tokyo (Nakano)",
@@ -53982,7 +56197,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 185,
+    "id": 370,
     "company": "\u30d5\u30a7\u30a4\u30b9\u30cd\u30c3\u30c8\u30ef\u30fc\u30af (Face Network, TSE: 3489)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -54019,7 +56234,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 186,
+    "id": 372,
     "company": "\u682a\u5f0f\u4f1a\u793ecomeru",
     "country": "Japan",
     "market": "Osaka (Honmachi)",
@@ -54056,7 +56271,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 187,
+    "id": 374,
     "company": "TVer",
     "country": "Japan",
     "market": "Tokyo (Akasaka)",
@@ -54093,7 +56308,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 188,
+    "id": 376,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30a2\u30fc\u30ad\u30c6\u30af\u30c8\u30b3\u30a2 (Architect Core)",
     "country": "Japan",
     "market": "Tokyo (Toranomon)",
@@ -54130,7 +56345,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 189,
+    "id": 378,
     "company": "\u682a\u5f0f\u4f1a\u793eFP\u30d1\u30fc\u30c8\u30ca\u30fc (FP Partner, TSE Prime: 7388)",
     "country": "Japan",
     "market": "Tokyo (Taito)",
@@ -54167,7 +56382,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 190,
+    "id": 380,
     "company": "\u682a\u5f0f\u4f1a\u793e\u30d5\u30a1\u30f3\u30c9\u30af\u30ea\u30a8\u30fc\u30b7\u30e7\u30f3\u30b0\u30eb\u30fc\u30d7 (Fund Creation Group, TSE: 3266)",
     "country": "Japan",
     "market": "Tokyo (Roppongi)",
@@ -54204,7 +56419,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 191,
+    "id": 382,
     "company": "\u5317\u6d5c\u30ad\u30e3\u30d4\u30bf\u30eb\u30d1\u30fc\u30c8\u30ca\u30fc\u30ba\u682a\u5f0f\u4f1a\u793e (Kitahama Capital Partners, TSE Standard: 2134)",
     "country": "Japan",
     "market": "Osaka (Kitahama)",
@@ -54241,7 +56456,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 192,
+    "id": 384,
     "company": "Viva Republica (Toss)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -54278,7 +56493,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 193,
+    "id": 386,
     "company": "GC Biopharma (GC\ub179\uc2ed\uc790) & affiliates",
     "country": "Korea",
     "market": "Seoul (Seongsu/Others)",
@@ -54315,7 +56530,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 194,
+    "id": 388,
     "company": "NH Nonghyup Financial Group",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -54352,7 +56567,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 195,
+    "id": 390,
     "company": "Korea Financial Telecommunications & Clearings Institute (\uae08\uc735\uacb0\uc81c\uc6d0)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -54389,7 +56604,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 196,
+    "id": 392,
     "company": "Samsung Fire & Marine Insurance (\uc0bc\uc131\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -54426,7 +56641,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 197,
+    "id": 394,
     "company": "Lotte E&C (\ub86f\ub370\uac74\uc124)",
     "country": "Korea",
     "market": "Seoul (Magok/Others)",
@@ -54463,7 +56678,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 198,
+    "id": 396,
     "company": "Hanwha TotalEnergies (\ud55c\ud654\ud1a0\ud0c8\uc5d0\ub108\uc9c0\uc2a4)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -54500,7 +56715,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 199,
+    "id": 398,
     "company": "Korea Fire Insurance Association (\ud654\uc7ac\ubcf4\ud5d8\ud611\ud68c)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -54537,7 +56752,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 200,
+    "id": 400,
     "company": "Team Sparta (\ud300\uc2a4\ud30c\ub974\ud0c0)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -54574,7 +56789,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 201,
+    "id": 402,
     "company": "Data Universe (\ub370\uc774\ud130\uc720\ub2c8\ubc84\uc2a4)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -54611,7 +56826,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 202,
+    "id": 404,
     "company": "Woori Card",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -54648,7 +56863,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 203,
+    "id": 406,
     "company": "Simmons (Simmons Korea)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -54685,7 +56900,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 204,
+    "id": 408,
     "company": "Kurly (Market Kurly)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -54722,7 +56937,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 205,
+    "id": 410,
     "company": "Datadog",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -54759,7 +56974,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 206,
+    "id": 412,
     "company": "PJ Law Group",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -54796,7 +57011,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 207,
+    "id": 414,
     "company": "Korea Insurance Research Institute",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -54833,7 +57048,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 208,
+    "id": 416,
     "company": "Hwaseung Corporation",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -54870,7 +57085,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 209,
+    "id": 418,
     "company": "DL Group",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -54907,7 +57122,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 210,
+    "id": 420,
     "company": "Asia Actual",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -54944,7 +57159,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 211,
+    "id": 422,
     "company": "VFS Global",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -54981,7 +57196,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 212,
+    "id": 424,
     "company": "Janashakthi Finance PLC",
     "country": "Sri Lanka",
     "market": "Colombo",
@@ -55018,7 +57233,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 213,
+    "id": 426,
     "company": "Boeing",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -55055,7 +57270,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 214,
+    "id": 428,
     "company": "PT Telekomunikasi Indonesia International (Telin)",
     "country": "Malaysia",
     "market": "Kuala Lumpur",
@@ -55092,7 +57307,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 215,
+    "id": 430,
     "company": "ABP Group (cybersecurity tech provider)",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Eco City)",
@@ -55129,7 +57344,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 216,
+    "id": 432,
     "company": "Hyundai Motor Company",
     "country": "Malaysia",
     "market": "Kuala Lumpur (TRX)",
@@ -55166,7 +57381,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 217,
+    "id": 434,
     "company": "Incora",
     "country": "Malaysia",
     "market": "Johor",
@@ -55203,7 +57418,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 218,
+    "id": 436,
     "company": "The Flexi Group",
     "country": "Malaysia",
     "market": "Penang (George Town)",
@@ -55240,7 +57455,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 219,
+    "id": 438,
     "company": "Mitsubishi",
     "country": "China",
     "market": "Beijing (Lufthansa, Genesis Beijing)",
@@ -55277,7 +57492,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 220,
+    "id": 440,
     "company": "Bristol Myers Squibb",
     "country": "China",
     "market": "Beijing (CBD, Exchange Twin Towers)",
@@ -55314,7 +57529,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 221,
+    "id": 442,
     "company": "Amgen",
     "country": "China",
     "market": "Beijing (CBD, FFC)",
@@ -55351,7 +57566,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 222,
+    "id": 444,
     "company": "Beichen Xingqiong (Beijing) Technology Co., Ltd",
     "country": "China",
     "market": "Beijing (Qinglong Technology Tower)",
@@ -55388,7 +57603,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 223,
+    "id": 446,
     "company": "IBM",
     "country": "China",
     "market": "Beijing (CBD, CP Center)",
@@ -55425,7 +57640,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 224,
+    "id": 448,
     "company": "Aladdin Environmental Protection Group Co., Ltd",
     "country": "China",
     "market": "Beijing (CBD, China Central Place)",
@@ -55462,7 +57677,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 225,
+    "id": 450,
     "company": "Xylem Beijing Technology Co., Ltd",
     "country": "China",
     "market": "Beijing (WangJing-Jiuxianqiao, Universal Business Park)",
@@ -55499,7 +57714,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 226,
+    "id": 452,
     "company": "YY Sports",
     "country": "China",
     "market": "Shanghai (Hongkou, Life Hub @ Bund Central)",
@@ -55536,7 +57751,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 227,
+    "id": 454,
     "company": "Rolex",
     "country": "China",
     "market": "Shanghai (Huangpu, K11 Atelier)",
@@ -55573,7 +57788,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 228,
+    "id": 456,
     "company": "American Bureau of Shipping",
     "country": "China",
     "market": "Shanghai (Huangpu, Corporate Avenue Phase II No.5)",
@@ -55610,7 +57825,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 229,
+    "id": 458,
     "company": "Goldstate Capital Fund Management",
     "country": "China",
     "market": "Shanghai (Yangjing, The Pier)",
@@ -55647,17 +57862,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 230,
+    "id": 460,
     "company": "PDD Holdings (Pinduoduo parent)",
     "country": "China",
     "market": "Shanghai (Changning, Crystal Bridge)",
-    "currentSnapshot": "Bought 10-storey office building for corporate headquarters (Tishman Speyer/Mitsubishi JV seller)",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Crystal Bridge T5 whole-tower purchase confirmed 15 Oct 2026 (\u8d22\u8054\u793e): 21,600 sqm, seller Tishman Speyer/Mitsubishi JV; third mainland office buy in 4 months (",
+    "previousSnapshot": "Bought 10-storey office building for corporate headquarters (Tishman Speyer/Mitsubishi JV seller)",
+    "change": "Deal terms now confirmed: size 21,600 sqm; third purchase in 4 months",
     "hasChange": true,
-    "trend": "pre-commitment \u2014 fit-out window",
+    "trend": "Strengthening",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -55684,7 +57899,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 231,
+    "id": 462,
     "company": "Lalamove",
     "country": "China",
     "market": "Shanghai (Changning, Crystal Bridge Tower 6)",
@@ -55721,7 +57936,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 232,
+    "id": 464,
     "company": "ByteDance",
     "country": "China",
     "market": "Beijing (Olympic Park area, Parcel OS-15)",
@@ -55758,7 +57973,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 233,
+    "id": 466,
     "company": "Netmarble",
     "country": "Korea",
     "market": "Seoul (Guro)",
@@ -55795,7 +58010,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 234,
+    "id": 468,
     "company": "Wisdom Bud Information Technology",
     "country": "China",
     "market": "Beijing",
@@ -55832,7 +58047,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 235,
+    "id": 470,
     "company": "Standard Chartered Bank (China) Co., Ltd. Beijing Branch",
     "country": "China",
     "market": "Beijing",
@@ -55869,7 +58084,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 236,
+    "id": 472,
     "company": "Rednote",
     "country": "China",
     "market": "Beijing",
@@ -55906,17 +58121,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 237,
+    "id": 474,
     "company": "JD Health Comprehensive Clinic",
     "country": "China",
     "market": "Beijing",
-    "currentSnapshot": "New Lease, 4,797 sqm \u2014 Interwest International Center",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Registered \u5317\u4eac\u4e3d\u6cfd\u4eac\u4e1c\u5065\u5eb7\u7efc\u5408\u95e8\u8bca\u90e8\u6709\u9650\u516c\u53f8 in Beijing Lize ~12 Oct ( wholly owned by \u5bbf\u8fc1\u4eac\u4e1c\u5929\u5b81\u5065\u5eb7\u79d1\u6280\u6709\u9650\u516c\u53f8) \u2014 new offline clinic footprint, fit-out ahead (clinic, not office). Source: \u864e\u55c5.",
+    "previousSnapshot": "New Lease, 4,797 sqm \u2014 Interwest International Center",
+    "change": "New clinic entity registered in Beijing Lize",
     "hasChange": true,
-    "trend": "New occupier \u2014 fit-out demand",
+    "trend": "Expanding",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 95,
     "heatScoreBreakdown": {
@@ -55943,7 +58158,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 238,
+    "id": 476,
     "company": "CICC",
     "country": "China",
     "market": "Beijing",
@@ -55980,7 +58195,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 239,
+    "id": 478,
     "company": "Beijing Dentons Law Offices, LLP",
     "country": "China",
     "market": "Shanghai",
@@ -56017,7 +58232,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 240,
+    "id": 480,
     "company": "Allianz Group",
     "country": "China",
     "market": "Shanghai",
@@ -56054,7 +58269,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 241,
+    "id": 482,
     "company": "YKK",
     "country": "China",
     "market": "Shanghai",
@@ -56091,7 +58306,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 242,
+    "id": 484,
     "company": "ANA",
     "country": "China",
     "market": "Shanghai",
@@ -56128,7 +58343,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 243,
+    "id": 486,
     "company": "LV",
     "country": "China",
     "market": "Shanghai",
@@ -56165,7 +58380,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 244,
+    "id": 488,
     "company": "Hui Ye Law Firm",
     "country": "China",
     "market": "Shanghai",
@@ -56202,7 +58417,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 245,
+    "id": 490,
     "company": "Red Chamber",
     "country": "China",
     "market": "Shanghai",
@@ -56239,7 +58454,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 246,
+    "id": 492,
     "company": "BZW Law Firm",
     "country": "China",
     "market": "Shanghai",
@@ -56276,7 +58491,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 247,
+    "id": 494,
     "company": "DBS Bank",
     "country": "China",
     "market": "Shanghai",
@@ -56313,7 +58528,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 248,
+    "id": 496,
     "company": "Zhihuishu",
     "country": "China",
     "market": "Shanghai",
@@ -56350,17 +58565,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 249,
+    "id": 498,
     "company": "Logitech",
     "country": "China",
     "market": "Shanghai",
-    "currentSnapshot": "Relocation, 5,300 sqm \u2014 ONE Shanghai, Core Jing'an",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Logitech G announced 17 Oct 2026 a new technology research & innovation center in Shanghai (Jing'an), opening early 2027 \u2014 expansion; in Jing'an 16 yrs, business 10x. Source: bccci.net.",
+    "previousSnapshot": "Relocation, 5,300 sqm \u2014 ONE Shanghai, Core Jing'an",
+    "change": "New expansion announced (R&D/innovation center, early 2027)",
     "hasChange": true,
-    "trend": "Relocation \u2014 fit-out demand",
+    "trend": "Strengthening",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 95,
     "heatScoreBreakdown": {
@@ -56387,7 +58602,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 250,
+    "id": 500,
     "company": "CPIC Fund",
     "country": "China",
     "market": "Shanghai",
@@ -56424,7 +58639,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 251,
+    "id": 502,
     "company": "Beijing Pocket First Machine Network Technology Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -56461,7 +58676,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 252,
+    "id": 504,
     "company": "TUBI",
     "country": "China",
     "market": "Beijing",
@@ -56498,7 +58713,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 253,
+    "id": 506,
     "company": "DLA Piper",
     "country": "China",
     "market": "Beijing",
@@ -56535,7 +58750,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 254,
+    "id": 508,
     "company": "Oli's Kitchen",
     "country": "China",
     "market": "Shanghai",
@@ -56572,7 +58787,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 255,
+    "id": 510,
     "company": "DHL",
     "country": "China",
     "market": "Shanghai",
@@ -56609,7 +58824,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 256,
+    "id": 512,
     "company": "Tiffany",
     "country": "China",
     "market": "Shanghai",
@@ -56646,7 +58861,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 257,
+    "id": 514,
     "company": "Linklaters LLP",
     "country": "China",
     "market": "Shanghai",
@@ -56683,7 +58898,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 258,
+    "id": 516,
     "company": "MetLife Korea",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -56720,17 +58935,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 259,
+    "id": 518,
     "company": "Lotte Rental",
     "country": "Korea",
     "market": "Seoul (CBD)",
-    "currentSnapshot": "Relocation to NH NongHyup Tower, 13,500 sqm",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Relocated from Gangnam to CBD (Newmark Q3 2026; KR-046).",
+    "previousSnapshot": "Relocation to NH NongHyup Tower, 13,500 sqm",
+    "change": "CBD relocation confirmed",
     "hasChange": true,
-    "trend": "Relocation \u2014 fit-out demand",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -56757,7 +58972,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 260,
+    "id": 520,
     "company": "KPFIS",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -56794,17 +59009,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 261,
+    "id": 522,
     "company": "LG Household & Health Care",
     "country": "Korea",
     "market": "Seoul (CBD)",
-    "currentSnapshot": "Expansion at Seoul City Tower, 2,600 sqm",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "New lease at Seoul City Tower, CBD (Newmark Q3 2026). Source: prnewswire.com.",
+    "previousSnapshot": "Expansion at Seoul City Tower, 2,600 sqm",
+    "change": "New CBD lease confirmed",
     "hasChange": true,
-    "trend": "Expansion \u2014 growth demand",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 90,
     "heatScoreBreakdown": {
@@ -56831,17 +59046,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 262,
+    "id": 524,
     "company": "KB Kookmin Card IT Services",
     "country": "Korea",
     "market": "Seoul (CBD)",
-    "currentSnapshot": "Relocation to Centerfield, 34,000 sqm \u2014 largest single deal in the Q2 table",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Relocated out of Crystal Square (Newmark Q3 2026) \u2014 sizeable block freed; cross-confirms Leadcorp move-in.",
+    "previousSnapshot": "Relocation to Centerfield, 34,000 sqm \u2014 largest single deal in the Q2 table",
+    "change": "Out-move confirmed",
     "hasChange": true,
-    "trend": "Relocation \u2014 fit-out demand",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -56868,7 +59083,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 263,
+    "id": 526,
     "company": "Kim & Chang",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -56905,7 +59120,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 264,
+    "id": 528,
     "company": "IQVIA",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -56942,7 +59157,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 265,
+    "id": 530,
     "company": "Hyundai Marine & Fire Insurance",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -56979,7 +59194,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 266,
+    "id": 532,
     "company": "Anthropic",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -57016,7 +59231,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 267,
+    "id": 534,
     "company": "Wyatt",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -57053,7 +59268,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 268,
+    "id": 536,
     "company": "Hyosung ITX",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -57090,17 +59305,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 269,
+    "id": 538,
     "company": "Woori Investment & Securities",
     "country": "Korea",
     "market": "Seoul (YBD)",
-    "currentSnapshot": "Expansion at One Sentinel, 2,400 sqm; Newmark 3Q26 notes a Woori Financial Group company expanding at One Centinel \u2014 likely the same deal",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Plan-level: gathering investment affiliates around it in Yeouido; Namyangju Digital Universe 2029. Source: Korea scan.",
+    "previousSnapshot": "Expansion at One Sentinel, 2,400 sqm; Newmark 3Q26 notes a Woori Financial Group company expanding at One Centinel \u2014 likely the same deal",
+    "change": "Affiliate-relocation plan noted",
     "hasChange": true,
-    "trend": "Expansion \u2014 growth demand",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 90,
     "heatScoreBreakdown": {
@@ -57127,7 +59342,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 270,
+    "id": 540,
     "company": "Prada",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -57164,7 +59379,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 271,
+    "id": 542,
     "company": "Apple",
     "country": "Korea",
     "market": "Seoul (YBD \u2014 district not stated; cited in YBD section)",
@@ -57201,7 +59416,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 272,
+    "id": 544,
     "company": "Shinmi Global",
     "country": "Korea",
     "market": "Seoul (district not stated; cited in YBD section)",
@@ -57238,7 +59453,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 273,
+    "id": 546,
     "company": "The Pure Lab",
     "country": "Korea",
     "market": "Seoul (YBD context)",
@@ -57275,7 +59490,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 274,
+    "id": 548,
     "company": "LG Chem",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -57312,7 +59527,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 275,
+    "id": 550,
     "company": "Hanwha Ocean",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -57349,7 +59564,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 276,
+    "id": 552,
     "company": "Hugel",
     "country": "Korea",
     "market": "Seoul (market not stated)",
@@ -57386,7 +59601,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 277,
+    "id": 554,
     "company": "McDonald's Korea",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -57423,17 +59638,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 278,
+    "id": 556,
     "company": "Tesla",
     "country": "Korea",
     "market": "Seoul (GBD)",
-    "currentSnapshot": "Leasing activity at Centerfield; size not stated",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "New lease at Centerfield, Gangnam (Newmark Q3 2026). Source: prnewswire.com.",
+    "previousSnapshot": "Leasing activity at Centerfield; size not stated",
+    "change": "New Gangnam lease confirmed",
     "hasChange": true,
-    "trend": "New signal \u2014 assess",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -57460,17 +59675,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 279,
+    "id": 558,
     "company": "Sanofi-Aventis",
     "country": "Korea",
     "market": "Seoul (GBD)",
-    "currentSnapshot": "Leasing activity at Centerfield; size not stated",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "New lease at Centerfield, Gangnam (Newmark Q3 2026). Source: prnewswire.com.",
+    "previousSnapshot": "Leasing activity at Centerfield; size not stated",
+    "change": "New Gangnam lease confirmed",
     "hasChange": true,
-    "trend": "New signal \u2014 assess",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -57497,7 +59712,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 280,
+    "id": 560,
     "company": "NPIXEL",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -57534,7 +59749,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 281,
+    "id": 562,
     "company": "AITRICS",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -57571,7 +59786,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 282,
+    "id": 564,
     "company": "IGIS",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -57608,7 +59823,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 283,
+    "id": 566,
     "company": "Mirae Asset Financial Group (affiliate, unspecified)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -57645,7 +59860,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 284,
+    "id": 568,
     "company": "\ud06c\ub808\uc774\ubc84\ucf54\ud37c\ub808\uc774\uc158",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -57682,7 +59897,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 285,
+    "id": 570,
     "company": "KB Kookmin Bank / KB Kookmin Card",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -57719,7 +59934,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 286,
+    "id": 572,
     "company": "\ud55c\uad6d\uc804\ud30c\uc9c4\ud765\ud611\ud68c (Korea Radio Promotion Association)",
     "country": "Korea",
     "market": "Seoul (Magok)",
@@ -57756,7 +59971,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 287,
+    "id": 574,
     "company": "SSG.COM",
     "country": "Korea",
     "market": "Seoul (Yeongdeungpo)",
@@ -57793,7 +60008,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 288,
+    "id": 576,
     "company": "\uc2a4\ud0c0\ubc85\uc2a4 \ucf54\ub9ac\uc544 (Starbucks Korea)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -57830,7 +60045,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 289,
+    "id": 578,
     "company": "\uc5d0\uc5b4\uc778\ucc9c (Air Incheon)",
     "country": "Korea",
     "market": "Seoul (Magok)",
@@ -57867,7 +60082,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 290,
+    "id": 580,
     "company": "SKC",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -57904,7 +60119,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 291,
+    "id": 582,
     "company": "SK C&C / Tmap Mobility",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -57941,7 +60156,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 292,
+    "id": 584,
     "company": "\ucf54\ub9ac\uc548\ub9ac (Korean Re)",
     "country": "Korea",
     "market": "Seoul (CBD)",
@@ -57978,7 +60193,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 293,
+    "id": 586,
     "company": "\uc5d0\uc2a4\uc528\ucf00\uc774\ucef4\ud37c\ub2c8",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -58015,7 +60230,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 294,
+    "id": 588,
     "company": "\uc2e0\uc138\uacc4\uc544\uc774\uc564\uc528 (Shinsegae I&C)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -58052,7 +60267,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 295,
+    "id": 590,
     "company": "\ubbf8\ub798\uc5d0\uc14b\uc0dd\uba85\ubcf4\ud5d8 (Mirae Asset Life Insurance)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -58089,7 +60304,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 296,
+    "id": 592,
     "company": "\ube57\uc378 (Bithumb)",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -58126,7 +60341,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 297,
+    "id": 594,
     "company": "111% (111\ud37c\uc13c\ud2b8)",
     "country": "Korea",
     "market": "Seoul (not stated)",
@@ -58163,7 +60378,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 298,
+    "id": 596,
     "company": "Mirae Asset Securities (\ubbf8\ub798\uc5d0\uc14b\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -58200,7 +60415,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 299,
+    "id": 598,
     "company": "Nojima",
     "country": "Japan",
     "market": "Tokyo \u2013 Shinagawa Konanguchi",
@@ -58237,7 +60452,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 300,
+    "id": 600,
     "company": "Nippon Sanso Holdings / Taiyo Nippon Sanso",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon + Minatomirai",
@@ -58274,7 +60489,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 301,
+    "id": 602,
     "company": "DENSO",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon",
@@ -58311,7 +60526,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 302,
+    "id": 604,
     "company": "AIG General Insurance",
     "country": "Japan",
     "market": "Tokyo \u2013 Toranomon/Kamiyacho",
@@ -58348,7 +60563,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 303,
+    "id": 606,
     "company": "CREEK & RIVER",
     "country": "Japan",
     "market": "Tokyo \u2013 Toranomon/Kamiyacho",
@@ -58385,7 +60600,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 304,
+    "id": 608,
     "company": "Northsand",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -58422,7 +60637,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 305,
+    "id": 610,
     "company": "CHUGAI PHARMACEUTICAL",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -58459,7 +60674,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 306,
+    "id": 612,
     "company": "Tokyo Tatemono",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -58496,7 +60711,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 307,
+    "id": 614,
     "company": "DENTSU SOKEN",
     "country": "Japan",
     "market": "Tokyo \u2013 Marunouchi/Otemachi",
@@ -58533,7 +60748,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 308,
+    "id": 616,
     "company": "Hitachi Construction Machinery",
     "country": "Japan",
     "market": "Tokyo \u2013 Marunouchi/Otemachi",
@@ -58570,7 +60785,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 309,
+    "id": 618,
     "company": "Bank of America",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -58607,7 +60822,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 310,
+    "id": 620,
     "company": "JERA",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -58644,7 +60859,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 311,
+    "id": 622,
     "company": "Daiichi Sankyo",
     "country": "Japan",
     "market": "Tokyo \u2013 Kyobashi/Yaesu/Nihonbashi",
@@ -58681,7 +60896,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 312,
+    "id": 624,
     "company": "HENNGE",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -58718,7 +60933,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 313,
+    "id": 626,
     "company": "CAPCOM",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -58755,7 +60970,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 314,
+    "id": 628,
     "company": "uSonar",
     "country": "Japan",
     "market": "Tokyo \u2013 Nishi-Shinjuku",
@@ -58792,7 +61007,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 315,
+    "id": 630,
     "company": "Marufuji Sheetpiling",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -58829,7 +61044,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 316,
+    "id": 632,
     "company": "Dai-Dan",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -58866,7 +61081,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 317,
+    "id": 634,
     "company": "Central Glass",
     "country": "Japan",
     "market": "Tokyo \u2013 Nihonbashi",
@@ -58903,7 +61118,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 318,
+    "id": 636,
     "company": "LIFULL",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -58940,7 +61155,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 319,
+    "id": 638,
     "company": "Leverages",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -58977,7 +61192,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 320,
+    "id": 640,
     "company": "Mizuno",
     "country": "Japan",
     "market": "Tokyo \u2013 Osaki/Gotanda",
@@ -59014,7 +61229,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 321,
+    "id": 642,
     "company": "Sumitomo Mitsui Trust Panasonic Finance",
     "country": "Japan",
     "market": "Tokyo \u2013 Hamamatsucho/Onarimon",
@@ -59051,7 +61266,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 322,
+    "id": 644,
     "company": "Cognizant Technology Solutions",
     "country": "India",
     "market": "Chennai",
@@ -59068,7 +61283,7 @@ var INITIAL_TRACKER_DATA = [
       "recencyPts": 40,
       "recencyReason": "Fresh signal (1d ago)",
       "sizePts": 25,
-      "sizeReason": "Mega campus (650,000 sq ft [Signal estimate])",
+      "sizeReason": "Mega campus (645,172 sq ft [Sheet])",
       "typePts": 20,
       "typeReason": "High fit-out demand (New lease)",
       "statusPts": 5,
@@ -59088,17 +61303,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 323,
+    "id": 646,
     "company": "WeWork",
     "country": "India",
     "market": "Chennai",
-    "currentSnapshot": "0.14 mn sq ft lease transaction at Embassy Splendid TechZone, Pallavaram\u2013Thoraipakkam Rd",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Opened 2.25 lakh sq ft (Bengaluru Whitefield + Pune Wakad) 5 Oct 2026; signed +2,881-desk Pune agreement ( ops Jul 2027); ~1.8 lakh sq ft Millennium Towers subleased to enterprise clients. Source: scanx.trade.",
+    "previousSnapshot": "0.14 mn sq ft lease transaction at Embassy Splendid TechZone, Pallavaram\u2013Thoraipakkam Rd",
+    "change": "Expansion executed + new desk agreement signed",
     "hasChange": true,
-    "trend": "New signal \u2014 assess",
+    "trend": "Strengthening",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 100,
     "heatScoreBreakdown": {
@@ -59120,12 +61335,14 @@ var INITIAL_TRACKER_DATA = [
     "isDealBacked": true,
     "isQueueItem": true,
     "dealIds": [
-      "IN-061"
+      "IN-061",
+      "IN-156",
+      "IN-157"
     ],
-    "dealsCount": 1
+    "dealsCount": 3
   },
   {
-    "id": 324,
+    "id": 648,
     "company": "TCS",
     "country": "India",
     "market": "Chennai",
@@ -59162,7 +61379,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 325,
+    "id": 650,
     "company": "Deloitte",
     "country": "India",
     "market": "Chennai",
@@ -59199,7 +61416,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 326,
+    "id": 652,
     "company": "The Executive Centre",
     "country": "India",
     "market": "Chennai",
@@ -59236,7 +61453,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 327,
+    "id": 654,
     "company": "Syntel",
     "country": "India",
     "market": "Navi Mumbai",
@@ -59273,7 +61490,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 328,
+    "id": 656,
     "company": "Marsh McLennan",
     "country": "India",
     "market": "Mumbai (Powai)",
@@ -59310,7 +61527,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 329,
+    "id": 658,
     "company": "Euronet Services India",
     "country": "India",
     "market": "Thane (Mumbai)",
@@ -59347,7 +61564,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 330,
+    "id": 660,
     "company": "Meta",
     "country": "India",
     "market": "Mumbai (BKC)",
@@ -59384,7 +61601,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 331,
+    "id": 662,
     "company": "Hero MotoCorp",
     "country": "India",
     "market": "NCR (Delhi)",
@@ -59421,7 +61638,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 332,
+    "id": 664,
     "company": "IREP Workspaces",
     "country": "India",
     "market": "NCR (Gurugram)",
@@ -59458,7 +61675,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 333,
+    "id": 666,
     "company": "Advanced Micro Devices (AMD)",
     "country": "Malaysia",
     "market": "Penang",
@@ -59495,7 +61712,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 334,
+    "id": 668,
     "company": "Coherent Corp.",
     "country": "Malaysia",
     "market": "Penang",
@@ -59532,7 +61749,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 335,
+    "id": 670,
     "company": "Bitdeer Technologies Group",
     "country": "Malaysia",
     "market": "Penang",
@@ -59569,7 +61786,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 336,
+    "id": 672,
     "company": "Channel Microsystems",
     "country": "Malaysia",
     "market": "Penang",
@@ -59606,7 +61823,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 337,
+    "id": 674,
     "company": "Tenasic Technology",
     "country": "Malaysia",
     "market": "Penang",
@@ -59643,7 +61860,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 338,
+    "id": 676,
     "company": "Edwards Lifesciences",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -59680,7 +61897,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 339,
+    "id": 678,
     "company": "Quanterm Logistics",
     "country": "Malaysia",
     "market": "Penang",
@@ -59717,7 +61934,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 340,
+    "id": 680,
     "company": "PE Land",
     "country": "Malaysia",
     "market": "Penang",
@@ -59754,7 +61971,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 341,
+    "id": 682,
     "company": "IWG (Spaces / Regus Express)",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -59791,7 +62008,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 342,
+    "id": 684,
     "company": "JustCo",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -59828,7 +62045,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 343,
+    "id": 686,
     "company": "Grant Thornton",
     "country": "Malaysia",
     "market": "Johor (Iskandar Malaysia)",
@@ -59865,7 +62082,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 344,
+    "id": 688,
     "company": "Co-labs",
     "country": "Malaysia",
     "market": "Johor (Iskandar Malaysia)",
@@ -59902,7 +62119,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 345,
+    "id": 690,
     "company": "IJM Land Penang",
     "country": "Malaysia",
     "market": "Penang",
@@ -59939,7 +62156,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 346,
+    "id": 692,
     "company": "Saipem",
     "country": "India",
     "market": "Chennai (OMR)",
@@ -59976,7 +62193,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 347,
+    "id": 694,
     "company": "Citi",
     "country": "India",
     "market": "Chennai (Mount Poonamallee Road)",
@@ -60013,7 +62230,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 348,
+    "id": 696,
     "company": "Morgan Stanley",
     "country": "India",
     "market": "MMR (Malad)",
@@ -60050,7 +62267,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 349,
+    "id": 698,
     "company": "HDFC",
     "country": "India",
     "market": "MMR (Thane Belapur Road)",
@@ -60087,7 +62304,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 350,
+    "id": 700,
     "company": "Netmagic",
     "country": "India",
     "market": "NCR (TechZone IV)",
@@ -60124,7 +62341,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 351,
+    "id": 702,
     "company": "Zomato",
     "country": "India",
     "market": "NCR (MG Road)",
@@ -60161,7 +62378,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 352,
+    "id": 704,
     "company": "Encore Midland Credit Management",
     "country": "India",
     "market": "NCR (Sector-48)",
@@ -60198,7 +62415,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 353,
+    "id": 706,
     "company": "Amazon",
     "country": "India",
     "market": "Bengaluru + Pune",
@@ -60236,7 +62453,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 2
   },
   {
-    "id": 354,
+    "id": 708,
     "company": "Mindtree",
     "country": "India",
     "market": "Pune + Kolkata",
@@ -60274,7 +62491,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 2
   },
   {
-    "id": 355,
+    "id": 710,
     "company": "IndiQube",
     "country": "India",
     "market": "Pune + Chennai",
@@ -60312,7 +62529,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 2
   },
   {
-    "id": 356,
+    "id": 712,
     "company": "Capgemini",
     "country": "India",
     "market": "Kolkata (Rajarhat)",
@@ -60349,7 +62566,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 357,
+    "id": 714,
     "company": "AMD",
     "country": "India",
     "market": "Bengaluru (Whitefield)",
@@ -60386,7 +62603,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 358,
+    "id": 716,
     "company": "ANZ",
     "country": "India",
     "market": "Bengaluru (ORR)",
@@ -60423,7 +62640,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 359,
+    "id": 718,
     "company": "Wells Fargo",
     "country": "India",
     "market": "Hyderabad + Chennai",
@@ -60461,7 +62678,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 2
   },
   {
-    "id": 360,
+    "id": 720,
     "company": "Bosch",
     "country": "India",
     "market": "Hyderabad (Madhapur)",
@@ -60498,7 +62715,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 361,
+    "id": 722,
     "company": "PwC",
     "country": "India",
     "market": "Hyderabad (HITEC City)",
@@ -60535,7 +62752,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 362,
+    "id": 724,
     "company": "ZF Technology",
     "country": "India",
     "market": "Hyderabad (Gachibowli)",
@@ -60572,7 +62789,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 363,
+    "id": 726,
     "company": "IDFC",
     "country": "India",
     "market": "MMR (Thane)",
@@ -60609,7 +62826,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 364,
+    "id": 728,
     "company": "M&M Financial",
     "country": "India",
     "market": "MMR (Kurla)",
@@ -60646,7 +62863,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 365,
+    "id": 730,
     "company": "Avendus Capital",
     "country": "India",
     "market": "MMR (BKC)",
@@ -60683,7 +62900,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 366,
+    "id": 732,
     "company": "Network 18",
     "country": "India",
     "market": "NCR (Noida Expressway)",
@@ -60720,7 +62937,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 367,
+    "id": 734,
     "company": "Air India",
     "country": "India",
     "market": "NCR (NH-8, Gurgaon)",
@@ -60757,7 +62974,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 368,
+    "id": 736,
     "company": "Syneos Health",
     "country": "India",
     "market": "NCR (NH-8, Gurgaon)",
@@ -60794,7 +63011,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 369,
+    "id": 738,
     "company": "Reliance",
     "country": "India",
     "market": "NCR (Sector-65, Gurgaon)",
@@ -60831,7 +63048,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 370,
+    "id": 740,
     "company": "Mastercard",
     "country": "India",
     "market": "Pune (Yerwada)",
@@ -60868,7 +63085,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 371,
+    "id": 742,
     "company": "ZS Associate",
     "country": "India",
     "market": "Pune (Kharadi)",
@@ -60905,7 +63122,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 372,
+    "id": 744,
     "company": "AML Right Source",
     "country": "India",
     "market": "Kolkata (Rajarhat)",
@@ -60942,7 +63159,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 373,
+    "id": 746,
     "company": "IFS",
     "country": "India",
     "market": "Kolkata (Salt Lake)",
@@ -60979,7 +63196,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 374,
+    "id": 748,
     "company": "Accolade Broadcasting",
     "country": "India",
     "market": "Kolkata (Salt Lake)",
@@ -61016,7 +63233,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 375,
+    "id": 750,
     "company": "OMNICOM",
     "country": "China",
     "market": "Beijing",
@@ -61053,7 +63270,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 376,
+    "id": 752,
     "company": "Diaoyutai MGM Hospitality, Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61090,7 +63307,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 377,
+    "id": 754,
     "company": "Gucci",
     "country": "China",
     "market": "Shanghai",
@@ -61127,7 +63344,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 378,
+    "id": 756,
     "company": "Kao",
     "country": "China",
     "market": "Shanghai",
@@ -61164,7 +63381,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 379,
+    "id": 758,
     "company": "DYSON",
     "country": "China",
     "market": "Shanghai",
@@ -61201,7 +63418,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 380,
+    "id": 760,
     "company": "Airbnb Information Technology (Beijing) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61238,7 +63455,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 381,
+    "id": 762,
     "company": "Mundipharma (China) Pharmaceutical Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61275,7 +63492,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 382,
+    "id": 764,
     "company": "Dentsply Sirona Dental Solutions (Shanghai) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61312,7 +63529,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 383,
+    "id": 766,
     "company": "Wood Mackenzie Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61349,7 +63566,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 384,
+    "id": 768,
     "company": "Advanced Micro Devices (China) Co.,Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61386,7 +63603,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 385,
+    "id": 770,
     "company": "Beijing Aoma Star Pleasure Medical Beauty Clinic Co., LTD",
     "country": "China",
     "market": "Beijing",
@@ -61423,7 +63640,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 386,
+    "id": 772,
     "company": "Glory Terminal Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61460,7 +63677,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 387,
+    "id": 774,
     "company": "Shuxing Technology (Beijing) Co., Ltd",
     "country": "China",
     "market": "Beijing",
@@ -61497,7 +63714,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 388,
+    "id": 776,
     "company": "Postal Savings Bank of China Limited Beijing Branch",
     "country": "China",
     "market": "Beijing",
@@ -61534,7 +63751,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 389,
+    "id": 778,
     "company": "Manulife-Sinochem",
     "country": "China",
     "market": "Shanghai",
@@ -61571,7 +63788,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 390,
+    "id": 780,
     "company": "Babemax",
     "country": "China",
     "market": "Shanghai",
@@ -61608,7 +63825,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 391,
+    "id": 782,
     "company": "99Bill.com",
     "country": "China",
     "market": "Shanghai",
@@ -61645,7 +63862,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 392,
+    "id": 784,
     "company": "Meritz Fire & Marine Insurance (\uba54\ub9ac\uce20\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul, YBD (IFC)",
@@ -61682,7 +63899,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 393,
+    "id": 786,
     "company": "K Bank (\ucf00\uc774\ubc45\ud06c)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Samphung Nexus Bldg, Eulji-ro 158",
@@ -61719,7 +63936,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 394,
+    "id": 788,
     "company": "Social News (\uc18c\uc15c\ub274\uc2a4)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Gwanghwamun G Square, Sejong-daero 22-gil 12",
@@ -61756,7 +63973,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 395,
+    "id": 790,
     "company": "Hanwha Life Financial Services (\ud55c\ud654\uc0dd\uba85\uae08\uc735\uc11c\ube44\uc2a4)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul City Tower, Huam-ro 110",
@@ -61793,7 +64010,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 396,
+    "id": 792,
     "company": "A Plus Asset Advisor (\uc5d0\uc774\ud50c\ub7ec\uc2a4\uc5d0\uc14b\uc5b4\ub4dc\ubc14\uc774\uc800)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -61830,7 +64047,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 397,
+    "id": 794,
     "company": "Chrono Studio (\ud06c\ub85c\ub178\uc2a4\ud29c\ub514\uc624; NPIXEL subsidiary)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 The Pinnacle Yeoksam 2, Teheran-ro 145",
@@ -61867,7 +64084,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 398,
+    "id": 796,
     "company": "Wezon (\uc704\uc874 \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Landmark Tower, Gangnam-daero 508",
@@ -61904,7 +64121,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 399,
+    "id": 798,
     "company": "Samsung Securities (\uc0bc\uc131\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Lynn Square, Teheran-ro 201",
@@ -61941,7 +64158,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 400,
+    "id": 800,
     "company": "Creditbon (\ud06c\ub808\ub527\ubcf8 \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Centerfield West, Seocho-daero 398",
@@ -61978,7 +64195,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 401,
+    "id": 802,
     "company": "Sentbe (\uc13c\ud2b8\ube44)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouidae-ro 70",
@@ -62015,7 +64232,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 402,
+    "id": 804,
     "company": "Lakewood Partners (\ub808\uc774\ud06c\uc6b0\ub4dc\ud30c\ud2b8\ub108\uc2a4)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Yeouido Finance Tower, Gukjegeumyung-ro 2-gil 32",
@@ -62052,7 +64269,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 403,
+    "id": 806,
     "company": "Galaxy Corporation (\uac24\ub7ed\uc11c\ucf54\ud37c\ub808\uc774\uc158)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 IFC, Gukjegeumyung-ro 10",
@@ -62089,7 +64306,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 404,
+    "id": 808,
     "company": "Samsung Life Insurance (\uc0bc\uc131\uc0dd\uba85\ubcf4\ud5d8\uc8fc\uc2dd\ud68c\uc0ac)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Bundang Yemij Bldg, Hwangsaeul-ro 258beon-gil 31",
@@ -62126,7 +64343,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 405,
+    "id": 810,
     "company": "Weekly Hair (\u321c\uc704\ud074\ub9ac\ud5e4\uc5b4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 SPC Center, Jeongja-il-ro 166",
@@ -62163,7 +64380,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 406,
+    "id": 812,
     "company": "Daekyo Edu Camp (\u321c\ub300\uad50\uc5d0\ub4c0\ucea0\ud504)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Byucksan Techno Pia Knowledge Industry Center, Dunchon-daero 560",
@@ -62200,7 +64417,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 407,
+    "id": 814,
     "company": "People Life (\ud53c\ud50c\ub77c\uc774\ud504\u321c)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 UI Building, Yanghyeon-ro 405beon-gil 4-11",
@@ -62237,7 +64454,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 408,
+    "id": 816,
     "company": "Celltrion Pharm (\uc140\ud2b8\ub9ac\uc628\uc81c\uc57d)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Gwacheon Smart K, Gwacheon-daero 7-gil 20",
@@ -62274,7 +64491,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 409,
+    "id": 818,
     "company": "Novatec (\ub178\ubc14\ud14d \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Songpa Terra Tower 2, Songpa-daero 201",
@@ -62311,7 +64528,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 410,
+    "id": 820,
     "company": "WZCOM (\ub354\ube14\uc720\uc81c\ud2b8\ucf64)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Avenue 123, Itaewon-ro 191",
@@ -62348,7 +64565,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 411,
+    "id": 822,
     "company": "F&F (\uc5d0\ud504\uc564\uc5d0\ud504)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Center Point Gangnam",
@@ -62385,7 +64602,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 412,
+    "id": 824,
     "company": "Olive Young (\uc62c\ub9ac\ube0c\uc601)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Factorial Seongsu",
@@ -62422,7 +64639,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 413,
+    "id": 826,
     "company": "Nice Payments (\ub098\uc774\uc2a4\ud398\uc774\uba3c\uce20)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Semicolon Mullae N Tower",
@@ -62459,7 +64676,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 414,
+    "id": 828,
     "company": "JoyCity (\uc870\uc774\uc2dc\ud2f0)",
     "country": "Korea",
     "market": "Seongnam (Bundang) \u2014 JoyCity Tower, Sunae",
@@ -62496,7 +64713,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 415,
+    "id": 830,
     "company": "Carver Korea (\uce74\ubc84\ucf54\ub9ac\uc544)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 FKI Tower",
@@ -62533,7 +64750,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 416,
+    "id": 832,
     "company": "Allerman (\uc54c\ub808\ub974\ub9dd \u2014 name transliteration uncertain)",
     "country": "Korea",
     "market": "Seoul \u2014 Allerman Tower",
@@ -62570,7 +64787,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 417,
+    "id": 834,
     "company": "SGI Seoul Guarantee Insurance (SGI\uc11c\uc6b8\ubcf4\uc99d)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Boryeong Building, Changgyeonggung-ro 136",
@@ -62607,7 +64824,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 418,
+    "id": 836,
     "company": "HLMC",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Sampung Nexus, Euljiro 4-ga 310-68",
@@ -62644,7 +64861,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 419,
+    "id": 838,
     "company": "Toss Income (\ud1a0\uc2a4 affiliate of Viva Republica)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 POSCO Tower Yeoksam, Teheran-ro 134",
@@ -62681,7 +64898,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 420,
+    "id": 840,
     "company": "Goorm (\uad6c\ub984)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 The Pinnacle Yeoksam 2, Teheran-ro 145",
@@ -62718,7 +64935,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 421,
+    "id": 842,
     "company": "Woori Bank",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 1, Yeouidaero 108",
@@ -62755,7 +64972,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 422,
+    "id": 844,
     "company": "Leferi (\ub808\ud398\ub9ac)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 2, Yeouidaero 108",
@@ -62792,7 +65009,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 423,
+    "id": 846,
     "company": "PineStreet Asset Management",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Parc1 Tower 2, Yeouidaero 108",
@@ -62829,7 +65046,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 424,
+    "id": 848,
     "company": "Hyundai Motor Securities (\ud604\ub300\ucc28\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouidae-ro 70",
@@ -62866,7 +65083,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 425,
+    "id": 850,
     "company": "Hyundai Transys (\ud604\ub300\ud2b8\ub79c\uc2dc\uc2a4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Hyundai Dept Store Office, Pangyoyeok-ro 146beon-gil 20",
@@ -62903,7 +65120,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 426,
+    "id": 852,
     "company": "Neuberger Berman Asset Management",
     "country": "Korea",
     "market": "Seoul, Others \u2014 One Grove, Gonghang-daero 165 (Magok)",
@@ -62940,7 +65157,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 427,
+    "id": 854,
     "company": "NH Nonghyup Life Insurance (NH\ub18d\ud611\uc0dd\uba85)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Soonhwa Tower, Sejong-daero 7-gil 43",
@@ -62977,7 +65194,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 428,
+    "id": 856,
     "company": "Lotte Card (\ub86f\ub370\uce74\ub4dc)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Booyoung Taepyeong Building, Sejong-daero 55",
@@ -63014,7 +65231,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 429,
+    "id": 858,
     "company": "Mdic",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -63051,7 +65268,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 430,
+    "id": 860,
     "company": "RCI Financial Korea",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Seoul Square, Hangang-daero 416",
@@ -63088,7 +65305,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 431,
+    "id": 862,
     "company": "Hanwha Hotels & Resorts (\ud55c\ud654\ud638\ud154\uc564\ub4dc\ub9ac\uc870\ud2b8)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Hongdae H Square (from Hanwha Building, Sogong-dong)",
@@ -63125,7 +65342,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 432,
+    "id": 864,
     "company": "Hanwha Galleria (\ud55c\ud654\uac24\ub7ec\ub9ac\uc544)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Hongdae H Square (same)",
@@ -63162,7 +65379,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 433,
+    "id": 866,
     "company": "eOpsoft",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 L7 Hotels Gangnam Tower, Teheran-ro 415",
@@ -63199,7 +65416,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 434,
+    "id": 868,
     "company": "Supercent (\uc288\ud37c\uc13c\ud2b8)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Lotte World Tower, Olympic-ro 300",
@@ -63236,7 +65453,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 435,
+    "id": 870,
     "company": "KIS Appraisal (\ud55c\uad6d\ud22c\uc790\ud3c9\uac00)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Centennial, Yeouidae-ro 70",
@@ -63273,7 +65490,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 436,
+    "id": 872,
     "company": "Rebellions (\ub9ac\ubca8\ub9ac\uc628)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Newborn Tower, Jeongja 1-ro 156beon-gil 6",
@@ -63310,7 +65527,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 437,
+    "id": 874,
     "company": "Keyinside (\ud0a4\uc778\uc0ac\uc774\ub4dc)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Yemij Building, Pangyoyeok-ro 14-1",
@@ -63347,7 +65564,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 438,
+    "id": 876,
     "company": "MiL.k Partners (\ubc00\ud06c\ud30c\ud2b8\ub108\uc2a4)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Yemij Building, Pangyoyeok-ro 14-1",
@@ -63384,7 +65601,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 439,
+    "id": 878,
     "company": "NEXUS (name as printed)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Alpharium Tower, Daewangpangyo-ro 606beon-gil 10",
@@ -63421,7 +65638,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 440,
+    "id": 880,
     "company": "Korea Insurance Brokerage",
     "country": "Korea",
     "market": "Seoul, Others \u2014 K-Square Magok Tower 3, Magokjungang-ro 105-7",
@@ -63458,7 +65675,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 441,
+    "id": 882,
     "company": "NH Capital (NH\uce90\ud53c\ud0c8)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 One Sentinel, Yeouido-dong 23-2",
@@ -63495,7 +65712,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 442,
+    "id": 884,
     "company": "Hanwha I&A",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Korea Chamber of Commerce & Industry bldg, Namdaemun-ro 4-ga 45",
@@ -63532,7 +65749,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 443,
+    "id": 886,
     "company": "New Balance",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 INNO 88, Unni-dong 98-5",
@@ -63569,7 +65786,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 444,
+    "id": 888,
     "company": "Shinhan Life (\uc2e0\ud55c\uc0dd\uba85)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Central Place, Jungnim-dong 419",
@@ -63606,7 +65823,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 445,
+    "id": 890,
     "company": "BlackRock",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Gran Seoul, Cheongjin-dong 70",
@@ -63643,7 +65860,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 446,
+    "id": 892,
     "company": "Heungkuk Fire & Marine Insurance (\ud765\uad6d\ud654\uc7ac)",
     "country": "Korea",
     "market": "Seoul, CBD \u2014 Handuk Building, Jongno 6-ga 242-1",
@@ -63680,7 +65897,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 447,
+    "id": 894,
     "company": "Onecell Mediclinic",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 NR Tower, Samseong-dong 9-21",
@@ -63717,7 +65934,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 448,
+    "id": 896,
     "company": "Snowflake",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Posco Tower Yeoksam, Yeoksam-dong 735-3",
@@ -63754,7 +65971,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 449,
+    "id": 898,
     "company": "Unilever",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 Samsung-dong Building, Samseong-dong 157-1",
@@ -63791,7 +66008,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 450,
+    "id": 900,
     "company": "BY4M (name as printed)",
     "country": "Korea",
     "market": "Seoul, GBD \u2014 K407, Yeoksam-dong 747-25",
@@ -63828,7 +66045,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 451,
+    "id": 902,
     "company": "Korea Investment Real Estate Trust (\ud55c\uad6d\ud22c\uc790\ubd80\ub3d9\uc0b0\uc2e0\ud0c1)",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 FKI Tower, Yeouido-dong 28-1",
@@ -63865,7 +66082,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 452,
+    "id": 904,
     "company": "Ryukyung PSG Asset Management",
     "country": "Korea",
     "market": "Seoul, YBD \u2014 Yeouido Finance Tower, Yeouido-dong 23-8",
@@ -63902,7 +66119,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 453,
+    "id": 906,
     "company": "LIG Defense & Aerospace",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 H Square S Tower, Sampyeong-dong 680",
@@ -63939,7 +66156,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 454,
+    "id": 908,
     "company": "Synopsys",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 H Square S Tower, Sampyeong-dong 680",
@@ -63976,7 +66193,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 455,
+    "id": 910,
     "company": "VIOL",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Two Sun Building, Sampyeong-dong 672",
@@ -64013,7 +66230,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 456,
+    "id": 912,
     "company": "Kakao Pay Securities (\uce74\uce74\uc624\ud398\uc774\uc99d\uad8c)",
     "country": "Korea",
     "market": "Seoul, BBD \u2014 Pangyo Tech One, Baekhyeon-dong 534",
@@ -64050,7 +66267,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 457,
+    "id": 914,
     "company": "Hanil Electric (\ud55c\uc77c\uc804\uae30)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 Semicolon Mullae, Mullae-dong 55-18",
@@ -64087,7 +66304,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 458,
+    "id": 916,
     "company": "Gear2 (name as printed)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 MUSINSA S1, Seongsu-dong 2-ga 324-2",
@@ -64124,7 +66341,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 459,
+    "id": 918,
     "company": "Leterinity (\ub808\ud130\ub2c8\ud2f0)",
     "country": "Korea",
     "market": "Seoul, Others \u2014 K-Square Magok, Magok-dong 768-1",
@@ -64161,7 +66378,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 460,
+    "id": 920,
     "company": "Jupiter Telecommunications Co., Ltd",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -64198,7 +66415,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 461,
+    "id": 922,
     "company": "Fujitsu",
     "country": "Japan",
     "market": "Tokyo (Hamamatsucho / Onarimon)",
@@ -64235,7 +66452,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 462,
+    "id": 924,
     "company": "Canon IT Solutions Inc.",
     "country": "Japan",
     "market": "Tokyo (Kita-Shinagawa / Higashi-Shinagawa)",
@@ -64272,7 +66489,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 463,
+    "id": 926,
     "company": "Delta Electronics, Inc.",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -64309,7 +66526,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 464,
+    "id": 928,
     "company": "JASRAC",
     "country": "Japan",
     "market": "Tokyo (Akasaka)",
@@ -64346,7 +66563,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 465,
+    "id": 930,
     "company": "Abilio Servicer",
     "country": "Japan",
     "market": "Tokyo (Toyosu)",
@@ -64383,7 +66600,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 466,
+    "id": 932,
     "company": "Skylark Holdings",
     "country": "Japan",
     "market": "Tokyo (Nakano)",
@@ -64420,7 +66637,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 467,
+    "id": 934,
     "company": "Mirait One",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -64457,7 +66674,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 468,
+    "id": 936,
     "company": "NTT DATA Group Corporation",
     "country": "Japan",
     "market": "Tokyo (Osaki / Gotanda)",
@@ -64494,7 +66711,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 469,
+    "id": 938,
     "company": "Accenture Japan Ltd",
     "country": "Japan",
     "market": "Tokyo (Harumi / Kachidoki)",
@@ -64531,7 +66748,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 470,
+    "id": 940,
     "company": "JA MITSUI LEASING, LTD.",
     "country": "Japan",
     "market": "Tokyo (Nihonbashi)",
@@ -64568,7 +66785,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 471,
+    "id": 942,
     "company": "H.I.S. Co., Ltd.",
     "country": "Japan",
     "market": "Tokyo (Nishi-Shinjuku)",
@@ -64605,7 +66822,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 472,
+    "id": 944,
     "company": "CMIC HOLDINGS Co., Ltd.",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
@@ -64642,7 +66859,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 473,
+    "id": 946,
     "company": "RYODEN (TSE Prime: 8084)",
     "country": "Japan",
     "market": "Tokyo (Kojimachi, Chiyoda-ku)",
@@ -64679,7 +66896,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 474,
+    "id": 948,
     "company": "\u30d3\u30fc\u30c8\u30ec\u30f3\u30c9 Beatrend (TSE Growth: 4020)",
     "country": "Japan",
     "market": "Tokyo (Kita-Shinagawa)",
@@ -64716,7 +66933,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 475,
+    "id": 950,
     "company": "KeyHolder (TSE Standard: 4712)",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -64753,7 +66970,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 476,
+    "id": 952,
     "company": "\u30c7\u30a3\u30fb\u30a2\u30a4\u30fb\u30b7\u30b9\u30c6\u30e0 D.I.System (TSE Standard: 4421)",
     "country": "Japan",
     "market": "Tokyo (Marunouchi)",
@@ -64790,7 +67007,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 477,
+    "id": 954,
     "company": "Honda Motor",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -64827,7 +67044,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 478,
+    "id": 956,
     "company": "Mizuho Leasing",
     "country": "Japan",
     "market": "Tokyo (Toranomon / Kamiyacho)",
@@ -64864,17 +67081,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 479,
+    "id": 958,
     "company": "Nomura Real Estate Development",
     "country": "Japan",
     "market": "Tokyo (Shibaura / Kaigan)",
-    "currentSnapshot": "Pre-commitment, Blue Front Shibaura Tower S, completing Feb-25",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Group brokerage arm moved Hiroshima branch to Meiji Yasuda Hiroshima Bldg 5F, opened 13 Oct (announced 25 Sep) \u2014 outside tracked markets. Source: excite news.",
+    "previousSnapshot": "Pre-commitment, Blue Front Shibaura Tower S, completing Feb-25",
+    "change": "Branch move (non-tracked market)",
     "hasChange": true,
-    "trend": "Pre-commitment \u2014 forward fit-out pipeline",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -64901,7 +67118,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 480,
+    "id": 960,
     "company": "KDDI",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi)",
@@ -64938,7 +67155,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 481,
+    "id": 962,
     "company": "Umios",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi)",
@@ -64975,7 +67192,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 482,
+    "id": 964,
     "company": "Sanko Metal Industrial",
     "country": "Japan",
     "market": "Tokyo (Mita / Tamachi)",
@@ -65012,17 +67229,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 483,
+    "id": 966,
     "company": "Kenko Mayonnaise",
     "country": "Japan",
     "market": "Tokyo (Bancho / Kojimachi)",
-    "currentSnapshot": "Pre-commitment, Kojimachi Kosai Building, completing Jun-25",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Moved Development/Research/QA depts to Mitsui Link Lab Shinkiba 3 (announced 28 Sep; ops 28 Sep/5 Oct) \u2014 R&D lab, not pure office. Source: excite news.",
+    "previousSnapshot": "Pre-commitment, Kojimachi Kosai Building, completing Jun-25",
+    "change": "Lab move (non-office)",
     "hasChange": true,
-    "trend": "Pre-commitment \u2014 forward fit-out pipeline",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-14",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 75,
     "heatScoreBreakdown": {
@@ -65049,7 +67266,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 484,
+    "id": 968,
     "company": "Kobe Steel Group",
     "country": "Japan",
     "market": "Tokyo (Shinagawa Konanguchi / Yaesu)",
@@ -65086,7 +67303,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 485,
+    "id": 970,
     "company": "Japan Pulp and Paper",
     "country": "Japan",
     "market": "Tokyo (Kyobashi / Yaesu / Nihonbashi)",
@@ -65123,7 +67340,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 486,
+    "id": 972,
     "company": "coconala",
     "country": "Japan",
     "market": "Tokyo (Shibuya)",
@@ -65160,7 +67377,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 487,
+    "id": 974,
     "company": "Citi Malaysia (Citi Transaction Services Malaysia Sdn Bhd \u2013 CTSM Penang)",
     "country": "Malaysia",
     "market": "Penang (Air Itam \u2013 Sunshine Tower @ Sunshine Central)",
@@ -65197,7 +67414,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 488,
+    "id": 976,
     "company": "Celestica (Platform and Cloud Solutions Malaysia)",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
@@ -65234,7 +67451,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 489,
+    "id": 978,
     "company": "Microsoft (Knowledge Capital Centre)",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS by the Sea, 290,000 sq ft)",
@@ -65271,7 +67488,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 490,
+    "id": 980,
     "company": "SkyeChip",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -65308,7 +67525,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 491,
+    "id": 982,
     "company": "Sophic Automation",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -65345,7 +67562,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 492,
+    "id": 984,
     "company": "Filpal",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -65382,7 +67599,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 493,
+    "id": 986,
     "company": "Infinecs Lab",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -65419,7 +67636,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 494,
+    "id": 988,
     "company": "Silicon X",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas \u2013 GBS TechSpace, SRIS)",
@@ -65456,7 +67673,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 495,
+    "id": 990,
     "company": "Arvind Ltd.",
     "country": "India",
     "market": "Ahmedabad (Sindhu Bhavan Road)",
@@ -65493,7 +67710,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 496,
+    "id": 992,
     "company": "Opulence Spaces",
     "country": "India",
     "market": "Ahmedabad",
@@ -65530,7 +67747,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 497,
+    "id": 994,
     "company": "Vibrant Co.Work",
     "country": "India",
     "market": "Ahmedabad",
@@ -65567,7 +67784,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 498,
+    "id": 996,
     "company": "Incuspaze",
     "country": "India",
     "market": "Ahmedabad",
@@ -65604,7 +67821,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 499,
+    "id": 998,
     "company": "Simpliwork",
     "country": "India",
     "market": "Chennai; Hyderabad; Delhi NCR",
@@ -65641,7 +67858,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 500,
+    "id": 1000,
     "company": "Workez",
     "country": "India",
     "market": "Chennai",
@@ -65678,7 +67895,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 501,
+    "id": 1002,
     "company": "Geri Care Hospital",
     "country": "India",
     "market": "Chennai",
@@ -65715,7 +67932,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 502,
+    "id": 1004,
     "company": "Raja Rajeshwari Engineering College",
     "country": "India",
     "market": "Chennai",
@@ -65752,7 +67969,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 503,
+    "id": 1006,
     "company": "AnnexMed",
     "country": "India",
     "market": "Chennai",
@@ -65789,7 +68006,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 504,
+    "id": 1008,
     "company": "Chargebee",
     "country": "India",
     "market": "Chennai",
@@ -65826,7 +68043,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 505,
+    "id": 1010,
     "company": "Alldigi Tech (Allsec)",
     "country": "India",
     "market": "Chennai",
@@ -65863,7 +68080,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 506,
+    "id": 1012,
     "company": "Altimetrik",
     "country": "India",
     "market": "Chennai",
@@ -65900,7 +68117,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 507,
+    "id": 1014,
     "company": "Novac Technology Solutions",
     "country": "India",
     "market": "Chennai",
@@ -65937,7 +68154,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 508,
+    "id": 1016,
     "company": "ArcelorMittal",
     "country": "India",
     "market": "Hyderabad",
@@ -65974,7 +68191,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 509,
+    "id": 1018,
     "company": "Skootr",
     "country": "India",
     "market": "Hyderabad",
@@ -66011,7 +68228,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 510,
+    "id": 1020,
     "company": "Bajaj Finance",
     "country": "India",
     "market": "Hyderabad",
@@ -66048,7 +68265,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 511,
+    "id": 1022,
     "company": "HDFC Credila",
     "country": "India",
     "market": "Hyderabad",
@@ -66085,7 +68302,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 512,
+    "id": 1024,
     "company": "Apollo",
     "country": "India",
     "market": "Hyderabad",
@@ -66122,7 +68339,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 513,
+    "id": 1026,
     "company": "Mahindra Finance",
     "country": "India",
     "market": "Hyderabad",
@@ -66159,7 +68376,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 514,
+    "id": 1028,
     "company": "Akasa",
     "country": "India",
     "market": "Kolkata",
@@ -66196,7 +68413,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 515,
+    "id": 1030,
     "company": "Maruti",
     "country": "India",
     "market": "Delhi NCR",
@@ -66233,7 +68450,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 516,
+    "id": 1032,
     "company": "Indiabulls",
     "country": "India",
     "market": "Delhi NCR",
@@ -66270,7 +68487,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 517,
+    "id": 1034,
     "company": "Tata AIG",
     "country": "India",
     "market": "Delhi NCR",
@@ -66307,7 +68524,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 518,
+    "id": 1036,
     "company": "Tablespace",
     "country": "India",
     "market": "Delhi NCR",
@@ -66344,7 +68561,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 519,
+    "id": 1038,
     "company": "Workshaala",
     "country": "India",
     "market": "Delhi NCR",
@@ -66381,7 +68598,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 520,
+    "id": 1040,
     "company": "Amdocs",
     "country": "India",
     "market": "Delhi NCR",
@@ -66418,7 +68635,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 521,
+    "id": 1042,
     "company": "ANSR",
     "country": "India",
     "market": "Delhi NCR",
@@ -66455,7 +68672,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 522,
+    "id": 1044,
     "company": "TBH",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 The Gardens North Tower)",
@@ -66492,7 +68709,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 523,
+    "id": 1046,
     "company": "Common Ground",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL City \u2014 Menara Darussalam)",
@@ -66529,7 +68746,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 524,
+    "id": 1048,
     "company": "Universal Serviced Offices",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 The Gardens North Tower)",
@@ -66566,7 +68783,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 525,
+    "id": 1050,
     "company": "JTI",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Fringe \u2014 Corporate Tower 7, Pavilion Damansara Heights)",
@@ -66603,7 +68820,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 526,
+    "id": 1052,
     "company": "Bank Rakyat",
     "country": "Malaysia",
     "market": "Johor Bahru (Menara 2, Coronation Square)",
@@ -66640,17 +68857,17 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 527,
+    "id": 1054,
     "company": "Allianz Malaysia",
     "country": "Malaysia",
     "market": "Penang (George Town \u2014 Jalan Kelawai)",
-    "currentSnapshot": "Opened new branch on Jalan Kelawai, George Town, commenced operations 1 July 2025; size and deal type unstated (branch opening, not a corporate HQ move)",
-    "previousSnapshot": "",
-    "change": "New",
+    "currentSnapshot": "Incorporated Allianz Labuan Limited effective 1 Oct 2026 (HNW life-insurance, Labuan-based) \u2014 new-entity expansion; no KL office implication. Source: allianz.com.my.",
+    "previousSnapshot": "Opened new branch on Jalan Kelawai, George Town, commenced operations 1 July 2025; size and deal type unstated (branch opening, not a corporate HQ move)",
+    "change": "New Labuan entity incorporated",
     "hasChange": true,
-    "trend": "Relocation \u2014 fit-out demand",
+    "trend": "Steady",
     "status": "Active",
-    "lastChecked": "2026-10-15",
+    "lastChecked": "2026-10-20",
     "notes": "",
     "heatScore": 60,
     "heatScoreBreakdown": {
@@ -66677,7 +68894,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 528,
+    "id": 1056,
     "company": "BlackRock",
     "country": "India",
     "market": "Delhi NCR",
@@ -66714,7 +68931,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 529,
+    "id": 1058,
     "company": "DHL",
     "country": "India",
     "market": "Chennai",
@@ -66751,7 +68968,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 530,
+    "id": 1060,
     "company": "L'Or\u00e9al",
     "country": "India",
     "market": "Hyderabad",
@@ -66788,7 +69005,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 531,
+    "id": 1062,
     "company": "L'Or\u00e9al",
     "country": "China",
     "market": "Shanghai",
@@ -66825,7 +69042,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 532,
+    "id": 1064,
     "company": "Karnataka government agency (unspecified)",
     "country": "India",
     "market": "Karnataka",
@@ -66862,7 +69079,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 533,
+    "id": 1066,
     "company": "Blackstone COE India Pvt Ltd",
     "country": "India",
     "market": "Bengaluru",
@@ -66899,7 +69116,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 534,
+    "id": 1068,
     "company": "Beckman Coulter",
     "country": "India",
     "market": "Bengaluru",
@@ -66936,7 +69153,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 535,
+    "id": 1070,
     "company": "Ernst & Young",
     "country": "India",
     "market": "Bengaluru",
@@ -66973,7 +69190,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 536,
+    "id": 1072,
     "company": "STT",
     "country": "India",
     "market": "Delhi NCR",
@@ -67010,7 +69227,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 537,
+    "id": 1074,
     "company": "Rank Computing",
     "country": "China",
     "market": "Beijing",
@@ -67047,7 +69264,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 538,
+    "id": 1076,
     "company": "Huaxia Technology",
     "country": "China",
     "market": "Beijing (CBD)",
@@ -67084,7 +69301,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 539,
+    "id": 1078,
     "company": "Tencent",
     "country": "China",
     "market": "Shanghai",
@@ -67121,7 +69338,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 540,
+    "id": 1080,
     "company": "Tullett Prebon SITICO",
     "country": "China",
     "market": "Shanghai",
@@ -67158,7 +69375,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 541,
+    "id": 1082,
     "company": "Luxshare Precision",
     "country": "China",
     "market": "Shanghai",
@@ -67195,7 +69412,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 542,
+    "id": 1084,
     "company": "IBM India",
     "country": "India",
     "market": "Pune",
@@ -67232,7 +69449,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 543,
+    "id": 1086,
     "company": "MetLife",
     "country": "India",
     "market": "Noida",
@@ -67269,7 +69486,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 544,
+    "id": 1088,
     "company": "Dexian",
     "country": "India",
     "market": "Chennai",
@@ -67306,7 +69523,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 545,
+    "id": 1090,
     "company": "Grab",
     "country": "India",
     "market": "Bengaluru",
@@ -67343,7 +69560,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 546,
+    "id": 1092,
     "company": "Trellix",
     "country": "India",
     "market": "Bengaluru",
@@ -67380,7 +69597,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 547,
+    "id": 1094,
     "company": "Employtech",
     "country": "India",
     "market": "Bengaluru",
@@ -67417,7 +69634,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 548,
+    "id": 1096,
     "company": "E-Clerx",
     "country": "India",
     "market": "Pune",
@@ -67454,7 +69671,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 549,
+    "id": 1098,
     "company": "Indegene Lifesystems",
     "country": "India",
     "market": "Bengaluru",
@@ -67491,7 +69708,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 550,
+    "id": 1100,
     "company": "Crisil",
     "country": "India",
     "market": "Pune",
@@ -67528,7 +69745,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 551,
+    "id": 1102,
     "company": "Wipro",
     "country": "India",
     "market": "Navi Mumbai",
@@ -67565,7 +69782,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 552,
+    "id": 1104,
     "company": "LONYU Robotics",
     "country": "China",
     "market": "Shanghai (Pudong)",
@@ -67602,7 +69819,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 553,
+    "id": 1106,
     "company": "BeeX",
     "country": "Japan",
     "market": "Tokyo (Yaesu)",
@@ -67639,7 +69856,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 554,
+    "id": 1108,
     "company": "Daido Limited",
     "country": "Japan",
     "market": "Tokyo (Shinagawa)",
@@ -67676,7 +69893,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 555,
+    "id": 1110,
     "company": "ETS Group",
     "country": "Japan",
     "market": "Tokyo (Ikebukuro)",
@@ -67713,7 +69930,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 556,
+    "id": 1112,
     "company": "Advantex",
     "country": "Japan",
     "market": "Tokyo (Kanda)",
@@ -67750,7 +69967,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 557,
+    "id": 1114,
     "company": "CellSource",
     "country": "Japan",
     "market": "Tokyo",
@@ -67787,7 +70004,7 @@ var INITIAL_TRACKER_DATA = [
     "dealsCount": 1
   },
   {
-    "id": 558,
+    "id": 1116,
     "company": "UrbanVault",
     "country": "India",
     "market": "Bengaluru (Outer Ring Road)",
@@ -67822,13 +70039,901 @@ var INITIAL_TRACKER_DATA = [
       "IN-150"
     ],
     "dealsCount": 1
+  },
+  {
+    "id": 1118,
+    "company": "Truist Financial",
+    "country": "India",
+    "market": "Hyderabad",
+    "currentSnapshot": "Infosys 5-yr BOT deal to build Truist's AI-first GCC in Hyderabad; 1,000+ colleagues onboarding Oct 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "IN-151"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1120,
+    "company": "BNP Paribas",
+    "country": "India",
+    "market": "Chennai",
+    "currentSnapshot": "Signed 10-yr lease ~5 lakh sq ft at One Radial, Chennai, consolidating dispersed ops (Oct 2026).",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (500,000 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "IN-152"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1122,
+    "company": "SMBC",
+    "country": "India",
+    "market": "Mumbai (BKC)",
+    "currentSnapshot": "5-yr leave-and-licence at Sumitomo C65 BKC dated 6 Oct 2026, rent from Jun 2027.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 80,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 15,
+      "sizeReason": "Mid-size fit-out (49,820 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 15,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 80,
+      "summary": "R:40 + S:15 + T:20 + St:5 = 80"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "IN-153"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1124,
+    "company": "Qatar National Bank",
+    "country": "India",
+    "market": "Mumbai (BKC)",
+    "currentSnapshot": "Renewed Maker Maxity 4 North Ave , 5 yrs to Oct 2031 (Oct 2026).",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 60,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 10,
+      "sizeReason": "Boutique office (8,079 sq ft [Sheet])",
+      "typePts": 5,
+      "typeReason": "Renewal refresh benchmark (5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 10,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 60,
+      "summary": "R:40 + S:10 + T:5 + St:5 = 60"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "IN-154"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1126,
+    "company": "Sopra Steria India",
+    "country": "India",
+    "market": "Noida (Noida Expressway)",
+    "currentSnapshot": "15-yr lease ~4.75 lakh sq ft campus at Maconns Grand Towers A&B, Noida Sector 132 (Oct 2026).",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (475,000 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "IN-155"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1128,
+    "company": "Hypergryph",
+    "country": "China",
+    "market": "Shanghai (Xuhui)",
+    "currentSnapshot": "Whole-tower (~90,000 sqm) new-lease HQ at Xuhui Vanke Center Phase 3 T1; move-in end-2027.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (968,760 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "CN-063"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1130,
+    "company": "BlueFocus Data Technology",
+    "country": "China",
+    "market": "Shanghai (Xuhui)",
+    "currentSnapshot": "Signed floors 3\u20138 (~17,500 sqm) at Shanghai Alibaba Center, Xuhui Riverside (Oct 2026).",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (188,370 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "CN-064"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1132,
+    "company": "ANA Holdings",
+    "country": "Japan",
+    "market": "Tokyo (Yaesu)",
+    "currentSnapshot": "HQ relocation to YAESU CORE announced 16 Oct 2026; move Spring 2030.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-097"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1134,
+    "company": "UCB Japan",
+    "country": "Japan",
+    "market": "Tokyo (Shinjuku)",
+    "currentSnapshot": "HQ move to Meiji Yasuda Shinjuku Bldg 20F announced 20 Oct 2026; move Jun 2027.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-098"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1136,
+    "company": "Nissay MIRAIQA",
+    "country": "Japan",
+    "market": "Tokyo (Takanawa)",
+    "currentSnapshot": "HQ relocated to THE LINKPILLAR 1 SOUTH 8F, 19 Oct 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-099"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1138,
+    "company": "Car Seven Digi Field",
+    "country": "Japan",
+    "market": "Tokyo (Mita/Tamachi)",
+    "currentSnapshot": "HQ move to Mita Kokusai Bldg 1F on 2 Nov 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-100"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1140,
+    "company": "Univis Group",
+    "country": "Japan",
+    "market": "Osaka (Umeda)",
+    "currentSnapshot": "Relocated + dual-HQ to Hankyu Terminal Bldg 8F, 13 Oct 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-101"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1142,
+    "company": "Planbase",
+    "country": "Japan",
+    "market": "Osaka (Hommachi)",
+    "currentSnapshot": "Osaka office moved to H1O Honmachi 328, 2 Oct 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-102"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1144,
+    "company": "NSJAPAN",
+    "country": "Japan",
+    "market": "Tokyo (Nihonbashi)",
+    "currentSnapshot": "Expansion to +SHIFT Nihonbashi Sakura-dori 12F, 1 Oct 2026, fast-growing.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-103"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1146,
+    "company": "Kurumeshi",
+    "country": "Japan",
+    "market": "Tokyo (Shibuya)",
+    "currentSnapshot": "HQ expansion to Shibuya First Place 2F, 13 Oct 2026; doubled footprint (888.30\u33a1).",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 75,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 10,
+      "sizeReason": "Boutique office (9,560 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 10,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 75,
+      "summary": "R:40 + S:10 + T:20 + St:5 = 75"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-104"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1148,
+    "company": "Pandora Jewelry Japan",
+    "country": "Japan",
+    "market": "Tokyo (Shibuya)",
+    "currentSnapshot": "Office relocation + new showroom build-out, PMO Shibuya II 8F, Oct 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-105"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1150,
+    "company": "AURAM",
+    "country": "Japan",
+    "market": "Tokyo (Shinagawa)",
+    "currentSnapshot": "HQ moved to Sumitomo Fudosan Osaki Garden Tower 9F, ~1 Oct 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-106"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1152,
+    "company": "Sumitomo Densetsu",
+    "country": "Japan",
+    "market": "Tokyo (Nihonbashi)",
+    "currentSnapshot": "HQ relocation 143,436 sq ft to Nihonbashi Honcho MK-SQUARE (Q2 2026; backfill).",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 90,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 25,
+      "sizeReason": "Mega campus (143,436 sq ft [Sheet])",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 25,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 90,
+      "summary": "R:40 + S:25 + T:20 + St:5 = 90"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "JP-107"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1154,
+    "company": "Ryuk-Il C&S",
+    "country": "Korea",
+    "market": "Seoul (GBD)",
+    "currentSnapshot": "Board-approved HQ relocation to Samseong-dong, Gangnam; move 21 Oct 2026.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "KR-154"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1156,
+    "company": "HS Hyosung Information System",
+    "country": "Korea",
+    "market": "Seoul (GBD)",
+    "currentSnapshot": "HQ moved Cheongdam \u2192 Yeoksam-dong 20 Oct 2026, with new AX/AI demo center.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Relocation)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "KR-155"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1158,
+    "company": "Hanwha General Insurance",
+    "country": "Korea",
+    "market": "Seoul (CBD)",
+    "currentSnapshot": "New lease at Central Place, CBD (Newmark Q3 2026).",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (New lease)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "KR-156"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1160,
+    "company": "Shinhan Card",
+    "country": "Korea",
+    "market": "Seoul (CBD)",
+    "currentSnapshot": "Sale-and-leaseback of Pine Avenue Tower A completed 5 Oct 2026, 10-yr lease.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 50,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "KR-157"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1162,
+    "company": "Woori Financial Group (affiliate, unspecified)",
+    "country": "Korea",
+    "market": "Seoul (YBD)",
+    "currentSnapshot": "Affiliate expansion at One Centinel, Yeouido (Newmark Q3 2026); affiliate unnamed.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 65,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 20,
+      "typeReason": "High fit-out demand (Expansion)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 20,
+      "status": 5,
+      "totalScore": 65,
+      "summary": "R:40 + S:0 + T:20 + St:5 = 65"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "KR-158"
+    ],
+    "dealsCount": 1
+  },
+  {
+    "id": 1164,
+    "company": "IMT",
+    "country": "Korea",
+    "market": "",
+    "currentSnapshot": "Board resolved 13 Oct 2026 to hold EGM 23 Nov 2026 to change registered-office address; destination unknown.",
+    "previousSnapshot": "",
+    "change": "",
+    "hasChange": false,
+    "trend": "",
+    "status": "Watch",
+    "lastChecked": "2026-10-20",
+    "notes": "",
+    "heatScore": 50,
+    "heatScoreBreakdown": {
+      "recencyPts": 40,
+      "recencyReason": "Fresh signal (0d ago)",
+      "sizePts": 0,
+      "sizeReason": "Size undisclosed (0 pts)",
+      "typePts": 5,
+      "typeReason": "General commercial deal (Unstated: 5 pts)",
+      "statusPts": 5,
+      "statusReason": "Monitored account (+5)",
+      "recency": 40,
+      "size": 0,
+      "dealType": 5,
+      "status": 5,
+      "totalScore": 50,
+      "summary": "R:40 + S:0 + T:5 + St:5 = 50"
+    },
+    "isDealBacked": true,
+    "isQueueItem": true,
+    "dealIds": [
+      "KR-159"
+    ],
+    "dealsCount": 1
   }
 ];
 if (typeof window !== 'undefined') window.INITIAL_TRACKER_DATA = INITIAL_TRACKER_DATA;
 
 var INITIAL_SNAPSHOTS_DATA = [
   {
-    "id": 1,
+    "id": 2,
     "week": "2026-10-14",
     "company": "Booking.com",
     "country": "India",
@@ -67837,7 +70942,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 2,
+    "id": 4,
     "week": "2026-10-14",
     "company": "Qualcomm India",
     "country": "India",
@@ -67846,7 +70951,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 3,
+    "id": 6,
     "week": "2026-10-14",
     "company": "JP Morgan",
     "country": "India",
@@ -67855,7 +70960,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 4,
+    "id": 8,
     "week": "2026-10-14",
     "company": "JP Morgan Services India",
     "country": "India",
@@ -67864,7 +70969,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 5,
+    "id": 10,
     "week": "2026-10-14",
     "company": "BA Continuum India (Bank of America)",
     "country": "India",
@@ -67873,7 +70978,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 6,
+    "id": 12,
     "week": "2026-10-14",
     "company": "Google India",
     "country": "India",
@@ -67882,7 +70987,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 7,
+    "id": 14,
     "week": "2026-10-14",
     "company": "Airbnb GCC",
     "country": "India",
@@ -67891,7 +70996,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 8,
+    "id": 16,
     "week": "2026-10-14",
     "company": "Topsoe",
     "country": "India",
@@ -67900,7 +71005,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 9,
+    "id": 18,
     "week": "2026-10-14",
     "company": "Adobe",
     "country": "India",
@@ -67909,7 +71014,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 10,
+    "id": 20,
     "week": "2026-10-14",
     "company": "Accenture",
     "country": "India",
@@ -67918,7 +71023,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 11,
+    "id": 22,
     "week": "2026-10-14",
     "company": "Tech Mahindra",
     "country": "India",
@@ -67927,7 +71032,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 12,
+    "id": 24,
     "week": "2026-10-14",
     "company": "Eaton Technologies",
     "country": "India",
@@ -67936,7 +71041,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 13,
+    "id": 26,
     "week": "2026-10-14",
     "company": "Welspun Enterprises",
     "country": "India",
@@ -67945,7 +71050,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 14,
+    "id": 28,
     "week": "2026-10-14",
     "company": "LTIMindtree",
     "country": "India",
@@ -67954,7 +71059,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 15,
+    "id": 30,
     "week": "2026-10-14",
     "company": "Smartworks",
     "country": "India",
@@ -67963,7 +71068,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 16,
+    "id": 32,
     "week": "2026-10-14",
     "company": "Genpact",
     "country": "India",
@@ -67972,7 +71077,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 17,
+    "id": 34,
     "week": "2026-10-14",
     "company": "FedEx",
     "country": "India",
@@ -67981,7 +71086,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 18,
+    "id": 36,
     "week": "2026-10-14",
     "company": "Hartford Global Services",
     "country": "India",
@@ -67990,7 +71095,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 19,
+    "id": 38,
     "week": "2026-10-14",
     "company": "Accenture (Thane - new distinct deal)",
     "country": "India",
@@ -67999,7 +71104,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 20,
+    "id": 40,
     "week": "2026-10-14",
     "company": "TIAA Global Capabilities",
     "country": "India",
@@ -68008,7 +71113,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 21,
+    "id": 42,
     "week": "2026-10-14",
     "company": "DHR Holdings (Danaher Corp)",
     "country": "India",
@@ -68017,7 +71122,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 22,
+    "id": 44,
     "week": "2026-10-14",
     "company": "Target",
     "country": "India",
@@ -68026,7 +71131,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 23,
+    "id": 46,
     "week": "2026-10-14",
     "company": "HSBC",
     "country": "India",
@@ -68035,7 +71140,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 24,
+    "id": 48,
     "week": "2026-10-14",
     "company": "Casio India",
     "country": "India",
@@ -68044,7 +71149,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 25,
+    "id": 50,
     "week": "2026-10-14",
     "company": "Velotic",
     "country": "India",
@@ -68053,7 +71158,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 26,
+    "id": 52,
     "week": "2026-10-14",
     "company": "Julius Baer",
     "country": "India",
@@ -68062,7 +71167,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 27,
+    "id": 54,
     "week": "2026-10-14",
     "company": "McKinsey & Company",
     "country": "India",
@@ -68071,7 +71176,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 28,
+    "id": 56,
     "week": "2026-10-14",
     "company": "U.S. Bancorp",
     "country": "India",
@@ -68080,7 +71185,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 29,
+    "id": 58,
     "week": "2026-10-14",
     "company": "NVIDIA",
     "country": "India",
@@ -68089,7 +71194,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 30,
+    "id": 60,
     "week": "2026-10-14",
     "company": "Nike India",
     "country": "India",
@@ -68098,7 +71203,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 31,
+    "id": 62,
     "week": "2026-10-14",
     "company": "MediaTek",
     "country": "India",
@@ -68107,7 +71212,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 32,
+    "id": 64,
     "week": "2026-10-14",
     "company": "Morningstar",
     "country": "India",
@@ -68116,7 +71221,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 33,
+    "id": 66,
     "week": "2026-10-14",
     "company": "Uber",
     "country": "India",
@@ -68125,7 +71230,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 34,
+    "id": 68,
     "week": "2026-10-14",
     "company": "Invesco",
     "country": "India",
@@ -68134,7 +71239,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 35,
+    "id": 70,
     "week": "2026-10-14",
     "company": "Boston Scientific",
     "country": "India",
@@ -68143,7 +71248,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 36,
+    "id": 72,
     "week": "2026-10-14",
     "company": "Concentrix",
     "country": "India",
@@ -68152,7 +71257,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 37,
+    "id": 74,
     "week": "2026-10-14",
     "company": "Disney",
     "country": "India",
@@ -68161,7 +71266,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 38,
+    "id": 76,
     "week": "2026-10-14",
     "company": "JLL",
     "country": "India",
@@ -68170,7 +71275,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 39,
+    "id": 78,
     "week": "2026-10-14",
     "company": "Accenture (Noida - distinct deal)",
     "country": "India",
@@ -68179,7 +71284,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 40,
+    "id": 80,
     "week": "2026-10-14",
     "company": "Commercial Bank of Ceylon",
     "country": "Sri Lanka",
@@ -68188,7 +71293,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 41,
+    "id": 82,
     "week": "2026-10-14",
     "company": "Dialog Axiata",
     "country": "Sri Lanka",
@@ -68197,7 +71302,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 42,
+    "id": 84,
     "week": "2026-10-14",
     "company": "LOLC Holdings",
     "country": "Sri Lanka",
@@ -68206,7 +71311,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 43,
+    "id": 86,
     "week": "2026-10-14",
     "company": "Hayleys",
     "country": "Sri Lanka",
@@ -68215,7 +71320,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 44,
+    "id": 88,
     "week": "2026-10-14",
     "company": "C W Mackie (via CFLB)",
     "country": "Sri Lanka",
@@ -68224,7 +71329,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 45,
+    "id": 90,
     "week": "2026-10-14",
     "company": "CBC Finance",
     "country": "Sri Lanka",
@@ -68233,7 +71338,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 46,
+    "id": 92,
     "week": "2026-10-14",
     "company": "Ceylon Shipping Corporation",
     "country": "Sri Lanka",
@@ -68242,7 +71347,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 47,
+    "id": 94,
     "week": "2026-10-14",
     "company": "The Executive Centre",
     "country": "Sri Lanka",
@@ -68251,7 +71356,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 48,
+    "id": 96,
     "week": "2026-10-14",
     "company": "Publicis Groupe Sri Lanka",
     "country": "Sri Lanka",
@@ -68260,7 +71365,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 49,
+    "id": 98,
     "week": "2026-10-14",
     "company": "Cambridge University Press & Assessment",
     "country": "Sri Lanka",
@@ -68269,7 +71374,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 50,
+    "id": 100,
     "week": "2026-10-14",
     "company": "IGT 1 Outsourcing Lanka (Pvt) Ltd",
     "country": "Sri Lanka",
@@ -68278,7 +71383,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 51,
+    "id": 102,
     "week": "2026-10-14",
     "company": "EY GDS Sri Lanka",
     "country": "Sri Lanka",
@@ -68287,7 +71392,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 52,
+    "id": 104,
     "week": "2026-10-14",
     "company": "HCL Technologies Sri Lanka",
     "country": "Sri Lanka",
@@ -68296,7 +71401,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 53,
+    "id": 106,
     "week": "2026-10-14",
     "company": "Cinnamon Hotels & Resorts",
     "country": "Sri Lanka",
@@ -68305,7 +71410,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 54,
+    "id": 108,
     "week": "2026-10-14",
     "company": "73Avenue Realtors",
     "country": "Sri Lanka",
@@ -68314,7 +71419,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 55,
+    "id": 110,
     "week": "2026-10-14",
     "company": "NBSL",
     "country": "Sri Lanka",
@@ -68323,7 +71428,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 56,
+    "id": 112,
     "week": "2026-10-14",
     "company": "Bureau Veritas Sri Lanka",
     "country": "Sri Lanka",
@@ -68332,7 +71437,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 57,
+    "id": 114,
     "week": "2026-10-14",
     "company": "Royal Nursing Home (Pvt) Ltd",
     "country": "Sri Lanka",
@@ -68341,7 +71446,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 58,
+    "id": 116,
     "week": "2026-10-14",
     "company": "Unilever Sri Lanka",
     "country": "Sri Lanka",
@@ -68350,7 +71455,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 59,
+    "id": 118,
     "week": "2026-10-14",
     "company": "Sampath Bank PLC",
     "country": "Sri Lanka",
@@ -68359,7 +71464,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 60,
+    "id": 120,
     "week": "2026-10-14",
     "company": "Ministry of Energy",
     "country": "Sri Lanka",
@@ -68368,7 +71473,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 61,
+    "id": 122,
     "week": "2026-10-14",
     "company": "Welfare Benefits Board (Ministry of Finance)",
     "country": "Sri Lanka",
@@ -68377,7 +71482,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 62,
+    "id": 124,
     "week": "2026-10-14",
     "company": "Maybank",
     "country": "Malaysia",
@@ -68386,7 +71491,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 63,
+    "id": 126,
     "week": "2026-10-14",
     "company": "Bank of America",
     "country": "Malaysia",
@@ -68395,7 +71500,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 64,
+    "id": 128,
     "week": "2026-10-14",
     "company": "PwC Malaysia",
     "country": "Malaysia",
@@ -68404,7 +71509,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 65,
+    "id": 130,
     "week": "2026-10-14",
     "company": "Huawei",
     "country": "Malaysia",
@@ -68413,7 +71518,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 66,
+    "id": 132,
     "week": "2026-10-14",
     "company": "Ant International",
     "country": "Malaysia",
@@ -68422,7 +71527,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 67,
+    "id": 134,
     "week": "2026-10-14",
     "company": "Sunrate",
     "country": "Malaysia",
@@ -68431,7 +71536,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 68,
+    "id": 136,
     "week": "2026-10-14",
     "company": "Randstad Malaysia",
     "country": "Malaysia",
@@ -68440,7 +71545,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 69,
+    "id": 138,
     "week": "2026-10-14",
     "company": "Q2BI",
     "country": "Malaysia",
@@ -68449,7 +71554,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 70,
+    "id": 140,
     "week": "2026-10-14",
     "company": "Connecting Software",
     "country": "Malaysia",
@@ -68458,7 +71563,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 71,
+    "id": 142,
     "week": "2026-10-14",
     "company": "Marvel Capital Holdings",
     "country": "Malaysia",
@@ -68467,7 +71572,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 72,
+    "id": 144,
     "week": "2026-10-14",
     "company": "Tencent Holdings Ltd",
     "country": "Malaysia",
@@ -68476,7 +71581,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 74,
+    "id": 148,
     "week": "2026-10-14",
     "company": "Fingular",
     "country": "Malaysia",
@@ -68485,7 +71590,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 75,
+    "id": 150,
     "week": "2026-10-14",
     "company": "Urban Pinnacle Ventures",
     "country": "Malaysia",
@@ -68494,7 +71599,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 76,
+    "id": 152,
     "week": "2026-10-14",
     "company": "Yamada Consulting",
     "country": "Malaysia",
@@ -68503,7 +71608,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 77,
+    "id": 154,
     "week": "2026-10-14",
     "company": "Spire",
     "country": "Malaysia",
@@ -68512,7 +71617,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 78,
+    "id": 156,
     "week": "2026-10-14",
     "company": "Zoho",
     "country": "Malaysia",
@@ -68521,7 +71626,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 79,
+    "id": 158,
     "week": "2026-10-14",
     "company": "Argon & Co",
     "country": "Malaysia",
@@ -68530,7 +71635,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 80,
+    "id": 160,
     "week": "2026-10-14",
     "company": "Alliance Bank",
     "country": "Malaysia",
@@ -68539,7 +71644,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 81,
+    "id": 162,
     "week": "2026-10-14",
     "company": "EA Sports (Electronic Arts)",
     "country": "Malaysia",
@@ -68548,7 +71653,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 82,
+    "id": 164,
     "week": "2026-10-14",
     "company": "Xiaomi",
     "country": "Malaysia",
@@ -68557,7 +71662,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 83,
+    "id": 166,
     "week": "2026-10-14",
     "company": "ByteDance",
     "country": "Malaysia",
@@ -68566,7 +71671,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 84,
+    "id": 168,
     "week": "2026-10-14",
     "company": "Maybank (MFRS 16 renewal signal)",
     "country": "Malaysia",
@@ -68575,7 +71680,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 85,
+    "id": 170,
     "week": "2026-10-14",
     "company": "Kuala Lumpur Kepong (KLK)",
     "country": "Malaysia",
@@ -68584,7 +71689,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 86,
+    "id": 172,
     "week": "2026-10-14",
     "company": "TT Vision Holdings",
     "country": "Malaysia",
@@ -68593,7 +71698,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 87,
+    "id": 174,
     "week": "2026-10-14",
     "company": "Global Electronics Association (IPC)",
     "country": "Malaysia",
@@ -68602,7 +71707,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 88,
+    "id": 176,
     "week": "2026-10-14",
     "company": "Efinix",
     "country": "Malaysia",
@@ -68611,7 +71716,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 89,
+    "id": 178,
     "week": "2026-10-14",
     "company": "KYZEN",
     "country": "Malaysia",
@@ -68620,7 +71725,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 90,
+    "id": 180,
     "week": "2026-10-14",
     "company": "ViTrox",
     "country": "Malaysia",
@@ -68629,7 +71734,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 91,
+    "id": 182,
     "week": "2026-10-14",
     "company": "TP (Teleperformance)",
     "country": "Malaysia",
@@ -68638,7 +71743,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 92,
+    "id": 184,
     "week": "2026-10-14",
     "company": "Delta Electronics",
     "country": "Malaysia",
@@ -68647,7 +71752,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 93,
+    "id": 186,
     "week": "2026-10-14",
     "company": "INFINITY8 Reserve IIB",
     "country": "Malaysia",
@@ -68656,7 +71761,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 94,
+    "id": 188,
     "week": "2026-10-14",
     "company": "LKN Group",
     "country": "Malaysia",
@@ -68665,7 +71770,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 95,
+    "id": 190,
     "week": "2026-10-14",
     "company": "Jeju Air",
     "country": "Korea",
@@ -68674,7 +71779,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 96,
+    "id": 192,
     "week": "2026-10-14",
     "company": "HMM",
     "country": "Korea",
@@ -68683,7 +71788,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 97,
+    "id": 194,
     "week": "2026-10-14",
     "company": "Krafton",
     "country": "Korea",
@@ -68692,7 +71797,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 98,
+    "id": 196,
     "week": "2026-10-14",
     "company": "Hyundai Motor Group (HMG Future Complex)",
     "country": "Korea",
@@ -68701,7 +71806,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 99,
+    "id": 198,
     "week": "2026-10-14",
     "company": "Gmarket",
     "country": "Korea",
@@ -68710,7 +71815,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 100,
+    "id": 200,
     "week": "2026-10-14",
     "company": "Hyundai AutoEver",
     "country": "Korea",
@@ -68719,7 +71824,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 101,
+    "id": 202,
     "week": "2026-10-14",
     "company": "Park Systems",
     "country": "Korea",
@@ -68728,7 +71833,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 102,
+    "id": 204,
     "week": "2026-10-14",
     "company": "KITA (Korea International Trade Association)",
     "country": "Korea",
@@ -68737,7 +71842,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 103,
+    "id": 206,
     "week": "2026-10-14",
     "company": "Misto Holdings (Fila)",
     "country": "Korea",
@@ -68746,7 +71851,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 104,
+    "id": 208,
     "week": "2026-10-14",
     "company": "Ubion",
     "country": "Korea",
@@ -68755,7 +71860,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 105,
+    "id": 210,
     "week": "2026-10-14",
     "company": "Micro Digital",
     "country": "Korea",
@@ -68764,7 +71869,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 106,
+    "id": 212,
     "week": "2026-10-14",
     "company": "JTB",
     "country": "Japan",
@@ -68773,7 +71878,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 107,
+    "id": 214,
     "week": "2026-10-14",
     "company": "Sumitomo Densetsu",
     "country": "Japan",
@@ -68782,7 +71887,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 108,
+    "id": 216,
     "week": "2026-10-14",
     "company": "Yamada Consulting Group",
     "country": "Japan",
@@ -68791,7 +71896,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 109,
+    "id": 218,
     "week": "2026-10-14",
     "company": "TerraSky",
     "country": "Japan",
@@ -68800,7 +71905,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 110,
+    "id": 220,
     "week": "2026-10-14",
     "company": "Nihon M&A Center Holdings",
     "country": "Japan",
@@ -68809,7 +71914,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 111,
+    "id": 222,
     "week": "2026-10-14",
     "company": "NAGASE",
     "country": "Japan",
@@ -68818,7 +71923,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 112,
+    "id": 224,
     "week": "2026-10-14",
     "company": "ispace",
     "country": "Japan",
@@ -68827,7 +71932,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 113,
+    "id": 226,
     "week": "2026-10-14",
     "company": "Hexagon Manufacturing Intelligence",
     "country": "Japan",
@@ -68836,7 +71941,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 114,
+    "id": 228,
     "week": "2026-10-14",
     "company": "SB C&S",
     "country": "Japan",
@@ -68845,7 +71950,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 115,
+    "id": 230,
     "week": "2026-10-14",
     "company": "JTOWER",
     "country": "Japan",
@@ -68854,7 +71959,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 116,
+    "id": 232,
     "week": "2026-10-14",
     "company": "Persol & Server Works",
     "country": "Japan",
@@ -68863,7 +71968,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 117,
+    "id": 234,
     "week": "2026-10-14",
     "company": "Digirise",
     "country": "Japan",
@@ -68872,7 +71977,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 118,
+    "id": 236,
     "week": "2026-10-14",
     "company": "Fuji Sash",
     "country": "Japan",
@@ -68881,7 +71986,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 119,
+    "id": 238,
     "week": "2026-10-14",
     "company": "Transcosmos Digital Technology",
     "country": "Japan",
@@ -68890,7 +71995,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 120,
+    "id": 240,
     "week": "2026-10-14",
     "company": "SALESCORE",
     "country": "Japan",
@@ -68899,7 +72004,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 121,
+    "id": 242,
     "week": "2026-10-14",
     "company": "Live Search",
     "country": "Japan",
@@ -68908,7 +72013,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 122,
+    "id": 244,
     "week": "2026-10-14",
     "company": "Cross Daily",
     "country": "Japan",
@@ -68917,7 +72022,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 123,
+    "id": 246,
     "week": "2026-10-14",
     "company": "I-PEX",
     "country": "Japan",
@@ -68926,7 +72031,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 124,
+    "id": 248,
     "week": "2026-10-14",
     "company": "Aile (TSE Prime: 3854)",
     "country": "Japan",
@@ -68935,7 +72040,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Seeded from country tabs"
   },
   {
-    "id": 125,
+    "id": 250,
     "week": "2026-10-14",
     "company": "Datachain",
     "country": "Japan",
@@ -68944,7 +72049,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "excite News (PR Times mirror)"
   },
   {
-    "id": 126,
+    "id": 252,
     "week": "2026-10-14",
     "company": "2nd Village",
     "country": "Japan",
@@ -68953,7 +72058,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "excite News (PR Times mirror)"
   },
   {
-    "id": 127,
+    "id": 254,
     "week": "2026-10-14",
     "company": "dodoAI",
     "country": "Japan",
@@ -68962,7 +72067,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "excite News (PR Times mirror)"
   },
   {
-    "id": 128,
+    "id": 256,
     "week": "2026-10-14",
     "company": "DAIJOBU",
     "country": "Japan",
@@ -68971,7 +72076,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "excite News (PR Times mirror)"
   },
   {
-    "id": 129,
+    "id": 258,
     "week": "2026-10-14",
     "company": "Nippon System Technology (JAST)",
     "country": "Japan",
@@ -68980,7 +72085,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet filing (fisco/UFOCATCH mirror)"
   },
   {
-    "id": 130,
+    "id": 260,
     "week": "2026-10-14",
     "company": "Amova Asset Management (ex-Nikko AM)",
     "country": "Japan",
@@ -68989,7 +72094,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Company press release 2026-01-30"
   },
   {
-    "id": 131,
+    "id": 262,
     "week": "2026-10-14",
     "company": "Meisei Kogyo (TSE Prime: 1976)",
     "country": "Japan",
@@ -68998,7 +72103,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure 2026-09-18"
   },
   {
-    "id": 132,
+    "id": 264,
     "week": "2026-10-14",
     "company": "KOKUYO",
     "country": "Japan",
@@ -69007,7 +72112,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Company press release (PR Times mirror)"
   },
   {
-    "id": 133,
+    "id": 266,
     "week": "2026-10-14",
     "company": "Public Technologies",
     "country": "Japan",
@@ -69016,7 +72121,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "PR Times / nicovideo news 2026-09-14"
   },
   {
-    "id": 134,
+    "id": 268,
     "week": "2026-10-14",
     "company": "Japan Post",
     "country": "Japan",
@@ -69025,7 +72130,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Yomiuri Shimbun 2026-09-27 (docomo news mirror)"
   },
   {
-    "id": 135,
+    "id": 270,
     "week": "2026-10-14",
     "company": "Hochiki",
     "country": "Japan",
@@ -69034,7 +72139,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure 2024-05-29 (minkabu mirror)"
   },
   {
-    "id": 136,
+    "id": 272,
     "week": "2026-10-14",
     "company": "Keyware Solutions",
     "country": "Japan",
@@ -69043,7 +72148,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure 2025-03-25 (minkabu mirror)"
   },
   {
-    "id": 137,
+    "id": 274,
     "week": "2026-10-14",
     "company": "Tokyu Architects & Engineers",
     "country": "Japan",
@@ -69052,7 +72157,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Company press release (PR Times mirror)"
   },
   {
-    "id": 138,
+    "id": 276,
     "week": "2026-10-14",
     "company": "Infineon Technologies",
     "country": "Bengaluru (Whitefield - Bagmane Solarium City)",
@@ -69061,7 +72166,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://www.constructionworld.in/policy-updates-and-economic-news/infineon-takes-6-3-lakh-sq-ft-in-bengaluru-for-rs-7-5-billion-lease/96668"
   },
   {
-    "id": 139,
+    "id": 278,
     "week": "2026-10-14",
     "company": "Intuit",
     "country": "Bengaluru (Embassy TechVillage, Outer Ring Road)",
@@ -69070,7 +72175,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://propnewstime.com/latestnewsstories/MzA2MTc=/intuit-signs-inr-915-crore-office-lease-for-6-3-lakh-sq-ft-in-bengaluru"
   },
   {
-    "id": 140,
+    "id": 280,
     "week": "2026-10-14",
     "company": "Dharma Productions",
     "country": "Mumbai (Andheri West - Lotus Signature, Veera Desai Rd)",
@@ -69079,7 +72184,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://www.rprealtyplus.com/news-views/dharma-productions-leases-office-in-andheri-for-rs-15-lakh-122135.html"
   },
   {
-    "id": 141,
+    "id": 282,
     "week": "2026-10-14",
     "company": "Narcotics Control Bureau (NCB), Agartala",
     "country": "Agartala, Tripura",
@@ -69088,7 +72193,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://www.firsttender.com/bids/accommodation-tenders.html"
   },
   {
-    "id": 142,
+    "id": 284,
     "week": "2026-10-14",
     "company": "Income Tax Department",
     "country": "Palghar, Maharashtra",
@@ -69097,7 +72202,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://www.nationaltenders.com/agency/income-tax-department-tenders-online-tender"
   },
   {
-    "id": 143,
+    "id": 286,
     "week": "2026-10-14",
     "company": "Starbucks",
     "country": "Chennai",
@@ -69106,7 +72211,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://www.analyticsinsight.net/news/starbucks-to-set-up-first-india-gcc-in-chennai-plans-800-tech-jobs"
   },
   {
-    "id": 144,
+    "id": 288,
     "week": "2026-10-14",
     "company": "Wulfstan Analytics (Pvt) Ltd",
     "country": "Port City, Colombo",
@@ -69115,7 +72220,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://www.portcitycolombo.gov.lk/resources/documents/extragazettes/2483-54_E.pdf"
   },
   {
-    "id": 145,
+    "id": 290,
     "week": "2026-10-14",
     "company": "Edotco",
     "country": "Colombo / Nationwide",
@@ -69124,7 +72229,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://www.telecompaper.com/news/edotco-signs-usd-10-million-boi-investment-deal-to-expand-sri-lanka-digital-infrastructure--1583348"
   },
   {
-    "id": 146,
+    "id": 292,
     "week": "2026-10-14",
     "company": "Sahasdhanavi Limited",
     "country": "Kerawalapitiya, Western Province",
@@ -69133,7 +72238,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://enterprisenews.lk/?p=17703"
   },
   {
-    "id": 147,
+    "id": 294,
     "week": "2026-10-14",
     "company": "Exel BPO",
     "country": "Sri Lanka",
@@ -69142,7 +72247,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://news.outsourceaccelerator.com/exel-bpo-to-expand-sri-lanka-operations/?__s=f62xzebhtwnconv4r7"
   },
   {
-    "id": 148,
+    "id": 296,
     "week": "2026-10-14",
     "company": "Soft Gallery (Pvt) Ltd",
     "country": "Sri Lanka",
@@ -69151,7 +72256,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "https://ceylonbusinessreporter.com/2026/09/20/soft-gallery-marks-6-year-milestone-with-new-office-opening-and-global-expansion-roadmap-for-gallery-hr/"
   },
   {
-    "id": 149,
+    "id": 298,
     "week": "2026-10-14",
     "company": "Syntiant Corp.",
     "country": "Malaysia",
@@ -69160,7 +72265,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GlobeNewswire"
   },
   {
-    "id": 150,
+    "id": 300,
     "week": "2026-10-14",
     "company": "DayOne Data Centers",
     "country": "Malaysia",
@@ -69169,7 +72274,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GlobeNewswire"
   },
   {
-    "id": 151,
+    "id": 302,
     "week": "2026-10-14",
     "company": "AQSolotl",
     "country": "Malaysia",
@@ -69178,7 +72283,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TechRepublic"
   },
   {
-    "id": 152,
+    "id": 304,
     "week": "2026-10-14",
     "company": "HRnetGroup (SGX:CHZ)",
     "country": "Malaysia",
@@ -69187,7 +72292,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TipRanks"
   },
   {
-    "id": 153,
+    "id": 306,
     "week": "2026-10-14",
     "company": "myWorld Asia",
     "country": "Malaysia",
@@ -69196,7 +72301,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "BusinessMole"
   },
   {
-    "id": 154,
+    "id": 308,
     "week": "2026-10-14",
     "company": "Eppendorf SE",
     "country": "Malaysia",
@@ -69205,7 +72310,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "InvestPenang press release"
   },
   {
-    "id": 155,
+    "id": 310,
     "week": "2026-10-14",
     "company": "Intuitive (Intuitive Surgical, Inc.)",
     "country": "Malaysia",
@@ -69214,7 +72319,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "InvestPenang press release"
   },
   {
-    "id": 156,
+    "id": 312,
     "week": "2026-10-14",
     "company": "MKS Inc. (NASDAQ: MKSI)",
     "country": "Malaysia",
@@ -69223,7 +72328,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "InvestPenang press release"
   },
   {
-    "id": 157,
+    "id": 314,
     "week": "2026-10-14",
     "company": "ISSQUARED Inc.",
     "country": "Malaysia",
@@ -69232,7 +72337,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "InvestPenang press release feed"
   },
   {
-    "id": 158,
+    "id": 316,
     "week": "2026-10-14",
     "company": "AIXTRON SE",
     "country": "Malaysia",
@@ -69241,7 +72346,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "MIDA media release"
   },
   {
-    "id": 159,
+    "id": 318,
     "week": "2026-10-14",
     "company": "AmBank (M) Bhd",
     "country": "Malaysia",
@@ -69250,7 +72355,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Zerin Properties ZP Weekly Corporate Real Estate - Issue 363"
   },
   {
-    "id": 160,
+    "id": 320,
     "week": "2026-10-14",
     "company": "PwC Malaysia",
     "country": "Malaysia",
@@ -69259,7 +72364,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Zerin Properties ZP Weekly Corporate Real Estate - Issue 362"
   },
   {
-    "id": 161,
+    "id": 322,
     "week": "2026-10-14",
     "company": "Universiti Tun Abdul Razak",
     "country": "Malaysia",
@@ -69268,7 +72373,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Zerin Properties ZP Weekly Corporate Real Estate - Issue 355"
   },
   {
-    "id": 162,
+    "id": 324,
     "week": "2026-10-14",
     "company": "WORQ",
     "country": "Malaysia",
@@ -69277,7 +72382,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Nawawi Tie Research KL 1Q 2026 digest (via etcsea.com)"
   },
   {
-    "id": 163,
+    "id": 326,
     "week": "2026-10-14",
     "company": "Leadcorp (\ub9ac\ub4dc\ucf54\ud504)",
     "country": "Korea",
@@ -69286,7 +72391,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "IT Biz News"
   },
   {
-    "id": 164,
+    "id": 328,
     "week": "2026-10-14",
     "company": "Hana Financial Group (\ud558\ub098\uae08\uc735\uadf8\ub8f9)",
     "country": "Korea",
@@ -69295,7 +72400,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Global Economic"
   },
   {
-    "id": 165,
+    "id": 330,
     "week": "2026-10-14",
     "company": "EnBio (\uc778\ubc14\uc774\uc624, KOSDAQ 352940)",
     "country": "Korea",
@@ -69304,7 +72409,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GoInsider (DART disclosure feed)"
   },
   {
-    "id": 166,
+    "id": 332,
     "week": "2026-10-14",
     "company": "Celestra Inc. (KOSDAQ 352770, formerly Clinomics)",
     "country": "Korea",
@@ -69313,7 +72418,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TipRanks (disclosure-feed rewrite)"
   },
   {
-    "id": 167,
+    "id": 334,
     "week": "2026-10-14",
     "company": "Softworks (\uc18c\ud504\ud2b8\uc6cd\uc2a4)",
     "country": "Korea",
@@ -69322,7 +72427,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Money Today"
   },
   {
-    "id": 168,
+    "id": 336,
     "week": "2026-10-14",
     "company": "Daemyung Sono / T'way Air (\ub300\uba85\uc18c\ub178 \u00b7 \ud2f0\uc6e8\uc774\ud56d\uacf5)",
     "country": "Korea",
@@ -69331,7 +72436,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 169,
+    "id": 338,
     "week": "2026-10-14",
     "company": "Korea Insurance Development Institute (\ubcf4\ud5d8\uac1c\ubc1c\uc6d0)",
     "country": "Korea",
@@ -69340,7 +72445,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 170,
+    "id": 340,
     "week": "2026-10-14",
     "company": "Toriden (\ud1a0\ub9ac\ub4e0)",
     "country": "Korea",
@@ -69349,7 +72454,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 171,
+    "id": 342,
     "week": "2026-10-14",
     "company": "K-sure (Korea Trade Insurance Corp, \ud55c\uad6d\ubb34\uc5ed\ubcf4\ud5d8\uacf5\uc0ac)",
     "country": "Korea",
@@ -69358,7 +72463,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 172,
+    "id": 344,
     "week": "2026-10-14",
     "company": "Encar.com (\uc5d4\uce74)",
     "country": "Korea",
@@ -69367,7 +72472,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 173,
+    "id": 346,
     "week": "2026-10-14",
     "company": "TKG Huchems (TKG\ud734\ucea0\uc2a4)",
     "country": "Korea",
@@ -69376,7 +72481,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 174,
+    "id": 348,
     "week": "2026-10-14",
     "company": "Xi S&D (\uc790\uc774\uc5d0\uc2a4\uc564\ub514)",
     "country": "Korea",
@@ -69385,7 +72490,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 175,
+    "id": 350,
     "week": "2026-10-14",
     "company": "The Founders (\ub354\ud30c\uc6b4\ub354\uc988)",
     "country": "Korea",
@@ -69394,7 +72499,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 176,
+    "id": 352,
     "week": "2026-10-14",
     "company": "Beauty Selection (\ubdf0\ud2f0\uc140\ub809\uc158)",
     "country": "Korea",
@@ -69403,7 +72508,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "GenstarMate Q1 2026 Office Market Report"
   },
   {
-    "id": 177,
+    "id": 354,
     "week": "2026-10-16",
     "company": "Beckman Coulter",
     "country": "India",
@@ -69412,7 +72517,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 178,
+    "id": 356,
     "week": "2026-10-16",
     "company": "Ernst & Young",
     "country": "India",
@@ -69421,7 +72526,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 179,
+    "id": 358,
     "week": "2026-10-16",
     "company": "STT",
     "country": "India",
@@ -69430,7 +72535,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 180,
+    "id": 360,
     "week": "2026-10-16",
     "company": "Rank Computing",
     "country": "China",
@@ -69439,7 +72544,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 181,
+    "id": 362,
     "week": "2026-10-16",
     "company": "Huaxia Technology",
     "country": "China",
@@ -69448,7 +72553,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 182,
+    "id": 364,
     "week": "2026-10-16",
     "company": "Tencent",
     "country": "China",
@@ -69457,7 +72562,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 183,
+    "id": 366,
     "week": "2026-10-16",
     "company": "Tullett Prebon SITICO",
     "country": "China",
@@ -69466,7 +72571,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 184,
+    "id": 368,
     "week": "2026-10-16",
     "company": "Luxshare Precision",
     "country": "China",
@@ -69475,7 +72580,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 185,
+    "id": 370,
     "week": "2026-10-17",
     "company": "IBM India",
     "country": "India",
@@ -69484,7 +72589,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 186,
+    "id": 372,
     "week": "2026-10-17",
     "company": "MetLife",
     "country": "India",
@@ -69493,7 +72598,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 187,
+    "id": 374,
     "week": "2026-10-17",
     "company": "Dexian",
     "country": "India",
@@ -69502,7 +72607,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 188,
+    "id": 376,
     "week": "2026-10-17",
     "company": "Grab",
     "country": "India",
@@ -69511,7 +72616,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 189,
+    "id": 378,
     "week": "2026-10-17",
     "company": "Trellix",
     "country": "India",
@@ -69520,7 +72625,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 190,
+    "id": 380,
     "week": "2026-10-17",
     "company": "Employtech",
     "country": "India",
@@ -69529,7 +72634,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 191,
+    "id": 382,
     "week": "2026-10-17",
     "company": "E-Clerx",
     "country": "India",
@@ -69538,7 +72643,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 192,
+    "id": 384,
     "week": "2026-10-17",
     "company": "Indegene Lifesystems",
     "country": "India",
@@ -69547,7 +72652,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 193,
+    "id": 386,
     "week": "2026-10-17",
     "company": "Crisil",
     "country": "India",
@@ -69556,7 +72661,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Embassy REIT Annual Report 2025-26 (Notable Deals Signed, FY2026)"
   },
   {
-    "id": 194,
+    "id": 388,
     "week": "2026-10-17",
     "company": "Wipro",
     "country": "India",
@@ -69565,7 +72670,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Livemint (Reuters) via CRE Matrix registration documents"
   },
   {
-    "id": 195,
+    "id": 390,
     "week": "2026-10-17",
     "company": "LONYU Robotics",
     "country": "China",
@@ -69574,7 +72679,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "MarketersMEDIA (LONYU Robotics launch release)"
   },
   {
-    "id": 196,
+    "id": 392,
     "week": "2026-10-17",
     "company": "BeeX",
     "country": "Japan",
@@ -69583,7 +72688,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure (via irbank.net mirror)"
   },
   {
-    "id": 197,
+    "id": 394,
     "week": "2026-10-17",
     "company": "Daido Limited",
     "country": "Japan",
@@ -69592,7 +72697,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure (via irbank.net mirror)"
   },
   {
-    "id": 198,
+    "id": 396,
     "week": "2026-10-17",
     "company": "ETS Group",
     "country": "Japan",
@@ -69601,7 +72706,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure (via irbank.net mirror)"
   },
   {
-    "id": 199,
+    "id": 398,
     "week": "2026-10-17",
     "company": "Advantex",
     "country": "Japan",
@@ -69610,7 +72715,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure (via irbank.net mirror)"
   },
   {
-    "id": 200,
+    "id": 400,
     "week": "2026-10-17",
     "company": "CellSource",
     "country": "Japan",
@@ -69619,7 +72724,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "TDnet timely disclosure (via irbank.net mirror)"
   },
   {
-    "id": 201,
+    "id": 402,
     "week": "2026-10-17",
     "company": "Apple India",
     "country": "India",
@@ -69628,7 +72733,7 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 202,
+    "id": 404,
     "week": "2026-10-17",
     "company": "Smartworks",
     "country": "India",
@@ -69637,20 +72742,434 @@ var INITIAL_SNAPSHOTS_DATA = [
     "source": "Knight Frank Asia-Pacific Q2 2026 Office Highlights"
   },
   {
-    "id": 203,
+    "id": 406,
     "week": "2026-10-17",
     "company": "UrbanVault",
     "country": "India",
     "market": "Bengaluru (Outer Ring Road)",
     "snapshot": "Leased 160,000 sq ft across 3 floors at Helios Business Park, Kadubeesanahalli, Outer Ring Road, Bengaluru \u2014 announced 7 Oct 2026 (The Economic Times / Business Review Live). Fit-out start not stated. Pending enrichment.",
     "source": "The Economic Times / Business Review Live"
+  },
+  {
+    "id": 408,
+    "week": "2026-10-20",
+    "company": "Truist Financial",
+    "country": "India",
+    "market": "Hyderabad",
+    "snapshot": "Infosys 5-yr BOT deal to build Truist's AI-first GCC in Hyderabad; 1,000+ colleagues onboarding Oct 2026.",
+    "source": "TradingView / Finanznachrichten"
+  },
+  {
+    "id": 410,
+    "week": "2026-10-20",
+    "company": "BNP Paribas",
+    "country": "India",
+    "market": "Chennai",
+    "snapshot": "Signed 10-yr lease ~5 lakh sq ft at One Radial, Chennai, consolidating dispersed ops (Oct 2026).",
+    "source": "ETRealty"
+  },
+  {
+    "id": 412,
+    "week": "2026-10-20",
+    "company": "SMBC",
+    "country": "India",
+    "market": "Mumbai (BKC)",
+    "snapshot": "5-yr leave-and-licence at Sumitomo C65 BKC dated 6 Oct 2026, rent from Jun 2027.",
+    "source": "NoBrokerage"
+  },
+  {
+    "id": 414,
+    "week": "2026-10-20",
+    "company": "Qatar National Bank",
+    "country": "India",
+    "market": "Mumbai (BKC)",
+    "snapshot": "Renewed Maker Maxity 4 North Ave , 5 yrs to Oct 2031 (Oct 2026).",
+    "source": "ghar.tv"
+  },
+  {
+    "id": 416,
+    "week": "2026-10-20",
+    "company": "Sopra Steria India",
+    "country": "India",
+    "market": "Noida (Noida Expressway)",
+    "snapshot": "15-yr lease ~4.75 lakh sq ft campus at Maconns Grand Towers A&B, Noida Sector 132 (Oct 2026).",
+    "source": "The CSR Journal"
+  },
+  {
+    "id": 418,
+    "week": "2026-10-20",
+    "company": "Hypergryph",
+    "country": "China",
+    "market": "Shanghai (Xuhui)",
+    "snapshot": "Whole-tower (~90,000 sqm) new-lease HQ at Xuhui Vanke Center Phase 3 T1; move-in end-2027.",
+    "source": "21\u4e16\u7eaa\u7ecf\u6d4e\u62a5\u9053"
+  },
+  {
+    "id": 420,
+    "week": "2026-10-20",
+    "company": "BlueFocus Data Technology",
+    "country": "China",
+    "market": "Shanghai (Xuhui)",
+    "snapshot": "Signed floors 3\u20138 (~17,500 sqm) at Shanghai Alibaba Center, Xuhui Riverside (Oct 2026).",
+    "source": "\u89c2\u70b9\u7f51"
+  },
+  {
+    "id": 422,
+    "week": "2026-10-20",
+    "company": "ANA Holdings",
+    "country": "Japan",
+    "market": "Tokyo (Yaesu)",
+    "snapshot": "HQ relocation to YAESU CORE announced 16 Oct 2026; move Spring 2030.",
+    "source": "Traffic News / Aviation Week"
+  },
+  {
+    "id": 424,
+    "week": "2026-10-20",
+    "company": "UCB Japan",
+    "country": "Japan",
+    "market": "Tokyo (Shinjuku)",
+    "snapshot": "HQ move to Meiji Yasuda Shinjuku Bldg 20F announced 20 Oct 2026; move Jun 2027.",
+    "source": "PR TIMES"
+  },
+  {
+    "id": 426,
+    "week": "2026-10-20",
+    "company": "Nissay MIRAIQA",
+    "country": "Japan",
+    "market": "Tokyo (Takanawa)",
+    "snapshot": "HQ relocated to THE LINKPILLAR 1 SOUTH 8F, 19 Oct 2026.",
+    "source": "PR TIMES"
+  },
+  {
+    "id": 428,
+    "week": "2026-10-20",
+    "company": "Car Seven Digi Field",
+    "country": "Japan",
+    "market": "Tokyo (Mita/Tamachi)",
+    "snapshot": "HQ move to Mita Kokusai Bldg 1F on 2 Nov 2026.",
+    "source": "PR TIMES"
+  },
+  {
+    "id": 430,
+    "week": "2026-10-20",
+    "company": "Univis Group",
+    "country": "Japan",
+    "market": "Osaka (Umeda)",
+    "snapshot": "Relocated + dual-HQ to Hankyu Terminal Bldg 8F, 13 Oct 2026.",
+    "source": "PR TIMES"
+  },
+  {
+    "id": 432,
+    "week": "2026-10-20",
+    "company": "Planbase",
+    "country": "Japan",
+    "market": "Osaka (Hommachi)",
+    "snapshot": "Osaka office moved to H1O Honmachi 328, 2 Oct 2026.",
+    "source": "PR TIMES"
+  },
+  {
+    "id": 434,
+    "week": "2026-10-20",
+    "company": "NSJAPAN",
+    "country": "Japan",
+    "market": "Tokyo (Nihonbashi)",
+    "snapshot": "Expansion to +SHIFT Nihonbashi Sakura-dori 12F, 1 Oct 2026, fast-growing.",
+    "source": "PR TIMES"
+  },
+  {
+    "id": 436,
+    "week": "2026-10-20",
+    "company": "Kurumeshi",
+    "country": "Japan",
+    "market": "Tokyo (Shibuya)",
+    "snapshot": "HQ expansion to Shibuya First Place 2F, 13 Oct 2026; doubled footprint (888.30\u33a1).",
+    "source": "PR TIMES"
+  },
+  {
+    "id": 438,
+    "week": "2026-10-20",
+    "company": "Pandora Jewelry Japan",
+    "country": "Japan",
+    "market": "Tokyo (Shibuya)",
+    "snapshot": "Office relocation + new showroom build-out, PMO Shibuya II 8F, Oct 2026.",
+    "source": "GENIC Press"
+  },
+  {
+    "id": 440,
+    "week": "2026-10-20",
+    "company": "AURAM",
+    "country": "Japan",
+    "market": "Tokyo (Shinagawa)",
+    "snapshot": "HQ moved to Sumitomo Fudosan Osaki Garden Tower 9F, ~1 Oct 2026.",
+    "source": "Company news"
+  },
+  {
+    "id": 442,
+    "week": "2026-10-20",
+    "company": "Sumitomo Densetsu",
+    "country": "Japan",
+    "market": "Tokyo (Nihonbashi)",
+    "snapshot": "HQ relocation 143,436 sq ft to Nihonbashi Honcho MK-SQUARE (Q2 2026; backfill).",
+    "source": "C&W Tokyo Q2 2026"
+  },
+  {
+    "id": 444,
+    "week": "2026-10-20",
+    "company": "Ryuk-Il C&S",
+    "country": "Korea",
+    "market": "Seoul (GBD)",
+    "snapshot": "Board-approved HQ relocation to Samseong-dong, Gangnam; move 21 Oct 2026.",
+    "source": "TIPranks"
+  },
+  {
+    "id": 446,
+    "week": "2026-10-20",
+    "company": "HS Hyosung Information System",
+    "country": "Korea",
+    "market": "Seoul (GBD)",
+    "snapshot": "HQ moved Cheongdam \u2192 Yeoksam-dong 20 Oct 2026, with new AX/AI demo center.",
+    "source": "Sedaily"
+  },
+  {
+    "id": 448,
+    "week": "2026-10-20",
+    "company": "Hanwha General Insurance",
+    "country": "Korea",
+    "market": "Seoul (CBD)",
+    "snapshot": "New lease at Central Place, CBD (Newmark Q3 2026).",
+    "source": "Newmark Q3 2026"
+  },
+  {
+    "id": 450,
+    "week": "2026-10-20",
+    "company": "Shinhan Card",
+    "country": "Korea",
+    "market": "Seoul (CBD)",
+    "snapshot": "Sale-and-leaseback of Pine Avenue Tower A completed 5 Oct 2026, 10-yr lease.",
+    "source": "EdgeProp"
+  },
+  {
+    "id": 452,
+    "week": "2026-10-20",
+    "company": "Woori Financial Group (affiliate, unspecified)",
+    "country": "Korea",
+    "market": "Seoul (YBD)",
+    "snapshot": "Affiliate expansion at One Centinel, Yeouido (Newmark Q3 2026); affiliate unnamed.",
+    "source": "Newmark Q3 2026"
+  },
+  {
+    "id": 454,
+    "week": "2026-10-20",
+    "company": "IMT",
+    "country": "Korea",
+    "market": "",
+    "snapshot": "Board resolved 13 Oct 2026 to hold EGM 23 Nov 2026 to change registered-office address; destination unknown.",
+    "source": "DigitalToday"
+  },
+  {
+    "id": 456,
+    "week": "2026-10-20",
+    "company": "PDD Holdings (Pinduoduo parent)",
+    "country": "China",
+    "market": "Shanghai (Changning, Crystal Bridge)",
+    "snapshot": "Crystal Bridge T5 whole-tower purchase confirmed 15 Oct 2026 (\u8d22\u8054\u793e): 21,600 sqm, seller Tishman Speyer/Mitsubishi JV; third mainland office buy in 4 months (",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 458,
+    "week": "2026-10-20",
+    "company": "Logitech",
+    "country": "China",
+    "market": "Shanghai",
+    "snapshot": "Logitech G announced 17 Oct 2026 a new technology research & innovation center in Shanghai (Jing'an), opening early 2027 \u2014 expansion; in Jing'an 16 yrs, business 10x. Source: bccci.net.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 460,
+    "week": "2026-10-20",
+    "company": "JD Health Comprehensive Clinic",
+    "country": "China",
+    "market": "Beijing",
+    "snapshot": "Registered \u5317\u4eac\u4e3d\u6cfd\u4eac\u4e1c\u5065\u5eb7\u7efc\u5408\u95e8\u8bca\u90e8\u6709\u9650\u516c\u53f8 in Beijing Lize ~12 Oct ( wholly owned by \u5bbf\u8fc1\u4eac\u4e1c\u5929\u5b81\u5065\u5eb7\u79d1\u6280\u6709\u9650\u516c\u53f8) \u2014 new offline clinic footprint, fit-out ahead (clinic, not office). Source: \u864e\u55c5.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 462,
+    "week": "2026-10-20",
+    "company": "Infineon Technologies",
+    "country": "India",
+    "market": "Bengaluru (Whitefield - Bagmane Solarium City)",
+    "snapshot": "Completed acquisition of Bengaluru-based C2i Semiconductor (8\u201312 Oct 2026); C2i team folds into Infineon Bangalore ops (~2,800 India employees). Source: technode.global.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 464,
+    "week": "2026-10-20",
+    "company": "Intuit",
+    "country": "India",
+    "market": "Bengaluru (Embassy TechVillage, Outer Ring Road)",
+    "snapshot": "FY2026 10-K (filed 9 Sep 2026, Item 2) shows principal Bangalore offices 478,000 sq ft with lease milestone 2026, plus additional leased Bangalore space not yet occupied \u2014 renewal-watch, no new announcement.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 466,
+    "week": "2026-10-20",
+    "company": "Starbucks",
+    "country": "India",
+    "market": "Chennai",
+    "snapshot": "CTO selected Chennai for the Starbucks Technology Hub (FY27, early planning; recruiting from Q1; outsourced roles in-housed) ~22 Sep 2026. Source: gcrmag.com.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 468,
+    "week": "2026-10-20",
+    "company": "WeWork",
+    "country": "India",
+    "market": "Chennai",
+    "snapshot": "Opened 2.25 lakh sq ft (Bengaluru Whitefield + Pune Wakad) 5 Oct 2026; signed +2,881-desk Pune agreement ( ops Jul 2027); ~1.8 lakh sq ft Millennium Towers subleased to enterprise clients. Source: scanx.trade.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 470,
+    "week": "2026-10-20",
+    "company": "DayOne Data Centers",
+    "country": "Malaysia",
+    "market": "Johor (Iskandar Puteri) + KL",
+    "snapshot": "Upsized Malaysia financing to ~US; billings >1GW, bookings ~2.3GW; filed US IPO 6 Oct (up to US",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 472,
+    "week": "2026-10-20",
+    "company": "AIXTRON SE",
+    "country": "Malaysia",
+    "market": "Penang (Bandar Cassia Technology Park)",
+    "snapshot": "Q3 2026 results beat expectations (record orders) ~15 Oct; Penang plant earthworks underway, ops targeted Spring 2027. Source: semiconductor-today.com.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 474,
+    "week": "2026-10-20",
+    "company": "Allianz Malaysia",
+    "country": "Malaysia",
+    "market": "Penang (George Town \u2014 Jalan Kelawai)",
+    "snapshot": "Incorporated Allianz Labuan Limited effective 1 Oct 2026 (HNW life-insurance, Labuan-based) \u2014 new-entity expansion; no KL office implication. Source: allianz.com.my.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 476,
+    "week": "2026-10-20",
+    "company": "Japan Post",
+    "country": "Japan",
+    "market": "Tokyo (Otemachi -> Monzen-Nakacho + Asakusa)",
+    "snapshot": "Acquired ~150,000 sqm Shinsuna (Koto) logistics facility (announced 2 Oct); consolidating Ginza/Kyobashi collection functions there by FY2028, redeveloping vacated downtown sites. Logistics/redevelopment, not office lease. Source: en.lnews.jp.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 478,
+    "week": "2026-10-20",
+    "company": "Nomura Real Estate Development",
+    "country": "Japan",
+    "market": "Tokyo (Shibaura / Kaigan)",
+    "snapshot": "Group brokerage arm moved Hiroshima branch to Meiji Yasuda Hiroshima Bldg 5F, opened 13 Oct (announced 25 Sep) \u2014 outside tracked markets. Source: excite news.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 480,
+    "week": "2026-10-20",
+    "company": "Kenko Mayonnaise",
+    "country": "Japan",
+    "market": "Tokyo (Bancho / Kojimachi)",
+    "snapshot": "Moved Development/Research/QA depts to Mitsui Link Lab Shinkiba 3 (announced 28 Sep; ops 28 Sep/5 Oct) \u2014 R&D lab, not pure office. Source: excite news.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 482,
+    "week": "2026-10-20",
+    "company": "Leadcorp (\ub9ac\ub4dc\ucf54\ud504)",
+    "country": "Korea",
+    "market": "Seoul Jung-gu (Euljiro) - Crystal Square, 12-14F of 17F building (~5,572 pyeong / ~198,300 sq ft total)",
+    "snapshot": "HQ move to floors 12\u201314, Crystal Square, Euljiro confirmed 8 Oct 2026; move date 21 Oct; consolidating with affiliate SillaGen. Source: itbiznews.com.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 484,
+    "week": "2026-10-20",
+    "company": "Hana Financial Group (\ud558\ub098\uae08\uc735\uadf8\ub8f9)",
+    "country": "Korea",
+    "market": "Incheon Cheongna Hana Dream Town new HQ (B7/15F, ~38,873 pyeong / ~1,383,200 sq ft)",
+    "snapshot": "Cheongna HQ (Hana Dream Town) completed 30 Sep 2026 \u2014 move-in window now through Dec 2026; fit-out/FF&E deployment in progress.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 486,
+    "week": "2026-10-20",
+    "company": "Lotte Rental",
+    "country": "Korea",
+    "market": "Seoul (CBD)",
+    "snapshot": "Relocated from Gangnam to CBD (Newmark Q3 2026; KR-046).",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 488,
+    "week": "2026-10-20",
+    "company": "LG Household & Health Care",
+    "country": "Korea",
+    "market": "Seoul (CBD)",
+    "snapshot": "New lease at Seoul City Tower, CBD (Newmark Q3 2026). Source: prnewswire.com.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 490,
+    "week": "2026-10-20",
+    "company": "KB Kookmin Card IT Services",
+    "country": "Korea",
+    "market": "Seoul (CBD)",
+    "snapshot": "Relocated out of Crystal Square (Newmark Q3 2026) \u2014 sizeable block freed; cross-confirms Leadcorp move-in.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 492,
+    "week": "2026-10-20",
+    "company": "Tesla",
+    "country": "Korea",
+    "market": "Seoul (GBD)",
+    "snapshot": "New lease at Centerfield, Gangnam (Newmark Q3 2026). Source: prnewswire.com.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 494,
+    "week": "2026-10-20",
+    "company": "Sanofi-Aventis",
+    "country": "Korea",
+    "market": "Seoul (GBD)",
+    "snapshot": "New lease at Centerfield, Gangnam (Newmark Q3 2026). Source: prnewswire.com.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 496,
+    "week": "2026-10-20",
+    "company": "HMM",
+    "country": "Korea",
+    "market": "Busan (Bujeon-dong, DB Insurance bldg floors 14-17)",
+    "snapshot": "Unconfirmed rumor of relocation to Busan; if confirmed ~9 floors at Parc.1 Tower 1 (Yeouido) would free up. Watch only. Source: Korea scan.",
+    "source": "weekly digest 2026-10-20"
+  },
+  {
+    "id": 498,
+    "week": "2026-10-20",
+    "company": "Woori Investment & Securities",
+    "country": "Korea",
+    "market": "Seoul (YBD)",
+    "snapshot": "Plan-level: gathering investment affiliates around it in Yeouido; Namyangju Digital Universe 2029. Source: Korea scan.",
+    "source": "weekly digest 2026-10-20"
   }
 ];
 if (typeof window !== 'undefined') window.INITIAL_SNAPSHOTS_DATA = INITIAL_SNAPSHOTS_DATA;
 
 var INITIAL_SOURCES_DATA = [
   {
-    "id": 1,
+    "id": 2,
     "country": "Malaysia",
     "isPaid": true,
     "tier": "Paid",
@@ -69663,7 +73182,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.costar.com/products/property-records"
   },
   {
-    "id": 2,
+    "id": 4,
     "country": "Malaysia",
     "isPaid": true,
     "tier": "Paid",
@@ -69676,7 +73195,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://theedgemalaysia.com/node/791093"
   },
   {
-    "id": 3,
+    "id": 6,
     "country": "Malaysia",
     "isPaid": true,
     "tier": "Paid",
@@ -69689,7 +73208,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://kclau.com/investment/check-property-transaction/"
   },
   {
-    "id": 4,
+    "id": 8,
     "country": "Malaysia",
     "isPaid": true,
     "tier": "Paid",
@@ -69702,7 +73221,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.businesstoday.com.my/2022/12/08/propertyguru-unveils-propertyguru-for-business-with-the-aims-to-guide-enterprise-clients/"
   },
   {
-    "id": 5,
+    "id": 10,
     "country": "Malaysia",
     "isPaid": true,
     "tier": "Paid",
@@ -69715,7 +73234,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "http://www.rahim-co.com/service/research-consultancy"
   },
   {
-    "id": 6,
+    "id": 12,
     "country": "Malaysia",
     "isPaid": true,
     "tier": "Paid",
@@ -69728,7 +73247,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.silvermouse.com.my/blog/commercial-real-estate-agencies-malaysia-ai-search-rankings/"
   },
   {
-    "id": 7,
+    "id": 14,
     "country": "India",
     "isPaid": true,
     "tier": "Paid",
@@ -69741,7 +73260,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.pninews.com/amp/iim-bangalore-cre-matrix-gcc-rental-index-q1-cy26-hyderabad-emerges-as-indias-highest-priced-gcc-office-market/"
   },
   {
-    "id": 8,
+    "id": 16,
     "country": "India",
     "isPaid": true,
     "tier": "Paid",
@@ -69754,7 +73273,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.costar.com/products/property-records"
   },
   {
-    "id": 9,
+    "id": 18,
     "country": "Sri Lanka",
     "isPaid": true,
     "tier": "Paid",
@@ -69767,7 +73286,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://lankapropertyweb.com/membership-benefits/"
   },
   {
-    "id": 10,
+    "id": 20,
     "country": "Sri Lanka",
     "isPaid": true,
     "tier": "Paid",
@@ -69780,7 +73299,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://riunit.com/wp-content/uploads/2023/04/RIU-ANNUAL-REAL-ESTATE-MARKET-REPORT-2020-2021.pdf"
   },
   {
-    "id": 11,
+    "id": 22,
     "country": "Japan + Korea",
     "isPaid": true,
     "tier": "Paid",
@@ -69793,7 +73312,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://rocketreach.co/msci-real-capital-analytics-profile_b5c6d719f42e0cc3"
   },
   {
-    "id": 12,
+    "id": 24,
     "country": "Japan + Korea",
     "isPaid": true,
     "tier": "Paid",
@@ -69806,7 +73325,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.costar.com/?node=99"
   },
   {
-    "id": 13,
+    "id": 26,
     "country": "Japan",
     "isPaid": true,
     "tier": "Paid",
@@ -69819,7 +73338,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://cbreemail.com/s/96008801b1b92abfa5936a0f1d501e91d510edd3"
   },
   {
-    "id": 14,
+    "id": 28,
     "country": "Japan",
     "isPaid": true,
     "tier": "Paid",
@@ -69832,7 +73351,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.joneslanglasalle.co.jp/en/newsroom/jll-names-taeho-tias-korea-country-head"
   },
   {
-    "id": 15,
+    "id": 30,
     "country": "Korea",
     "isPaid": true,
     "tier": "Paid",
@@ -69845,7 +73364,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://en.rsquare.co.kr/rsquare-analytics"
   },
   {
-    "id": 16,
+    "id": 32,
     "country": "Korea",
     "isPaid": true,
     "tier": "Paid",
@@ -69858,7 +73377,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cbrekorea.com/en/people/vivian-lee"
   },
   {
-    "id": 17,
+    "id": 34,
     "country": "Korea",
     "isPaid": true,
     "tier": "Paid",
@@ -69871,7 +73390,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.jll.com/en-in/newsroom/jll-advises-on-sale-of-seoul-jongno-tower-to-sk-reits"
   },
   {
-    "id": 18,
+    "id": 36,
     "country": "Korea",
     "isPaid": true,
     "tier": "Paid",
@@ -69884,7 +73403,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://en.savills.co.kr/savills-korea/sangjoon-jung.aspx"
   },
   {
-    "id": 19,
+    "id": 38,
     "country": "Korea",
     "isPaid": true,
     "tier": "Paid",
@@ -69897,7 +73416,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.knightfrank.kr/contact/people-office"
   },
   {
-    "id": 20,
+    "id": 40,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -69910,7 +73429,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://rera.karnataka.gov.in"
   },
   {
-    "id": 21,
+    "id": 42,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -69923,7 +73442,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.jll.co.in"
   },
   {
-    "id": 22,
+    "id": 44,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -69936,7 +73455,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.bseindia.com"
   },
   {
-    "id": 23,
+    "id": 46,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -69949,7 +73468,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.thehindubusinessline.com"
   },
   {
-    "id": 24,
+    "id": 48,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -69962,7 +73481,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://gem.gov.in"
   },
   {
-    "id": 25,
+    "id": 50,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -69975,7 +73494,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.bseindia.com"
   },
   {
-    "id": 26,
+    "id": 52,
     "country": "Sri Lanka",
     "isPaid": false,
     "tier": "Free",
@@ -69988,7 +73507,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cse.lk"
   },
   {
-    "id": 27,
+    "id": 54,
     "country": "Sri Lanka",
     "isPaid": false,
     "tier": "Free",
@@ -70001,7 +73520,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.uda.gov.lk"
   },
   {
-    "id": 28,
+    "id": 56,
     "country": "Sri Lanka",
     "isPaid": false,
     "tier": "Free",
@@ -70014,7 +73533,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://lankapropertyweb.com"
   },
   {
-    "id": 29,
+    "id": 58,
     "country": "Sri Lanka",
     "isPaid": false,
     "tier": "Free",
@@ -70027,7 +73546,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://lankatalks.com"
   },
   {
-    "id": 30,
+    "id": 60,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70040,7 +73559,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.bursamalaysia.com"
   },
   {
-    "id": 31,
+    "id": 62,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70053,7 +73572,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://cbre-wtw.com.my"
   },
   {
-    "id": 32,
+    "id": 64,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70066,7 +73585,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.knightfrank.com.my"
   },
   {
-    "id": 33,
+    "id": 66,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70079,7 +73598,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://napic.jpph.gov.my"
   },
   {
-    "id": 34,
+    "id": 68,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70092,7 +73611,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.edgeprop.my"
   },
   {
-    "id": 35,
+    "id": 70,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70105,7 +73624,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.minkabu.jp"
   },
   {
-    "id": 36,
+    "id": 72,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70118,7 +73637,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://disclosure.edinet-fsa.go.jp"
   },
   {
-    "id": 37,
+    "id": 74,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70131,7 +73650,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com"
   },
   {
-    "id": 38,
+    "id": 76,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70144,7 +73663,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.miki-shoji.co.jp"
   },
   {
-    "id": 39,
+    "id": 78,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70157,7 +73676,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://prtimes.jp"
   },
   {
-    "id": 40,
+    "id": 80,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70170,7 +73689,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.nmrk.com"
   },
   {
-    "id": 41,
+    "id": 82,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70183,7 +73702,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://dart.fss.or.kr"
   },
   {
-    "id": 42,
+    "id": 84,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70196,7 +73715,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cbrekorea.com"
   },
   {
-    "id": 43,
+    "id": 86,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70209,7 +73728,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://rt.molit.go.kr"
   },
   {
-    "id": 44,
+    "id": 88,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70222,7 +73741,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.g2b.go.kr"
   },
   {
-    "id": 45,
+    "id": 90,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70235,7 +73754,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.kedglobal.com"
   },
   {
-    "id": 46,
+    "id": 92,
     "country": "India",
     "isPaid": true,
     "tier": "Paid",
@@ -70248,7 +73767,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.propstack.com/terms"
   },
   {
-    "id": 47,
+    "id": 94,
     "country": "Japan",
     "isPaid": true,
     "tier": "Paid",
@@ -70261,7 +73780,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://nrm.nikkei.co.jp/common/campaign_2025/"
   },
   {
-    "id": 48,
+    "id": 96,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70274,7 +73793,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://zerinproperties.com/zerinCorp-pdf/corporateHighlights/ZP Weekly Corporate Real Estate - Issue 352.pdf"
   },
   {
-    "id": 49,
+    "id": 98,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70287,7 +73806,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.edgeprop.my/content/1916939/jll-kl-office-and-retail-vacancies-tighten-2q-flight-quality-gathers-pace"
   },
   {
-    "id": 50,
+    "id": 100,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70300,7 +73819,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://investpenang.gov.my/press-release-pen-s-j-announces-new-advanced-packaging-materials-facility-in-malaysia/"
   },
   {
-    "id": 51,
+    "id": 102,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70313,7 +73832,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.mida.gov.my/media-release/malaysia-attracts-rm92-8-billion-in-q1-2026-approved-investments-expected-to-create-over-50000-new-jobs-domestic-investments-up-13/"
   },
   {
-    "id": 52,
+    "id": 104,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70326,7 +73845,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.3ecpa.com.my/resources/miscellaneous-topics/how-to-verify-a-company-in-malaysia/"
   },
   {
-    "id": 53,
+    "id": 106,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70339,7 +73858,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "http://www.savills.com.my/research-and-news/tagged-articles/market-report"
   },
   {
-    "id": 54,
+    "id": 108,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70352,7 +73871,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.mymrt.com.my/wp-content/uploads/2026/04/ADVERT_ENG_PC-LEASING.pdf"
   },
   {
-    "id": 55,
+    "id": 110,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70365,7 +73884,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://edgeprop.my/content/1917017/met-corporate-towers-kuala-lumpur-office-rented-rm14500k-done-deal"
   },
   {
-    "id": 56,
+    "id": 112,
     "country": "Malaysia",
     "isPaid": false,
     "tier": "Free",
@@ -70378,7 +73897,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "http://www.starproperty.my/news/decoding-kuala-lumpur-s-prime-office-surge/135391"
   },
   {
-    "id": 57,
+    "id": 114,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70391,7 +73910,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.mca.gov.in"
   },
   {
-    "id": 58,
+    "id": 116,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70404,7 +73923,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://eprocure.gov.in"
   },
   {
-    "id": 59,
+    "id": 118,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70417,7 +73936,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://eproc.karnataka.gov.in"
   },
   {
-    "id": 60,
+    "id": 120,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70430,7 +73949,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.anarock.com/research-insights/indian-retail-certainty-despite-headwinds"
   },
   {
-    "id": 61,
+    "id": 122,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70443,7 +73962,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://stpi.in/en/home"
   },
   {
-    "id": 62,
+    "id": 124,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70456,7 +73975,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.rprealtyplus.com/newsviews/india-office-market-hits-record-activity-in-2025-despite-mixed-q4-trends-124243.html"
   },
   {
-    "id": 63,
+    "id": 126,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70469,7 +73988,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.naukri.com"
   },
   {
-    "id": 64,
+    "id": 128,
     "country": "Sri Lanka",
     "isPaid": false,
     "tier": "Free",
@@ -70482,7 +74001,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://investsrilanka.com/2025/11/"
   },
   {
-    "id": 65,
+    "id": 130,
     "country": "Sri Lanka",
     "isPaid": false,
     "tier": "Free",
@@ -70495,7 +74014,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.srilankabusiness.com/exporters-directory/rank/exporter/page2.html"
   },
   {
-    "id": 66,
+    "id": 132,
     "country": "Sri Lanka",
     "isPaid": false,
     "tier": "Free",
@@ -70508,7 +74027,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cse.lk"
   },
   {
-    "id": 67,
+    "id": 134,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70521,7 +74040,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://kyodonewsprwire.jp/"
   },
   {
-    "id": 68,
+    "id": 136,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70534,7 +74053,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.atpress.ne.jp/service"
   },
   {
-    "id": 69,
+    "id": 138,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70547,7 +74066,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://irbank.net/td"
   },
   {
-    "id": 70,
+    "id": 140,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70560,7 +74079,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://tdnet-pdf.kabutan.jp/"
   },
   {
-    "id": 71,
+    "id": 142,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70573,7 +74092,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.sanko-e.co.jp/data/"
   },
   {
-    "id": 72,
+    "id": 144,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70586,7 +74105,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://files.microcms-assets.io/assets/3f2dbd9a710d4daaaa8451a27e512959/dd32a7a4087e4910bdbfe7c5f504c7d3/260529_1.pdf"
   },
   {
-    "id": 73,
+    "id": 146,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70599,7 +74118,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.e-stat.go.jp/stat-search/file-download?statInfId=000031350086&fileKind=2"
   },
   {
-    "id": 74,
+    "id": 148,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70612,7 +74131,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.mitsuifudosan.co.jp/corporate/news/"
   },
   {
-    "id": 75,
+    "id": 150,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70625,7 +74144,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019001"
   },
   {
-    "id": 76,
+    "id": 152,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70638,7 +74157,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://blog.genstarmate.com/wp-content/uploads/2025/10/GenstarMate-252Q-Korea-Office-Market-Report.pdf"
   },
   {
-    "id": 77,
+    "id": 154,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70651,7 +74170,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com/en/south-korea/insights/seoul-marketbeat/office-marketbeat-report"
   },
   {
-    "id": 78,
+    "id": 156,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70664,7 +74183,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://engkind.krx.co.kr/disclosure/marketalertlist.do?method=searchMarketAlertMain&mngb=cop"
   },
   {
-    "id": 79,
+    "id": 158,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70677,7 +74196,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.newswire.co.kr/?md=A10&act=article&no=4057"
   },
   {
-    "id": 80,
+    "id": 160,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70690,7 +74209,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com/en/greater-china/insights/marketbeats/beijing-marketbeat"
   },
   {
-    "id": 81,
+    "id": 162,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70703,7 +74222,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cushmanwakefield.com.cn/images/upload/4/AAFBB33FFB934137BE027D155567AFB3.pdf"
   },
   {
-    "id": 82,
+    "id": 164,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70716,7 +74235,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.aprea.asia/wp-content/uploads/2026/03/0226COLLIERS_OfficeInsights_FINAL.pdf"
   },
   {
-    "id": 83,
+    "id": 166,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70729,7 +74248,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://en.savills.com.cn/insight-and-opinion/research.aspx?rc=China"
   },
   {
-    "id": 84,
+    "id": 168,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70742,7 +74261,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.mingtiandi.com/"
   },
   {
-    "id": 85,
+    "id": 170,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70755,7 +74274,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "http://www.ccgp.gov.cn/"
   },
   {
-    "id": 86,
+    "id": 172,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70768,7 +74287,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.hkexnews.hk/"
   },
   {
-    "id": 87,
+    "id": 174,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70781,7 +74300,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://english.sse.com.cn/"
   },
   {
-    "id": 88,
+    "id": 176,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -70794,7 +74313,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://propnewstime.com/"
   },
   {
-    "id": 89,
+    "id": 178,
     "country": "China",
     "isPaid": true,
     "tier": "Paid",
@@ -70807,7 +74326,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "\u2014"
   },
   {
-    "id": 90,
+    "id": 180,
     "country": "China",
     "isPaid": true,
     "tier": "Paid",
@@ -70820,7 +74339,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "\u2014"
   },
   {
-    "id": 91,
+    "id": 182,
     "country": "China",
     "isPaid": true,
     "tier": "Paid",
@@ -70833,7 +74352,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "\u2014"
   },
   {
-    "id": 92,
+    "id": 184,
     "country": "Korea",
     "isPaid": false,
     "tier": "Free",
@@ -70846,7 +74365,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://research.rsquare.co.kr/research/reports/2024-q4-office-market-report-eng/pdf"
   },
   {
-    "id": 93,
+    "id": 186,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70859,7 +74378,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.embassyofficeparks.com/"
   },
   {
-    "id": 94,
+    "id": 188,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70872,7 +74391,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.mindspacereit.com/"
   },
   {
-    "id": 95,
+    "id": 190,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70885,7 +74404,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.dlf.in/"
   },
   {
-    "id": 96,
+    "id": 192,
     "country": "India + China + Singapore",
     "isPaid": false,
     "tier": "Free",
@@ -70898,7 +74417,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.capitaland.com/"
   },
   {
-    "id": 97,
+    "id": 194,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70911,7 +74430,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://ansr.com/"
   },
   {
-    "id": 98,
+    "id": 196,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70924,7 +74443,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://nasscom.in/"
   },
   {
-    "id": 99,
+    "id": 198,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70937,7 +74456,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.zinnov.com/"
   },
   {
-    "id": 100,
+    "id": 200,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -70950,7 +74469,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.houjin-bangou.nta.go.jp/"
   },
   {
-    "id": 101,
+    "id": 202,
     "country": "APAC",
     "isPaid": false,
     "tier": "Free",
@@ -70963,7 +74482,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.usgbc.org/"
   },
   {
-    "id": 102,
+    "id": 204,
     "country": "APAC",
     "isPaid": false,
     "tier": "Free",
@@ -70976,7 +74495,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.wellcertified.com/directories/projects"
   },
   {
-    "id": 103,
+    "id": 206,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -70989,7 +74508,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://yourstory.com/"
   },
   {
-    "id": 104,
+    "id": 208,
     "country": "APAC",
     "isPaid": false,
     "tier": "Free",
@@ -71002,7 +74521,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.techinasia.com/"
   },
   {
-    "id": 105,
+    "id": 210,
     "country": "APAC",
     "isPaid": false,
     "tier": "Free",
@@ -71015,7 +74534,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.dealstreetasia.com/"
   },
   {
-    "id": 106,
+    "id": 212,
     "country": "APAC",
     "isPaid": true,
     "tier": "Paid",
@@ -71028,7 +74547,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.bciasia.com/"
   },
   {
-    "id": 107,
+    "id": 214,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -71041,7 +74560,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.joneslanglasalle.com.cn/en-cn/insights/market-dynamics"
   },
   {
-    "id": 108,
+    "id": 216,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -71054,7 +74573,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.cbre.com.cn/en/insights"
   },
   {
-    "id": 109,
+    "id": 218,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -71067,7 +74586,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.worldpropertyjournal.com/"
   },
   {
-    "id": 110,
+    "id": 220,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -71080,7 +74599,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.guandian.cn/"
   },
   {
-    "id": 111,
+    "id": 222,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -71093,7 +74612,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.szse.cn/"
   },
   {
-    "id": 112,
+    "id": 224,
     "country": "China",
     "isPaid": false,
     "tier": "Free",
@@ -71106,7 +74625,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.zfcg.sh.gov.cn/"
   },
   {
-    "id": 113,
+    "id": 226,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -71119,7 +74638,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.knightfrank.co.in/research"
   },
   {
-    "id": 114,
+    "id": 228,
     "country": "Japan",
     "isPaid": false,
     "tier": "Free",
@@ -71132,7 +74651,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://ssl4.eir-parts.net/"
   },
   {
-    "id": 115,
+    "id": 230,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -71145,7 +74664,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.constructionworld.in/"
   },
   {
-    "id": 116,
+    "id": 232,
     "country": "India",
     "isPaid": false,
     "tier": "Free",
@@ -71158,7 +74677,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.squareyards.com/"
   },
   {
-    "id": 117,
+    "id": 234,
     "country": "China",
     "isPaid": true,
     "tier": "Paid",
@@ -71171,7 +74690,7 @@ var INITIAL_SOURCES_DATA = [
     "sourceUrl": "https://www.caixinglobal.com/"
   },
   {
-    "id": 118,
+    "id": 236,
     "country": "China",
     "isPaid": true,
     "tier": "Paid",
@@ -71188,7 +74707,7 @@ if (typeof window !== 'undefined') window.INITIAL_SOURCES_DATA = INITIAL_SOURCES
 
 var INITIAL_WATCHLIST_DATA = [
   {
-    "id": 1,
+    "id": 2,
     "company": "Abbott",
     "country": "Global",
     "market": "",
@@ -71200,7 +74719,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 2,
+    "id": 4,
     "company": "AbbVie",
     "country": "Global",
     "market": "",
@@ -71212,7 +74731,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 3,
+    "id": 6,
     "company": "Accenture",
     "country": "India",
     "market": "Hyderabad",
@@ -71224,7 +74743,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "2 deals on Sheet; Matched Row ID = first"
   },
   {
-    "id": 4,
+    "id": 8,
     "company": "Adobe",
     "country": "India",
     "market": "Noida",
@@ -71238,7 +74757,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 5,
+    "id": 10,
     "company": "AMD",
     "country": "India",
     "market": "Bengaluru (Whitefield)",
@@ -71250,7 +74769,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 6,
+    "id": 12,
     "company": "Airbus",
     "country": "Global",
     "market": "",
@@ -71264,7 +74783,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 7,
+    "id": 14,
     "company": "Alibaba",
     "country": "Global",
     "market": "",
@@ -71276,7 +74795,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 8,
+    "id": 16,
     "company": "Allianz Group",
     "country": "China",
     "market": "Shanghai",
@@ -71290,7 +74809,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: Allianz"
   },
   {
-    "id": 9,
+    "id": 18,
     "company": "Allianz Malaysia",
     "country": "Malaysia",
     "market": "Penang (George Town)",
@@ -71304,7 +74823,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: Allianz"
   },
   {
-    "id": 10,
+    "id": 20,
     "company": "Google India",
     "country": "India",
     "market": "Gurugram",
@@ -71316,7 +74835,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: Alphabet / Google"
   },
   {
-    "id": 11,
+    "id": 22,
     "company": "Amazon",
     "country": "India",
     "market": "Bengaluru (Outer Ring Road)",
@@ -71328,7 +74847,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "2 deals on Sheet; Matched Row ID = first"
   },
   {
-    "id": 12,
+    "id": 24,
     "company": "American Express",
     "country": "Global",
     "market": "",
@@ -71340,7 +74859,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 13,
+    "id": 26,
     "company": "Ant Group",
     "country": "Global",
     "market": "",
@@ -71352,7 +74871,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 14,
+    "id": 28,
     "company": "Anthropic",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -71366,7 +74885,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 15,
+    "id": 30,
     "company": "Aon",
     "country": "Global",
     "market": "",
@@ -71378,7 +74897,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 16,
+    "id": 32,
     "company": "Apple",
     "country": "Korea",
     "market": "Seoul (YBD)",
@@ -71390,7 +74909,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 17,
+    "id": 34,
     "company": "Apple India",
     "country": "India",
     "market": "Hyderabad",
@@ -71402,7 +74921,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: Apple; 2 deals on Sheet; Matched Row ID = first"
   },
   {
-    "id": 18,
+    "id": 36,
     "company": "Applied Materials",
     "country": "Global",
     "market": "",
@@ -71414,7 +74933,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 19,
+    "id": 38,
     "company": "Aptiv",
     "country": "Global",
     "market": "",
@@ -71426,7 +74945,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 20,
+    "id": 40,
     "company": "Roche",
     "country": "Global",
     "market": "",
@@ -71440,7 +74959,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 21,
+    "id": 42,
     "company": "AstraZeneca",
     "country": "Global",
     "market": "",
@@ -71452,7 +74971,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 22,
+    "id": 44,
     "company": "AT&T",
     "country": "Global",
     "market": "",
@@ -71466,7 +74985,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 23,
+    "id": 46,
     "company": "AXA",
     "country": "Global",
     "market": "",
@@ -71478,7 +74997,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 24,
+    "id": 48,
     "company": "Banco Bilbao Vizcaya Argentaria",
     "country": "Global",
     "market": "",
@@ -71490,7 +75009,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 25,
+    "id": 50,
     "company": "Banco Santander",
     "country": "Global",
     "market": "",
@@ -71502,7 +75021,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 26,
+    "id": 52,
     "company": "Bank of America",
     "country": "Japan",
     "market": "Tokyo (Kyobashi/Yaesu/Nihonbashi)",
@@ -71516,7 +75035,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 27,
+    "id": 54,
     "company": "Bank of America",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL City)",
@@ -71530,7 +75049,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 28,
+    "id": 56,
     "company": "Barclays",
     "country": "Global",
     "market": "",
@@ -71542,7 +75061,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 29,
+    "id": 58,
     "company": "BASF",
     "country": "Global",
     "market": "",
@@ -71554,7 +75073,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 30,
+    "id": 60,
     "company": "Baxter",
     "country": "Global",
     "market": "",
@@ -71566,7 +75085,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 31,
+    "id": 62,
     "company": "Bayer",
     "country": "Global",
     "market": "",
@@ -71580,7 +75099,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 32,
+    "id": 64,
     "company": "BNP Paribas",
     "country": "Global",
     "market": "",
@@ -71592,7 +75111,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 33,
+    "id": 66,
     "company": "BP",
     "country": "Global",
     "market": "",
@@ -71604,7 +75123,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 34,
+    "id": 68,
     "company": "Bristol Myers Squibb",
     "country": "China",
     "market": "Beijing (CBD)",
@@ -71618,7 +75137,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 35,
+    "id": 70,
     "company": "Broadcom / VMware",
     "country": "Global",
     "market": "",
@@ -71630,7 +75149,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 36,
+    "id": 72,
     "company": "Boehringer Ingelheim",
     "country": "Global",
     "market": "",
@@ -71642,7 +75161,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 37,
+    "id": 74,
     "company": "Capgemini",
     "country": "India",
     "market": "Kolkata (Rajarhat)",
@@ -71656,7 +75175,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 38,
+    "id": 76,
     "company": "Capital One",
     "country": "Global",
     "market": "",
@@ -71668,7 +75187,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 39,
+    "id": 78,
     "company": "Cargill",
     "country": "Global",
     "market": "",
@@ -71682,7 +75201,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 40,
+    "id": 80,
     "company": "Caterpillar",
     "country": "Global",
     "market": "",
@@ -71694,7 +75213,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 41,
+    "id": 82,
     "company": "Chevron Corporation",
     "country": "Global",
     "market": "",
@@ -71708,7 +75227,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 42,
+    "id": 84,
     "company": "Chevron Phillips Chemical",
     "country": "Global",
     "market": "",
@@ -71720,7 +75239,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 43,
+    "id": 86,
     "company": "CICC",
     "country": "China",
     "market": "Beijing",
@@ -71732,7 +75251,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: China International Capital Corporation"
   },
   {
-    "id": 44,
+    "id": 88,
     "company": "Chubb",
     "country": "Global",
     "market": "",
@@ -71744,7 +75263,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 45,
+    "id": 90,
     "company": "Citadel",
     "country": "Global",
     "market": "",
@@ -71756,7 +75275,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 46,
+    "id": 92,
     "company": "Citi",
     "country": "India",
     "market": "Chennai",
@@ -71768,7 +75287,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 47,
+    "id": 94,
     "company": "Deloitte",
     "country": "India",
     "market": "Chennai",
@@ -71780,7 +75299,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 48,
+    "id": 96,
     "company": "Deutsche Bank",
     "country": "Global",
     "market": "",
@@ -71792,7 +75311,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 49,
+    "id": 98,
     "company": "Discover Financial",
     "country": "Global",
     "market": "",
@@ -71804,7 +75323,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 50,
+    "id": 100,
     "company": "Dow",
     "country": "Global",
     "market": "",
@@ -71816,7 +75335,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 51,
+    "id": 102,
     "company": "Electronic Arts",
     "country": "Global",
     "market": "",
@@ -71828,7 +75347,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 52,
+    "id": 104,
     "company": "Eli Lilly",
     "country": "Global",
     "market": "",
@@ -71840,7 +75359,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 53,
+    "id": 106,
     "company": "Emerson Electric / National Instruments",
     "country": "Global",
     "market": "",
@@ -71852,7 +75371,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 54,
+    "id": 108,
     "company": "Engie",
     "country": "Global",
     "market": "",
@@ -71864,7 +75383,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 55,
+    "id": 110,
     "company": "Epic Games",
     "country": "Global",
     "market": "",
@@ -71878,7 +75397,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 56,
+    "id": 112,
     "company": "EY GDS Sri Lanka",
     "country": "Sri Lanka",
     "market": "Colombo (Colombo 01)",
@@ -71892,7 +75411,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: EY"
   },
   {
-    "id": 57,
+    "id": 114,
     "company": "Ernst & Young",
     "country": "India",
     "market": "Bengaluru",
@@ -71906,7 +75425,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: EY"
   },
   {
-    "id": 58,
+    "id": 116,
     "company": "ExxonMobil",
     "country": "Global",
     "market": "",
@@ -71918,7 +75437,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 59,
+    "id": 118,
     "company": "FedEx",
     "country": "India",
     "market": "Hyderabad",
@@ -71932,7 +75451,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 60,
+    "id": 120,
     "company": "Fidelity Investments",
     "country": "Global",
     "market": "",
@@ -71944,7 +75463,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 61,
+    "id": 122,
     "company": "Ford",
     "country": "Global",
     "market": "",
@@ -71956,7 +75475,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 62,
+    "id": 124,
     "company": "Fortinet",
     "country": "Global",
     "market": "",
@@ -71970,7 +75489,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 63,
+    "id": 126,
     "company": "General Motors",
     "country": "Global",
     "market": "",
@@ -71982,7 +75501,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 64,
+    "id": 128,
     "company": "Gilead Sciences",
     "country": "Global",
     "market": "",
@@ -71996,7 +75515,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 65,
+    "id": 130,
     "company": "Glencore",
     "country": "Global",
     "market": "",
@@ -72008,7 +75527,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 66,
+    "id": 132,
     "company": "Grupo Financiero Banorte",
     "country": "Global",
     "market": "",
@@ -72020,7 +75539,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 67,
+    "id": 134,
     "company": "Henkel",
     "country": "Global",
     "market": "",
@@ -72032,7 +75551,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 68,
+    "id": 136,
     "company": "Hewlett Packard Enterprise",
     "country": "Global",
     "market": "",
@@ -72044,7 +75563,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 69,
+    "id": 138,
     "company": "HP Inc.",
     "country": "Global",
     "market": "",
@@ -72056,7 +75575,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 70,
+    "id": 140,
     "company": "HSBC",
     "country": "India",
     "market": "Bengaluru",
@@ -72068,7 +75587,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 71,
+    "id": 142,
     "company": "Huawei",
     "country": "Malaysia",
     "market": "Kuala Lumpur (TRX)",
@@ -72080,7 +75599,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 72,
+    "id": 144,
     "company": "Hyundai Mobis",
     "country": "Global",
     "market": "",
@@ -72092,7 +75611,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 73,
+    "id": 146,
     "company": "Hyundai Motor Company",
     "country": "Malaysia",
     "market": "Kuala Lumpur (TRX)",
@@ -72104,7 +75623,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: Hyundai Motor"
   },
   {
-    "id": 74,
+    "id": 148,
     "company": "Intel",
     "country": "Global",
     "market": "",
@@ -72118,7 +75637,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 75,
+    "id": 150,
     "company": "IBM",
     "country": "China",
     "market": "Beijing (CBD)",
@@ -72130,7 +75649,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 76,
+    "id": 152,
     "company": "IWG (Spaces / Regus Express)",
     "country": "Malaysia",
     "market": "Klang Valley",
@@ -72142,7 +75661,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: IWG"
   },
   {
-    "id": 77,
+    "id": 154,
     "company": "Johnson & Johnson",
     "country": "Global",
     "market": "",
@@ -72154,7 +75673,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 78,
+    "id": 156,
     "company": "Edward Jones",
     "country": "Global",
     "market": "",
@@ -72166,7 +75685,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 79,
+    "id": 158,
     "company": "JP Morgan",
     "country": "India",
     "market": "Mumbai",
@@ -72180,7 +75699,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: JPMorgan Chase"
   },
   {
-    "id": 80,
+    "id": 160,
     "company": "JP Morgan Services India",
     "country": "India",
     "market": "Mumbai",
@@ -72194,7 +75713,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: JPMorgan Chase"
   },
   {
-    "id": 81,
+    "id": 162,
     "company": "Kellanova",
     "country": "Global",
     "market": "",
@@ -72206,7 +75725,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 82,
+    "id": 164,
     "company": "Kenvue",
     "country": "Global",
     "market": "",
@@ -72218,7 +75737,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 83,
+    "id": 166,
     "company": "Kia",
     "country": "Global",
     "market": "",
@@ -72230,7 +75749,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 84,
+    "id": 168,
     "company": "Philips",
     "country": "Global",
     "market": "",
@@ -72242,7 +75761,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 85,
+    "id": 170,
     "company": "KPMG",
     "country": "Global",
     "market": "",
@@ -72254,7 +75773,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 86,
+    "id": 172,
     "company": "Lenovo",
     "country": "Global",
     "market": "",
@@ -72266,7 +75785,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 87,
+    "id": 174,
     "company": "Lockheed Martin",
     "country": "Global",
     "market": "",
@@ -72278,7 +75797,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 88,
+    "id": 176,
     "company": "LVMH",
     "country": "Global",
     "market": "",
@@ -72290,7 +75809,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 89,
+    "id": 178,
     "company": "Manulife",
     "country": "Global",
     "market": "",
@@ -72302,7 +75821,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 90,
+    "id": 180,
     "company": "Mars",
     "country": "Global",
     "market": "",
@@ -72314,7 +75833,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 91,
+    "id": 182,
     "company": "Marsh McLennan",
     "country": "India",
     "market": "Mumbai (Powai)",
@@ -72326,7 +75845,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 92,
+    "id": 184,
     "company": "Mastercard",
     "country": "India",
     "market": "Pune (Yerwada)",
@@ -72338,7 +75857,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 93,
+    "id": 186,
     "company": "Merck / MSD",
     "country": "Global",
     "market": "",
@@ -72350,7 +75869,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 94,
+    "id": 188,
     "company": "Microsoft (Knowledge Capital Centre)",
     "country": "Malaysia",
     "market": "Penang (Bayan Lepas)",
@@ -72362,7 +75881,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: Microsoft"
   },
   {
-    "id": 95,
+    "id": 190,
     "company": "Morgan Stanley",
     "country": "India",
     "market": "Mumbai (Malad)",
@@ -72374,7 +75893,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 96,
+    "id": 192,
     "company": "Nestl\u00e9",
     "country": "Global",
     "market": "",
@@ -72388,7 +75907,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 97,
+    "id": 194,
     "company": "Novartis",
     "country": "Global",
     "market": "",
@@ -72400,7 +75919,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 98,
+    "id": 196,
     "company": "Novo Nordisk",
     "country": "Global",
     "market": "",
@@ -72412,7 +75931,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 99,
+    "id": 198,
     "company": "NVIDIA",
     "country": "India",
     "market": "Bengaluru",
@@ -72426,7 +75945,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: Nvidia"
   },
   {
-    "id": 100,
+    "id": 200,
     "company": "OMNICOM",
     "country": "China",
     "market": "Beijing",
@@ -72438,7 +75957,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: Omnicom"
   },
   {
-    "id": 101,
+    "id": 202,
     "company": "OPCO / Angola LNG",
     "country": "Global",
     "market": "",
@@ -72450,7 +75969,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 102,
+    "id": 204,
     "company": "OpenAI",
     "country": "Global",
     "market": "",
@@ -72464,7 +75983,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 103,
+    "id": 206,
     "company": "Oracle",
     "country": "Global",
     "market": "",
@@ -72478,7 +75997,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 104,
+    "id": 208,
     "company": "PayPal",
     "country": "Global",
     "market": "",
@@ -72490,7 +76009,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 105,
+    "id": 210,
     "company": "PepsiCo",
     "country": "Global",
     "market": "",
@@ -72502,7 +76021,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 106,
+    "id": 212,
     "company": "Pfizer",
     "country": "Global",
     "market": "",
@@ -72516,7 +76035,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 107,
+    "id": 214,
     "company": "PwC",
     "country": "India",
     "market": "Hyderabad (HITEC City)",
@@ -72530,7 +76049,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 108,
+    "id": 216,
     "company": "Bosch",
     "country": "India",
     "market": "Hyderabad (Madhapur)",
@@ -72542,7 +76061,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 109,
+    "id": 218,
     "company": "Raymond James",
     "country": "Global",
     "market": "",
@@ -72554,7 +76073,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 110,
+    "id": 220,
     "company": "Rivian",
     "country": "Global",
     "market": "",
@@ -72566,7 +76085,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 111,
+    "id": 222,
     "company": "Royal Bank of Canada",
     "country": "Global",
     "market": "",
@@ -72578,7 +76097,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 112,
+    "id": 224,
     "company": "RTX / Raytheon",
     "country": "Global",
     "market": "",
@@ -72590,7 +76109,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 113,
+    "id": 226,
     "company": "Salesforce",
     "country": "Global",
     "market": "",
@@ -72602,7 +76121,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 114,
+    "id": 228,
     "company": "Samsung",
     "country": "Global",
     "market": "",
@@ -72614,7 +76133,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No exact Sheet match \u2014 Sheet has only Samsung subsidiaries (Life, Fire & Marine, Securities); not auto-matched"
   },
   {
-    "id": 115,
+    "id": 230,
     "company": "Sanofi-Aventis",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -72626,7 +76145,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: Sanofi"
   },
   {
-    "id": 116,
+    "id": 232,
     "company": "SAP",
     "country": "Global",
     "market": "",
@@ -72638,7 +76157,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 117,
+    "id": 234,
     "company": "Schneider Electric",
     "country": "Global",
     "market": "",
@@ -72650,7 +76169,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 118,
+    "id": 236,
     "company": "Shell",
     "country": "Global",
     "market": "",
@@ -72662,7 +76181,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 119,
+    "id": 238,
     "company": "Siemens",
     "country": "Global",
     "market": "",
@@ -72676,7 +76195,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 120,
+    "id": 240,
     "company": "Soci\u00e9t\u00e9 G\u00e9n\u00e9rale",
     "country": "Global",
     "market": "",
@@ -72688,7 +76207,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 121,
+    "id": 242,
     "company": "Sony",
     "country": "Global",
     "market": "",
@@ -72702,7 +76221,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 122,
+    "id": 244,
     "company": "Standard Chartered Bank (China) Co., Ltd. Beijing Branch",
     "country": "China",
     "market": "Beijing",
@@ -72714,7 +76233,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Watch-list name: Standard Chartered"
   },
   {
-    "id": 123,
+    "id": 246,
     "company": "Tata",
     "country": "Global",
     "market": "",
@@ -72728,7 +76247,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No exact Sheet match \u2014 Sheet has only Tata AIG (JV); group subsidiaries not auto-matched"
   },
   {
-    "id": 124,
+    "id": 248,
     "company": "Tencent",
     "country": "China",
     "market": "Shanghai",
@@ -72742,7 +76261,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 125,
+    "id": 250,
     "company": "Tencent Holdings Ltd",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL Sentral)",
@@ -72756,7 +76275,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: Tencent"
   },
   {
-    "id": 126,
+    "id": 252,
     "company": "Thales",
     "country": "Global",
     "market": "",
@@ -72768,7 +76287,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 127,
+    "id": 254,
     "company": "BNY Mellon",
     "country": "Global",
     "market": "",
@@ -72780,7 +76299,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 128,
+    "id": 256,
     "company": "Scotiabank",
     "country": "Global",
     "market": "",
@@ -72792,7 +76311,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 129,
+    "id": 258,
     "company": "Coca-Cola",
     "country": "Global",
     "market": "",
@@ -72806,7 +76325,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 130,
+    "id": 260,
     "company": "Goldman Sachs",
     "country": "Global",
     "market": "",
@@ -72820,7 +76339,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 131,
+    "id": 262,
     "company": "TD Bank",
     "country": "Global",
     "market": "",
@@ -72832,7 +76351,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 132,
+    "id": 264,
     "company": "Vanguard",
     "country": "Global",
     "market": "",
@@ -72844,7 +76363,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 133,
+    "id": 266,
     "company": "Thermo Fisher Scientific",
     "country": "Global",
     "market": "",
@@ -72856,7 +76375,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 134,
+    "id": 268,
     "company": "Toyota",
     "country": "Global",
     "market": "",
@@ -72870,7 +76389,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 135,
+    "id": 270,
     "company": "U.S. Bancorp",
     "country": "India",
     "market": "Chennai",
@@ -72882,7 +76401,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": ""
   },
   {
-    "id": 136,
+    "id": 272,
     "company": "Uber",
     "country": "India",
     "market": "Hyderabad",
@@ -72896,7 +76415,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 137,
+    "id": 274,
     "company": "UBS",
     "country": "Global",
     "market": "",
@@ -72908,7 +76427,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 138,
+    "id": 276,
     "company": "Unilever",
     "country": "Korea",
     "market": "Seoul (GBD)",
@@ -72922,7 +76441,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC"
   },
   {
-    "id": 139,
+    "id": 278,
     "company": "UnitedHealth Group",
     "country": "Global",
     "market": "",
@@ -72934,7 +76453,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 140,
+    "id": 280,
     "company": "Veolia",
     "country": "Global",
     "market": "",
@@ -72946,7 +76465,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 141,
+    "id": 282,
     "company": "Volkswagen",
     "country": "Global",
     "market": "",
@@ -72960,7 +76479,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 142,
+    "id": 284,
     "company": "W.W. Grainger",
     "country": "Global",
     "market": "",
@@ -72972,7 +76491,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 143,
+    "id": 286,
     "company": "Warner Bros. Discovery",
     "country": "Global",
     "market": "",
@@ -72984,7 +76503,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "No Sheet presence yet \u2014 watch for new signals"
   },
   {
-    "id": 144,
+    "id": 288,
     "company": "Wells Fargo",
     "country": "India",
     "market": "Hyderabad (Gachibowli)",
@@ -72996,7 +76515,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "2 deals on Sheet; Matched Row ID = first"
   },
   {
-    "id": 145,
+    "id": 290,
     "company": "ByteDance",
     "country": "China",
     "market": "Beijing (Olympic Park)",
@@ -73010,7 +76529,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: TikTok / ByteDance"
   },
   {
-    "id": 146,
+    "id": 292,
     "company": "ByteDance",
     "country": "Malaysia",
     "market": "Kuala Lumpur (KL City)",
@@ -73024,7 +76543,7 @@ var INITIAL_WATCHLIST_DATA = [
     "notes": "Priority GCC; Watch-list name: TikTok / ByteDance"
   },
   {
-    "id": 147,
+    "id": 294,
     "company": "Zurich Insurance",
     "country": "Global",
     "market": "",
